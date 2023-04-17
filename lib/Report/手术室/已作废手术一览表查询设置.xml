@@ -1,0 +1,57 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtTime</Name><Sql> select '开始时间：'||'&amp;dtBeginTime'||' 结束时间'||'&amp;dtEndTime' from dual</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtCancelApplicationQuery</Name><Sql>select (select c.room_name from met_ops_room c where c.room_id = t.room_id) 手术间,
+       (select d.console_name
+          from met_ops_console d
+         where d.console_code = t.console_code) 手术台,
+       fun_get_dept_name(t.dept_code) 科室,
+       substr(t.bed_no, 4) 床号,
+       t.name 姓名,
+       decode(t.sex_code, 'F', '女', 'M', '男', '其他') 性别,
+       fun_get_age(t.birthday) 年龄,
+       (select bb.cancelreason from met_ops_cancelopsapply bb where bb.operationno = t.operationno) 作废原因,
+       t.diagnose 术前诊断,
+       (select tt.item_name
+          from met_ops_operationitem tt
+         where tt.operationno = t.operationno
+           and tt.main_flag = '1'
+           and rownum = '1') 手术名称,
+       fun_get_employee_name(t.ops_docd) 主刀医生,
+       (select RR.EMPL_NAME
+          from met_ops_arrange rr
+         where rr.role_code = 'Helper1'
+           AND RR.OPERATIONNO = T.OPERATIONNO) 一助,
+       (select RR.EMPL_NAME
+          from met_ops_arrange rr
+         where rr.role_code = 'Helper2'
+           AND RR.OPERATIONNO = T.OPERATIONNO) 一助,
+       decode(substr(t.anes_type, 1, 1),
+              '',
+              '',
+              (select c.name
+                 from com_dictionary c
+                where c.type = 'CASEANESTYPE'
+                  and c.code = substr(t.anes_type, 1, 1))) ||
+       decode(substr(t.anes_type, 3),
+              '',
+              '',
+              (select c.name
+                 from com_dictionary c
+                where c.type = 'CASEANESTYPE'
+                  and c.code = substr(t.anes_type, 3))) 麻醉方式,
+       (select RR.EMPL_NAME
+          from met_ops_arrange rr
+         where rr.role_code = 'WashingHandNurse1'
+           AND RR.OPERATIONNO = T.OPERATIONNO) 洗手护士,
+       (select RR.EMPL_NAME
+          from met_ops_arrange rr
+         where rr.role_code = 'ItinerantNurse1'
+           AND RR.OPERATIONNO = T.OPERATIONNO) 洗手护士,
+       t.apply_date 手术申请时间,
+       t.pre_date 拟手术时间,
+     fun_get_employee_name(t.apply_docd) 申请人
+  from met_ops_apply t
+ where t.exec_dept = '&amp;CurrentDeptID'
+   and t.pre_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and t.pre_date &lt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+   and t.ynvalid = '0'
+   and t.execstatus in ('3')
+ order by t.dept_code,t.apply_docd, t.pre_date, t.blood_unit</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\手术室\已作废手术一览表查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

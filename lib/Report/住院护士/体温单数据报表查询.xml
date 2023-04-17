@@ -1,0 +1,60 @@
+﻿<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtFeeInfo</Name><Sql>select a.床号, a.姓名, wmsys.wm_concat(a.测量项目 || a.测量值) 值
+  from (select (select substr(a.bed_no, 5)
+                  from fin_ipr_inmaininfo a
+                 where a.inpatient_no = t.inpatient_no) 床号,
+               (select b.name
+                  from fin_ipr_inmaininfo b
+                 where b.inpatient_no = t.inpatient_no) 姓名,
+               (select c.patient_no
+                  from fin_ipr_inmaininfo c
+                 where c.inpatient_no = t.inpatient_no) 住院号,
+               decode(t.nurse_item_id,
+                      '85',
+                      '体温',
+                      '86',
+                      '脉搏',
+                      '1008',
+                      '心搏',
+                      '87',
+                      '呼吸',
+                      '90',
+                      '血压',
+                      '1002',
+                      '体重',
+                      '201752',
+                      '总入量',
+                      '201753',
+                      '总出量',
+                      '201754',
+                      '大便',
+                      '200468',
+                      '尿量',
+                      '201755',
+                      '皮试',
+                      '201756',
+                      '自定义') 测量项目,
+               substr(to_char(t.MEASURE_TIME, 'HH24:MI:SS'), 1, 2) 测量时间点,
+               case
+                 when t.nurse_item_id = 90 and t.measure_value3 is not null then
+                  (select to_char(t.measure_value1) || '/' ||
+                          to_char(t.measure_value2) || ',' ||
+                          to_char(t.measure_value3) || '/' ||
+                          to_char(t.measure_value4)
+                     from dual)
+                 when t.nurse_item_id = 90 and t.measure_value1 is not null then
+                  (select to_char(t.measure_value1) || '/' ||
+                          to_char(t.measure_value2)
+                     from dual)
+                 else
+                  to_char(t.measure_value1)
+               end 测量值
+          from ( select inp.INPATIENT_NO,rec.id,rec.measure_data,rec.measure_time,rec.measure_value1,rec.measure_value2,rec.measure_value3,rec.measure_value4,rec.nurse_item_id from  emr.RCD_NURSE_RECORD_DATA rec,emr.vhis_inpatientinfo inp where rec.inpatient_id = inp.id) t
+         where t.MEASURE_TIME &gt;=to_date('&amp;dtBeginTime','yyyy-mm-dd')
+           and t.MEASURE_TIME &lt; to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+   and  t.inpatient_no in
+               (select m.inpatient_no
+                  from fin_ipr_inmaininfo m
+                 where m.in_state = 'I'
+                   and m.nurse_cell_code = '&amp;CurrentDeptID')
+         order by t.nurse_item_id, t.MEASURE_TIME) a
+ group by a.床号, a.姓名</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>转入科室</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院财务报表\体温单数据报表查询.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,21 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List /><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dsdata</Name><Sql>select 
+tt.item_name,
+tt.total,
+tt.yz,
+tt.total-tt.yz
+from (select 
+a.item_name,
+sum(a.qty) total,
+nvl(aa.yz,0) yz
+ from exp_packagedetail  a
+ left join (select c.item_name, sum(b.amount) yz from exp_packagecost  b
+left join exp_packagedetail c on  c.clinic_code = b.clinic_code and c.sequence_no = b.detailseq  
+  where b.clinic_code not in (select t.clinic_code from exp_packagecost t where t.trans_type =2 ) and b.cancel_flag =0
+    and (c.item_name like '%治疗(综合门诊)%'  or c.item_name like '%治疗(外)(综合门诊)%'  or  c.item_name like '%K治疗(不含检)(综合门诊)% '  ) 
+  group by c.item_name) aa on aa.item_name =  a.item_name
+where    a.clinic_code not in (select f.clinic_code from exp_packagedetail f where f.trans_type =2 )
+  and (a.item_name like '%治疗(综合门诊)%'  or a.item_name like '%治疗(外)(综合门诊)%'  or  a.item_name like '%K治疗(不含检)(综合门诊)% '   ) 
+ -- and a.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and  to_date('&amp;dtEndTime','yyyy-mm-dd') 
+group by a.item_name,aa.yz
+order by  a.item_name) tt
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新客服\综合门诊疫苗未做汇总设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

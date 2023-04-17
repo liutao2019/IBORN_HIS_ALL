@@ -1,0 +1,94 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Body>
+<a1:DataTable id="ref-1" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/System.Data/System.Data%2C%20Version%3D2.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Db77a5c561934e089">
+<DataTable.RemotingVersion href="#ref-3"/>
+<XmlSchema id="ref-4">&#60;?xml version=&#34;1.0&#34; encoding=&#34;utf-16&#34;?&#62;
+&#60;xs:schema xmlns=&#34;&#34; xmlns:xs=&#34;http://www.w3.org/2001/XMLSchema&#34; xmlns:msdata=&#34;urn:schemas-microsoft-com:xml-msdata&#34;&#62;
+  &#60;xs:element name=&#34;Table1&#34;&#62;
+    &#60;xs:complexType&#62;
+      &#60;xs:sequence&#62;
+        &#60;xs:element name=&#34;自定义码&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;药品编码&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;名称&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;规格&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;数量&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:decimal&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;单位&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;批号&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;有效期&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:dateTime&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;购入价&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:decimal&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;购入金额&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:decimal&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;加成价&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:decimal&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;加成金额&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:decimal&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;零售价&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:decimal&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;零售金额&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:decimal&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;利率&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;生产厂家&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;批准文号&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;发票号&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;发票日期&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;货位号&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;发票分类&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;送货单号&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;备注&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;拼音码&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;五笔码&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; minOccurs=&#34;0&#34; /&#62;
+        &#60;xs:element name=&#34;主键&#34; msdata:ReadOnly=&#34;true&#34; type=&#34;xs:string&#34; msdata:targetNamespace=&#34;&#34; /&#62;
+      &#60;/xs:sequence&#62;
+    &#60;/xs:complexType&#62;
+  &#60;/xs:element&#62;
+  &#60;xs:element name=&#34;tmpDataSet&#34; msdata:IsDataSet=&#34;true&#34; msdata:MainDataTable=&#34;Table1&#34; msdata:UseCurrentLocale=&#34;true&#34;&#62;
+    &#60;xs:complexType&#62;
+      &#60;xs:choice minOccurs=&#34;0&#34; maxOccurs=&#34;unbounded&#34; /&#62;
+    &#60;/xs:complexType&#62;
+    &#60;xs:unique name=&#34;Constraint1&#34; msdata:PrimaryKey=&#34;true&#34;&#62;
+      &#60;xs:selector xpath=&#34;.//Table1&#34; /&#62;
+      &#60;xs:field xpath=&#34;主键&#34; /&#62;
+    &#60;/xs:unique&#62;
+  &#60;/xs:element&#62;
+&#60;/xs:schema&#62;</XmlSchema>
+<XmlDiffGram id="ref-5">&#60;diffgr:diffgram xmlns:msdata=&#34;urn:schemas-microsoft-com:xml-msdata&#34; xmlns:diffgr=&#34;urn:schemas-microsoft-com:xml-diffgram-v1&#34;&#62;
+  &#60;tmpDataSet&#62;
+    &#60;Table1 diffgr:id=&#34;Table11&#34; msdata:rowOrder=&#34;0&#34; diffgr:hasChanges=&#34;inserted&#34;&#62;
+      &#60;自定义码&#62;11903004&#60;/自定义码&#62;
+      &#60;药品编码&#62;Y00000000133&#60;/药品编码&#62;
+      &#60;名称&#62;盐酸丙卡特罗口服溶液(美普清Meptin)&#60;/名称&#62;
+      &#60;规格&#62;30ml:0.15mg/瓶&#60;/规格&#62;
+      &#60;数量&#62;2&#60;/数量&#62;
+      &#60;单位&#62;瓶&#60;/单位&#62;
+      &#60;批号&#62;C1801143&#60;/批号&#62;
+      &#60;有效期&#62;2022-12-01T00:00:00+08:00&#60;/有效期&#62;
+      &#60;购入价&#62;11.70&#60;/购入价&#62;
+      &#60;购入金额&#62;23.4000&#60;/购入金额&#62;
+      &#60;加成价&#62;13.5000000&#60;/加成价&#62;
+      &#60;加成金额&#62;27.0000&#60;/加成金额&#62;
+      &#60;零售价&#62;13.50&#60;/零售价&#62;
+      &#60;零售金额&#62;27.0000&#60;/零售金额&#62;
+      &#60;利率&#62;11.7*1.15&#60;/利率&#62;
+      &#60;生产厂家&#62;广东大冢制药有限公司&#60;/生产厂家&#62;
+      &#60;批准文号&#62;国药准字H20053903&#60;/批准文号&#62;
+      &#60;发票号 /&#62;
+      &#60;发票日期&#62;2022-07-27 00:00:00&#60;/发票日期&#62;
+      &#60;送货单号 /&#62;
+      &#60;拼音码&#62;YSBKTLKFRYMPQMEPTIN&#60;/拼音码&#62;
+      &#60;五笔码&#62;FSGHTLKEIIUUIMEPTIN&#60;/五笔码&#62;
+      &#60;主键&#62;国药准字H20053903Y00000000133C1801143&#60;/主键&#62;
+    &#60;/Table1&#62;
+    &#60;Table1 diffgr:id=&#34;Table12&#34; msdata:rowOrder=&#34;1&#34; diffgr:hasChanges=&#34;inserted&#34;&#62;
+      &#60;名称&#62;记录数：&#60;/名称&#62;
+      &#60;规格&#62;1&#60;/规格&#62;
+      &#60;购入金额&#62;23.4&#60;/购入金额&#62;
+      &#60;加成金额&#62;27&#60;/加成金额&#62;
+      &#60;零售金额&#62;27&#60;/零售金额&#62;
+      &#60;主键&#62;合计&#60;/主键&#62;
+    &#60;/Table1&#62;
+  &#60;/tmpDataSet&#62;
+&#60;/diffgr:diffgram&#62;</XmlDiffGram>
+</a1:DataTable>
+<a2:Version id="ref-3" xmlns:a2="http://schemas.microsoft.com/clr/ns/System">
+<_Major>2</_Major>
+<_Minor>0</_Minor>
+<_Build>-1</_Build>
+<_Revision>-1</_Revision>
+</a2:Version>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

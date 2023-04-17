@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="NetTest">
+        <s:complexType />
+      </s:element>
+      <s:element name="NetTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NetTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServiceTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IDCardCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IDCardCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IDCardCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JudgeCanMedicare">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JudgeCanMedicareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JudgeCanMedicareResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCardPatInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCardPatInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateCardPatInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OPRegist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OPRegistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OPRegistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="NetTestSoapIn">
+    <wsdl:part name="parameters" element="tns:NetTest" />
+  </wsdl:message>
+  <wsdl:message name="NetTestSoapOut">
+    <wsdl:part name="parameters" element="tns:NetTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceTime" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDCardCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:IDCardCheck" />
+  </wsdl:message>
+  <wsdl:message name="IDCardCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:IDCardCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPatInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="JudgeCanMedicareSoapIn">
+    <wsdl:part name="parameters" element="tns:JudgeCanMedicare" />
+  </wsdl:message>
+  <wsdl:message name="JudgeCanMedicareSoapOut">
+    <wsdl:part name="parameters" element="tns:JudgeCanMedicareResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCardPatInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCardPatInfo" />
+  </wsdl:message>
+  <wsdl:message name="CreateCardPatInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCardPatInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="OPRegistSoapIn">
+    <wsdl:part name="parameters" element="tns:OPRegist" />
+  </wsdl:message>
+  <wsdl:message name="OPRegistSoapOut">
+    <wsdl:part name="parameters" element="tns:OPRegistResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FosiWebSoap">
+    <wsdl:operation name="NetTest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">网络测试</wsdl:documentation>
+      <wsdl:input message="tns:NetTestSoapIn" />
+      <wsdl:output message="tns:NetTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取系统服务器时间。</wsdl:documentation>
+      <wsdl:input message="tns:GetServiceTimeSoapIn" />
+      <wsdl:output message="tns:GetServiceTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IDCardCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">建卡病人身份证校验，校验身份证号是否已办卡</wsdl:documentation>
+      <wsdl:input message="tns:IDCardCheckSoapIn" />
+      <wsdl:output message="tns:IDCardCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过诊疗卡号获取病人基本信息。</wsdl:documentation>
+      <wsdl:input message="tns:GetPatInfoSoapIn" />
+      <wsdl:output message="tns:GetPatInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JudgeCanMedicare">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">判断是否享受居民医保。</wsdl:documentation>
+      <wsdl:input message="tns:JudgeCanMedicareSoapIn" />
+      <wsdl:output message="tns:JudgeCanMedicareSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCardPatInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发卡</wsdl:documentation>
+      <wsdl:input message="tns:CreateCardPatInfoSoapIn" />
+      <wsdl:output message="tns:CreateCardPatInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OPRegist">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">挂号</wsdl:documentation>
+      <wsdl:input message="tns:OPRegistSoapIn" />
+      <wsdl:output message="tns:OPRegistSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FosiWebSoap" type="tns:FosiWebSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NetTest">
+      <soap:operation soapAction="http://tempuri.org/NetTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceTime">
+      <soap:operation soapAction="http://tempuri.org/GetServiceTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IDCardCheck">
+      <soap:operation soapAction="http://tempuri.org/IDCardCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPatInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JudgeCanMedicare">
+      <soap:operation soapAction="http://tempuri.org/JudgeCanMedicare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCardPatInfo">
+      <soap:operation soapAction="http://tempuri.org/CreateCardPatInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPRegist">
+      <soap:operation soapAction="http://tempuri.org/OPRegist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FosiWebSoap12" type="tns:FosiWebSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NetTest">
+      <soap12:operation soapAction="http://tempuri.org/NetTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceTime">
+      <soap12:operation soapAction="http://tempuri.org/GetServiceTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IDCardCheck">
+      <soap12:operation soapAction="http://tempuri.org/IDCardCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPatInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JudgeCanMedicare">
+      <soap12:operation soapAction="http://tempuri.org/JudgeCanMedicare" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCardPatInfo">
+      <soap12:operation soapAction="http://tempuri.org/CreateCardPatInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OPRegist">
+      <soap12:operation soapAction="http://tempuri.org/OPRegist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FosiWeb">
+    <wsdl:port name="FosiWebSoap" binding="tns:FosiWebSoap">
+      <soap:address location="http://128.111.22.122/FosiWeb/FosiWeb.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FosiWebSoap12" binding="tns:FosiWebSoap12">
+      <soap12:address location="http://128.111.22.122/FosiWeb/FosiWeb.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

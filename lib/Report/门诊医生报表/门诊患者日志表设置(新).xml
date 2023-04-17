@@ -1,0 +1,52 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>420</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbDept</Name><Text>科室：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select dept_code,dept_name,DEPT_ENAME,SPELL_CODE,WB_CODE from com_department where regdept_flag = '1' order by dept_code</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>channel1code</Name><Text>渠道1：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>650</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select distinct a.channel1code,a.channel1,'','' from com_patientinfo a where a.channel1code is not null</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>4</Index><Name>channel2code</Name><Text>渠道2：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>880</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select distinct a.channel2code,a.channel2,'','' from com_patientinfo a where a.channel2code is not null</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPatientLogInfo</Name><Sql>select to_char(r.reg_date, 'yyyy-mm-dd hh24:mi:ss') 就诊日期,
+       r.name 姓名,
+       decode(r.sex_code, 'F', '女', 'M', '男', '未知 ') 性别,
+       fun_get_age(r.birthday) 年龄,
+       nvl((select d.name
+             from com_dictionary d, com_patientinfo p
+            where d.code = p.prof_code
+              and d.type = 'PROFESSION'
+              and p.card_no = r.card_no),
+           '无') 职业,
+       nvl((select cp.work_home
+             from com_patientinfo cp
+            where cp.card_no = r.card_no),
+           '无填写') 工作单位,
+     /*  r.address || case nvl(r.RELA_PHONE, '0')
+         when '0' then
+          ' '
+         else
+          '(' || r.RELA_PHONE || ')'
+       end 地址和电话,*/
+       r.address 地址,
+/*       to_char(c.diag_date, 'yyyy-mm-dd') 发病日期,*/
+       fun_get_diagnose(r.clinic_code) 诊断,
+       decode(r.YNFR, '1', '初诊', '0', '复诊', '初诊') 初诊或复诊,
+      /* (SELECT distinct h.MONTHER_NAME
+          FROM com_patientinfo h
+         WHERE h.card_no = r.card_no
+           and rownum = 1) 家长姓名,*/
+/*       fun_get_employee_name(c.doct_code) 医生*/
+        fun_get_employee_name(r.doct_code) 挂号医生,
+       fun_get_employee_name(r.see_docd) 看诊医生,
+       cd.dept_name,
+       cp.channel1 渠道1,
+       cp.channel2 渠道2
+  from fin_opr_register r
+  left join (select distinct c.inpatient_no,
+                             c.doct_code,
+                             trunc(c.diag_date) as diag_date
+               from met_cas_diagnose c
+              where c.valid_flag = 1) c on c.inpatient_no = r.clinic_code
+  left join com_department cd on r.dept_code=cd.dept_code
+  left join com_patientinfo cp on r.card_no=cp.card_no
+ where  r.valid_flag='1'
+   and r.reg_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and r.reg_date &lt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') +1
+   and (r.dept_code = '&amp;cmbDept' or 'ALL' = '&amp;cmbDept')
+   and (cp.channel1code='&amp;channel1code' or '&amp;channel1code'='ALL')
+    and (cp.channel2code='&amp;channel2code' or '&amp;channel2code'='ALL')
+order by cp.channel1code,cp.channel2code
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊医生报表\门诊患者日志表设置(新).xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

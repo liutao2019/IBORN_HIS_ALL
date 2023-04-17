@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net" default-autowire="byType">
+  <!-- SvcFacade Config Start -->
+  <object type="FS.Dawn.PermissionMng.Bll.Facade.DeptStructSvcFacade, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Facade.PrivilegeSvcFacade, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Facade.RoleResourceSvcFacade, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Facade.RoleSvcFacade, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Facade.UserSvcFacade, FS.Dawn.PermissionMng.Bll" />
+  <!-- SvcFacade Config End -->
+  <!-- Service Config Start -->
+  <object type="FS.Dawn.PermissionMng.Bll.Service.DeptStructService, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Service.PrivilegeCategoryService, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Service.PrivilegeMeaningService, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Service.PrivilegeService, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Service.QueryService, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Service.ResourceService, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Service.RoleService, FS.Dawn.PermissionMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Service.UserService, FS.Dawn.PermissionMng.Bll" />
+  <!-- Service Config End -->
+  <!-- Logic Config Start -->
+  <!-- Logic Config End -->
+  <!-- Dao Config Start -->
+  <object type="FS.Dawn.PermissionMng.Dal.Dao.DeptStructDao, FS.Dawn.PermissionMng.Dal" />
+  <object type="FS.Dawn.PermissionMng.Dal.Dao.PrivilegeCategoryDao, FS.Dawn.PermissionMng.Dal" />
+  <object type="FS.Dawn.PermissionMng.Dal.Dao.PrivilegeDao, FS.Dawn.PermissionMng.Dal" />
+  <object type="FS.Dawn.PermissionMng.Dal.Dao.PrivilegeMeaningDao, FS.Dawn.PermissionMng.Dal" />
+  <object type="FS.Dawn.PermissionMng.Dal.Dao.QueryDao, FS.Dawn.PermissionMng.Dal" />
+  <object type="FS.Dawn.PermissionMng.Dal.Dao.ResourceDao, FS.Dawn.PermissionMng.Dal" />
+  <object type="FS.Dawn.PermissionMng.Dal.Dao.RoleDao, FS.Dawn.PermissionMng.Dal" />
+  <object type="FS.Dawn.PermissionMng.Dal.Dao.UserDao, FS.Dawn.PermissionMng.Dal" />
+  <!-- Dao Config End -->
+</objects>

@@ -1,0 +1,456 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>begindate</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>enddate</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtzhl</Name><Sql>
+ --复诊/初诊率
+ select 1 seqno,'复诊量/初诊量' title,fznum,cznum,case cznum when 0 then '0.00%' else to_char(round(fznum*100/cznum,2),'fm9999999990.00')||'%' end precent 
+  ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，门诊复诊量，数量2统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，门诊初诊量;
+  转化率=数量1/数量2' bz
+ from (
+   select 
+   (
+   select count(0) from 
+   (
+     select fr.card_no,fr.reg_date  from fin_opr_register fr where fr.reg_date between  to_date('&amp;begindate','yyyy-mm-dd')-30 and to_date('&amp;enddate','yyyy-mm-dd')+0.99
+     and fr.valid_flag='1' and fr.ynfr='1'
+   ) cz
+   left join ( select fr.card_no,fr.reg_date from fin_opr_register fr where fr.reg_date between  to_date('&amp;begindate','yyyy-mm-dd')and to_date('&amp;enddate','yyyy-mm-dd')+0.99
+   and fr.valid_flag='1' and fr.ynfr='0') fz on cz.card_no=fz.card_no and fz.reg_date&gt;cz.reg_date
+   where fz.card_no is not null
+   ) fznum,
+   (
+    select count(0)  from fin_opr_register fr where fr.reg_date between  to_date('&amp;begindate','yyyy-mm-dd')-30 and to_date('&amp;enddate','yyyy-mm-dd')+0.99
+     and fr.valid_flag='1' and fr.ynfr='1'
+     ) cznum from dual
+ ) tj
+ --复诊率
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，分娩套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，产检套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 2 seqno,'分娩套餐量/产检套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind='4' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind='3' and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind='4' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，月子套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，产检套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 3 seqno,'月子套餐量/产检套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind='4' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind in ('1','12','15') and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind='4' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，儿保套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，产检套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 4 seqno,'儿保套餐量/产检套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind='4' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind='2' and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind='4' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，妇科套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，产检套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 5 seqno,'妇科套餐量/产检套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind='4' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind='11' and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind='4' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，月子套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，分娩套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 6 seqno,'月子套餐量/分娩套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind='3' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind in ('1','12','15') and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind='3' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，儿保套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，分娩套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 7 seqno,'儿保套餐量/分娩套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind='3' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind='2' and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind='3' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，妇科套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，分娩套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 8 seqno,'妇科套餐量/分娩套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind='3' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind='11' and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind='3' and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，儿保套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，月子套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 9 seqno,'儿保套餐量/月子套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind in ('1','12','15') and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind='2' and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind in ('1','12','15') and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/
+union all
+
+ select tj.*,to_char(round(tj.fznum*100/fmnum,2),'fm9999999990.00')||'%' precent
+ ,'数量1统计'||to_char(to_date('&amp;begindate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD'),'yyyy-mm-dd')||'时间段，妇科套餐购买量，数量2统计'||to_char(add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10),'yyyy-mm-dd')||'~'||to_char(to_date('&amp;enddate', 'YYYY-MM-DD hh24:mi:ss'),'yyyy-mm-dd')||'时间段，月子套餐购买量;
+  转化率=数量1/数量2' bz from (
+ select 10 seqno,'妇科套餐量/月子套餐量' tctitle,
+( 
+ select count(0) from 
+ (  
+   select  card_no,min(oper_date) oper_date from 
+   (
+     select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+     where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+     from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+      inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+      inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+      inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+      where bp.package_kind in ('1','12','15') and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99
+    ) tc where cost&gt;0 group by card_no
+ ) cj left join 
+ (
+    select  card_no,min(oper_date) oper_date from 
+    (
+       select distinct   xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+       where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+       from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+        inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+        inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+        inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+        where bp.package_kind='11' and xp.cancel_flag='0'  and bp.package_id!='1000000209'
+        and xp.oper_date  between to_date('&amp;begindate', 'YYYY-MM-DD') and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99   
+    ) tc where cost&gt;0 group by card_no   
+  ) fm on cj.card_no=fm.card_no and fm.oper_date&gt;=cj.oper_date
+   where fm.card_no is not null
+  ) fznum,
+  (
+     select count(distinct card_no ) from 
+     (
+         select distinct xp.card_no,xpi.invoice_no,xpi.oper_date,(select sum(xpm.real_cost) from exp_packagepaymode xpm 
+         where xpm.invoice_no=xpi.invoice_no and xpi.trans_type=xpm.trans_type and xpm.mode_code in ('CA','UP','ZB','WP','PO','CD') ) cost 
+         from exp_package xp inner join bd_com_package bp on xp.package_id=bp.package_id
+          inner join com_dictionary cd on cd.type='PACKAGETYPE' and cd.code=bp.package_kind 
+          inner join exp_packageinvoice xpi on xpi.invoice_no=xp.invoice_no
+          inner join exp_packagepaymode xpm on xpm.invoice_no=xpi.invoice_no 
+          where bp.package_kind in ('1','12','15') and xp.cancel_flag='0'  and xp.oper_date  between add_months(to_date('&amp;begindate', 'YYYY-MM-DD'),-10) and to_date('&amp;enddate', 'YYYY-MM-DD')+0.99        
+      ) tc where cost&gt;0 
+   ) fmnum from dual ) tj
+/******************************************************************************************************************************************/</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\数据分析\院内转化率设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

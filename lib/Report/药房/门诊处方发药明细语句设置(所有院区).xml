@@ -1,0 +1,80 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>patientName</Name><Text>姓名：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>440</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>4</Index><Name>HospitalId</Name><Text>院区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>1100</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select 'IBORN' id,'爱博恩' name from dual union all select 'BELLAIRE' id,'贝利尔' name from dual</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>5</Index><Name>InvoiceNo</Name><Text>发票号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>880</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>5</Index><Name>DrugedCode</Name><Text>发药人：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>660</X><Y>2</Y></Location><QueryDataSource>EmployeeType</QueryDataSource><DataSourceTypeName>P</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtRecipeDetail</Name><Sql>
+select l.recipe_no 处方号,
+       l.item_code 药品编码,
+       l.item_name 药品名称,
+       l.specs 规格,
+       c.fac_name 生产产家,
+       l.unit_price 包装单价,
+       l.qty|| l.price_unit 数量,
+       fun_get_employee_name(l.doct_code) 开单医生,
+       fun_get_dept_name(l.doct_dept) 开单科室,
+       l.use_name 用法,
+       l.pub_cost + l.own_cost + l.pay_cost 金额,
+       l.dose_once || l.dose_unit 用量,
+       (select y.frequency_name from met_com_deptfrequency y where y.frequency_code = l.frequency_code) 频次,
+       fun_get_employee_name(l.fee_cpcd) 收费员,
+       l.fee_date 收费时间,
+       decode(l.cancel_flag ,'0','已作废','1','正常')发票状态,
+       fun_get_employee_name(a.cancel_code) 退费人,
+       a.cancel_date 退费时间
+       
+  from fin_opb_feedetail l, fin_opb_invoiceinfo a, pha_com_baseinfo b,pha_com_company c
+ where a.invoice_no = l.invoice_no
+   and l.item_code = b.drug_code
+   and b.producer_code = c.fac_code
+   and c.company_type = '0'
+   and l.pay_flag = '1'
+   and l.drug_flag = '1'
+   and a.print_invoiceno = '&amp;发票号'
+order by l.recipe_no ,l.trans_type
+/*
+select *   from fin_opb_feedetail l, fin_opb_invoiceinfo a
+ where a.invoice_no = l.invoice_no
+   and l.pay_flag = '1'
+   and l.drug_flag = '1'*/</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>DetailReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtRegPatientInfo</Name><Sql>select a.print_invoiceno 发票号,
+       r.card_no 病历号,
+       r.name 姓名,
+       r.pact_name 合同单位,
+       fun_get_employee_name(l.doct_code) 开立医生,
+       fun_get_dept_name(l.doct_dept) 开立科室,
+       (select wm_concat(e.diag_name || '  ')
+          from met_cas_diagnose e
+         where e.inpatient_no = r.clinic_code
+           and e.persson_type = '0'
+         group by e.inpatient_no) 诊断,
+       sum(l.pub_cost + l.own_cost + l.pay_cost) 金额,
+       decode(l.cancel_flag, '0', '已退费', '1', '正常') 发票状态,
+       fun_get_employee_name(t.druged_empl) 发药人,
+       fun_get_dept_name(t.drug_dept_code) 发药科室
+  from pha_com_applyout    t,
+       fin_opb_feedetail   l,
+       fin_opr_register    r,
+       fin_opb_invoiceinfo a,
+       met_cas_diagnose    e
+ where t.mo_order = l.mo_order
+   and t.recipe_no = l.recipe_no
+   and l.clinic_code = r.clinic_code
+   and l.invoice_no = a.invoice_no
+   and l.pay_flag = '1'
+   and l.drug_flag = '1'
+   and t.druged_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and t.druged_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+   and (r.dept_code in
+       (select b.dept_code
+           from com_department b
+          where b.hospital_id = '&amp;HospitalId') or '&amp;HospitalId' = 'ALL')
+   and (a.print_invoiceno like '%&amp;InvoiceNo%' or '&amp;InvoiceNo' is null)
+   and (r.name like '%&amp;patientName%' or '&amp;patientName' is null)
+   and (t.druged_empl = '&amp;DrugedCode' or '&amp;DrugedCode' = 'ALL')
+ group by a.print_invoiceno,
+          r.card_no,
+          r.name,
+          l.doct_code,
+          l.doct_dept,
+          t.druged_empl,
+          t.drug_dept_code,
+          r.clinic_code,
+          l.cancel_flag,
+          r.pact_name
+ order by a.print_invoiceno
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>true</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\药房\门诊处方发药明细语句设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{318CF662-E6A1-418B-A118-41CD3DAED2C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.HISFC.Components.DrugStoreByInvoice</RootNamespace>
+    <AssemblyName>SOC.HISFC.Components.DrugStoreByInvoice</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.WinForms.3.VS2005\v3.0.2004\Bin\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.WinForms.3.VS2005\v3.0.2004\Bin\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.WinForms.3.VS2005\v3.0.2004\Bin\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.WinForms.3.VS2005\v3.0.2004\Bin\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Order, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.PharmacyInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OutPatient\Base\tvRecipeBaseTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Base\tvRecipeBaseTree.Designer.cs">
+      <DependentUpon>tvRecipeBaseTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucDrugBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucDrugBase.Designer.cs">
+      <DependentUpon>ucDrugBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Base\ucDrugBaseComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Base\ucDrugBaseComponent.Designer.cs">
+      <DependentUpon>ucDrugBaseComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Common\Function.cs" />
+    <Compile Include="OutPatient\Common\InterfaceManager.cs" />
+    <Compile Include="OutPatient\Common\ucDrug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucDrug.Designer.cs">
+      <DependentUpon>ucDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucPatientInfo.Designer.cs">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucRecipeDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucRecipeDetail.Designer.cs">
+      <DependentUpon>ucRecipeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucRecipeTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucRecipeTree.Designer.cs">
+      <DependentUpon>ucRecipeTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucSend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Common\ucSend.Designer.cs">
+      <DependentUpon>ucSend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Local\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="OutPatient\Local\Common\WorkLoadManager.cs" />
+    <Compile Include="OutPatient\Local\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Local\frmWorkLoad.Designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Local\Interface\IOutpatientWorkLoadBatch.cs" />
+    <Compile Include="OutPatient\PrescriptionComment\Function.cs" />
+    <Compile Include="OutPatient\PrescriptionComment\ucPrescriptionComment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\PrescriptionComment\ucPrescriptionComment.Designer.cs">
+      <DependentUpon>ucPrescriptionComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\PrescriptionComment\ucPrescriptionCommentTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\PrescriptionComment\ucPrescriptionCommentTree.Designer.cs">
+      <DependentUpon>ucPrescriptionCommentTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OutPatient\Base\ucDrugBaseComponent.resx">
+      <DependentUpon>ucDrugBaseComponent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\Common\ucDrug.resx">
+      <DependentUpon>ucDrug.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\Common\ucDrugBase.resx">
+      <DependentUpon>ucDrugBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\Common\ucPatientInfo.resx">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\Common\ucRecipeDetail.resx">
+      <DependentUpon>ucRecipeDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\Common\ucRecipeTree.resx">
+      <DependentUpon>ucRecipeTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\Common\ucSend.resx">
+      <DependentUpon>ucSend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\PrescriptionComment\ucPrescriptionComment.resx">
+      <DependentUpon>ucPrescriptionComment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\PrescriptionComment\ucPrescriptionCommentTree.resx">
+      <DependentUpon>ucPrescriptionCommentTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

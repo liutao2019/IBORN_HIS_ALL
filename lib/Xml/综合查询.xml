@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CaseQuery>
+	<QueryType>
+		<!-- 普通文本 -->
+		<item>
+			<value>0</value>
+			<sql/>
+			<IsReadOnly>false</IsReadOnly>
+		</item>
+		<!-- 科室 -->
+		<item>
+			<value>1</value>
+			<sql>select t.dept_code,t.dept_name,t.spell_code,t.wb_code from org_department t where t.dept_type_code ='I' and t.valid_state ='1'</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!-- 人员 -->
+		<item>
+			<value>2</value>
+			<sql>select t.empl_code,t.empl_name,t.spell_code,t.wb_code from org_employee t where t.empl_type_code='D'and t.valid_state='1'</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!-- 诊断 -->
+		<item>
+			<value>3</value>
+			<sql/>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!-- 日期 -->
+		<item>
+			<value>4</value>
+			<sql/>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!-- 性别 -->
+		<item>
+			<value>5</value>
+			<sql>SELECT t.value,t.name,t.spell_code,t.wb_code from dawn_code_code t WHERE t.code_type_id = '3'</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!-- 转归 -->
+		<item>
+			<value>6</value>
+			<sql>SELECT t.value,t.name,t.spell_code,t.wb_code from dawn_code_code t WHERE t.code_type_id ='531'</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!--  ICD10诊断 -->
+		<item>
+			<value>7</value>
+			<sql>select t.icd10_code,t.name,t.spell_code,t.wb_code from dxt_western_disease t</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!--  麻醉种类 -->
+		<item>
+			<value>8</value>
+			<sql>select core_his50.com_dictionary.code,core_his50.com_dictionary.name from core_his50.com_dictionary where type='ANESTYPE'</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!--  切口种类 -->
+		<item>
+			<value>9</value>
+			<sql>select core_his50.com_dictionary.code,core_his50.com_dictionary.name from core_his50.com_dictionary where type='INCITYPE'</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!--  愈合种类 -->
+		<item>
+			<value>10</value>
+			<sql>select core_his50.com_dictionary.code,core_his50.com_dictionary.name from core_his50.com_dictionary where type='CasCICATYPE'</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+		<!--  诊断类型 -->
+		<item>
+			<value>11</value>
+			<sql>select t.value,t.name,t.spell_code,t.wb_code from dawn_code_code t WHERE t.code_type_id LIKE '534'</sql>
+			<IsReadOnly>true</IsReadOnly>
+		</item>
+	</QueryType>
+	<Query name="病案主信息查询" queryType="0">
+		<Sql>
+			SELECT
+				to_char(vhis_inpatientinfo.id),
+				(CASE rcd_inpatient_record_set.archive_state
+				    WHEN 'Commit' THEN '接收'
+				    ELSE '没接收'
+					END) receivestate,
+				(SELECT rss_record_set_submit_receive.receive_date 
+				    FROM  rss_record_set_submit_receive
+					WHERE rss_record_set_submit_receive.inpatient_record_set_id = rcd_inpatient_record_set.id AND ROWNUM = 1) receivedate,
+				core_his50.met_cas_base.patient_no patientNo,
+				core_his50.met_cas_base.NAME iprname,
+				(SELECT t.name FROM dawn_code_code t
+					WHERE t.code_type_id = '3' AND t.value = vhis_inpatientinfo.SEX_CODE) sex,
+				core_his50.met_cas_base.birthday birthday,
+				core_his50.met_cas_base.age age, 
+				core_his50.met_cas_base.work_name workname,
+				(SELECT emp.empl_name FROM org_employee emp
+					WHERE emp.empl_code=core_his50.met_cas_base.oper_code) opername,
+				core_his50.met_cas_base.oper_date operdate,
+				core_his50.met_cas_base.in_date indate,
+				core_his50.met_cas_base.cout_date coutdate,
+				core_his50.met_cas_base.out_date outdate,
+				core_his50.met_cas_base.pi_days pidays,
+				core_his50.met_cas_base.diag_days diagdays,
+				(SELECT dawn_code_code.name
+				    FROM dawn_code_code
+				    WHERE dawn_code_code.code_type_id =531 AND dawn_code_code.value = to_number(core_his50.met_cas_base.zg)) s, 
+				(select org_department.dept_name from org_department  WHERE
+				org_department.dept_code = core_his50.met_cas_base.Dept_Innm) indept,
+				vhis_inpatientinfo.dept_name outdept,
+				core_his50.met_cas_base.main_diagicdname maindia,
+				core_his50.met_cas_base.operation_cnname operation,
+				(select core_his50.com_dictionary.name from core_his50.com_dictionary 
+				where core_his50.com_dictionary.type like 'CasArea%' 
+				AND core_his50.com_dictionary.code = core_his50.met_cas_base.home_add) homename, 
+				'' homecode,
+				core_his50.met_cas_base.house_doc_name housedoc,
+				core_his50.met_cas_base.charge_doc_name chargedoc,
+				core_his50.met_cas_base.chief_doc_name chiefdoc,
+				core_his50.met_cas_base.dept_chief_donm deptcheif,
+				core_his50.met_cas_base.work_name workname
+			from core_his50.met_cas_base,
+				vhis_inpatientinfo,
+				rcd_inpatient_record_set
+				WHERE core_his50.met_cas_base.inpatient_no = vhis_inpatientinfo.INPATIENT_NO AND
+				vhis_inpatientinfo.ID = rcd_inpatient_record_set.inpatient_id  AND
+		</Sql>
+		<Column id="1" name="患者号" table="" QueryType="0" IsClause="false" width="0" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="2" name="回收标志" table="rcd_inpatient_record_set.archive_state" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="3" name="回收日期" table="" QueryType="" IsClause="false" width="100" valueType="" IsAutoSort = "true">
+		</Column>
+		<Column id="4" name="住院号" table="core_his50.met_cas_base.patient_no" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="5" name="姓名" table="core_his50.met_cas_base.NAME" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="6" name="性别" table="vhis_inpatientinfo.SEX_CODE" QueryType="5" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="7" name="出生日期" table="core_his50.met_cas_base.birthday" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="8" name="年龄" table="core_his50.met_cas_base.age" QueryType="0" IsClause="true" width="100" valueType="number" IsAutoSort = "true">
+		</Column>
+		<Column id="9" name="单位" table="core_his50.met_cas_base.work_name" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "false">
+		</Column>
+		<Column id="10" name="编码员" table="core_his50.met_cas_base.oper_code" QueryType="2" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="11" name="录入时间" table="core_his50.met_cas_base.oper_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="12" name="入院日期" table="core_his50.met_cas_base.in_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="13" name="统计日期" table="core_his50.met_cas_base.cout_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="14" name="出院日期" table="core_his50.met_cas_base.out_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="15" name="住院天数" table="core_his50.met_cas_base.pi_days" QueryType="0" IsClause="true" width="100" valueType="number" IsAutoSort = "true">
+		</Column>
+		<Column id="16" name="确诊天数" table="core_his50.met_cas_base.diag_days" QueryType="0" IsClause="true" width="100" valueType="number" IsAutoSort = "true">
+		</Column>
+		<Column id="17" name="转归" table="core_his50.met_cas_base.zg" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="18" name="入院科室" table="core_his50.met_cas_base.dept_incd" QueryType="1" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="19" name="出院科室" table="vhis_inpatientinfo.dept_code" QueryType="1" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="20" name="主诊断" table="core_his50.met_cas_base.main_diagicd" QueryType="7" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="21" name="手术名称" table="" QueryType="" IsClause="false" width="100" valueType="" IsAutoSort = "true">
+		</Column>
+		<Column id="22" name="家庭住址" table="core_his50.met_cas_base.home_add" QueryType="1" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="23" name="家庭住址编码" table="" QueryType="" IsClause="false" width="100" valueType="" IsAutoSort = "true">
+		</Column>
+		<Column id="24" name="住院医师" table="" QueryType="" IsClause="false" width="100" valueType="" IsAutoSort = "true">
+		</Column>
+		<Column id="25" name="主治医师" table="" QueryType="" IsClause="false" width="100" valueType="" IsAutoSort = "true">
+		</Column>
+		<Column id="26" name="主(副)任医师" table="" QueryType="" IsClause="false" width="100" valueType="" IsAutoSort = "true">
+		</Column>
+		<Column id="27" name="科主任" table="" QueryType="" IsClause="false" width="100" valueType="" IsAutoSort = "true">
+		</Column>
+		<Column id="28" name="工作单位" table="" QueryType="" IsClause="false" width="100" valueType="" IsAutoSort = "true">
+		</Column>
+	</Query>
+	<Query name="诊断信息查询" queryType="1">
+		<Sql>
+			SELECT 
+				core_his50.met_cas_diagnose.inpatient_no inpatientNo,
+				core_his50.met_cas_base.case_no caseNo,
+				core_his50.met_cas_base.patient_no patientNo,
+				core_his50.met_cas_base.name iprName,
+				core_his50.met_cas_base.age,
+				core_his50.met_cas_base.work_name,
+				(select org_department.dept_name from org_department  WHERE
+				org_department.dept_code=core_his50.met_cas_base.dept_code) dept_name,
+				(CASE core_his50.met_cas_diagnose.diag_kind 
+					WHEN '1' THEN '出院诊断'
+					WHEN '11' THEN '入院诊断'
+					WHEN '4' THEN '感染诊断'
+					WHEN '5' THEN '损伤中毒诊断'
+					WHEN '6' THEN '病理诊断'
+					WHEN '10' THEN '门诊诊断'
+					WHEN '2' THEN '其他诊断'
+					END) diagkind,
+				core_his50.met_cas_diagnose.icd_code,
+				core_his50.met_cas_diagnose.diag_name,
+				core_his50.met_cas_diagnose.out_date,
+				core_his50.met_cas_diagnose.diag_date,
+				core_his50.met_cas_diagnose.doct_name,
+				/*'',--诊断状态*/
+				(CASE core_his50.met_cas_diagnose.main_flag WHEN '0' THEN '否'
+					else '是' end) mainflag,
+				core_his50.met_cas_base.diag_syndrome,
+				/*'',--是否传染*/
+				(case core_his50.met_cas_diagnose.diag_outstate 
+					WHEN '1' THEN '治愈'
+					WHEN '2' THEN '好转'
+					WHEN '3' THEN '未愈'
+					WHEN '4' THEN '死亡'
+					WHEN '5' THEN '其他'
+					END) zg,
+				core_his50.met_cas_base.home_add
+			from core_his50.met_cas_diagnose,
+			core_his50.met_cas_base
+			WHERE core_his50.met_cas_base.inpatient_no = 
+			core_his50.met_cas_diagnose.inpatient_no AND
+		</Sql>
+		<Column id="1" name="住院流水号" table="core_his50.met_cas_base.inpatient_no" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="2" name="病案号" table="core_his50.met_cas_base.case_no" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="3" name="住院号" table="core_his50.met_cas_base.patient_no" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="4" name="姓名" table="core_his50.met_cas_base.name" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="5" name="年龄" table="core_his50.met_cas_base.age" QueryType="0" IsClause="true" width="100" valueType="number" IsAutoSort = "true">
+		</Column>
+		<Column id="6" name="单位" table="core_his50.met_cas_base.work_name" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="7" name="出院科室" table="core_his50.met_cas_base.dept_code" QueryType="1" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="8" name="诊断类别" table="core_his50.met_cas_diagnose.icd_code" QueryType="7" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="9" name="诊断代码" table="core_his50.met_cas_diagnose.icd_code" QueryType="7" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="10" name="诊断名称" table="core_his50.met_cas_diagnose.icd_code" QueryType="7" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="11" name="出院日期" table="core_his50.met_cas_base.out_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="12" name="诊断日期" table="core_his50.met_cas_diagnose.diag_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="13" name="诊断医生名" table="core_his50.met_cas_diagnose.doct_code" QueryType="2" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="14" name="是否主诊断" table="CASE core_his50.met_cas_diagnose.main_flag" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="15" name="是否并发症" table="core_his50.met_cas_base.diag_syndrome" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="16" name="转归" table="core_his50.met_cas_diagnose.diag_outstate" QueryType="6" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="17" name="家庭住址" table="core_his50.met_cas_base.home_add" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+	</Query>
+	<Query name="手术信息查询" queryType="2">
+		<Sql>
+			SELECT
+					core_his50.met_cas_operationdetail.inpatient_no,
+					core_his50.met_cas_base.age,
+					core_his50.met_cas_base.work_name,
+					core_his50.met_cas_base.name,
+					core_his50.met_cas_operationdetail.operation_code,
+					core_his50.met_cas_operationdetail.operation_cnname,
+					core_his50.met_cas_operationdetail.operation_date,
+					(SELECT org_department.dept_name 
+					from org_department
+					WHERE org_department.dept_code =core_his50.met_cas_operationdetail.out_dept) ,
+					(SELECT org_department.dept_name 
+					from org_department
+					WHERE org_department.dept_code =core_his50.met_cas_operationdetail.operation_dept),
+					core_his50.met_cas_operationdetail.fir_donm,
+					core_his50.met_cas_operationdetail.operation_kind,
+					(select core_his50.com_dictionary.name 
+					from core_his50.com_dictionary where type='ANESTYPE'  AND
+					CODE = core_his50.met_cas_operationdetail.narc_kind),
+					(select core_his50.com_dictionary.name 
+					from core_his50.com_dictionary 
+					where type='INCITYPE'  and 
+					CODE =core_his50.met_cas_operationdetail.nick_kind),
+					(select core_his50.com_dictionary.name 
+					from core_his50.com_dictionary 
+					where type='CasCICATYPE'  and 
+					code =core_his50.met_cas_operationdetail.cica_kind),
+					core_his50.met_cas_operationdetail.synd_flag,
+					core_his50.met_cas_operationdetail.in_date,
+					core_his50.met_cas_operationdetail.out_date
+			FROM core_his50.met_cas_operationdetail,
+					core_his50.met_cas_base
+			WHERE core_his50.met_cas_base.inpatient_no =
+					core_his50.met_cas_operationdetail.inpatient_no and
+
+		</Sql>
+		<Column id="1" name="住院流水号" table="core_his50.met_cas_operationdetail.inpatient_no" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="2" name="年龄" table="core_his50.met_cas_base.age" QueryType="0" IsClause="true" width="100" valueType="number" IsAutoSort = "true">
+		</Column>
+		<Column id="3" name="单位" table="core_his50.met_cas_base.work_name" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="4" name="姓名" table="core_his50.met_cas_base.name" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="5" name="手术代码" table="core_his50.met_cas_operationdetail.operation_code" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="6" name="手术名称" table="core_his50.met_cas_operationdetail.operation_cnname" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="7" name="手术日期" table="core_his50.met_cas_operationdetail.operation_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="8" name="出院科室" table="core_his50.met_cas_operationdetail.out_dept" QueryType="1" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="9" name="手术科室" table="core_his50.met_cas_operationdetail.operation_dept" QueryType="1" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="10" name="手术医生名" table="core_his50.met_cas_operationdetail.fir_donm" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="11" name="手术种类" table="core_his50.met_cas_operationdetail.operation_kind" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="12" name="麻醉种类" table="core_his50.met_cas_operationdetail.narc_kind" QueryType="8" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="13" name="切口种类" table="core_his50.met_cas_operationdetail.nick_kind" QueryType="9" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="14" name="愈合种类" table="core_his50.met_cas_operationdetail.cica_kind" QueryType="10" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="15" name="合并症标志" table="core_his50.met_cas_operationdetail.synd_flag" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="16" name="入院时间" table="core_his50.met_cas_operationdetail.in_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="17" name="出院时间" table="core_his50.met_cas_operationdetail.out_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+	</Query>
+	<Query name="未登录病案信息查询" queryType="3">
+		<Sql>		
+			select 
+          to_char(id),
+          INPATIENT_NO,
+          NAME,
+          sex,
+          IN_DATE,
+          OUT_DATE,
+          HOUSE_DOC_NAME,
+          DEPT_NAME,
+          firstsign,
+          receivesign
+      from(SELECT  vhis_inpatientinfo.INPATIENT_NO,
+          vhis_inpatientinfo.NAME,
+          (CASE vhis_inpatientinfo.SEX_CODE WHEN 'M' THEN '男'
+          WHEN 'F' THEN '女'
+            END) sex,
+          vhis_inpatientinfo.IN_DATE,
+          vhis_inpatientinfo.OUT_DATE,
+          vhis_inpatientinfo.HOUSE_DOC_NAME,
+          vhis_inpatientinfo.DEPT_NAME,
+          vhis_inpatientinfo.dept_code,
+          (CASE (SELECT COUNT(*) FROM core_his50.met_cas_base 
+                        WHERE core_his50.met_cas_base.inpatient_no = vhis_inpatientinfo.INPATIENT_NO) 
+                        WHEN 0 THEN (CASE  (SELECT RCD_INPATIENT_RECORD.RECORD_STATE
+											   FROM RCD_INPATIENT_RECORD
+												WHERE rcd_inpatient_record.inpatient_record_set_id = RCD_INPATIENT_RECORD_SET.ID
+											   AND   rcd_inpatient_record.record_child_type = 'First_Page' AND
+											   rownum = 1)
+											  WHEN 'Submit' THEN'提交'
+											  WHEN 'Receive' THEN '接收'
+											  ELSE '未提交'
+											   END)
+						ELSE '接收'
+            END) firstsign,
+          (CASE rcd_inpatient_record_set.archive_state 
+          WHEN 'Commit' THEN '是'
+          ELSE '否' END) receivesign,
+          vhis_inpatientinfo.id
+      FROM  vhis_inpatientinfo,
+          rcd_inpatient_record_set
+      WHERE   vhis_inpatientinfo.ID = rcd_inpatient_record_set.inpatient_id  AND
+          (vhis_inpatientinfo.IN_STATE = 'O' OR vhis_inpatientinfo.IN_STATE = 'P' 
+          OR vhis_inpatientinfo.IN_STATE = 'B' OR vhis_inpatientinfo.IN_STATE = 'N') ) WHERE  
+		</Sql>
+		<Column id="1" name="患者Id" table="" QueryType="0" IsClause="false" width="0" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="2" name="住院号" table="INPATIENT_NO" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="3" name="姓名" table="NAME" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="4" name="性别" table="sex" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="5" name="入院日期" table="IN_DATE" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="6" name="出院日期" table="OUT_DATE" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="7" name="住院医师" table="HOUSE_DOC_NAME" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="8" name="出院科室" table="dept_code" QueryType="1" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="9" name="电子首页标志" table="firstsign" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="10" name="回收标志" table="receivesign" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+	</Query>
+	<Query name="病案回收查询" queryType="5">
+		<Sql>
+			SELECT
+					PATIENT_NO,
+					NAME,
+					sex,
+					in_date,
+					out_date,
+					residencyname,
+					DEPT_NAME,
+					receivestate,
+					receive_date,
+					receiveperson
+			FROM (SELECT  
+						vhis_inpatientinfo.PATIENT_NO,
+						vhis_inpatientinfo.NAME,
+						(SELECT t.name
+						 from dawn_code_code t
+						WHERE
+						t.code_type_id = '3' AND 
+						t.value =vhis_inpatientinfo.SEX_CODE and rownum=1) sex,
+						vhis_inpatientinfo.IN_DATE,
+						vhis_inpatientinfo.OUT_DATE,
+						(SELECT emp.empl_name FROM org_employee emp
+							WHERE emp.id =(SELECT dutydoc.residency_id
+						  FROM pt_duty_doc_group dutydoc
+						WHERE dutydoc.ipr_id =vhis_inpatientinfo.ID AND
+						ROWNUM = 1) and rownum=1) residencyname,
+						vhis_inpatientinfo.DEPT_NAME,
+						vhis_inpatientinfo.dept_code,
+						(CASE rcd_inpatient_record_set.archive_state
+						 WHEN 'Commit' THEN '是'
+						   ELSE '否'
+							 END) receivestate,
+               (SELECT rss_record_set_submit_receive.receive_date FROM rss_record_set_submit_receive 
+               WHERE rss_record_set_submit_receive.inpatient_record_set_id = rcd_inpatient_record_set.id and rownum=1) receive_date,
+              (SELECT (SELECT emp.empl_name FROM org_employee emp
+							WHERE emp.id =  rss_record_set_submit_receive.receiver_id and rownum=1)
+              FROM rss_record_set_submit_receive 
+              WHERE rss_record_set_submit_receive.inpatient_record_set_id = rcd_inpatient_record_set.id AND ROWNUM=1) receiveperson
+				FROM	vhis_inpatientinfo,
+						rcd_inpatient_record_set
+				WHERE	vhis_inpatientinfo.ID = rcd_inpatient_record_set.inpatient_id) WHERE
+		</Sql>
+		<Column id="1" name="流水号" table="PATIENT_NO" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="2" name="姓名" table="NAME" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="3" name="性别" table="sex" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="4" name="入院日期" table="in_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="5" name="出院日期" table="out_date" QueryType="4" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="6" name="住院医生" table="residencyname" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="7" name="出院科室" table="dept_code" QueryType="1" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="8" name="接收状态" table="receivestate" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+		<Column id="9" name="接收日期" table="receive_date" QueryType="0" IsClause="true" width="100" valueType="date" IsAutoSort = "true">
+		</Column>
+		<Column id="10" name="接收人" table="receiveperson" QueryType="0" IsClause="true" width="100" valueType="string" IsAutoSort = "true">
+		</Column>
+	</Query>
+</CaseQuery>
+

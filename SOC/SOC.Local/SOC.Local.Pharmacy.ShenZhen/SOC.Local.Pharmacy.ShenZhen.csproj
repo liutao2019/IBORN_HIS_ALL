@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E7AD5C8-1B49-442F-B1D9-3DC6317ABD31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.Pharmacy.ShenZhen</RootNamespace>
+    <AssemblyName>SOC.Local.Pharmacy.ShenZhen</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.EPRControl, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Pharmacy, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.MessagePatternInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.PharmacyInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Components.Pharmacy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Models.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Local.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\IPharmacyBillPrint.cs" />
+    <Compile Include="Base\PrintBill.cs" />
+    <Compile Include="BizLogic\CompareSI.cs" />
+    <Compile Include="Common\Check\ucStaticCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\Check\ucStaticCheck.Designer.cs">
+      <DependentUpon>ucStaticCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Plan\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Plan\frmSetPlan.designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Plan\ucPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\Plan\ucPlan.Designer.cs">
+      <DependentUpon>ucPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\BinHai\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\BinHai\tvPrivTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Extend\BinHai\tvPrivTree.Designer.cs">
+      <DependentUpon>tvPrivTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\BinHai\ucBillRePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\BinHai\ucBillRePrint.designer.cs">
+      <DependentUpon>ucBillRePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\BinHai\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\BinHai\ucCommonInput.designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceManager.cs" />
+    <Compile Include="Maintenance\Item\frmItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Item\frmItem.designer.cs">
+      <DependentUpon>frmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItemExtend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItemExtend.Designer.cs">
+      <DependentUpon>ucItemExtend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItemManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItemManager.Designer.cs">
+      <DependentUpon>ucItemManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BillPrintInterfaceImplement.cs" />
+    <Compile Include="Print\BinHai\frmSelectPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\frmSelectPages.Designer.cs">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BinHai\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\ucCheckBill.Designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaApplyOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaApplyOutBill.Designer.cs">
+      <DependentUpon>ucPhaApplyOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPlanBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPlanBill.Designer.cs">
+      <DependentUpon>ucPlanBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ucBillPrintSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ucBillPrintSetting.designer.cs">
+      <DependentUpon>ucBillPrintSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BinHai\ucPhaInputBill.designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\frmSetConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmSetConfig.Designer.cs">
+      <DependentUpon>frmSetConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucDeptMonthQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucDeptMonthQuery.Designer.cs">
+      <DependentUpon>ucDeptMonthQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucGeneralQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucGeneralQuery.Designer.cs">
+      <DependentUpon>ucGeneralQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Storage\ucStorageManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Storage\ucStorageManager.Designer.cs">
+      <DependentUpon>ucStorageManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMonstoreAdjustStatic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMonstoreAdjustStatic.Designer.cs">
+      <DependentUpon>ucMonstoreAdjustStatic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMonstoreCheckStatic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMonstoreCheckStatic.Designer.cs">
+      <DependentUpon>ucMonstoreCheckStatic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucPhaCheckBillQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucPhaCheckBillQuery.Designer.cs">
+      <DependentUpon>ucPhaCheckBillQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucPharmacyRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucPharmacyRecord.Designer.cs">
+      <DependentUpon>ucPharmacyRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucPIMonstoreINQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucPIMonstoreINQuery.Designer.cs">
+      <DependentUpon>ucPIMonstoreINQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucPIMonstoreOutQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucPIMonstoreOutQuery.Designer.cs">
+      <DependentUpon>ucPIMonstoreOutQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucPrivePowerReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucPrivePowerReport.Designer.cs">
+      <DependentUpon>ucPrivePowerReport.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\Plan\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Plan\ucPlan.resx">
+      <DependentUpon>ucPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\BinHai\ucBillRePrint.resx">
+      <DependentUpon>ucBillRePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\BinHai\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Item\frmItem.resx">
+      <DependentUpon>frmItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Item\ucItemExtend.resx">
+      <DependentUpon>ucItemExtend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Item\ucItemManager.resx">
+      <DependentUpon>ucItemManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Storage\ucStorageManager.resx">
+      <DependentUpon>ucStorageManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\frmSelectPages.resx">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\ucPhaApplyOutBill.resx">
+      <DependentUpon>ucPhaApplyOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\ucPlanBill.resx">
+      <DependentUpon>ucPlanBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ucBillPrintSetting.resx">
+      <DependentUpon>ucBillPrintSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BinHai\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucDeptMonthQuery.resx">
+      <DependentUpon>ucDeptMonthQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMonstoreAdjustStatic.resx">
+      <DependentUpon>ucMonstoreAdjustStatic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMonstoreCheckStatic.resx">
+      <DependentUpon>ucMonstoreCheckStatic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucPhaCheckBillQuery.resx">
+      <DependentUpon>ucPhaCheckBillQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucPharmacyRecord.resx">
+      <DependentUpon>ucPharmacyRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucPIMonstoreINQuery.resx">
+      <DependentUpon>ucPIMonstoreINQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucPIMonstoreOutQuery.resx">
+      <DependentUpon>ucPIMonstoreOutQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

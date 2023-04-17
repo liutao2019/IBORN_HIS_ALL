@@ -1,0 +1,44 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>txtname</Name><Text>卡号/姓名</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>phone</Name><Text>电话</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>200</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>days</Name><Text>挂号天数</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource>1</DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>30</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>400</X><Y>0</Y></Location><QueryDataSource>Custom</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dbcfypatient</Name><Sql>select aa.卡号,aa.姓名,aa.门诊,
+wm_concat(产检套餐) 产检套餐,
+wm_concat(分娩套餐) 分娩套餐,
+wm_concat(月子套餐) 月子套餐,
+wm_concat(儿保套餐) 儿保套餐,
+wm_concat(盆底肌套餐) 盆底肌套餐,
+wm_concat(私密套餐)   私密套餐,
+wm_concat(产后康复)   产后康复,
+wm_concat(居家月子)   居家月子,
+wm_concat(妇科套餐)   妇科套餐,
+wm_concat(其他)       其他
+from(
+select distinct
+cp.card_no 卡号
+,cp.name 姓名
+,cp.home_tel 电话
+,fr.dept_name 门诊
+,case when ap.package_kind =4 then ap.package_name end 产检套餐
+,case when ap.package_kind =3 then ap.package_name end 分娩套餐
+,case when ap.package_kind =1 then ap.package_name end 月子套餐
+,case when ap.package_kind =2 then ap.package_name end 儿保套餐
+,case when ap.package_kind =5 then ap.package_name end 盆底肌套餐
+,case when ap.package_kind =6 then ap.package_name end 私密套餐
+,case when ap.package_kind =14 then ap.package_name end 产后康复
+,case when ap.package_kind =15 then ap.package_name end 居家月子
+,case when ap.package_kind =11 then ap.package_name end 妇科套餐
+,case when ap.package_kind not in(1,2,3,4,5,6,11,14,15) then ap.package_name end 其他
+-------,ex.delimiting_date 时间
+from com_patientinfo cp
+inner join exp_package ex on ex.card_no = cp.card_no
+inner join bd_com_package ap on ap.package_id= ex.package_id
+inner join fin_opr_register fr on fr.card_no = cp.card_no
+where 1 = 1
+and fr.reg_date &gt; sysdate - '&amp;days' and fr.valid_flag = '1'
+and (cp.card_no like '%&amp;txtname%' or cp.name like '%&amp;txtname%') 
+and cp.home like '%&amp;phone%'
+order by cp.card_no
+)aa
+where 1 = 1
+group by
+aa.卡号, 
+aa.门诊,
+aa.姓名
+order by aa.门诊</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊医生报表\当日挂号客户套餐查询.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

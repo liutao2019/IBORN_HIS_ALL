@@ -1,0 +1,1416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Spread class="FarPoint.Win.Spread.FpSpread">
+  <!--Settings Section - This section contains the workbook properties, and the sheet objects, properties and selections.-->
+  <Settings>
+    <RootWorkbook>
+      <ActiveSheetIndex>0</ActiveSheetIndex>
+      <AllowDragDrop>False</AllowDragDrop>
+      <AllowDragFill>False</AllowDragFill>
+      <AllowCellOverflow>False</AllowCellOverflow>
+      <AllowColumnMove>False</AllowColumnMove>
+      <AllowEditOverflow>False</AllowEditOverflow>
+      <AllowUserFormulas>False</AllowUserFormulas>
+      <AllowRowMove>False</AllowRowMove>
+      <AllowSheetMove>False</AllowSheetMove>
+      <AllowUndo>True</AllowUndo>
+      <AllowUserZoom>True</AllowUserZoom>
+      <AutoClipboard>True</AutoClipboard>
+      <BackColor>White</BackColor>
+      <BackgroundImage></BackgroundImage>
+      <BorderCollapse>Separate</BorderCollapse>
+      <ScrollTipPolicy>Off</ScrollTipPolicy>
+      <ScrollBarTrackPolicy>Off</ScrollBarTrackPolicy>
+      <ScrollBarShowMax>True</ScrollBarShowMax>
+      <ScrollBarMaxAlign>True</ScrollBarMaxAlign>
+      <BorderStyle>Fixed3D</BorderStyle>
+      <ButtonDrawMode>Always</ButtonDrawMode>
+      <CellNoteIndicatorVisible>True</CellNoteIndicatorVisible>
+      <ClipboardOptions>AllHeaders</ClipboardOptions>
+      <ColumnSplitBoxAlignment>Leading</ColumnSplitBoxAlignment>
+      <ColumnSplitBoxPolicy>Always</ColumnSplitBoxPolicy>
+      <EditModePermanent>False</EditModePermanent>
+      <EditModeReplace>False</EditModeReplace>
+      <HorizontalScrollBarHeight>-1</HorizontalScrollBarHeight>
+      <HorizontalScrollBarPolicy>AsNeeded</HorizontalScrollBarPolicy>
+      <LeftTab>0</LeftTab>
+      <MoveActiveOnFocus>True</MoveActiveOnFocus>
+      <RetainSelectionBlock>True</RetainSelectionBlock>
+      <RightToLeft>No</RightToLeft>
+      <RowSplitBoxAlignment>Leading</RowSplitBoxAlignment>
+      <RowSplitBoxPolicy>Always</RowSplitBoxPolicy>
+      <SelectionBlockOptions>Cells, Rows, Columns, Sheet</SelectionBlockOptions>
+      <SheetCount>1</SheetCount>
+      <TabStrip>
+        <BackColor>Control</BackColor>
+        <Editable>False</Editable>
+        <ButtonPolicy>Always</ButtonPolicy>
+        <ActiveSheetTab />
+        <DefaultSheetTab />
+        <Items>
+          <SheetTab />
+        </Items>
+      </TabStrip>
+      <TabStripPlacement>WithHorizontalScrollBar</TabStripPlacement>
+      <TabStripPolicy>AsNeeded</TabStripPolicy>
+      <TabStripRatio>0.5</TabStripRatio>
+      <TextTipAppearance class="FarPoint.Win.Spread.TipAppearance">
+        <BackColor>Info</BackColor>
+        <ForeColor>InfoText</ForeColor>
+        <Font>
+          <Name>宋体</Name>
+          <Size>9</Size>
+          <Bold>False</Bold>
+          <CharSet>134</CharSet>
+          <Italic>False</Italic>
+          <Strikeout>False</Strikeout>
+          <Underline>False</Underline>
+          <Unit>Point</Unit>
+          <Vertical>False</Vertical>
+        </Font>
+      </TextTipAppearance>
+      <TextTipDelay>500</TextTipDelay>
+      <TextTipPolicy>Off</TextTipPolicy>
+      <VerticalScrollBarWidth>-1</VerticalScrollBarWidth>
+      <VerticalScrollBarPolicy>AsNeeded</VerticalScrollBarPolicy>
+      <VisualStyles>Auto</VisualStyles>
+      <SuspendAnimations>False</SuspendAnimations>
+    </RootWorkbook>
+    <Sheets>
+      <Sheet index="0" class="FarPoint.Win.Spread.SheetView">
+        <SheetName>Sheet1</SheetName>
+        <Categories>
+          <Appearance>
+            <RowHeaderColumnCount>0</RowHeaderColumnCount>
+            <ColumnHeaderRowCount>0</ColumnHeaderRowCount>
+            <VisualStyles>Off</VisualStyles>
+          </Appearance>
+          <Behavior />
+          <Layout>
+            <ColumnCount>8</ColumnCount>
+            <RowCount>23</RowCount>
+          </Layout>
+        </Categories>
+        <SelectionModel class="FarPoint.Win.Spread.Model.DefaultSheetSelectionModel">
+          <CellRange Row="0" Column="0" RowCount="1" ColumnCount="1" />
+        </SelectionModel>
+      </Sheet>
+    </Sheets>
+  </Settings>
+  <!--Styles Section - This section contains the workbook and sheet named style collections.-->
+  <Styles>
+    <NamedStyles class="FarPoint.Win.Spread.NamedStyleCollection" />
+  </Styles>
+  <!--Presentation Section - This section contains the column and row properties, cell spans, and the sheet, column, row, and cell styles.-->
+  <Presentation>
+    <Font />
+    <Sheets>
+      <Sheet index="0">
+        <ViewportInfo>
+          <RowPaneCount>1</RowPaneCount>
+          <ColumnPaneCount>1</ColumnPaneCount>
+          <ActiveRowPane>0</ActiveRowPane>
+          <ActiveColumnPane>0</ActiveColumnPane>
+          <RowPanes>
+            <RowPane row="0">
+              <TopRow>0</TopRow>
+              <PreferredHeight>-1</PreferredHeight>
+            </RowPane>
+          </RowPanes>
+          <ColumnPanes>
+            <ColumnPane column="0">
+              <LeftColumn>0</LeftColumn>
+              <PreferredWidth>-1</PreferredWidth>
+            </ColumnPane>
+          </ColumnPanes>
+        </ViewportInfo>
+        <ActiveSkin class="FarPoint.Win.Spread.SheetSkin">
+          <Name>CustomSkin3</Name>
+          <BackColor>Empty</BackColor>
+          <CellBackColor>Empty</CellBackColor>
+          <CellForeColor>Empty</CellForeColor>
+          <GridLines>Both</GridLines>
+          <GridLineColor>White</GridLineColor>
+          <HeaderBackColor>Gainsboro</HeaderBackColor>
+          <HeaderForeColor>Empty</HeaderForeColor>
+          <FlatColumnHeader>False</FlatColumnHeader>
+          <FlatRowHeader>False</FlatRowHeader>
+          <HeaderFontBold>False</HeaderFontBold>
+          <SelectionBackColor>Empty</SelectionBackColor>
+          <SelectionForeColor>Empty</SelectionForeColor>
+          <EvenRowBackColor>White</EvenRowBackColor>
+          <OddRowBackColor>Empty</OddRowBackColor>
+          <ShowColumnHeader>True</ShowColumnHeader>
+          <ShowRowHeader>True</ShowRowHeader>
+        </ActiveSkin>
+        <GridLines>
+          <ColumnHeaderHorizontal class="FarPoint.Win.Spread.GridLine">
+            <Type>Raised</Type>
+            <Color>Empty</Color>
+            <HighlightColor>ControlLightLight</HighlightColor>
+            <ShadowColor>ControlDark</ShadowColor>
+            <Width>-1</Width>
+          </ColumnHeaderHorizontal>
+          <Horizontal class="FarPoint.Win.Spread.GridLine">
+            <Type>Flat</Type>
+            <Color>Black</Color>
+            <HighlightColor>ControlLightLight</HighlightColor>
+            <ShadowColor>ControlDark</ShadowColor>
+            <Width>-1</Width>
+          </Horizontal>
+          <Vertical class="FarPoint.Win.Spread.GridLine">
+            <Type>Flat</Type>
+            <Color>Black</Color>
+            <HighlightColor>ControlLightLight</HighlightColor>
+            <ShadowColor>ControlDark</ShadowColor>
+            <Width>-1</Width>
+          </Vertical>
+        </GridLines>
+        <AxisModels>
+          <Row class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="23">
+            <Items>
+              <Item index="-1" />
+              <Item index="0">
+                <Size>40</Size>
+              </Item>
+              <Item index="1">
+                <Size>23</Size>
+              </Item>
+              <Item index="2">
+                <Size>23</Size>
+              </Item>
+              <Item index="3">
+                <Size>23</Size>
+              </Item>
+              <Item index="4">
+                <Size>23</Size>
+              </Item>
+              <Item index="5">
+                <Size>23</Size>
+              </Item>
+              <Item index="6">
+                <Size>23</Size>
+              </Item>
+              <Item index="7">
+                <Size>23</Size>
+              </Item>
+              <Item index="8">
+                <Size>23</Size>
+              </Item>
+              <Item index="9">
+                <Size>23</Size>
+              </Item>
+              <Item index="10">
+                <Size>23</Size>
+              </Item>
+              <Item index="11">
+                <Size>23</Size>
+              </Item>
+              <Item index="12">
+                <Size>23</Size>
+              </Item>
+              <Item index="13">
+                <Size>23</Size>
+              </Item>
+              <Item index="14">
+                <Size>23</Size>
+              </Item>
+              <Item index="15">
+                <Size>23</Size>
+              </Item>
+              <Item index="16">
+                <Size>23</Size>
+              </Item>
+              <Item index="17">
+                <Size>23</Size>
+              </Item>
+              <Item index="18">
+                <Size>23</Size>
+              </Item>
+              <Item index="19">
+                <Size>23</Size>
+              </Item>
+              <Item index="20">
+                <Size>23</Size>
+              </Item>
+              <Item index="22">
+                <Size>23</Size>
+              </Item>
+            </Items>
+          </Row>
+          <Column class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Horizontal" count="8">
+            <Items>
+              <Item index="-1" />
+              <Item index="0">
+                <Size>90</Size>
+                <Visible>True</Visible>
+              </Item>
+              <Item index="1">
+                <Size>120</Size>
+              </Item>
+              <Item index="2">
+                <Size>90</Size>
+              </Item>
+              <Item index="3">
+                <Size>120</Size>
+              </Item>
+              <Item index="4">
+                <Size>90</Size>
+              </Item>
+              <Item index="5">
+                <Size>120</Size>
+              </Item>
+              <Item index="6">
+                <Size>95</Size>
+              </Item>
+              <Item index="7">
+                <Size>95</Size>
+              </Item>
+            </Items>
+          </Column>
+          <RowHeaderColumn class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" defaultSize="35" orientation="Horizontal" count="0">
+            <Items>
+              <Item index="-1">
+                <Resizable>False</Resizable>
+                <Size>35</Size>
+              </Item>
+            </Items>
+          </RowHeaderColumn>
+          <ColumnHeaderRow class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="0">
+            <Items>
+              <Item index="-1">
+                <Resizable>False</Resizable>
+              </Item>
+            </Items>
+          </ColumnHeaderRow>
+        </AxisModels>
+        <SpanModels>
+          <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetSpanModel">
+            <CellRange Row="0" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="2" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="6" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="11" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="12" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="15" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="16" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="18" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="19" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="3" Column="0" RowCount="1" ColumnCount="6" />
+            <CellRange Row="7" Column="0" RowCount="1" ColumnCount="6" />
+            <CellRange Row="21" Column="0" RowCount="1" ColumnCount="8" />
+            <CellRange Row="17" Column="3" RowCount="1" ColumnCount="5" />
+            <CellRange Row="20" Column="4" RowCount="1" ColumnCount="4" />
+          </DataArea>
+        </SpanModels>
+        <StyleModels>
+          <RowHeader class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="23" Columns="0">
+            <AltRowCount>2</AltRowCount>
+            <DefaultStyle class="FarPoint.Win.Spread.StyleInfo" Parent="HeaderDefault">
+              <BackColor>Gainsboro</BackColor>
+            </DefaultStyle>
+            <ConditionalFormatCollections />
+          </RowHeader>
+          <ColumnHeader class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="0" Columns="8">
+            <AltRowCount>2</AltRowCount>
+            <DefaultStyle class="FarPoint.Win.Spread.StyleInfo" Parent="HeaderDefault">
+              <BackColor>Gainsboro</BackColor>
+            </DefaultStyle>
+            <ConditionalFormatCollections />
+          </ColumnHeader>
+          <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="23" Columns="8">
+            <AltRowCount>2</AltRowCount>
+            <AltRowStyles>
+              <AltRowStyle Index="0" class="FarPoint.Win.Spread.StyleInfo">
+                <BackColor>White</BackColor>
+              </AltRowStyle>
+            </AltRowStyles>
+            <CellStyles>
+              <CellStyle Row="0" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>15</Size>
+                  <Bold>False</Bold>
+                  <CharSet>134</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Left</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Left</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Left</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>9</Size>
+                  <Bold>True</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="4" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="4" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="4" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="4" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="4" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="4" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="4" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="4" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="5" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="5" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="5" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="5" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="5" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="5" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="5" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="5" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="7" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>9</Size>
+                  <Bold>True</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="7" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="7" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="7" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="7" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="7" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="7" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="8" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="8" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="8" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="8" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="8" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="8" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="8" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="8" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="9" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="9" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="9" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="9" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="9" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="9" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="9" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="9" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="10" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="10" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="10" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="10" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="10" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="10" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="10" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="10" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="12" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>9</Size>
+                  <Bold>True</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Left</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="12" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="12" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="12" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="12" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="13" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="13" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="13" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="13" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="13" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="14" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>General</HorizontalAlignment>
+                <VerticalAlignment>General</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="14" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>General</HorizontalAlignment>
+                <VerticalAlignment>General</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="14" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>General</HorizontalAlignment>
+                <VerticalAlignment>General</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="14" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <CellType class="FarPoint.Win.Spread.CellType.NumberCellType">
+                  <AcceptsArrowKeys>AllArrows</AcceptsArrowKeys>
+                  <TextOrientation>TextHorizontal</TextOrientation>
+                  <WordWrap>False</WordWrap>
+                  <DropDownButton>False</DropDownButton>
+                  <ButtonAlign>Right</ButtonAlign>
+                  <ReadOnly>False</ReadOnly>
+                  <NullDisplay />
+                  <AutoCompleteMode>None</AutoCompleteMode>
+                  <AutoCompleteSource>None</AutoCompleteSource>
+                  <Static>False</Static>
+                  <StringTrim>None</StringTrim>
+                  <DecimalPlaces>-1</DecimalPlaces>
+                  <FixedPoint>True</FixedPoint>
+                  <LeadingZero>UseRegional</LeadingZero>
+                  <MaximumValue>9999999.99</MaximumValue>
+                  <MinimumValue>-9999999.99</MinimumValue>
+                  <NegativeFormat>UseRegional</NegativeFormat>
+                  <NegativeRed>False</NegativeRed>
+                  <ShowSeparator>False</ShowSeparator>
+                  <SpinButton>False</SpinButton>
+                  <SpinIntegerIncrement>1</SpinIntegerIncrement>
+                  <SpinDecimalIncrement>0.1</SpinDecimalIncrement>
+                  <OverflowCharacter>&#x0;</OverflowCharacter>
+                  <SpinWrap>False</SpinWrap>
+                </CellType>
+                <HorizontalAlignment>General</HorizontalAlignment>
+                <VerticalAlignment>General</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="16" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>9</Size>
+                  <Bold>True</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Left</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="19" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>9</Size>
+                  <Bold>True</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="22" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <Locked>False</Locked>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="22" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <Locked>False</Locked>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="22" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <Locked>False</Locked>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="22" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <Locked>False</Locked>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="22" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Right</HorizontalAlignment>
+                <Locked>False</Locked>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="22" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <Locked>False</Locked>
+              </CellStyle>
+              <CellStyle Row="22" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <Locked>False</Locked>
+              </CellStyle>
+              <CellStyle Row="22" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <Locked>False</Locked>
+              </CellStyle>
+            </CellStyles>
+            <ParseFormats>
+              <ParseFormat Row="9" Column="0">
+                <FormatString>G</FormatString>
+              </ParseFormat>
+              <ParseFormat Row="9" Column="2">
+                <FormatString>G</FormatString>
+              </ParseFormat>
+            </ParseFormats>
+            <ConditionalFormatCollections />
+          </DataArea>
+        </StyleModels>
+        <SheetCornerStyle class="FarPoint.Win.Spread.NamedStyle" Parent="CornerDefault">
+          <BackColor>Gainsboro</BackColor>
+        </SheetCornerStyle>
+        <Notes class="FarPoint.Win.Spread.DrawingSpace.SpreadNotesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>519</Height>
+          <Width>762</Width>
+          <Name>spreadNotesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+          <Gradient class="FarPoint.Win.Spread.DrawingSpace.PSGradient">
+            <GradientStyle>None</GradientStyle>
+            <GradientSections>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+            </GradientSections>
+          </Gradient>
+        </Notes>
+      </Sheet>
+    </Sheets>
+  </Presentation>
+  <!--Drawing Section - This section contains the drawing objects and their properties.-->
+  <Drawing>
+    <Sheets>
+      <Sheet index="0">
+        <DrawingContainer class="FarPoint.Win.Spread.DrawingSpace.SpreadShapesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>519</Height>
+          <Width>762</Width>
+          <Name>spreadShapesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+        </DrawingContainer>
+      </Sheet>
+    </Sheets>
+  </Drawing>
+  <!--Data Section - This section contains the sheet data.-->
+  <Data>
+    <EnableCrossSheetReference>True</EnableCrossSheetReference>
+    <Sheets>
+      <Sheet index="0">
+        <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="23" columns="8">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+          <SheetName>Sheet1</SheetName>
+          <Cells>
+            <Cell row="0" column="0">
+              <Data type="System.String">住院收费员缴款报表</Data>
+              <Tag type="System.String">(&amp;HospitalName)住院收费员缴款报表</Tag>
+            </Cell>
+            <Cell row="1" column="0">
+              <Data type="System.String">缴款日期</Data>
+            </Cell>
+            <Cell row="1" column="1">
+              <Tag type="System.String">dtBalanceDate</Tag>
+            </Cell>
+            <Cell row="1" column="2">
+              <Data type="System.String">起始时间</Data>
+            </Cell>
+            <Cell row="1" column="3">
+              <Tag type="System.String">&amp;dtBeginTime</Tag>
+            </Cell>
+            <Cell row="1" column="4">
+              <Data type="System.String">结束时间</Data>
+            </Cell>
+            <Cell row="1" column="5">
+              <Tag type="System.String">&amp;dtEndTime</Tag>
+            </Cell>
+            <Cell row="1" column="6">
+              <Data type="System.String">制表人</Data>
+            </Cell>
+            <Cell row="1" column="7">
+              <Tag type="System.String">dtBalanceOperName</Tag>
+            </Cell>
+            <Cell row="3" column="0">
+              <Data type="System.String">  预收发票资料：</Data>
+            </Cell>
+            <Cell row="3" column="6">
+              <Data type="System.String">应交预收合计</Data>
+            </Cell>
+            <Cell row="3" column="7">
+              <Tag type="System.String">dtPrepaySum.Rows[0][6]</Tag>
+            </Cell>
+            <Cell row="4" column="0">
+              <Data type="System.String">预收张数</Data>
+            </Cell>
+            <Cell row="4" column="1">
+              <Tag type="System.String">dtPrepaySum.Rows[0][0]</Tag>
+            </Cell>
+            <Cell row="4" column="2">
+              <Data type="System.String">预收金额</Data>
+            </Cell>
+            <Cell row="4" column="3">
+              <Tag type="System.String">dtPrepaySum.Rows[0][1]</Tag>
+            </Cell>
+            <Cell row="4" column="4">
+              <Data type="System.String">退预收张数</Data>
+            </Cell>
+            <Cell row="4" column="5">
+              <Tag type="System.String">dtPrepaySum.Rows[0][2]</Tag>
+            </Cell>
+            <Cell row="4" column="6">
+              <Data type="System.String">退预收金额</Data>
+            </Cell>
+            <Cell row="4" column="7">
+              <Tag type="System.String">dtPrepaySum.Rows[0][3]</Tag>
+            </Cell>
+            <Cell row="5" column="0">
+              <Data type="System.String">注销预收张数</Data>
+            </Cell>
+            <Cell row="5" column="1">
+              <Tag type="System.String">dtPrepaySum.Rows[0][4]</Tag>
+            </Cell>
+            <Cell row="5" column="2">
+              <Data type="System.String">注销预收金额</Data>
+            </Cell>
+            <Cell row="5" column="3">
+              <Tag type="System.String">dtPrepaySum.Rows[0][5]</Tag>
+            </Cell>
+            <Cell row="7" column="0">
+              <Data type="System.String">  出院发票资料：</Data>
+            </Cell>
+            <Cell row="7" column="6">
+              <Data type="System.String">发票收入合计</Data>
+            </Cell>
+            <Cell row="7" column="7">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][10]</Tag>
+            </Cell>
+            <Cell row="8" column="0">
+              <Data type="System.String">发票张数</Data>
+            </Cell>
+            <Cell row="8" column="1">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][0]</Tag>
+            </Cell>
+            <Cell row="8" column="2">
+              <Data type="System.String">发票合计</Data>
+            </Cell>
+            <Cell row="8" column="3">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][1]</Tag>
+            </Cell>
+            <Cell row="8" column="4">
+              <Data type="System.String">退费原单数</Data>
+            </Cell>
+            <Cell row="8" column="5">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][2]</Tag>
+            </Cell>
+            <Cell row="8" column="6">
+              <Data type="System.String">退费原单</Data>
+            </Cell>
+            <Cell row="8" column="7">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][3]</Tag>
+            </Cell>
+            <Cell row="9" column="0">
+              <Data type="System.String">医保统筹张数</Data>
+            </Cell>
+            <Cell row="9" column="1">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][4]</Tag>
+            </Cell>
+            <Cell row="9" column="2">
+              <Data type="System.String">医保统筹合计</Data>
+            </Cell>
+            <Cell row="9" column="3">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][5]</Tag>
+            </Cell>
+            <Cell row="9" column="4">
+              <Data type="System.String">退费新单数</Data>
+            </Cell>
+            <Cell row="9" column="5">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][6]</Tag>
+            </Cell>
+            <Cell row="9" column="6">
+              <Data type="System.String">退费新单</Data>
+            </Cell>
+            <Cell row="9" column="7">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][7]</Tag>
+            </Cell>
+            <Cell row="10" column="0">
+              <Data type="System.String">注销发票数</Data>
+            </Cell>
+            <Cell row="10" column="1">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][8]</Tag>
+            </Cell>
+            <Cell row="10" column="2">
+              <Data type="System.String">注销发票金额</Data>
+            </Cell>
+            <Cell row="10" column="3">
+              <Tag type="System.String">dtInvoiceSumPart1.Rows[0][9]</Tag>
+            </Cell>
+            <Cell row="10" column="4">
+              <Data type="System.String">冲销预收款张数</Data>
+            </Cell>
+            <Cell row="10" column="5">
+              <Tag type="System.String">dtInvoiceSumPart2.Rows[0][0]</Tag>
+            </Cell>
+            <Cell row="10" column="6">
+              <Data type="System.String">冲销预收合计</Data>
+            </Cell>
+            <Cell row="10" column="7">
+              <Tag type="System.String">dtInvoiceSumPart2.Rows[0][1]</Tag>
+            </Cell>
+            <Cell row="12" column="0">
+              <Data type="System.String">  应缴款明细：</Data>
+            </Cell>
+            <Cell row="13" column="0">
+              <Data type="System.String">支付方式</Data>
+            </Cell>
+            <Cell row="13" column="1">
+              <Data type="System.String">发票金额</Data>
+            </Cell>
+            <Cell row="13" column="2">
+              <Data type="System.String">预收款金额</Data>
+            </Cell>
+            <Cell row="13" column="3">
+              <Data type="System.String">缴款合计</Data>
+            </Cell>
+            <Cell row="14" column="0">
+              <Tag type="System.String">dtPayWaySum</Tag>
+            </Cell>
+            <Cell row="16" column="0">
+              <Data type="System.String">  发票明细：</Data>
+            </Cell>
+            <Cell row="17" column="0">
+              <Tag type="System.String">dtInvoiceDetail</Tag>
+            </Cell>
+            <Cell row="19" column="0">
+              <Data type="System.String">  发票退费明细：</Data>
+            </Cell>
+            <Cell row="20" column="0">
+              <Tag type="System.String">dtQuitInoviceDetail</Tag>
+            </Cell>
+            <Cell row="22" column="0">
+              <Data type="System.String">复核人：</Data>
+            </Cell>
+            <Cell row="22" column="2">
+              <Data type="System.String">出纳员：</Data>
+            </Cell>
+            <Cell row="22" column="4">
+              <Data type="System.String">收费员：</Data>
+            </Cell>
+          </Cells>
+        </DataArea>
+        <RowHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="23" columns="0">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+        </RowHeader>
+        <ColumnHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="0" columns="8">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+        </ColumnHeader>
+      </Sheet>
+    </Sheets>
+  </Data>
+</Spread>

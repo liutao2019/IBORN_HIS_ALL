@@ -1,0 +1,51 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>sellname</Name><Text>医美销售：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="Neusoft.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select t.empl_name,t.empl_name,'',t.spell_code,t.wb_code from com_employee t where t.empl_name in  ('邵兰婷','徐俊林','周苏菲')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select * 
+from (
+select distinct cp.card_no 卡号,cp.name 姓名,nvl(cp.home_tel,cp.linkman_tel) 联系方式
+,case when cp.bcsellmanager ='1812' then '周苏菲'
+ when cp.bcsellmanager ='1497' then '邵兰婷'
+ when cp.bcsellmanager='1786' then '徐俊林'
+   else ce.empl_name end  医美销售
+from (
+   select fr.card_no,fr.name,wm_concat(fr.dept_code) --挂号
+   from   fin_opr_register fr 
+      where fr.valid_flag=1
+      group by fr.card_no,fr.name
+     having wm_concat(fr.dept_code) not like '%5071%')a
+     inner join (
+     select fr.card_no,fr.name,wm_concat(fr.dept_code) --门诊收费
+   from  fin_opb_invoiceinfo fi  left join fin_opr_register fr on fi.clinic_code=fr.clinic_code and fr.ynsee='1' and fr.valid_flag='1'
+   group by fr.card_no,fr.name
+    having wm_concat(fr.dept_code) not like '%5071%') b on a.card_no=b.card_no
+     -- where fi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD hh24:mi:ss') and to_date('&amp;dtEndTime', 'YYYY-MM-DD hh24:mi:ss')
+     inner join (
+select cp.card_no,cp.name,wm_concat(bc.type_code)  --充值
+from  fin_opb_accountprepay fcp 
+inner join bd_com_accounttype bc on bc.type_code=fcp.type_code
+inner join com_patientinfo cp on fcp.card_no=cp.card_no
+where  --bc.type_code='2' and 
+ --fcp.oper_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and  to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss') and 
+ fcp.invoice_no like 'IB%' 
+ and fcp.prepay_type in ('CA','UP','ZB','WP','PO','CD')
+ group by cp.card_no,cp.name
+ having wm_concat(bc.type_code) not like '%2%')c on a.card_no=c.card_no
+ inner join (
+    select                                                                                 --套餐收费
+               t2.card_no,t2.patient_name,wm_concat(t4.code)
+      from exp_packageinvoice t
+      left join exp_package t2 on t.invoice_no = t2.invoice_no
+      left join bd_com_package t3 on t2.package_id = t3.package_id
+      left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+     where --t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD hh24:mi:ss') and to_date('&amp;dtEndTime', 'YYYY-MM-DD hh24:mi:ss') 
+       --and t.balance_flag = '1' and 
+        t4.code!='21'
+       and t.trans_type = t2.trans_type
+         and t.oper_code!='000203'
+   and t.print_invoiceno like 'IB%'
+    --and (t6.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL'))
+    --and t3.package_kind in (10,25)
+    group by  t2.card_no,t2.patient_name
+    having (wm_concat(t4.code) not like '%10%') or (wm_concat(t4.code) not like '%25%'))d on a.card_no=d.card_no
+    inner join com_patientinfo   cp on a.card_no=cp.card_no
+    left join com_employee ce on cp.bcsellmanager=ce.empl_code and ce.empl_name in ('邵兰婷','徐俊林','周苏菲')
+   )tt where 医美销售  in  ('邵兰婷','徐俊林','周苏菲')
+   and (医美销售='&amp;sellname' or 医美销售='ALL')</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\医美\医美未成交客户查询设置.xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

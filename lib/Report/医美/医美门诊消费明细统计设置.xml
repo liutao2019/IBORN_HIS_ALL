@@ -1,0 +1,155 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>txtXX</Name><Text>客户姓名/卡号/手机号码</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select 
+门诊号, 
+姓名, 
+电话, 
+划价收费, 
+状态, 
+录入来源, 
+项目名称, 
+规格, 
+sum(数量) 数量, 
+单价, 
+sum(总金额) 总金额, 
+sum(折后金额) 折后金额, 
+sum(减免金额) 减免金额, 
+开单科室, 
+开单医生, 
+录入人, 
+录入时间, 
+执行科室, 
+收款员, 
+收费日期, 
+确认执行状态, 
+确认执行科室, 
+确认执行人, 
+确认执行日期, 
+退费操作员, 
+退费时间
+from (
+SELECT 
+     cp.card_no 门诊号,
+     cp.name 姓名,
+     nvl(cp.home_tel,cp.linkman_tel) 电话, 
+     --D.INVOICE_NO 发票号码,
+       CASE D.PAY_FLAG
+         WHEN '0' THEN
+          '划价'
+         WHEN '1' THEN
+          '收费'
+       END 划价收费,
+       (CASE D.CANCEL_FLAG
+         WHEN '1' THEN
+          '正常'
+         WHEN '0' THEN
+          (CASE D.PAY_FLAG
+         WHEN '0' THEN
+          ''
+         ELSE
+          '退费'
+       END) WHEN '2' THEN '重打' ELSE '注销' END) AS 状态,
+       case 
+       when D.COST_SOURCE = '0' then '划价录入'
+              when D.COST_SOURCE = '1' then '医生开立'
+              end  录入来源,
+       --D.ITEM_CODE 项目编码,
+       D.ITEM_NAME 项目名称,
+       --D.COMB_NO 组,
+       ----D.PACKAGE_NAME 组名,
+       --D.RECIPE_NO 内部序号,
+       --D.RECIPE_SEQ 序列号,
+       D.SPECS 规格,
+       D.QTY 数量,
+       ROUND(D.UNIT_PRICE / D.PACK_QTY, 4) 单价,
+       COALESCE(D.OWN_COST, 0) + COALESCE(D.PAY_COST, 0) +
+       COALESCE(D.PUB_COST, 0) 总金额,
+       --COALESCE(D.OWN_COST, 0) + COALESCE(D.PAY_COST, 0) 自付金额,
+       COALESCE(d.own_cost,0)-COALESCE(d.eco_cost,0) 折后金额,
+       COALESCE(D.eco_cost, 0) 减免金额,
+       (SELECT T1.DEPT_NAME
+          FROM COM_DEPARTMENT T1
+         WHERE T1.DEPT_CODE = D.REG_DPCD and rownum = 1) 开单科室,
+       (SELECT T2.EMPL_NAME
+          FROM COM_EMPLOYEE T2
+         WHERE T2.EMPL_CODE = D.DOCT_CODE and rownum = 1) 开单医生,
+       (SELECT T6.EMPL_NAME
+          FROM COM_EMPLOYEE T6
+         WHERE T6.EMPL_CODE = D.OPER_CODE and rownum = 1) 录入人,
+        TO_CHAR(D.OPER_DATE, 'yyyy-mm-dd hh24:mi:ss') 录入时间,       
+       (SELECT T4.DEPT_NAME
+          FROM COM_DEPARTMENT T4
+         WHERE T4.DEPT_CODE = D.EXEC_DPCD) 执行科室,
+       (SELECT T3.EMPL_NAME
+          FROM COM_EMPLOYEE T3
+         WHERE T3.EMPL_CODE = D.FEE_CPCD) 收款员,
+       TO_CHAR(D.FEE_DATE, 'yyyy-mm-dd hh24:mi:ss') 收费日期,
+       CASE D.CONFIRM_FLAG
+         WHEN '0' THEN
+          '未执行'
+         ELSE
+          '已执行'
+       END 确认执行状态,
+       (SELECT T4.DEPT_NAME
+          FROM COM_DEPARTMENT T4
+         WHERE T4.DEPT_CODE = D.CONFIRM_DEPT) 确认执行科室,
+       (SELECT T5.EMPL_NAME
+          FROM COM_EMPLOYEE T5
+         WHERE T5.EMPL_CODE = D.CONFIRM_CODE) 确认执行人,
+       TO_CHAR(D.CONFIRM_DATE, 'yyyy-mm-dd hh24:mi:ss') 确认执行日期,
+       (SELECT T3.EMPL_NAME
+          FROM COM_EMPLOYEE T3
+         WHERE T3.EMPL_CODE = (
+         SELECT t.FEE_CPCD FROM  FIN_OPB_FEEDETAIL t 
+         WHERE t.CLINIC_CODE = d.clinic_code 
+         AND d.recipe_no = t.RECIPE_NO
+         AND t.SEQUENCE_NO = d.SEQUENCE_NO
+         AND t.TRANS_TYPE = '2'
+         AND t.MO_ORDER = d.MO_ORDER
+         AND t.INVOICE_NO = d.INVOICE_NO)
+         ) AS 退费操作员,
+       TO_CHAR((SELECT t.FEE_DATE FROM  FIN_OPB_FEEDETAIL t 
+         WHERE t.CLINIC_CODE = d.clinic_code 
+         AND d.recipe_no = t.RECIPE_NO
+         AND t.SEQUENCE_NO = d.SEQUENCE_NO
+         AND t.TRANS_TYPE = '2'
+         AND t.MO_ORDER = d.MO_ORDER
+         AND t.INVOICE_NO = d.INVOICE_NO
+         ),'yyyy-mm-dd hh24:mi:ss') 退费时间
+  FROM FIN_OPB_FEEDETAIL D 
+  left join fin_opr_register fr on d.clinic_code=fr.clinic_code
+  left join com_patientinfo cp on fr.card_no=cp.card_no
+  WHERE  d.pay_flag = '1' 
+and (cp.name like '%&amp;txtXX%' or '&amp;txtXX'  is null  or cp.card_no like   '%&amp;txtXX%' or cp.home_tel like  '%&amp;txtXX%' or cp.linkman_tel like  '%&amp;txtXX%')
+and  D.FEE_DATE between to_date('&amp;dtBeginTime','YYYY-MM-DD') and to_date('&amp;dtEndTime','YYYY-MM-DD') +0.99
+and d.reg_dpcd in (5109,5071)
+ORDER BY cp.card_no,TO_CHAR(D.FEE_DATE, 'yyyy-mm-dd hh24:mi:ss') )tt
+where tt.收款员&lt;&gt;'信息科'
+group by rollup((
+门诊号, 
+姓名, 
+电话, 
+划价收费, 
+状态, 
+录入来源, 
+项目名称, 
+规格, 
+数量, 
+单价, 
+总金额, 
+折后金额, 
+减免金额, 
+开单科室, 
+开单医生, 
+录入人, 
+录入时间, 
+执行科室, 
+收款员, 
+收费日期, 
+确认执行状态, 
+确认执行科室, 
+确认执行人, 
+确认执行日期, 
+退费操作员, 
+退费时间
+))
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\医美\医美门诊消费明细统计设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC36E40A-C624-4BF1-8F5F-51E9670DC926}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.HISFC.Components.Nurse</RootNamespace>
+    <AssemblyName>SOC.HISFC.Components.Nurse</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.EPRControl, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.EPRControl.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Nurse, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Nurse.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.RADT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.RADT.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Registration, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Registration.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Nurse, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Components.Nurse.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SpeechLib, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Assign.BizLogic, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Assign.BizProcess, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Assign.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Assign.Models, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.MessagePatternInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.CallQueue.BizLogic, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.CallQueue.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.CallQueue.Models, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\CallSpeak.cs" />
+    <Compile Include="Classes\LogManager.cs" />
+    <Compile Include="Controls\Array\frmDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Array\Function.cs" />
+    <Compile Include="Controls\Array\ucArray.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Array\ucArray.Designer.cs">
+      <DependentUpon>ucArray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Array\ucTriage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Array\ucTriage.Designer.cs">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GYSY\frmDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\GYSY\Function.cs" />
+    <Compile Include="Controls\GYSY\ucTriage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GYSY\ucTriage.Designer.cs">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FoSan\FoSi\ucRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FoSan\FoSi\ucRegister.Designer.cs">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FoSan\ucPrintTreatment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FoSan\ucPrintTreatment.Designer.cs">
+      <DependentUpon>ucPrintTreatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FoSan\ucRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FoSan\ucRegister.Designer.cs">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\frmDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\frmDisplay.designer.cs">
+      <DependentUpon>frmDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\frmDisplay1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\frmDisplay1.designer.cs">
+      <DependentUpon>frmDisplay1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\Function.cs" />
+    <Compile Include="Controls\SDFY\ucAddQueue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucAddQueue.designer.cs">
+      <DependentUpon>ucAddQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucArray.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucArray.designer.cs">
+      <DependentUpon>ucArray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucBabyInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucBabyInfo.designer.cs">
+      <DependentUpon>ucBabyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucInRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucInRoom.designer.cs">
+      <DependentUpon>ucInRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucPopPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucPopPatient.designer.cs">
+      <DependentUpon>ucPopPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucQueForDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucQueForDisplay.designer.cs">
+      <DependentUpon>ucQueForDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucQueue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucQueue.designer.cs">
+      <DependentUpon>ucQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucQueueQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucQueueQuery.designer.cs">
+      <DependentUpon>ucQueueQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucTriage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SDFY\ucTriage.designer.cs">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GYSY\ucArray.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GYSY\ucArray.Designer.cs">
+      <DependentUpon>ucArray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FoSi\ucRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FoSi\ucRegister.Designer.cs">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDLY\Array\frmDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDLY\Array\Function.cs" />
+    <Compile Include="Controls\ZDLY\Array\ucArray.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDLY\Array\ucArray.Designer.cs">
+      <DependentUpon>ucArray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDLY\Array\ucTriage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDLY\Array\ucTriage.Designer.cs">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDLY\frmDisplay1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDLY\frmDisplay1.Designer.cs">
+      <DependentUpon>frmDisplay1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDLY\Function.cs" />
+    <Compile Include="Controls\ZDLY\ucInjectQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDLY\ucInjectQuery.designer.cs">
+      <DependentUpon>ucInjectQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDLY\ucQueForDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDLY\ucQueForDisplay.Designer.cs">
+      <DependentUpon>ucQueForDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDLY\ucRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDLY\ucRegister.Designer.cs">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\frmArrayDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\frmArrayDisplay.Designer.cs">
+      <DependentUpon>frmArrayDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\frmArrayDisplay_old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\frmArrayDisplay_old.Designer.cs">
+      <DependentUpon>frmArrayDisplay_old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\frmDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\Function.cs" />
+    <Compile Include="Controls\ZDWY\Array\IAssignDisplay.cs" />
+    <Compile Include="Controls\ZDWY\Array\LocalManager.cs" />
+    <Compile Include="Controls\ZDWY\Array\ucArray.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\ucArray.Designer.cs">
+      <DependentUpon>ucArray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\ucArray_old.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\ucArray_old.Designer.cs">
+      <DependentUpon>ucArray_old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\ucTriage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Array\ucTriage.Designer.cs">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\frmDisplay1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\frmDisplay1.Designer.cs">
+      <DependentUpon>frmDisplay1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\Function.cs" />
+    <Compile Include="Controls\ZDWY\ucInjectQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\ucInjectQuery.designer.cs">
+      <DependentUpon>ucInjectQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\ucQueForDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\ucQueForDisplay.Designer.cs">
+      <DependentUpon>ucQueForDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\ucRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\ucRegister.Designer.cs">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZDWY\ucRegList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ZDWY\ucRegList.Designer.cs">
+      <DependentUpon>ucRegList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\GYSY\AssignRecord.cs" />
+    <Compile Include="Interface\ZDLY\AssignRecord.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Array\frmDisplay.resx">
+      <DependentUpon>frmDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Array\ucArray.resx">
+      <DependentUpon>ucArray.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Array\ucTriage.resx">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GYSY\frmDisplay.resx">
+      <DependentUpon>frmDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GYSY\ucTriage.resx">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FoSan\FoSi\ucRegister.resx">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FoSan\ucPrintTreatment.resx">
+      <DependentUpon>ucPrintTreatment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FoSan\ucRegister.resx">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\frmDisplay.resx">
+      <DependentUpon>frmDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\frmDisplay1.resx">
+      <DependentUpon>frmDisplay1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucAddQueue.resx">
+      <DependentUpon>ucAddQueue.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucArray.resx">
+      <DependentUpon>ucArray.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucBabyInfo.resx">
+      <DependentUpon>ucBabyInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucInRoom.resx">
+      <DependentUpon>ucInRoom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucPopPatient.resx">
+      <DependentUpon>ucPopPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucQueForDisplay.resx">
+      <DependentUpon>ucQueForDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucQueue.resx">
+      <DependentUpon>ucQueue.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucQueueQuery.resx">
+      <DependentUpon>ucQueueQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SDFY\ucTriage.resx">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GYSY\ucArray.resx">
+      <DependentUpon>ucArray.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FoSi\ucRegister.resx">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDLY\Array\frmDisplay.resx">
+      <DependentUpon>frmDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDLY\Array\ucArray.resx">
+      <DependentUpon>ucArray.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDLY\Array\ucTriage.resx">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDLY\frmDisplay1.resx">
+      <DependentUpon>frmDisplay1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDLY\ucInjectQuery.resx">
+      <DependentUpon>ucInjectQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDLY\ucQueForDisplay.resx">
+      <DependentUpon>ucQueForDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDLY\ucRegister.resx">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\Array\frmArrayDisplay.resx">
+      <DependentUpon>frmArrayDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\Array\frmArrayDisplay_old.resx">
+      <DependentUpon>frmArrayDisplay_old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\Array\frmDisplay.resx">
+      <DependentUpon>frmDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\Array\ucArray.resx">
+      <DependentUpon>ucArray.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\Array\ucArray_old.resx">
+      <DependentUpon>ucArray_old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\Array\ucTriage.resx">
+      <DependentUpon>ucTriage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\frmDisplay1.resx">
+      <DependentUpon>frmDisplay1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\ucInjectQuery.resx">
+      <DependentUpon>ucInjectQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\ucQueForDisplay.resx">
+      <DependentUpon>ucQueForDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\ucRegister.resx">
+      <DependentUpon>ucRegister.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZDWY\ucRegList.resx">
+      <DependentUpon>ucRegList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

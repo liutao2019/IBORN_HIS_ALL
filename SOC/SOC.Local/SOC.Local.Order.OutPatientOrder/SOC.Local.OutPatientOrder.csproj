@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECED7C23-31EC-4E60-B159-6C62513DB2B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Neusoft.SOC.Local.OutPatientOrder</RootNamespace>
+    <AssemblyName>SOC.Local.OutPatientOrder</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.EPRControl, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthCard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.HealthCard.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.HealthRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Order, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Pharmacy.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.RADT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.RADT.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Registration, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Registration.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.MessagePatternInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="SOC.HISFC.BizProcess.OrderInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.OrderInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.RADT.BizLogic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="SOC.HISFC.RADT.BizProcess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="SOC.HISFC.RADT.Components, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.RADT.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="SOC.Public, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ComFunc.cs" />
+    <Compile Include="Common\frmPreviewControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\frmPreviewControl.Designer.cs">
+      <DependentUpon>frmPreviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\HuaHaiServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SplitRecipe\ShenZhen\ISplitRecipe.cs" />
+    <Compile Include="ZDLY\ClinicsBillPrint\ucClinicsBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\ClinicsBillPrint\ucClinicsBillPrint.Designer.cs">
+      <DependentUpon>ucClinicsBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\Common\Function.cs" />
+    <Compile Include="ZDLY\Common\ItemExtendInfoAchieve.cs" />
+    <Compile Include="ZDLY\InjectBillPrint\ucOrderInjectBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\InjectBillPrint\ucOrderInjectBill.designer.cs">
+      <DependentUpon>ucOrderInjectBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\IOutPateintTree\IOutPateintTree.cs" />
+    <Compile Include="ZDLY\LisBillPrint\ucLisBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\LisBillPrint\ucLisBillPrint.Designer.cs">
+      <DependentUpon>ucLisBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucOutPatientNoticeOld.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucOutPatientNoticeOld.designer.cs">
+      <DependentUpon>ucOutPatientNoticeOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucPrepayInOld.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucPrepayInOld.designer.cs">
+      <DependentUpon>ucPrepayInOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\ResultPrint\ProcessesManager.cs" />
+    <Compile Include="ZDLY\ResultPrint\ResultInterface.cs" />
+    <Compile Include="ZDLY\OutPatientGuide\ucOutPatientGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\OutPatientGuide\ucOutPatientGuide.Designer.cs">
+      <DependentUpon>ucOutPatientGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\PacsBillPrint\ucPacsBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\PacsBillPrint\ucPacsBillPrint.Designer.cs">
+      <DependentUpon>ucPacsBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucPrepayIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucPrepayIn.designer.cs">
+      <DependentUpon>ucPrepayIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucPrepayInQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucPrepayInQuery.designer.cs">
+      <DependentUpon>ucPrepayInQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\RecipePrint\frmRecipePrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDLY\RecipePrint\frmRecipePrint.Designer.cs">
+      <DependentUpon>frmRecipePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\RecipePrint\ucRecipePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\RecipePrint\ucRecipePrint.Designer.cs">
+      <DependentUpon>ucRecipePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\SaveRecipeFactory.cs" />
+    <Compile Include="ZDLY\SplitRecipe\ISplitRecipe.cs" />
+    <Compile Include="ZDLY\TreatmentBillPrint\ucTreatmentBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\TreatmentBillPrint\ucTreatmentBill.designer.cs">
+      <DependentUpon>ucTreatmentBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucOutPatientNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDLY\PrePayIn\ucOutPatientNotice.designer.cs">
+      <DependentUpon>ucOutPatientNotice.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\frmPreviewControl.resx">
+      <DependentUpon>frmPreviewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\ClinicsBillPrint\ucClinicsBillPrint.resx">
+      <DependentUpon>ucClinicsBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\InjectBillPrint\ucOrderInjectBill.resx">
+      <DependentUpon>ucOrderInjectBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\LisBillPrint\ucLisBillPrint.resx">
+      <DependentUpon>ucLisBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\OutPatientGuide\ucOutPatientGuide.resx">
+      <DependentUpon>ucOutPatientGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\PacsBillPrint\ucPacsBillPrint.resx">
+      <DependentUpon>ucPacsBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\PrePayIn\ucPrepayIn.resx">
+      <DependentUpon>ucPrepayIn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\PrePayIn\ucPrepayInQuery.resx">
+      <DependentUpon>ucPrepayInQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\PrePayIn\ucOutPatientNoticeOld.resx">
+      <DependentUpon>ucOutPatientNoticeOld.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\PrePayIn\ucPrepayInOld.resx">
+      <DependentUpon>ucPrepayInOld.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\RecipePrint\frmRecipePrint.resx">
+      <DependentUpon>frmRecipePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\RecipePrint\ucRecipePrint.resx">
+      <DependentUpon>ucRecipePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\TreatmentBillPrint\ucTreatmentBill.resx">
+      <DependentUpon>ucTreatmentBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDLY\PrePayIn\ucOutPatientNotice.resx">
+      <DependentUpon>ucOutPatientNotice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\HuaHaiServices\item.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\HuaHaiServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HuaHaiServices\ConnectHISService.wsdl" />
+    <None Include="Service References\HuaHaiServices\item.disco" />
+    <None Include="Service References\HuaHaiServices\item.wsdl" />
+    <None Include="Service References\HuaHaiServices\item1.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HuaHaiServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HuaHaiServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HuaHaiServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

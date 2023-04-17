@@ -1,0 +1,3967 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.Components.Operation</name>
+    </assembly>
+    <members>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.frmArrangeDisplayInWeb.LoadHtmlTemp(System.String)">
+            <summary>
+            加载html模板
+            </summary>
+            <param name="TempName"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.frmArrangeDisplayInWeb.webArrangeBrowser_DocumentCompleted(System.Object,System.Windows.Forms.WebBrowserDocumentCompletedEventArgs)">
+            <summary>
+            加载HTML
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ElectronicDisplay.frmArrangeDisplayInWeb.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ElectronicDisplay.frmArrangeDisplayInWeb.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ElectronicDisplay.frmArrangeDisplayInWeb.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay">
+            <summary>
+            此处展示电子显示屏的查看麻醉安排和手术安排信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.DeptObj">
+            <summary>
+            当前登录科室实体
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.OnSave(System.Object,System.Object)">
+            <summary>
+            保存配置并启动屏幕
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.ReGenerHtml(System.Object,System.EventArgs)">
+            <summary>
+            重新生成html
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.SetData(System.DateTime,System.DateTime)">
+            <summary>
+            显示当天数据
+            </summary>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.SaveSet(System.String[])">
+            <summary>
+            保存配置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.InitSet">
+            <summary>
+            初始化显示配置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.ConvertToHtml">
+            <summary>
+            FarPint转HTML
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.EnumFilter">
+            <summary>
+            过滤实体
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.Filter">
+            <summary>
+            过滤类型
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery">
+            <summary>
+            我所想到的要显示的信息：主刀、一助、二助、麻醉者、麻醉助手、器械护士（就是系统里面的洗手护士）、巡回护士、
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery.#ctor(System.DateTime)">
+            <summary>
+            手术安排查询
+            </summary>
+            <param name="dt">默认查询的日期</param>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery.DtBegin">
+            <summary>
+            查询结果所属日期
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery.QueryOpsApp(System.DateTime,System.DateTime)">
+            <summary>
+            a按照日期查询
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery.GetOpsData(System.Collections.ArrayList)">
+            <summary>
+            手术安排列表
+            </summary>
+            <param name="al"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery.SetDataTableData(System.DateTime,System.DateTime)">
+            <summary>
+            根据开始时间和结束时间查询手术安排信息
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery.SetDataTableData(FS.FrameWork.Models.NeuObject,System.DateTime,System.DateTime)">
+            <summary>
+            根据开始时间和结束时间和科室编码查询手术安排信息
+            </summary>
+            <param name="dept">科室编码</param>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2">
+            <summary>
+            此处展示电子显示屏的查看麻醉安排和手术安排信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.DeptObj">
+            <summary>
+            当前登录科室实体
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.OnSave(System.Object,System.Object)">
+            <summary>
+            保存配置并启动屏幕
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.ReGenerHtml(System.Object,System.EventArgs)">
+            <summary>
+            重新生成html
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.SetData(System.DateTime,System.DateTime)">
+            <summary>
+            显示当天数据
+            </summary>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.SaveSet(System.String[])">
+            <summary>
+            保存配置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.InitSet">
+            <summary>
+            初始化显示配置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.ConvertToHtml">
+            <summary>
+            FarPint转HTML
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.EnumFilter">
+            <summary>
+            过滤实体
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplay2.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.Filter2">
+            <summary>
+            过滤类型
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery2">
+            <summary>
+            我所想到的要显示的信息：主刀、一助、二助、麻醉者、麻醉助手、器械护士（就是系统里面的洗手护士）、巡回护士、
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery2.#ctor(System.DateTime)">
+            <summary>
+            手术安排查询
+            </summary>
+            <param name="dt">默认查询的日期</param>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery2.DtBegin">
+            <summary>
+            查询结果所属日期
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery2.QueryOpsApp(System.DateTime,System.DateTime)">
+            <summary>
+            a按照日期查询
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery2.GetOpsData(System.Collections.ArrayList)">
+            <summary>
+            手术安排列表
+            </summary>
+            <param name="al"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery2.SetDataTableData(System.DateTime,System.DateTime)">
+            <summary>
+            根据开始时间和结束时间查询手术安排信息
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQuery2.SetDataTableData(FS.FrameWork.Models.NeuObject,System.DateTime,System.DateTime)">
+            <summary>
+            根据开始时间和结束时间和科室编码查询手术安排信息
+            </summary>
+            <param name="dept">科室编码</param>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily">
+            <summary>
+            此处展示电子显示屏的查看麻醉安排和手术安排信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.DeptObj">
+            <summary>
+            当前登录科室实体
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.OnSave(System.Object,System.Object)">
+            <summary>
+            保存配置并启动屏幕
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.ReGenerHtml(System.Object,System.EventArgs)">
+            <summary>
+            重新生成html
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.SetData(System.DateTime,System.DateTime)">
+            <summary>
+            显示当天数据
+            </summary>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.SaveSet(System.String[])">
+            <summary>
+            保存配置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.InitSet">
+            <summary>
+            初始化显示配置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.InitTipGroups">
+            <summary>
+            初始化提示集合
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.ConvertToHtml">
+            <summary>
+            FarPint转HTML
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.EnumFilterForFamily">
+            <summary>
+            过滤实体
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ElectronicDisplay.ucArrangeDisplayForFamily.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.FilterForFamily">
+            <summary>
+            过滤类型
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQueryForFamily">
+            <summary>
+            我所想到的要显示的信息：主刀、一助、二助、麻醉者、麻醉助手、器械护士（就是系统里面的洗手护士）、巡回护士、
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQueryForFamily.#ctor(System.DateTime)">
+            <summary>
+            手术安排查询
+            </summary>
+            <param name="dt">默认查询的日期</param>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQueryForFamily.DtBegin">
+            <summary>
+            查询结果所属日期
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQueryForFamily.QueryOpsApp(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            a按照日期查询
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ElectronicDisplay.ArrangeQueryForFamily.SetDataTableData(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            根据开始时间和结束时间查询手术安排信息
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmApplyMZList.LoadData">
+            <summary>
+            载入数据
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmApplyMZList.SetApplyToDataTable(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            将手术信息放入数据表
+            </summary>
+            <param name="apply"></param>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.isSelect">
+            <summary>
+            是否选择
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.patientNO">
+            <summary>
+            住院号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.bedID">
+            <summary>
+            床号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.opItemName">
+            <summary>
+            手术名称
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.opDate">
+            <summary>
+            手术时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.opDoctID">
+            <summary>
+            手术医生
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.Cols.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmApplyMZList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmApplyMZList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmApplyMZList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmChooseGroupDetails.ShowDetail(System.String)">
+            <summary>
+            显示组套明细
+            </summary>
+            <param name="groupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmChooseGroupDetails.AddDetailToFP(FS.HISFC.Models.Fee.ComGroupTail)">
+            <summary>
+            添加明细到farpoint
+            </summary>
+            <param name="detail"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.frmChooseGroupDetails.Cols">
+            <summary>
+            列枚举
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmChooseGroupDetails.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmChooseGroupDetails.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmChooseGroupDetails.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.Funtion.conBizLogic">
+            <summary>
+            常数业务类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Funtion.CheckLimitedLostNumber(System.DateTime,System.DateTime,System.String,System.String,System.String,System.String@)">
+            <summary>
+            判断是否能够申请：择期的正台手术函数
+            </summary>
+            <param name="dtBegin">手术预约开始日期</param>
+            <param name="dtEnd">手术预约结束日期</param>
+            <param name="ExeDept">执行手术室</param>
+            <param name="AppDept">申请科室</param>
+            <param name="Type"></param>
+            <param name="Error">返回错误信息</param>
+            <returns>-1无正台 -2 未维护总台数常数 1 可以申请正台 </returns>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication">
+            <summary>
+            [功能描述: 手术申请控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-11-28]<br></br>
+            <修改记录
+            	修改人='张俊义'
+            	修改时间='yyyy-mm-dd'
+            	修改目的='完善手术申请'
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication.Init">
+            <summary>
+            初使化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication.SetUeserText">
+            <summary>
+            设置常用语
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication.RefreshApply(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            生成手术室申请单列表
+            </summary>
+            <param name="dept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication.AddApply(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            添加患者下的申请单列表
+            </summary>
+            <param name="dept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication.GetDateTime(System.DateTime@,System.DateTime@)">
+            <summary>
+            获取查询开始、结束时间
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplication.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm">
+            <summary>
+            [功能描述: 手术申请单]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-11-28]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.MainOperation">
+            <summary>
+            主手术项目
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.IsNew">
+            <summary>
+            是否是新申请手术
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.Init">
+            <summary>
+            初使化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.Reset">
+            <summary>
+            重新设置控件
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.GetValue">
+            <summary>
+            实体赋值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.SetOperationItem(System.Object)">
+            <summary>
+            设置手术项目
+            </summary>
+            <param name="operationItem"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.Valid">
+            <summary>
+            有效性验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.Save">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.OnSendMessage(System.Object,System.String)">
+            <summary>
+            即时消息{C51C7189-3DA7-4ebc-9D1F-11864D26D059}
+            </summary>
+            <param name="sender"></param>
+            <param name="msg"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.Cancel">
+            <summary>
+            作废当前修改申请单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.Print">
+            <summary>
+            打印
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.InputBySelf">
+            <summary>
+            手工录入诊断和拟手术名称
+            {6864A1A5-1965-41a2-BBA5-853DA4AD3FFF}feng.ch
+            </summary>
+            <returns>成功返回1</returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.cmbDoctor_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            根据医生职级对应显示手术级别  {8794572D-2030-4692-B7B8-95000D75F698}
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.chkInputBySelf_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            手工录入切换时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.OutpatientApplication.ucApplicationForm.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucArrangementPrint">
+            <summary>
+            手术一览表打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangementPrint.#ctor">
+            <summary>
+            手术一览表打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangementPrint.Export">
+            <summary>
+            导出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangementPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangementPrint.PrintPreview">
+            <summary>
+            打印预览
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangementPrint.AddAppliction(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            添加申请单
+            </summary>
+            <param name="appliction"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangementPrint.Reset">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.Report.ucArrangementPrint.ArrangeType">
+            <summary>
+            安排类型
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.Report.ucArrangementPrint.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangementPrint.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangementPrint.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint">
+            <summary>
+            [功能描述: 手术安排通知单打印控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint.#ctor">
+            <summary>
+            [功能描述: 手术安排打印]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint.OperationApplicationForm">
+            <summary>
+            手术申请单对象
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint.IsPrintExtendTable">
+            <summary>
+            是否打印手术加台申请表
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucQueryFeeQiaoTou">
+            <summary>
+            [功能描述: 患者费用查询]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-08]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucQueryFeeQiaoTou.DispPatientinfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            显示患者信息
+            </summary>
+            <param name="patient"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucQueryFeeQiaoTou.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucQueryFeeQiaoTou.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucQueryFeeQiaoTou.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint_zdly">
+            <summary>
+            [功能描述: 手术安排通知单打印控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint_zdly.#ctor">
+            <summary>
+            [功能描述: 手术安排打印]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint_zdly.OperationApplicationForm">
+            <summary>
+            手术申请单对象
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint_zdly.IsPrintExtendTable">
+            <summary>
+            是否打印手术加台申请表
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint_zdly.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint_zdly.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucArrangeNotifyPrint_zdly.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint">
+            <summary>
+            手术一览表打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.#ctor">
+            <summary>
+            手术一览表打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.Export">
+            <summary>
+            导出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.PrintPreview">
+            <summary>
+            打印预览
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.AddAppliction(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            添加申请单
+            </summary>
+            <param name="appliction"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.Reset">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.ArrangeType">
+            <summary>
+            安排类型
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Report.ucAnaArrangementPrint.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportCategory">
+            <summary>
+            [功能描述: 手术分类汇总统计]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-15]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportCategory.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportCategory.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportCategory.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportPACU">
+            <summary>
+            [功能描述: 进入PACU病人数统计]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-15]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportPACU.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportPACU.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportPACU.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportDoctor">
+            <summary>
+            [功能描述: 手术分类汇总统计]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-15]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportDoctor.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportDoctor.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportDoctor.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportBase">
+            <summary>
+            [功能描述: 手术分类汇总统计]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-15]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportBase.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportBase.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportBase.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportPacuCount.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportPacuCount.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportPacuCount.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportPatient">
+            <summary>
+            [功能描述: 手术患者信息查询]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-16]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportPatient.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportPatient.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportPatient.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportCanceled.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportCanceled.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportCanceled.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportGeneral">
+            <summary>
+            [功能描述: 手术分类统计一览表]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-16]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportGeneral.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportGeneral.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportGeneral.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportGeneral2.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportGeneral2.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportGeneral2.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportGender">
+            <summary>
+            [功能描述: 手术分类汇总统计(按性别)]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-16]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportGender.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportGender.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportGender.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportSpecial">
+            <summary>
+            [功能描述: 特诊手术统计(按病区)]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-16]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportSpecial.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportSpecial.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportSpecial.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Report.ucReportEmergency">
+            <summary>
+            [功能描述: 急诊感染手术统计]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-16]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.Report.ucReportEmergency.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportEmergency.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.Report.ucReportEmergency.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucAlreadyOperationSpread">
+            <summary>
+            [功能描述: 手术安排设置信息]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.alApplys">
+            <summary>
+            手术列表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.isSortByRoom">
+            <summary>
+            是否按照手术间排序
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.EnumFilter.All">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.EnumFilter.NotYet">
+            <summary>
+            未安排
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.EnumFilter.Already">
+            <summary>
+            已安排
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.InitNurseListBox">
+            <summary>
+            添加护士listbox列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.SelectNurse(System.Int32)">
+            <summary>
+             选择护士
+            </summary>
+            <param name="Column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.SetLocation">
+            <summary>
+            设置护士、手术台列表位置
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.CancelState">
+            <summary>
+            更改手术患者状态，从ExecStatus=6的已已完成未收费状态改为ExecStatus=3的已安排状态，此状态为医院要求添加
+            </summary>
+            <param name="apply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.AddOperationApplication(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            添加手术申请信息
+            </summary>
+            <param name="apply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Reset">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.GetRoom(System.String)">
+            <summary>
+            获取手术房间
+            </summary>
+            <param name="roomID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.ValueState">
+            <summary>
+            校对数据 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.AddRole(FS.HISFC.Models.Operation.OperationAppllication,System.Int32)">
+            <summary>
+            添加各类护士
+            </summary>
+            <param name="apply"></param>
+            <param name="row"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.AddRoleUnArrange(FS.HISFC.Models.Operation.OperationAppllication,System.Int32)">
+            <summary>
+            情况各类护士，用于手术不安排
+            </summary>
+            <param name="apply"></param>
+            <param name="row"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.UpdateFlag(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            更新实体的安排标志
+            </summary>
+            <param name="apply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.UpdateData(System.Int32)">
+            <summary>
+            更新数据
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.ChangeState">
+            <summary>
+            更改手术患者状态，从ExecStatus=3的已安排状态改为ExecStatus=6的已手术未收费状态，此状态为医院要求添加
+            </summary>
+            <param name="apply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Save">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.SetPrintMode(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            设置打印模式
+            </summary>
+            <param name="obj">传入实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.SetFilter">
+            <summary>
+            过滤
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.isPrint">
+            <summary>
+            是否打印
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.Order">
+            <summary>
+            台序
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.Desk">
+            <summary>
+            是否正台
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.anaeWay">
+            <summary>
+            麻醉方式
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.WNR">
+            <summary>
+            洗手护士
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.INR">
+            <summary>
+            巡回护士
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.RoomID">
+            <summary>
+            房号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.TableID">
+            <summary>
+            手术台
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.AllowDoctorView">
+            <summary>
+            允许医生查看
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.WNR2">
+            <summary>
+            洗手护士2
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.INR2">
+            <summary>
+            巡回护士2 
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.MAININR">
+            <summary>
+            总巡逻
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Cols.ArrangeNote">
+            <summary>
+            手术不安排的原因2 
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.ChangeDept">
+             <summary>
+            更换手术室
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.RoomSort">
+            <summary>
+            按照手术间排序
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucAlreadyOperationSpread.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucArrangmentQuery">
+            <summary>
+            创建者：冯超
+            创建时间：2010-11-1
+            新手术安排，动态设置检索列
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentQuery.conManagerIntegrate">
+            <summary>
+            管理业务层
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentQuery.ds">
+            <summary>
+            手术安排信息数据集
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentQuery.dv">
+            <summary>
+            手术安排信息数据视图
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentQuery.treeList">
+            <summary>
+            树节点数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.InitTreeView">
+            <summary>
+            树加载
+            </summary>
+            <returns>sucessfull:1，fail:-1</returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.RefreshTreeView">
+            <summary>
+            根据列表刷新树
+            </summary>
+            <returns>sucessfull:1，fail:-1</returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.GetIndex(System.String)">
+            <summary>
+            得到列索引
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.InitFpData">
+            <summary>
+            初始化手术安排信息
+            </summary>
+            <returns>sucessfull:1，fail:-1</returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.SetFormatFp">
+            <summary>
+            根据状态设置界面显示
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.OnLoad(System.EventArgs)">
+            <summary>
+            窗体加载
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.OnQuery(System.Object,System.Object)">
+            <summary>
+            查询
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.OnPrint(System.Object,System.Object)">
+            <summary>
+            打印
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.PrintInfo">
+            <summary>
+            打印方法
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.cmbQuery_SelectedIndexChanged(System.Object,System.EventArgs)">
+             <summary>
+            切换下拉框列表时触发
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.tvQueryList_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            选择树节点
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentQuery.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentQuery.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucArrangmentSelect">
+            <summary>
+            查询申请单信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentSelect.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentSelect.employee">
+            <summary>
+            登录人员信息
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentSelect.isOpsDept">
+            <summary>
+            是否手术科室
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentSelect.deptHelper">
+            <summary>
+            科室类帮助
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentSelect.emplHelper">
+            <summary>
+            科室类帮助
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangmentSelect.IsOpsDept">
+            <summary>
+            是否手术室属性设置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentSelect.OnQuery(System.Object,System.Object)">
+            <summary>
+            查询
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentSelect.SetFarPoint(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            赋值到fapiont界面
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangmentSelect.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentSelect.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangmentSelect.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucCancelApplicationApply.application">
+            <summary>
+            当前操作的手术信息
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucCancelApplicationApply.curEnumOper">
+            <summary>
+            当前操作类型
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelApplicationApply.Clear">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelApplicationApply.SetInfo(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            赋值显示
+            </summary>
+            <param name="application"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelApplicationApply.nbtCancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            取消事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelApplicationApply.nbtOK_Click(System.Object,System.EventArgs)">
+            <summary>
+            确认事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelApplicationApply.InsertCancelApply(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            插入作废手术申请表
+            </summary>
+            <param name="operationAppllication"></param>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucCancelApplicationApply.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelApplicationApply.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelApplicationApply.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucCancelArrangement">
+            <summary>
+            已安排手术集中作废界面
+            cao-lin
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelArrangement.OnInit(System.Object,System.Object,System.Object)">
+            <summary>
+            工具栏事件
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelArrangement.ToolStrip_ItemClicked(System.Object,System.Windows.Forms.ToolStripItemClickedEventArgs)">
+            <summary>
+            工具栏事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelArrangement.OnLoad(System.EventArgs)">
+            <summary>
+            初始化
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelArrangement.OnQuery(System.Object,System.Object)">
+            <summary>
+            查询
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelArrangement.RefreshApplys">
+            <summary>
+            刷新手术申请列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelArrangement.QueryAllCanCelApplication">
+            <summary>
+            查询所有已安排且发起作废申请的手术列表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucCancelArrangement.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelArrangement.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucCancelArrangement.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucDeptWorktype.tabMgr">
+            <summary>
+            排班管理类
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucDeptWorktype.toolBarService">
+            <summary>
+            定义工具栏服务
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.OnInit(System.Object,System.Object,System.Object)">
+            <summary>
+            初始化工具栏
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.ToolStrip_ItemClicked(System.Object,System.Windows.Forms.ToolStripItemClickedEventArgs)">
+            <summary>
+            工具栏增加按钮单击事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.initDept">
+            <summary>
+            生成科室列表
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.addDepts(System.String,System.Windows.Forms.TreeNode,System.Windows.Forms.TreeNode@)">
+            <summary>
+            添加科室类型包含的科室
+            </summary>
+            <param name="type"></param>
+            <param name="parent"></param>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.initType">
+            <summary>
+            生成排班类别列表
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.addfp1(System.Int32,FS.HISFC.Models.Registration.WorkType)">
+            <summary>
+            
+            </summary>
+            <param name="row"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.initDataSet">
+            <summary>
+            初始化dataset
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.treeView1_DoubleClick(System.Object,System.EventArgs)">
+            <summary>
+            检索科常用排班类型
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.getDeptType(System.String)">
+            <summary>
+            获取科常用排班类别
+            </summary>
+            <param name="deptID"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.add(System.Int32,FS.HISFC.Models.Registration.WorkType)">
+            <summary>
+            添加倒fp
+            </summary>
+            <param name="row"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.fpSpread1_CellDoubleClick(System.Object,FarPoint.Win.Spread.CellClickEventArgs)">
+            <summary>
+            添加一条科常用
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.add(System.Int32)">
+            <summary>
+            添加一行
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.fpSpread2_CellDoubleClick(System.Object,FarPoint.Win.Spread.CellClickEventArgs)">
+            <summary>
+            删除一行
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucDeptWorktype.del(System.Int32)">
+            <summary>
+            删除一行
+            </summary>
+            <param name="row"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucDeptWorktype.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucDeptWorktype.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucDeptWorktype.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.Environment">
+            <summary>
+            [功能描述: 环境类]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-01]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.Environment.OperatorDept">
+            <summary>
+            操者者所在科室
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Environment.GetAnes(System.String)">
+            <summary>
+            得到麻醉
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Environment.GetPayKind(System.String)">
+            <summary>
+            得到结算类别
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            Robin   2006-12-12
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.Environment.GetDept(System.String)">
+            <summary>
+            得到科室
+            </summary>
+            <param name="id">科室ID</param>
+            <returns>科室</returns>
+            Robin   2006-12-13
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmChangeOpsRoom.m_objOpsApp">
+            <summary>
+            手术申请单对象实例
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmChangeOpsRoom.m_objOpsManager">
+            <summary>
+            手术申请控制类实例
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.frmChangeOpsRoom.strNewOpsRoomID">
+            <summary>
+            更换后的手术室ID
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmChangeOpsRoom.InitWin">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmChangeOpsRoom.PreDateValidity">
+            <summary>
+            预约时间时效性判断
+            </summary>
+            <returns> 0 有效 -1 无效</returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.frmChangeOpsRoom.ShowTableNum">
+            <summary>
+            设置剩余正台数的显示
+            </summary>
+            <return>0 success -1 fail -2手术室为空</return>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.frmChangeOpsRoom.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.frmChangeOpsRoom.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.frmChangeOpsRoom.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.frmOperationRoom">
+            <summary>
+            [功能描述: 手术间维护]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-18]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.frmOperationRoom.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.frmOperationRoom.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.frmOperationRoom.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ListViewEmployee">
+            <summary>
+            [功能描述: 科室人员列表]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-26]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ListViewEmployee.DeptID">
+            <summary>
+            科室编码
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ListViewEmployee.RemoveEmployee(System.String)">
+            <summary>
+            移除人员
+            </summary>
+            <param name="id">人员ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucAnaesthesia">
+            <summary>
+            [功能描述: 麻醉安排控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-11]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesia.deptStatMgr">
+            <summary>
+            科室分类表维护管理业务层
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesia.beginTime">
+            <summary>
+            用于直接麻醉安排时候检索麻醉安排信息
+            开始时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesia.endTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesia.isJoinUc">
+            <summary>
+            是否合并手术安排与麻醉安排
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesia.apply">
+            <summary>
+            申请实体
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesia.isMustAfterArrangement">
+            <summary>
+            麻醉安排是否必须手术安排之后
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucAnaesthesia.BeginTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucAnaesthesia.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucAnaesthesia.IsMustAfterArrangement">
+            <summary>
+            麻醉安排是否必须手术安排之后
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesia.RefreshApplys">
+            <summary>
+            刷新手术申请列表
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucAnaesthesia.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucAnaesthesia.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucAnaesthesia.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucAnaesthesiaSpread">
+            <summary>
+            [功能描述: 麻醉安排表格控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-11]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.lbDoctor">
+            <summary>
+            本科人员列表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.isSortByRoom">
+            <summary>
+            是否按照手术间排序
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.AnaesDocDept">
+            <summary>
+            麻醉医生所在科室
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.EnumFilter.All">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.EnumFilter.NotYet">
+            <summary>
+            未安排
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.EnumFilter.Already">
+            <summary>
+            已安排
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.InitDoctListBox(System.Collections.ArrayList)">
+            <summary>
+            添加医生listbox列表
+            </summary>
+            <param name="doctors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.InitTypeList">
+            <summary>
+            生成麻醉类别列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.SetLocation">
+            <summary>
+            设置护士、手术台列表位置
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.AddOperationApplication(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            添加手术申请信息
+            </summary>
+            <param name="apply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Reset">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.GetRoom(System.String)">
+            <summary>
+            获取手术房间
+            </summary>
+            <param name="roomID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Save">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.SetPrintMode(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            设置打印模式
+            </summary>
+            <param name="obj">传入实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.AddRole(FS.HISFC.Models.Operation.OperationAppllication,System.Int32)">
+            <summary>
+            添加主麻、助手
+            </summary>
+            <param name="apply"></param>
+            <param name="row"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.UpdateData(System.Int32)">
+            <summary>
+            更新数据
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.RoomID">
+            <summary>
+            房号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.TableID">
+            <summary>
+            手术台
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.anaeType">
+            <summary>
+            麻醉方式
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.anaeDoct">
+            <summary>
+            主麻
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.anaeHelper">
+            <summary>
+            助手
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.anaeHelper1">
+            <summary>
+            助手1
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.anaeHelper2">
+            <summary>
+            助手2
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.ShiftDoctor">
+            <summary>
+            接班人员
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Cols.specialNote">
+            <summary>
+            特殊说明
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.RoomSort">
+            <summary>
+            按照手术间排序
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.RoomTableSort">
+            <summary>
+            按照手术台序排序
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucAnaesthesiaSpread.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucApplication">
+            <summary>
+            [功能描述: 手术申请控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-11-28]<br></br>
+            <修改记录
+            	修改人='张俊义'
+            	修改时间='yyyy-mm-dd'
+            	修改目的='完善手术申请'
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplication.Init">
+            <summary>
+            初使化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplication.SetUeserText">
+            <summary>
+            设置常用语
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplication.RefreshApply(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            生成手术室申请单列表
+            </summary>
+            <param name="dept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplication.AddApply(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            添加患者下的申请单列表
+            </summary>
+            <param name="dept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplication.GetDateTime(System.DateTime@,System.DateTime@)">
+            <summary>
+            获取查询开始、结束时间
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucApplication.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucApplication.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucApplication.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucApplicationForm">
+            <summary>
+            [功能描述: 手术申请单]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-11-28]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucApplicationForm.isSavePrint">
+            <summary>
+            保存后是否提示打印
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucApplicationForm.IsSavePrint">
+            <summary>
+            保存后是否提示打印
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucApplicationForm.alTableTypeCompare">
+            <summary>
+            台类型和台序对照
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucApplicationForm.alOrder">
+            <summary>
+            所有台序
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.SetOperationApplyBYMz">
+            <summary>
+            根据门诊手术窗体初始化住院手术申请窗体
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.GetOrdered(System.String,System.DateTime)">
+            <summary>
+            根据手术预约日期获取日期内已排手术情况
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucApplicationForm.MainOperation">
+            <summary>
+            主手术项目
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucApplicationForm.IsNew">
+            <summary>
+            是否是新申请手术
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucApplicationForm.Note">
+            <summary>
+            提示文字
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.Init">
+            <summary>
+            初使化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.Reset">
+            <summary>
+            重新设置控件
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.GetValue">
+            <summary>
+            实体赋值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.SetOperationItem(System.Object)">
+            <summary>
+            设置手术项目
+            </summary>
+            <param name="operationItem"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.Valid">
+            <summary>
+            有效性验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.Save">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.SetOperationMzFinish">
+            <summary>
+            设置门诊手术申请记录的状态为1 {0E140FEC-2F31-4414-8401-86E78FA3ADDC}
+            </summary>
+            <returns>1为成功，-1为失败</returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.OnSendMessage(System.Object,System.String)">
+            <summary>
+            即时消息{C51C7189-3DA7-4ebc-9D1F-11864D26D059}
+            </summary>
+            <param name="sender"></param>
+            <param name="msg"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.CancelApplyOldMZ">
+            <summary>
+            作废旧门诊手术申请单{2F7180FD-7B71-4001-A4BB-DBA9B7D40BE8}
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.CancelApply">
+            <summary>
+            对于已安排的手术发作废申请单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.Cancel">
+            <summary>
+            作废当前修改申请单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.Print">
+            <summary>
+            打印
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.InputBySelf">
+            <summary>
+            手工录入诊断和拟手术名称
+            {6864A1A5-1965-41a2-BBA5-853DA4AD3FFF}feng.ch
+            </summary>
+            <returns>成功返回1</returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.cmbDoctor_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            根据医生职级对应显示手术级别  {8794572D-2030-4692-B7B8-95000D75F698}
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationForm.chkInputBySelf_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            手工录入切换时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucApplicationForm.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucApplicationForm.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucApplicationForm.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucArrangement">
+            <summary>
+            [功能描述: 手术安排控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangement.isJoinUc">
+            <summary>
+            是否合并手术安排与麻醉安排
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangement.apply">
+            <summary>
+            申请实体
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangement.isNeedApprove">
+            <summary>
+            申请单是否需要科室主任（或授权医生）审核
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangement.AnaesDocDept">
+            <summary>
+            指定麻醉医生所属科室
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangement.RefreshApplys">
+            <summary>
+            刷新手术申请列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangement.AlreadyOperation">
+             <summary>
+            登记已做手术未收费的患者
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangement.CancelAlreadyOperation">
+             <summary>
+            取消登记已做手术未收费的患者
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangement.ViewAnaesthesia">
+            <summary>
+            检索麻醉信息
+            //{30819195-8798-446e-84C7-2B331A5ADDD3}feng.ch
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangement.InitData">
+            <summary>
+            初始化下拉列表
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucArrangement.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucArrangement.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucArrangement.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucArrangementInfo">
+            <summary>
+            [功能描述: 手术安排中的患者手术信息]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.PatientLocation">
+            <summary>
+            病区/床号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.PatientName">
+            <summary>
+            患者姓名
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.PatientID">
+            <summary>
+            患者住院号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.OperationType">
+            <summary>
+            手术类型
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.TableType">
+            <summary>
+            手术台类型
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.Diagnosis">
+            <summary>
+            术前诊断
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.OperationName">
+            <summary>
+            手术名称
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.OperationTime">
+            <summary>
+            手术时间
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.AnseType">
+            <summary>
+            麻醉方式
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.ApplyDoctorName">
+            <summary>
+            申请医生
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.OperatorName">
+            <summary>
+            手术医生
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.IsSpecialOperation">
+            <summary>
+            是否特殊手术
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.HelperDoctorName">
+            <summary>
+            助手医生
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.PatientIDCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucArrangementInfo.PatientAddress">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucArrangementInfo.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucArrangementInfo.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucArrangementInfo.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucArrangementSpread">
+            <summary>
+            [功能描述: 手术安排设置信息]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.alApplys">
+            <summary>
+            手术列表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.isSortByRoom">
+            <summary>
+            是否按照手术间排序
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.EnumFilter.All">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.EnumFilter.NotYet">
+            <summary>
+            未安排
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.EnumFilter.Already">
+            <summary>
+            已安排
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.InitNurseListBox">
+            <summary>
+            添加护士listbox列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.SelectNurse(System.Int32)">
+            <summary>
+             选择护士
+            </summary>
+            <param name="Column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.SetLocation">
+            <summary>
+            设置护士、手术台列表位置
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.AddOperationApplication(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            添加手术申请信息
+            </summary>
+            <param name="apply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.Reset">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.GetRoom(System.String)">
+            <summary>
+            获取手术房间
+            </summary>
+            <param name="roomID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.ValueState">
+            <summary>
+            校对数据 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.AddRole(FS.HISFC.Models.Operation.OperationAppllication,System.Int32)">
+            <summary>
+            添加各类护士
+            </summary>
+            <param name="apply"></param>
+            <param name="row"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.AddRoleUnArrange(FS.HISFC.Models.Operation.OperationAppllication,System.Int32)">
+            <summary>
+            情况各类护士，用于手术不安排
+            </summary>
+            <param name="apply"></param>
+            <param name="row"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.UpdateFlag(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            更新实体的安排标志
+            </summary>
+            <param name="apply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.UpdateData(System.Int32)">
+            <summary>
+            更新数据
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.ChangeState">
+            <summary>
+            更改手术患者状态，从ExecStatus=3的已安排状态改为ExecStatus=6的已手术未收费状态，此状态为医院要求添加
+            </summary>
+            <param name="apply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.Save">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.SetPrintMode(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            设置打印模式
+            </summary>
+            <param name="obj">传入实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.SetFilter">
+            <summary>
+            过滤
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.isPrint">
+            <summary>
+            是否打印
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.RoomID">
+            <summary>
+            房号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.TableID">
+            <summary>
+            手术台
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.Order">
+            <summary>
+            台序
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.Desk">
+            <summary>
+            是否正台
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.foreDiagnose">
+            <summary>
+            术前诊断
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.isSpecial">
+            <summary>
+            是否特殊手术
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.anaeWay">
+            <summary>
+            麻醉方式
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.WNR">
+            <summary>
+            洗手护士
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.WNR2">
+            <summary>
+            洗手护士2
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.AllowDoctorView">
+            <summary>
+            允许医生查看
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.INR">
+            <summary>
+            巡回护士
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.INR2">
+            <summary>
+            巡回护士2 
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.MAININR">
+            <summary>
+            总巡逻
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.ArrangeNote">
+            <summary>
+            手术不安排的原因2 
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.ShiftNurse">
+            <summary>
+            接班人员
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucArrangementSpread.Cols.specialNote">
+            <summary>
+            特殊说明
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.CancelOperation">
+            <summary>
+            作废手术申请
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.FinishOperation">
+            <summary>
+            完成手术
+            //{2310330B-FDB2-42bf-9838-D52FA88CE529}
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucArrangementSpread.ChangeDept">
+             <summary>
+            更换手术室
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucArrangementSpread.RoomSort">
+            <summary>
+            按照手术间排序
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucArrangementSpread.RoomTableSort">
+            <summary>
+            按照手术台序排序
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucArrangementSpread.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucArrangementSpread.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucArrangementSpread.InitializeComponent" -->
+        <member name="F:FS.HISFC.Components.Operation.ucFee.operateType">
+            <summary>
+            批费申请类型
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFee.operationAppllication">
+            <summary>
+            手术申请
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFee.operationRecord">
+            <summary>
+            手术登记
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFee.anaeRecord">
+            <summary>
+            麻醉登记
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFee.isNeedApply">
+            <summary>
+            是否需要手术申请才能手术批费:true需要；false不需要
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFee.控件功能">
+            <summary>
+            控件功能
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFee.IsChargeZero">
+            <summary>
+            是否可以收费或者划价0单价的项目
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFee.IsShowFeeRate">
+            <summary>
+            是否显示比例项{2C7FCD3D-D9B4-44f5-A2EE-A7E8C6D85576}
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFee.IsNeedUOOrder">
+            <summary>
+            手术收费是否必须关联医嘱 增加选择手术医嘱功能  {B9932D8E-ACFF-4a90-A252-B99136DD5285} 手术收费关联手术医嘱
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFee.IsOnlyUO">
+            <summary>
+            是否只显示手术医嘱 增加选择手术医嘱功能  {B9932D8E-ACFF-4a90-A252-B99136DD5285} 手术收费关联手术医嘱
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFee.IsNeedApply">
+            <summary>
+            是否需要手术申请才能手术批费
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFee.RefreshGroupList">
+            <summary>
+            生成科室收费组套列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFee.OnInit(System.Object,System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFee.OnQuery(System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFee.OnSave(System.Object,System.Object)">
+            <summary>
+             保存
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFee.OnPrint(System.Object,System.Object)">
+            <summary>
+            打印
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFee.ToolStrip_ItemClicked(System.Object,System.Windows.Forms.ToolStripItemClickedEventArgs)">
+            <summary>
+            工具栏
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFee.ucQueryInpatientNo1_myEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucFee.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucFee.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucFee.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ApplyType">
+            <summary>
+            批费申请类型
+            {9FD18145-4049-4612-A8A7-A826E89426CD}
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ApplyType.OperationAppllication">
+            <summary>
+            手术申请数据
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ApplyType.OperationRecord">
+            <summary>
+            手术登记数据
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ApplyType.AnaeRecord">
+            <summary>
+            麻醉登记数据
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucFeeForm">
+            <summary>
+            [功能描述: 手术收费]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-20]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFeeForm.isShowFeeRate">
+            <summary>
+            是否显示比例项{2C7FCD3D-D9B4-44f5-A2EE-A7E8C6D85576}
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFeeForm.isOnlyUO">
+            <summary>
+            是否只显示手术医嘱  增加选择手术医嘱功能  {B9932D8E-ACFF-4a90-A252-B99136DD5285} 手术收费关联手术医嘱
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFeeForm.isNeedUOOrder">
+            <summary>
+            手术收费是否必须关联医嘱 增加选择手术医嘱功能  {B9932D8E-ACFF-4a90-A252-B99136DD5285} 手术收费关联手术医嘱
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFeeForm.isUpdateOpsOper">
+            <summary>
+            手术收费时是否更新操作员信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeeForm.NoAddDrugQuality">
+            <summary>
+            不加载的药品性质// {4D67D981-6763-4ced-814E-430B518304E2}
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeeForm.IsUpdateOpsOper">
+            <summary>
+            手术收费时是否更新操作员信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeeForm.IsNeedUOOrder">
+            <summary>
+            手术收费是否必须关联医嘱 增加选择手术医嘱功能  {B9932D8E-ACFF-4a90-A252-B99136DD5285} 手术收费关联手术医嘱
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeeForm.IsOnlyUO">
+            <summary>
+            是否只显示手术医嘱 增加选择手术医嘱功能  {B9932D8E-ACFF-4a90-A252-B99136DD5285} 手术收费关联手术医嘱
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeeForm.控件功能">
+            <summary>
+            控件功能
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeeForm.IsChargeZero">
+            <summary>
+            是否可以收费或者划价0单价的项目
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeeForm.IsShowFeeRate">
+            <summary>
+            是否显示比例项{2C7FCD3D-D9B4-44f5-A2EE-A7E8C6D85576}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeeForm.Clear">
+            <summary>
+            清空
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeeForm.Save">
+            <summary>
+            保存，进行收费
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeeForm.TempSave">
+            <summary>
+            暂存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeeForm.SetValue">
+            <summary>
+            显示暂存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeeForm.DelRow">
+            <summary>
+            删除当前行
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucFeeForm.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucFeeForm.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucFeeForm.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucFeeTemplate">
+            <summary>
+            [功能描述: 批费模板项目选择]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-25]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucFeeTemplate.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucFeeTemplate.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucFeeTemplate.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucOperationTableTree">
+            <summary>
+            [功能描述: 手术台树形控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucOperationTableTree.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucOperationTableTree.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucOperationTableTree.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucOpItem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:FS.HISFC.Components.Operation.ucOpItem.SelectItem">
+            <summary>
+            双击、回车项目列表时执行的事件
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOpItem.Init">
+            <summary>
+            初始化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOpItem.Filter(System.String)">
+            <summary>
+            过滤
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOpItem.NextRow">
+            <summary>
+            下一行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOpItem.PriorRow">
+            <summary>
+            上一行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOpItem.GetItem(FS.HISFC.Models.Fee.Item.Undrug@)">
+            <summary>
+            返回选择项
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucOpItem.fpSpread1" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucOpItem.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucOpItem.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucOpItem.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucOpsQueryFee">
+            <summary>
+            {FDD16528-9F0B-473a-869C-FFBCD66920C0}
+            手术费用查询
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOpsQueryFee.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucOpsQueryFee.InPatientNO">
+            <summary>
+            住院号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucOpsQueryFee.InPatientInfo">
+            <summary>
+            患者信息
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucOpsQueryFee.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOpsQueryFee.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOpsQueryFee.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucOpsTableAllot.InitCtrl" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucOpsTableAllot.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucOpsTableAllot.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucOpsTableAllot.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucOrderAndLisQuery">
+            <summary>
+            患者医嘱/LIS结果查询
+            创建者：冯超
+            创建时间：2010-11-2
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucOrderAndLisQuery.begin">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucOrderAndLisQuery.end">
+            <summary>
+             结束时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucOrderAndLisQuery.patient">
+            <summary>
+            患者信息
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucOrderAndLisQuery.toolBarService">
+            <summary>
+            初始化工具栏
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOrderAndLisQuery.ShowLisResult">
+            <summary>
+            显示LIS结果
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOrderAndLisQuery.InitTreeView">
+            <summary>
+            初始化患者树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOrderAndLisQuery.AddToNode(System.Int32,System.Int32,System.Collections.ArrayList)">
+            <summary>
+            添加患者子节点
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOrderAndLisQuery.tvPatientInfo_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            树节点选择事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOrderAndLisQuery.OnQuery(System.Object,System.Object)">
+            <summary>
+            重载查询
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOrderAndLisQuery.OnLoad(System.EventArgs)">
+            <summary>
+            窗体加载
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucOrderAndLisQuery.InterfaceTypes">
+            <summary>
+            LIS接口
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucOrderAndLisQuery.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOrderAndLisQuery.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucOrderAndLisQuery.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucPrintBase">
+            <summary>
+            [功能描述: 打印基类控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-05]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucPrintBase.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucPrintBase.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucPrintBase.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucQueryFee">
+            <summary>
+            [功能描述: 患者费用查询]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-08]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucQueryFee.DispPatientinfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            显示患者信息
+            </summary>
+            <param name="patient"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucQueryFee.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucQueryFee.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucQueryFee.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucQueryFeeDrug">
+            <summary>
+            [功能描述: 患者费用药品查询]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-08]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucQueryFeeDrug.AddItems(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            添加药品明细
+            </summary>
+            <param name="patient"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucQueryFeeDrug.AddItems(FS.HISFC.Models.RADT.PatientInfo,System.String)">
+            <summary>
+            {CBF49C01-5D42-407a-9F85-4E81081D562E}
+            按条件：执行科室
+            </summary>
+            <param name="patient"></param>
+            <param name="execDeptCode"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucQueryFeeDrug.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucQueryFeeDrug.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucQueryFeeDrug.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucQueryFeePatient">
+            <summary>
+            [功能描述: 费用查询患者列表]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-08]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucQueryFeePatient.AddPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            添加患者
+            </summary>
+            <param name="patientInfo">患者信息</param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucQueryFeePatient.Reset">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucQueryFeePatient.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucQueryFeePatient.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucQueryFeePatient.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucQueryFeeUndrug">
+            <summary>
+            [功能描述: 患者费用非药品查询]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-08]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucQueryFeeUndrug.AddItems(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            添加非药品明细
+            </summary>
+            <param name="patient"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucQueryFeeUndrug.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucQueryFeeUndrug.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucQueryFeeUndrug.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucRegistration">
+            <summary>
+            [功能描述: 手术登记控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-12]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistration.GetDateTime(System.DateTime@,System.DateTime@)">
+            <summary>
+            获取开始、结束时间
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistration.ValidInstate(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            {CB2F6DC4-F9C6-4756-A118-CEDB907C39EC}
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucRegistration.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistration.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistration.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucRegistrationAnae">
+            <summary>
+            [功能描述: 麻醉登记控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-14]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucRegistrationAnae.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistrationAnae.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistrationAnae.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucRegistrationAnaeForm">
+            <summary>
+            [功能描述: 麻醉登记单]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-14]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.AnaeRecord">
+            <summary>
+             麻醉单
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.OperationApplication">
+            <summary>
+             新建患者
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.InitCtrl">
+            <summary>
+            控件初始化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.Clear">
+            <summary>
+            清空控件中的内容
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.InitAnaeDoct(FS.HISFC.Models.Operation.OperationAppllication)">
+            <summary>
+            初始化麻醉人员信息
+            </summary>
+            <param name="myOpsApp"></param>		
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.Save(FS.HISFC.Components.Operation.ucRegistrationAnaeForm.OperType)">
+            <summary>
+            保存
+            </summary>
+            <param name="strStatus">操作中状态："NULL"无操作，"RECO"登记，"NEW"补登，"MODIFY"修改</param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.GetCtrlInfo">
+            <summary>
+            将界面中显示的信息传入到m_objAnaeRec成员对象中
+            </summary>
+            <return>0 success -1 fail</return>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.OperType.New">
+            <summary>
+            补登
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.OperType.Reco">
+            <summary>
+            登记
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.OperType.Modify">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.OperType.Null">
+            <summary>
+            无操作
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistrationAnaeForm.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucRegistrationForm">
+            <summary>
+            [功能描述: 手术登记单]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-12]<br></br>
+            <修改记录 
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationForm.IsNew">
+            <summary>
+            是否新录入
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationForm.isRenew">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationForm.isOpScaleNeeded">
+            <summary>
+            手术规模是否必录
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucRegistrationForm.IsCancled">
+            <summary>
+            手术是否已被取消
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucRegistrationForm.HandInput">
+            <summary>
+            是否是手工登记手术 
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucRegistrationForm.OperationApplication">
+            <summary>
+             新建患者
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucRegistrationForm.OperationRecord">
+            <summary>
+            修改申请单
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.Clear">
+            <summary>
+            清屏
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.GetValue">
+            <summary>
+            实体赋值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.Valid">
+            <summary>
+            有效性验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.Save">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.Cancel">
+            <summary>
+            作废登记单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.SetEnable(System.Boolean)">
+            <summary>
+            锁定
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.dtEndDate_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            {E0CC2169-08A9-4500-BDB8-9271DEBD5679}feng.ch
+            当结束时间触发时候显示自动算出手术持续时间并显示
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.llbDevoice_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            打开界面
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.btnCancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            取消
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.ClearAllCheckBox">
+            <summary>
+            清空复选框
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.btnOk_Click(System.Object,System.EventArgs)">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.llbLink_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            交接信息登记界面
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.chkInputBySelf_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            手工录入切换时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationForm.InputBySelf">
+            <summary>
+            手工录入
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucRegistrationForm.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistrationForm.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistrationForm.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucRegistrationTree">
+            <summary>
+            [功能描述: 手术登记单列表树形控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-12-13]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucRegistrationTree.ListType">
+            <summary>
+            列表类型
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucRegistrationTree.ShowCanceled">
+            <summary>
+            是否显示已经取消的手术
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationTree.RefreshList(System.DateTime,System.DateTime)">
+            <summary>
+            刷新手术登记列表
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationTree.RefreshListNotReg(System.DateTime,System.DateTime)">
+            <summary>
+            刷新未登记手术列表
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationTree.RefreshListRegedbyapply(System.DateTime,System.DateTime)">
+            <summary>
+            刷新已登记手术记录
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationTree.RefreshListReged(System.DateTime,System.DateTime)">
+            <summary>
+            刷新已登记手术记录
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationTree.RefreshListYesNotReg(System.DateTime,System.DateTime)">
+            <summary>
+            刷新已做手术未收费患者 add by zhy
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucRegistrationTree.RefreshListCanceled(System.DateTime,System.DateTime)">
+            <summary>
+            刷新作废手术申请单
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.Components.Operation.ucRegistrationTree.EnumListType">
+            <summary>
+            列表类型
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationTree.EnumListType.Operation">
+            <summary>
+            手术
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucRegistrationTree.EnumListType.Anaesthesia">
+            <summary>
+            麻醉
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucRegistrationTree.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistrationTree.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucRegistrationTree.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucReport">
+            <summary>
+            [功能描述: 报表控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-15]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucReport.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucReport.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucReport.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucTable">
+            <summary>
+            [功能描述: 手术台维护]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-16]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucTable.CurrentRoom">
+            <summary>
+            当前手术室
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTable.LoadRooms">
+            <summary>
+            装载手术室
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucTable.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucTable.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucTable.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucTableSpread">
+            <summary>
+            [功能描述: 手术台维护表格]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-16]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucTableSpread.OperationRoom">
+            <summary>
+            手术室
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTableSpread.AddItem(FS.HISFC.Models.Operation.OpsTable)">
+            <summary>
+            向表格中添加一行
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTableSpread.AddItem">
+            <summary>
+            向表格添加一空行
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTableSpread.AddItem(System.Collections.Generic.List{FS.HISFC.Models.Operation.OpsTable})">
+            <summary>
+            向表格中添加多行
+            </summary>
+            <param name="tables"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTableSpread.DeleteItem">
+            <summary>
+            删除一行
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTableSpread.Reset">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTableSpread.Update">
+            <summary>
+            更新数据
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucTableSpread.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucTableSpread.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucTableSpread.InitializeComponent" -->
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Init(FS.HISFC.Models.Base.Employee)">
+            <summary>
+            初始化,必调用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.InitFp">
+            <summary>
+            设置FarPoint格式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.GetNextMonday(System.DateTime)">
+            <summary>
+            获取下周一的日期
+            </summary>
+            <param name="currentDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Clear">
+            <summary>
+            清屏
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.QueryCurrent(System.String)">
+            <summary>
+            查询当前日期下一周的排班安排
+            </summary>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Query(System.String)">
+            <summary>
+            查询科室排班信息
+            </summary>
+            <param name="begin"></param>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Query(System.String,System.String)">
+            <summary>
+            按排班序号查询已排班信息
+            </summary>
+            <param name="arrangeID"></param>
+            <param name="deptID"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.QueryPersonByDept(System.String)">
+            <summary>
+            添加科室下人员
+            </summary>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.AddTabular">
+            <summary>
+            添加排班信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.getColor(System.String)">
+            <summary>
+            获取颜色
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.NextWeek">
+            <summary>
+            下一周
+            </summary>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.SetTitle(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="begin"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.PriorWeek">
+            <summary>
+            上一周
+            </summary>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Up">
+            <summary>
+            上移
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Down">
+            <summary>
+            下移
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Save">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.valid">
+            <summary>
+            验证有效性
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.getMemo">
+            <summary>
+            获取备注
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.setMemo(System.String)">
+            <summary>
+            设置备注
+            </summary>
+            <param name="Text"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.getTabular">
+            <summary>
+            获取当前排班信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.LoadTemplate(System.Collections.ArrayList)">
+            <summary>
+            调用组套
+            </summary>
+            <param name="tabulars"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabular.SetLocation">
+            <summary>
+            设置panelList的显示位置
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucTabular.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucTabular.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucTabular.InitializeComponent" -->
+        <member name="M:FS.HISFC.Components.Operation.ucTabulation.Init">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabulation.InitDept">
+            <summary>
+            生成操作员负责科室列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucTabulation.toolBarService">
+            <summary>
+            定义工具栏服务
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabulation.OnInit(System.Object,System.Object,System.Object)">
+            <summary>
+            初始化工具栏
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabulation.ToolStrip_ItemClicked(System.Object,System.Windows.Forms.ToolStripItemClickedEventArgs)">
+            <summary>
+            工具栏增加按钮单击事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabulation.QueryTabular(System.String)">
+            <summary>
+            查询已排班序号
+            </summary>
+            <param name="deptID"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucTabulation.dateTimePicker1_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            刷新排班信息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucTabulation.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucTabulation.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucTabulation.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucApplicationzdly">
+            <summary>
+            [功能描述: 手术申请控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-11-28]<br></br>
+            <修改记录
+            	修改人='张俊义'
+            	修改时间='yyyy-mm-dd'
+            	修改目的='完善手术申请'
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationzdly.Init">
+            <summary>
+            初使化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationzdly.RefreshApply(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            生成手术室申请单列表
+            </summary>
+            <param name="dept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationzdly.AddApply(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            添加患者下的申请单列表
+            </summary>
+            <param name="dept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationzdly.GetDateTime(System.DateTime@,System.DateTime@)">
+            <summary>
+            获取查询开始、结束时间
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucApplicationzdly.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucApplicationzdly.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucApplicationzdly.InitializeComponent" -->
+        <member name="T:FS.HISFC.Components.Operation.ucApplicationzdly2">
+            <summary>
+            [功能描述: 手术申请控件]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2006-11-28]<br></br>
+            <修改记录
+            	修改人='张俊义'
+            	修改时间='yyyy-mm-dd'
+            	修改目的='完善手术申请'
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationzdly2.Init">
+            <summary>
+            初使化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationzdly2.RefreshApply(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            生成手术室申请单列表
+            </summary>
+            <param name="dept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationzdly2.AddApply(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            添加患者下的申请单列表
+            </summary>
+            <param name="dept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucApplicationzdly2.GetDateTime(System.DateTime@,System.DateTime@)">
+            <summary>
+            获取查询开始、结束时间
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucApplicationzdly2.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucApplicationzdly2.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucApplicationzdly2.InitializeComponent" -->
+        <member name="F:FS.HISFC.Components.Operation.ucFeezdly.operateType">
+            <summary>
+            批费申请类型
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFeezdly.operationAppllication">
+            <summary>
+            手术申请
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFeezdly.operationRecord">
+            <summary>
+            手术登记
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFeezdly.anaeRecord">
+            <summary>
+            麻醉登记
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.Components.Operation.ucFeezdly.isNeedApply">
+            <summary>
+            是否需要手术申请才能手术批费:true需要；false不需要
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeezdly.控件功能">
+            <summary>
+            控件功能
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeezdly.NoAddDrugQuality">
+            <summary>
+            不加载的药品性质// {4D67D981-6763-4ced-814E-430B518304E2}
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeezdly.IsChargeZero">
+            <summary>
+            是否可以收费或者划价0单价的项目
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeezdly.IsShowFeeRate">
+            <summary>
+            是否显示比例项{2C7FCD3D-D9B4-44f5-A2EE-A7E8C6D85576}
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeezdly.IsNeedUOOrder">
+            <summary>
+            手术收费是否必须关联医嘱 增加选择手术医嘱功能  {B9932D8E-ACFF-4a90-A252-B99136DD5285} 手术收费关联手术医嘱
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeezdly.IsOnlyUO">
+            <summary>
+            是否只显示手术医嘱 增加选择手术医嘱功能  {B9932D8E-ACFF-4a90-A252-B99136DD5285} 手术收费关联手术医嘱
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.Components.Operation.ucFeezdly.IsNeedApply">
+            <summary>
+            是否需要手术申请才能手术批费
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeezdly.RefreshGroupList">
+            <summary>
+            生成科室收费组套列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeezdly.OnInit(System.Object,System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeezdly.OnQuery(System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeezdly.OnSave(System.Object,System.Object)">
+            <summary>
+             保存
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeezdly.OnPrint(System.Object,System.Object)">
+            <summary>
+            打印
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeezdly.ToolStrip_ItemClicked(System.Object,System.Windows.Forms.ToolStripItemClickedEventArgs)">
+            <summary>
+            工具栏
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.HISFC.Components.Operation.ucFeezdly.ucQueryInpatientNo1_myEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.HISFC.Components.Operation.ucFeezdly.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucFeezdly.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.HISFC.Components.Operation.ucFeezdly.InitializeComponent" -->
+    </members>
+</doc>

@@ -1,0 +1,7 @@
+﻿业务实体说明：
+1、接口请求实体在“Request”文件夹创建
+2、接口返回实体在“Response”文件夹创建
+3、接口请求和返回实体类头必需添加特性：[System.Xml.Serialization.XmlRoot("program")]
+4、请求实体必须继承RequestBase类，并重写CallBefor和CallAfter函数
+5、返回实体必须继承ResponseBase类
+6、请求和返回实体直接按接口文档字段来创建属性，可参照现有实体。

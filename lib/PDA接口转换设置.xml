@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312"?>
+<设置>
+<项目转换>
+	<BloodPressure>血压项目-5</BloodPressure>
+        <Breath>呼吸项目</Breath>
+	<Pulse>脉搏项目</Pulse>
+        <MouthTemperature>体温项目</MouthTemperature>
+	<ArmpitTemperature>体温项目</ArmpitTemperature>
+	<RectumTemperature>体温项目</RectumTemperature>
+	<IctusCordis>心搏项目</IctusCordis>
+	<EventData>入院项目</EventData>
+	<BlowEventData>外出项目</BlowEventData>
+	<Pain>疼痛项目</Pain>
+	<DefecateNum>大便项目-24</DefecateNum>
+	<UrinateNum>自定义行项目-25</UrinateNum>
+	<UnrineVolume>自定义行项目-6</UnrineVolume>
+	<BreathNum>呼吸数项目</BreathNum>
+	<InVolume>自定义行项目-27</InVolume>
+	<OutVolume>自定义行项目-2690</OutVolume>
+	<Height>自定义行项目=59</Height>
+	<Weight>自定义行项目-29</Weight>
+	<Allergy>药物过敏类型项目-2312</Allergy>
+</项目转换>
+<!--
+1.节点名称为PDA接口传输xml时约定的项目名称
+2.节点值为Emr体温单模板中项目名+项目行索引
+3.此转换设置用来将Emr项目与PDA项目进行匹配，只有匹配的项目才可以进行数据同步-->
+</设置>

@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DefultInterfacesAchieve</name>
+    </assembly>
+    <members>
+        <member name="M:FS.DefultInterfacesAchieve.AdaptFeeAchieve.InPatientAdaptIllnessAchieves.ProcessInpatientFeeDetail(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList@)">
+            <summary>
+            单条处理(嵌入在选择项目中)
+            </summary>
+            <param name="patientObj"></param>
+            <param name="inpatientDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.AdaptFeeAchieve.InPatientAdaptIllnessAchieves.SaveInpatientFeeDetail(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            多条处理(嵌入在保存中)
+            </summary>
+            <param name="patientObj">患者信息</param>
+            <param name="alInpatientDetail">费用信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.AdaptFeeAchieve.InPatientAdaptIllnessAchieves.QueryItem(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList,System.String@)">
+            <summary>
+            从对照表中查找维护适应症的项目
+            </summary>
+            <param name="patientObj"></param>
+            <param name="feeitemlist"></param>
+            <param name="practicableSymptomText">适应症文本</param>
+            <returns> -1 报错 0 没有维护 1 有维护</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.AdaptFeeAchieve.OutPatientAdaptIllnessAchieves.SaveOutPatientFeeDetail(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            多条处理
+            </summary>
+            <param name="registerObj"></param>
+            <param name="outFeeDetailList"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FS.DefultInterfacesAchieve.AdaptFeeAchieve.OutPatientAdaptIllnessAchieves.ProcessOutPatientFeeDetail(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Fee.Outpatient.FeeItemList@)" -->
+        <member name="M:FS.DefultInterfacesAchieve.AdaptFeeAchieve.OutPatientAdaptIllnessAchieves.QueryItem(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Fee.Outpatient.FeeItemList,System.String@)">
+            <summary>
+            从适应症表中查找维护的项目
+            </summary>
+            <param name="??"></param>
+            <returns> -1 报错 0 没有维护 1 有维护 </returns>
+        </member>
+        <member name="F:FS.DefultInterfacesAchieve.AlterOrderAchieve.phaItemMgr">
+            <summary>
+            药品基础业务层
+            </summary>
+        </member>
+        <member name="F:FS.DefultInterfacesAchieve.AlterOrderAchieve.ctrlMgr">
+            <summary>
+            参数控制类
+            {DB30AC55-99D4-4250-AF2A-A9AC40370B67}
+            </summary>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.AlterOrderAchieve.AlterOrderOnSaving(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.Generic.List{FS.HISFC.Models.Order.Inpatient.Order}@)">
+            <summary>
+            住院医嘱信息变更  
+            此方法内传入参数 orderList内没有医嘱流水号
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="recipeDoc">开立医师</param>
+            <param name="orderList">医嘱信息</param>
+            <returns>成功返回1 失败返回－1</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.AlterOrderAchieve.QueryItemByInpatOrder(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Order.Inpatient.Order,System.String@)">
+            <summary>
+            从对照表中查找维护适应症的项目
+            </summary>
+            <param name="patient"></param>
+            <param name="order"></param>
+            <param name="practicableSymptomText">适应症文本</param>
+            <returns> -1 报错 0 没有维护 1 有维护</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.AlterOrderAchieve.QueryItemByOutpatOrder(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Order.OutPatient.Order,System.String@)">
+            <summary>
+            从对照表中查找维护适应症的项目
+            </summary>
+            <param name="patient"></param>
+            <param name="order"></param>
+            <param name="practicableSymptomText">适应症文本</param>
+            <returns> -1 报错 0 没有维护 1 有维护</returns>
+        </member>
+        <member name="F:FS.DefultInterfacesAchieve.Fee.OutPatientFeeRoundOff.outpatientManager">
+            <summary>
+            门诊费用业务层
+            </summary>
+        </member>
+        <member name="F:FS.DefultInterfacesAchieve.Fee.OutPatientFeeRoundOff.roundFeeItemCode">
+            <summary>
+            四舍五入费费用编码{DE54BEAE-EF40-4aa4-8DF5-8CCB2A3DDA1D}
+            </summary>
+        </member>
+        <member name="F:FS.DefultInterfacesAchieve.Fee.OutPatientFeeRoundOff.controlParamIntegrate">
+            <summary>
+            控制参数业务层
+            </summary>
+        </member>
+        <member name="T:FS.DefultInterfacesAchieve.Function.InPatient">
+            <summary>
+            {6BFCAC25-CC22-48ac-ADDB-76E169375EAB}
+            </summary>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.InPatient.QueryItemQtyByMiniFee(System.String,System.String)">
+            <summary>
+            查询某一最小费用的费用明细收取的数量
+            </summary>
+            <param name="inPatientNO"></param>
+            <param name="miniFee"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.InPatient.QueryItemQtyBySysClass(System.String,System.String)">
+            <summary>
+            查询某一SYSCLASS的费用明细收取的数量
+            </summary>
+            <param name="inPatientNO"></param>
+            <param name="sysClass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.UpdateSingleTable(System.String,System.String[])">
+            <summary>
+            更新单表操作
+            </summary>
+            <param name="sqlIndex">SQL语句索引</param>
+            <param name="args">参数</param>
+            <returns>成功: >= 1 失败 -1 没有更新到数据 0</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.GetMedItemListParams(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            通过药品实体获得实体属性数组
+            </summary>
+            <param name="patient">人员基本信息</param>
+            <param name="medItemList">药品费用基本信息</param>
+            <returns>药品实体获得实体属性数组</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.getOutpatOrderInfo(System.String,FS.HISFC.Models.Order.OutPatient.Order)">
+            <summary>
+            获得sql，传入参数
+            </summary>
+            <param name="sql"></param>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.getOrderInfo(System.String,FS.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            获得医嘱信息
+            </summary>
+            <param name="sqlOrder"></param>
+            <param name="Order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.GetOutFeeItemListParams(FS.HISFC.Models.Fee.Outpatient.FeeItemList)">
+            <summary>
+            获得insert表的传入参数数组update
+            </summary>
+            <param name="feeItemList">费用明细实体</param>
+            <returns>字符串数组</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.InsertMedItemList(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            添加患者项目费用-插入药品费用明细表信息
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="medItemList">药品费用项目信息</param>
+            <param name="Insurance">医保的项目相关信息</param>
+            <returns>成功: 1 失败 : -1 没有插入数据: 0</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.DeleteMedItemList(FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            删除一条适用症住院明细
+            </summary>
+            <param name="medItemList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.CheckItemPracticableSymptom(FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            检查住院项目是否符合适应症
+            </summary>
+            <param name="medItemList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.CheckOrderPracticableSymptom(System.String)">
+            <summary>
+            检查住院医嘱是否符合适应症
+            </summary>
+            <param name="orderID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.CheckClinicOrderPracticableSymptom(System.String)">
+            <summary>
+            检查门诊医嘱是否符合适应症SeeNO
+            </summary>
+            <param name="orderID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.InsertOrder(FS.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            开立新医嘱(插入新医嘱记录)
+            </summary>
+            <param name="order"></param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.InsertOutpatOrder(FS.HISFC.Models.Order.OutPatient.Order)">
+            <summary>
+            开立门诊新医嘱(插入新医嘱记录)
+            </summary>
+            <param name="order"></param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.DeleteOrder(FS.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            删除一条住院适用症医嘱
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.DeleteOutpatOrder(FS.HISFC.Models.Order.OutPatient.Order)">
+            <summary>
+            删除一条门诊适用症医嘱
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.InsertFeeItemList(FS.HISFC.Models.Fee.Outpatient.FeeItemList)">
+            <summary>
+            插入门诊费用明细
+            </summary>
+            <param name="feeItemList">费用明细实体</param>
+            <returns>成功: 1 失败: -1 没有插入数据返回 0</returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.CheckClinicItemPracticableSymptom(FS.HISFC.Models.Fee.Outpatient.FeeItemList)">
+            <summary>
+            检查住院项目是否符合适应症
+            </summary>
+            <param name="medItemList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Function.SISpecialLimit.DeleteFeeItemList(FS.HISFC.Models.Fee.Outpatient.FeeItemList)">
+            <summary>
+            删除一条适用症门诊明细
+            </summary>
+            <param name="feeItemList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.DefultInterfacesAchieve.Inject.Function">
+            <summary>
+            GetInjectOrderNoAchieve<br></br>
+            <Font color='#FF1111'>[功能描述:门诊注射号码接口实现业务层{30E1EF7D-1236-4e38-A8E3-7567C9E33B0B}]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-7-19]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Inject.Function.GetPatientTodayOrderNo(System.String)">
+            <summary>
+            获取该患者当天的最后一次的序号
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Inject.Function.CreateNewNo(System.String)">
+            <summary>
+            生成新的序号
+            </summary>
+            <param name="startStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Inject.Function.GetPrintNo">
+            <summary>
+            获取打印序号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.DefultInterfacesAchieve.Inject.GetInjectOrderNoAchieve">
+            <summary>
+            GetInjectOrderNoAchieve<br></br>
+            <Font color='#FF1111'>[功能描述:门诊注射号码接口实现{30E1EF7D-1236-4e38-A8E3-7567C9E33B0B}]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-7-19]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Inject.GetInjectOrderNoAchieve.GetSamePatientNextOrderNo(System.String)">
+            <summary>
+            根据当前顺序号生成下一个顺序号
+            </summary>
+            <param name="orderNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.Inject.GetInjectOrderNoAchieve.SetPrintNo(System.Collections.ArrayList)">
+            <summary>
+            获得打印序号,放在user02中
+            </summary>
+            <param name="injectList"></param>
+        </member>
+        <member name="T:FS.DefultInterfacesAchieve.RADT.PatientShiftValidAchieve">
+            <summary>
+            出院、出院召回等地方的判断,是否可以执行下一步操作
+            </summary>
+        </member>
+        <member name="M:FS.DefultInterfacesAchieve.RADT.PatientShiftValidAchieve.IsPatientShiftValid(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.EnumPatientShiftValid,System.String@)">
+            <summary>
+            病人变化判断接口
+            </summary>
+            <param name="p">患者信息</param>
+            <param name="type">变化类型</param>
+            <param name="err">传出错误文本</param>
+            <returns></returns>
+        </member>
+        <member name="F:FS.DefultInterfacesAchieve.Registration.IProcessRegiterAchieve.regMgr">
+            <summary>
+            挂号业务层{46F865E4-9B79-4cc6-814D-3847DDBC85F9}
+            </summary>
+        </member>
+    </members>
+</doc>

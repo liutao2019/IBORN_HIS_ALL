@@ -1,0 +1,425 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>--出院患者
+select distinct 
+        'PDY97822944010613A5182'               AS P900, --1 医疗机构代码
+        '广州爱博恩妇产医院'                    AS P6891,--2 机构名称
+        ''                                     AS P686 ,--3 医疗保险手册（卡）号
+        ''                                     AS P800,--4 健康卡号
+        decode(fi.pact_code,'1','7','2','5','3','7','5','7','4','1','6','1')   AS P1, --5 医疗付款方式
+        p.ftimes  AS P2, --6 就诊次数
+        p.fprn  AS P3, --7 病案号
+        p.fname AS P4,--8 姓名
+        p.fsexbh AS P5,--9 性别
+        p.fbirthday AS P6,--10 出生日期
+        trunc((fi.in_date-fi.birthday)/365,0)      AS P7,--11 年龄 
+        substr(p.fstatusbh,1,1)      AS P8,--12 婚姻状况 
+        ''                           AS P9,--13 职业
+        ''                           AS P101,--14 出生省份
+        ''                           AS P102,--15 出生地市
+        ''                           AS P103,--16 出生地县
+        p.fnationality               AS P11,--17 民族
+        p.fcountry                   AS P12,--18 国籍
+        nvl(replace(replace(fi.idenno,'-',''),'.',''),'NA') AS P13,   --19 证件号码
+        fi.home      AS P801,   --20 现住址
+        ''           AS P802,   --21 住宅电话
+        ''           AS P803,   --22 现住址邮政编码
+        p.fdwaddr      AS P14,   --23 工作单位及地址
+        p.fdwtele      AS P15,   --24 电话
+        p.fdwpost      AS P16,   --25 工作单位邮政编码
+        p.fhkaddr      AS P17,   --26 户口地址
+        p.fhkpost      AS P171,   --27 户口所在地邮政编码
+        p.flxname      AS P18,   --28 联系人姓名
+        (select nvl(d.lgcode,'8') from database d where d.code='RC033' and p.frelate=d.lgname ) AS P19,   --29 关系
+        p.fdwtele      AS P20,   --30 联系人地址
+        decode(p.frytjbh,'9','4',p.frytjbh)      AS P804,   --31 入院途径
+        p.fhkaddr      AS P21,   --32 联系人电话
+        p.frydate      AS P22,   --33 入院日期
+        (select d.lgcode from database d where d.code='RC023' and fi.dept_code=d.hiscode )      AS P23,   --34 入院科别
+        p.frybs      AS P231,   --35 入院病室
+        ''      AS P24,   --36 转科科别
+        p.fcydate      AS P25,   --37 出院日期
+        (select d.lgcode from database d where d.code='RC023' and fi.dept_code=d.hiscode )      AS P26,   --38 出院科别
+        p.fdays      AS P27,   --40 实际住院天数
+        p.fmzzdbh    AS P28,   --41 门（急）诊诊断编码
+        p.fmzzd      AS P281,   --42 门（急）诊诊断描述
+        ''           AS P29,   --43 入院时情况
+        replace(a.入院主要诊断编码,'--','')      AS P30,   --44 入院诊断编码
+        replace(a.入院主要诊断描述,'--','')      AS P301,   --45 入院诊断描述
+        to_char(p.frydate,'yyyy-mm-dd')         AS P31,   --46 入院后确诊日期
+        replace(a.入院主要诊断编码,'--','')      AS P321,   --47 主要诊断编码
+        replace(a.入院主要诊断描述,'--','')      AS P322,   --48 主要诊断疾病描述
+        ''             AS P805,   --49 主要针对入院病情
+        ''             AS P323,   --50 主要诊断出院情况
+        ''      AS P324,   --51 其他诊断编码1
+        ''      AS P325,   --52 其他诊断疾病描述1
+        ''      AS P806,   --53 其他诊断入院病情1
+        ''      AS P326,   --54 其他诊断出院病情1
+        ''      AS P327,   --55 其他诊断编码2
+        ''      AS P328,   --56 其他诊断疾病描述2
+        ''      AS P807,   --57 其他诊断入院病情2
+        ''      AS P329,   --58 其他诊断出院病情2
+        ''      AS P3291,   --59 其他诊断编码3
+        ''      AS P3292,   --60 其他诊断疾病描述3
+        ''      AS P808,   --61 其他诊断入院病情3
+        ''      AS P3293,   --62 其他诊断出院病情3
+        ''      AS P3294,   --63 其他诊断编码4
+        ''      AS P3295,   --64 其他诊断疾病描述4
+        ''      AS P809,   --65 其他诊断入院病情4
+        ''      AS P3296,   --66 其他诊断出院病情4
+        ''      AS P3297,   --67 其他诊断编码5
+        ''      AS P3298,   --68 其他诊断疾病描述5
+        ''      AS P810,   --69 其他诊断入院病情5
+        ''      AS P3299,   --70 其他诊断出院病情5
+        ''      AS P3281,   --71 其他诊断编码6
+        ''      AS P3282,   --72 其他诊断疾病描述6
+        ''      AS P811,   --73 其他诊断入院病情6
+        ''      AS P3283,   --74 其他诊断出院病情6
+        ''      AS P3284,   --75 其他诊断编码7
+        ''      AS P3285,   --76 其他诊断疾病描述7
+        ''      AS P812,   --77 其他诊断入院病情7
+        ''      AS P3286,   --78 其他诊断出院病情7
+        ''      AS P3287,   --79 其他诊断编码8
+        ''      AS P3288,   --80 其他诊断疾病描述8
+        ''      AS P813,   --81 其他诊断入院病情8
+        ''      AS P3289,   --82 其他诊断出院病情8
+        ''      AS P3271,   --83 其他诊断编码9
+        ''      AS P3272,   --84 其他诊断疾病描述9
+        ''      AS P814,   --85 其他诊断入院病情9
+        ''      AS P3273,   --86 其他诊断出院病情9
+        ''      AS P3274,   --87 其他诊断编码10
+        ''      AS P3275,   --88 其他诊断疾病描述10
+        ''      AS P815,   --89 其他诊断入院病情10
+        ''      AS P3276,   --90 其他诊断出院病情10
+        ''      AS P689,   --91 医院感染总次数
+        ''      AS P351,   --92 病理诊断编码1
+        ''      AS P352,   --93 病理诊断名称1
+        ''      AS P816,   --94 病理号1
+        ''      AS P353,   --95 病理诊断编码2
+        ''      AS P354,   --96 病理诊断名称2
+        ''      AS P817,   --97 病理号2
+        ''      AS P355,   --98 病理诊断编码3
+        ''      AS P356,   --99 病理诊断名称3
+        ''      AS P818,   --100 病理号
+        ''      AS P361,   --101 损伤、中毒的外部因素编码1
+        ''      AS P362,   --102 损伤、中毒的外部因素名称1
+        ''      AS P363,   --103 损伤、中毒的外部因素编码2
+        ''      AS P364,   --104 损伤、中毒的外部因素名称2
+        ''      AS P365,   --105 损伤、中毒的外部因素编码3
+        ''      AS P366,   --106 损伤、中毒的外部因素名称3
+        ''      AS P371,   --107 过敏源
+        p.fgmyw      AS P372,   --108 过敏药物名称
+        ''      AS P38,   --109 HBsAg
+        ''      AS P39,   --110 HCV-Ab
+        ''      AS P40,   --111 HIV-Ab
+        ''      AS P411,   --112 门诊与出院诊断符合情况
+        p.frycyaccobh    AS P412,   --113 入院与出院诊断符合情况
+        ''      AS P413,   --114 术前与术后诊断符合情况
+        p.flcblaccobh    AS P414,   --115 临床与病理诊断符合情况
+        ''      AS P415,   --116 放射与病理诊断符合情况
+        p.fqjtimes       AS P421,   --117 抢救次数
+        p.fqjsuctimes    AS P422,   --118 抢救成功次数
+        ''      AS P687,   --119 最高诊断依据
+        ''      AS P688,   --120 分化程度
+        p.fkzr           AS P431,   --121 科主任
+        p.fzrdoctor      AS P432,   --122 主(副主)任医师
+        p.fzzdoct        AS P433,   --123 主治医师
+        p.fzydoct        AS P434,   --124 住院医师
+        p.fnurse         AS P819,   --125 责任护士
+        p.fjxdoct        AS P435,   --126 进修医师
+        ''      AS P436,   --127 研究生实习医师
+        p.fsxdoct        AS P437,   --128 实习医师
+        p.fbmy           AS P438,   --129 编码员
+        p.fqualitybh     AS P44,   --130 病案质量
+        p.fzkdoct        AS P45,   --131 质控医师
+        p.fzknurse       AS P46,   --132 质控护师
+        p.fzkrq          AS P47,   --133 质控日期
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P490,   --134 手术操作编码1
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P491,   --135 手术操作日期
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P820,   --136 手术级别1
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P492,   --137 手术操作名称1
+        ''      AS P493,   --138 手术操作部位1
+        ''      AS P494,   --139 手术持续时间1
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P495,   --140 术者1
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P496,   --141 Ⅰ助1
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P497,   --142 Ⅱ助1 
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P498,   --143 麻醉方式1
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P4981,   --144 麻醉分级1
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1' )      AS P499,   --145 切口愈合等级1
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='1')      AS P4910,   --146 麻醉医师1
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4911,   --147 手术操作编码2
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4912,   --148 手术操作日期2
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P821,   --149 手术级别2
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4913,   --150 手术操作名称2
+        ''      AS P4914,   --151 手术操作部位2
+        ''      AS P4915,   --152 手术持续时间2
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4916,   --153 术者2
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4917,   --154Ⅰ助2
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4918,   --155 Ⅱ助2 
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4919,   --156 麻醉方式2
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4982,   --157 麻醉分级2
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2' )      AS P4920,   --158 切口愈合等级2
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='2')      AS P4921,   --159 麻醉医师2
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4922,   --160 手术操作编码3
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4923,   --161 手术操作日期3
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P822,   --162 手术级别3
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4924,   --163 手术操作名称3
+        ''      AS P4925,   --164 手术操作部位3
+        ''      AS P4526,   --165 手术持续时间3
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4527,   --166 术者3
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4528,   --167Ⅰ助3
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4529,   --168 Ⅱ助3 
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4530,   --169 麻醉方式3
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4983,   --170 麻醉分级3
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3' )      AS P4531,   --171 切口愈合等级3
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='3')      AS P4532,   --172 麻醉医师3
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4533,   --173 手术操作编码4
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4534,   --174 手术操作日期4
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P823,   --175 手术级别4
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4535,   --176 手术操作名称4
+        ''      AS P4536,   --177 手术操作部位4
+        ''      AS P4537,   --178 手术持续时间4
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4538,   --179 术者4
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4539,   --180Ⅰ助4
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4540,   --181 Ⅱ助4 
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4541,   --182 麻醉方式4
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4984,   --183 麻醉分级4
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4' )      AS P4542,   --184 切口愈合等级4
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='4')      AS P4543,   --185 麻醉医师4
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4544,   --186 手术操作编码5
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4545,   --187 手术操作日期5
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P824,   --188 手术级别5
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4546,   --189 手术操作名称5
+        ''      AS P4547,   --190 手术操作部位5
+        ''      AS P4548,   --191 手术持续时间5
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4549,   --192 术者5
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4550,   --193Ⅰ助5
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4551,   --194 Ⅱ助5
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4552,   --195 麻醉方式5
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4985,   --196 麻醉分级5
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5' )      AS P4553,   --197 切口愈合等级5
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='5')      AS P4554,   --198 麻醉医师5
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS P45002,   --199 手术操作编码6
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS P45003,   --200 手术操作日期6
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS P825,   --201 手术级别6
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS p45004,   --202 手术操作名称6
+        ''      AS p45005,   --203 手术操作部位6
+        ''      AS p45006,   --204 手术持续时间6
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS p45007,   --205 术者6
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS p45008,   --206Ⅰ助6
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS p45009,   --207 Ⅱ助6
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS p45010,   --208 麻醉方式6
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS p45011,   --209 麻醉分级6
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6' )      AS p45012,   --210 切口愈合等级6
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='6')      AS p45013,   --211 麻醉医师6
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45014,   --212 手术操作编码7
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45015,   --213 手术操作日期7
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS P826,   --214 手术级别7
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45016,   --215 手术操作名称7
+        ''      AS p45017,   --216 手术操作部位7
+        ''      AS p45018,   --217 手术持续时间7
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45019,   --218 术者7
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45020,   --219Ⅰ助7
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45021,   --220 Ⅱ助7
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45022,   --221 麻醉方式7
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45023,   --222 麻醉分级7
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7' )      AS p45024,   --223 切口愈合等级7
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='7')      AS p45025,   --224 麻醉医师7
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45026,   --225 手术操作编码8
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45027,   --226 手术操作日期8
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS P827,   --227 手术级别8
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45028,   --228 手术操作名称8
+        ''      AS p45029,   --229 手术操作部位8
+        ''      AS p45030,   --230 手术持续时间8
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45031,   --231 术者8
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45032,   --232Ⅰ助8
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45033,   --233 Ⅱ助8 
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45034,   --234 麻醉方式8
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45035,   --235 麻醉分级8
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8' )      AS p45036,   --236 切口愈合等级8
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='8')      AS p45037,   --237 麻醉医师8
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45038,   --238 手术操作编码9
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45039,   --239 手术操作日期9
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS P828,   --240 手术级别9
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45040,   --241 手术操作名称9
+        ''      AS p45041,   --242 手术操作部位9
+        ''      AS p45042,   --243 手术持续时间9
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45043,   --244 术者9
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45044,   --245Ⅰ助9
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45045,   --246 Ⅱ助9 
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45046,   --247 麻醉方式9
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45047,   --248 麻醉分级9
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9' )      AS p45048,   --249 切口愈合等级9
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='9')      AS p45049,   --250 麻醉医师9
+        (select o.fopcode from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45050,   --251 手术操作编码10
+        (select o.fopdate from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45051,   --252 手术操作日期10
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS P829,   --253 手术级别10
+        (select o.fop from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45052,   --254 手术操作名称10
+        ''      AS p45053,   --255 手术操作部位10
+        ''      AS p45054,   --256 手术持续时间10
+        (select o.fdocname from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45055,   --257 术者10
+        (select o.fopdoct1 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45056,   --258Ⅰ助10
+        (select o.fopdoct2 from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45057,   --259 Ⅱ助10 
+        (select d.lgcode from tOperation o,database d where  d.code='RC013' and o.fmazuibh=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45058,   --260 麻醉方式10
+        (select o.fssjbbh from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45059,   --261 麻醉分级10
+        (select decode(o.fqiekoubh,0,0,d.lgcode) end from tOperation o,database d where  d.code='RC014'and (o.fqiekoubh||o.fyuhebh)=d.hiscode and o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10' )      AS p45060,   --262 切口愈合等级10
+        (select o.fmzdoct from tOperation o where o.fprn=p.fprn and o.ftimes=p.ftimes and o.foptimes='10')      AS p45061,   --263 麻醉医师10
+        ''      AS P561,   --264 特级护理天数
+        ''      AS P562,   --265 一级护理天数
+        ''      AS P563,   --266 二级护理天数
+        ''      AS P564,   --267 三级护理天数
+        ''      AS P6911,   --268 重症监护室名称1
+        ''      AS P6912,   --269 进入时间1
+        ''      AS P6913,   --270 退出时间1
+        ''      AS P6914,   --271 重症监护室名称2
+        ''      AS P6915,   --272 进入时间2
+        ''      AS P6916,   --273 退出时间2
+        ''      AS P6917,   --274 重症监护室名称3
+        ''      AS P6918,   --275 进入时间3
+        ''      AS P6919,   --276 退出时间3
+        ''      AS P6920,   --277 重症监护室名称4
+        ''      AS P6921,   --278 进入时间4
+        ''      AS P6922,   --279 退出时间4
+        ''      AS P6923,   --280 重症监护室名称5
+        ''      AS P6924,   --281 进入时间5
+        ''      AS P6925,   --282 退出时间5
+        ''      AS P57,   --283 死亡患者尸检
+        ''      AS P58,   --284 手术、治疗、检查、诊断为本院第一列
+        ''      AS P581,   --285 手术患者类型
+        ''      AS P60,   --286 随诊
+        ''      AS P611,   --287 随诊周数
+        ''      AS P612,   --288 随诊月数
+        ''      AS P613,   --289 随诊年数
+        ''      AS P59,   --290 示教病例
+        p.fbloodbh      AS P62,   --291 ABO血型
+        p.frhbh         AS P63,   --292 Rh血型
+        ''      AS P64,   --293 输血反应
+        (select sum(il.qty)*cd.mark tot_sum from fin_ipb_itemlist il inner join com_dictionary cd on cd.type='BLOOD' and il.item_code=cd.code where il.item_name like '%红细胞%' and il.inpatient_no=fi.inpatient_no group by il.inpatient_no,cd.mark)      AS P651,   --294 红细胞
+        (select sum(il.qty)*cd.mark tot_sum from fin_ipb_itemlist il inner join com_dictionary cd on cd.type='BLOOD' and il.item_code=cd.code where il.item_name like '%血小板%' and il.inpatient_no=fi.inpatient_no group by il.inpatient_no,cd.mark)      AS P652,   --295 血小板
+        (select sum(il.qty)*cd.mark tot_sum from fin_ipb_itemlist il inner join com_dictionary cd on cd.type='BLOOD' and il.item_code=cd.code where il.item_name like '%血浆%' and il.inpatient_no=fi.inpatient_no group by il.inpatient_no,cd.mark)        AS P653,   --296 血浆
+        (select sum(il.qty)*cd.mark tot_sum from fin_ipb_itemlist il inner join com_dictionary cd on cd.type='BLOOD' and il.item_code=cd.code where il.item_name like '%全血%' and il.inpatient_no=fi.inpatient_no group by il.inpatient_no,cd.mark)        AS P654,   --297 全血
+        0      AS P655,   --298 自体回收
+        0      AS P656,   --299 其它
+       case when to_number((sysdate-p.fbirthday)/4380)&gt;=1 then '' else to_char(trunc((sysdate-p.fbirthday)/4380,2),'fm999990.99') end  AS P66,   --300 （年龄不足1周岁的）年龄
+        p.fcstz      AS P681,   --301 新生儿出生体重1
+        ''      AS P682,   --302 新生儿出生体重2
+        ''      AS P683,   --303 新生儿出生体重3
+        ''      AS P684,   --304 新生儿出生体重4
+        ''      AS P685,   --305 新生儿出生体重5
+        p.frytz      AS P67,   --306 新生儿入院体重
+        p.fryqhmhours      AS P731,   --307 入院前多少小时(颅脑损伤患者昏迷时间)
+        p.fryqhmmins       AS P732,   --308 入院前多少分钟(颅脑损伤患者昏迷时间)
+        p.fryhmhours       AS P733,   --309 入院后多少小时(颅脑损伤患者昏迷时间)
+        p.fryhmmins        AS P734,   --310 入院后多少分钟(颅脑损伤患者昏迷时间)
+        ''      AS P72,   --311 呼吸机使用时间
+        p.fisagainrybh        AS P830,   --312 是否有出院31天再住院计划目的
+        substr(p.fisagainrymd,1,200)        AS P831,   --313 出院31天再计划入院目的
+        p.flyfsbh             AS P741,   --314 离院方式
+        p.fyzouthostital      AS P742,   --315 转入医院名称
+        p.fsqouthostital      AS P743,   --316 转入社区服务机构/乡镇卫生院名称
+        round(p.fsum1,2)          AS P782,   --317 住院总费用
+        round(p.fzfje,2)          AS P751,   --318 住院总费用其中自付金额
+        round(p.fzhfwlylf,2)      AS P752,   --319 一般医疗服务费
+        round(p.fzhfwlczf,2)      AS P754,   --320 一般治疗操作费
+        round(p.fzhfwlhlf,2)      AS P755,   --321 护理费
+        round(p.fzhfwlqtf,2)      AS P756,   --322 综合医疗服务类其他费用
+        round(p.fzdlblf,2)        AS P757,   --323 病理诊断费
+        round(p.fzdlsssf,2)       AS P758,   --324 实验室诊断费
+        round(p.fzdlyxf,2)        AS P759,   --325 影像学诊断费
+        round(p.fzdllcf,2)        AS P760,   --326 临床诊断项目费
+        round(p.fzllffssf,2)      AS P761,   --327 非手术治疗项目费
+        round(p.fzllfwlzwlf,2)    AS P762,   --328 临床物理治疗费
+        round(p.fzllfssf,2)       AS P763,   --329 手术治疗费
+        round(p.fzllfmzf,2)       AS P764,   --330 麻醉费
+        round(p.fzllfsszlf,2)     AS P765,   --331 手术费
+        round(p.fkflkff,2)        AS P767,   --332 康复费
+        round(p.fzylzf,2)         AS P768,   --333 中医治疗费
+        round(p.fxyf,2)           AS P769,   --334 西药费
+        round(p.fxylgjf,2)        AS P770,   --335 抗菌药物费用
+        round(p.fzchyf,2)         AS P771,   --336 中成药费
+        round(p.fzcyf,2)          AS P772,   --337 中草药费
+        round(p.fxylxf,2)         AS P773,   --338 血费
+        round(p.fxylbqbf,2)       AS P774,   --339 白蛋白类制品费
+        round(p.fxylqdbf,2)       AS P775,   --340 球蛋白类制品费
+        round(p.fxylyxyzf,2)      AS P776,   --341 凝血因子类制品费
+        round(p.fxylxbyzf,2)      AS P777,   --342 细胞因子类制品费
+        round(p.fhclcjf,2)        AS P778,   --343 检查用一次性医用材料费
+        round(p.fhclzlf,2)        AS P779,   --344 治疗用一次性医用材料费
+        round(p.fhclssf,2)        AS P780,   --345 手术用一次性医用材料费
+        round(p.fqtf,2)           AS P781    --346 其他费
+  from tPatientVisit@bagldblink p
+  left join fin_ipr_inmaininfo fi on /*fi.inpatient_no=p.fzyid*/fi.patient_no='00'||substr(p.fprn,1,8) and p.ftimes=fi.in_times
+  left join lgsb@emr1_dblink a on a.his内部标识=fi.inpatient_no 
+  left join (select row_number() over(partition by m.inpatient_no order by m.date_bgn) id,
+                    m.inpatient_no,m.item_name,sum(m.dose_once) tot_qty,m.mark4 qty,m.mark5 dose_unit,m.date_bgn,m.date_end,cd.input_code
+               from met_ipm_order m
+               left join fin_ipb_medicinelist ml on m.inpatient_no=ml.inpatient_no and m.item_code=ml.drug_code and m.mo_order=ml.mo_order
+               left join fin_ipr_inmaininfo fi on  m.inpatient_no=fi.inpatient_no
+               left join com_dictionary cd on cd.type='frequency' and m.frequency_code=cd.code
+              where regexp_like(m.item_name,'奥司他韦|达菲|可威|扎那米韦|依乐韦|也青|帕拉米韦|力纬|阿比多尔
+                     |阿比朵尔|壮彤|恩尔欣|玛诺苏|莲花清瘟|金花清感颗粒|金刚烷胺|迪龙|金刚乙胺|仁和|立安|金迪纳|津彤|太之奥|
+                     利巴韦林|锐迪|均达坦|奇力威林|利迈欣|柯萨|南元|利力宁|达畅|威乐星|奥得清|奥佳') 
+                and fi.out_date between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1
+              group by m.inpatient_no,m.item_name,m.mark4 ,m.mark5,m.date_bgn,m.date_end,cd.input_code) d on fi.inpatient_no=d.inpatient_no
+ where ((  a.入院主要诊断编码 like 'J%' or a.入院其他诊断编码  like 'J%' or a.入院其他诊断1编码  like 'J%' or a.入院其他诊断2编码  like 'J%'
+        or a.入院其他诊断3编码 like 'J%' or a.入院其他诊断4编码  like 'J%' or a.入院其他诊断5编码  like 'J%' or a.入院其他诊断6编码  like 'J%'
+        or a.入院其他诊断7编码 like 'J%' or a.入院其他诊断8编码  like 'J%' or a.入院其他诊断9编码  like 'J%' or a.入院其他诊断10编码  like 'J%'
+        or a.入院其他诊断11编码 like 'J%' or a.入院其他诊断12编码  like 'J%' or a.入院其他诊断13编码  like 'J%' or a.入院其他诊断14编码  like 'J%'
+        or a.入院其他诊断15编码 like 'J%' or a.入院其他诊断16编码  like 'J%' or a.入院其他诊断17编码  like 'J%' or a.入院其他诊断18编码  like 'J%'
+        or a.入院其他诊断19编码  like 'J%' or a.入院其他诊断20编码  like 'J%')
+    or (   ((a.入院主要诊断描述 like '%甲%流%' or a.入院主要诊断描述 like '%乙%流%' or a.入院主要诊断描述 like '%流%感%') and ( a.入院主要诊断描述 like '%流感嗜血%' or a.入院主要诊断描述 like '%副流感%' or a.入院主要诊断描述 like '%血流感染%'))
+        or ((a.入院其他诊断描述 like '%甲%流%' or a.入院其他诊断描述 like '%乙%流%' or a.入院其他诊断描述 like '%流%感%') and ( a.入院其他诊断描述 like '%流感嗜血%' or a.入院其他诊断描述 like '%副流感%' or a.入院其他诊断描述 like '%血流感染%')) 
+        or ((a.入院其他诊断1描述 like '%甲%流%' or a.入院其他诊断1描述 like '%乙%流%' or a.入院其他诊断1描述 like '%流%感%') and ( a.入院其他诊断1描述 like '%流感嗜血%' or a.入院其他诊断1描述 like '%副流感%' or a.入院其他诊断1描述 like '%血流感染%')) 
+        or ((a.入院其他诊断2描述 like '%甲%流%' or a.入院其他诊断2描述 like '%乙%流%' or a.入院其他诊断2描述 like '%流%感%') and ( a.入院其他诊断2描述 like '%流感嗜血%' or a.入院其他诊断2描述 like '%副流感%' or a.入院其他诊断2描述 like '%血流感染%'))
+        or ((a.入院其他诊断3描述 like '%甲%流%' or a.入院其他诊断3描述 like '%乙%流%' or a.入院其他诊断3描述 like '%流%感%') and ( a.入院其他诊断3描述 like '%流感嗜血%' or a.入院其他诊断3描述 like '%副流感%' or a.入院其他诊断3描述 like '%血流感染%')) 
+        or ((a.入院其他诊断4描述 like '%甲%流%' or a.入院其他诊断4描述 like '%乙%流%' or a.入院其他诊断4描述 like '%流%感%') and ( a.入院其他诊断4描述 like '%流感嗜血%' or a.入院其他诊断4描述 like '%副流感%' or a.入院其他诊断4描述 like '%血流感染%')) 
+        or ((a.入院其他诊断5描述 like '%甲%流%' or a.入院其他诊断5描述 like '%乙%流%' or a.入院其他诊断5描述 like '%流%感%') and ( a.入院其他诊断5描述 like '%流感嗜血%' or a.入院其他诊断5描述 like '%副流感%' or a.入院其他诊断5描述 like '%血流感染%'))
+        or ((a.入院其他诊断6描述 like '%甲%流%' or a.入院其他诊断6描述 like '%乙%流%' or a.入院其他诊断6描述 like '%流%感%') and ( a.入院其他诊断6描述 like '%流感嗜血%' or a.入院其他诊断6描述 like '%副流感%' or a.入院其他诊断6描述 like '%血流感染%'))
+        or ((a.入院其他诊断7描述 like '%甲%流%' or a.入院其他诊断7描述 like '%乙%流%' or a.入院其他诊断7描述 like '%流%感%') and ( a.入院其他诊断7描述 like '%流感嗜血%' or a.入院其他诊断7描述 like '%副流感%' or a.入院其他诊断7描述 like '%血流感染%')) 
+        or ((a.入院其他诊断8描述 like '%甲%流%' or a.入院其他诊断8描述 like '%乙%流%' or a.入院其他诊断8描述 like '%流%感%') and ( a.入院其他诊断8描述 like '%流感嗜血%' or a.入院其他诊断8描述 like '%副流感%' or a.入院其他诊断8描述 like '%血流感染%')) 
+        or ((a.入院其他诊断9描述 like '%甲%流%' or a.入院其他诊断9描述 like '%乙%流%' or a.入院其他诊断9描述 like '%流%感%') and ( a.入院其他诊断9描述 like '%流感嗜血%' or a.入院其他诊断9描述 like '%副流感%' or a.入院其他诊断9描述 like '%血流感染%')) 
+        or ((a.入院其他诊断10描述 like '%甲%流%' or a.入院其他诊断10描述 like '%乙%流%' or a.入院其他诊断10描述 like '%流%感%') and ( a.入院其他诊断10描述 like '%流感嗜血%' or a.入院其他诊断10描述 like '%副流感%' or a.入院其他诊断10描述 like '%血流感染%'))
+        or ((a.入院其他诊断11描述 like '%甲%流%' or a.入院其他诊断11描述 like '%乙%流%' or a.入院其他诊断11描述 like '%流%感%') and ( a.入院其他诊断11描述 like '%流感嗜血%' or a.入院其他诊断11描述 like '%副流感%' or a.入院其他诊断11描述 like '%血流感染%')) 
+        or ((a.入院其他诊断12描述 like '%甲%流%' or a.入院其他诊断12描述 like '%乙%流%' or a.入院其他诊断12描述 like '%流%感%') and ( a.入院其他诊断12描述 like '%流感嗜血%' or a.入院其他诊断12描述 like '%副流感%' or a.入院其他诊断12描述 like '%血流感染%'))
+        or ((a.入院其他诊断13描述 like '%甲%流%' or a.入院其他诊断13描述 like '%乙%流%' or a.入院其他诊断13描述 like '%流%感%') and ( a.入院其他诊断13描述 like '%流感嗜血%' or a.入院其他诊断13描述 like '%副流感%' or a.入院其他诊断13描述 like '%血流感染%')) 
+        or ((a.入院其他诊断14描述 like '%甲%流%' or a.入院其他诊断14描述 like '%乙%流%' or a.入院其他诊断14描述 like '%流%感%') and ( a.入院其他诊断14描述 like '%流感嗜血%' or a.入院其他诊断14描述 like '%副流感%' or a.入院其他诊断14描述 like '%血流感染%'))
+        or ((a.入院其他诊断15描述 like '%甲%流%' or a.入院其他诊断15描述 like '%乙%流%' or a.入院其他诊断15描述 like '%流%感%') and ( a.入院其他诊断15描述 like '%流感嗜血%' or a.入院其他诊断15描述 like '%副流感%' or a.入院其他诊断15描述 like '%血流感染%')) 
+        or ((a.入院其他诊断16描述 like '%甲%流%' or a.入院其他诊断16描述 like '%乙%流%' or a.入院其他诊断16描述 like '%流%感%') and ( a.入院其他诊断16描述 like '%流感嗜血%' or a.入院其他诊断16描述 like '%副流感%' or a.入院其他诊断16描述 like '%血流感染%'))
+        or ((a.入院其他诊断17描述 like '%甲%流%' or a.入院其他诊断17描述 like '%乙%流%' or a.入院其他诊断17描述 like '%流%感%') and ( a.入院其他诊断17描述 like '%流感嗜血%' or a.入院其他诊断17描述 like '%副流感%' or a.入院其他诊断17描述 like '%血流感染%')) 
+        or ((a.入院其他诊断18描述 like '%甲%流%' or a.入院其他诊断18描述 like '%乙%流%' or a.入院其他诊断18描述 like '%流%感%') and ( a.入院其他诊断18描述 like '%流感嗜血%' or a.入院其他诊断18描述 like '%副流感%' or a.入院其他诊断18描述 like '%血流感染%'))
+        or ((a.入院其他诊断19描述 like '%甲%流%' or a.入院其他诊断19描述 like '%乙%流%' or a.入院其他诊断19描述 like '%流%感%') and ( a.入院其他诊断19描述 like '%流感嗜血%' or a.入院其他诊断19描述 like '%副流感%' or a.入院其他诊断19描述 like '%血流感染%'))
+        or ((a.入院其他诊断20描述 like '%甲%流%' or a.入院其他诊断20描述 like '%乙%流%' or a.入院其他诊断20描述 like '%流%感%') and ( a.入院其他诊断20描述 like '%流感嗜血%' or a.入院其他诊断20描述 like '%副流感%' or a.入院其他诊断20描述 like '%血流感染%')))
+    or ((a.主诉 like '%甲%流%' or a.主诉 like '%乙%流%' or a.主诉 like '%流%感%') and ( a.主诉 like '%流感嗜血%' or a.主诉 like '%副流感%' or a.主诉 like '%血流感染%')) 
+    or (   ((a.入院主要诊断描述 like '%发烧%' or a.入院主要诊断描述 like '%发热%' or a.入院主要诊断描述 like '%高热%') and ( a.入院主要诊断描述 like '%咳嗽%' or a.入院主要诊断描述 like '%咳痰%'))
+        or ((a.入院其他诊断描述 like '%发烧%' or a.入院其他诊断描述 like '%发热%' or a.入院其他诊断描述 like '%高热%') and ( a.入院其他诊断描述 like '%咳嗽%' or a.入院其他诊断描述 like '%咳痰%')) 
+        or ((a.入院其他诊断1描述 like '%发烧%' or a.入院其他诊断1描述 like '%发热%' or a.入院其他诊断1描述 like '%高热%') and ( a.入院其他诊断1描述 like '%咳嗽%' or a.入院其他诊断1描述 like '%咳痰%')) 
+        or ((a.入院其他诊断2描述 like '%发烧%' or a.入院其他诊断2描述 like '%发热%' or a.入院其他诊断2描述 like '%高热%') and ( a.入院其他诊断2描述 like '%咳嗽%' or a.入院其他诊断2描述 like '%咳痰%'))
+        or ((a.入院其他诊断3描述 like '%发烧%' or a.入院其他诊断3描述 like '%发热%' or a.入院其他诊断3描述 like '%高热%') and ( a.入院其他诊断3描述 like '%咳嗽%' or a.入院其他诊断3描述 like '%咳痰%')) 
+        or ((a.入院其他诊断4描述 like '%发烧%' or a.入院其他诊断4描述 like '%发热%' or a.入院其他诊断4描述 like '%高热%') and ( a.入院其他诊断4描述 like '%咳嗽%' or a.入院其他诊断4描述 like '%咳痰%')) 
+        or ((a.入院其他诊断5描述 like '%发烧%' or a.入院其他诊断5描述 like '%发热%' or a.入院其他诊断5描述 like '%高热%') and ( a.入院其他诊断5描述 like '%咳嗽%' or a.入院其他诊断5描述 like '%咳痰%'))
+        or ((a.入院其他诊断6描述 like '%发烧%' or a.入院其他诊断6描述 like '%发热%' or a.入院其他诊断6描述 like '%高热%') and ( a.入院其他诊断6描述 like '%咳嗽%' or a.入院其他诊断6描述 like '%咳痰%'))
+        or ((a.入院其他诊断7描述 like '%发烧%' or a.入院其他诊断7描述 like '%发热%' or a.入院其他诊断7描述 like '%高热%') and ( a.入院其他诊断7描述 like '%咳嗽%' or a.入院其他诊断7描述 like '%咳痰%')) 
+        or ((a.入院其他诊断8描述 like '%发烧%' or a.入院其他诊断8描述 like '%发热%' or a.入院其他诊断8描述 like '%高热%') and ( a.入院其他诊断8描述 like '%咳嗽%' or a.入院其他诊断8描述 like '%咳痰%')) 
+        or ((a.入院其他诊断9描述 like '%发烧%' or a.入院其他诊断9描述 like '%发热%' or a.入院其他诊断9描述 like '%高热%') and ( a.入院其他诊断9描述 like '%咳嗽%' or a.入院其他诊断9描述 like '%咳痰%')) 
+        or ((a.入院其他诊断10描述 like '%发烧%' or a.入院其他诊断10描述 like '%发热%' or a.入院其他诊断10描述 like '%高热%') and ( a.入院其他诊断10描述 like '%咳嗽%' or a.入院其他诊断10描述 like '%咳痰%'))
+        or ((a.入院其他诊断11描述 like '%发烧%' or a.入院其他诊断11描述 like '%发热%' or a.入院其他诊断11描述 like '%高热%') and ( a.入院其他诊断11描述 like '%咳嗽%' or a.入院其他诊断11描述 like '%咳痰%')) 
+        or ((a.入院其他诊断12描述 like '%发烧%' or a.入院其他诊断12描述 like '%发热%' or a.入院其他诊断12描述 like '%高热%') and ( a.入院其他诊断12描述 like '%咳嗽%' or a.入院其他诊断12描述 like '%咳痰%'))
+        or ((a.入院其他诊断13描述 like '%发烧%' or a.入院其他诊断13描述 like '%发热%' or a.入院其他诊断13描述 like '%高热%') and ( a.入院其他诊断13描述 like '%咳嗽%' or a.入院其他诊断13描述 like '%咳痰%')) 
+        or ((a.入院其他诊断14描述 like '%发烧%' or a.入院其他诊断14描述 like '%发热%' or a.入院其他诊断14描述 like '%高热%') and ( a.入院其他诊断14描述 like '%咳嗽%' or a.入院其他诊断14描述 like '%咳痰%'))
+        or ((a.入院其他诊断15描述 like '%发烧%' or a.入院其他诊断15描述 like '%发热%' or a.入院其他诊断15描述 like '%高热%') and ( a.入院其他诊断15描述 like '%咳嗽%' or a.入院其他诊断15描述 like '%咳痰%')) 
+        or ((a.入院其他诊断16描述 like '%发烧%' or a.入院其他诊断16描述 like '%发热%' or a.入院其他诊断16描述 like '%高热%') and ( a.入院其他诊断16描述 like '%咳嗽%' or a.入院其他诊断16描述 like '%咳痰%'))
+        or ((a.入院其他诊断17描述 like '%发烧%' or a.入院其他诊断17描述 like '%发热%' or a.入院其他诊断17描述 like '%高热%') and ( a.入院其他诊断17描述 like '%咳嗽%' or a.入院其他诊断17描述 like '%咳痰%')) 
+        or ((a.入院其他诊断18描述 like '%发烧%' or a.入院其他诊断18描述 like '%发热%' or a.入院其他诊断18描述 like '%高热%') and ( a.入院其他诊断18描述 like '%咳嗽%' or a.入院其他诊断18描述 like '%咳痰%'))
+        or ((a.入院其他诊断19描述 like '%发烧%' or a.入院其他诊断19描述 like '%发热%' or a.入院其他诊断19描述 like '%高热%') and ( a.入院其他诊断19描述 like '%咳嗽%' or a.入院其他诊断19描述 like '%咳痰%'))
+        or ((a.入院其他诊断20描述 like '%发烧%' or a.入院其他诊断20描述 like '%发热%' or a.入院其他诊断20描述 like '%高热%') and ( a.入院其他诊断20描述 like '%咳嗽%' or a.入院其他诊断20描述 like '%咳痰%')))
+    or ((a.主诉 like '%发烧%' or a.主诉 like '%发热%' or a.主诉 like '%高热%') and ( a.主诉 like '%咳嗽%' or a.主诉 like '%咳痰%')) 
+    or  (   a.入院主要诊断描述 like 'H%N%' or a.入院其他诊断描述  like 'H%N%' or a.入院其他诊断1描述  like 'H%N%' or a.入院其他诊断2描述  like 'H%N%'
+        or a.入院其他诊断3描述 like 'H%N%' or a.入院其他诊断4描述  like 'H%N%' or a.入院其他诊断5描述  like 'H%N%' or a.入院其他诊断6描述  like 'H%N%'
+        or a.入院其他诊断7描述 like 'H%N%' or a.入院其他诊断8描述  like 'H%N%' or a.入院其他诊断9描述  like 'H%N%' or a.入院其他诊断10描述  like 'H%N%'
+        or a.入院其他诊断11描述 like 'H%N%' or a.入院其他诊断12描述  like 'H%N%' or a.入院其他诊断13描述  like 'H%N%' or a.入院其他诊断14描述  like 'H%N%'
+        or a.入院其他诊断15描述 like 'H%N%' or a.入院其他诊断16描述  like 'H%N%' or a.入院其他诊断17描述  like 'H%N%' or a.入院其他诊断18描述  like 'H%N%'
+        or a.入院其他诊断19描述  like 'H%N%' or a.入院其他诊断20描述  like 'H%N%')  
+    or  a.主诉 like 'H%N%' 
+    or  d.inpatient_no is not null)
+   and fi.in_state in ('B','O','P')
+   and fi.out_date between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1
+   
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新医务报表\出院流感病例监测接口标准(附件2)设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

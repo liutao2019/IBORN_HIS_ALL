@@ -1,0 +1,240 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtEndTime</Name><Text>截止时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>500</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>txtname</Name><Text>姓名/卡号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>35</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>hospital_id</Name><Text>院区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>710</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select distinct cd.hospital_id,cd.hospital_name from com_department cd where cd.hospital_id is not null</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>qty</Name><Text>剩余数量：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>440</X><Y>35</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select 0,'剩余数量为0' from dual union all select 1,'剩余数量不为0' from dual</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>4</Index><Name>type</Name><Text>套餐类型：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>35</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>     select cd.code,cd.name from com_dictionary cd where cd.type='PACKAGETYPE'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>5</Index><Name>dtBeginTime2</Name><Text>套餐购买开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>6</Index><Name>2dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>280</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,decode(a.hospital_id,'IBORN','爱博恩妇产医院','BELLAIRE','爱博恩医疗门诊部'),'合计：') 院区,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,a.card_no,'/') 诊疗卡,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,a.patient_name,'/') 姓名,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,age,'/') 年龄,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,a.packgetype,'/') 套餐类型,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,a.packagename,'/') 套餐内容,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,to_char(nvl(abs(cc.cashcost),0)),'/') 套餐金额,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,itemname,'/') 套餐项目,
+       nvl(sum(a.xcashCost),0) 项目金额,
+       nvl(sum(a.all_qty),0) 项目数量,
+       nvl(sum(qty),0) 剩余数量,
+       nvl(sum(a.cashCost),0) 剩余金额,
+       nvl(sum(nvl(a.xcashCost,0)-nvl(a.cashCost,0)),0) 已使用金额,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,a.oper_date,to_date('0001-01-01','yyyy-mm-dd')) 套餐购买时间,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),to_date('0001-01-01','yyyy-mm-dd')) 首次匹配时间,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,operator,'/') 操作类型,
+       decode(grouping_id(a.hospital_id,a.card_no,a.patient_name,age,a.packgetype,a.packagename,nvl(abs(cc.cashcost),0),itemname,a.oper_date,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),operator,empl_name),0,empl_name,'/') 操作人
+  from (
+      select card_no,patient_name,packageTypeID,packagename,package_id,item_code,item_name,clinic_code,tt.invoice_no,packgetype,age,oper_date,
+             min(operdate) operdate,itemname,
+             qty,
+             empl_name,
+             operator,
+             itemcode,
+             hospital_id,
+             nvl(round(sum(real_cost),2),0) cashCost,--爱博恩套餐收费
+             nvl(round(sum(xreal_cost),2),0) xcashCost,
+             trans_type,
+             all_qty
+       from (
+          select t4.name packgetype,t4.code packageTypeID,
+                 t3.package_name packagename,
+                 t3.package_id,
+                 case when t3.package_name like '%自选包%' then epd.item_name else t3.package_name end item_name,
+                 case when t3.package_name like '%自选包%' then epd.item_code else t3.package_id end item_code,
+                 fun_get_age(t2.birthday) age,
+                 t.invoice_no invoice_no,
+                 nvl(t.tot_cost,0) invoice_tot,
+                 nvl(t.real_cost,0) invoice_real,
+                 nvl(t.gift_cost,0) invoice_gift,
+                 nvl(t.etc_cost,0) invoice_etc,
+                 epd.item_code itemcode,
+                 epd.item_name itemname,
+                 --epd.qty,epc1.amount epc1,epc.amount epc,
+                 case when (t2.cost_invoice like '%0%' and t2.cost_flag=1 and bh.invoice_no is null) then (nvl(nvl(epd.qty,0)-nvl(epc.amount,0),0))
+                      when (t2.cost_invoice like '%0%' and t2.cost_flag=1 and bh.invoice_no is not null) then 0
+                      when nvl(epc1.amount,0)=0 and epd.rtn_qty=0 then 0 
+                      when t2.original_code like '%0%' then nvl(epc1.amount,0)+epd.rtn_qty
+                      else (nvl(nvl(epd.qty,0)-nvl(epc.amount,0),0)) end qty,
+                       --nvl(epc1.amount,0),
+                 case when (t2.cost_invoice like '%0%' and t2.cost_flag=1 and bh.invoice_no is null) then (nvl(round(epd.real_cost/epd.qty*(epd.qty-nvl(epc.amount,0)),2),0))
+                      when (t2.cost_invoice like '%0%' and t2.cost_flag=1 and bh.invoice_no is not null) then 0 
+                      when nvl(epc1.amount,0)=0 and epd.rtn_qty=0 then 0  
+                      when t2.original_code like '%0%' then (nvl(round(epd.real_cost/epd.qty*(nvl(epc1.amount,0)+epd.rtn_qty),2),0))
+                      else (nvl(round(epd.real_cost/epd.qty*(epd.qty-nvl(epc.amount,0)),2),0)) end real_cost,
+                 case when nvl(epc1.amount,0)=0 and epd.rtn_qty=0 then 0 
+                      else nvl(round(epd.etc_cost/epd.qty*(epd.qty-nvl(nvl(epc1.amount,epc.amount),0)),2),0)  end etc_cost,
+                 case when nvl(epc1.amount,0)=0 and epd.rtn_qty=0 then 0 
+                      else nvl(round(epd.gift_cost/epd.qty*(epd.qty-nvl(nvl(epc1.amount,epc.amount),0)),2),0) end gift_cost,
+                 nvl(epd.real_cost,0) xreal_cost,
+                 nvl(epd.etc_cost,0) xetc_cost,
+                 nvl(epd.gift_cost,0) xgift_cost,
+                 fun_get_employee_name(t2.oper_code) oper_code,
+                 nvl(t2.oper_date,bh.balance_date) oper_date,
+                 nvl((select nvl(sum(a.real_cost),0)
+                        from exp_packagepaymode a
+                       where a.invoice_no = t.invoice_no
+                         and a.trans_type = t.trans_type
+                         and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD','YE','YS','')--'YS',,'YE','CI'
+                         or (a.mode_code = 'DE' and a.realated_code in  ( 'CA','UP','ZB','WP','PO','CD','YE')))--'YS','YE','CI',
+                         ),0) cashCost,
+                 t2.card_no,t2.patient_name,t2.clinic_code,
+                 epc.oper_date operdate,
+                 case when t.oper_code in ('0a0713','000207','000225','000203','000230') then '出纳操作' else '收费员操作' end operator,
+                 ce.empl_name ,
+                 case when substr(t2.original_code,1,6) is not null then substr(t2.original_code,1,6) 
+                      when substr(t2.cost_invoice,1,6) like '%0%' or substr(t2.cost_invoice,1,6) like '%1%' then substr(t2.cost_invoice,1,6) else '' end dt,
+                 case when t.print_invoiceno like '%BL%' or t.print_invoiceno like '%SZ%' then 'BELLAIRE' else 'IBORN' end hospital_id,
+                 t.trans_type,
+                 epd.qty all_qty
+            from exp_packageinvoice t
+            left join exp_package t2 on t.invoice_no = t2.invoice_no
+            left join exp_packagedetail epd on t2.clinic_code=epd.clinic_code and t2.trans_type=epd.trans_type
+            left join bd_com_package t3 on t2.package_id = t3.package_id
+            left join com_employee ce on ce.empl_code=t.oper_code
+            left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+            left join (select bh.invoice_no ,bh.balance_date
+                                 from fin_ipb_balancehead bh 
+                                where bh.balance_date&lt;to_date( '&amp;dtEndTime','yyyy-MM-dd') +1)bh on bh.invoice_no=t2.cost_invoice
+            left join (select epc.clinic_code,epc.detailseq,sum(epc.amount) amount,min(epc.oper_date) oper_date
+                         from exp_packagecost epc 
+                        where epc.oper_date&lt;to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+                          --and epc.clinic_code in ('10000469','10010068')
+                        group by epc.clinic_code,epc.detailseq) epc on epc.clinic_code=epd.clinic_code and epc.detailseq=epd.sequence_no and epd.trans_type=1
+            left join (select epc.clinic_code,epc.detailseq,sum(epc.amount) amount,min(epc.oper_date) oper_date
+                         from exp_packagecost epc 
+                         left join exp_packagedetail epd on epc.clinic_code=epd.clinic_code and epc.detailseq=epd.sequence_no 
+                        where epc.oper_date&gt;=to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+                          --and epc.clinic_code in ('10000469','10010068')
+                        group by epc.clinic_code,epc.detailseq) epc1 on epc1.clinic_code=epd.clinic_code and epc1.detailseq=epd.sequence_no and epd.trans_type=1
+           where
+              t4.code!='21'
+              and t.trans_type = t2.trans_type
+              and t2.pay_flag=1 and t2.cancel_flag=0
+              --and nvl(t2.oper_date,bh.balance_date) &lt; to_date( '&amp;dtEndTime','yyyy-MM-dd') +1
+              /*or (nvl(substr(t2.original_code,1,6),substr(t2.cost_invoice,1,6)) is not null)*/
+              --and t2.clinic_code in (select distinct epd.clinic_code from exp_packagedetail epd where epd.rtn_qty&lt;&gt;0)
+              and (t3.package_kind='&amp;type' or '&amp;type'='ALL') 
+              and t2.oper_date between to_date('&amp;dtBeginTime2' ,'yyyy-MM-dd')  and to_date( '&amp;2dtEndTime','yyyy-MM-dd') +1 
+              --and t2.card_no='0000042569'
+              --and t2.clinic_code in ('10000469','10010068')
+              --and epd.rtn_qty&lt;&gt;0v
+              --and epd.item_code='F00000001218'
+        ) tt 
+       -- where card_no='0000508548'
+        --where ((tt.dt is null) or (tt.dt&gt; substr(replace('&amp;dtEndTime','-',''),3,8)))
+        group by card_no,patient_name,packageTypeID,clinic_code,packagename,package_id,item_code,item_name,tt.invoice_no,packgetype,age,itemname,qty,empl_name,operator,itemcode,hospital_id,oper_date,trans_type,all_qty
+       --having nvl(epc1,0)&lt;&gt;0 
+       )a
+    left join (select card_no,patient_name,packageTypeID,hospital_id,invoice_no,package_id,
+                      nvl(sum(rtn_qty),0)+nvl(sum(amount),0) rtn_qty,
+                      nvl(round(sum(real_cost),2),0) cashCost,
+                      nvl(sum(amount),0) amount,
+                      trans_type--爱博恩套餐收费
+                from (
+                  select t4.name packgetype,t4.code packageTypeID,
+                         t3.package_name packagename,
+                         t3.package_id,
+                         case when t3.package_name like '%自选包%' then epd.item_name else t3.package_name end item_name,
+                         case when t3.package_name like '%自选包%' then epd.item_code else t3.package_id end item_code,
+                         t.invoice_no invoice_no,
+                         nvl(t.tot_cost,0) invoice_tot,
+                         nvl(t.real_cost,0) invoice_real,
+                         nvl(t.gift_cost,0) invoice_gift,
+                         nvl(t.etc_cost,0) invoice_etc,
+                         nvl(epd.real_cost,0) real_cost,
+                         nvl(epd.etc_cost,0) etc_cost,
+                         nvl(epd.gift_cost,0) gift_cost,
+                         nvl(epd.rtn_qty,0) rtn_qty,
+                         fun_get_employee_name(t2.oper_code) oper_code,
+                         t2.oper_date,
+                         nvl((select nvl(sum(a.real_cost),0)
+                                from exp_packagepaymode a
+                               where a.invoice_no = t.invoice_no
+                                 and a.trans_type = t.trans_type
+                                 and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD','YE')--'YS',,'YE','CI'
+                                 or (a.mode_code = 'DE' and a.realated_code in  ( 'CA','UP','ZB','WP','PO','CD','YE')))--'YS','YE','CI',
+                                 ),0) cashCost,
+                         t2.card_no,t2.patient_name,t2.clinic_code,
+                         case when t.print_invoiceno like '%BL%' or t.print_invoiceno like '%SZ%' then 'BELLAIRE' else 'IBORN' end hospital_id,
+                         epc1.amount,
+                         t2.cost_flag,
+                         t.trans_type
+                    from exp_packageinvoice t
+                    left join exp_package t2 on t.invoice_no = t2.invoice_no
+                    left join exp_packagedetail epd on t2.clinic_code=epd.clinic_code and t2.trans_type=epd.trans_type
+                    left join bd_com_package t3 on t2.package_id = t3.package_id
+                    left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+                    left join (select epc.clinic_code,epc.detailseq,sum(epc.amount) amount,min(epc.oper_date) oper_date
+                                 from exp_packagecost epc 
+                                 left join exp_packagedetail epd on epc.clinic_code=epd.clinic_code and epc.detailseq=epd.sequence_no
+                                where epc.oper_date&gt;=to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+                          --and epc.clinic_code in ('10000469','10010068')
+                                group by epc.clinic_code,epc.detailseq) epc1 on epc1.clinic_code=epd.clinic_code and epc1.detailseq=epd.sequence_no and epd.trans_type=1
+                   where
+                      t4.code!='21'
+                      and t.trans_type = t2.trans_type
+                      and t2.pay_flag=1 and t2.cancel_flag=0
+                      --and t2.card_no='0000042569'
+                      --and t2.clinic_code in ('10000469','10010068')
+                      --and t2.card_no='0000008372'
+                      --and t2.package_id='1000001670'
+                ) tt 
+                group by card_no,patient_name,packageTypeID,hospital_id,invoice_no,package_id,trans_type) cc 
+                on a.card_no=cc.card_no and a.packageTypeID=cc.packageTypeID and a.invoice_no=cc.invoice_no and a.package_id=cc.package_id and a.trans_type=cc.trans_type
+    left join (select card_no,clinic_code,
+                      min(oper_date) oper_date,
+                      sum(rtn_qty) rtn_qty,
+                      trans_type
+                from (
+                  select t2.card_no,
+                         t2.clinic_code,
+                         nvl(epc.oper_date,bh.balance_date) oper_date,
+                         /*t2.cost_invoice,
+                         t2.cost_flag,
+                         bh.invoice_no,
+                         bh.balance_date,
+                         epd.rtn_qty,
+                         epc1.amount,
+                         ep.package_id,*/
+                         case when (t2.cost_invoice like '%0%' and t2.cost_flag=1 and bh.invoice_no is null) then nvl(nvl(epd.qty,0)-nvl(epc.amount,0),0)
+                              when (t2.cost_invoice like '%0%' and t2.cost_flag=1 and bh.invoice_no is not null) then 0
+                              when ep.package_id is not null then nvl(nvl(epd.qty,0)-nvl(epc.amount,0),0)
+                              when nvl(epc1.amount,0)=0 and epd.rtn_qty=0 then 0 
+                              when t2.original_code like '%0%' then nvl(epc1.amount,0)+epd.rtn_qty
+                              else nvl(nvl(epd.qty,0)-nvl(epc.amount,0),0) end rtn_qty,
+                         t.trans_type
+                    from exp_packageinvoice t
+                    left join exp_package t2 on t.invoice_no = t2.invoice_no
+                    left join exp_packagedetail epd on t2.clinic_code=epd.clinic_code and t2.trans_type=epd.trans_type
+                    left join bd_com_package t3 on t2.package_id = t3.package_id
+                    left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+                    left join (select bh.invoice_no ,bh.balance_date
+                                 from fin_ipb_balancehead bh 
+                                where bh.balance_date&lt;to_date( '&amp;dtEndTime','yyyy-MM-dd') +1)bh on bh.invoice_no=t2.cost_invoice
+                    left join (select epc.clinic_code,epc.detailseq,sum(epc.amount) amount,min(epc.oper_date) oper_date
+                                 from exp_packagecost epc 
+                                where epc.oper_date&lt;to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+                          --and epc.clinic_code in ('10000469','10010068')
+                                group by epc.clinic_code,epc.detailseq) epc on epc.clinic_code=epd.clinic_code and epc.detailseq=epd.sequence_no and epd.trans_type=1
+                    left join (select epc.clinic_code,epc.detailseq,sum(epc.amount) amount,min(epc.oper_date) oper_date
+                                 from exp_packagecost epc 
+                                 left join exp_packagedetail epd on epc.clinic_code=epd.clinic_code and epc.detailseq=epd.sequence_no
+                                where epc.oper_date&gt;=to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+                                  --and epc.clinic_code in ('10000469','10010068')
+                                group by epc.clinic_code,epc.detailseq) epc1 on epc1.clinic_code=epd.clinic_code and epc1.detailseq=epd.sequence_no and epd.trans_type=1
+                    left join (select ep.* from exp_package ep 
+                                where ep.oper_date&lt;to_date( '&amp;dtEndTime','yyyy-MM-dd') +1
+                                  and ep.cancel_flag=1
+                                  and ep.trans_type=2) ep
+                               on t2.package_id=ep.package_id and t2.clinic_code=ep.clinic_code and t2.trans_type=ep.trans_type and t2.card_no=ep.card_no 
+                   where
+                      t4.code!='21'
+                      and t.trans_type = t2.trans_type
+                      and t2.pay_flag=1 and t2.cancel_flag=0
+                      --and t2.card_no='0000042569'
+                      --and t2.card_no='0000010691'
+                ) tt 
+                group by card_no,clinic_code,trans_type) dd on a.card_no=dd.card_no and a.clinic_code=dd.clinic_code and a.trans_type=dd.trans_type
+ where (a.card_no='&amp;txtname' or a.patient_name='&amp;txtname' or '&amp;txtname' is null)
+   and (a.hospital_id='&amp;hospital_id' or '&amp;hospital_id'='ALL') 
+   and (dd.rtn_qty)&lt;&gt;0
+   --and (decode(a.qty,0,0,1)='&amp;qty' or '&amp;qty'='ALL')
+   and cc.rtn_qty&lt;&gt;0
+ group by rollup((a.card_no ,a.patient_name ,a.packgetype,a.packagename,a.package_id,a.oper_date,a.hospital_id,age,nvl(dd.oper_date,to_date('0001-01-01','yyyy-mm-dd')),nvl(abs(cc.cashcost),0),
+                  a.itemname,operator,empl_name,a.trans_type))
+ order by a.card_no,a.packgetype,a.package_id,a.trans_type
+     
+ 
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新财务报表\存在未匹配项目的套餐查询(收费处用)设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

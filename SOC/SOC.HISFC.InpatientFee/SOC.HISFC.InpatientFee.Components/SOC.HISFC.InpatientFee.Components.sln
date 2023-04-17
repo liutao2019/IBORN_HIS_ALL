@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.InpatientFee.Components", "SOC.HISFC.InpatientFee.Components.csproj", "{1ABBEBA7-7AEC-4D69-95D1-E424831BDE37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.InpatientFee.BizProcess", "..\SOC.HISFC.InpatientFee.BizProcess\SOC.HISFC.InpatientFee.BizProcess.csproj", "{D9C7F1AC-86B3-479F-8069-8201F4590579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.InpatientFee.BizLogic", "..\SOC.HISFC.InpatientFee.BizLogic\SOC.HISFC.InpatientFee.BizLogic.csproj", "{7ADEFE3D-33DF-4A1D-B7C6-0A9A2B29ED8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.InpatientFee.Data", "..\SOC.HISFC.InpatientFee.Data\SOC.HISFC.InpatientFee.Data.csproj", "{4FF495DA-7D16-46CA-916B-4AE13E206AFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.InpatientFee.Interface", "..\SOC.HISFC.InpatientFee.Interface\SOC.HISFC.InpatientFee.Interface.csproj", "{D48822E3-4D06-4568-8658-AFD2807DA75E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1ABBEBA7-7AEC-4D69-95D1-E424831BDE37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABBEBA7-7AEC-4D69-95D1-E424831BDE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABBEBA7-7AEC-4D69-95D1-E424831BDE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABBEBA7-7AEC-4D69-95D1-E424831BDE37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C7F1AC-86B3-479F-8069-8201F4590579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C7F1AC-86B3-479F-8069-8201F4590579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C7F1AC-86B3-479F-8069-8201F4590579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C7F1AC-86B3-479F-8069-8201F4590579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADEFE3D-33DF-4A1D-B7C6-0A9A2B29ED8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ADEFE3D-33DF-4A1D-B7C6-0A9A2B29ED8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ADEFE3D-33DF-4A1D-B7C6-0A9A2B29ED8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ADEFE3D-33DF-4A1D-B7C6-0A9A2B29ED8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FF495DA-7D16-46CA-916B-4AE13E206AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF495DA-7D16-46CA-916B-4AE13E206AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF495DA-7D16-46CA-916B-4AE13E206AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF495DA-7D16-46CA-916B-4AE13E206AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D48822E3-4D06-4568-8658-AFD2807DA75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D48822E3-4D06-4568-8658-AFD2807DA75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D48822E3-4D06-4568-8658-AFD2807DA75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D48822E3-4D06-4568-8658-AFD2807DA75E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

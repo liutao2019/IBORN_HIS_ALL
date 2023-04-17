@@ -1,0 +1,115 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbHospital</Name><Text>院    区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select code,name,' ', spell_code,wb_code,mark from com_dictionary  where type = 'HOSPITALLIST'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtmzcz</Name><Sql>--充值
+/*select sum(nvl(t.prepay_cost, 0)) prepay_cost
+  from fin_opb_accountprepay t
+  left join com_employee t2 on t.oper_code = t2.empl_code
+  left join com_department t3 on t2.dept_code = t3.dept_code
+where t.balance_flag = '1'
+    and t.balance_date between to_date('&amp;dtBeginTime','YYYY-MM-DD') and to_date('&amp;dtEndTime','YYYY-MM-DD')  + 1 
+    and t.prepay_type in  ('CA','UP','ZB','WP','PO')
+    and (t3.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')*/
+    --充值
+  select type,prepay_cost from (
+    select sum(nvl(t.prepay_cost, 0)) prepay_cost,
+           case when t.type_code=1 then '普通账户充值' else '医美账户充值' end type,
+           case when t.invoice_no like 'IB%' then 'IBORN' else 'BELLAIRE' end hospital
+      from fin_opb_accountprepay t
+    where t.balance_flag = '1'
+        and t.oper_date between to_date('&amp;dtBeginTime','YYYY-MM-DD') and to_date('&amp;dtEndTime','YYYY-MM-DD')  + 0.99 
+        and t.prepay_type in  ('CA','UP','ZB','WP','PO','CD')
+    group by case when t.type_code=1 then '普通账户充值' else '医美账户充值' end，
+             case when t.invoice_no like 'IB%' then 'IBORN' else 'BELLAIRE' end)a
+    where   hospital= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL'</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dttcyj</Name><Sql> --套餐押金 
+ select sum(nvl(t.amount,0)) amount 
+ from exp_packagedeposit t
+  left join com_employee t2 on t.oper_code = t2.empl_code
+  left join com_department t3 on t2.dept_code = t3.dept_code
+where t.balance_date between to_date('&amp;dtBeginTime','YYYY-MM-DD') and to_date('&amp;dtEndTime','YYYY-MM-DD')  + 1 
+    and t.balance_flag = '1'
+    and t.mode_code in  ('CA','UP','ZB','WP','PO')
+    and (t3.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dttcsr</Name><Sql>   --套餐收入
+ select packgetype,
+        round(sum(case when (invoice_real = 0 or i is not null) then 0 else round(cashCost*real_cost/invoice_real,4) end),2) cashCost
+ from (
+    select t4.name packgetype,
+           t3.package_name packagename,
+           t.invoice_no invoice_no,
+           t.tot_cost invoice_tot,
+           t.real_cost invoice_real,
+           t.gift_cost invoice_gift,
+           t.etc_cost invoice_etc,
+           t2.real_cost,
+           t2.etc_cost,
+           t2.gift_cost,
+           fun_get_employee_name(t2.oper_code) oper_code,
+           t2.oper_date,
+           nvl((select sum(a.real_cost)
+              from exp_packagepaymode a
+             where a.invoice_no = t.invoice_no
+               and a.trans_type = t.trans_type 
+               and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD')
+               or a.mode_code='DE' and a.realated_code in ( 'CA','UP','ZB','WP','PO','CD'))
+               ),0) cashCost
+              ,t8.invoice_no i
+      from exp_packageinvoice t
+      left join exp_package t2 on t.invoice_no = t2.invoice_no and t.trans_type = t2.trans_type
+      left join bd_com_package t3 on t2.package_id = t3.package_id
+      left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+      left join com_employee t5 on t.oper_code = t5.empl_code
+      left join com_department t6 on t5.dept_code = t6.dept_code
+      left join (select ep.* 
+                                 from exp_packagedetail epd ,exp_package ep,bd_com_package bp  
+                                where epd.clinic_code=ep.clinic_code 
+                                  and epd.trans_type=ep.trans_type
+                                  and ep.package_id=bp.package_id 
+                                  and epd.item_name like '%脐带血造血干细胞储存费%' ) t8 
+        on t2.clinic_code=t8.clinic_code and t2.trans_type=t8.trans_type and t2.invoice_no=t8.invoice_no and t2.package_id=t8.package_id
+     where t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 0.99
+       --and t.balance_flag = '1'
+       and t4.code!='21'
+    and (t6.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL'))
+  group by packgetype
+
+  
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtzytcwsr</Name><Sql> --住院套餐外收入
+ select dept,sum(cost) cost
+ from (
+  select (select distinct DEPT_NAME
+           from fin_ipr_inmaininfo a, fin_ipb_balancehead b
+          where a.inpatient_no = b.inpatient_no
+            and b.invoice_no = t.invoice_no
+            and rownum &lt;= 1) dept,
+            case when t.reutrnorsupply_flag = '2' and t.trans_kind = '1' then -t.cost else t.cost end cost
+   from fin_ipb_balancepay t
+  where t.daybalance_flag = '1'
+    and t.daybalance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+    and t.pay_way in  ('CA','UP','ZB','WP','PO','CD')) tt
+  group by tt.dept
+  having sum(cost) &gt; 0</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtghsr</Name><Sql>         --挂号收入
+  select t.dept_name, sum(nvl(t2.tot_cost, 0)) cost
+    from fin_opr_register t
+    left join exp_register_paymode t2 on t.invoice_no = t2.invoice_no
+  left join com_employee t3 on t.oper_code = t3.empl_code
+  left join com_department t4 on t3.dept_code = t4.dept_code
+   where t.trans_type = t2.trans_type
+       and t2.balance_flag = '1'
+       and t2.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+       and t2.mode_code in  ('CA','UP','ZB','WP','PO')
+       and (t4.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+       group by t.dept_name
+       having sum(nvl(t2.tot_cost,0)) &gt; 0</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtmzsr</Name><Sql>      --门诊收入 
+ select dept, sum(tot_cost) tot_cost
+ from (
+ select (select distinct fun_get_dept_name(a.REG_DPCD)
+           from fin_opb_feedetail a
+          where a.invoice_no = t.invoice_no
+            and rownum &lt;= 1) dept,
+            t.tot_cost
+   from fin_opb_paymode t   
+   left join com_employee t2 on t.oper_code = t2.empl_code
+   left join com_department t3 on t2.dept_code = t3.dept_code
+  where 
+     (t3.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+     and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+     and t.mode_code in  ('CA','UP','ZB','WP','PO','CD')) tt
+  group by tt.dept
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\现金流统计设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

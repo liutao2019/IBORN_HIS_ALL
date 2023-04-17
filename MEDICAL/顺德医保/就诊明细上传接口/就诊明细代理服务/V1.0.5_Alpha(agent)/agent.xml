@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<agent>
+    <initParam>
+        <!--本机IP地址，当有多个网卡时指定-->
+        <ip>128.111.5.70</ip>
+         <!--端口-->
+        <port>9081</port>
+        <!--线程池大小,默认10-->
+        <threadPoolSize>10</threadPoolSize>
+        <!--传输是否加密,默认false -->
+        <isEncrypt>true</isEncrypt>
+        <!--传输是否进行压缩,默认false -->
+        <isCompress>true</isCompress>
+        <!-- 系统字符集  -->
+        <charset>utf-8</charset>
+        <!--客户端传入数据字符集 ,默认utf-8-->
+        <requestCharset>utf-8</requestCharset>
+        <!--服务器返回数据字符集 ,默认utf-8-->
+        <resposeCharset>utf-8</resposeCharset>
+        <!-- 请求超时时间,默认3600 -->
+        <timeout>1800</timeout>
+		<!-- 代理连接空闲超时时间(秒),默认1800 -->
+        <idleTimeout>1800</idleTimeout>
+        <!-- 接收数据超时时间(秒),默认2400 -->
+        <receiveTimeout>2400</receiveTimeout>
+        <!--请求输入缓冲区大小，默认1024,单位KB-->
+        <inputBufferSize>3072</inputBufferSize>
+        <!--响应输出缓冲区大小，默认1024,单位KB-->
+        <outputBufferSize>3072</outputBufferSize>
+        <!-- 需加密节点路径 
+        -->
+        <encryptNodePath>/input/password</encryptNodePath>
+        <!-- 加密节点属性名 
+                            重要：如果 encryptNodePath节点指定是 <input><password></password></input>形式，则encryptNodeAttrName值去掉。
+                            否则，有可能报解密失败。
+        -->
+         <encryptNodeAttrName></encryptNodeAttrName>
+       
+        <encryptKey>
+            <![CDATA[AhqPVxOrXtUOuVWTTtuUUuVxoXXXVUSoWTXSxVxvmuxTsWWwXXtPSVVPvutWVwxtUTuXWtPOxPtIwArNmuOnuuvxssstoqsXVvVrsXtXnvXvWTxUXXVnTQQVUWVvWVUuUvSXUsRxNNVSXvqQwxXspUXsspWWxSwvUvVtajFOcmLqOrrUpqVSvSTtUStNOUWwutwVvuxpMWTtTwuwSUUTwXXWSSsUxNrwwUswsttSxUTuQnsWvWUtXMqxsTvsSWVSVNMvXTwmqWSXuRTxssPxXTVVxcEcRQciBpRpwshIkhkJkJKkKkLhkLNOoOTVmPsTakPLNOsjpMovsrqmfcFIvmTjwSUCUFQLCaqJGimNPCDwGNcQwOXXEBvEDAeRlQGEhCrghqrqLrnVdwawSjaEkmcAsUkkfpUTXpXESfiPOVViMeddJTPTROmAAFxNjtCosWduauKrJcwbOtIANxVXrwoplHLJjJKHGIJhjIljmooOsWmSmqrOprONNxij05po0<lodkYlrkZvZXpqibkgZXgZbkmolsfabokXpvjjbqofZkopXk23IJ1GrYifZBbvbYgERwi4202C07jlarirpq0MCgXsXljXqel2fd9kqbdboxC0EmrYifZ5umlkbkqn0<01umpo0KgXsXkjXqek2fd9kqbdboCyVVfxxT306908Yfq3lrkq909YfqCbkdqe90JcfopqElkwbol2vqbErj90CiltbpqJbq2fq906pfdkrjR09jXdkfqrabq02R2uo0GgXsXkiXkdkErjYbo6iLTBKWB200um>>>>>>>>>>><>>><0001ro02R2ipNu68KW200um000037nUsdFQtrQMfz9BYwJDRaXB5aCn78X>3TYWxqcwdSxoIlEGqugW9pGW2AYxYUEmJIK89tRkZx97qr7YHcPJOfdwEezzo>bEerU9h<UcMFlrRoBFEoIw8sLONMHw8tpXupn0<03>>>>>>>>>>><>>><0001rn0<070003101u]]>
+        </encryptKey>
+        <license>D:\工作文档\keystore\rootca\catest_signed.cer</license>
+        <!-- 请求代理服务器方式，串行或并行   serial/parallel -->
+        <proxyGroupType>serial</proxyGroupType>
+        <dType>XML</dType>
+        <ywfl>EXAMPLE</ywfl>
+    </initParam>
+    <!--提供给HIS的接口方式,可根据实际情况增加新的接口-->
+    <providers>
+        <provider name="webservice" className="cn.sinobest.agent.transfers.webservice.server.WebServiceProvider" />
+   <!--      <provider name="socket" className="cn.sinobest.agent.transfers.socket.server.SocketProvider"/>
+        <provider name="http" className="cn.sinobest.agent.transfers.http.server.HttpProvider"/> -->
+    </providers>
+    
+    <!-- 拦截器 -->
+    <interceptors>
+        <interceptor key="转码" className="cn.sinobest.comm.interceptor.CharacterEncodingInterceptor" />
+        <interceptor key="加解密" className="cn.sinobest.comm.interceptor.EntryptInterceptor" />
+        <interceptor key="数据摘要" className="cn.sinobest.comm.interceptor.DigetInterceptor" />        
+        <interceptor key="日志记录" className="cn.sinobest.comm.interceptor.LogInterceptor" />
+        <interceptor key="解压缩" className="cn.sinobest.comm.interceptor.CompressInterceptor" />
+
+    </interceptors>
+
+    <!--代理服务设置 -->
+    <!-- index:序号，表示代理请求的次序，系统会自动根据设置的值按从小到大依次调用。0表示同时调用
+                         agent -> app1 
+                               <-
+                               -> app2
+                               ...
+                         当index=0时，
+                         agent  -> app1
+                                -> app2
+                                ....
+             name:代理服务名，此名称要求唯一 
+             protocol:传输协议，指本系统与服务器的传输方式，如：webserivce,http,jms,socket
+             url:服务地址
+             timeout:请求超时时间
+             requestCharset: 传入数据字符集
+             resposeCharset: 返回数据字符集
+             isEncrypt:是否加密
+             isCompress:是否压缩
+             queue:jms队列名
+             isReturn:当同时向多个服务器发送信息时，为true表示返回此服务器处理返回的信息。
+        -->
+    <proxyGroup>
+        <proxy index="1" name="app1" protocol="webservice" url="http://200.10.20.27:9080/ybcf/services/AgentService?wsdl" loginMethod="login" processMethod="process" timeout="3000" requestCharset="" resposeCharset="" isEncrypt="false" isCompress="false" />
+        <!-- <proxy index="2" name="app2" protocol="webservice" url="http://...?wsdl" timeout="3000" requestCharset="" resposeCharset="" isEncrypt="false" isCompress="false" />
+       -->
+        <!--  <proxy index="2" name="app2" protocol="http" url="http://...." timeout="3000" requestCharset="" resposeCharset="" isEncrypt="false" isCompress="false" />
+        <proxy index="3" name="app3" protocol="jms" url="tcp://" requestCharset="" resposeCharset="" timeout="3000" isEncrypt="false" isCompress="false" queue="" />
+        <proxy index="11" name="app1" protocol="webserivce" url="http://...?wsdl" timeout="3000" requestCharset="" resposeCharset="" isEncrypt="false" isCompress="false" isReturn="true" /> -->
+    </proxyGroup>
+    
+    <!--日志参数配置-->
+    <!--
+        enable：日志总开关
+        bufferSize:日志缓冲大小，单位：KB
+        maxFileSize:日志文件大小，单位:M
+        maxBackupIndex:循环日志数
+        level：日志级别,DEBUG,INFO,ERROR
+        dirPath：日志路径
+        encoding：日志输出编码
+        pattern: 日志输出格式，默认：[%d{MM-dd HH:mm:ss,SSS}] [%p]: %m%n
+    -->
+    <logger enable="true" suffix=".log" bufferSize="1024" maxFileSize="100" maxBackupIndex="15" level="DEBUG" dirPath="log" encoding="UTF-8"
+        pattern="[%d{MM-dd HH:mm:ss,SSS}] [%p]: %m%n">
+        <!--通用参数说明：
+            enable:开关，true:打开系统日志输出，false:关闭系统日志输出
+            appender:输出方向，console:输出到控制台，file输出到日志文件。同时指定两个表示都输出。
+            dirPath：日志目录，相对logger中的dirPath目录
+            level：日志级别,DEBUG,INFO,ERROR
+            pathFormat:路经格式
+            fileNameFormat:文件名格式
+        -->
+        <!--系统日志参数-->
+        <sysLog enable="true" level="DEBUG" appender="console,file" dirPath="" />
+        <!--请求日志参数-->
+        <requestLog enable="true" level="" appender="console,file" dirPath="" />
+        <!--返回日志参数-->
+        <responsetLog enable="true" level="" appender="console,file" dirPath="" />
+        <!--业务日志参数-->
+        <ywLog enable="true" level="" appender="console,file" dirPath="" pathFormat="{YWLB}/YYYYMM" fileNameFormat="{YWLB}_YYYYMMDD">
+            <ywlb id="MZJS" name="门诊结算" />
+            <ywlb id="ZYDJ" name="住院登记" />
+        </ywLog>
+    </logger>
+</agent>

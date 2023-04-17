@@ -1,0 +1,637 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dept</Name><Text>库房：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>450</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select dept_code,dept_name,spell_code,wb_code from com_department where dept_code in ('7001','7005','7012','7002','7003','4003')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>type</Name><Text>（填写暂估入库或采购入库）类型：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>660</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtdata</Name><Sql>select 
+凭证日期 凭证输出, 
+'转' V800，
+序号，
+'' 广州爱博恩妇产医院有限公司，
+摘要 ,
+会计科目编码 F1日期F2类别,
+to_char(借方金额) F3凭证号F4附单据数,
+to_char(贷方金额) F5摘要F6科目编码,
+'' F7借方F8贷方,
+'' F9数量F10原币,
+'' F11汇率,
+'袁观妹' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+供应商编码 F19供应商编码,
+'-' F20业务员,
+'' F21项目编码,
+'' F22自定义项1,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10 ,
+'' F34外部系统标识,
+'' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号 ,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删 ,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输 ,
+'1' F49账套号 ,
+'广州爱博恩妇产医院有限公司' F50核算单位,
+to_char(to_date(凭证日期,'yyyy-mm-dd hh24:mi:ss'),'yyyy') F51会计年度,
+to_char(to_date(凭证日期,'yyyy-mm-dd hh24:mi:ss'),'mm')  F52会计期间,
+'3' F53类别顺序号 ,
+'' F54凭证号 ,
+'' F55审核人 ,
+'' F56记账人 ,
+'' F57是否记账,
+'' F58出纳人 ,
+to_char(rownum) F59行号,
+'' F60原币名称 ,
+'' 数量单位 ,
+'0' F61单价,
+科目名称  F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+辅助核算 F66供应商简称 ,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+对方科目编码 F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'' F74外部系统名称,
+'' F75外部账套号 ,
+'0' F76外部会计年度,
+'0' F77外部会计期间,
+'' F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11 ,
+'' F85自由项12 ,
+'' F86自由项13 ,
+'' F87自由项14 ,
+'0' F88自由项15 ,
+'0' F89自由项16 ,
+'' F90审核日期
+from (
+select 
+--库房,
+凭证日期,
+'转' 凭证字,
+序号,
+摘要,
+会计科目编码,
+科目名称,
+供应商编码,
+辅助核算,
+sum(借方金额) 借方金额,
+sum(贷方金额) 贷方金额,对方科目编码
+from(
+select '布草间' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份布草库物资'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要, 
+'124303' 会计科目编码,
+'其他材料' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+sum(IN_COST)  借方金额,
+0 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'2121' 对方科目编码
+,case when invoice_no is null then '1' else '2' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+       nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,
+aa.YY_CODE
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7005'
+and i.company_code=aa.company_code
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+where tt.company_name in ('深圳市朝纺科技有限公司','深圳市朝纺服饰有限公司','深圳市朝纺贸易有限公司','福州芭蒂服装有限公司','上海翌一实业有限公司',
+'深圳市大成华纺纺织科技有限公司','江西并序商贸有限公司')
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份布草库物资'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' , 
+yy_code,
+company_name,case when invoice_no is null then '暂估入库' else '采购入库' end ,case when invoice_no is null then '1' else '2' end 
+
+union all
+
+select  '布草间' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份布草库物资'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要, 
+'2121' 会计科目编码,
+'应付账款' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+0  借方金额,
+sum(IN_COST) 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'124303' 对方科目编码
+,case when invoice_no is null then '1' else '2' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+        nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,aa.YY_CODE
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and  i.company_code=aa.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7005'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+where company_name in ('深圳市朝纺科技有限公司','深圳市朝纺服饰有限公司','深圳市朝纺贸易有限公司','福州芭蒂服装有限公司','上海翌一实业有限公司',
+'深圳市大成华纺纺织科技有限公司','江西并序商贸有限公司')
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份布草库物资'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')',
+yy_code,company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '1' else '2' end 
+
+
+union all
+
+select '母婴保健库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份保健用品'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要, 
+'124305' 会计科目编码,
+'保健用品' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+sum(IN_COST)  借方金额,
+0 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'2121' 对方科目编码
+,case when invoice_no is null then '3' else '4' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+       nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,aa.YY_CODE
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and  aa.company_code=i.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7012'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份保健用品'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' ,
+yy_code,
+company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '3' else '4' end
+
+union all
+
+select  '母婴保健库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份保健用品'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要, 
+'2121' 会计科目编码,
+'应付账款' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+0  借方金额,
+sum(IN_COST) 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'124305' 对方科目编码
+,case when invoice_no is null then '3' else '4' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+        nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,aa.yy_code
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and aa.company_code=i.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7012'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份保健用品'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')',
+yy_code,
+company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '3' else '4' end 
+
+
+union all
+
+select  '物资仓库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份物资库物资'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要,
+'124303' 会计科目编码,
+'其他材料' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+sum(IN_COST)  借方金额,
+0 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'2121' 对方科目编码
+,case when invoice_no is null then '5' else '6' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+        nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,aa.yy_code
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and  aa.company_code=i.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7001'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+where company_name in ('广州宝忱宝商贸有限公司','广州昌定贸易有限公司','广州虎辉集团有限公司','广州市好柔日用品有限公司','广州市世纪宝贝孕婴用品有限公司',
+'广州市扬逸贸易有限公司','广州市盈成昌贸易有限公司','广州市忠弘贸易发展有限公司','上海翌一实业有限公司','深圳市锋厨实业有限公司','深圳市锋厨贸易有限公司',
+'深圳市怡亚通深度供应链管理有限公司','深圳市金鑫酒店用品设备有限公司')
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份物资库物资'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' ,
+yy_code,
+company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '5' else '6' end 
+union all
+select  '物资仓库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份物资库物资'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要,
+'2121' 会计科目编码,
+'应付账款' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+0  借方金额,
+sum(IN_COST) 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'124303' 对方科目编码
+,case when invoice_no is null then '5' else '6' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+        nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,aa.yy_code
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and  aa.company_code=i.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7001'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+where company_name in ('广州宝忱宝商贸有限公司','广州昌定贸易有限公司','广州虎辉集团有限公司','广州市好柔日用品有限公司','广州市世纪宝贝孕婴用品有限公司',
+'广州市扬逸贸易有限公司','广州市盈成昌贸易有限公司','广州市忠弘贸易发展有限公司','上海翌一实业有限公司','深圳市锋厨实业有限公司','深圳市锋厨贸易有限公司',
+'深圳市怡亚通深度供应链管理有限公司','深圳市金鑫酒店用品设备有限公司')
+group by to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份物资库物资'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')',
+yy_code,
+company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '5' else '6' end 
+
+union all
+
+select '医疗耗材库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份耗材库卫生材料'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要, 
+'124301' 会计科目编码,
+'卫生材料' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+sum(IN_COST)  借方金额,
+0 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'2121' 对方科目编码
+,case when invoice_no is null then '7' else '8' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+       nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,aa.yy_code
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and  aa.company_code=i.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7002'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份耗材库卫生材料'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')',
+yy_code,company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '7' else '8' end 
+
+union all
+
+select  '医疗耗材库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份耗材库卫生材料'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要, 
+'2121' 会计科目编码,
+'应付账款' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+0  借方金额,
+sum(IN_COST) 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'124301' 对方科目编码
+,case when invoice_no is null then '7' else '8' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+       nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,aa.yy_code
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and  aa.company_code=i.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7002'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份耗材库卫生材料'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' ,
+yy_code,company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '7' else '8' end 
+
+
+union all
+
+select '器械配件库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份器械库卫生材料'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要, 
+'124301' 会计科目编码,
+'卫生材料' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+sum(IN_COST)  借方金额,
+0 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'2121' 对方科目编码
+,case when invoice_no is null then '9' else '10' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+       nvl(aa.WZ_COMPANY_NAME,i.company_name) company_name,
+       k.kind_name,
+       i.invoice_no,aa.yy_code
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and  aa.company_code=i.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7003'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份器械库卫生材料'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')',
+yy_code,company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '9' else '10' end 
+
+union all
+
+select  '器械配件库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(IN_DATE,'mm')||'月份器械库卫生材料'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')' 摘要, 
+'2121' 会计科目编码,
+'应付账款' 科目名称,
+yy_code 供应商编码,
+company_name 辅助核算, 
+0  借方金额,
+sum(IN_COST) 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'124301' 对方科目编码
+,case when invoice_no is null then '9' else '10' end 序号
+from (
+select decode(i.in_class3||i.in_class3mean,'0111','采购入库','0414','入库退货','1928','按批入库退货','1429','赠送入库','问题数据') in_class,
+       i.in_date,
+       i.in_cost,
+       nvl(aa.WZ_COMPANY_NAME,i.company_code) company_name,
+       k.kind_name,
+       i.invoice_no,aa.yy_code
+from  mat_com_kindinfo k,mat_com_baseinfo b,mat_com_input i,yy_com_company aa
+where i.item_code=b.item_code
+and k.kind_code=b.kind_code
+and aa.company_code=i.company_code
+and i.in_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.storage_code='7003'
+and (  (i.in_class3 = '01' and i.in_class3mean = '11')
+or (i.in_class3 = '04' and i.in_class3mean = '14')
+or (i.in_class3 = '19' and i.in_class3mean = '28')
+or (i.in_class3 = '14' and i.in_class3mean = '29')
+)
+order by i.in_date
+)tt
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(IN_DATE,'mm')||'月份器械库卫生材料'||(case when invoice_no is null then '暂估入库' else '采购入库' end )||'('||company_name||')',
+yy_code,
+company_name
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '9' else '10' end
+
+union all
+
+select '西药库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(tt.IN_DATE,'mm')||'月份'||case when tt.charge_form in ('西药费','中成药费') then '西药库药品' else '西药库卫生材料' end 
+||case when tt.INVOICE_NO is null then '暂估入库' else '采购入库' end||'('||tt.company_name||')'   摘要,
+case when tt.charge_form='西药费' then '1243040101' 
+  when tt.charge_form='中成药费' then '1243040102' else '124301' end 会计科目编码,
+''||case when tt.charge_form='西药费' then '西药' 
+                               when tt.charge_form='中成药费' then '中成药' else '卫生材料' end 科目名称,
+                                 yy_code 供应商编码,
+tt.company_name 辅助核算，
+sum(purchase_cost) 借方金额,
+0 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'2121' 对方科目编码
+,case when invoice_no is null then '11' else '12' end 序号
+from (
+select I.IN_DATE IN_DATE,  
+            I.purchase_cost,
+       (select d.name from com_dictionary d where d.type='MINFEE' and d.code = b.fee_code) charge_form,
+       nvl(aa.WZ_COMPANY_NAME,aa.yf_company_name) company_name,
+       I.INVOICE_NO,
+       decode(i.in_type||i.class3_meaning_code||i.in_state,'01182','入库退库','01112','核准入库',
+        (select c.class3_name from com_priv_class3 c where c.class2_code = '0310' 
+               and c.class3_meaning_code = i.class3_meaning_code
+               and c.class3_code=i.in_type)) as  入库类别   ,aa.yy_code
+from pha_com_INput I ,pha_com_storage s,pha_com_baseinfo b ,yy_com_company aa
+where s.group_code=I.group_code
+and s.drug_dept_code=I.drug_dept_code
+and s.drug_code=I.drug_code
+and b.drug_code=I.drug_code 
+and I.COMPANY_CODE=aa.yf_company_code
+and I.IN_date &gt;=to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and I.In_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and I.drug_dept_code ='4003'
+)tt
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(tt.IN_DATE,'mm')||'月份'||case when tt.charge_form in ('西药费','中成药费') then '西药库药品' else '西药库卫生材料' end 
+||case when tt.INVOICE_NO is null then '暂估入库' else '采购入库' end||'('||tt.company_name||')'   ,
+case when tt.charge_form='西药费' then '1243040101' 
+  when tt.charge_form='中成药费' then '1243040102' else '124301' end,
+''||case when tt.charge_form='西药费' then '西药' 
+                               when tt.charge_form='中成药费' then '中成药' else '卫生材料' end ,
+yy_code,tt.company_name 
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '11' else '12' end 
+
+union all
+select '西药库' 库房,
+to_char(last_day(in_date),'yyyy-mm-dd') 凭证日期,
+to_char(tt.IN_DATE,'mm')||'月份'||case when (tt.charge_form in ('西药费','中成药费') and tt.INVOICE_NO is null) then '西药库药品暂估入库' 
+when (tt.charge_form in ('西药费','中成药费') and tt.INVOICE_NO is not null) then '西药库药品采购入库'
+when (tt.charge_form not in ('西药费','中成药费') and tt.INVOICE_NO is null) then '西药库卫生材料暂估入库'  else '西药库卫生材料采购入库' end||'('||tt.company_name||')'   摘要,
+ '2121' 会计科目编码,
+'应付账款' 科目名称,
+yy_code 供应商编码,
+tt.company_name 辅助核算，
+0 借方金额,
+sum(purchase_cost) 贷方金额
+,case when invoice_no is null then '暂估入库' else '采购入库' end 类型
+,'' 对方科目编码
+,case when invoice_no is null then '11' else '12' end 序号
+from (
+select I.IN_DATE IN_DATE,   
+            I.purchase_cost,
+       (select d.name from com_dictionary d where d.type='MINFEE' and d.code = b.fee_code) charge_form,
+      nvl(aa.WZ_COMPANY_NAME,aa.yf_company_name) company_name,
+       I.INVOICE_NO,
+       decode(i.in_type||i.class3_meaning_code||i.in_state,'01182','入库退库','01112','核准入库',
+        (select c.class3_name from com_priv_class3 c where c.class2_code = '0310' 
+               and c.class3_meaning_code = i.class3_meaning_code
+               and c.class3_code=i.in_type)) as  入库类别   ,aa.yy_code
+from pha_com_INput I ,pha_com_storage s,pha_com_baseinfo b ,yy_com_company aa
+where s.group_code=I.group_code
+and s.drug_dept_code=I.drug_dept_code
+and s.drug_code=I.drug_code
+and b.drug_code=I.drug_code 
+and I.COMPANY_CODE=aa.YF_COMPANY_CODE
+and I.IN_date &gt;=to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and I.In_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and I.drug_dept_code ='4003'
+)tt
+group by 
+to_char(last_day(in_date),'yyyy-mm-dd') ,
+to_char(tt.IN_DATE,'mm')||'月份'||case when tt.charge_form in ('西药费','中成药费') and tt.INVOICE_NO is null then '西药库药品暂估入库' 
+when tt.charge_form in ('西药费','中成药费') and tt.INVOICE_NO is not null then '西药库药品采购入库'
+when tt.charge_form not in ('西药费','中成药费') and tt.INVOICE_NO is null then '西药库卫生材料暂估入库'  else '西药库卫生材料采购入库' end||'('||tt.company_name||')'  ,
+yy_code,tt.company_name 
+,case when invoice_no is null then '暂估入库' else '采购入库' end,case when invoice_no is null then '11' else '12' end 
+)tt
+where (select a.dept_code from com_department a where 库房=a.dept_name)='&amp;dept' or '&amp;dept'='ALL'
+and (类型 like '%&amp;type%' or '%&amp;type%' is null)
+group by 库房,
+凭证日期,
+摘要,
+会计科目编码,
+科目名称,
+供应商编码,
+辅助核算,
+类型,对方科目编码，序号
+order by 库房,类型,摘要,科目名称 asc
+)ta
+where 借方金额&lt;&gt;0 or 贷方金额&lt;&gt;0
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新财务报表\物资入库凭证导出设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

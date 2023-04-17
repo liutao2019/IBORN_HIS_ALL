@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TimelineSampleData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="TimelineData.xsd">
+  <Scenario PatientId="1" Description="Secondary Care Data" TimeFrequencySelectedIndex="9">
+    <Section Name="患者体征">
+      <Row Id="85" Name="体温" Background="#EBCCCC">
+        <Item Name="体温">
+          <Units>°C</Units>
+          <UnitsDescription>°C: 摄氏</UnitsDescription>
+          <YAxisMaxValue>45</YAxisMaxValue>
+          <YAxisMinValue>30</YAxisMinValue>
+          <YAxisPadding>11</YAxisPadding>
+          <YAxisMajorInterval>1</YAxisMajorInterval>
+          <YAxisIntervalMinimumHeight>20</YAxisIntervalMinimumHeight>
+          <Height>200</Height>
+          <ShowNormalRange>True</ShowNormalRange>
+          <NormalRangeDescription>成人正常范围</NormalRangeDescription>
+          <NormalRangeMinimumValue>35</NormalRangeMinimumValue>
+          <NormalRangeMaximumValue>37</NormalRangeMaximumValue>
+          <NormalRangeBrush>#FEFCE9</NormalRangeBrush>
+          <HoverBackground>#B84E4E</HoverBackground>
+          <InterpolationLineColor>#990000</InterpolationLineColor>
+          <DataMarkerTemplate>{StaticResource Square}</DataMarkerTemplate>
+          <Style>{StaticResource OverriddenDefaultStyle}</Style>
+        </Item>
+      </Row>
+      <Row Id="86" Name="脉搏" Background="#96C4F3">
+        <Item Name="脉搏">
+          <Units>次/分钟</Units>
+          <YAxisMaxValue>200</YAxisMaxValue>
+          <YAxisMinValue>0</YAxisMinValue>
+          <YAxisMajorInterval>10</YAxisMajorInterval>
+          <YAxisIntervalMinimumHeight>25</YAxisIntervalMinimumHeight>
+          <Height>200</Height>
+          <ShowNormalRange>True</ShowNormalRange>
+          <NormalRangeDescription>成人正常范围</NormalRangeDescription>
+          <NormalRangeMinimumValue>60</NormalRangeMinimumValue>
+          <NormalRangeMaximumValue>100</NormalRangeMaximumValue>
+          <NormalRangeBrush>#FEFCE9</NormalRangeBrush>
+          <HoverBackground>#656DFD</HoverBackground>
+          <InterpolationLineColor>#2932E0</InterpolationLineColor>
+          <DataMarkerTemplate>{StaticResource Circle}</DataMarkerTemplate>
+          <Style>{StaticResource OverriddenDefaultStyle}</Style>
+        </Item>
+      </Row>
+      <Row Id="90" Name="血压" Background="#D6EBD6">
+        <Item Name="血压">
+          <Units>mmHg</Units>
+          <UnitsDescription>mmHg: 毫米汞柱</UnitsDescription>
+          <YAxisMaxValue>300</YAxisMaxValue>
+          <YAxisMinValue>0</YAxisMinValue>
+          <YAxisPadding>6</YAxisPadding>
+          <YAxisMajorInterval>10</YAxisMajorInterval>
+          <YAxisIntervalMinimumHeight>17</YAxisIntervalMinimumHeight>
+          <Height>300</Height>
+          <ShowNormalRange>False</ShowNormalRange>
+          <HoverBackground>#5BA25B</HoverBackground>
+          <DataMarkerTemplate>{StaticResource IBarMarker}</DataMarkerTemplate>
+          <PointTemplate>{StaticResource IBarPoint}</PointTemplate>
+          <LabelTemplate>{StaticResource IBarLabel}</LabelTemplate>
+          <Style>{StaticResource OverriddenDefaultStyle}</Style>
+        </Item>
+      </Row>
+    </Section>
+  </Scenario>
+</TimelineSampleData>

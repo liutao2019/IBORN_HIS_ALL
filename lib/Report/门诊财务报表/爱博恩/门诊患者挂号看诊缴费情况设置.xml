@@ -1,0 +1,24 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtregseechange</Name><Sql>select 
+aa.card_no 就诊卡,aa.name 姓名,aa.reg_date 挂号日期,aa.reg_dept 挂号科室,aa.doct_name 挂好医生,aa.dept_name 看诊科室,aa.empl_name 看诊医生,
+wm_concat(aa.挂号) 挂号费,sum(aa.money) 总金额,aa.备注
+from 
+(
+select re.card_no,re.name,re.reg_date,re.dept_name reg_dept,re.doct_name,cd.dept_name,ce.empl_name
+,case when fcu.fee_code='004' then fcu.item_name else '' end  挂号
+,sum(fof.unit_price) money
+,case when fof.pay_flag=1 then '已缴费' 
+        when fof.pay_flag=0 then '未交费' end 备注
+from fin_opr_register re
+left join fin_opb_feedetail fof on re.clinic_code=fof.clinic_code
+left join com_department cd on re.see_dpcd=cd.dept_code
+left join com_employee ce on re.see_docd=ce.empl_code
+left join fin_com_undruginfo fcu on fcu.item_code=fof.item_code and fcu.item_name=fof.item_name
+where re.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+0.99
+and re.valid_flag=1
+group by re.card_no,re.name,re.reg_date,re.dept_name,re.doct_name,cd.dept_name,ce.empl_name
+,case when fcu.fee_code='004' then fcu.item_name else '' end，
+case when fof.pay_flag=1 then '已缴费' 
+        when fof.pay_flag=0 then '未交费' end
+order by re.reg_date
+)aa
+group by aa.card_no,aa.name,aa.reg_date,aa.reg_dept,aa.doct_name,aa.dept_name,aa.empl_name,aa.备注</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\门诊患者挂号看诊缴费情况设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

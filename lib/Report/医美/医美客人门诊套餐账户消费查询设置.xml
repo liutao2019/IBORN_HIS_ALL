@@ -1,0 +1,123 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>txtName</Name><Text>客户姓名/卡号</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>450</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select *from (
+select 
+nvl(nvl(cc.NAME,p.patient_name),q.name) 姓名, 
+nvl(nvl(cc.CARD_NO,p.card_no),q.card_no) 卡号, 
+sum(nvl(HJ,0)) 门诊收费,
+sum(nvl(REAL_COST,0)) 套餐费用,
+sum(nvl(PREPAY_COST,0)) 账户充值
+,sum(nvl(HJ,0))+sum(nvl(REAL_COST,0))+sum(nvl(PREPAY_COST,0)) 合计
+from(
+select 
+tt.name,
+tt.card_no,
+nvl(SUM(CA)+SUM(CI)+SUM(PO)+SUM(POS)+SUM(ZB)+SUM(YE),0) HJ
+ from (
+select (select a.hospital_name
+          from com_department a
+         where a.dept_code =
+               (select dept_code
+                  from com_employee b
+                 where b.empl_code = t.oper_code)) hospital,
+      (case when t.cancel_flag = '1' and t.trans_type = '1' then t.invoice_no
+               when t.cancel_flag = '0' and t.trans_type = '1' then '[退费]'||t.invoice_no
+               when t.cancel_flag = '0' and t.trans_type = '2' then '[退费]'||t.invoice_no
+               else '[未知]'||t.invoice_no  end) invoice_no,
+       t.name,
+  t.card_no,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type） hj,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '01') xyf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '02') zyf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '03') ghf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '04') zcf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '05') jcf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '06') jyf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '07') zlf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '08') ssf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '09') mzf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '10') hlf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '11') clf,
+       (select nvl(sum(nvl(a.pub_cost,0)+ nvl(a.own_cost,0) + nvl(a.pay_cost , 0)),0)  from fin_opb_feedetail a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and invo_code = '12') qtf,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'CA') ca,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'CH') ch,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'CI') ci,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'PO') po,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'UP') pos,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'ZB') zb,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'YE') ye,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'YS') ys,       (select fa.empower_name from  fin_opb_invoiceinfo t1
+       left join fin_opb_paymode fp on fp.invoice_no=t1.invoice_no and fp.trans_type=t1.trans_type and fp.mode_code='YS'
+        left  join fin_opb_accountrecord fa on  fa.pay_invoiceno=fp.invoice_no and fa.account_no=fp.pay_accountno and fa.base_money=-fp.real_cost 
+        where t1.card_no=t.card_no and t1.invoice_no=t.invoice_no and t1.trans_type=t.trans_type ) zhm,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'DC') dc,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'PR') pr,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'PD') pd,      
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'PY') PY,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'PYZZ') pyzz,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'RC') rc,
+       (select nvl(sum(a.tot_cost),0) from fin_opb_paymode a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.mode_code = 'WP') WP,
+       (select a.empl_name from com_employee a where a.empl_code = t.oper_code) sfy,
+       a.dept_name ghks,
+       --(select a.dept_name from com_department a where a.dept_code = (select distinct b.dept_code from fin_opr_register b where b.clinic_code = t.clinic_code )) ghks,
+       (select a.empl_name from com_employee a where a.empl_code = (select distinct b.doct_code from fin_opr_register b where b.clinic_code = t.clinic_code)) kdys,
+       t.oper_date operdate
+  from fin_opb_invoiceinfo t
+  left join fin_opr_register b on b.clinic_code = t.clinic_code 
+  left join com_department a on a.dept_code=b.dept_code
+ where t.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+   --and ((select b.dept_code from fin_opr_register b where b.clinic_code = t.clinic_code ) = '&amp;cmbDept' or '&amp;cmbDept' = 'ALL')
+      --and ( (select distinct  b.doct_code from fin_opr_register b where b.clinic_code = t.clinic_code) = '&amp;cmbDoctor' or '&amp;cmbDoctor' = 'ALL') 
+      and t.oper_code in (select empl_code from com_employee where empl_type = 'F')
+      and b.dept_code in ('5109','5071')
+   order by t.invoice_no,t.trans_type)tt
+   group by
+NAME, 
+CARD_NO
+)cc
+full join (
+select tt.card_no,
+         tt.patient_name,
+        sum(case when tt.real_cost&lt;=ta.tot_cost then tt.real_cost else ta.tot_cost end) REAL_COST
+from (
+ select
+          t.card_no,
+          patient_name,
+          sum(real_cost) real_cost
+          ,t.invoice_no
+ from exp_package t  
+ inner join bd_com_package cp on t.package_id=cp.package_id 
+ inner join com_dictionary cd on cp.package_kind=cd.code and cd.type='PACKAGETYPE' 
+inner join com_patientinfo ct on ct.card_no=t.card_no
+ where pay_flag = '1'  
+   and t.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+      and t.oper_code in (select empl_code from com_employee where empl_type = 'F')
+and cd.code in (10,25)
+--and PATIENT_NAME='欧梅'
+group by  t.card_no,
+          patient_name,t.invoice_no
+)tt
+inner join (select   sum(b.tot_cost) tot_cost,b.invoice_no from exp_packagepaymode b, com_dictionary y 
+               where b.mode_code = y.code
+                 and y.type = 'PAYMODES'
+                 and y.code  in ('CA','CD','CI','DE','PO','UP','WP','YE','ZB')  group by b.invoice_no) ta on ta.invoice_no = tt.invoice_no 
+                 group by tt.card_no,
+         tt.patient_name
+) p on cc.card_no=p.card_no  
+full join (select  t.card_no card_no, 
+          (select a.name from com_patientinfo a where a.card_no = t.card_no) name,
+          sum(nvl(t.prepay_cost,0)) prepay_cost
+ from fin_opb_accountprepay t
+ left join bd_com_accounttype a on a.type_code = t.type_code
+ where t.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+   and a.type_name='医学美容账户' group by card_no,name
+   ) q on cc.card_no=q.card_no  
+where  (cc.name like '%&amp;txtName%' or p.patient_name like '%&amp;txtName%' or q.name like '%&amp;txtName%'or'&amp;txtName' is null 
+or cc.card_no like '%&amp;txtName%' or p.card_no like '%&amp;txtName%' or q.card_no like '%&amp;txtName%'or'&amp;txtName' is null ) 
+and (nvl(HJ,0)&lt;&gt;0 or nvl(REAL_COST,0)&lt;&gt;0 or nvl(PREPAY_COST,0)&lt;&gt;0 )
+group by rollup((
+nvl(nvl(cc.NAME,p.patient_name),q.name) , 
+nvl(nvl(cc.CARD_NO,p.card_no),q.card_no)
+)))pp
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\医美\医美客人门诊套餐账户消费查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

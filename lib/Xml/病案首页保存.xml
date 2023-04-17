@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Case>
+	<SqlItems>
+		<Item>
+			<excuteType>Insert</excuteType>
+			<sql>
+				insert into RCD_CAS_BASE
+				(	
+					{0}
+				) 
+				VALUES 
+				(
+					{1}
+				)
+			</sql>
+		</Item>
+		<Item>
+			<excuteType>Update</excuteType>
+			<sql>
+				update RCD_CAS_BASE
+				set {0} 
+				where {1} = {2}
+			</sql>
+		</Item>
+		<Item>
+			<excuteType>Delete</excuteType>
+			<sql>
+				delete from RCD_CAS_BASE where {0} = {1}
+			</sql>
+		</Item>
+		<item>
+			<excuteType>Query</excuteType>
+			<sql>
+				SELECT ID FROM RCD_CAS_BASE  WHERE INPATIENT_NO='{0}'
+			</sql>
+		</item>
+	</SqlItems>
+	<CaseItems>
+		<Item>
+			<!-- 主键列,取Seq，写死的规则 -->
+			<GetDataType>Primary</GetDataType>
+			<ColumnName>ID</ColumnName>
+			<ColumnValue>{0}</ColumnValue>
+			<ExcutePriSql>select SEQ_EMR_USER_DATA.Nextval from dual</ExcutePriSql>
+			<Code/>
+			<Value/>
+		</Item>
+		<!-- 住院流水号 -->
+		<Item>
+			<GetDataType>Element</GetDataType>
+			<ColumnName>INPATIENT_NO</ColumnName>
+			<ColumnValue>'{1}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>InpatientNo</Code>
+			<Value>Data</Value>
+		</Item>
+		<!-- 住院号 -->
+		<Item>
+			<GetDataType>Info</GetDataType>
+			<ColumnName>PATIENT_NO</ColumnName>
+			<ColumnValue>'{1}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>PatientNo</Code>
+			<Value/>
+		</Item>
+	</CaseItems>
+</Case>

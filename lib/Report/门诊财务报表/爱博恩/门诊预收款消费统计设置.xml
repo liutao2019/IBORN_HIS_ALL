@@ -1,0 +1,46 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbHospital</Name><Text>院    区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select code,name,' ', spell_code,wb_code,mark from com_dictionary  where type = 'HOSPITALLIST'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtDataSource</Name><Sql>select tt.hospital 院区,
+       tt.card_no,
+       (select a.name from com_patientinfo a where a.card_no = tt.card_no) patient_name,
+       sum(decode(mode_code, 'PR', nvl(tt.tot_cost, 0), 0)) 套餐实收,
+       sum(decode(mode_code, 'PYZZ', nvl(tt.tot_cost, 0), 0)) 套餐宰账,
+       sum(decode(mode_code, 'YS', nvl(tt.tot_cost, 0), 0)) 账户支付,
+       sum(tt.tot_cost) 合计
+  from (select (select a.hospital_id
+                  from com_department a
+                 where a.dept_code =
+                       (select distinct b.dept_code
+                          from fin_opr_register b, fin_opb_feedetail c
+                         where b.clinic_code = c.clinic_code
+                           and c.invoice_no = t.invoice_no)) hospital_id,
+               (select a.hospital_name
+                  from com_department a
+                 where a.dept_code =
+                       (select distinct b.dept_code
+                          from fin_opr_register b, fin_opb_feedetail c
+                         where b.clinic_code = c.clinic_code
+                           and c.invoice_no = t.invoice_no)) hospital,
+               case
+                 when (length(trim(t.pay_accountno)) &gt; 0) then
+                  (select a.card_no
+                     from fin_opb_account a
+                    where a.account_no = t.pay_accountno)
+                 else
+                  (select distinct a.card_no
+                     from fin_opb_invoiceinfo a
+                    where a.invoice_no = t.invoice_no)
+               end card_no,
+               t.mode_code,
+               t.tot_cost,
+               t.oper_code,
+               t.oper_date,
+               t.balance_flag,
+               t.balance_opcd,
+               t.balance_date
+          from fin_opb_paymode t
+         where t.mode_code in ('PR', 'PYZZ', 'YS')) tt
+ where tt.balance_date between to_date('&amp;dtBeginTime', 'yyyy-mm-dd') and
+       to_date('&amp;dtEndTime', 'yyyy-mm-dd') + 1
+   and (tt.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+ group by tt.hospital, tt.card_no
+ order by tt.hospital, tt.card_no
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\门诊预收款消费统计设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbFeeDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 26.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;tpSend.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tvDruged.Parent" xml:space="preserve">
+    <value>tpDruged</value>
+  </data>
+  <data name="&gt;&gt;tvPrinting.Name" xml:space="preserve">
+    <value>tvPrinting</value>
+  </data>
+  <data name="&gt;&gt;tpDruged.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tpPrinting.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="neuPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="panelSendTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 43</value>
+  </data>
+  <data name="&gt;&gt;tpPrinting.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbnBillType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 23</value>
+  </data>
+  <data name="panelSendTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 49</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="tpSend.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tvPrinted.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 291</value>
+  </data>
+  <data name="&gt;&gt;neuTabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tvPrinted.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tvSend.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="neuLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="&gt;&gt;txtBillNO.Name" xml:space="preserve">
+    <value>txtBillNO</value>
+  </data>
+  <data name="lbFeeDate.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lbnBillType.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tpDruged.Name" xml:space="preserve">
+    <value>tpDruged</value>
+  </data>
+  <data name="tpDruged.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tvSend.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;operName.Parent" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="neuPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="tvPrinted.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtBillNO.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="tvPrinting.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tpPrinting.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tpDruged.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lbnBillType.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLinkLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lbFeeDate.Name" xml:space="preserve">
+    <value>lbFeeDate</value>
+  </data>
+  <data name="txtPID.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tvPrinted.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tpPrinted.Name" xml:space="preserve">
+    <value>tpPrinted</value>
+  </data>
+  <data name="tvPrinting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 291</value>
+  </data>
+  <data name="tpPrinting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 291</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Parent" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <data name="&gt;&gt;neuPanel1.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ucClinicTree</value>
+  </data>
+  <data name="tpDruged.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 291</value>
+  </data>
+  <data name="&gt;&gt;operName.Name" xml:space="preserve">
+    <value>operName</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lbnBillType.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="neuTabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;neuPanel1.Name" xml:space="preserve">
+    <value>neuPanel1</value>
+  </data>
+  <data name="panelSendTime.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="tpDruged.Text" xml:space="preserve">
+    <value>未 发 药</value>
+  </data>
+  <data name="tpPrinted.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 291</value>
+  </data>
+  <data name="&gt;&gt;tvPrinted.Name" xml:space="preserve">
+    <value>tvPrinted</value>
+  </data>
+  <data name="&gt;&gt;tvPrinted.Type" xml:space="preserve">
+    <value>FS.HISFC.Components.DrugStore.Outpatient.tvClinicTree, HISFC.Components.DrugStore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tpPrinted.Parent" xml:space="preserve">
+    <value>neuTabControl1</value>
+  </data>
+  <data name="neuLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 32</value>
+  </data>
+  <data name="operName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 30</value>
+  </data>
+  <data name="neuPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 28</value>
+  </data>
+  <data name="&gt;&gt;tvSend.Parent" xml:space="preserve">
+    <value>tpSend</value>
+  </data>
+  <data name="&gt;&gt;lbnBillType.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tvSend.Type" xml:space="preserve">
+    <value>FS.HISFC.Components.DrugStore.Outpatient.tvClinicTree, HISFC.Components.DrugStore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="neuLabel1.Text" xml:space="preserve">
+    <value>工  号</value>
+  </data>
+  <data name="neuLabel2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tvPrinting.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;neuPanel2.Name" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <data name="lbFeeDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 36</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Name" xml:space="preserve">
+    <value>neuLabel1</value>
+  </data>
+  <data name="&gt;&gt;tvPrinting.Parent" xml:space="preserve">
+    <value>tpPrinting</value>
+  </data>
+  <data name="&gt;&gt;tpSend.Name" xml:space="preserve">
+    <value>tpSend</value>
+  </data>
+  <data name="&gt;&gt;panelSendTime.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="lbFeeDate.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>FS.HISFC.Components.DrugStore.Outpatient.ucClinicBase, HISFC.Components.DrugStore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="tvDruged.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 291</value>
+  </data>
+  <data name="&gt;&gt;tvDruged.Type" xml:space="preserve">
+    <value>FS.HISFC.Components.DrugStore.Outpatient.tvClinicTree, HISFC.Components.DrugStore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="lbFeeDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtBillNO.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tpDruged.Parent" xml:space="preserve">
+    <value>neuTabControl1</value>
+  </data>
+  <data name="neuTabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbFeeDate.Text" xml:space="preserve">
+    <value>12:20</value>
+  </data>
+  <data name="tvSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tvPrinted.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;lbFeeDate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tvPrinting.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="neuPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;txtPID.Name" xml:space="preserve">
+    <value>txtPID</value>
+  </data>
+  <data name="tvDruged.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="neuPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 92</value>
+  </data>
+  <data name="tpPrinting.Text" xml:space="preserve">
+    <value>未 打 印</value>
+  </data>
+  <data name="&gt;&gt;tvDruged.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tvPrinting.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbnBillType.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbFeeDate.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;operName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="operName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 12</value>
+  </data>
+  <data name="&gt;&gt;tvDruged.Name" xml:space="preserve">
+    <value>tvDruged</value>
+  </data>
+  <data name="panelSendTime.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuPanel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuLabel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;tpPrinted.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtPID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 21</value>
+  </data>
+  <data name="txtPID.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="&gt;&gt;tpPrinting.Name" xml:space="preserve">
+    <value>tpPrinting</value>
+  </data>
+  <data name="tvDruged.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tvPrinting.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelSendTime.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tpSend.Text" xml:space="preserve">
+    <value>已 发 药</value>
+  </data>
+  <data name="tpPrinted.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="txtBillNO.Location" type="System.Drawing.Point, System.Drawing">
+    <value>72, 3</value>
+  </data>
+  <data name="&gt;&gt;lbnBillType.Parent" xml:space="preserve">
+    <value>neuPanel1</value>
+  </data>
+  <data name="tvDruged.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tpPrinted.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuPanel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tvSend.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuPanel2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;neuPanel2.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;panelSendTime.Parent" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <data name="&gt;&gt;tpSend.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tpPrinted.Text" xml:space="preserve">
+    <value>已 打 印</value>
+  </data>
+  <data name="operName.Text" xml:space="preserve">
+    <value>未 知</value>
+  </data>
+  <data name="tpSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 291</value>
+  </data>
+  <data name="neuLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="tvDruged.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtPID.Parent" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <data name="&gt;&gt;tpPrinting.Parent" xml:space="preserve">
+    <value>neuTabControl1</value>
+  </data>
+  <data name="lbFeeDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 4</value>
+  </data>
+  <data name="&gt;&gt;txtPID.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;neuPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="neuPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;tvPrinting.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tvPrinted.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Name" xml:space="preserve">
+    <value>neuLabel2</value>
+  </data>
+  <data name="&gt;&gt;tvSend.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Parent" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <data name="&gt;&gt;txtBillNO.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="operName.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="neuLabel2.Text" xml:space="preserve">
+    <value>姓  名</value>
+  </data>
+  <data name="&gt;&gt;operName.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="neuLabel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tvSend.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tpPrinted.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtPID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 5</value>
+  </data>
+  <data name="&gt;&gt;tpPrinting.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpDruged.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtBillNO.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;neuTabControl1.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTabControl, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="neuPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 345</value>
+  </data>
+  <data name="lbnBillType.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        R0lGODlhEAAQAIYAAPv8/18wi0o7hVsgiPv8/l8jkf39//7+/4iJk1wfjoWEkYh8rmxXtsjN4FVObVZJ
+        i11TdUMvffPv9trW6GBSpf/HADsqZnBycv+7ADkof/+vAI5nrXt5gWprdGo0lGEmk9DA3r6pz3t0kEEz
+        alxMqGxkh1pThOHc31lNn+ro6VQTjv9xAFxPrP39/mpQu/92AMzK4P3+/qqqs3J1fWJWkeTk5OeLAHZE
+        n5eXpS0eXzYsSmc1i3gZFH2BjI9kukg1g/j6/+7u8Kahs+uYAJKHwMjI3YJ8q8bB3fv7/H9UoczI1P/O
+        AGlYof/sAGEsjlhOgKWfyYQiG1QSjv//AP///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQB
+        AABVACwAAAAAEAAQAAAIqgCrCBxIsCBBKQgTKpQC4yCVhxAh0kDhEIrFi1SIsBhRJYrHjx5jUAFghEQO
+        Dh2HTJlSQcMKHlBayDCRQUeNjjamNFmC4UUUAkeeKHAgRSBIkA2YuLCQoqjDhycWMIighIrTgVIeAoFC
+        4YeQh1cFZjVQ5IEAEVSgWC2YdQKCEhAOQAxbJSuOCx2QYKSbtceMIBHXHvQRwMmNDwlUSClAd8cAD0k2
+        hAAhoWBAADs=
+</value>
+  </data>
+  <data name="tvSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 291</value>
+  </data>
+  <data name="&gt;&gt;neuTabControl1.Name" xml:space="preserve">
+    <value>neuTabControl1</value>
+  </data>
+  <data name="&gt;&gt;tvPrinted.Parent" xml:space="preserve">
+    <value>tpPrinted</value>
+  </data>
+  <data name="&gt;&gt;tpSend.Parent" xml:space="preserve">
+    <value>neuTabControl1</value>
+  </data>
+  <data name="&gt;&gt;tvPrinting.Type" xml:space="preserve">
+    <value>FS.HISFC.Components.DrugStore.Outpatient.tvClinicTree, HISFC.Components.DrugStore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtPID.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lbnBillType.Name" xml:space="preserve">
+    <value>lbnBillType</value>
+  </data>
+  <data name="operName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tvDruged.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="neuTabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 317</value>
+  </data>
+  <data name="&gt;&gt;panelSendTime.Name" xml:space="preserve">
+    <value>panelSendTime</value>
+  </data>
+  <data name="tpSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="lbnBillType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 2</value>
+  </data>
+  <data name="&gt;&gt;tvSend.Name" xml:space="preserve">
+    <value>tvSend</value>
+  </data>
+  <data name="&gt;&gt;txtBillNO.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuTabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuTabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 28</value>
+  </data>
+  <data name="&gt;&gt;txtBillNO.Parent" xml:space="preserve">
+    <value>neuPanel1</value>
+  </data>
+  <data name="neuLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 8</value>
+  </data>
+  <data name="tvPrinted.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbFeeDate.Parent" xml:space="preserve">
+    <value>panelSendTime</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="txtPID.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 437</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

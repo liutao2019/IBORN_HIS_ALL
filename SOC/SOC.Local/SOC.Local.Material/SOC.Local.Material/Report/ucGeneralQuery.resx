@@ -1,0 +1,1545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SpreadCollect.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SpreadCollect.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="SpreadCollect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <metadata name="SpreadCollect_Sheet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="SpreadCollect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 225</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SpreadCollect.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SpreadCollect.Name" xml:space="preserve">
+    <value>SpreadCollect</value>
+  </data>
+  <data name="&gt;&gt;SpreadCollect.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuSpread, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;SpreadCollect.Parent" xml:space="preserve">
+    <value>neuPanel7</value>
+  </data>
+  <data name="&gt;&gt;SpreadCollect.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuPanel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="neuPanel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 67</value>
+  </data>
+  <data name="neuPanel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 225</value>
+  </data>
+  <data name="neuPanel7.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;neuPanel7.Name" xml:space="preserve">
+    <value>neuPanel7</value>
+  </data>
+  <data name="&gt;&gt;neuPanel7.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuPanel7.Parent" xml:space="preserve">
+    <value>pnlCollect</value>
+  </data>
+  <data name="&gt;&gt;neuPanel7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblCollectDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCollectDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 42</value>
+  </data>
+  <data name="lblCollectDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="lblCollectDate.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lblCollectDate.Text" xml:space="preserve">
+    <value>日期：</value>
+  </data>
+  <data name="&gt;&gt;lblCollectDate.Name" xml:space="preserve">
+    <value>lblCollectDate</value>
+  </data>
+  <data name="&gt;&gt;lblCollectDate.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblCollectDate.Parent" xml:space="preserve">
+    <value>neuPanel6</value>
+  </data>
+  <data name="&gt;&gt;lblCollectDate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuLabel10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 42</value>
+  </data>
+  <data name="neuLabel10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="neuLabel10.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="neuLabel10.Text" xml:space="preserve">
+    <value>日期：</value>
+  </data>
+  <data name="&gt;&gt;neuLabel10.Name" xml:space="preserve">
+    <value>neuLabel10</value>
+  </data>
+  <data name="&gt;&gt;neuLabel10.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel10.Parent" xml:space="preserve">
+    <value>neuPanel6</value>
+  </data>
+  <data name="&gt;&gt;neuLabel10.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuLabel9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 14.25pt, style=Bold</value>
+  </data>
+  <data name="neuLabel9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 14</value>
+  </data>
+  <data name="neuLabel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 19</value>
+  </data>
+  <data name="neuLabel9.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="neuLabel9.Text" xml:space="preserve">
+    <value>汇总信息</value>
+  </data>
+  <data name="&gt;&gt;neuLabel9.Name" xml:space="preserve">
+    <value>neuLabel9</value>
+  </data>
+  <data name="&gt;&gt;neuLabel9.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel9.Parent" xml:space="preserve">
+    <value>neuPanel6</value>
+  </data>
+  <data name="&gt;&gt;neuLabel9.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="neuPanel6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="neuPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="neuPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 67</value>
+  </data>
+  <data name="neuPanel6.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuPanel6.Name" xml:space="preserve">
+    <value>neuPanel6</value>
+  </data>
+  <data name="&gt;&gt;neuPanel6.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuPanel6.Parent" xml:space="preserve">
+    <value>pnlCollect</value>
+  </data>
+  <data name="&gt;&gt;neuPanel6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlCollect.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlCollect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="pnlCollect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 292</value>
+  </data>
+  <data name="pnlCollect.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlCollect.Name" xml:space="preserve">
+    <value>pnlCollect</value>
+  </data>
+  <data name="&gt;&gt;pnlCollect.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlCollect.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;pnlCollect.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 21</value>
+  </data>
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>779, 298</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>汇总信息</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>neuTabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SpreadDetail.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpreadDetail.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="SpreadDetail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <metadata name="SpreadDetail_Sheet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>192, 17</value>
+  </metadata>
+  <data name="SpreadDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 225</value>
+  </data>
+  <data name="SpreadDetail.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SpreadDetail.Name" xml:space="preserve">
+    <value>SpreadDetail</value>
+  </data>
+  <data name="&gt;&gt;SpreadDetail.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuSpread, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;SpreadDetail.Parent" xml:space="preserve">
+    <value>neuPanel9</value>
+  </data>
+  <data name="&gt;&gt;SpreadDetail.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuPanel9.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="neuPanel9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 67</value>
+  </data>
+  <data name="neuPanel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 225</value>
+  </data>
+  <data name="neuPanel9.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;neuPanel9.Name" xml:space="preserve">
+    <value>neuPanel9</value>
+  </data>
+  <data name="&gt;&gt;neuPanel9.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuPanel9.Parent" xml:space="preserve">
+    <value>pnlDetail</value>
+  </data>
+  <data name="&gt;&gt;neuPanel9.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblDetailDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDetailDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 42</value>
+  </data>
+  <data name="lblDetailDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="lblDetailDate.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblDetailDate.Text" xml:space="preserve">
+    <value>日期：</value>
+  </data>
+  <data name="&gt;&gt;lblDetailDate.Name" xml:space="preserve">
+    <value>lblDetailDate</value>
+  </data>
+  <data name="&gt;&gt;lblDetailDate.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblDetailDate.Parent" xml:space="preserve">
+    <value>neuPanel8</value>
+  </data>
+  <data name="&gt;&gt;lblDetailDate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuLabel12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 42</value>
+  </data>
+  <data name="neuLabel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="neuLabel12.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="neuLabel12.Text" xml:space="preserve">
+    <value>日期：</value>
+  </data>
+  <data name="&gt;&gt;neuLabel12.Name" xml:space="preserve">
+    <value>neuLabel12</value>
+  </data>
+  <data name="&gt;&gt;neuLabel12.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel12.Parent" xml:space="preserve">
+    <value>neuPanel8</value>
+  </data>
+  <data name="&gt;&gt;neuLabel12.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuLabel13.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel13.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 14.25pt, style=Bold</value>
+  </data>
+  <data name="neuLabel13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 14</value>
+  </data>
+  <data name="neuLabel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 19</value>
+  </data>
+  <data name="neuLabel13.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="neuLabel13.Text" xml:space="preserve">
+    <value>明细信息</value>
+  </data>
+  <data name="&gt;&gt;neuLabel13.Name" xml:space="preserve">
+    <value>neuLabel13</value>
+  </data>
+  <data name="&gt;&gt;neuLabel13.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel13.Parent" xml:space="preserve">
+    <value>neuPanel8</value>
+  </data>
+  <data name="&gt;&gt;neuLabel13.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="neuPanel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="neuPanel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="neuPanel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 67</value>
+  </data>
+  <data name="neuPanel8.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuPanel8.Name" xml:space="preserve">
+    <value>neuPanel8</value>
+  </data>
+  <data name="&gt;&gt;neuPanel8.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuPanel8.Parent" xml:space="preserve">
+    <value>pnlDetail</value>
+  </data>
+  <data name="&gt;&gt;neuPanel8.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlDetail.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlDetail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="pnlDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 292</value>
+  </data>
+  <data name="pnlDetail.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlDetail.Name" xml:space="preserve">
+    <value>pnlDetail</value>
+  </data>
+  <data name="&gt;&gt;pnlDetail.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlDetail.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;pnlDetail.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 21</value>
+  </data>
+  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>779, 298</value>
+  </data>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>明细信息</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+    <value>neuTabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuTabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="neuTabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="neuTabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>787, 323</value>
+  </data>
+  <data name="neuTabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuTabControl1.Name" xml:space="preserve">
+    <value>neuTabControl1</value>
+  </data>
+  <data name="&gt;&gt;neuTabControl1.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuTabControl, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuTabControl1.Parent" xml:space="preserve">
+    <value>neuPanel3</value>
+  </data>
+  <data name="&gt;&gt;neuTabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="neuPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 133</value>
+  </data>
+  <data name="neuPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>787, 323</value>
+  </data>
+  <data name="neuPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;neuPanel3.Name" xml:space="preserve">
+    <value>neuPanel3</value>
+  </data>
+  <data name="&gt;&gt;neuPanel3.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuPanel3.Parent" xml:space="preserve">
+    <value>pnlMiddle</value>
+  </data>
+  <data name="&gt;&gt;neuPanel3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuSplitter2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="neuSplitter2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 128</value>
+  </data>
+  <data name="neuSplitter2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>787, 5</value>
+  </data>
+  <data name="neuSplitter2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter2.Name" xml:space="preserve">
+    <value>neuSplitter2</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter2.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuSplitter, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter2.Parent" xml:space="preserve">
+    <value>pnlMiddle</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 58</value>
+  </data>
+  <data name="lbInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lbInfo.Text" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="&gt;&gt;lbInfo.Name" xml:space="preserve">
+    <value>lbInfo</value>
+  </data>
+  <data name="&gt;&gt;lbInfo.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lbInfo.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;lbInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtDeptName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>472, 20</value>
+  </data>
+  <data name="txtDeptName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtDeptName.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;txtDeptName.Name" xml:space="preserve">
+    <value>txtDeptName</value>
+  </data>
+  <data name="&gt;&gt;txtDeptName.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDeptName.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;txtDeptName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuLabel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="neuLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 23</value>
+  </data>
+  <data name="neuLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="neuLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="neuLabel1.Text" xml:space="preserve">
+    <value>科室名称：</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Name" xml:space="preserve">
+    <value>neuLabel1</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtCompany.Location" type="System.Drawing.Point, System.Drawing">
+    <value>280, 55</value>
+  </data>
+  <data name="txtCompany.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtCompany.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;txtCompany.Name" xml:space="preserve">
+    <value>txtCompany</value>
+  </data>
+  <data name="&gt;&gt;txtCompany.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtCompany.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;txtCompany.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtMatKind.Location" type="System.Drawing.Point, System.Drawing">
+    <value>280, 20</value>
+  </data>
+  <data name="txtMatKind.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtMatKind.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;txtMatKind.Name" xml:space="preserve">
+    <value>txtMatKind</value>
+  </data>
+  <data name="&gt;&gt;txtMatKind.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtMatKind.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;txtMatKind.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtMatSpecs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 54</value>
+  </data>
+  <data name="txtMatSpecs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtMatSpecs.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txtMatSpecs.Name" xml:space="preserve">
+    <value>txtMatSpecs</value>
+  </data>
+  <data name="&gt;&gt;txtMatSpecs.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtMatSpecs.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;txtMatSpecs.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtMatName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 19</value>
+  </data>
+  <data name="txtMatName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtMatName.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtMatName.Name" xml:space="preserve">
+    <value>txtMatName</value>
+  </data>
+  <data name="&gt;&gt;txtMatName.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtMatName.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;txtMatName.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="neuLabel8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>209, 58</value>
+  </data>
+  <data name="neuLabel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="neuLabel8.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="neuLabel8.Text" xml:space="preserve">
+    <value>供货公司：</value>
+  </data>
+  <data name="&gt;&gt;neuLabel8.Name" xml:space="preserve">
+    <value>neuLabel8</value>
+  </data>
+  <data name="&gt;&gt;neuLabel8.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel8.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;neuLabel8.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="neuLabel7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>209, 23</value>
+  </data>
+  <data name="neuLabel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="neuLabel7.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="neuLabel7.Text" xml:space="preserve">
+    <value>物品类别：</value>
+  </data>
+  <data name="&gt;&gt;neuLabel7.Name" xml:space="preserve">
+    <value>neuLabel7</value>
+  </data>
+  <data name="&gt;&gt;neuLabel7.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel7.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;neuLabel7.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="neuLabel6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 58</value>
+  </data>
+  <data name="neuLabel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="neuLabel6.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="neuLabel6.Text" xml:space="preserve">
+    <value>规    格:</value>
+  </data>
+  <data name="&gt;&gt;neuLabel6.Name" xml:space="preserve">
+    <value>neuLabel6</value>
+  </data>
+  <data name="&gt;&gt;neuLabel6.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel6.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;neuLabel6.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="neuLabel5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 23</value>
+  </data>
+  <data name="neuLabel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="neuLabel5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="neuLabel5.Text" xml:space="preserve">
+    <value>物品名称：</value>
+  </data>
+  <data name="&gt;&gt;neuLabel5.Name" xml:space="preserve">
+    <value>neuLabel5</value>
+  </data>
+  <data name="&gt;&gt;neuLabel5.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel5.Parent" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;neuLabel5.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="neuGroupBox3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="neuGroupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 44</value>
+  </data>
+  <data name="neuGroupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>587, 84</value>
+  </data>
+  <data name="neuGroupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="neuGroupBox3.Text" xml:space="preserve">
+    <value>过滤条件</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox3.Name" xml:space="preserve">
+    <value>neuGroupBox3</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox3.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuGroupBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox3.Parent" xml:space="preserve">
+    <value>pnlMiddleTop</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 54</value>
+  </data>
+  <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 21</value>
+  </data>
+  <data name="dtpEndDate.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Name" xml:space="preserve">
+    <value>dtpEndDate</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuDateTimePicker, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Parent" xml:space="preserve">
+    <value>neuGroupBox2</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="dtpBeginDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 19</value>
+  </data>
+  <data name="dtpBeginDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 21</value>
+  </data>
+  <data name="dtpBeginDate.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dtpBeginDate.Name" xml:space="preserve">
+    <value>dtpBeginDate</value>
+  </data>
+  <data name="&gt;&gt;dtpBeginDate.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuDateTimePicker, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;dtpBeginDate.Parent" xml:space="preserve">
+    <value>neuGroupBox2</value>
+  </data>
+  <data name="&gt;&gt;dtpBeginDate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuLabel4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 58</value>
+  </data>
+  <data name="neuLabel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="neuLabel4.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="neuLabel4.Text" xml:space="preserve">
+    <value>结束日期：</value>
+  </data>
+  <data name="&gt;&gt;neuLabel4.Name" xml:space="preserve">
+    <value>neuLabel4</value>
+  </data>
+  <data name="&gt;&gt;neuLabel4.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel4.Parent" xml:space="preserve">
+    <value>neuGroupBox2</value>
+  </data>
+  <data name="&gt;&gt;neuLabel4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="neuLabel3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 23</value>
+  </data>
+  <data name="neuLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="neuLabel3.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="neuLabel3.Text" xml:space="preserve">
+    <value>起始日期：</value>
+  </data>
+  <data name="&gt;&gt;neuLabel3.Name" xml:space="preserve">
+    <value>neuLabel3</value>
+  </data>
+  <data name="&gt;&gt;neuLabel3.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel3.Parent" xml:space="preserve">
+    <value>neuGroupBox2</value>
+  </data>
+  <data name="&gt;&gt;neuLabel3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="neuGroupBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="neuGroupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 44</value>
+  </data>
+  <data name="neuGroupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 84</value>
+  </data>
+  <data name="neuGroupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="neuGroupBox2.Text" xml:space="preserve">
+    <value>查询日期</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox2.Name" xml:space="preserve">
+    <value>neuGroupBox2</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox2.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuGroupBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox2.Parent" xml:space="preserve">
+    <value>pnlMiddleTop</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbtByType.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbtByType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 18</value>
+  </data>
+  <data name="rbtByType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 16</value>
+  </data>
+  <data name="rbtByType.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="rbtByType.Text" xml:space="preserve">
+    <value>按类别</value>
+  </data>
+  <data name="&gt;&gt;rbtByType.Name" xml:space="preserve">
+    <value>rbtByType</value>
+  </data>
+  <data name="&gt;&gt;rbtByType.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuRadioButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rbtByType.Parent" xml:space="preserve">
+    <value>neuGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;rbtByType.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbtByMat.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbtByMat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 18</value>
+  </data>
+  <data name="rbtByMat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 16</value>
+  </data>
+  <data name="rbtByMat.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="rbtByMat.Text" xml:space="preserve">
+    <value>按物品</value>
+  </data>
+  <data name="&gt;&gt;rbtByMat.Name" xml:space="preserve">
+    <value>rbtByMat</value>
+  </data>
+  <data name="&gt;&gt;rbtByMat.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuRadioButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rbtByMat.Parent" xml:space="preserve">
+    <value>neuGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;rbtByMat.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbtByBill.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbtByBill.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 18</value>
+  </data>
+  <data name="rbtByBill.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 16</value>
+  </data>
+  <data name="rbtByBill.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rbtByBill.Text" xml:space="preserve">
+    <value>按单据</value>
+  </data>
+  <data name="&gt;&gt;rbtByBill.Name" xml:space="preserve">
+    <value>rbtByBill</value>
+  </data>
+  <data name="&gt;&gt;rbtByBill.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuRadioButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rbtByBill.Parent" xml:space="preserve">
+    <value>neuGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;rbtByBill.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rbtByDeptOrCompany.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbtByDeptOrCompany.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 18</value>
+  </data>
+  <data name="rbtByDeptOrCompany.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 16</value>
+  </data>
+  <data name="rbtByDeptOrCompany.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtByDeptOrCompany.Text" xml:space="preserve">
+    <value>按部门或供货公司</value>
+  </data>
+  <data name="&gt;&gt;rbtByDeptOrCompany.Name" xml:space="preserve">
+    <value>rbtByDeptOrCompany</value>
+  </data>
+  <data name="&gt;&gt;rbtByDeptOrCompany.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuRadioButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rbtByDeptOrCompany.Parent" xml:space="preserve">
+    <value>neuGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;rbtByDeptOrCompany.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="neuGroupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="neuGroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="neuGroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>787, 44</value>
+  </data>
+  <data name="neuGroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="neuGroupBox1.Text" xml:space="preserve">
+    <value>查询方式</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox1.Name" xml:space="preserve">
+    <value>neuGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox1.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuGroupBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox1.Parent" xml:space="preserve">
+    <value>pnlMiddleTop</value>
+  </data>
+  <data name="&gt;&gt;neuGroupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlMiddleTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="pnlMiddleTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlMiddleTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>787, 128</value>
+  </data>
+  <data name="pnlMiddleTop.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlMiddleTop.Name" xml:space="preserve">
+    <value>pnlMiddleTop</value>
+  </data>
+  <data name="&gt;&gt;pnlMiddleTop.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlMiddleTop.Parent" xml:space="preserve">
+    <value>pnlMiddle</value>
+  </data>
+  <data name="&gt;&gt;pnlMiddleTop.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlMiddle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlMiddle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 0</value>
+  </data>
+  <data name="pnlMiddle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>787, 456</value>
+  </data>
+  <data name="pnlMiddle.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlMiddle.Name" xml:space="preserve">
+    <value>pnlMiddle</value>
+  </data>
+  <data name="&gt;&gt;pnlMiddle.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlMiddle.Parent" xml:space="preserve">
+    <value>neuPanel1</value>
+  </data>
+  <data name="&gt;&gt;pnlMiddle.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuSplitter3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 0</value>
+  </data>
+  <data name="neuSplitter3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>5, 456</value>
+  </data>
+  <data name="neuSplitter3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter3.Name" xml:space="preserve">
+    <value>neuSplitter3</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter3.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuSplitter, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter3.Parent" xml:space="preserve">
+    <value>neuPanel1</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tvOperType.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tvOperType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 47</value>
+  </data>
+  <data name="tvOperType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 267</value>
+  </data>
+  <data name="tvOperType.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tvOperType.Name" xml:space="preserve">
+    <value>tvOperType</value>
+  </data>
+  <data name="&gt;&gt;tvOperType.Type" xml:space="preserve">
+    <value>Neusoft.HISFC.Components.Common.Controls.baseTreeView, HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tvOperType.Parent" xml:space="preserve">
+    <value>pnlLeftTop</value>
+  </data>
+  <data name="&gt;&gt;tvOperType.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cmbDept.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 14</value>
+  </data>
+  <data name="cmbDept.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="cmbDept.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cmbDept.Name" xml:space="preserve">
+    <value>cmbDept</value>
+  </data>
+  <data name="&gt;&gt;cmbDept.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuComboBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cmbDept.Parent" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <data name="&gt;&gt;cmbDept.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuLabel11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 18</value>
+  </data>
+  <data name="neuLabel11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
+  <data name="neuLabel11.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="neuLabel11.Text" xml:space="preserve">
+    <value>操作库房</value>
+  </data>
+  <data name="&gt;&gt;neuLabel11.Name" xml:space="preserve">
+    <value>neuLabel11</value>
+  </data>
+  <data name="&gt;&gt;neuLabel11.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel11.Parent" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <data name="&gt;&gt;neuLabel11.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="neuPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="neuPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 47</value>
+  </data>
+  <data name="neuPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuPanel2.Name" xml:space="preserve">
+    <value>neuPanel2</value>
+  </data>
+  <data name="&gt;&gt;neuPanel2.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuPanel2.Parent" xml:space="preserve">
+    <value>pnlLeftTop</value>
+  </data>
+  <data name="&gt;&gt;neuPanel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlLeftTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlLeftTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlLeftTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 314</value>
+  </data>
+  <data name="pnlLeftTop.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlLeftTop.Name" xml:space="preserve">
+    <value>pnlLeftTop</value>
+  </data>
+  <data name="&gt;&gt;pnlLeftTop.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlLeftTop.Parent" xml:space="preserve">
+    <value>pnlLeft</value>
+  </data>
+  <data name="&gt;&gt;pnlLeftTop.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuSplitter1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="neuSplitter1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 314</value>
+  </data>
+  <data name="neuSplitter1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 5</value>
+  </data>
+  <data name="neuSplitter1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter1.Name" xml:space="preserve">
+    <value>neuSplitter1</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter1.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuSplitter, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter1.Parent" xml:space="preserve">
+    <value>pnlLeft</value>
+  </data>
+  <data name="&gt;&gt;neuSplitter1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuLabel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 6</value>
+  </data>
+  <data name="neuLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 12</value>
+  </data>
+  <data name="neuLabel2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="neuLabel2.Text" xml:space="preserve">
+    <value>操作库房或科室</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Name" xml:space="preserve">
+    <value>neuLabel2</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Parent" xml:space="preserve">
+    <value>neuPanel4</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="neuPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="neuPanel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="neuPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="neuPanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuPanel4.Name" xml:space="preserve">
+    <value>neuPanel4</value>
+  </data>
+  <data name="&gt;&gt;neuPanel4.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuPanel4.Parent" xml:space="preserve">
+    <value>pnlLeftMiddle</value>
+  </data>
+  <data name="&gt;&gt;neuPanel4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlLeftMiddle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="pnlLeftMiddle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 319</value>
+  </data>
+  <data name="pnlLeftMiddle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 137</value>
+  </data>
+  <data name="pnlLeftMiddle.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pnlLeftMiddle.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlLeftMiddle.Name" xml:space="preserve">
+    <value>pnlLeftMiddle</value>
+  </data>
+  <data name="&gt;&gt;pnlLeftMiddle.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlLeftMiddle.Parent" xml:space="preserve">
+    <value>pnlLeft</value>
+  </data>
+  <data name="&gt;&gt;pnlLeftMiddle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="pnlLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 456</value>
+  </data>
+  <data name="pnlLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlLeft.Name" xml:space="preserve">
+    <value>pnlLeft</value>
+  </data>
+  <data name="&gt;&gt;pnlLeft.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlLeft.Parent" xml:space="preserve">
+    <value>neuPanel1</value>
+  </data>
+  <data name="&gt;&gt;pnlLeft.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="neuPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="neuPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="neuPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 456</value>
+  </data>
+  <data name="neuPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;neuPanel1.Name" xml:space="preserve">
+    <value>neuPanel1</value>
+  </data>
+  <data name="&gt;&gt;neuPanel1.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;neuPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 456</value>
+  </data>
+  <data name="&gt;&gt;SpreadCollect_Sheet1.Name" xml:space="preserve">
+    <value>SpreadCollect_Sheet1</value>
+  </data>
+  <data name="&gt;&gt;SpreadCollect_Sheet1.Type" xml:space="preserve">
+    <value>FarPoint.Win.Spread.SheetView, FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457</value>
+  </data>
+  <data name="&gt;&gt;SpreadDetail_Sheet1.Name" xml:space="preserve">
+    <value>SpreadDetail_Sheet1</value>
+  </data>
+  <data name="&gt;&gt;SpreadDetail_Sheet1.Type" xml:space="preserve">
+    <value>FarPoint.Win.Spread.SheetView, FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ucGeneralQueryNew</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>Neusoft.FrameWork.WinForms.Controls.ucBaseControl, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>

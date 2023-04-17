@@ -1,0 +1,53 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtName</Name><Text>姓名/住院号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>100</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dt</Name><Sql>select t.name 姓名,住院号,sum(费用),病案分类 from(
+select  (select a.patient_no from fin_ipr_inmaininfo a where a.inpatient_no = t.inpatient_no) 住院号,
+           t.name,
+           t.inpatient_no his内部标识,
+           (select a.patient_no from fin_ipr_inmaininfo a where a.inpatient_no = t.inpatient_no) HIS外部标识,
+           t.drug_code 项目代码,
+           t.drug_name 项目名称,
+           t.specs 规格,
+           (select a.pack_unit from pha_com_baseinfo a where a.drug_code = t.drug_code) 单位,
+           t.unit_price 单价,
+           t.qty 数量,
+           t.tot_cost 费用,
+           t.fee_date 计费时间,
+           (select case t.drug_type when 'P' then '西药费'
+                                               when 'Z' then '中成药费'
+                                               when 'C' then '中草药费' else '其他费' end
+            from pha_com_baseinfo a where a.drug_code = t.drug_code) 病案分类
+  from fin_ipb_medicinelist t
+
+union all
+
+  select  (select a.patient_no from fin_ipr_inmaininfo a where a.inpatient_no = t.inpatient_no) 住院号,
+  t.name,
+           t.inpatient_no his内部标识,
+           (select a.patient_no from fin_ipr_inmaininfo a where a.inpatient_no = t.inpatient_no) HIS外部标识,
+           t.drug_code 项目代码,
+           t.drug_name 项目名称,
+           t.specs 规格,
+           (select a.pack_unit from pha_com_baseinfo a where a.drug_code = t.drug_code) 单位,
+           t.unit_price 单价,
+           t.qty 数量,
+           t.tot_cost 费用,
+           t.fee_date 计费时间,
+           '抗菌药物费' 病案分类
+  from fin_ipb_medicinelist t inner join pha_com_baseinfo t1 on t.drug_code=t1.drug_code and t1.item_grade!=0 
+
+
+
+union all
+select (select a.patient_no from fin_ipr_inmaininfo a where a.inpatient_no = t.inpatient_no) 住院号,
+           t.name,
+           t.inpatient_no his内部标识,
+           (select a.patient_no from fin_ipr_inmaininfo a where a.inpatient_no = t.inpatient_no) HIS外部标识,
+           t.item_code 项目代码,
+           t.item_name 项目名称,
+           (select a.specs from fin_com_undruginfo a where a.item_code = t.item_code) 规格,
+           (select a.stock_unit from fin_com_undruginfo a where a.item_code = t.item_code) 规格,
+           t.unit_price 单价,
+           t.qty 数量,
+           t.tot_cost 费用,
+           t.fee_date 计费时间,
+           (select a.name from com_dictionary a,fin_com_undruginfo b where a.type = 'ITEMPRICETYPE' and b.item_pricetype = a.code and b.item_code = t.item_code)  病案分类
+  from fin_ipb_itemlist t) t where t.住院号='&amp;dtName' or t.name='&amp;dtName' group by 住院号,病案分类,t.name</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\住院医生\住院单病种费用设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,127 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbDept</Name><Text>科室：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>480</X><Y>2</Y></Location><QueryDataSource>DepartmentType</QueryDataSource><DataSourceTypeName>ALL</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>cmbPact</Name><Text>结算方式：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>700</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select p.pact_code,p.pact_name,'',p.spell_code,p.wb_code from fin_com_pactunitinfo p </DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dataDetail</Name><Sql>
+select fun_get_dept_name(tb2.recipe_deptcode) 科室,
+       yiqian.yiqian 合计,
+       TB2.材料1,
+       TB2.数量1,
+       TB2.单价1,
+       TB2.金额1,
+       TB2.材料2,
+       TB2.数量2,
+       tb2.单价2,
+       tb2.金额2,
+       round(nvl(yiqian.yiqian,0)/tb3.deptTotCost,4)*100||'%' 占科室材料费百分比,
+       round(nvl(yiqian.yiqian,0)/totcostitem.totcostitem,4)*100||'%' 占医院材料费百分比,
+       round(nvl(yiqian.yiqian,0)/ALLCost.ALLCost,4)*100||'%' 占科室总医疗费用比
+from (
+SELECT tb1.recipe_deptcode,
+       TB1.材料1,
+       sum(nvl(tb1.数量1,0)) 数量1,
+       nvl(tb1.单价1,0) 单价1,
+       sum(nvl(tb1.金额1,0)) 金额1,
+       TB1.材料2,
+       sum(nvl(tb1.数量2,0)) 数量2,
+       nvl(tb1.单价2,0) 单价2,
+       sum(nvl(tb1.金额2,0)) 金额2
+       
+FROM (
+select i.recipe_deptcode,
+       case 
+          when  i.unit_price&lt;2000 and i.unit_price&gt;=1000 then i.item_name 
+          end as 材料1,
+       case 
+          when i.unit_price&gt;=2000 then i.item_name 
+           end as 材料2,
+           
+       case 
+          when  i.unit_price&lt;2000 and i.unit_price&gt;=1000 then i.qty 
+          end as 数量1,
+       case 
+          when i.unit_price&gt;=2000 then i.qty 
+           end as 数量2,
+           
+       case 
+          when  i.unit_price&lt;2000 and i.unit_price&gt;=1000 then i.unit_price 
+          end as 单价1,
+       case 
+          when i.unit_price&gt;=2000 then i.unit_price 
+           end as 单价2,
+           
+       case 
+          when  i.unit_price&lt;2000 and i.unit_price&gt;=1000 then i.tot_cost 
+          end as 金额1,
+       case 
+          when i.unit_price&gt;=2000 then i.tot_cost 
+           end as 金额2
+           
+from fin_ipb_itemlist i,fin_ipr_inmaininfo kk
+WHERE I.FEE_CODE IN 
+(SELECT F.FEE_CODE FROM FIN_COM_FEECODESTAT F WHERE F.REPORT_CODE='ZY01' AND F.FEE_STAT_CATE='11') 
+and i.inpatient_no=kk.inpatient_no
+and i.fee_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and (i.recipe_deptcode='&amp;cmbDept' or 'ALL'='&amp;cmbDept' )
+and (kk.pact_code='&amp;cmbPact'  OR 'ALL'='&amp;cmbPact' )) TB1
+group by tb1.recipe_deptcode,TB1.材料1,nvl(tb1.单价1,0),TB1.材料2,nvl(tb1.单价2,0)
+having sum(nvl(tb1.数量1,0))+sum(nvl(tb1.数量2,0))&lt;&gt;0
+order by tb1.recipe_deptcode,
+         TB1.材料1,TB1.材料2
+) tb2 
+
+left join 
+(
+select i.recipe_deptcode,
+       sum(i.tot_cost) deptTotCost
+from fin_ipb_itemlist i,fin_ipr_inmaininfo kk
+WHERE I.FEE_CODE IN 
+(SELECT F.FEE_CODE FROM FIN_COM_FEECODESTAT F WHERE F.REPORT_CODE='ZY01' AND F.FEE_STAT_CATE='11')
+and i.fee_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.inpatient_no=kk.inpatient_no
+and (i.recipe_deptcode='&amp;cmbDept' OR  'ALL'='&amp;cmbDept' )
+group by i.recipe_deptcode
+) tb3
+on tb2.recipe_deptcode=tb3.recipe_deptcode
+
+left join 
+(
+select sum(i.tot_cost) totcostitem
+from fin_ipb_itemlist i
+WHERE I.FEE_CODE IN 
+(SELECT F.FEE_CODE FROM FIN_COM_FEECODESTAT F WHERE F.REPORT_CODE='ZY01' AND F.FEE_STAT_CATE='11')
+and i.fee_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+) totcostitem on 1=1
+
+left join 
+(
+     
+		 select   recipe_deptcode,
+		          sum(c) as ALLCost
+    from (
+    select m.recipe_deptcode,
+		        sum(m.tot_cost) c
+    from fin_ipb_medicinelist m 
+		where m.fee_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+		group by m.recipe_deptcode
+    union all 
+    select i.recipe_deptcode,
+		        sum(i.tot_cost) c
+    from fin_ipb_itemlist i
+		where i.fee_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+		group by i.recipe_deptcode
+    )
+		group by recipe_deptcode
+) ALLCost on ALLCost.recipe_deptcode=tb2.recipe_deptcode
+
+left join 
+(
+     select i.recipe_deptcode,
+     sum(nvl(i.tot_cost,0)) yiqian
+     from fin_ipb_itemlist i ,fin_ipr_inmaininfo kk
+     WHERE I.FEE_CODE IN 
+     (SELECT F.FEE_CODE FROM FIN_COM_FEECODESTAT F WHERE F.REPORT_CODE='ZY01' AND F.FEE_STAT_CATE='11')
+     and i.unit_price&gt;=1000
+		 and i.inpatient_no=kk.inpatient_no
+and i.fee_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and (i.recipe_deptcode='&amp;cmbDept' OR 'ALL'='&amp;cmbDept')
+and (kk.pact_code='&amp;cmbPact' or 'ALL'='&amp;cmbPact')
+     group by i.recipe_deptcode
+) yiqian on tb2.recipe_deptcode=yiqian.recipe_deptcode
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院财务报表\医保患者使用一次性材料报表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

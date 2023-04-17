@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XSDDangerFactors"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="DangerFactors">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="dfStroke" type="YesNoT"/>
+        <xs:element name="dfTia" type="YesNoT"/>
+        <xs:element name="dfHypertension" type="YesNoT"/>
+        <xs:element name="dfAF" type="YesNoT"/>
+        <xs:element name="dfSmoking" type="YesNoT"/>
+        <xs:element name="dfLDL" type="NormalFN1T"/>
+        <xs:element name="dfGlycuresis" type="YesNoT"/>
+        <xs:element name="dfSportsLack" type="YesNoT"/>
+        <xs:element name="dfOverweight" type="YesNoT" />
+        <xs:element name="dfStrokeFamily" type="YesNoT"/>
+       
+        
+       <!-- 
+       <xs:element name="dfStatus" type="dfStatusT"/>
+       <xs:element name="dfType" type="TypeT"/>
+       <xs:element name="uuid" type="sMaxL20T"/>
+        <xs:element name="uNickName" type="sMaxL20T"/>
+        <xs:element name="aSurveyTime" type="xs:dateTime"/>-->
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="sMaxL20T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="YesNoT">
+    <xs:restriction base="xs:integer">
+      <!--1是 0否-->
+      <xs:pattern value="1|0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dfStatusT">
+    <xs:restriction base="xs:integer">
+      <!--0未分级 1低危 2中危 3高危 4卒中-->
+      <xs:pattern value="0|1|2|3|4"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NormalFN1T">
+    <xs:restriction base="xs:int">
+      <!--0正常 1异常 2未知 -1未填-->
+      <xs:pattern value="0|1|2|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HeartRateT">
+    <xs:restriction base="xs:int">
+      <!--1整齐 2不齐 -1未填-->
+      <xs:pattern value="1|2|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+</xs:schema>

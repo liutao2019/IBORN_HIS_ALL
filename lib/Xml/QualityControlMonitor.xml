@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<QCMonitor>
+  <AllColumns>
+    <Attribute id="0" name="科室名称" />
+    <Attribute id="1" name="住院号" />
+    <Attribute id="2" name="患者姓名" />
+    <Attribute id="3" name="主诊断" />
+    <Attribute id="4" name="责任医师" />
+    <Attribute id="5" name="就诊时间" />
+    <Attribute id="6" name="是否有缺陷" />
+  </AllColumns>
+  <PatientType>
+    <Attribute id="Critical" name="危重患者" />
+    <Attribute id="Operation" name="手术患者" />
+    <Attribute id="BloodTrans" name="输血患者" />
+    <Attribute id="Death" name="死亡患者" />
+    <Attribute id="Spread" name="感染患者" />
+  </PatientType>
+  <Operation>
+    <Value id="0" visible="False" />
+    <Value id="1" visible="False" />
+    <Value id="2" visible="False" />
+    <Value id="3" visible="False" />
+    <Value id="4" visible="False" />
+    <Value id="5" visible="False" />
+    <Value id="6" visible="False" />
+  </Operation>
+  <Death>
+    <Value id="0" visible="True" />
+    <Value id="1" visible="True" />
+    <Value id="2" visible="True" />
+    <Value id="3" visible="True" />
+    <Value id="4" visible="True" />
+    <Value id="5" visible="True" />
+    <Value id="6" visible="True" />
+  </Death>
+  <Critical>
+    <Value id="0" visible="True" />
+    <Value id="1" visible="True" />
+    <Value id="2" visible="True" />
+    <Value id="3" visible="True" />
+    <Value id="4" visible="True" />
+    <Value id="5" visible="True" />
+    <Value id="6" visible="True" />
+  </Critical>
+</QCMonitor>

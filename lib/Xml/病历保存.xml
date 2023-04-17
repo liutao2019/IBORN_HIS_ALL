@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Records>
+	<SqlItems>
+		<item>
+			<excuteType>Insert</excuteType>
+			<sql>
+                insert into rcd_ops_record({0})VALUES({1})
+			</sql>
+		</item>
+		<item>
+			<excuteType>Update</excuteType>
+			<sql>
+                 update rcd_ops_record set {0} where {1} = {2}
+			</sql>
+		</item>
+		<item>
+			<excuteType>Delete</excuteType>
+			<sql>
+               delete from rcd_ops_record where Record_Id = '{0}'
+            </sql>
+		</item>
+		<item>
+			<excuteType>Query</excuteType>
+			<sql>
+			     SELECT Record_Id FROM rcd_ops_record WHERE Record_Id='{0}'
+		    </sql>
+		</item>
+	</SqlItems>
+	<!--手术记录，type-病历子类型，tableName-自定义的横表，TemplateType-模板类型，只解析Word即可，该属性是为了以后解析表格病历扩展 -->
+	<Record type="Operation_Record" tableName="自定义" TemplateType="Word">
+		<Elements>
+			<element>
+				<!-- 主键列,取Seq，写死的规则 -->
+				<GetDataType>Primary</GetDataType>
+				<!-- 主键列使用病历Id，不需要使用Id，经分析，一份病历在横表中只有一条数据 -->
+				<ColumnName>Record_Id</ColumnName>
+				<!-- 横表中的列名，与数据库保持一致 -->
+				<ColumnValue>{0}</ColumnValue> 
+				<!-- 元素Id -->
+				<ElementId/>
+				<!-- IsGetCustomValue是Word病历专用的，用于表示是否从Custom中取值 -->
+				<IsGetCustomValue>false</IsGetCustomValue>
+				<!-- 取值对应的属性名称 -->
+				<Code/>
+				<Value/>
+			</element>
+	                <!-- 患者 -->
+			<element>
+				<GetDataType>Info</GetDataType>
+				<ColumnName>PATIENTCODE</ColumnName>
+				<ColumnValue>'{1}'</ColumnValue>
+				<ElementId>3137</ElementId>
+				<IsGetCustomValue>True</IsGetCustomValue>
+				<Code>inpatientHISNo</Code>
+				<Value></Value>
+			</element>
+			<!-- 手术等级ID -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSLEVELCODE</ColumnName>
+				<ColumnValue>'{2}'</ColumnValue>
+				<ElementId>589</ElementId>
+				<IsGetCustomValue>True</IsGetCustomValue>
+				<Value>OperLevelCd</Value>
+				<Code/>
+			</element>
+			<!-- 手术等级 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSLEVELNAME</ColumnName>
+				<ColumnValue>'{3}'</ColumnValue>
+				<ElementId>589</ElementId>
+				<IsGetCustomValue>True</IsGetCustomValue>
+				<Value>OperLevel</Value>
+				<Code/>
+			</element>
+			<!-- 手术名称 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSMODENAME</ColumnName>
+				<ColumnValue>'{4}'</ColumnValue>
+				<ElementId>589</ElementId>
+				<IsGetCustomValue>True</IsGetCustomValue>
+				<Value>OperCnname</Value>
+				<Code/>
+			</element>
+		        <!-- 手术code -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSMODECODE</ColumnName>
+				<ColumnValue>'{5}'</ColumnValue>
+				<ElementId>589</ElementId>
+				<IsGetCustomValue>True</IsGetCustomValue>
+				<Value>OperCode</Value>
+				<Code/>
+			</element>
+			<!-- 手术日期 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSTIME</ColumnName>
+				<ColumnValue>'{6}'</ColumnValue>
+				<ElementId>587</ElementId>
+				<IsGetCustomValue>false</IsGetCustomValue>
+				<Value/>
+				<Code/>
+			</element>
+			<!-- 术者 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSEMPLOYEENAME</ColumnName>
+				<ColumnValue>'{7}'</ColumnValue>
+				<ElementId>721</ElementId>
+			        <IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Name</Value>
+				<Code/>
+			</element>
+                          <!-- 术者CD -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSEMPLOYEEID</ColumnName>
+				<ColumnValue>{8}</ColumnValue>
+				<ElementId>721</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Code</Value>
+				<Code/>
+			</element>
+			<!-- 第一助手 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSFIRSTAIDNAME</ColumnName>
+				<ColumnValue>'{9}'</ColumnValue>
+				<ElementId>1974</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Name</Value>
+				<Code/>
+			</element>
+			<!-- 第一助手CD -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSFIRSTAIDID</ColumnName>
+				<ColumnValue>{10}</ColumnValue>
+				<ElementId>1974</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Code</Value>
+				<Code/>
+			</element>
+			<!--   second助手 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSSECONDNAME</ColumnName>
+				<ColumnValue>'{11}'</ColumnValue>
+				<ElementId>591</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Name</Value>
+				<Code/>
+			</element>
+			<!--   second助手CD -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSSECONDAID</ColumnName>
+				<ColumnValue>{12}</ColumnValue>
+				<ElementId>591</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Code</Value>
+				<Code/>
+			</element>
+			<!-- 麻醉医师 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSANAEEMPLOYEENAME</ColumnName>
+				<ColumnValue>'{13}'</ColumnValue>
+				<ElementId>598</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Name</Value>
+				<Code/>
+			</element>
+			<!-- 麻醉医师CD -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSANAEEMPLOYEEID</ColumnName>
+				<ColumnValue>'{14}'</ColumnValue>
+				<ElementId>598</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Code</Value>
+				<Code/>
+			</element>
+			<!-- 麻醉方式 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSANAENAME</ColumnName>
+				<ColumnValue>'{15}'</ColumnValue>
+				<ElementId>601</ElementId>
+				<IsGetCustomValue>false</IsGetCustomValue>
+				<Value>Content_Text</Value>
+				<Code/>
+			</element>
+		</Elements>
+	</Record>
+	<!--操作记录，type-病历子类型，tableName-自定义的横表，TemplateType-模板类型，只解析Word即可，该属性是为了以后解析表格病历扩展 -->
+	<Record type="OperRecord" tableName="自定义" TemplateType="Word">
+		<Elements>
+			<element>
+				<!-- 主键列,取Seq，写死的规则 -->
+				<GetDataType>Primary</GetDataType>
+				<!-- 主键列使用病历Id，不需要使用Id，经分析，一份病历在横表中只有一条数据 -->
+				<ColumnName>Record_Id</ColumnName>
+				<!-- 横表中的列名，与数据库保持一致 -->
+				<ColumnValue>{0}</ColumnValue> 
+				<!-- 元素Id -->
+				<ElementId/>
+				<!-- IsGetCustomValue是Word病历专用的，用于表示是否从Custom中取值 -->
+				<IsGetCustomValue>false</IsGetCustomValue>
+				<!-- 取值对应的属性名称 -->
+				<Code/>
+				<Value/>
+			</element>
+	                <!-- 患者 -->
+			<element>
+				<GetDataType>Info</GetDataType>
+				<ColumnName>PATIENTCODE</ColumnName>
+				<ColumnValue>'{1}'</ColumnValue>
+				<ElementId>3137</ElementId>
+				<IsGetCustomValue>True</IsGetCustomValue>
+				<Code>inpatientHISNo</Code>
+				<Value></Value>
+			</element>
+			<!-- 操作名称 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSMODENAME</ColumnName>
+				<ColumnValue>'{2}'</ColumnValue>
+				<ElementId>766</ElementId>
+				<IsGetCustomValue>True</IsGetCustomValue>
+				<Value>OperCnname</Value>
+				<Code/>
+			</element>
+		        <!-- 操作code -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSMODECODE</ColumnName>
+				<ColumnValue>'{3}'</ColumnValue>
+				<ElementId>766</ElementId>
+				<IsGetCustomValue>True</IsGetCustomValue>
+				<Value>OperCode</Value>
+				<Code/>
+			</element>
+			<!-- 操作日期 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSTIME</ColumnName>
+				<ColumnValue>'{4}'</ColumnValue>
+				<ElementId>767</ElementId>
+				<IsGetCustomValue>false</IsGetCustomValue>
+				<Value/>
+				<Code/>
+			</element>
+			<!-- 操作者 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSEMPLOYEENAME</ColumnName>
+				<ColumnValue>'{5}'</ColumnValue>
+				<ElementId>1802</ElementId>
+			        <IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Name</Value>
+				<Code/>
+			</element>
+                          <!-- 操作者CD -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSEMPLOYEEID</ColumnName>
+				<ColumnValue>{6}</ColumnValue>
+				<ElementId>1802</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Code</Value>
+				<Code/>
+			</element>
+			<!-- 助手 -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSFIRSTAIDNAME</ColumnName>
+				<ColumnValue>'{7}'</ColumnValue>
+				<ElementId>591</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Name</Value>
+				<Code/>
+			</element>
+			<!-- 助手CD -->
+			<element>
+				<GetDataType>Element</GetDataType>
+				<ColumnName>OPSFIRSTAIDID</ColumnName>
+				<ColumnValue>{8}</ColumnValue>
+				<ElementId>591</ElementId>
+				<IsGetCustomValue>true</IsGetCustomValue>
+				<Value>Code</Value>
+				<Code/>
+			</element>
+		</Elements>
+	</Record>
+</Records>
+

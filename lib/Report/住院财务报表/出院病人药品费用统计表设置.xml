@@ -1,0 +1,69 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>250</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dataDetail</Name><Sql>
+select fun_get_dept_name(tb1.dept_code) 科室,
+       fun_get_employee_name(tb1.chief_doc_code) 医生,
+       tb1.ybPerson 医保出院人数,
+       (tb1.ybDrugCost+tb2.ybItemCost) 医保总费,
+       tb1.ybDrugCost 医保药品总费,
+       round(decode(tb1.ybDrugCost,0,0,tb1.ybDrugCost/(tb1.ybDrugCost+tb2.ybItemCost)),2) 医保药品比,
+       tb1.controlDrug 控制药,
+       round(decode(tb1.ybDrugCost,0,0,tb1.controlDrug/tb1.ybDrugCost),2) 控制药药比,
+       tb1.ownDrug 自费药,
+       round(decode(tb1.ybDrugCost,0,0,tb1.ownDrug/tb1.ybDrugCost),2) 自费药药比,
+       tb1.SYDrug 麻醉药,
+       round(decode(tb1.ybDrugCost,0,0,tb1.SYDrug/tb1.ybDrugCost),2) 麻醉药药比,
+       tb1.raidDrug 放射科药,
+       round(decode(tb1.ybDrugCost,0,0,tb1.raidDrug/tb1.ybDrugCost),2) 放射科药药比,
+       decode(fc.drug_rate,'','未维护',fc.drug_rate) 科室药比,
+       (round(decode(tb1.ybDrugCost,0,0,tb1.ybDrugCost/(tb1.ybDrugCost+tb2.ybItemCost)),2)-fc.drug_rate) 超科室药比,
+       (tb1.ybDrugCost-fc.dept_month_cost)  超科室药品费用,
+       round(decode(tb1.ybDrugCost,0,0,tb1.ybDrugCost/tb1.drugCost) ,2) 占科室医保药品比例,
+       round(decode(tb1.ybPerson,0,0,tb1.ybDrugCost/tb1.ybPerson)) 人均药费,
+       (tb1.totPerson-tb1.ybPerson) 非医保出院人数,
+       (tb1.drugCost-tb1.ybDrugCost+tb2.itemTotCost-tb2.ybItemCost) 非医保总费用,
+       (tb1.drugCost-tb1.ybDrugCost) 非医保药品总费,
+       round(decode((tb1.totPerson-tb1.ybPerson),0,0,(tb1.drugCost-tb1.ybDrugCost)/(tb1.totPerson-tb1.ybPerson)),2) 人均药费,
+       round(tb1.drugCost/(tb1.drugCost+tb2.itemTotCost),2) 总人均药费
+from (
+select i.dept_code ,
+       i.chief_doc_code,
+       count(i.inpatient_no) totPerson,
+       sum(nvl(cp.ybflag,1)) ybPerson,
+       sum(m.tot_cost) drugCost,
+       sum(decode(cp.ybflag,0,0,(decode(cc.center_item_grade,2,(m.tot_cost),0)))) controlDrug,--医保控制药
+       sum(decode(cp.ybflag,0,0,(decode(cc.center_item_grade,3,(m.tot_cost),0)))) ownDrug ,--医保自费药
+       sum(decode(cp.ybflag,0,0,(decode(m.drug_quality,'SY',(m.tot_cost),0)))) SYDrug ,--麻醉药
+       sum(decode(cp.ybflag,0,0,(decode(m.execute_deptcode,'7015',(m.tot_cost),0)))) raidDrug,--放射科药品
+       sum(decode(cp.ybflag,0,0,m.tot_cost)) ybDrugCost
+from fin_ipb_medicinelist m
+     left join (select his_code,center_item_grade from fin_com_compare WHERE   pact_code = '14') cc on cc.his_code=m.drug_code-- 1甲 2乙 3自费
+     ,fin_ipr_inmaininfo i
+     left join (select p.pact_code,'0' ybflag from fin_com_pactunitinfo p where p.dll_name='OwnFee.dll') cp on i.pact_code =cp.pact_code
+where i.inpatient_no=m.inpatient_no
+and i.in_state='O'
+and i.out_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+group by i.dept_code ,
+       i.chief_doc_code
+       ) tb1,
+(
+select i.dept_code,
+       i.chief_doc_code,
+       sum(l.tot_cost) itemTotCost,
+       sum(decode(cp.ybflag,0,0,l.tot_cost)) ybItemCost
+from fin_ipb_itemlist l,fin_ipr_inmaininfo i
+left join (select p.pact_code,'0' ybflag from fin_com_pactunitinfo p where p.dll_name='OwnFee.dll') cp on i.pact_code =cp.pact_code
+where i.inpatient_no=l.inpatient_no
+and i.in_state='O'
+and i.out_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+group by i.dept_code,
+         i.chief_doc_code
+)     tb2
+ left join (select * from zhuhai_fee_control ) fc  on fc.dept_code=tb2.dept_code
+ where tb1.dept_code=tb2.dept_code
+ and tb1.chief_doc_code=tb2.chief_doc_code
+order by tb1.dept_code ,
+       tb1.chief_doc_code 
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtGetTime</Name><Sql>select  to_char(to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss'),
+                            'yyyy-mm-dd hh24:mi:ss') || ' 至 ' ||
+       to_char(to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss'),'yyyy-mm-dd hh24:mi:ss')
+  from dual
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院财务报表\出院病人药品费用统计表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,61 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>250</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>type</Name><Text>类别：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>false</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>500</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select CODE,NAME from com_dictionary where TYPE='DRUGQUALITY' and CODE in('SY','S1','P2','P1','O1','Q')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dt</Name><Sql> 
+ 
+ select * from (
+ select 
+       distinct
+       t.druged_date 发药日期,
+       r.name 姓名,
+       r.card_no 病历号,
+       fun_get_dept_name(l.doct_dept) 开立科室,
+       (select wm_concat(e.diag_name || '  ')
+          from met_cas_diagnose e
+         where e.inpatient_no = r.clinic_code
+           and e.persson_type = '0'
+         group by e.inpatient_no) 诊断,
+       t.TRADE_NAME 药名,
+       t.SPECS 规格,
+       t.APPLY_NUM 数量,
+       t.MIN_UNIT 最小单位,
+       fun_get_employee_name(l.doct_code) 开立医生,
+       t.MARK 备注
+     
+  from pha_com_applyout    t,
+       fin_opb_feedetail   l,
+       fin_opr_register    r
+ where t.mo_order = l.mo_order
+   and t.recipe_no = l.recipe_no
+   and l.clinic_code = r.clinic_code
+   and l.pay_flag = '1'
+   and l.drug_flag = '1'
+   and t.VALID_STATE='1'
+   and t.druged_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and t.druged_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')+0.99
+   and t.DRUG_QUALITY='&amp;type'
+   --and (r.name like '%&amp;patientName%' or r.card_no like '%&amp;patientName%' or '&amp;patientName' is null)
+  
+ 
+union all
+ 
+ 
+ select 
+    t.druged_date 发药日期,
+       r.name 姓名,
+       (select patient_no from fin_ipr_inmaininfo e where r.inpatient_no = e.inpatient_no ) 住院号,
+       --r.card_no 病历号,
+       fun_get_dept_name(r.NURSE_CELL_CODE) 开立科室,
+       '' 诊断,
+       t.TRADE_NAME 药名,
+       t.SPECS 规格,
+       t.APPLY_NUM 数量,
+       t.MIN_UNIT 最小单位,
+       fun_get_employee_name(r.RECIPE_DOCCODE) 开立医生,
+       t.MARK 备注
+  from
+    pha_com_applyout t
+    inner join  fin_ipb_medicinelist r on t.MO_ORDER=r.MO_ORDER   
+  where  t.VALID_STATE='1'
+       and t.druged_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and t.druged_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')+0.99
+   and t.DRUG_QUALITY='&amp;type'
+   
+   ) t order by 发药日期</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>true</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\住院医生\精神药品专册查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

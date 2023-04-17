@@ -1,0 +1,1723 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SOC.Local.PubReport</name>
+    </assembly>
+    <members>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Static_Month">
+            <summary>
+            统计月份
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Bill_No">
+            <summary>
+            门诊费用记帐号 或者 住院费用托收单号
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Pact">
+            <summary>
+            公费类别代码--卡号前2位或3位
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Fee_Type">
+            <summary>
+            1 住院费用 2 门诊费用
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Amount">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Bed_Fee">
+            <summary>
+            01床位费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.YaoPin">
+            <summary>
+            02药品费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.ChengYao">
+            <summary>
+            03成药费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.HuaYan">
+            <summary>
+            04化验费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.JianCha">
+            <summary>
+            05检查费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.FangShe">
+            <summary>
+            06放射费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.ZhiLiao">
+            <summary>
+            07治疗费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.ShouShu">
+            <summary>
+            08手术费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.ShuXue">
+            <summary>
+            09输血费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.ShuYang">
+            <summary>
+            10输氧费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.TeZhi">
+            <summary>
+            11特殊治疗
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.TeZhiRate">
+            <summary>
+            12特殊治疗比例
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.MR">
+            <summary>
+            13MR费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.CT">
+            <summary>
+            14CT费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.XueTou">
+             <summary>
+            15血透费 
+             </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.ZhenJin">
+            <summary>
+            16诊金费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.CaoYao">
+            <summary>
+            17草药费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.TeJian">
+            <summary>
+            18特检费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.ShenYao">
+            <summary>
+            19审药费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.JianHu">
+            <summary>
+            20监护费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.ShengZhen">
+            <summary>
+            51省诊费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Tot_Cost">
+            <summary>
+            总记帐
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Pub_Cost">
+            <summary>
+            实际记帐
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Pay_Rate">
+            <summary>
+            自付比例
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.SpDrugFeeTot">
+            <summary>
+            特殊药品总费用 30%比例
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.SpDrugFeeSj">
+            <summary>
+            特殊药品实际费用 30%比例
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.JieSheng">
+            <summary>
+            11接生费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.GaoYang">
+            <summary>
+            12高氧费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.IsValid">
+            <summary>
+            是否可用. 2未确认，1已确认，0已作废
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Begin">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.End">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.MCardNo">
+            <summary>
+            全位卡号
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.IsInHos">
+            <summary>
+            是否在院 1在 0 不在
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.OperCode">
+            <summary>
+            操作员
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.OperDate">
+            <summary>
+            操作日期
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.FEE_FLAG">
+            <summary>
+            费用类型 0 正常 1 特殊
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.REP_FLAG">
+            <summary>
+            报表标志 0 未统计,1已统计
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.EXT_FLAG">
+            <summary>
+            附加标志
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.Seq">
+            <summary>
+            发票号内流水号
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.WorkName">
+            <summary>
+            单位
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.WorkCode">
+            <summary>
+            单位代号
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.PatientNO">
+            <summary>
+            住院号
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.OverLimitDrugFee">
+            <summary>
+            药费超标金额
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.CancerDrugFee">
+            <summary>
+            审批肿瘤药费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.BedFee_JianHu">
+            <summary>
+            监护床位费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.BedFee_CengLiu">
+            <summary>
+            层流床位费
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.CompanyPay">
+            <summary>
+            单位支付金额
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.SelfPay">
+            <summary>
+            自费金额
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.TotalFee">
+            <summary>
+            医疗费总金额
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReport.InvoiceNo">
+            <summary>
+            发票号
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Models.PubReport.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.GYInvoiceNo">
+            <summary>
+            公医处发票号
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.GYOperDate">
+            <summary>
+            公医处日期
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.GYOperCode">
+            <summary>
+            公医处操作员
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.GYTotFee">
+            <summary>
+            公医处总金额
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.GYPubFee">
+            <summary>
+            公医处记帐金额
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.SFInvoiceNo">
+            <summary>
+            收费处发票号
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.SFOperDate">
+            <summary>
+            收费处日期
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.SFOperCode">
+            <summary>
+            收费处操作员
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.SFTotFee">
+            <summary>
+            收费处总金额
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.DuiZhangObj.SFPubFee">
+            <summary>
+            收费处记帐金额
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Models.DuiZhangObj.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.ucSIGYRep.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucSIGYRep.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucSIGYRep.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要使用代码编辑器 
+            修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucSIGYRep.Exportinfo(FarPoint.Win.Spread.FpSpread)">
+            <summary>
+            到处excel fp控件 update by ligz
+            </summary>
+            <param name="fpSpread"></param>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.ucAnasysPubReport.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucAnasysPubReport.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucAnasysPubReport.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.DateTimeTextBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.DateTimeTextBox.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.DateTimeTextBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.GetPubObjFromFp(System.Int32,FS.SOC.Local.PubReport.Models.PubReport@,System.String@)">
+            <summary>
+            从表格中读取公费汇总信息
+            </summary>
+            <param name="i">fp的行</param>
+            <param name="pubObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.UnPackage">
+            <summary>
+            拆分
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.Combo">
+            <summary>
+            组合
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.DOSelectAll(System.Boolean)">
+            <summary>
+            全选
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.SelectInvioceNum">
+            <summary>
+            查找选中记录数
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.SelectColor(System.Int32)">
+            <summary>
+            返回系统颜色
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.InitTreeView(System.Windows.Forms.TreeView,System.Collections.ArrayList,System.String)">
+            <summary>
+            公费复核，树的初试化与查询
+            </summary>
+            <param name="TView">树</param>
+            <param name="NodePactHead">收费员信息</param>
+            <param name="RootNameText">父节点名称</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPubReportCheck.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Components.ucPubReportCheck.IsModify">
+            <summary>
+            窗口功能(true为修改,false为复核)
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Components.ucPubReportCheck.MyPatientType">
+            <summary>
+            患者类型
+            </summary>
+        </member>
+        <member name="T:FS.SOC.Local.PubReport.Components.ucPubReportCheck.PatientType">
+            <summary>
+            门诊/住院
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.ucPubReportCheck.PatientType.C">
+            <summary>
+            门诊
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.ucPubReportCheck.PatientType.I">
+            <summary>
+            住院
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucModifyPublicBill.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.ucModifyPublicBill.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucModifyPublicBill.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucModifyPublicBill.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Components.ucModifyPublicBill.PatientInfo">
+            <summary>
+            患者基本信息
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Components.ucModifyPublicBill.Report">
+            <summary>
+            托收信息
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.PaperSizeGetter.Get_PaperSizes(System.String,System.String)">
+            <summary>
+            获取纸张
+            </summary>
+            <param name="printer">打印机名</param>
+            <param name="paper">纸张名</param>
+            <returns></returns>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.StatReport.stat">
+            <summary>
+            统计号
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.StatReport.Card_No">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Models.StatReport.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.frmPublicBill.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmPublicBill.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmPublicBill.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.frmSpecailCheck.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmSpecailCheck.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmSpecailCheck.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmSpecailCheck.SetPubObj(FS.SOC.Local.PubReport.Models.PubReport)">
+            <summary>
+            设置记账单信息
+            </summary>
+            <returns>1设置成功 -1设置失败</returns>
+        </member>
+        <member name="T:FS.SOC.Local.PubReport.BizLogic.PubReport">
+            <summary>
+            PublicReport 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetPubReportArray(System.String,System.String,System.String)">
+            <summary>
+            获取托收单集合（住院用）
+            </summary>
+            <param name="SQLString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetPubReportArray(System.String)">
+            <summary>
+            获取托收单集合（住院用）
+            </summary>
+            <param name="SQLString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.HasStaticBefor(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            时间段内是否已经核对过
+            </summary>
+            <param name="dtBegin">开始时间</param>
+            <param name="dtEnd">结束时间</param>
+            <param name="PatientType">类型 I住院 C门诊</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.InsertPubReport(FS.SOC.Local.PubReport.Models.PubReport)">
+            <summary>
+            插入一条
+            </summary>
+            <param name="info">摆药单分类实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdatePubReport(FS.SOC.Local.PubReport.Models.PubReport)">
+            <summary>
+            更新一条
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdatePubReportForSp(System.String,System.Decimal)">
+            <summary>
+            更新30%药品费用
+            </summary>
+            <param name="ID">序号</param>
+            <param name="Cost">金额</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.DeletePubReport(System.String)">
+            <summary>
+            根据摆药单分类编码,删除一条记录
+            </summary>
+            <param name="ID">摆药单分类编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetLastStaticTime(System.String,System.String)">
+            <summary>
+            获得患者的最后一次统计时间
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <returns>null or "" 代表患者没有统计过, DateTime表示最后一次统计时间</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.IsExist(System.String,System.String)">
+            <summary>
+            查找患者在统计月份中托收单是否已经统计或出报表
+            </summary>
+            <param name="id">gfhz_main.id</param>		
+            <param name="rep_flag">报表标志,0未出报表,1已出报表</param>
+            <returns>null执行错误 "0"没有纪录 >=1 已经有纪录</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.IsExist(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            查找患者再统计月份中是否已经存在.
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <param name="dtBegin">开始统计时间</param>
+            <param name="dtEnd">结束统计时间</param>
+            <returns>null执行错误 "0"没有纪录 >=1 已经有纪录</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.IsExist(System.String,System.String,System.String,System.String)">
+            <summary>
+            查找患者在统计月份中托收单是否已经统计或出报表
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <param name="dtBegin">开始统计时间</param>
+            <param name="dtEnd">结束统计时间</param>
+            <param name="rep_flag">报表标志,0未出报表,1已出报表</param>
+            <returns>null执行错误 "0"没有纪录 >=1 已经有纪录</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetPatientFee(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            获得患者的本期托收信息
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <param name="dtBegin">开始时间</param>
+            <param name="dtEnd">结束时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetStaticTime(System.String,System.String)">
+            <summary>
+            获得指定月份的查询日期
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetLastStaticTime">
+            <summary>
+            获得最近的统计月份
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.InsertStaticTime(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入的统计月份
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdateStaticTime(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新的统计月份
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetSpDrugFee(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            获得患者的特殊比例药品费用，暂时都为30%
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetStaticTime">
+            <summary>
+            获得当前月份的显示时间和查询时间.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.InsertStaticOLD(FS.HISFC.Models.RADT.PatientInfo,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="flag"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetDetailByCardForPro(System.String,System.String,System.String)">
+            <summary>
+             根据卡号和是否退休选择省公医患者
+            </summary>
+            <param name="begin">本月结束时间</param>
+            <param name="end">本月开始时间</param>
+            <param name="CardNO">卡号</param>
+            <param name="IsRetire">1在职2退休</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetDetailForThisHos(System.String,System.String,System.String)">
+            <summary>
+            本院职工
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="pact">合同单位</param>
+            <param name="memo">A上半年B下半年，F全年</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetDetailForTT(System.String)">
+            <summary>
+            查找特约单位费用
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetDetailByCardForCity(System.String,System.String)">
+            <summary>
+            市公医
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="CardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetDetailForArea(System.String,System.String)">
+            <summary>
+            区公医
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="CardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetDetailForLocal(System.String,System.String)">
+            <summary>
+            本院职工
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="CardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetSumPubFeeLiXiu(System.String)">
+            <summary>
+            离休
+            </summary>
+            <param name="repDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetSumPubFeeForBY(System.String)">
+            <summary>
+            本院
+            </summary>
+            <param name="repDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetExistMonth(System.String)">
+            <summary>
+            检查时否已经导入过费用
+            </summary>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.DeleteMonthData(System.String)">
+            <summary>
+            删除已导入的数据
+            </summary>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetSumForSheng(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            获取省公医门诊住院费用
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="IsRetired"></param>
+            <param name="IsMenZhen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetGFReportNew(System.DateTime)">
+            <summary>
+            查询市公医报表
+            </summary>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetGFReportNewbyReportType(System.DateTime,System.String)">
+            <summary>
+            查询各区的公费情况（按区代码）
+            </summary>
+            <param name="month"></param>
+            <param name="ReportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetGfhzReportDetail(System.String,System.String)">
+            <summary>
+            获取省公医门诊住院汇总费用,区别GetGfhzReport 于财务科要把在各个区与特约单位之间插入“小计”
+            </summary>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>		
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetCardNo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            根据合同单位取卡号
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetPactHeadByPact(System.String)">
+            <summary>
+            根据合同单位代码获取字头
+            </summary>
+            <param name="PactID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetPactHeadList">
+            <summary>
+            获取公费字头
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllPactHeadByDateHistory(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            统计门诊收费员公费所有记录
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <returns>Local.Pub.GetAllOper</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllPactHeadByStaticMonth(System.String,System.String)">
+            <summary>
+            根据统计月份获取 统计门诊收费员公费所有记录 
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllOper(System.String,System.String)">
+            <summary>
+            根据统计月份获取 统计门诊收费员公费所有记录 
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllOper(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            根据统计月份获取 统计门诊收费员公费所有记录 
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllOperByDate(System.String,System.String)">
+            <summary>
+            统计门诊收费员公费所有记录
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <returns>Local.Pub.GetAllOper</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllInPactHeadByDateHistory(System.String,System.String,System.Boolean)">
+            <summary>
+            统计住院处收费员公费所有记录
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <returns>Local.Pub.GetAllOper</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllInOperByDate(System.String,System.String)">
+            <summary>
+            统计住院处收费员公费所有记录
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <returns>Local.Pub.GetAllOper</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllOperByDateNotPrint(System.String)">
+            <summary>
+            统计门诊收费员gfhz_main没有打印小单所有记录
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <returns>Local.Pub.GetAllOper</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetAllOperByDateZY(System.String)">
+            <summary>
+            统计住院公医的所有单据
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <returns>Local.Pub.GetAllOper</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.QueryPubFeeInfoByOperAndPactheadHistory(System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean)">
+            <summary>
+            获取门诊公费明细记录
+            </summary>
+            <param name="UserCode">章号</param>
+            <param name="PactHead">字头</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.QueryClinicPubFeeInfoByOperAndPactheadHistory(System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean)">
+            <summary>
+            获取门诊公费明细记录
+            </summary>
+            <param name="UserCode">章号</param>
+            <param name="PactHead">字头</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.QueryPubFeeInfoByOperAndPactheadStaticMonth(System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            根据统计月份获取已经审核的记账单信息
+            </summary>
+            <param name="UserCode"></param>
+            <param name="PactHead"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="feeType"></param>
+            <param name="isValid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.QueryClinicPubFeeInfoPactheadHistory(System.String,System.DateTime,System.String,System.Boolean)">
+            <summary>
+            获取门诊公费明细记录
+            </summary>
+            <param name="PactHead">字头</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.QueryPubFeeInfoPactheadHistoryByTimeandDiQu(System.String,System.DateTime,System.DateTime,System.String,System.Boolean)">
+            <summary>
+            获取公费明细记录对帐用。小何
+            </summary>
+            <param name="PactHead"></param>
+            <param name="date"></param>
+            <param name="feeType"></param>
+            <param name="isValid"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.QueryPubFeeInfoPactheadFromInvoice(System.String,System.DateTime,System.DateTime,System.String)">
+            <summary>
+            获取公费明细记录 - 收费处 - 对帐用。小何 feetype 1-门诊 2-住院
+            </summary>
+            <param name="PactHead"></param>
+            <param name="date"></param>
+            <param name="feeType"></param>
+            <param name="isValid"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.myPubReport_Invoice(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="feeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetGfDetail(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取门诊公费明细记录
+            </summary>
+            <param name="UserCode">章号</param>
+            <param name="PactHead">字头</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetGfDetailNotPrint(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取门诊公费明细记录,未打印
+            </summary>
+            <param name="UserCode">章号</param>
+            <param name="PactHead">字头</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdateConfirmflag(System.String,System.String)">
+            <summary>
+            更新发票统计状态
+            </summary>
+            <param name="inv">ID</param>
+            <param name="state">1有效0无效2未复核 状态</param>
+            <returns>1 成功</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdateBillNO(System.String,System.String,System.Int32)">
+            <summary>
+            更新发票及账单号及状态
+            </summary>
+            <param name="BillNO"></param>
+             <param name="state">状态:1有效 0无效 2未复核</param>
+            <param name="type">类型: 1小单号，2流水号，3 发票号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdateBillNO(System.String,System.String,System.String)">
+            <summary>
+            更新发票及账单号及状态
+            </summary>
+            <param name="BillID"></param>
+            <param name="BillNo"></param>
+            <param name="state">1有效0无效2未复核</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdateBillNO(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            更新发票及账单号及状态
+            </summary>
+            <param name="BillID"></param>
+            <param name="BillNo"></param>
+            <param name="state">1有效0无效2未复核</param>
+            <param name="pactcode">字头</param>
+            <param name="pactcode">医疗证号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdateBillNO(System.String,System.String)">
+            <summary>
+            更新发票及账单号及状态
+            </summary>
+            <param name="BillID"></param>
+            <param name="BillNo"></param>
+            <param name="state">1有效0无效2未复核</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdateBillNOPrintBill(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新发票及账单号及状态
+            </summary>
+            <param name="BillID"></param>
+            <param name="BillNo"></param>
+            <param name="state">1有效0无效2未复核</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.UpdateBillNO(System.String)">
+            <summary>
+            更新帐单流水号及状态
+            </summary>
+            <param name="BillID"></param>
+            <param name="BillNo"></param>
+            <param name="state">1有效0无效2未复核</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetDetailForJZD(System.String)">
+            <summary>
+            统计记账单信息
+            </summary>
+            <param name="BillNO">记账单单号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetDetailForJZD(System.String,System.Int32)">
+            <summary>
+            统计记账单信息
+            </summary>
+            <param name="BillNO">记账单单号</param>
+             <param name="type">类型: 1小单号，2流水号，3 发票号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvinfoByPact(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据字头,状态获取发票
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="PactHead">"BY"本院，其他为合同单位字头</param>
+            <param name="state">0作废1正常2未审核</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvinfoByPact(System.String,System.String)">
+            <summary>
+             根据小单号,状态获取发票详细信息
+            </summary>
+            <param name="LSH"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvoice_LSH_ByPact(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据字头，查询已经复核之后的小单
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <param name="PactHead">字头</param>
+            <param name="state">0作废1已审核2未审核</param>
+            <returns></returns>		
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvoiceSumByUserCode(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            根据章号，统计各个字头
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <param name="EmplCode">工号</param>
+            <returns></returns>		
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvoiceSumByUserCode(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            根据章号统计月份，统计各个字头
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvoiceSumInByUserCode(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            根据章号，统计各个字头
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <param name="EmplCode">工号</param>
+            <returns></returns>		
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvoiceSumByUserCodeNotPrint(System.String,System.String,System.String)">
+            <summary>
+            根据章号，统计各个字头,未打印
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <param name="EmplCode">工号</param>
+            <returns></returns>		
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvoiceSumByPactHead(System.String,System.String,System.String)">
+            <summary>
+            根据章号，统计各个字头,未打印
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <param name="EmplCode">工号</param>
+            <returns></returns>		
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetInvoiceNum_ByPact(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据字头，获得收费员对应发票数
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="PactHead"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetGfhzByFeeType(System.String,System.String,System.String)">
+            <summary>
+            根据费用类型查询所有gfhz_main
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <param name="fee_type">费用类型,1住院,2门诊</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.GetGfhzByFeeType(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据费用类型查询单独gfhz_main
+            </summary>
+            <param name="begin">开始时间</param>
+            <param name="end">结束时间</param>
+            <param name="fee_type">费用类型,1住院,2门诊</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.MonthLocked(System.DateTime)">
+            <summary>
+            该月是否已经封账
+            </summary>
+            <param name="staticMonth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.MonthLock(System.DateTime)">
+            <summary>
+            对该月封账
+            </summary>
+            <param name="staticMonth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.MonthUnLock(System.DateTime)">
+            <summary>
+            对该月解封
+            </summary>
+            <param name="staticMonth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.PubReport.SetUpdateGfhz(FS.SOC.Local.PubReport.Models.PubReport)">
+            <summary>
+            保存SetUpdateGfhz扩展属性数据－－先执行更新操作，如果没有找到可以更新的数据，则插入一条新记录
+            </summary>
+            <param name="departmentExt">科室扩展属性实体</param>
+            <returns>1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPublicBill.MakeBill">
+            <summary>
+            生成单据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPublicBill.Print">
+            <summary>
+            打印
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPublicBill.Modify">
+            <summary>
+            更改患者信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPublicBill.Delete">
+            <summary>
+            删除单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPublicBill.Init">
+            <summary>
+            初始化显示年月份
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPublicBill.IsExist(System.String,System.DateTime,System.DateTime,System.Boolean@)">
+            <summary>
+            验证患者在此时间段内是否存在托收单信息.
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <param name="isExist"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.ucPublicBill.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPublicBill.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucPublicBill.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.SOC.Local.PubReport.Components.frmReport">
+            <summary>
+            Form1 的摘要说明。
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.frmReport.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmReport.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmReport.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.SOC.Local.PubReport.Models.InvoiceTypeEnumService">
+            <summary>
+            InvoiceTypeEnumService<br></br>
+            [功能描述: 收据(发票)类型枚举服务类]<br></br>
+            [创 建 者: 王宇]<br></br>
+            [创建时间: 2006-09-01]<br></br>
+            <修改记录
+            	修改人='徐伟哲'
+            	修改时间='2007-10-01'
+            	修改目的='肿瘤医院本地化开发'
+            	修改描述='增加一种新的发票类型:营养膳食发票'
+             />
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.InvoiceTypeEnumService.items">
+            <summary>
+            存贮枚举名称
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.InvoiceTypeEnumService.enumInvoiceType">
+            <summary>
+            收据(发票)分类
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Models.InvoiceTypeEnumService.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns>当前对象的实例副本</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Models.InvoiceTypeEnumService.List">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Models.InvoiceTypeEnumService.Items">
+            <summary>
+            存贮枚举名称
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Models.InvoiceTypeEnumService.EnumItem">
+            <summary>
+            收据(发票)分类
+            </summary>
+        </member>
+        <member name="T:FS.SOC.Local.PubReport.Models.EnumInvoiceType">
+            <summary>
+            收据(发票)分类
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.EnumInvoiceType.R">
+            <summary>
+            挂号收据
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.EnumInvoiceType.C">
+            <summary>
+            门诊收据
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.EnumInvoiceType.I">
+            <summary>
+            住院收据
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.EnumInvoiceType.P">
+            <summary>
+            预交收据
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.EnumInvoiceType.A">
+            <summary>
+            门诊帐户
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.EnumInvoiceType.N">
+            <summary>
+            营养膳食发票(新增)
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.frmPubReportObj.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmPubReportObj.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.frmPubReportObj.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.frmPubReportObj.IsEdit">
+            <summary>
+            操作状态 所有事件在true的情况下才会响应
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Components.ucTrusteeBill.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucTrusteeBill.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucTrusteeBill.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucTrusteeBill.SetData(FS.HISFC.Models.RADT.PatientInfo,FS.SOC.Local.PubReport.Models.PubReport)">
+            <summary>
+            设置托收单数据
+            </summary>
+            <param name="pinfo">患者信息</param>
+            <param name="al">费用明细</param>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.ucTrusteeBill.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Components.ucTrusteeBill.DtBegin">
+            <summary>
+            统计开始时间
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Components.ucTrusteeBill.DtEnd">
+            <summary>
+            统计结束时间
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizProcess.PubReport.GetState(System.String)">
+            <summary>
+            获取记账单的类别
+            </summary>
+            <param name="invoiceState">发票的类别</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizProcess.PubReport.QueryPubFeeInfoInpatient(System.DateTime,System.DateTime)">
+            <summary>
+            根据结算发票信息生成公费汇总信息
+            </summary>
+            <param name="operCode"></param>
+            <param name="beginDate"></param>
+            <param name="endDate"></param>
+            <param name="pactHead"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizProcess.PubReport.ConvertInvoiceToPubReport(FS.HISFC.Models.Fee.Inpatient.Balance)">
+            <summary>
+            将发票实体转化为记账单实体 住院
+            </summary>
+            <param name="balace"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizProcess.PubReport.ConvertInvoiceToPubReport(FS.HISFC.Models.Fee.Outpatient.Balance)">
+            <summary>
+            门诊记账单
+            </summary>
+            <param name="invoice"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.AdjustPubFeeTial(FS.HISFC.Models.RADT.PatientInfo,System.String,System.String)">
+            <summary>
+            调整公费小数部分，插入差额
+            </summary>
+            <param name="pInfo"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.AdjustOddForBalance(FS.HISFC.Models.RADT.PatientInfo,System.String,System.String,System.Decimal)">
+            <summary>
+            调整按一定金额结算时差额
+            </summary>
+            <param name="pInfo"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="Odd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.ExecProcedure(System.String,System.String,System.String,System.String,System.Decimal)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="InpatientNo"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="type"></param>
+            <param name="Odd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetUnBanlancePrepay(System.String,System.String,System.String,System.String@,System.String@,System.String@,System.String@,System.String@)">
+            <summary>
+            预交金月报
+            </summary>
+            <param name="dept">科室:住院处</param>
+            <param name="begin">上月时间</param>
+            <param name="end">本月时间</param>
+            <param name="Last">期初预收</param>
+            <param name="Current">期末预收</param>
+            <param name="Income">本期预收</param>
+            <param name="Balance">本期退预收</param>
+            <param name="ChangeIN">转入预收</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetOutPatient(System.String)">
+            <summary>
+            出院日期大于指定时间出院登记未结帐的患者
+            </summary>
+            <param name="dtBegin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetOutBeforeBalance(System.String,System.String)">
+            <summary>
+            当天作出院登记但未结帐的患者
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetOutNoBalance(System.String,System.String,System.String)">
+            <summary>
+            应收应付报表
+            </summary>
+            <param name="begin">统计开始日期</param>
+            <param name="end">统计截止日期</param>		
+            <param name="flag">1 应收2应付</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetPayWayInfoByNo(System.String,System.String,System.String)">
+            <summary>
+            获取支付信息
+            </summary>
+            <param name="BillNo">收据号</param>
+            <param name="TransType">交易类型 1正交易，2反交易</param>
+            <param name="TransKind">交易种类 0预交款1结算款</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.UpdatePayWay(System.String,System.String,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            更改支付方式
+            </summary>
+            <param name="BillNo">收据号</param>
+            <param name="Transtype">交易类型 1正交易 2 反交易</param>
+            <param name="TransKind">交易种类 0预交款1结算款</param>
+            <param name="No">序号</param>
+            <param name="rsFlag">收取返还标志</param>
+            <param name="OldPayWay">原支付方式</param>
+            <param name="NewPayWay">新支付方式</param>
+            <returns>1成功 其他失败</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetSYBXMzCost(System.String,System.String,System.Decimal@)">
+            <summary>
+            查询生育保险门诊费用记账金额
+            </summary>
+            <param name="DNH">生育保险电脑号</param>
+            <param name="IDno">身份证号码</param>
+            <param name="MzCost">门诊记账费用</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetSYBXPatientFee(System.String,System.String)">
+            <summary>
+            统计门诊患者费用
+            </summary>
+            <param name="IDno">身份证号</param>
+            <param name="DNH">生育保险 电脑号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetSqlForSelectAllFeeItems">
+            <summary>
+            获取检索fin_com_itemlist的全部数据的sql
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetSqlForSelectAllMedItems">
+            <summary>
+            获取检索fin_com_medicinelist的全部数据的sql
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetMedItems(System.String)">
+            <summary>
+            获得药品费用项目信息 执行此函数使用sql必须依照下面注释顺序取本类中的GetSqlForSelectAllMedItems()函数可以取此顺序的全表检索sql
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetForQuitDrug(System.String,System.DateTime,System.DateTime,System.String)">
+            <summary>
+            根据发放状态提取一段时间范围内未结算的供可供退费的药品项目 Edit by liangjz,Modify by hgx
+            </summary>
+            <param name="InpatientNo"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <param name="SendDrugState"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetForQuitDrug(System.String,System.DateTime,System.DateTime,System.String,System.Boolean)">
+            <summary>
+            根据是否结算、是否发放提取一段时间范围内可供退费的药品项目 Edit by liangjz Modify by hgx
+            </summary>
+            <param name="InpatientNo">住院流水号</param>
+            <param name="dtBegin">起始时间</param>
+            <param name="dtEnd">终止时间</param>
+            <param name="SendDrugState">是否发药</param>
+            <param name="isBalance">是否结算</param>
+            <returns>返回动态数组，失败返回null</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetForQuitDrug(System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.String)">
+            <summary>
+            根据是否结算、是否发放提取一段时间范围内可供退费的药品项目 Edit by liangjz,Modify by hgx
+            </summary>
+            <param name="InpatientNo">住院流水号</param>
+            <param name="dtBegin">起始时间</param>
+            <param name="dtEnd">终止时间</param>
+            <param name="SendDrugState">是否发药</param>
+            <param name="isBalance">是否结算</param>
+            <param name="minFeeID">最小费用代码</param>
+            <returns>返回动态数组，失败返回null</returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetFeeItemListByNoteNoAndNoteSequence(System.String,System.Int32,System.Boolean)">
+            <summary>
+            检索药品和非药品明细单条记录---通过主键
+            </summary>
+            <param name="NoteNo"></param>
+            <param name="SequenceNo"></param>
+            <param name="IsPharmacy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.Fee.GetFeeItems(System.String)">
+            <summary>
+            获得费用项目信息 执行此函数使用sql必须依照下面注释顺序取本类中的GetSqlForSelectAllFeeItems()函数可以取此顺序的全表检索sql
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.SOC.Local.PubReport.Models.PubReportStatic">
+            <summary>
+            公费汇总统计
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReportStatic.ClinicPub">
+            <summary>
+            门诊统计部分
+            </summary>
+        </member>
+        <member name="F:FS.SOC.Local.PubReport.Models.PubReportStatic.InPub">
+            <summary>
+            住院统计部分
+            </summary>
+        </member>
+        <member name="T:FS.SOC.Local.PubReport.Components.Report">
+            <summary>
+            Report 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.Components.Report.ShowReportOnce(System.Windows.Forms.Control,System.String,System.Object)">
+            <summary>
+            显示报表一次
+            </summary>
+            <param name="parentControl"></param>
+            <param name="FileName"></param>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.StatReport.GetStatByID(System.String)">
+            <summary>
+            获取报表信息，1月结申报表
+            2省公医--住院
+            3市公医--住院
+            4区公医--住院
+            6本院--住院
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.StatReport.GetStatForArea">
+            <summary>
+            获取区公医的各区名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.StatReport.GetSimpleReport">
+            <summary>
+            获取汇总报表节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.StatReport.GetReportIndex">
+            <summary>
+            获取汇总报表节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.StatReport.GetExportIndex">
+            <summary>
+            获取记账明显导出报表节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.SOC.Local.PubReport.BizLogic.StatReport.GetSpecialUnit">
+            <summary>
+            获取特约单位
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.SOC.Local.PubReport.Models.SpecialCheck">
+            <summary>
+            特殊检查
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Models.SpecialCheck.Seq">
+            <summary>
+            流水号
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Models.SpecialCheck.WorkPlace">
+            <summary>
+            单位名称
+            </summary>
+        </member>
+        <member name="P:FS.SOC.Local.PubReport.Models.SpecialCheck.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+    </members>
+</doc>

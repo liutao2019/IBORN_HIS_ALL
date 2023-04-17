@@ -1,0 +1,133 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>txtname</Name><Text>药品名称</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dbphyinfo</Name><Sql>SELECT a.drug_code 药品编码,          --药品编码
+             a.trade_name 商品名称,         --商品名称
+             a.spell_code 商品名拼音码,         --商品名拼音码
+             a.wb_code 商品名五笔码,            --商品名五笔码
+             a.custom_code 商品名自定义码,        --商品名自定义码              
+             a.pack_qty 包装数,           --包装数              
+             a.specs 规格,              --规格
+             -- 系统类别,         --系统类别
+             --a.fee_code 最小费用代码,           --最小费用代码              
+             a.regular_name 通用名,       --通用名              
+             a.regular_spell 通用名拼音码,      --通用名拼音码
+             a.regular_wb 通用名五笔码,         --通用名五笔码
+             a.formal_name 学名,        --学名
+             a.formal_spell 学名拼音码,       --学名拼音码  
+             a.formal_wb 学名五笔码,          --学名五笔码  
+             a.other_name 别名,         --别名
+             --a.english_name 英文名,       --英文名              
+            -- a.english_regular 英文通用名,    --英文通用名  
+            -- a.english_other 英文别名,      --英文别名
+             --a.international_code 国际编码, --国际编码
+             --a.gb_code 国家编码,            --国家编码
+             a.pack_unit 包装单位,          --包装单位
+             a.min_unit 最小单位,           --最小单位              
+             a.base_dose 基本剂量,          --基本剂量
+             a.dose_unit 剂量单位,          --剂量单位
+             --a.dose_model_code 剂型编码,    --剂型编码
+             case when a.drug_type='Z' then '中成药' 
+                     when a.drug_type='P' then '西药' 
+                     when a.drug_type='C' then '中草药'
+                     else '其他' end 药品类别,          --药品类别
+            /* case when a.drug_quality='O' then '普药'
+                    when a.drug_quality='O1' then '易制毒'
+                    when a.drug_quality='S1' then '毒性药品' 
+                    when a.drug_quality='E3' then '其它' 
+                    when a.drug_quality='P2' then '二类精神类药'
+                    when a.drug_quality='SY' then '麻醉药品'
+                    when a.drug_quality='P1' then '一类精神类药' 
+                    when a.drug_quality='V' then '贵重药' 
+                    when a.drug_quality='T' then '其它' 
+                    when a.drug_quality='P2' then '二类精神类药'
+                    when a.drug_quality='SY' then '麻醉药品'
+                    when a.drug_quality='P1' then '一类精神类药' end*/
+              cd.name   药品性质,       --药品性质 1-麻药 , 2-保管药 , 3-普药 , 4-输液
+             a.retail_price 参考零售价,       --参考零售价
+             a.wholesale_price 参考批发价,    --参考批发价
+             a.purchase_price 最新够入价,     --最新够入价
+             a.top_retailprice 最高零售价,    --最高零售价
+             a.store_condition 储藏条件,    --储藏条件
+             a.usage_code 用法编码,         --用法编码
+             a.once_dose 一次用量,          --一次用量              
+             a.frequency_code 频次编码,     --频次编码
+             b.fac_name 生产厂家,      --生产厂家
+             a.approve_info 批文信息,       --批文信息
+             --a.label 商标,              --商标
+             --a.price_form 价格形式,         --价格形式
+             case when a.valid_state=1 then '在用'
+                    when a.valid_state=0 then '停用' 
+                    --when a.valid_state=2 then '废弃' 
+                      end 有效性标志,        --有效性标志 0 在用 1 停用 2 废弃
+             case when a.self_flag=0 then '非自产'
+                    when a.self_flag=1 then '自产' end 自制标志,          --自制标志 0-非自产，1-自产
+             a.gmp_flag GMP标志,           --GMP标志
+             case when a.oct_flag=0 then '非处方药'
+                    when a.oct_flag=1 then '处方药' end OCT标志,           --OCT标志 0非处方药 1处方药  
+             --a.new_flag 新药标记,           --新药标记，用户维护1－新药，0－非新药
+             --a.lack_flag 缺药标志,          --缺药标志 0-否，1-是              
+             --show_flag,          --大屏幕显示标记0非屏幕显示 1为大屏幕显示
+             a.append_flag 附材标志,        --附材标志 0-否，1-是              
+             a.caution 注意事项,            --注意事项
+             case when a.item_grade=1 then '甲类' 
+                    when a. item_grade=2 then '乙类' 
+                    when a.item_grade=3 then '丙类' end 项目等级,         --项目等级，1甲类，2乙类，3丙类
+             --bar_code,           --条形码              
+            -- a.producing_area 产地,     --产地
+             b1.fac_name 最新供药公司,       --最新供药公司(在入库时更新，用于生成药品采购单)
+             a.ingredient 有效成分,         --有效成分
+             a.execute_standard 执行标准,   --执行标准
+             a.brief_introduction 药品简介, --药品简介            
+              a.manual 说明书内容,             --说明书内容    
+             fun1.node_name 一级药理作用,      --一级药理作用             
+             fun2.node_name 二级药理作用,     --二级药理作用
+            fun3.node_name 三级药理作用,     --三级药理作用
+             --tender_flag,        --招标标志 0非招标1招标
+             --tender_price,       --招标价              
+             --contract_code,      --招标采购合同编号
+             --tender_begindate,   --中标开始日期              
+             --tender_enddate,     --中标结束日期
+             --tender_company,     --中标公司
+            -- mark,               --备注
+             --a.oper_code 操作员,          --操作员              
+             --a.oper_date 操作时间,          --操作时间
+             --a.other_spell 别名拼音码,        --别名拼音码  
+            -- a.other_wb 别名五笔码,           --别名五笔码              
+            -- a.other_custom 别名自定义码,       --别名自定义码
+            -- a.regular_custom 通用名自定义码,     --通用名自定义码  
+            -- a.formal_custom 学名自定义码,      --学名自定义码
+             --a.test_flag 是否需要试敏,          --是否需要试敏
+             a.special_flag 省限制,       --省限制  
+             a.special_flag1 市限制,      --市限制  
+             a.special_flag2 自费项目,      --自费项目   
+             a.special_flag3 特殊标记,      --特殊标记   
+             a.special_flag4 特殊标记,      --特殊标记  
+             a.OLD_DRUG_CODE 旧系统药品编码     --80旧系统药品编码
+             --a.SHIFT_TYPE 变动类型,     --81变动类型(0特殊修改,1新药,2停用,3调价)  
+             --a.SHIFT_DATE 变动时间 ,     --82变动时间 
+             --a.SHIFT_MARK 变动原因 ,     --83变动原因 
+             --a.SPLIT_TYPE 拆分类型,       --84拆分类型:0可拆包装单位,1不能拆包装单位
+             --a.NOSTRUM_FLAG 协定处方   --85协定处方：0不是  1是  
+            /* EXTEND1,   ---86
+             EXTEND2, ------87
+             CREATE_TIME, ---88
+             retail_price2,--89
+             ext_num1,--90
+             ext_num2,--91
+             extend3,--92
+             extend4, --93
+             cdsplit_type,--94
+             lzsplit_type, --95
+        SECOND_BASE_DOSE, --96
+       SECOND_DOSE_UNIT, --97
+       ONCE_DOSE_UNIT,    --98
+       PRODUCTID,          --99
+       BIGPACKUNIT, -- 100
+       BIGPACKQTY -- 101*/
+             FROM pha_com_baseinfo   a
+             left join PHA_COM_COMPANY b on a.producer_code=b.fac_code
+             left join PHA_COM_COMPANY b1 on a.company_code=b1.fac_code 
+             left join PHA_COM_FUNCTION fun1 on a.phy_function1=fun1.node_code 
+             left join PHA_COM_FUNCTION fun2 on a.phy_function2=fun2.node_code
+             left join PHA_COM_FUNCTION fun3 on a.phy_function3=fun3.node_code
+             left join com_dictionary cd on a.drug_quality=cd.code and cd.type = 'DRUGQUALITY'
+             where a.trade_name like '%&amp;txtname%' 
+            </Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\药品基本信息查询表单设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

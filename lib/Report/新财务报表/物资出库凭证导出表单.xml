@@ -1,0 +1,865 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Spread class="FarPoint.Win.Spread.FpSpread">
+  <!--Settings Section - This section contains the workbook properties, and the sheet objects, properties and selections.-->
+  <Settings>
+    <RootWorkbook>
+      <ActiveSheetIndex>0</ActiveSheetIndex>
+      <AllowDragDrop>False</AllowDragDrop>
+      <AllowDragFill>False</AllowDragFill>
+      <AllowCellOverflow>False</AllowCellOverflow>
+      <AllowColumnMove>False</AllowColumnMove>
+      <AllowEditOverflow>False</AllowEditOverflow>
+      <AllowUserFormulas>False</AllowUserFormulas>
+      <AllowRowMove>False</AllowRowMove>
+      <AllowSheetMove>True</AllowSheetMove>
+      <AllowUndo>True</AllowUndo>
+      <AllowUserZoom>True</AllowUserZoom>
+      <AutoClipboard>True</AutoClipboard>
+      <BackColor>Control</BackColor>
+      <BackgroundImage></BackgroundImage>
+      <BorderCollapse>Separate</BorderCollapse>
+      <ScrollTipPolicy>Off</ScrollTipPolicy>
+      <ScrollBarTrackPolicy>Off</ScrollBarTrackPolicy>
+      <ScrollBarShowMax>True</ScrollBarShowMax>
+      <ScrollBarMaxAlign>True</ScrollBarMaxAlign>
+      <BorderStyle>Fixed3D</BorderStyle>
+      <ButtonDrawMode>Always</ButtonDrawMode>
+      <CellNoteIndicatorVisible>True</CellNoteIndicatorVisible>
+      <ClipboardOptions>AllHeaders</ClipboardOptions>
+      <ColumnSplitBoxAlignment>Leading</ColumnSplitBoxAlignment>
+      <ColumnSplitBoxPolicy>Always</ColumnSplitBoxPolicy>
+      <EditModePermanent>False</EditModePermanent>
+      <EditModeReplace>False</EditModeReplace>
+      <HorizontalScrollBarHeight>-1</HorizontalScrollBarHeight>
+      <HorizontalScrollBarPolicy>Always</HorizontalScrollBarPolicy>
+      <LeftTab>0</LeftTab>
+      <MoveActiveOnFocus>True</MoveActiveOnFocus>
+      <RetainSelectionBlock>True</RetainSelectionBlock>
+      <RightToLeft>No</RightToLeft>
+      <RowSplitBoxAlignment>Leading</RowSplitBoxAlignment>
+      <RowSplitBoxPolicy>Always</RowSplitBoxPolicy>
+      <SelectionBlockOptions>Cells, Rows, Columns, Sheet</SelectionBlockOptions>
+      <SheetCount>1</SheetCount>
+      <TabStrip>
+        <BackColor>Control</BackColor>
+        <Editable>False</Editable>
+        <ButtonPolicy>Always</ButtonPolicy>
+        <ActiveSheetTab />
+        <DefaultSheetTab />
+        <Items>
+          <SheetTab />
+        </Items>
+      </TabStrip>
+      <TabStripPlacement>WithHorizontalScrollBar</TabStripPlacement>
+      <TabStripPolicy>AsNeeded</TabStripPolicy>
+      <TabStripRatio>0.5</TabStripRatio>
+      <TextTipAppearance class="FarPoint.Win.Spread.TipAppearance">
+        <BackColor>Info</BackColor>
+        <ForeColor>InfoText</ForeColor>
+        <Font>
+          <Name>宋体</Name>
+          <Size>9</Size>
+          <Bold>False</Bold>
+          <CharSet>134</CharSet>
+          <Italic>False</Italic>
+          <Strikeout>False</Strikeout>
+          <Underline>False</Underline>
+          <Unit>Point</Unit>
+          <Vertical>False</Vertical>
+        </Font>
+      </TextTipAppearance>
+      <TextTipDelay>500</TextTipDelay>
+      <TextTipPolicy>Off</TextTipPolicy>
+      <VerticalScrollBarWidth>-1</VerticalScrollBarWidth>
+      <VerticalScrollBarPolicy>Always</VerticalScrollBarPolicy>
+      <VisualStyles>Auto</VisualStyles>
+      <SuspendAnimations>False</SuspendAnimations>
+    </RootWorkbook>
+    <Sheets>
+      <Sheet index="0" class="FarPoint.Win.Spread.SheetView">
+        <SheetName>Sheet1</SheetName>
+        <Categories>
+          <Appearance>
+            <RowHeaderColumnCount>0</RowHeaderColumnCount>
+          </Appearance>
+          <Behavior />
+          <Layout>
+            <ColumnCount>91</ColumnCount>
+            <RowCount>1</RowCount>
+            <ActiveColumnIndex>4</ActiveColumnIndex>
+          </Layout>
+        </Categories>
+        <SelectionModel class="FarPoint.Win.Spread.Model.DefaultSheetSelectionModel">
+          <CellRange Row="-1" Column="4" RowCount="-1" ColumnCount="1" />
+          <AnchorColumn>4</AnchorColumn>
+        </SelectionModel>
+      </Sheet>
+    </Sheets>
+  </Settings>
+  <!--Styles Section - This section contains the workbook and sheet named style collections.-->
+  <Styles>
+    <NamedStyles class="FarPoint.Win.Spread.NamedStyleCollection" />
+  </Styles>
+  <!--Presentation Section - This section contains the column and row properties, cell spans, and the sheet, column, row, and cell styles.-->
+  <Presentation>
+    <Font />
+    <Sheets>
+      <Sheet index="0">
+        <ViewportInfo>
+          <RowPaneCount>1</RowPaneCount>
+          <ColumnPaneCount>1</ColumnPaneCount>
+          <ActiveRowPane>0</ActiveRowPane>
+          <ActiveColumnPane>0</ActiveColumnPane>
+          <RowPanes>
+            <RowPane row="0">
+              <TopRow>0</TopRow>
+              <PreferredHeight>-1</PreferredHeight>
+            </RowPane>
+          </RowPanes>
+          <ColumnPanes>
+            <ColumnPane column="0">
+              <LeftColumn>0</LeftColumn>
+              <PreferredWidth>-1</PreferredWidth>
+            </ColumnPane>
+          </ColumnPanes>
+        </ViewportInfo>
+        <AxisModels>
+          <Row class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="1">
+            <Items>
+              <Item index="-1" />
+            </Items>
+          </Row>
+          <Column class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Horizontal" count="91">
+            <Items>
+              <Item index="-1" />
+              <Item index="0">
+                <Size>115</Size>
+              </Item>
+              <Item index="1">
+                <Size>115</Size>
+              </Item>
+              <Item index="2">
+                <Size>115</Size>
+              </Item>
+              <Item index="3">
+                <Size>115</Size>
+              </Item>
+              <Item index="4">
+                <Size>115</Size>
+              </Item>
+              <Item index="5">
+                <Size>115</Size>
+              </Item>
+              <Item index="6">
+                <Size>115</Size>
+              </Item>
+              <Item index="7">
+                <Size>115</Size>
+              </Item>
+              <Item index="8">
+                <Size>115</Size>
+              </Item>
+              <Item index="9">
+                <Size>115</Size>
+              </Item>
+              <Item index="10">
+                <Size>115</Size>
+              </Item>
+              <Item index="11">
+                <Size>115</Size>
+              </Item>
+              <Item index="12">
+                <Size>115</Size>
+              </Item>
+              <Item index="13">
+                <Size>115</Size>
+              </Item>
+              <Item index="14">
+                <Size>115</Size>
+              </Item>
+              <Item index="15">
+                <Size>115</Size>
+              </Item>
+              <Item index="16">
+                <Size>115</Size>
+              </Item>
+              <Item index="17">
+                <Size>115</Size>
+              </Item>
+              <Item index="18">
+                <Size>115</Size>
+              </Item>
+              <Item index="19">
+                <Size>115</Size>
+              </Item>
+              <Item index="20">
+                <Size>115</Size>
+              </Item>
+              <Item index="21">
+                <Size>115</Size>
+              </Item>
+              <Item index="22">
+                <Size>115</Size>
+              </Item>
+              <Item index="23">
+                <Size>115</Size>
+              </Item>
+              <Item index="24">
+                <Size>115</Size>
+              </Item>
+              <Item index="25">
+                <Size>115</Size>
+              </Item>
+              <Item index="26">
+                <Size>115</Size>
+              </Item>
+              <Item index="27">
+                <Size>115</Size>
+              </Item>
+              <Item index="28">
+                <Size>115</Size>
+              </Item>
+              <Item index="29">
+                <Size>115</Size>
+              </Item>
+              <Item index="30">
+                <Size>115</Size>
+              </Item>
+              <Item index="31">
+                <Size>115</Size>
+              </Item>
+              <Item index="32">
+                <Size>115</Size>
+              </Item>
+              <Item index="33">
+                <Size>115</Size>
+              </Item>
+              <Item index="34">
+                <Size>115</Size>
+              </Item>
+              <Item index="35">
+                <Size>115</Size>
+              </Item>
+              <Item index="36">
+                <Size>115</Size>
+              </Item>
+              <Item index="37">
+                <Size>115</Size>
+              </Item>
+              <Item index="38">
+                <Size>115</Size>
+              </Item>
+              <Item index="39">
+                <Size>115</Size>
+              </Item>
+              <Item index="40">
+                <Size>115</Size>
+              </Item>
+              <Item index="41">
+                <Size>115</Size>
+              </Item>
+              <Item index="42">
+                <Size>115</Size>
+              </Item>
+              <Item index="43">
+                <Size>115</Size>
+              </Item>
+              <Item index="44">
+                <Size>115</Size>
+              </Item>
+              <Item index="45">
+                <Size>115</Size>
+              </Item>
+              <Item index="46">
+                <Size>115</Size>
+              </Item>
+              <Item index="47">
+                <Size>115</Size>
+              </Item>
+              <Item index="48">
+                <Size>115</Size>
+              </Item>
+              <Item index="49">
+                <Size>115</Size>
+              </Item>
+              <Item index="50">
+                <Size>115</Size>
+              </Item>
+              <Item index="51">
+                <Size>115</Size>
+              </Item>
+              <Item index="52">
+                <Size>115</Size>
+              </Item>
+              <Item index="53">
+                <Size>115</Size>
+              </Item>
+              <Item index="54">
+                <Size>115</Size>
+              </Item>
+              <Item index="55">
+                <Size>115</Size>
+              </Item>
+              <Item index="56">
+                <Size>115</Size>
+              </Item>
+              <Item index="57">
+                <Size>115</Size>
+              </Item>
+              <Item index="58">
+                <Size>115</Size>
+              </Item>
+              <Item index="59">
+                <Size>115</Size>
+              </Item>
+              <Item index="60">
+                <Size>115</Size>
+              </Item>
+              <Item index="61">
+                <Size>115</Size>
+              </Item>
+              <Item index="62">
+                <Size>115</Size>
+              </Item>
+              <Item index="63">
+                <Size>115</Size>
+              </Item>
+              <Item index="64">
+                <Size>115</Size>
+              </Item>
+              <Item index="65">
+                <Size>115</Size>
+              </Item>
+              <Item index="66">
+                <Size>115</Size>
+              </Item>
+              <Item index="67">
+                <Size>115</Size>
+              </Item>
+              <Item index="68">
+                <Size>115</Size>
+              </Item>
+              <Item index="69">
+                <Size>115</Size>
+              </Item>
+              <Item index="70">
+                <Size>115</Size>
+              </Item>
+              <Item index="71">
+                <Size>115</Size>
+              </Item>
+              <Item index="72">
+                <Size>115</Size>
+              </Item>
+              <Item index="73">
+                <Size>115</Size>
+              </Item>
+              <Item index="74">
+                <Size>115</Size>
+              </Item>
+              <Item index="75">
+                <Size>115</Size>
+              </Item>
+              <Item index="76">
+                <Size>115</Size>
+              </Item>
+              <Item index="77">
+                <Size>115</Size>
+              </Item>
+              <Item index="78">
+                <Size>115</Size>
+              </Item>
+              <Item index="79">
+                <Size>115</Size>
+              </Item>
+              <Item index="80">
+                <Size>115</Size>
+              </Item>
+              <Item index="81">
+                <Size>115</Size>
+              </Item>
+              <Item index="82">
+                <Size>115</Size>
+              </Item>
+              <Item index="83">
+                <Size>115</Size>
+              </Item>
+              <Item index="84">
+                <Size>115</Size>
+              </Item>
+              <Item index="85">
+                <Size>115</Size>
+              </Item>
+              <Item index="86">
+                <Size>115</Size>
+              </Item>
+              <Item index="87">
+                <Size>115</Size>
+              </Item>
+              <Item index="88">
+                <Size>115</Size>
+              </Item>
+              <Item index="89">
+                <Size>115</Size>
+              </Item>
+              <Item index="90">
+                <Size>115</Size>
+              </Item>
+            </Items>
+          </Column>
+          <RowHeaderColumn class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" defaultSize="35" orientation="Horizontal" count="0">
+            <Items>
+              <Item index="-1">
+                <Resizable>True</Resizable>
+                <Size>35</Size>
+              </Item>
+            </Items>
+          </RowHeaderColumn>
+          <ColumnHeaderRow class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="1">
+            <Items>
+              <Item index="-1">
+                <Resizable>True</Resizable>
+              </Item>
+            </Items>
+          </ColumnHeaderRow>
+        </AxisModels>
+        <StyleModels>
+          <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="1" Columns="91">
+            <AltRowCount>2</AltRowCount>
+            <DefaultStyle class="FarPoint.Win.Spread.StyleInfo" Parent="DataAreaDefault" />
+            <ParseFormats>
+              <ParseFormat Row="0" Column="2">
+                <FormatString>n</FormatString>
+                <NumberFormatInfo>
+                  <CurrencyDecimalDigits>2</CurrencyDecimalDigits>
+                  <CurrencyDecimalSeparator>.</CurrencyDecimalSeparator>
+                  <CurrencyGroupSeparator>,</CurrencyGroupSeparator>
+                  <CurrencyGroupSizes>
+                    <Item>3</Item>
+                  </CurrencyGroupSizes>
+                  <CurrencyNegativePattern>2</CurrencyNegativePattern>
+                  <CurrencyPositivePattern>0</CurrencyPositivePattern>
+                  <CurrencySymbol>¥</CurrencySymbol>
+                  <NaNSymbol>非数字</NaNSymbol>
+                  <NegativeInfinitySymbol>负无穷大</NegativeInfinitySymbol>
+                  <NegativeSign>-</NegativeSign>
+                  <NumberDecimalDigits>0</NumberDecimalDigits>
+                  <NumberDecimalSeparator>.</NumberDecimalSeparator>
+                  <NumberGroupSeparator>,</NumberGroupSeparator>
+                  <NumberGroupSizes>
+                    <Item>0</Item>
+                  </NumberGroupSizes>
+                  <NumberNegativePattern>1</NumberNegativePattern>
+                  <PercentDecimalDigits>2</PercentDecimalDigits>
+                  <PercentDecimalSeparator>.</PercentDecimalSeparator>
+                  <PercentGroupSeparator>,</PercentGroupSeparator>
+                  <PercentGroupSizes>
+                    <Item>3</Item>
+                  </PercentGroupSizes>
+                  <PercentNegativePattern>1</PercentNegativePattern>
+                  <PercentPositivePattern>1</PercentPositivePattern>
+                  <PercentSymbol>%</PercentSymbol>
+                  <PerMilleSymbol>‰</PerMilleSymbol>
+                  <PositiveInfinitySymbol>正无穷大</PositiveInfinitySymbol>
+                  <PositiveSign>+</PositiveSign>
+                </NumberFormatInfo>
+              </ParseFormat>
+            </ParseFormats>
+            <ConditionalFormatCollections />
+          </DataArea>
+        </StyleModels>
+        <Notes class="FarPoint.Win.Spread.DrawingSpace.SpreadNotesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>793</Height>
+          <Width>1416</Width>
+          <Name>spreadNotesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+          <Gradient class="FarPoint.Win.Spread.DrawingSpace.PSGradient">
+            <GradientStyle>None</GradientStyle>
+            <GradientSections>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+            </GradientSections>
+          </Gradient>
+        </Notes>
+      </Sheet>
+    </Sheets>
+  </Presentation>
+  <!--Drawing Section - This section contains the drawing objects and their properties.-->
+  <Drawing>
+    <Sheets>
+      <Sheet index="0">
+        <DrawingContainer class="FarPoint.Win.Spread.DrawingSpace.SpreadShapesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>793</Height>
+          <Width>1416</Width>
+          <Name>spreadShapesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+        </DrawingContainer>
+      </Sheet>
+    </Sheets>
+  </Drawing>
+  <!--Data Section - This section contains the sheet data.-->
+  <Data>
+    <EnableCrossSheetReference>True</EnableCrossSheetReference>
+    <Sheets>
+      <Sheet index="0">
+        <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="91">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+          <SheetName>Sheet1</SheetName>
+          <Cells>
+            <Cell row="0" column="0">
+              <Tag type="System.String">dtdata</Tag>
+            </Cell>
+          </Cells>
+        </DataArea>
+        <RowHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="0">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+        </RowHeader>
+        <ColumnHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="91">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+          <Cells>
+            <Cell row="0" column="0">
+              <Data type="System.String">凭证输出</Data>
+            </Cell>
+            <Cell row="0" column="1">
+              <Data type="System.String">V800</Data>
+            </Cell>
+            <Cell row="0" column="2">
+              <Data type="System.String">1</Data>
+            </Cell>
+            <Cell row="0" column="3">
+              <Data type="System.String">广州爱博恩妇产医院有限公司</Data>
+            </Cell>
+            <Cell row="0" column="4">
+              <Data type="System.String">2019</Data>
+            </Cell>
+            <Cell row="0" column="5">
+              <Data type="System.String">F1日期F2类别</Data>
+            </Cell>
+            <Cell row="0" column="6">
+              <Data type="System.String">F3凭证号F4附单据数</Data>
+            </Cell>
+            <Cell row="0" column="7">
+              <Data type="System.String">F5摘要F6科目编码</Data>
+            </Cell>
+            <Cell row="0" column="8">
+              <Data type="System.String">F7借方F8贷方</Data>
+            </Cell>
+            <Cell row="0" column="9">
+              <Data type="System.String">F9数量F10原币</Data>
+            </Cell>
+            <Cell row="0" column="10">
+              <Data type="System.String">F11汇率</Data>
+            </Cell>
+            <Cell row="0" column="11">
+              <Data type="System.String">F12制单人</Data>
+            </Cell>
+            <Cell row="0" column="12">
+              <Data type="System.String">F13结算方式</Data>
+            </Cell>
+            <Cell row="0" column="13">
+              <Data type="System.String">F14票号</Data>
+            </Cell>
+            <Cell row="0" column="14">
+              <Data type="System.String">F15发生日期</Data>
+            </Cell>
+            <Cell row="0" column="15">
+              <Data type="System.String">F16部门编码</Data>
+            </Cell>
+            <Cell row="0" column="16">
+              <Data type="System.String">F17个人编码</Data>
+            </Cell>
+            <Cell row="0" column="17">
+              <Data type="System.String">F18客户编码</Data>
+            </Cell>
+            <Cell row="0" column="18">
+              <Data type="System.String">F19供应商编码</Data>
+            </Cell>
+            <Cell row="0" column="19">
+              <Data type="System.String">F20业务员</Data>
+            </Cell>
+            <Cell row="0" column="20">
+              <Data type="System.String">F21项目编码</Data>
+            </Cell>
+            <Cell row="0" column="21">
+              <Data type="System.String">F22自定义项1</Data>
+            </Cell>
+            <Cell row="0" column="22">
+              <Data type="System.String">F23自定义项2</Data>
+            </Cell>
+            <Cell row="0" column="23">
+              <Data type="System.String">F24自由项1</Data>
+            </Cell>
+            <Cell row="0" column="24">
+              <Data type="System.String">F25自由项2</Data>
+            </Cell>
+            <Cell row="0" column="25">
+              <Data type="System.String">F26自由项3</Data>
+            </Cell>
+            <Cell row="0" column="26">
+              <Data type="System.String">F27自由项4</Data>
+            </Cell>
+            <Cell row="0" column="27">
+              <Data type="System.String">F28自由项5</Data>
+            </Cell>
+            <Cell row="0" column="28">
+              <Data type="System.String">F29自由项6</Data>
+            </Cell>
+            <Cell row="0" column="29">
+              <Data type="System.String">F30自由项7</Data>
+            </Cell>
+            <Cell row="0" column="30">
+              <Data type="System.String">F31自由项8</Data>
+            </Cell>
+            <Cell row="0" column="31">
+              <Data type="System.String">F32自由项9</Data>
+            </Cell>
+            <Cell row="0" column="32">
+              <Data type="System.String">F33自由项10</Data>
+            </Cell>
+            <Cell row="0" column="33">
+              <Data type="System.String">F34外部系统标识</Data>
+            </Cell>
+            <Cell row="0" column="34">
+              <Data type="System.String">F35业务类型</Data>
+            </Cell>
+            <Cell row="0" column="35">
+              <Data type="System.String">F36单据类型</Data>
+            </Cell>
+            <Cell row="0" column="36">
+              <Data type="System.String">F37单据日期</Data>
+            </Cell>
+            <Cell row="0" column="37">
+              <Data type="System.String">F38单据号</Data>
+            </Cell>
+            <Cell row="0" column="38">
+              <Data type="System.String">F39凭证是否可改</Data>
+            </Cell>
+            <Cell row="0" column="39">
+              <Data type="System.String">F40分录是否可增删</Data>
+            </Cell>
+            <Cell row="0" column="40">
+              <Data type="System.String">F41合计金额是否保值</Data>
+            </Cell>
+            <Cell row="0" column="41">
+              <Data type="System.String">F42数值是否可改</Data>
+            </Cell>
+            <Cell row="0" column="42">
+              <Data type="System.String">F43科目是否可改</Data>
+            </Cell>
+            <Cell row="0" column="43">
+              <Data type="System.String">F44受控科目</Data>
+            </Cell>
+            <Cell row="0" column="44">
+              <Data type="System.String">F45往来是否可改</Data>
+            </Cell>
+            <Cell row="0" column="45">
+              <Data type="System.String">F46部门是否可改</Data>
+            </Cell>
+            <Cell row="0" column="46">
+              <Data type="System.String">F47项目是否可改</Data>
+            </Cell>
+            <Cell row="0" column="47">
+              <Data type="System.String">F48往来项是否必输</Data>
+            </Cell>
+            <Cell row="0" column="48">
+              <Data type="System.String">F49账套号</Data>
+            </Cell>
+            <Cell row="0" column="49">
+              <Data type="System.String">F50核算单位</Data>
+            </Cell>
+            <Cell row="0" column="50">
+              <Data type="System.String">F51会计年度</Data>
+            </Cell>
+            <Cell row="0" column="51">
+              <Data type="System.String">F52会计期间</Data>
+            </Cell>
+            <Cell row="0" column="52">
+              <Data type="System.String">F53类别顺序号</Data>
+            </Cell>
+            <Cell row="0" column="53">
+              <Data type="System.String">F54凭证号</Data>
+            </Cell>
+            <Cell row="0" column="54">
+              <Data type="System.String">F55审核人</Data>
+            </Cell>
+            <Cell row="0" column="55">
+              <Data type="System.String">F56记账人</Data>
+            </Cell>
+            <Cell row="0" column="56">
+              <Data type="System.String">F57是否记账</Data>
+            </Cell>
+            <Cell row="0" column="57">
+              <Data type="System.String">F58出纳人</Data>
+            </Cell>
+            <Cell row="0" column="58">
+              <Data type="System.String">F59行号</Data>
+            </Cell>
+            <Cell row="0" column="59">
+              <Data type="System.String">F60原币名称</Data>
+            </Cell>
+            <Cell row="0" column="60">
+              <Data type="System.String">数量单位</Data>
+            </Cell>
+            <Cell row="0" column="61">
+              <Data type="System.String">F61单价</Data>
+            </Cell>
+            <Cell row="0" column="62">
+              <Data type="System.String">F62科目名称</Data>
+            </Cell>
+            <Cell row="0" column="63">
+              <Data type="System.String">F63部门名称</Data>
+            </Cell>
+            <Cell row="0" column="64">
+              <Data type="System.String">F64个人名称</Data>
+            </Cell>
+            <Cell row="0" column="65">
+              <Data type="System.String">F65客户简称</Data>
+            </Cell>
+            <Cell row="0" column="66">
+              <Data type="System.String">F66供应商简称</Data>
+            </Cell>
+            <Cell row="0" column="67">
+              <Data type="System.String">F67项目名称</Data>
+            </Cell>
+            <Cell row="0" column="68">
+              <Data type="System.String">F68项目大类编码</Data>
+            </Cell>
+            <Cell row="0" column="69">
+              <Data type="System.String">F69项目大类名称</Data>
+            </Cell>
+            <Cell row="0" column="70">
+              <Data type="System.String">F70对方科目</Data>
+            </Cell>
+            <Cell row="0" column="71">
+              <Data type="System.String">F71银行两清标志</Data>
+            </Cell>
+            <Cell row="0" column="72">
+              <Data type="System.String">F72往来两清标志</Data>
+            </Cell>
+            <Cell row="0" column="73">
+              <Data type="System.String">F73银行核销标志</Data>
+            </Cell>
+            <Cell row="0" column="74">
+              <Data type="System.String">F74外部系统名称</Data>
+            </Cell>
+            <Cell row="0" column="75">
+              <Data type="System.String">F75外部账套号</Data>
+            </Cell>
+            <Cell row="0" column="76">
+              <Data type="System.String">F76外部会计年度</Data>
+            </Cell>
+            <Cell row="0" column="77">
+              <Data type="System.String">F77外部会计期间</Data>
+            </Cell>
+            <Cell row="0" column="78">
+              <Data type="System.String">F78外部制单日期</Data>
+            </Cell>
+            <Cell row="0" column="79">
+              <Data type="System.String">F79外部系统版本</Data>
+            </Cell>
+            <Cell row="0" column="80">
+              <Data type="System.String">F80凭证标识</Data>
+            </Cell>
+            <Cell row="0" column="81">
+              <Data type="System.String">F81分录自动编号</Data>
+            </Cell>
+            <Cell row="0" column="82">
+              <Data type="System.String">F82唯一标识</Data>
+            </Cell>
+            <Cell row="0" column="83">
+              <Data type="System.String">F83主管签字</Data>
+            </Cell>
+            <Cell row="0" column="84">
+              <Data type="System.String">F84自由项11</Data>
+            </Cell>
+            <Cell row="0" column="85">
+              <Data type="System.String">F85自由项12</Data>
+            </Cell>
+            <Cell row="0" column="86">
+              <Data type="System.String">F86自由项13</Data>
+            </Cell>
+            <Cell row="0" column="87">
+              <Data type="System.String">F87自由项14</Data>
+            </Cell>
+            <Cell row="0" column="88">
+              <Data type="System.String">F88自由项15</Data>
+            </Cell>
+            <Cell row="0" column="89">
+              <Data type="System.String">F89自由项16</Data>
+            </Cell>
+            <Cell row="0" column="90">
+              <Data type="System.String">F90审核日期：</Data>
+            </Cell>
+          </Cells>
+        </ColumnHeader>
+      </Sheet>
+    </Sheets>
+  </Data>
+</Spread>

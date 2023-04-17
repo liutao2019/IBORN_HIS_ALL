@@ -1,0 +1,49 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>txtname</Name><Text>项目名称</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select distinct p.item_code,p.item_name,p.spell_code,p.wb_code,'' from fin_com_undruginfo p where (p.item_name  = '新生儿兰光治疗'or   p.item_name  = '特级护理' or   p.item_name  = '急诊特级护理(下午十点至早上八点)'  or   p.item_name  = '小儿动/静脉采血' or   p.item_name like '%小儿静脉输液%' or   p.item_name = '%静管置管护理'or   p.item_name like '%新生儿经皮胆红素测定%'or   p.item_name like '使用微量泵或输液泵%'  or   p.item_name like '%蓝光照射%'  or   p.item_name like '%小儿静脉留置针穿刺术%'  or   p.item_name like '%动静脉置管护理% '   or   p.item_name like '%新生儿诊查费% '    or   p.item_name like '%新生儿暖箱% ' )</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dsInpatientItemmoney</Name><Sql>select
+ nvl(a.name ,'-')姓名,
+ nvl(b.inpatient_no ,'-') 住院号,
+ nvl(to_char(b.IN_DATE,'YYYY-MM-DD'),' ')   入院日期,
+ nvl(to_char(b.OUT_DATE,'YYYY-MM-DD'),' ')  出院日期,
+nvl( substr(b.BED_NO,5) ,'-') 床号,
+ nvl(b.DEPT_NAME ,'-') 科室,
+ nvl(c.empl_name,'-')  医生名称,
+ nvl(a.item_name ,'-') 项目名称,
+ sum(a.qty)个数,
+sum(a.tot_cost-a.eco_cost) 金额  
+-- slef_tot
+ from fin_ipb_itemlist a 
+ left join fin_ipr_inmaininfo  b on a.inpatient_no = b.inpatient_no
+ left join com_employee c on c.empl_code = a.recipe_doccode
+ left join fin_ipb_balancepay t on  t.invoice_no = a.invoice_no             
+ where (a.item_name  = '新生儿兰光治疗'
+  or   a.item_name  = '特级护理'
+  or   a.item_name  = '急诊特级护理(下午十点至早上八点)'
+  or   a.item_name  = '小儿动/静脉采血'
+  or   a.item_name like '%小儿静脉输液%'
+  or   a.item_name = '%静管置管护理'
+  or   a.item_name like '%新生儿经皮胆红素测定%'
+  or   a.item_name like '使用微量泵或输液泵%'
+  or   a.item_name like '%蓝光照射%'
+  or   a.item_name like '%小儿静脉留置针穿刺术%'
+  or   a.item_name like '%动静脉置管护理% '
+  or   a.item_name like '%新生儿诊查费% '  
+  or   a.item_name like '%新生儿暖箱% ')
+and t.balance_date between to_date('&amp;dtBeginTime','YYYY-MM-DD') and  to_date('&amp;dtEndTime','YYYY-MM-DD')
+--and b.inpatient_no in( '52639','52754')
+and  (a.item_code= '&amp;txtname' or '&amp;txtname' = 'ALL')
+ group by  rollup(  a.name    ,(    b.inpatient_no ,
+ b.IN_DATE   ,
+  b.OUT_DATE  ,
+ b.DEPT_NAME  ,
+ b.BED_NO  ,
+  c.empl_name,
+  a.item_name
+  ))
+ 
+
+ 
+ 
+
+
+
+ 
+ </Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\住院护士长\新生儿科住院实收项目次数费用设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

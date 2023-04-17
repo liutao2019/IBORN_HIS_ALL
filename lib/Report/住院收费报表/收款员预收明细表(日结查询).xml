@@ -1,0 +1,81 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.ReportQueryInfo,SOC.HISFC.InpatientFee.Components"><DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtPrepayHead</Name><Sql>SELECT to_char('NO:'||wm_concat(t.BALANCE_NO))
+       ||'     打印日期:'||to_char(SYSDATE,'yyyy-mm-dd hh24:mi:ss')
+       ||'     操作员:'||FUN_GET_EMPLOYEE_NAME(t.OPER_CODE) 
+FROM FIN_IPB_DAYBALANCE t
+WHERE t.OPER_CODE = '&amp;CurrentOperID'
+AND t.END_DATE &gt; to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+AND t.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+GROUP BY t.OPER_CODE 
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtPrepayDetail</Name><Sql>SELECT ROWNUM 序号,tt.*
+FROM 
+(
+SELECT f.PATIENT_NO 住院号,f.DEPT_NAME 病区,t.OPER_DATE 收款日期,t.RECEIPT_NO 预收单号,t.PREPAY_COST 预收款,
+       FUN_GET_EMPLOYEE_NAME(t.OPER_CODE) 预收员,c.NAME 币种,FUN_GET_EMPLOYEE_NAME(i.CHECK_OPCD) 核对,
+       t.INVOICE_NO 清帐单号,
+       (CASE WHEN t.BALANCE_DATE &lt; to_date('1900-01-01','yyyy-mm-dd') THEN '' 
+        ELSE to_char(t.BALANCE_DATE,'yyyy-mm-dd hh24:mi:ss') END) 清帐日期,
+       i.BEGIN_DATE 开始日期,i.END_DATE 结束日期 
+FROM FIN_IPB_INPREPAY t,FIN_IPR_INMAININFO f,COM_DICTIONARY c,FIN_IPB_DAYBALANCE i
+WHERE t.INPATIENT_NO = f.INPATIENT_NO 
+AND t.EXT_FLAG = '1'
+AND t.OPER_CODE =  '&amp;CurrentOperID'
+AND c.TYPE = 'PAYMODES'
+AND t.PAY_WAY = c.CODE 
+AND t.DAYBALANCE_FLAG = '1'
+AND t.DAYBALANCE_NO = i.BALANCE_NO 
+AND i.END_DATE &gt; to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+AND i.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+ORDER BY f.OPER_DATE
+) tt
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtPrepayTotCostByPayWay</Name><Sql>SELECT '现金总金额:'||sum(decode(t.PAY_WAY,'CA',t.PREPAY_COST,0)) CA,
+       '银联卡总金额:'||sum(decode(t.PAY_WAY,'UP',t.PREPAY_COST,0)) UP,
+       '医保卡(珠海)总金额:'||sum(decode(t.PAY_WAY,'MCZH',t.PREPAY_COST,0)) MCZH, 
+       '支票总金额:'||sum(decode(t.PAY_WAY,'CH',t.PREPAY_COST,0)) CH,
+       '汇款总金额:'||sum(decode(t.PAY_WAY,'PO',t.PREPAY_COST,0)) PO
+FROM FIN_IPB_INPREPAY t,FIN_IPB_DAYBALANCE i
+WHERE t.EXT_FLAG = '1'
+AND t.OPER_CODE = '&amp;CurrentOperID'
+AND t.PAY_WAY IN ('CA','UP','MCZH','CH','PO')
+AND t.DAYBALANCE_FLAG = '1'
+AND t.DAYBALANCE_NO = i.BALANCE_NO 
+AND i.END_DATE &gt; to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+AND i.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtPrepayTotRecipeByPayWay</Name><Sql>SELECT '现金张数:'||sum(decode(t.PAY_WAY,'CA',1,0)) CA,
+       '银联卡张数:'||sum(decode(t.PAY_WAY,'UP',1,0)) UP,
+       '医保卡(珠海)张数:'||sum(decode(t.PAY_WAY,'MCZH',1,0)) MCZH, 
+       '支票张数:'||sum(decode(t.PAY_WAY,'CH',1,0)) CH,
+       '汇款张数:'||sum(decode(t.PAY_WAY,'PO',1,0)) PO
+FROM FIN_IPB_INPREPAY t,FIN_IPB_DAYBALANCE i
+WHERE t.EXT_FLAG = '1'
+AND t.OPER_CODE = '&amp;CurrentOperID'
+AND t.PAY_WAY IN ('CA','UP','MCZH','CH','PO')
+AND t.DAYBALANCE_FLAG = '1'
+AND t.DAYBALANCE_NO = i.BALANCE_NO 
+AND i.END_DATE &gt; to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+AND i.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+AND (t.PREPAY_COST &gt; 0 
+     OR 
+    EXISTS(SELECT 1 FROM FIN_IPB_INPREPAY tt 
+           WHERE tt.EXT_FLAG ='1' AND tt.OPER_CODE = '&amp;CurrentOperID'
+           AND tt.OPER_DATE &gt; i.BEGIN_DATE AND tt.OPER_DATE &lt;= i.END_DATE
+           AND tt.PREPAY_COST &gt; 0 AND tt.RECEIPT_NO = t.RECEIPT_NO
+           )
+     )
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtPrepayTotal</Name><Sql>SELECT '记录总数：'||count(t.RECEIPT_NO),'合计：'||sum(t.PREPAY_COST)
+FROM FIN_IPB_INPREPAY t,FIN_IPB_DAYBALANCE i
+WHERE t.EXT_FLAG = '1'
+AND t.OPER_CODE =  '&amp;CurrentOperID'
+AND t.DAYBALANCE_FLAG = '1'
+AND t.DAYBALANCE_NO = i.BALANCE_NO 
+AND i.END_DATE &gt; to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+AND i.END_DATE &lt;=  to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></DataSourceType></DataSourceType><QueryFilePath>Report\住院收费报表\收款员预收明细表(日结查询).xml</QueryFilePath></ReportQueryInfo>

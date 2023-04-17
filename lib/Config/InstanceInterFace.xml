@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<InterFaces>
+  <InterFace name="OpenNurseOrderForm" instance="OrderFacadeNurse"></InterFace>
+  <InterFace name="OpenDoctorOrderForm" instance="OrderFacadeDoctor"></InterFace>
+  <InterFace name="OpenLisForm" instance="LisFacade"></InterFace>
+  <InterFace name="OpenPacsForm" instance="PacsFacade"></InterFace>
+  <InterFace name="OpenNusingRecordForm" instance="NusingRecord"></InterFace>
+  <InterFace name="OpenNursingDocumentForm" instance="NursingDocument"></InterFace>
+  <InterFace name="OpenMedicalRecordForm" instance="MedicalRecord"></InterFace>
+</InterFaces>

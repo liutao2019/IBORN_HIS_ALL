@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1A1BA345-4A9E-48E9-8CC8-E03563CD0256}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProvinceAcrossSI</RootNamespace>
+    <AssemblyName>ProvinceAcrossSI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="IBM.Data.DB2, Version=9.0.0.2, Culture=neutral, PublicKeyToken=7c307b91aa13d208, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.81.0.1407, Culture=neutral, PublicKeyToken=1b03e6acf1164f73" />
+    <Reference Include="Interop.CAPICOM, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.SpeechLib, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MagicLibrary, Version=1.7.3.0, Culture=neutral, PublicKeyToken=3a6eb82f876a49bc" />
+    <Reference Include="Neusoft.HisCrypto, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Neusoft.HisDecrypt, Version=1.0.1175.15645, Culture=neutral" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.InteropServices.APIs, Version=1.0.3037.31123, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.TreeListView, Version=1.0.3037.31124, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Common\CommonService.cs" />
+    <Compile Include="Business\Common\InPatient\InPatientService.cs" />
+    <Compile Include="Business\Common\WebServiceHelper.cs" />
+    <Compile Include="Business\Common\YDStatReport.cs" />
+    <Compile Include="Business\ReadCardFunction.cs" />
+    <Compile Include="Controls\DelegateControlFunction.cs" />
+    <Compile Include="Controls\frmInpatientRegYiDi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\frmInpatientRegYiDi.Designer.cs">
+      <DependentUpon>frmInpatientRegYiDi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frmYDInBalanceInfoPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\frmYDInBalanceInfoPrint.Designer.cs">
+      <DependentUpon>frmYDInBalanceInfoPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyClear.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyClear.Designer.cs">
+      <DependentUpon>ucMonthlyClear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyReportCancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyReportCancel.Designer.cs">
+      <DependentUpon>ucMonthlyReportCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyReportCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyReportCheck.Designer.cs">
+      <DependentUpon>ucMonthlyReportCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyReportQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyReportQuery.Designer.cs">
+      <DependentUpon>ucMonthlyReportQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyReportSubmit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Liquidation\ucMonthlyReportSubmit.Designer.cs">
+      <DependentUpon>ucMonthlyReportSubmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucLiqudDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucLiqudDetail.designer.cs">
+      <DependentUpon>ucLiqudDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucLiqudTotal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucLiqudTotal.Designer.cs">
+      <DependentUpon>ucLiqudTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucProvinceAcrossBalanceBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucProvinceAcrossBalanceBill.Designer.cs">
+      <DependentUpon>ucProvinceAcrossBalanceBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucYDInBalanceInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucYDInBalanceInfo.Designer.cs">
+      <DependentUpon>ucYDInBalanceInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\YDInpatientBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\YDInpatientBalance.Designer.cs">
+      <DependentUpon>YDInpatientBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoShanYDSIDatabase.cs" />
+    <Compile Include="FoShanYDSIManager.cs" />
+    <Compile Include="Funtion.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Objects\OutBalanceInfo.cs" />
+    <Compile Include="Objects\SICenterBalanceItem.cs" />
+    <Compile Include="Objects\SIJiJinclass.cs" />
+    <Compile Include="Objects\SIObject.cs" />
+    <Compile Include="Objects\SIPersonInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\frmInpatientRegYiDi.resx">
+      <DependentUpon>frmInpatientRegYiDi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\frmYDInBalanceInfoPrint.resx">
+      <DependentUpon>frmYDInBalanceInfoPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Liquidation\ucMonthlyClear.resx">
+      <DependentUpon>ucMonthlyClear.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Liquidation\ucMonthlyReportCancel.resx">
+      <DependentUpon>ucMonthlyReportCancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Liquidation\ucMonthlyReportCheck.resx">
+      <DependentUpon>ucMonthlyReportCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Liquidation\ucMonthlyReportQuery.resx">
+      <DependentUpon>ucMonthlyReportQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Liquidation\ucMonthlyReportSubmit.resx">
+      <DependentUpon>ucMonthlyReportSubmit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucLiqudDetail.resx">
+      <DependentUpon>ucLiqudDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucLiqudTotal.resx">
+      <DependentUpon>ucLiqudTotal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucProvinceAcrossBalanceBill.resx">
+      <DependentUpon>ucProvinceAcrossBalanceBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucYDInBalanceInfo.resx">
+      <DependentUpon>ucYDInBalanceInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\YDInpatientBalance.resx">
+      <DependentUpon>YDInpatientBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference\Service1.wsdl" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="test.cs" />
+    <Compile Include="Web References\WebReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://128.111.5.60:9082/Service1.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://128.111.5.60:9082/Service1.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FSYDdemo_WebReference_myWebService1</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

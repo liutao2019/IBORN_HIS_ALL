@@ -1,0 +1,1589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{369ED7F9-AE40-4D25-A0EA-D9DBE98C6E2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.DrugStore</RootNamespace>
+    <AssemblyName>SOC.Local.DrugStore</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Order, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.RADT, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Registration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.PharmacyInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\SOC.HISFC.BizProcess.PharmacyInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BeiJiao\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeiJiao\Outpatient\frmWorkLoad.Designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeiJiao\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="BeiJiao\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BeiJiao\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeiJiao\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="ChaoYang\Inpatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="ChaoYang\Inpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="ChaoYang\Inpatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Inpatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Inpatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Inpatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Inpatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Inpatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Inpatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Inpatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\frmWorkLoad.designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucOutpatientDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucOutpatientDrugList.designer.cs">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="ChaoYang\Outpatient\ucDrugLabelZJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucDrugLabelZJ.designer.cs">
+      <DependentUpon>ucDrugLabelZJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabelZJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabelZJ.designer.cs">
+      <DependentUpon>ucComboDrugLabelZJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel1ZJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel1ZJ.designer.cs">
+      <DependentUpon>ucComboDrugLabel1ZJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel2ZJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucComboDrugLabel2ZJ.designer.cs">
+      <DependentUpon>ucComboDrugLabel2ZJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucReicpeInfoLabelZJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\Outpatient\ucReicpeInfoLabelZJ.designer.cs">
+      <DependentUpon>ucReicpeInfoLabelZJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Function.cs" />
+    <Compile Include="Example\Inpatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="Example\Inpatient\ucDrugBag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucDrugBag.Designer.cs">
+      <DependentUpon>ucDrugBag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucDrugBag1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucDrugBag1.designer.cs">
+      <DependentUpon>ucDrugBag1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\OutPatient\frmWorkLoad2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Example\OutPatient\frmWorkLoad2.designer.cs">
+      <DependentUpon>frmWorkLoad2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\OutPatient\frmWorkLoad1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Example\OutPatient\frmWorkLoad1.Designer.cs">
+      <DependentUpon>frmWorkLoad1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Inpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="Example\Inpatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example\Inpatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\OutPatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example\OutPatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\OutPatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="FOSI\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\frmWorkLoad.Designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="FOSI\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucFoSiDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucFoSiDrugList.designer.cs">
+      <DependentUpon>ucFoSiDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucPatientInfo.Designer.cs">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOSI\Outpatient\WorkAppriaseExternInterfaceImPlement.cs" />
+    <Compile Include="FOSI\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="FSY\OutPatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\frmWorkLoad.Designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\PrintInterfaceImplement.cs" />
+    <Compile Include="FSY\OutPatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucFSYDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucFSYDrugList.designer.cs">
+      <DependentUpon>ucFSYDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\WorkAppriaseExternInterfaceImPlement.cs" />
+    <Compile Include="FSY\OutPatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="FSY\OutPatient\ucReicpeInfoLabelZJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucReicpeInfoLabelZJ.designer.cs">
+      <DependentUpon>ucReicpeInfoLabelZJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucDrugLabelZJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSY\OutPatient\ucDrugLabelZJ.designer.cs">
+      <DependentUpon>ucDrugLabelZJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="FuYou\Inpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="FuYou\Inpatient\ucCZDrugBag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucCZDrugBag.Designer.cs">
+      <DependentUpon>ucCZDrugBag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucLZDrugBag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucLZDrugBag.Designer.cs">
+      <DependentUpon>ucLZDrugBag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Inpatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\frmWorkLoad.designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="FuYou\Outpatient\ucDrugBag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucDrugBag.Designer.cs">
+      <DependentUpon>ucDrugBag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucDrugBill.designer.cs">
+      <DependentUpon>ucDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucInjectBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\ucInjectBill.designer.cs">
+      <DependentUpon>ucInjectBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="GYSY\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\frmWorkLoad.designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="GYSY\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucOutpatientDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucOutpatientDrugList.designer.cs">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="GYZL\Inpatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="GYZL\Inpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="GYZL\Inpatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Inpatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Inpatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Inpatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Inpatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Inpatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Inpatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Inpatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\frmWorkLoad.designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="GYZL\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucOutpatientDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucOutpatientDrugList.designer.cs">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="HuanShi\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\frmWorkLoad.Designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="HuanShi\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucDrugListHS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucDrugListHS.designer.cs">
+      <DependentUpon>ucDrugListHS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HuanShi\Outpatient\WorkAppriaseExternInterfaceImPlement.cs" />
+    <Compile Include="HuanShi\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="LSYY\Inpatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="LSYY\Inpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="LSYY\Inpatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Inpatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Inpatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Inpatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Inpatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Inpatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Inpatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Inpatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\frmWorkLoad.designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="LSYY\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucOutpatientDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucOutpatientDrugList.designer.cs">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LSYY\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="NanZhuang\Inpatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="NanZhuang\Inpatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Inpatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Inpatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Inpatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Inpatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Inpatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Inpatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Inpatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Inpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="NanZhuang\Outpatient\WorkAppriaseExternInterfaceImplement.cs" />
+    <Compile Include="NanZhuang\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="NanZhuang\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="NanZhuang\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeiJiao\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BeiJiao\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeiJiao\Outpatient\ucRecipeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BeiJiao\Outpatient\ucRecipeInfoLabel.Designer.cs">
+      <DependentUpon>ucRecipeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\frmWorkLoad.Designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\WorkLoadManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QiaoTou\Inpatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="QiaoTou\Inpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="QiaoTou\Inpatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Inpatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Inpatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Inpatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Inpatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Inpatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Inpatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Inpatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\frmWorkLoad.Designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="QiaoTou\Outpatient\RecipeQueryConvertImplement.cs" />
+    <Compile Include="QiaoTou\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucComboDrugLabel5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucComboDrugLabel5.designer.cs">
+      <DependentUpon>ucComboDrugLabel5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\Outpatient\WorkAppriaseExternInterfaceImPlement.cs" />
+    <Compile Include="QiaoTou\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="ZhangCha\Inpatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="ZhangCha\Inpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="ZhangCha\Inpatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Inpatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Inpatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Inpatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Inpatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Inpatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Inpatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Inpatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\frmWorkLoad.designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="ZhangCha\Outpatient\ucComboDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucComboDrugLabel.designer.cs">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucComboDrugLabel1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucComboDrugLabel1.designer.cs">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucComboDrugLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucComboDrugLabel2.designer.cs">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucDrugLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucDrugLabel.designer.cs">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucOutpatientDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucOutpatientDrugList.designer.cs">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhangCha\Outpatient\WorkLoadInterfaceImplement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BeiJiao\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeiJiao\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Inpatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Inpatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Inpatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Inpatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucOutpatientDrugList.resx">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucDrugLabelZJ.resx">
+      <DependentUpon>ucDrugLabelZJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucComboDrugLabelZJ.resx">
+      <DependentUpon>ucComboDrugLabelZJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucComboDrugLabel1ZJ.resx">
+      <DependentUpon>ucComboDrugLabel1ZJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucComboDrugLabel2ZJ.resx">
+      <DependentUpon>ucComboDrugLabel2ZJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoYang\Outpatient\ucReicpeInfoLabelZJ.resx">
+      <DependentUpon>ucReicpeInfoLabelZJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\Inpatient\ucDrugBag.resx">
+      <DependentUpon>ucDrugBag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\Inpatient\ucDrugBag1.resx">
+      <DependentUpon>ucDrugBag1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\OutPatient\frmWorkLoad2.resx">
+      <DependentUpon>frmWorkLoad2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\OutPatient\frmWorkLoad1.resx">
+      <DependentUpon>frmWorkLoad1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\Inpatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\Inpatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\Inpatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\Inpatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\OutPatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucFoSiDrugList.resx">
+      <DependentUpon>ucFoSiDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucPatientInfo.resx">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOSI\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucFSYDrugList.resx">
+      <DependentUpon>ucFSYDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSY\OutPatient\ucDrugLabelZJ.resx">
+      <DependentUpon>ucDrugLabelZJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Inpatient\ucCZDrugBag.resx">
+      <DependentUpon>ucCZDrugBag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Inpatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Inpatient\ucLZDrugBag.resx">
+      <DependentUpon>ucLZDrugBag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Inpatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Inpatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Inpatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Outpatient\ucDrugBag.resx">
+      <DependentUpon>ucDrugBag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Outpatient\ucDrugBill.resx">
+      <DependentUpon>ucDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Outpatient\ucInjectBill.resx">
+      <DependentUpon>ucInjectBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\ucOutpatientDrugList.resx">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Inpatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Inpatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Inpatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Inpatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\ucOutpatientDrugList.resx">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\ucDrugListHS.resx">
+      <DependentUpon>ucDrugListHS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HuanShi\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Inpatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Inpatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Inpatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Inpatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\ucOutpatientDrugList.resx">
+      <DependentUpon>ucOutpatientDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LSYY\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Inpatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Inpatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Inpatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Inpatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Outpatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Outpatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Outpatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeiJiao\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeiJiao\Outpatient\ucRecipeInfoLabel.resx">
+      <DependentUpon>ucRecipeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Inpatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Inpatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Inpatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Inpatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\ucComboDrugLabel.resx">
+      <DependentUpon>ucComboDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\ucComboDrugLabel1.resx">
+      <DependentUpon>ucComboDrugLabel1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\ucComboDrugLabel2.resx">
+      <DependentUpon>ucComboDrugLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\ucComboDrugLabel5.resx">
+      <DependentUpon>ucComboDrugLabel5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZhangCha\Inpatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZhangCha\Inpatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZhangCha\Inpatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZhangCha\Inpatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZhangCha\Outpatient\ucDrugLabel.resx">
+      <DependentUpon>ucDrugLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZhangCha\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

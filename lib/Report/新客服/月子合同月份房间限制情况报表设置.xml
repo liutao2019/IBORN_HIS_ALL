@@ -1,0 +1,43 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dgvinfo</Name><Sql>select * from 
+(
+select tt.rooType2 房型,tt.thismon 月份, tt.num  已购数量,to_number(tt2.mark) 限制数量,
+ to_number(tt2.mark)-tt.num   剩余数量 ,'月子' 类型
+ from
+(
+select
+rooType2,
+rooType,
+count(*) num,
+thismon
+from
+(
+select
+to_char(to_date(AGREEMENTSTARTDATE,'yyyy-MM-dd'),'yyyyMM' )thismon,
+t.agreementno,
+case
+       when t2.roomtypename like '%25方%' then '25方'
+       when t2.roomtypename like '%30方%' then '30方'
+       when t2.roomtypename like '%33方%' then '33方'
+       when t2.roomtypename like '%45方%' then '45方'
+       when t2.roomtypename like '%60方%' then '60方'
+       when t2.roomtypename like '%70方%' then '70方' end rooType,    
+case
+       when t2.roomtypename like '%25方%' then '温馨标准型25方'
+       when t2.roomtypename like '%30方%' then '豪华标准型30方'
+       when t2.roomtypename like '%33方%' then '温馨家庭型33方'
+       when t2.roomtypename like '%45方%' then '豪华家庭型45方'
+       when t2.roomtypename like '%60方%' then '温馨尊享型60方'
+       when t2.roomtypename like '%70方%' then '豪华尊享型70方' end rooType2
+from AGREEMENT t
+left join iborn_room t2 on t.roomid=t2.roomid
+where 1=1
+and t.roomid is not  null
+and t.AGREEMENTSTATUS!='9'
+and
+to_date(AGREEMENTSTARTDATE,'yyyy-MM-dd')  between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') 
+and t.packagetype='2'
+) t where t.rooType in ('25方','30方','33方','45方','60方','70方')
+group by rooType ,thismon,rooType2
+) tt inner join com_dictionary tt2 on tt2.type='ROOMMONMAX' and  trim(tt.rootype)=trim(tt2.name) and tt.thismon=tt2.kind_id
+) a order by 月份,房型
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新客服\月子合同月份房间限制情况报表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

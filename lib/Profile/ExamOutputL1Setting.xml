@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Spread 说明="根节点">
+  <Sheet1 Locked="True" HorizontalAlignment="General" VerticalAlignment="Center" ZoomFactor="1">
+    <RowHeader Visible="False" />
+    <RowsDefault Height="24" VerticalAlignment="Center" HorizontalAlignment="General" />
+    <ColumnHeaderRows Count="1" Height="20" />
+    <ColumnHeaderDefault VerticalAlignment="General" HorizontalAlignment="General" FontName="宋体" FontSize="9" FontStyle="Regular" />
+    <Column Count="7">
+      <Column0 Index="0" Width="100" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column1 Index="1" Width="60" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column2 Index="2" Width="185" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column3 Index="3" Width="40" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column4 Index="4" Width="120" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" ReadOnly="True" AllowAutoSort="False" />
+      <Column5 Index="5" Width="90" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column6 Index="6" Width="0" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="True" AllowAutoSort="False" />
+    </Column>
+    <ColumnHeaderCell>
+      <Row0Col0 Text="APPLY_BILLCODE" TextAS="申请单号" RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1" />
+      <Row0Col1 Text="DEPT_CODE" TextAS="申请科室" RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1" />
+      <Row0Col2 Text="DEPT_NAME" TextAS="科室名称" RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1" />
+      <Row0Col3 Text="APPLY_STATE" TextAS="状态" RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1" />
+      <Row0Col4 Text="APPLY_STATE1" TextAS="申请时间" RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1" />
+      <Row0Col5 Text="APPLY_OPERCODE" TextAS="申请人工号" RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1" />
+      <Row0Col6 Text="颜色" TextAS="颜色" RowIndex="0" ColumnIndex="6" RowSpan="1" ColumnSpan="1" />
+    </ColumnHeaderCell>
+  </Sheet1>
+</Spread>

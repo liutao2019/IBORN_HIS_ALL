@@ -1,0 +1,263 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>160</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>160</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>270</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSumTot</Name><Sql>--dtSumTot
+SELECT TO_CHAR(ROWNUM) AS 序号, ZZ.*
+  FROM (SELECT OPER_CODE 收款人工号,
+               (SELECT E.EMPL_NAME
+                  FROM COM_EMPLOYEE E
+                 WHERE E.EMPL_CODE = AA.OPER_CODE) 收款人姓名,
+               COUNT(DISTINCT PRINT_INVOICENO) 发票张数,
+               SUM(CASE
+                     WHEN TRANS_TYPE = '2' THEN
+                      1
+                     ELSE
+                      0
+                   END) 退票数,
+               SUM(TOT_COST) 收入合计,
+               SUM(CASE
+                     WHEN MODE_CODE = 'CA' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 现金,
+               SUM(CASE
+                     WHEN MODE_CODE = 'UP' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 银联卡,
+               SUM(CASE
+                     WHEN MODE_CODE = 'ICBC' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 工行,
+               SUM(CASE
+                     WHEN MODE_CODE = 'MER' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 招行,
+               SUM(CASE
+                     WHEN MODE_CODE = 'NXS' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 农信行,
+               SUM(CASE
+                     WHEN MODE_CODE = 'COMM' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 交行,
+               SUM(CASE
+                     WHEN MODE_CODE = 'MCZH' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 医保卡珠海,
+               SUM(CASE
+                     WHEN MODE_CODE = 'MCZS' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 医保卡中山,
+               SUM(CASE
+                     WHEN MODE_CODE = 'PB' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 记账,
+               SUM(CASE
+                     WHEN MODE_CODE = 'PBZH' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 珠海医保统筹,
+               SUM(CASE
+                     WHEN MODE_CODE = 'PBZS' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 中山医保统筹,
+               SUM(CASE
+                     WHEN MODE_CODE = 'RC' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 优惠,
+               SUM(CASE
+                     WHEN MODE_CODE = 'CH' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 支票,
+               SUM(CASE
+                     WHEN MODE_CODE = 'PO' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 汇款,
+               SUM(CASE
+                     WHEN MODE_CODE = 'GZ' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 医保卡广州
+          FROM (SELECT I.OPER_CODE,
+                       I.PRINT_INVOICENO,
+                       P.MODE_CODE,
+                       P.TOT_COST,
+                       P.TRANS_TYPE
+                  FROM FIN_OPB_PAYMODE P, FIN_OPB_INVOICEINFO I
+                 WHERE P.INVOICE_NO = I.INVOICE_NO
+                   AND P.TRANS_TYPE = I.TRANS_TYPE
+                   AND P.OPER_DATE = I.OPER_DATE
+                      
+                   AND I.BALANCE_NO IN
+                       (SELECT D.BALANCE_NO
+                          FROM FIN_OPB_DAYREPORT D
+                        where d.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+                           AND D.CHECK_FLAG = '1')) AA
+         GROUP BY OPER_CODE) ZZ
+UNION ALL
+SELECT '' AS 序号,
+       '合计' AS 收款人工号,
+       '' AS 收款人姓名,
+       SUM(YY.发票张数) AS 发票张数,
+       SUM(YY.退票数) AS 退票数,
+       SUM(YY.收入合计) AS 收入合计,
+       SUM(YY.现金) AS 现金,
+       SUM(YY.银联卡) AS 银联卡,
+       SUM(YY.工行) AS 工行,
+       SUM(YY.招行) AS 招行,
+       SUM(YY.农信行) AS 农信行,
+       SUM(YY.交行) AS 交行,
+       SUM(YY.医保卡珠海) AS 医保卡珠海,
+       SUM(YY.医保卡中山) AS 医保卡中山,
+       SUM(YY.记账) AS 记账,
+       SUM(YY.珠海医保统筹) AS 珠海医保统筹,
+       SUM(YY.中山医保统筹) AS 中山医保统筹,
+       SUM(YY.优惠) AS 优惠,
+       SUM(YY.支票) AS 支票,
+       SUM(YY.汇款) AS 汇款,
+       SUM(YY.医保卡广州) AS 医保卡广州
+  FROM (SELECT OPER_CODE 收款人工号,
+               (SELECT E.EMPL_NAME
+                  FROM COM_EMPLOYEE E
+                 WHERE E.EMPL_CODE = AA.OPER_CODE) 收款人姓名,
+               COUNT(DISTINCT PRINT_INVOICENO) 发票张数,
+               SUM(CASE
+                     WHEN TRANS_TYPE = '2' THEN
+                      1
+                     ELSE
+                      0
+                   END) 退票数,
+               SUM(TOT_COST) 收入合计,
+                  SUM(CASE
+                     WHEN MODE_CODE = 'CA' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 现金,
+               SUM(CASE
+                     WHEN MODE_CODE = 'UP' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 银联卡,
+               SUM(CASE
+                     WHEN MODE_CODE = 'ICBC' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 工行,
+               SUM(CASE
+                     WHEN MODE_CODE = 'MER' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 招行,
+               SUM(CASE
+                     WHEN MODE_CODE = 'NXS' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 农信行,
+               SUM(CASE
+                     WHEN MODE_CODE = 'COMM' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 交行,
+               SUM(CASE
+                     WHEN MODE_CODE = 'MCZH' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 医保卡珠海,
+               SUM(CASE
+                     WHEN MODE_CODE = 'MCZS' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 医保卡中山,
+               SUM(CASE
+                     WHEN MODE_CODE = 'PB' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 记账,
+               SUM(CASE
+                     WHEN MODE_CODE = 'PBZH' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 珠海医保统筹,
+               SUM(CASE
+                     WHEN MODE_CODE = 'PBZS' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 中山医保统筹,
+               SUM(CASE
+                     WHEN MODE_CODE = 'RC' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 优惠,
+               SUM(CASE
+                     WHEN MODE_CODE = 'CH' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 支票,
+               SUM(CASE
+                     WHEN MODE_CODE = 'PO' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 汇款,
+               SUM(CASE
+                     WHEN MODE_CODE = 'GZ' THEN
+                      TOT_COST
+                     ELSE
+                      0
+                   END) 医保卡广州
+        
+          FROM (SELECT I.OPER_CODE,
+                       I.PRINT_INVOICENO,
+                       P.MODE_CODE,
+                       P.TOT_COST,
+                       P.TRANS_TYPE
+                  FROM FIN_OPB_PAYMODE P, FIN_OPB_INVOICEINFO I
+                 WHERE P.INVOICE_NO = I.INVOICE_NO
+                   AND P.TRANS_TYPE = I.TRANS_TYPE
+                   AND P.OPER_DATE = I.OPER_DATE
+                   AND I.BALANCE_NO IN
+                       (SELECT D.BALANCE_NO
+                          FROM FIN_OPB_DAYREPORT D
+                         where d.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+                           AND D.CHECK_FLAG = '1')) AA
+         GROUP BY OPER_CODE) YY
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>false</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\门诊财务报表\中大五院\门诊收费汇总表查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

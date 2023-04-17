@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net" default-autowire="byType">
+  
+ 
+  <object type="FS.Dawn.Core.Sync.ClientSyncHelper, FS.Dawn.Sync.Client" singleton="true" />
+
+  <object type="FS.Dawn.Core.Sync.SdfLocalProvider, FS.Dawn.Sync.Common">
+    <property name="SdfFilePath" value="\usage.sdf"/>
+    <property name="SQLFilePath" value="\SQL.xml"/>
+  </object>
+  
+  <object type="FS.Dawn.Core.Sync.OracleSyncProviderProxy, FS.Dawn.Sync.Common" />
+
+  <object type="FS.Dawn.Core.Sync.IOracleWebSyncService, FS.Dawn.Sync.Common"
+        factory-object="ProxyFactory"
+        factory-method="CreateChannel&lt;FS.Dawn.Core.Sync.IOracleWebSyncService>" singleton="true" />
+
+ 
+
+ <!--
+  <object type="FS.Dawn.Core.Sync.ClientSyncHelper, FS.Dawn.Sync.Client" singleton="true" />
+
+  <object type="FS.Dawn.Core.Sync.SdfLocalProvider, FS.Dawn.Sync.Common">
+    <property name="SdfFilePath" value="\usage.sdf"/>
+    <property name="SQLFilePath" value="\SQL.xml"/>
+  </object>
+
+  <object type="FS.Dawn.Core.Sync.OracleDBProvider, FS.Dawn.Sync.Common">
+        <property name="OracleConnStr" value="Data Source=hisproject;User Id=His_plat;Password=his"/>
+  </object>
+ 
+
+  <object type="FS.Dawn.Core.Sync.SyncConfigInfo, FS.Dawn.Sync.Common">
+        <property name="ScopeName" value="order"/>
+        <property name="SyncTables">
+          <list>
+            <value>met_ordt_usage</value>
+          </list>
+        </property>
+        <property name="SyncTablePrimaryKeys">
+          <list>
+            <value>usage_code</value>
+          </list>
+        </property>
+  </object>
+
+  -->
+      
+</objects>

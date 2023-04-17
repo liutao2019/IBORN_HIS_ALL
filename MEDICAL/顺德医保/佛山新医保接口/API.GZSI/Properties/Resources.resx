@@ -1,0 +1,1452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aaa027" xml:space="preserve">
+    <value>就医地行政区划代码</value>
+  </data>
+  <data name="aaa157" xml:space="preserve">
+    <value>基金款项代码</value>
+  </data>
+  <data name="aab001" xml:space="preserve">
+    <value>单位编码</value>
+  </data>
+  <data name="aab019" xml:space="preserve">
+    <value>单位类型</value>
+  </data>
+  <data name="aac001" xml:space="preserve">
+    <value>个人编号</value>
+  </data>
+  <data name="aac002" xml:space="preserve">
+    <value>社会保障号码</value>
+  </data>
+  <data name="aac003" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="aac004" xml:space="preserve">
+    <value>性别</value>
+  </data>
+  <data name="aac006" xml:space="preserve">
+    <value>出生日期</value>
+  </data>
+  <data name="aac013" xml:space="preserve">
+    <value>用工形式</value>
+  </data>
+  <data name="aad006" xml:space="preserve">
+    <value>基金名称</value>
+  </data>
+  <data name="aae005" xml:space="preserve">
+    <value>联系电话</value>
+  </data>
+  <data name="aae030" xml:space="preserve">
+    <value>申请生效时间</value>
+  </data>
+  <data name="aae031" xml:space="preserve">
+    <value>申请到期时间</value>
+  </data>
+  <data name="aae140" xml:space="preserve">
+    <value>险种类型</value>
+  </data>
+  <data name="aaz267" xml:space="preserve">
+    <value>门慢申请序列号</value>
+  </data>
+  <data name="accrym_begn" xml:space="preserve">
+    <value>费款所属期开始日期</value>
+  </data>
+  <data name="accrym_end" xml:space="preserve">
+    <value>费款所属期结束日期</value>
+  </data>
+  <data name="acct_mulaid_pay" xml:space="preserve">
+    <value>个人账户共济支付金额</value>
+  </data>
+  <data name="acct_pay" xml:space="preserve">
+    <value>个人账户支出</value>
+  </data>
+  <data name="acct_used_flag" xml:space="preserve">
+    <value>个人账户使用标志</value>
+  </data>
+  <data name="acordDeptCodg" xml:space="preserve">
+    <value>受单科室编码</value>
+  </data>
+  <data name="acordDeptName" xml:space="preserve">
+    <value>受单科室名称</value>
+  </data>
+  <data name="acordDrCode" xml:space="preserve">
+    <value>受单医生编码</value>
+  </data>
+  <data name="acordDrName" xml:space="preserve">
+    <value>受单医生姓名</value>
+  </data>
+  <data name="acord_dept_codg" xml:space="preserve">
+    <value>受单科室编码</value>
+  </data>
+  <data name="acord_dept_name" xml:space="preserve">
+    <value>受单科室名称</value>
+  </data>
+  <data name="act_pay_dedc" xml:space="preserve">
+    <value>实际支付起付线</value>
+  </data>
+  <data name="addr" xml:space="preserve">
+    <value>联系地址</value>
+  </data>
+  <data name="admBed" xml:space="preserve">
+    <value>入院床位</value>
+  </data>
+  <data name="admCond" xml:space="preserve">
+    <value>入院病情</value>
+  </data>
+  <data name="admDeptCodg" xml:space="preserve">
+    <value>入院科室编 码</value>
+  </data>
+  <data name="admDeptName" xml:space="preserve">
+    <value>入院科室名 称</value>
+  </data>
+  <data name="admDiagDscr" xml:space="preserve">
+    <value>入院诊断描 述</value>
+  </data>
+  <data name="adm_bed" xml:space="preserve">
+    <value>入院床位</value>
+  </data>
+  <data name="adm_cond" xml:space="preserve">
+    <value>入院病情</value>
+  </data>
+  <data name="adm_dept_codg" xml:space="preserve">
+    <value>入院科室编码</value>
+  </data>
+  <data name="adm_dept_name" xml:space="preserve">
+    <value>入院科室名称</value>
+  </data>
+  <data name="adm_mtd" xml:space="preserve">
+    <value>入院方式</value>
+  </data>
+  <data name="adm_time" xml:space="preserve">
+    <value>入院时间</value>
+  </data>
+  <data name="age" xml:space="preserve">
+    <value>年龄</value>
+  </data>
+  <data name="agnter_addr" xml:space="preserve">
+    <value>代办人联系地址</value>
+  </data>
+  <data name="agnter_certno" xml:space="preserve">
+    <value>代办人证件号码</value>
+  </data>
+  <data name="agnter_cert_type" xml:space="preserve">
+    <value>代办人证件类型</value>
+  </data>
+  <data name="agnter_name" xml:space="preserve">
+    <value>代办人姓名</value>
+  </data>
+  <data name="agnter_rlts" xml:space="preserve">
+    <value>代办人关系</value>
+  </data>
+  <data name="agnter_tel" xml:space="preserve">
+    <value>代办人方式</value>
+  </data>
+  <data name="aka063" xml:space="preserve">
+    <value>费用统计类别</value>
+  </data>
+  <data name="aka101" xml:space="preserve">
+    <value>医药机构等级</value>
+  </data>
+  <data name="aka130" xml:space="preserve">
+    <value>业务类型</value>
+  </data>
+  <data name="akb020" xml:space="preserve">
+    <value>医药机构编码</value>
+  </data>
+  <data name="akb021" xml:space="preserve">
+    <value>医药机构名称</value>
+  </data>
+  <data name="akc193" xml:space="preserve">
+    <value>疾病编码</value>
+  </data>
+  <data name="akc194" xml:space="preserve">
+    <value>结算时间</value>
+  </data>
+  <data name="akc196" xml:space="preserve">
+    <value>出院诊断</value>
+  </data>
+  <data name="ake020" xml:space="preserve">
+    <value>床位</value>
+  </data>
+  <data name="akf001" xml:space="preserve">
+    <value>科室代码</value>
+  </data>
+  <data name="appydate" xml:space="preserve">
+    <value>申请日期</value>
+  </data>
+  <data name="appy_rea" xml:space="preserve">
+    <value>申请理由</value>
+  </data>
+  <data name="ars_year_ipt_flag" xml:space="preserve">
+    <value>跨年度住院标志</value>
+  </data>
+  <data name="atddr_no" xml:space="preserve">
+    <value>医师编码</value>
+  </data>
+  <data name="baa027" xml:space="preserve">
+    <value>地区编码</value>
+  </data>
+  <data name="bac001" xml:space="preserve">
+    <value>行政职务级别</value>
+  </data>
+  <data name="balc" xml:space="preserve">
+    <value>余额</value>
+  </data>
+  <data name="bas_medn_flag" xml:space="preserve">
+    <value>基本药物标志</value>
+  </data>
+  <data name="begndate" xml:space="preserve">
+    <value>开始日期</value>
+  </data>
+  <data name="begntime" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="bilgDeptCodg" xml:space="preserve">
+    <value>开单科室编码</value>
+  </data>
+  <data name="bilgDeptName" xml:space="preserve">
+    <value>开单科室名称</value>
+  </data>
+  <data name="bilgDrCode" xml:space="preserve">
+    <value>开单医生编码</value>
+  </data>
+  <data name="bilgDrName" xml:space="preserve">
+    <value>报告医师</value>
+  </data>
+  <data name="bilg_dept_codg" xml:space="preserve">
+    <value>开单科室编码</value>
+  </data>
+  <data name="bilg_dept_name" xml:space="preserve">
+    <value>开单科室名称</value>
+  </data>
+  <data name="bilg_dr_codg" xml:space="preserve">
+    <value>开单医生编码</value>
+  </data>
+  <data name="bilg_dr_name" xml:space="preserve">
+    <value>开单医师姓名</value>
+  </data>
+  <data name="birctrIMatnDate" xml:space="preserve">
+    <value>计划生育手术或生育日期</value>
+  </data>
+  <data name="birctrIType" xml:space="preserve">
+    <value>计划生育手 术类别</value>
+  </data>
+  <data name="birctrl_matn_date" xml:space="preserve">
+    <value>计划生育手术或生育日期</value>
+  </data>
+  <data name="birctrl_type" xml:space="preserve">
+    <value>计划生育手术类别</value>
+  </data>
+  <data name="birHospChangFlag" xml:space="preserve">
+    <value>产检医院变更标志</value>
+  </data>
+  <data name="biz_appy_type" xml:space="preserve">
+    <value>业务申请类型</value>
+  </data>
+  <data name="bka006" xml:space="preserve">
+    <value>就诊类别</value>
+  </data>
+  <data name="bka008" xml:space="preserve">
+    <value>单位名称</value>
+  </data>
+  <data name="bka020" xml:space="preserve">
+    <value>就诊科室名称</value>
+  </data>
+  <data name="bka021" xml:space="preserve">
+    <value>病区编码</value>
+  </data>
+  <data name="bka022" xml:space="preserve">
+    <value>病区名称</value>
+  </data>
+  <data name="bka035" xml:space="preserve">
+    <value>人员类别</value>
+  </data>
+  <data name="bka345" xml:space="preserve">
+    <value>就诊类别名称</value>
+  </data>
+  <data name="bka511" xml:space="preserve">
+    <value>支付类型</value>
+  </data>
+  <data name="bka888" xml:space="preserve">
+    <value>基金状态标志</value>
+  </data>
+  <data name="bka910" xml:space="preserve">
+    <value>特殊人员对象类型</value>
+  </data>
+  <data name="bka920" xml:space="preserve">
+    <value>救助对象类型</value>
+  </data>
+  <data name="bkb135" xml:space="preserve">
+    <value>诊疗代码</value>
+  </data>
+  <data name="bke301" xml:space="preserve">
+    <value>医药机构级别</value>
+  </data>
+  <data name="bkf001" xml:space="preserve">
+    <value>血型</value>
+  </data>
+  <data name="bkf002" xml:space="preserve">
+    <value>入院方式</value>
+  </data>
+  <data name="bkf003" xml:space="preserve">
+    <value>入院情况</value>
+  </data>
+  <data name="bkf004" xml:space="preserve">
+    <value>出院转归情况</value>
+  </data>
+  <data name="bkkpSn" xml:space="preserve">
+    <value>记账流水号</value>
+  </data>
+  <data name="bkz101" xml:space="preserve">
+    <value>疾病名称</value>
+  </data>
+  <data name="bkz102" xml:space="preserve">
+    <value>出院诊断名称</value>
+  </data>
+  <data name="brdy" xml:space="preserve">
+    <value>出生日期</value>
+  </data>
+  <data name="card_sn" xml:space="preserve">
+    <value>卡识别码</value>
+  </data>
+  <data name="cash_payamt" xml:space="preserve">
+    <value>现金支付金额</value>
+  </data>
+  <data name="caty" xml:space="preserve">
+    <value>科别</value>
+  </data>
+  <data name="certno" xml:space="preserve">
+    <value>证件号码</value>
+  </data>
+  <data name="chfpdrCode" xml:space="preserve">
+    <value>主诊医师代 码</value>
+  </data>
+  <data name="chfpdrName" xml:space="preserve">
+    <value>主诊医师姓名</value>
+  </data>
+  <data name="chfpdr_code" xml:space="preserve">
+    <value>主诊医师代码</value>
+  </data>
+  <data name="chfpdr_name" xml:space="preserve">
+    <value>主诊医师姓名</value>
+  </data>
+  <data name="chkPassFlag" xml:space="preserve">
+    <value>审核通过标 识</value>
+  </data>
+  <data name="chk_pay_flag" xml:space="preserve">
+    <value>审核支付标志</value>
+  </data>
+  <data name="chld_medc_flag" xml:space="preserve">
+    <value>儿童用药标志</value>
+  </data>
+  <data name="chrgitm_lv" xml:space="preserve">
+    <value>收费项目等级</value>
+  </data>
+  <data name="chrg_bchno" xml:space="preserve">
+    <value>收费批次号</value>
+  </data>
+  <data name="clct_flag" xml:space="preserve">
+    <value>到账类型</value>
+  </data>
+  <data name="clct_flag_name" xml:space="preserve">
+    <value>到账类型名称</value>
+  </data>
+  <data name="clct_time" xml:space="preserve">
+    <value>到账时间</value>
+  </data>
+  <data name="clct_type" xml:space="preserve">
+    <value>缴费类型</value>
+  </data>
+  <data name="clct_type_name" xml:space="preserve">
+    <value>缴费类型名称</value>
+  </data>
+  <data name="clr_flag" xml:space="preserve">
+    <value>清算标志</value>
+  </data>
+  <data name="clr_optins" xml:space="preserve">
+    <value>清算经办机构</value>
+  </data>
+  <data name="clr_type" xml:space="preserve">
+    <value>清算类别</value>
+  </data>
+  <data name="clr_type_lv2" xml:space="preserve">
+    <value>二级清算类别</value>
+  </data>
+  <data name="clr_way" xml:space="preserve">
+    <value>清算方式</value>
+  </data>
+  <data name="cnt" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="conerName" xml:space="preserve">
+    <value>联系人姓名</value>
+  </data>
+  <data name="coner_name" xml:space="preserve">
+    <value>联系人姓名</value>
+  </data>
+  <data name="copFlag" xml:space="preserve">
+    <value>伴有并发症标志</value>
+  </data>
+  <data name="cop_flag" xml:space="preserve">
+    <value>伴有并发症标志</value>
+  </data>
+  <data name="cpltflag" xml:space="preserve">
+    <value>完成标志</value>
+  </data>
+  <data name="createDate" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="createUser" xml:space="preserve">
+    <value>创建账户</value>
+  </data>
+  <data name="crteOptinsNo" xml:space="preserve">
+    <value>创建机构</value>
+  </data>
+  <data name="crterId" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="crterld" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="crterName" xml:space="preserve">
+    <value>创建人姓名</value>
+  </data>
+  <data name="crteTime" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="crt_payb_lmt_amt" xml:space="preserve">
+    <value>本次可支付限额金额</value>
+  </data>
+  <data name="cum" xml:space="preserve">
+    <value>累计值</value>
+  </data>
+  <data name="cum_type_code" xml:space="preserve">
+    <value>累计类别代码</value>
+  </data>
+  <data name="cum_ym" xml:space="preserve">
+    <value>累计年月</value>
+  </data>
+  <data name="cvlserv_flag" xml:space="preserve">
+    <value>公务员标志</value>
+  </data>
+  <data name="cvlserv_pay" xml:space="preserve">
+    <value>公务员医疗补助资金支出</value>
+  </data>
+  <data name="data_cnt" xml:space="preserve">
+    <value>数据量</value>
+  </data>
+  <data name="dcladate" xml:space="preserve">
+    <value>申报时间</value>
+  </data>
+  <data name="dcla_souc" xml:space="preserve">
+    <value>申报来源</value>
+  </data>
+  <data name="dedc_hosp_lv" xml:space="preserve">
+    <value>起付线医院等级</value>
+  </data>
+  <data name="dept_code" xml:space="preserve">
+    <value>科室编码</value>
+  </data>
+  <data name="dept_name" xml:space="preserve">
+    <value>科室名称</value>
+  </data>
+  <data name="detltemFeeSumamt" xml:space="preserve">
+    <value>明细项目费用总额</value>
+  </data>
+  <data name="det_item_fee_sumamt" xml:space="preserve">
+    <value>明细项目费用总额</value>
+  </data>
+  <data name="diagCode" xml:space="preserve">
+    <value>诊断代码</value>
+  </data>
+  <data name="diagDept" xml:space="preserve">
+    <value>诊断科室</value>
+  </data>
+  <data name="diagDrCode" xml:space="preserve">
+    <value>诊断医师代码</value>
+  </data>
+  <data name="diagDrName" xml:space="preserve">
+    <value>诊断医师姓名</value>
+  </data>
+  <data name="diagInfoId" xml:space="preserve">
+    <value>诊断信息ID</value>
+  </data>
+  <data name="diagName" xml:space="preserve">
+    <value>诊断名称</value>
+  </data>
+  <data name="diagSrtNo" xml:space="preserve">
+    <value>诊断排序号</value>
+  </data>
+  <data name="diagTime" xml:space="preserve">
+    <value>诊断时间</value>
+  </data>
+  <data name="diagType" xml:space="preserve">
+    <value>诊断类别</value>
+  </data>
+  <data name="diag_code" xml:space="preserve">
+    <value>诊断代码</value>
+  </data>
+  <data name="diag_dept" xml:space="preserve">
+    <value>诊断科室</value>
+  </data>
+  <data name="diag_dr_code" xml:space="preserve">
+    <value>主诊医师代码</value>
+  </data>
+  <data name="diag_dr_codg" xml:space="preserve">
+    <value>诊断医师编码</value>
+  </data>
+  <data name="diag_dr_name" xml:space="preserve">
+    <value>诊断医师姓名</value>
+  </data>
+  <data name="diag_info_id" xml:space="preserve">
+    <value>诊断信息ID</value>
+  </data>
+  <data name="diag_name" xml:space="preserve">
+    <value>诊断名称</value>
+  </data>
+  <data name="diag_srt_no" xml:space="preserve">
+    <value>诊断排序号</value>
+  </data>
+  <data name="diag_time" xml:space="preserve">
+    <value>诊断时间</value>
+  </data>
+  <data name="diag_type" xml:space="preserve">
+    <value>诊断类别</value>
+  </data>
+  <data name="dieDate" xml:space="preserve">
+    <value>死亡日期</value>
+  </data>
+  <data name="die_date" xml:space="preserve">
+    <value>死亡日期</value>
+  </data>
+  <data name="diseName" xml:space="preserve">
+    <value>病种名称</value>
+  </data>
+  <data name="diseNo" xml:space="preserve">
+    <value>病种编号</value>
+  </data>
+  <data name="dise_codg" xml:space="preserve">
+    <value>病种编码</value>
+  </data>
+  <data name="dise_cond_dscr" xml:space="preserve">
+    <value>疾病病情描述</value>
+  </data>
+  <data name="dise_dor_name" xml:space="preserve">
+    <value>诊断医生姓名</value>
+  </data>
+  <data name="dise_dor_no" xml:space="preserve">
+    <value>诊断医生编码</value>
+  </data>
+  <data name="dise_name" xml:space="preserve">
+    <value>病种名称</value>
+  </data>
+  <data name="dise_no" xml:space="preserve">
+    <value>病种编码</value>
+  </data>
+  <data name="dld_end_time" xml:space="preserve">
+    <value>下载截止日期</value>
+  </data>
+  <data name="dosform_name" xml:space="preserve">
+    <value>剂型名称</value>
+  </data>
+  <data name="drt_reim_flag" xml:space="preserve">
+    <value>直报标志</value>
+  </data>
+  <data name="dr_code" xml:space="preserve">
+    <value>医师代码</value>
+  </data>
+  <data name="dr_name" xml:space="preserve">
+    <value>医师姓名</value>
+  </data>
+  <data name="dscgBed" xml:space="preserve">
+    <value>出院床位</value>
+  </data>
+  <data name="dscgDeptCodg" xml:space="preserve">
+    <value>出院科室编 码</value>
+  </data>
+  <data name="dscgDeptName" xml:space="preserve">
+    <value>出院科室名 称</value>
+  </data>
+  <data name="dscgMaindiagCode" xml:space="preserve">
+    <value>出院主诊断 代码</value>
+  </data>
+  <data name="dscgMaindiagName" xml:space="preserve">
+    <value>住院主诊断名称</value>
+  </data>
+  <data name="dscgTkdrugFlag" xml:space="preserve">
+    <value>出院带药标志</value>
+  </data>
+  <data name="dscgWay" xml:space="preserve">
+    <value>离院方式</value>
+  </data>
+  <data name="dscg_bed" xml:space="preserve">
+    <value>出院床位</value>
+  </data>
+  <data name="dscg_dept_codg" xml:space="preserve">
+    <value>出院科室编码</value>
+  </data>
+  <data name="dscg_dept_name" xml:space="preserve">
+    <value>出院科室名称</value>
+  </data>
+  <data name="dscg_maindiag_code" xml:space="preserve">
+    <value>住院主诊断代码</value>
+  </data>
+  <data name="dscg_maindiag_name" xml:space="preserve">
+    <value>住院主诊断名称</value>
+  </data>
+  <data name="dscg_tkdrug_flag" xml:space="preserve">
+    <value>出院带药标志</value>
+  </data>
+  <data name="dscg_way" xml:space="preserve">
+    <value>离院方式</value>
+  </data>
+  <data name="elecBillChkcode" xml:space="preserve">
+    <value>电子票据校 验码</value>
+  </data>
+  <data name="elecBillCode" xml:space="preserve">
+    <value>电子票据代 码</value>
+  </data>
+  <data name="elecBillnoCode" xml:space="preserve">
+    <value>电子票据号 码</value>
+  </data>
+  <data name="emp_name" xml:space="preserve">
+    <value>单位名称</value>
+  </data>
+  <data name="emp_no" xml:space="preserve">
+    <value>单位编号</value>
+  </data>
+  <data name="enddate" xml:space="preserve">
+    <value>结束日期</value>
+  </data>
+  <data name="endtime" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="etipFlag" xml:space="preserve">
+    <value>外检标志</value>
+  </data>
+  <data name="etipHospCode" xml:space="preserve">
+    <value>外检医院编码</value>
+  </data>
+  <data name="etip_flag" xml:space="preserve">
+    <value>外检标志</value>
+  </data>
+  <data name="etip_hosp_code" xml:space="preserve">
+    <value>外检医院编码</value>
+  </data>
+  <data name="evtsn" xml:space="preserve">
+    <value>事件流水号</value>
+  </data>
+  <data name="examCcls" xml:space="preserve">
+    <value>检查结论</value>
+  </data>
+  <data name="exam_ccls" xml:space="preserve">
+    <value>检查结论</value>
+  </data>
+  <data name="exam_item_code" xml:space="preserve">
+    <value>检验-项目代码</value>
+  </data>
+  <data name="exam_item_detl_code" xml:space="preserve">
+    <value>项目明细代码</value>
+  </data>
+  <data name="exam_item_detl_name" xml:space="preserve">
+    <value> 项目明细名称</value>
+  </data>
+  <data name="exam_item_name" xml:space="preserve">
+    <value>检验-项目名称</value>
+  </data>
+  <data name="exam_mtd" xml:space="preserve">
+    <value>检验方法</value>
+  </data>
+  <data name="exam_rpotc_name" xml:space="preserve">
+    <value>检查报告单名称</value>
+  </data>
+  <data name="exam_rslt_abn" xml:space="preserve">
+    <value>检查/检验结果异常标志</value>
+  </data>
+  <data name="exam_rslt_poit_flag" xml:space="preserve">
+    <value>检查结果阳性标志</value>
+  </data>
+  <data name="exam_rslt_qual" xml:space="preserve">
+    <value> 结果(定性)</value>
+  </data>
+  <data name="exam_rslt_val" xml:space="preserve">
+    <value>结果(数值)</value>
+  </data>
+  <data name="exam_unt" xml:space="preserve">
+    <value>计量单位</value>
+  </data>
+  <data name="expContent" xml:space="preserve">
+    <value>扩展字段</value>
+  </data>
+  <data name="feedetl_sn" xml:space="preserve">
+    <value>费用明细流水号</value>
+  </data>
+  <data name="feeOcurTime" xml:space="preserve">
+    <value>费用发生时间</value>
+  </data>
+  <data name="fee_ocur_time" xml:space="preserve">
+    <value>费用发生时间</value>
+  </data>
+  <data name="fetts" xml:space="preserve">
+    <value>胎次</value>
+  </data>
+  <data name="fetusCnt" xml:space="preserve">
+    <value>胎儿数</value>
+  </data>
+  <data name="fetus_cnt" xml:space="preserve">
+    <value>胎儿数</value>
+  </data>
+  <data name="filename" xml:space="preserve">
+    <value>文件名</value>
+  </data>
+  <data name="file_qury_no" xml:space="preserve">
+    <value>文件查询号</value>
+  </data>
+  <data name="fixmedinsCode" xml:space="preserve">
+    <value>定点医药机构编号</value>
+  </data>
+  <data name="fixmedinsMdtrtId" xml:space="preserve">
+    <value>医药机构就诊ID</value>
+  </data>
+  <data name="fixmedinsName" xml:space="preserve">
+    <value>定点医药机构名称</value>
+  </data>
+  <data name="fixmedins_code" xml:space="preserve">
+    <value>定点医药机构编号</value>
+  </data>
+  <data name="fixmedins_name" xml:space="preserve">
+    <value>定点医药机构名称</value>
+  </data>
+  <data name="fixmedins_poolarea" xml:space="preserve">
+    <value>定点归属机构</value>
+  </data>
+  <data name="fixmedins_type" xml:space="preserve">
+    <value>定点医疗服务机构类型</value>
+  </data>
+  <data name="fix_main_scd_flag" xml:space="preserve">
+    <value>主辅标志</value>
+  </data>
+  <data name="fix_srt_no" xml:space="preserve">
+    <value>定点排序号</value>
+  </data>
+  <data name="fix_type" xml:space="preserve">
+    <value>就医点类型</value>
+  </data>
+  <data name="flxempe_flag" xml:space="preserve">
+    <value>灵活就业标志</value>
+  </data>
+  <data name="fpscNo" xml:space="preserve">
+    <value>计划生育服 务证号</value>
+  </data>
+  <data name="fpsc_no" xml:space="preserve">
+    <value>计划生育服务证号</value>
+  </data>
+  <data name="fulamtOwnpayAmt" xml:space="preserve">
+    <value>全自费金额</value>
+  </data>
+  <data name="fulamt_ownpay_amt" xml:space="preserve">
+    <value>全自费金额</value>
+  </data>
+  <data name="fund_payamt" xml:space="preserve">
+    <value>基金支付金额</value>
+  </data>
+  <data name="fund_pay_sumamt" xml:space="preserve">
+    <value>基金支付总额</value>
+  </data>
+  <data name="fund_pay_type" xml:space="preserve">
+    <value>基金支付类型</value>
+  </data>
+  <data name="fund_pay_type_name" xml:space="preserve">
+    <value>基金支付类型名称</value>
+  </data>
+  <data name="gend" xml:space="preserve">
+    <value>性别</value>
+  </data>
+  <data name="gesoVal" xml:space="preserve">
+    <value>孕周数</value>
+  </data>
+  <data name="geso_val" xml:space="preserve">
+    <value>孕周数</value>
+  </data>
+  <data name="grst_hosp_flag" xml:space="preserve">
+    <value>基层医疗机构标志</value>
+  </data>
+  <data name="hifes_pay" xml:space="preserve">
+    <value>企业补充医疗保险基金支出</value>
+  </data>
+  <data name="hifmi_pay" xml:space="preserve">
+    <value>居民大病保险资金支出</value>
+  </data>
+  <data name="hifob_pay" xml:space="preserve">
+    <value>职工大额医疗费用补助基金支出</value>
+  </data>
+  <data name="hifp_pay" xml:space="preserve">
+    <value>基本医疗保险统筹基金支出</value>
+  </data>
+  <data name="hilist_code" xml:space="preserve">
+    <value>医保目录编码</value>
+  </data>
+  <data name="hilist_name" xml:space="preserve">
+    <value>医保目录名称</value>
+  </data>
+  <data name="hi_nego_drug_flag" xml:space="preserve">
+    <value>医保谈判药品标志</value>
+  </data>
+  <data name="hosp_agre_refl_flag" xml:space="preserve">
+    <value>医院同意转院标志</value>
+  </data>
+  <data name="hosp_appr_flag" xml:space="preserve">
+    <value>医院审批标志</value>
+  </data>
+  <data name="hosp_ide_date" xml:space="preserve">
+    <value>医院鉴定日期</value>
+  </data>
+  <data name="hosp_lv" xml:space="preserve">
+    <value>医院等级</value>
+  </data>
+  <data name="hosp_part_amt" xml:space="preserve">
+    <value>医院负担金额</value>
+  </data>
+  <data name="ide_admdvs" xml:space="preserve">
+    <value>身份认定行政区划</value>
+  </data>
+  <data name="ide_fixmedins_name" xml:space="preserve">
+    <value>鉴定定点医药机构名称</value>
+  </data>
+  <data name="ide_fixmedins_no" xml:space="preserve">
+    <value>鉴定定点医药机构编号</value>
+  </data>
+  <data name="inhospStas" xml:space="preserve">
+    <value>在院状态</value>
+  </data>
+  <data name="inhosp_stas" xml:space="preserve">
+    <value>在院状态</value>
+  </data>
+  <data name="inoutDiagType" xml:space="preserve">
+    <value>出入院诊断类别</value>
+  </data>
+  <data name="inout_diag_type" xml:space="preserve">
+    <value>出入院诊断类别</value>
+  </data>
+  <data name="inscpAmt" xml:space="preserve">
+    <value>符合政策范 围金额</value>
+  </data>
+  <data name="inscp_amt" xml:space="preserve">
+    <value>符合政策范围金额</value>
+  </data>
+  <data name="inscp_scp_amt" xml:space="preserve">
+    <value>符合政策范围金额</value>
+  </data>
+  <data name="insuplc_admdvs" xml:space="preserve">
+    <value>参保地医保区划</value>
+  </data>
+  <data name="insutype" xml:space="preserve">
+    <value>险种类型</value>
+  </data>
+  <data name="insutype_name" xml:space="preserve">
+    <value>险种类型名称</value>
+  </data>
+  <data name="insu_optins" xml:space="preserve">
+    <value>参保机构医保区划</value>
+  </data>
+  <data name="insu_type" xml:space="preserve">
+    <value>险种类型</value>
+  </data>
+  <data name="invono" xml:space="preserve">
+    <value>发票号</value>
+  </data>
+  <data name="iptDays" xml:space="preserve">
+    <value>住院天数</value>
+  </data>
+  <data name="iptOtpNo" xml:space="preserve">
+    <value>住院/门诊号</value>
+  </data>
+  <data name="ipt_days" xml:space="preserve">
+    <value>住院天数</value>
+  </data>
+  <data name="ipt_otp_no" xml:space="preserve">
+    <value>住院/门诊号</value>
+  </data>
+  <data name="label" xml:space="preserve">
+    <value>字典标签</value>
+  </data>
+  <data name="last_mena_date" xml:space="preserve">
+    <value>末次月经日期</value>
+  </data>
+  <data name="latechbFlag" xml:space="preserve">
+    <value>晚育标志</value>
+  </data>
+  <data name="latechb_flag" xml:space="preserve">
+    <value>晚育标志</value>
+  </data>
+  <data name="list_sp_item_flag" xml:space="preserve">
+    <value>目录特项标志</value>
+  </data>
+  <data name="list_type" xml:space="preserve">
+    <value>目录类别</value>
+  </data>
+  <data name="lmtpric_hosp_lv" xml:space="preserve">
+    <value>限价医院等级</value>
+  </data>
+  <data name="lmt_used_flag" xml:space="preserve">
+    <value>限制使用标志</value>
+  </data>
+  <data name="maf_pay" xml:space="preserve">
+    <value>医疗救助基金支出</value>
+  </data>
+  <data name="mainCondDscr" xml:space="preserve">
+    <value>主要病情描 述</value>
+  </data>
+  <data name="maindiagFlag" xml:space="preserve">
+    <value>主诊断标志</value>
+  </data>
+  <data name="maindiag_flag" xml:space="preserve">
+    <value>主诊断标志</value>
+  </data>
+  <data name="main_cond_dscr" xml:space="preserve">
+    <value>主要病情描述</value>
+  </data>
+  <data name="main_dise" xml:space="preserve">
+    <value>主病种</value>
+  </data>
+  <data name="matnEnddate" xml:space="preserve">
+    <value>生育备案结束时间</value>
+  </data>
+  <data name="matnType" xml:space="preserve">
+    <value>生育类别</value>
+  </data>
+  <data name="matn_fee_flag" xml:space="preserve">
+    <value>生育费用标志</value>
+  </data>
+  <data name="matn_trt_dclaer_type" xml:space="preserve">
+    <value>生育待遇申报人员类别</value>
+  </data>
+  <data name="matn_type" xml:space="preserve">
+    <value>生育类别</value>
+  </data>
+  <data name="mdtrt_cert_no" xml:space="preserve">
+    <value>就诊凭证编号</value>
+  </data>
+  <data name="mdtrt_cert_type" xml:space="preserve">
+    <value>就诊凭证类型</value>
+  </data>
+  <data name="mdtrt_id" xml:space="preserve">
+    <value>就诊ID</value>
+  </data>
+  <data name="medChrgitmType" xml:space="preserve">
+    <value>医疗收费项目类别</value>
+  </data>
+  <data name="medcWayDscr" xml:space="preserve">
+    <value>用药途径描 述</value>
+  </data>
+  <data name="medc_way_dscr" xml:space="preserve">
+    <value>用药途径描述</value>
+  </data>
+  <data name="medfeeSumamt" xml:space="preserve">
+    <value>医疗总费用</value>
+  </data>
+  <data name="medfee_sumamt" xml:space="preserve">
+    <value>医疗费总额</value>
+  </data>
+  <data name="medinsListCodg" xml:space="preserve">
+    <value>医药机构目录编码</value>
+  </data>
+  <data name="medinsListName" xml:space="preserve">
+    <value>医药机构目录名称</value>
+  </data>
+  <data name="medinslv" xml:space="preserve">
+    <value>医疗机构等级</value>
+  </data>
+  <data name="medins_list_codg" xml:space="preserve">
+    <value>医药机构目录编码</value>
+  </data>
+  <data name="medins_list_name" xml:space="preserve">
+    <value>医药机构目录名称</value>
+  </data>
+  <data name="medins_setl_id" xml:space="preserve">
+    <value>医药机构结算ID</value>
+  </data>
+  <data name="medins_stmt_flag" xml:space="preserve">
+    <value>医疗机构对账标志</value>
+  </data>
+  <data name="medListCodg" xml:space="preserve">
+    <value>医疗目录编码</value>
+  </data>
+  <data name="medrcdno" xml:space="preserve">
+    <value>病历号</value>
+  </data>
+  <data name="medType" xml:space="preserve">
+    <value>医疗类别</value>
+  </data>
+  <data name="med_chrgitm_type" xml:space="preserve">
+    <value>医疗收费项目类别</value>
+  </data>
+  <data name="med_list_codg" xml:space="preserve">
+    <value>医疗目录编码</value>
+  </data>
+  <data name="med_type" xml:space="preserve">
+    <value>医疗类别</value>
+  </data>
+  <data name="memo" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="naty" xml:space="preserve">
+    <value>民族</value>
+  </data>
+  <data name="nwb_flag" xml:space="preserve">
+    <value>新生儿标志</value>
+  </data>
+  <data name="oper_id" xml:space="preserve">
+    <value>操作人</value>
+  </data>
+  <data name="oper_time" xml:space="preserve">
+    <value>操作时间</value>
+  </data>
+  <data name="oprnOprtCode" xml:space="preserve">
+    <value>手术操作代码</value>
+  </data>
+  <data name="oprnOprtName" xml:space="preserve">
+    <value>手术操作名称</value>
+  </data>
+  <data name="oprn_oprt_code" xml:space="preserve">
+    <value>手术操作代码</value>
+  </data>
+  <data name="oprn_oprt_name" xml:space="preserve">
+    <value>手术操作名称</value>
+  </data>
+  <data name="opsp_dise_code" xml:space="preserve">
+    <value>门慢门特病种目录代码</value>
+  </data>
+  <data name="opsp_dise_name" xml:space="preserve">
+    <value>门慢门特病种名称</value>
+  </data>
+  <data name="opterId" xml:space="preserve">
+    <value>经办人ID</value>
+  </data>
+  <data name="opterld" xml:space="preserve">
+    <value>经办人ID</value>
+  </data>
+  <data name="opterName" xml:space="preserve">
+    <value>经办人姓名</value>
+  </data>
+  <data name="opter_id" xml:space="preserve">
+    <value>经办人ID</value>
+  </data>
+  <data name="opter_name" xml:space="preserve">
+    <value>经办人姓名</value>
+  </data>
+  <data name="optinsNo" xml:space="preserve">
+    <value>经办机构</value>
+  </data>
+  <data name="optTime" xml:space="preserve">
+    <value>经办时间</value>
+  </data>
+  <data name="opt_time" xml:space="preserve">
+    <value>经办时间</value>
+  </data>
+  <data name="orders_dr_code" xml:space="preserve">
+    <value>受单医生编码</value>
+  </data>
+  <data name="orders_dr_name" xml:space="preserve">
+    <value>受单医生姓名</value>
+  </data>
+  <data name="oth_pay" xml:space="preserve">
+    <value>其他支出</value>
+  </data>
+  <data name="otpDiaglnfo" xml:space="preserve">
+    <value>门诊诊断信息</value>
+  </data>
+  <data name="otp_diag_info" xml:space="preserve">
+    <value>门诊诊断信息</value>
+  </data>
+  <data name="out_flag" xml:space="preserve">
+    <value>异地标志</value>
+  </data>
+  <data name="overlmt_amt" xml:space="preserve">
+    <value>超限价金额</value>
+  </data>
+  <data name="overlmt_selfpay" xml:space="preserve">
+    <value>超限价自费费用</value>
+  </data>
+  <data name="parentValue" xml:space="preserve">
+    <value>父字典键值</value>
+  </data>
+  <data name="paus_insu_date" xml:space="preserve">
+    <value>暂停参保日期</value>
+  </data>
+  <data name="pay_loc" xml:space="preserve">
+    <value>支付地点类别</value>
+  </data>
+  <data name="plan_matn_date" xml:space="preserve">
+    <value>预计生育日期</value>
+  </data>
+  <data name="poolareaNO" xml:space="preserve">
+    <value>统筹区编码</value>
+  </data>
+  <data name="poolarea_no" xml:space="preserve">
+    <value>统筹区代码</value>
+  </data>
+  <data name="poolarea_no_name" xml:space="preserve">
+    <value>统筹区名称</value>
+  </data>
+  <data name="pool_prop_selfpay" xml:space="preserve">
+    <value>基本医疗保险统筹基金支付比例</value>
+  </data>
+  <data name="prdDays" xml:space="preserve">
+    <value>周期天数</value>
+  </data>
+  <data name="prd_days" xml:space="preserve">
+    <value>周期天数</value>
+  </data>
+  <data name="preselfpayAmt" xml:space="preserve">
+    <value>先行自付金额</value>
+  </data>
+  <data name="preselfpay_amt" xml:space="preserve">
+    <value>先行自付金额</value>
+  </data>
+  <data name="pretFlag" xml:space="preserve">
+    <value>早产标志</value>
+  </data>
+  <data name="pret_flag" xml:space="preserve">
+    <value>早产标志</value>
+  </data>
+  <data name="preyTime" xml:space="preserve">
+    <value>妊娠时间</value>
+  </data>
+  <data name="pre_pay_flag" xml:space="preserve">
+    <value>先行支付标志</value>
+  </data>
+  <data name="pric" xml:space="preserve">
+    <value>单价</value>
+  </data>
+  <data name="pric_uplmt_amt" xml:space="preserve">
+    <value>定价上限金额</value>
+  </data>
+  <data name="prodname" xml:space="preserve">
+    <value>商品名</value>
+  </data>
+  <data name="prodplac_type" xml:space="preserve">
+    <value>生产地类别</value>
+  </data>
+  <data name="psnCertType" xml:space="preserve">
+    <value>人员证件类型</value>
+  </data>
+  <data name="psnName" xml:space="preserve">
+    <value>人员姓名</value>
+  </data>
+  <data name="psn_cash_pay" xml:space="preserve">
+    <value>个人现金支出</value>
+  </data>
+  <data name="psn_cert_type" xml:space="preserve">
+    <value>人员证件类型</value>
+  </data>
+  <data name="psn_idet_type" xml:space="preserve">
+    <value>人员身份类别</value>
+  </data>
+  <data name="psn_insu_date" xml:space="preserve">
+    <value>个人参保日期</value>
+  </data>
+  <data name="psn_insu_stas" xml:space="preserve">
+    <value>人员参保状态</value>
+  </data>
+  <data name="psn_name" xml:space="preserve">
+    <value>人员姓名</value>
+  </data>
+  <data name="psn_no" xml:space="preserve">
+    <value>人员编号</value>
+  </data>
+  <data name="psn_part_amt" xml:space="preserve">
+    <value>个人负担总金额</value>
+  </data>
+  <data name="psn_pay" xml:space="preserve">
+    <value>个人支付金额</value>
+  </data>
+  <data name="psn_setlway" xml:space="preserve">
+    <value>个人结算方式</value>
+  </data>
+  <data name="psn_type" xml:space="preserve">
+    <value>人员类别</value>
+  </data>
+  <data name="psn_type_lv" xml:space="preserve">
+    <value>人员类别等级</value>
+  </data>
+  <data name="refd_setl_flag" xml:space="preserve">
+    <value>退费结算标志</value>
+  </data>
+  <data name="reflin_medins_name" xml:space="preserve">
+    <value>转往医院名称</value>
+  </data>
+  <data name="reflin_medins_no" xml:space="preserve">
+    <value>转往定点医药机构编号</value>
+  </data>
+  <data name="refl_date" xml:space="preserve">
+    <value>转院日期</value>
+  </data>
+  <data name="refl_rea" xml:space="preserve">
+    <value>转院原因</value>
+  </data>
+  <data name="ref_val" xml:space="preserve">
+    <value>参考值</value>
+  </data>
+  <data name="rid" xml:space="preserve">
+    <value>唯一记录号</value>
+  </data>
+  <data name="rpotc_no" xml:space="preserve">
+    <value>报告单号</value>
+  </data>
+  <data name="rpotc_type_code" xml:space="preserve">
+    <value>报告单类别代码</value>
+  </data>
+  <data name="rpt_date" xml:space="preserve">
+    <value>报告日期</value>
+  </data>
+  <data name="rxno" xml:space="preserve">
+    <value>处方号</value>
+  </data>
+  <data name="rx_circ_flag" xml:space="preserve">
+    <value>外购处方标志</value>
+  </data>
+  <data name="rx_drord_no" xml:space="preserve">
+    <value>处方/医嘱号</value>
+  </data>
+  <data name="selfpay_prop" xml:space="preserve">
+    <value>自付比例</value>
+  </data>
+  <data name="seqno" xml:space="preserve">
+    <value>顺序号</value>
+  </data>
+  <data name="setl_id" xml:space="preserve">
+    <value>结算ID</value>
+  </data>
+  <data name="setl_proc_info" xml:space="preserve">
+    <value>结算过程信息</value>
+  </data>
+  <data name="setl_time" xml:space="preserve">
+    <value>结算时间</value>
+  </data>
+  <data name="sign_prse" xml:space="preserve">
+    <value>签约承诺</value>
+  </data>
+  <data name="sinDosDscr" xml:space="preserve">
+    <value>单次剂量描述</value>
+  </data>
+  <data name="sin_dos_dscr" xml:space="preserve">
+    <value>单次剂量描述</value>
+  </data>
+  <data name="sort" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="spec" xml:space="preserve">
+    <value>规格</value>
+  </data>
+  <data name="spus_certno" xml:space="preserve">
+    <value>配偶证件号码</value>
+  </data>
+  <data name="spus_cert_type" xml:space="preserve">
+    <value>配偶证件类型</value>
+  </data>
+  <data name="spus_name" xml:space="preserve">
+    <value>配偶姓名</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>参保人所属行政区划编码</value>
+  </data>
+  <data name="tcmdrugUsedWay" xml:space="preserve">
+    <value>中药使用方式</value>
+  </data>
+  <data name="tcmdrug_used_way" xml:space="preserve">
+    <value>中药使用方式</value>
+  </data>
+  <data name="tel" xml:space="preserve">
+    <value>联系电话</value>
+  </data>
+  <data name="trafDeptFlag" xml:space="preserve">
+    <value>转科室标志</value>
+  </data>
+  <data name="trt_chk_rslt" xml:space="preserve">
+    <value>待遇检查结果</value>
+  </data>
+  <data name="trt_chk_type" xml:space="preserve">
+    <value>待遇检查类型</value>
+  </data>
+  <data name="trt_dcla_detl_sn" xml:space="preserve">
+    <value>待遇申报明细流水号</value>
+  </data>
+  <data name="trt_enjymnt_flag" xml:space="preserve">
+    <value>基金款项待遇享受标志</value>
+  </data>
+  <data name="trum_part" xml:space="preserve">
+    <value>伤害部位</value>
+  </data>
+  <data name="trum_rea" xml:space="preserve">
+    <value>致伤原因</value>
+  </data>
+  <data name="trum_site" xml:space="preserve">
+    <value>受伤地点</value>
+  </data>
+  <data name="trum_time" xml:space="preserve">
+    <value>受伤时间</value>
+  </data>
+  <data name="ttp_pay_prop" xml:space="preserve">
+    <value>第三方赔付比例</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>字典类型</value>
+  </data>
+  <data name="updtTime" xml:space="preserve">
+    <value>更新时间</value>
+  </data>
+  <data name="uscc" xml:space="preserve">
+    <value>统一社会信用代码</value>
+  </data>
+  <data name="usedFrquDscr" xml:space="preserve">
+    <value>使用频次描 述</value>
+  </data>
+  <data name="used_frqu_dscr" xml:space="preserve">
+    <value>使用频次描述</value>
+  </data>
+  <data name="valiFlag" xml:space="preserve">
+    <value>权限标识</value>
+  </data>
+  <data name="vali_flag" xml:space="preserve">
+    <value>有效标志</value>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>字典键值</value>
+  </data>
+  <data name="ver" xml:space="preserve">
+    <value>版本号</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>版本号</value>
+  </data>
+  <data name="wardareaBed" xml:space="preserve">
+    <value>病区床位</value>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>年度</value>
+  </data>
+  <data name="ykc679" xml:space="preserve">
+    <value>住院原因</value>
+  </data>
+  <data name="ykc680" xml:space="preserve">
+    <value>补助类型</value>
+  </data>
+</root>

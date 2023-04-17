@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{10930D5B-2C48-44A8-9F3D-3265D3EC10C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GZSI</RootNamespace>
+    <AssemblyName>GZSI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataWindow, Version=2.5.0.0, Culture=neutral, PublicKeyToken=cc0f66dd9541b3da, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Sybase\DataWindow .NET 2.5\DataWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.RADT, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\SOC.HISFC.BizProcess.CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\SOC.HISFC.Fee.BizLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Fee.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\SOC.HISFC.Fee.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.InpatientFee.BizProcess, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiClass\GzsiAPI.cs" />
+    <Compile Include="ApiClass\GzsiApiBizProcess.cs" />
+    <Compile Include="ApiClass\NoSortHashTable.cs" />
+    <Compile Include="ApiControls\frmDiagnose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApiControls\frmDiagnose.Designer.cs">
+      <DependentUpon>frmDiagnose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApiControls\frmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApiControls\frmSearch.Designer.cs">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApiControls\ucFeeBatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApiControls\ucFeeBatch.Designer.cs">
+      <DependentUpon>ucFeeBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApiControls\ucGetTreamType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApiControls\ucGetTreamType.Designer.cs">
+      <DependentUpon>ucGetTreamType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApiControls\ucPersonInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApiControls\ucPersonInfo.Designer.cs">
+      <DependentUpon>ucPersonInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApiManager\LocalManager.cs" />
+    <Compile Include="ApiModel\BizInfo.cs" />
+    <Compile Include="ApiModel\FeeBatchInfo.cs" />
+    <Compile Include="ApiModel\FeeInfo.cs" />
+    <Compile Include="ApiModel\PayInfo.cs" />
+    <Compile Include="ApiModel\PersonInfo.cs" />
+    <Compile Include="Controls\DownloadManager.cs" />
+    <Compile Include="Controls\frmBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\frmChangePatientSiInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\frmInsuranceManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\frmInsuranceManager.Designer.cs">
+      <DependentUpon>frmInsuranceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frmUploadDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\frmUploadDetail.designer.cs">
+      <DependentUpon>frmUploadDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Medicare.cs" />
+    <Compile Include="Controls\ucBalanceClinic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucCancelBalanceN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucCancelBalanceN.Designer.cs">
+      <DependentUpon>ucCancelBalanceN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucGetSiInHosInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucGetSiInHosInfo.Designer.cs">
+      <DependentUpon>ucGetSiInHosInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucInputRegNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucInputRegNo.Designer.cs">
+      <DependentUpon>ucInputRegNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\frmTextInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\frmTextInput.Designer.cs">
+      <DependentUpon>frmTextInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucInsuranceManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucInsuranceManager.Designer.cs">
+      <DependentUpon>ucInsuranceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucUploadDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucUploadDetail.Designer.cs">
+      <DependentUpon>ucUploadDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\usSetConnectSqlServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\frmLoadSIData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\frmLoadSIData.designer.cs">
+      <DependentUpon>frmLoadSIData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GZSI.cs" />
+    <Compile Include="Controls\LoadSIDataManager.cs" />
+    <Compile Include="GZSILocalBalance.cs" />
+    <Compile Include="Management\InpatientFee.cs" />
+    <Compile Include="Management\SIConnect.cs" />
+    <Compile Include="Management\SIDataBase.cs" />
+    <Compile Include="Management\SILocalManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ApiControls\frmDiagnose.resx">
+      <DependentUpon>frmDiagnose.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApiControls\frmSearch.resx">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApiControls\ucFeeBatch.resx">
+      <DependentUpon>ucFeeBatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApiControls\ucGetTreamType.resx">
+      <DependentUpon>ucGetTreamType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApiControls\ucPersonInfo.resx">
+      <DependentUpon>ucPersonInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\frmChangePatientSiInfo.resx">
+      <DependentUpon>frmChangePatientSiInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\frmInsuranceManager.resx">
+      <DependentUpon>frmInsuranceManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\frmUploadDetail.resx">
+      <DependentUpon>frmUploadDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucBalanceClinic.resx">
+      <DependentUpon>ucBalanceClinic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucCancelBalanceN.resx">
+      <DependentUpon>ucCancelBalanceN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucInputRegNo.resx">
+      <DependentUpon>ucInputRegNo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\frmTextInput.resx">
+      <DependentUpon>frmTextInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucInsuranceManager.resx">
+      <DependentUpon>ucInsuranceManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\usSetConnectSqlServer.resx">
+      <DependentUpon>usSetConnectSqlServer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\frmLoadSIData.resx">
+      <DependentUpon>frmLoadSIData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PublicFee\Function.cs" />
+    <Compile Include="PublicFee\GZComputePubFee.cs" />
+    <Compile Include="PublicFee\RoundItemInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

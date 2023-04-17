@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.Components.Lis</name>
+    </assembly>
+    <members>
+        <member name="M:UFC.Lis.Function.GetLisInterface">
+            <summary>
+            获得Lis接口信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UFC.Lis.ILisDB">
+            <summary>
+            [功能描述: Lis接口数据传输]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2008-03]<br></br>
+            </summary>
+        </member>
+        <member name="M:UFC.Lis.ILisDB.ConnectLisOnLoad">
+            <summary>
+            窗口Load连接Lis数据库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UFC.Lis.ILisDB.ConnectLisOnQuery">
+            <summary>
+            查询时连接Lis数据库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UFC.Lis.ILisDB.CloseLisDB">
+            <summary>
+            关闭Lis连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UFC.Lis.ILisDB.TransDataToLisDB(FS.HISFC.Models.RADT.PatientInfo,System.Collections.Generic.List{FS.HISFC.Models.Order.ExecOrder},System.String@)">
+            <summary>
+            数据传输
+            </summary>
+            <param name="p"></param>
+            <param name="execList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UFC.Lis.ucLisApply">
+            <summary>
+            [功能描述: 检验单主界面]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2008-03]<br></br>
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApply.orderManager">
+            <summary>
+            业务管理类
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApply.myPatients">
+            <summary>
+            患者信息列表
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApply.deptHelper">
+            <summary>
+            科室帮助类
+            </summary>
+        </member>
+        <member name="P:UFC.Lis.ucLisApply.RePrint">
+            <summary>
+            是否补打
+            </summary>
+        </member>
+        <member name="P:UFC.Lis.ucLisApply.BeginDate">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="P:UFC.Lis.ucLisApply.EndDate">
+            <summary>
+            终止时间
+            </summary>
+        </member>
+        <member name="P:UFC.Lis.ucLisApply.Patients">
+            <summary>
+            患者信息
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApply.displayControl">
+            <summary>
+            界面显示控件
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApply.printControl">
+            <summary>
+            单据打印控件
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApply.ILisDBInstance">
+            <summary>
+            Lis数据处理接口
+            </summary>
+        </member>
+        <member name="M:UFC.Lis.ucLisApply.Query">
+            <summary>
+            查询
+            </summary>
+        </member>
+        <member name="M:UFC.Lis.ucLisApply.Print">
+            <summary>
+            数据打印
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UFC.Lis.ucLisApply.GetDiagnose(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            获取诊断
+            </summary>
+        </member>
+        <member name="M:UFC.Lis.ucLisApply.AddControlData(System.Collections.ArrayList)">
+            <summary>
+            数据赋值
+            </summary>
+            <param name="alValues">打印数据</param>
+        </member>
+        <member name="F:UFC.Lis.ucLisApply.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:UFC.Lis.ucLisApply.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:UFC.Lis.ucLisApply.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:UFC.Lis.ucLisApplyControl">
+            <summary>
+            [功能描述: 检验单界面显示]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2008-03]<br></br>
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApplyControl.bSelected">
+            <summary>
+            是否选择
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApplyControl.diagNose">
+            <summary>
+            诊断
+            </summary>
+        </member>
+        <member name="P:UFC.Lis.ucLisApplyControl.IsSelected">
+            <summary>
+            是否选择
+            </summary>
+        </member>
+        <member name="P:UFC.Lis.ucLisApplyControl.ControlSize">
+            <summary>
+            控件大小
+            </summary>
+        </member>
+        <member name="P:UFC.Lis.ucLisApplyControl.ControlValue">
+            <summary>
+            当前数值
+            </summary>
+        </member>
+        <member name="P:UFC.Lis.ucLisApplyControl.VerticalNum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UFC.Lis.ucLisApplyControl.SetItem(FS.HISFC.Models.RADT.PatientInfo,System.String,System.String,System.String)">
+            <summary>
+            当前检验项目
+            </summary>
+        </member>
+        <member name="F:UFC.Lis.ucLisApplyControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:UFC.Lis.ucLisApplyControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:UFC.Lis.ucLisApplyControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:UFC.Lis.ucPrintLisApply">
+            <summary>
+            [功能描述: 检验单打印]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2008-03]<br></br>
+            </summary>
+        </member>
+        <member name="M:UFC.Lis.ucPrintLisApply.SetItem(FS.HISFC.Models.RADT.PatientInfo,System.String,System.String,System.String)">
+            <summary>
+            当前检验项目
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:UFC.Lis.ucPrintLisApply.components" -->
+        <!-- Badly formed XML comment ignored for member "M:UFC.Lis.ucPrintLisApply.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:UFC.Lis.ucPrintLisApply.InitializeComponent" -->
+    </members>
+</doc>

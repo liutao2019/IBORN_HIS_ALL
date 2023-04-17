@@ -1,0 +1,119 @@
+create or replace view view_lis_applyinfo_sdfy as
+select
+to_char(t.sequence_no)  aply_detl_id  ,--    　  PK
+(select max(f.invoice_no) from fin_opb_feedetail f
+where f.mo_order=t.sequence_no
+and f.clinic_code=t.clinic_code) aply_id,--PK
+0 aply_src,--申请来源 0 - HIS系统；1 - LIS系统；2 - 体检系统；3 - 其他来源
+(select max(f.invoice_no) from fin_opb_feedetail f
+where f.mo_order=t.sequence_no
+and f.clinic_code=t.clinic_code) aply_flow_num,--申请流水号
+sysdate aply_create_date,--申请创建日期
+t.CHARGE_CODE aply_usr_num,--创建者工号
+(select e.empl_name from com_employee e where e.empl_code=t.CHARGE_CODE) aply_usr_name,--创建者姓名
+case t.emc_flag when '2' then '1' else '0' end emcy_mrk,--急诊标记(急诊赋1)
+(select nvl(r.see_date,r.reg_date) from fin_opr_register r
+where r.clinic_code=t.clinic_code
+and r.valid_flag='1') aply_date,--申请日期
+t.DOCT_DPCD dept_num,--  申请来源科室编码
+(select d.dept_name from com_department d where d.dept_code=t.DOCT_DPCD) dept_name  ,--申请来源科室名称
+t.doct_code  doc_num    ,--      　  申请医生工号
+(select e.empl_name from com_employee e where e.empl_code=t.DOCT_DPCD)  doc_name  ,-- 申请医生名称
+0 ptnt_id    ,--    就诊患者ID
+(select r.idenno from fin_opr_register r
+where r.clinic_code=t.clinic_code
+and r.valid_flag='1') id_card    ,--身份证
+ltrim(t.card_no,'0')  ic_card    ,--      　  IC卡号
+t.clinic_code  ptnt_no  ,--    　  病历号
+0 ptnt_no_type  ,--    病历号类型：0-门诊号；1-住院号；2-体检号；
+(select r.name from fin_opr_register r
+where r.clinic_code=t.clinic_code
+and r.valid_flag='1') ptnt_name    ,--    　  患者姓名
+(select case nvl(r.sex_code,'0')
+        when 'M' then 1
+        when 'F' then 2
+        when '0' then 0
+        else 3 end
+from fin_opr_register r where r.clinic_code=t.clinic_code
+and r.valid_flag='1')  ptnt_sex,--  性别：1-男；2-女；3-性别不明确
+null  ptnt_age    ,--    　  患者年龄
+null  ptnt_age_unit  ,--      年龄类型：0-岁；1-月；2-天；3-时
+(select r.birthday from fin_opr_register r
+where r.clinic_code=t.clinic_code
+and r.valid_flag='1') ptnt_birth    ,--      出生日期
+t.reg_date  admisse_date  ,--      入院日期
+null ptnt_bed_no    ,--    　  床号
+(select max(m.diag_name) from met_cas_diagnose m
+where m.inpatient_no=t.clinic_code
+and t.main_drug='1') diag_info,--诊断信息
+null post_flag    ,--  　  发送标记
+t.item_code aply_itm_num    ,--        申请项目对照编码
+t.item_code  aply_itm_id    ,--  　  申请项目ID
+t.item_code  aply_itm_code    ,--      　  申请项目代码
+t.item_name  aply_itm_name    ,--      　  申请项目名称
+null  smpl_num    ,--        样本类型编码
+null smpl_name    ,--        样本类型
+decode((select max(f.sample_id) from fin_opb_feedetail f
+where f.mo_order=t.sequence_no
+and f.clinic_code=t.clinic_code),'1',1,0) exec_status    --    执行状态
+from met_ord_recipedetail t
+where t.CHARGE_FLAG='1'
+and t.class_code='UL'
+and not exists (select t.sequence_no from fin_opb_feedetail g
+where g.mo_order=t.sequence_no
+and g.clinic_code=t.clinic_code
+and g.cancel_flag!='1')
+
+
+union all
+
+select distinct
+to_char(t.exec_sqn)  aply_detl_id  ,--    　  PK
+t.mo_order aply_id,--PK
+0 aply_src,--申请来源 0 - HIS系统；1 - LIS系统；2 - 体检系统；3 - 其他来源
+t.mo_order aply_flow_num,--申请流水号
+sysdate aply_create_date,--申请创建日期
+t.charge_usercd aply_usr_num,--创建者工号
+(select e.empl_name from com_employee e where e.empl_code=t.charge_usercd) aply_usr_name,--创建者姓名
+case t.emc_flag when '1' then '1' else '0' end emcy_mrk,--急诊标记(急诊赋1)
+t.mo_date aply_date,--申请日期
+t.list_dpcd dept_num,--  申请来源科室编码
+(select d.dept_name from com_department d where d.dept_code=t.list_dpcd) dept_name  ,--申请来源科室名称
+t.doc_code  doc_num    ,--      　  申请医生工号
+t.doc_name  doc_name  ,-- 申请医生名称
+0 ptnt_id    ,--    就诊患者ID
+(select max(r.idenno) from fin_ipr_inmaininfo r where r.inpatient_no=t.inpatient_no) id_card    ,--身份证
+ltrim(t.patient_no,'0')  ic_card    ,--      　  IC卡号
+t.inpatient_no  ptnt_no  ,--    　  病历号
+1 ptnt_no_type  ,--    病历号类型：0-门诊号；1-住院号；2-体检号；
+(select r.name from fin_ipr_inmaininfo r where r.inpatient_no=t.inpatient_no) ptnt_name    ,--    　  患者姓名
+(select case max(nvl(r.sex_code,'0'))
+        when 'M' then 1
+        when 'F' then 2
+        when '0' then 0
+        else 3 end
+from fin_ipr_inmaininfo r where r.inpatient_no=t.inpatient_no)  ptnt_sex,--  性别：1-男；2-女；3-性别不明确
+null  ptnt_age    ,--    　  患者年龄
+null  ptnt_age_unit  ,--      年龄类型：0-岁；1-月；2-天；3-时
+(select r.birthday from fin_ipr_inmaininfo r where r.inpatient_no=t.inpatient_no) ptnt_birth    ,--      出生日期
+(select r.in_date from fin_ipr_inmaininfo r where r.inpatient_no=t.inpatient_no)  admisse_date  ,--      入院日期
+(select substr(r.bed_no,5) from fin_ipr_inmaininfo r where r.inpatient_no=t.inpatient_no) ptnt_bed_no    ,--    　  床号
+(select max(m.diag_name) from met_cas_diagnose m
+where m.inpatient_no=t.inpatient_no
+and t.main_drug='1') diag_info,--诊断信息
+null post_flag    ,--  　  发送标记
+t.undrug_code  aply_itm_num    ,--        申请项目对照编码
+t.undrug_code  aply_itm_id    ,--  　  申请项目ID
+t.undrug_code  aply_itm_code    ,--      　  申请项目代码
+t.undrug_name aply_itm_name    ,--      　  申请项目名称
+null  smpl_num    ,--        样本类型编码
+null smpl_name    ,--        样本类型
+decode(t.LAB_BARCODE,'1',1,0) exec_status    --    执行状态
+from met_ipm_execundrug t
+where t.exec_flag='1'
+and t.charge_state='1'
+and t.class_code='UL'
+and not exists (select g.sequence_no from fin_ipb_itemlist g
+where g.inpatient_no=t.inpatient_no
+and g.trans_type='2'
+and g.mo_exec_sqn=t.exec_sqn);

@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.RADT.Components", "SOC.HISFC.RADT.Components\SOC.HISFC.RADT.Components.csproj", "{037C141E-23FB-4CA1-B16E-B7D9F96FA714}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.RADT.BizLogic", "SOC.HISFC.RADT.BizLogic\SOC.HISFC.RADT.BizLogic.csproj", "{E3547BFC-A771-48D1-BD4E-D5F9976E1383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.RADT.BizProcess", "SOC.HISFC.RADT.BizProcess\SOC.HISFC.RADT.BizProcess.csproj", "{B1AD2376-4563-45C7-9399-E445E88E5C36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.RADT.Data", "SOC.HISFC.RADT.Data\SOC.HISFC.RADT.Data.csproj", "{1F4C9B08-F3D7-4A42-BB2C-3A5FE92BA23E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.RADT.Interface", "SOC.HISFC.RADT.Interface\SOC.HISFC.RADT.Interface.csproj", "{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{037C141E-23FB-4CA1-B16E-B7D9F96FA714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{037C141E-23FB-4CA1-B16E-B7D9F96FA714}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{037C141E-23FB-4CA1-B16E-B7D9F96FA714}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{037C141E-23FB-4CA1-B16E-B7D9F96FA714}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3547BFC-A771-48D1-BD4E-D5F9976E1383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3547BFC-A771-48D1-BD4E-D5F9976E1383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3547BFC-A771-48D1-BD4E-D5F9976E1383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3547BFC-A771-48D1-BD4E-D5F9976E1383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1AD2376-4563-45C7-9399-E445E88E5C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1AD2376-4563-45C7-9399-E445E88E5C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1AD2376-4563-45C7-9399-E445E88E5C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1AD2376-4563-45C7-9399-E445E88E5C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F4C9B08-F3D7-4A42-BB2C-3A5FE92BA23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4C9B08-F3D7-4A42-BB2C-3A5FE92BA23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4C9B08-F3D7-4A42-BB2C-3A5FE92BA23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4C9B08-F3D7-4A42-BB2C-3A5FE92BA23E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

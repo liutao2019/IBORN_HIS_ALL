@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1ABBEBA7-7AEC-4D69-95D1-E424831BDE37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Neusoft.SOC.HISFC.InpatientFee.Components</RootNamespace>
+    <AssemblyName>SOC.HISFC.InpatientFee.Components</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.MedicalPackage, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.MedicalPackage.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.RADT, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.RADT.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.RADT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Components.RADT.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.BizProcess.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.BizProcess.CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.InpatientFee.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.InpatientFee.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Balance\frmAccountCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmAccountCost.Designer.cs">
+      <DependentUpon>frmAccountCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmBalancePay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmBalancePay.Designer.cs">
+      <DependentUpon>frmBalancePay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmBalancePayAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmBalancePayAccount.Designer.cs">
+      <DependentUpon>frmBalancePayAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmCouponCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmCouponCost.Designer.cs">
+      <DependentUpon>frmCouponCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmDiscountCardCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmDiscountCardCost.Designer.cs">
+      <DependentUpon>frmDiscountCardCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmEleInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmEleInvoice.Designer.cs">
+      <DependentUpon>frmEleInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmEleInvoiceManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmEleInvoiceManager.Designer.cs">
+      <DependentUpon>frmEleInvoiceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmFeeItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmFeeItems.Designer.cs">
+      <DependentUpon>frmFeeItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmMemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmMemo.Designer.cs">
+      <DependentUpon>frmMemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmOpenEleInvoiceInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmOpenEleInvoiceInfo.Designer.cs">
+      <DependentUpon>frmOpenEleInvoiceInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmPreBalanceItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmPreBalanceItem.Designer.cs">
+      <DependentUpon>frmPreBalanceItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmSplitFeeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmSplitFeeInfo.Designer.cs">
+      <DependentUpon>frmSplitFeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\SIBalance\ucBaseChoose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\SIBalance\ucBaseChoose.Designer.cs">
+      <DependentUpon>ucBaseChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\SIBalance\ucBalanceCancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\SIBalance\ucBalanceCancel.Designer.cs">
+      <DependentUpon>ucBalanceCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\tvPatientListForArrear.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Balance\tvPatientListForArrear.Designer.cs">
+      <DependentUpon>tvPatientListForArrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\ucArrearBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\ucArrearBalance.Designer.cs">
+      <DependentUpon>ucArrearBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\SIBalance\ucInPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\SIBalance\ucInPatientInfo.Designer.cs">
+      <DependentUpon>ucInPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\SIBalance\ucBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\SIBalance\ucBalance.Designer.cs">
+      <DependentUpon>ucBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\ucInBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\ucInBalance.Designer.cs">
+      <DependentUpon>ucInBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\ucDerateFee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\ucDerateFee.Designer.cs">
+      <DependentUpon>ucDerateFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\ucOutBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\ucOutBalance.Designer.cs">
+      <DependentUpon>ucOutBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmBalancePayNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\frmBalancePayNew.Designer.cs">
+      <DependentUpon>frmBalancePayNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\ucOutBalanceNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\ucOutBalanceNew.Designer.cs">
+      <DependentUpon>ucOutBalanceNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\ucOutPreBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\ucOutPreBalance.Designer.cs">
+      <DependentUpon>ucOutPreBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function.cs" />
+    <Compile Include="IBorn\GZSI\ucSIFeeDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IBorn\GZSI\ucSIFeeDetail.Designer.cs">
+      <DependentUpon>ucSIFeeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceManager.cs" />
+    <Compile Include="Invoice\ucRePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Invoice\ucRePrint.Designer.cs">
+      <DependentUpon>ucRePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResult.cs" />
+    <Compile Include="JsonUnity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Balance\frmAccountCost.resx">
+      <DependentUpon>frmAccountCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmBalancePay.resx">
+      <DependentUpon>frmBalancePay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmBalancePayAccount.resx">
+      <DependentUpon>frmBalancePayAccount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmCouponCost.resx">
+      <DependentUpon>frmCouponCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmDiscountCardCost.resx">
+      <DependentUpon>frmDiscountCardCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmEleInvoice.resx">
+      <DependentUpon>frmEleInvoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmEleInvoiceManager.resx">
+      <DependentUpon>frmEleInvoiceManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmFeeItems.resx">
+      <DependentUpon>frmFeeItems.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmMemo.resx">
+      <DependentUpon>frmMemo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmOpenEleInvoiceInfo.resx">
+      <DependentUpon>frmOpenEleInvoiceInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmPreBalanceItem.resx">
+      <DependentUpon>frmPreBalanceItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmSplitFeeInfo.resx">
+      <DependentUpon>frmSplitFeeInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\SIBalance\ucBaseChoose.resx">
+      <DependentUpon>ucBaseChoose.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\SIBalance\ucBalanceCancel.resx">
+      <DependentUpon>ucBalanceCancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\ucArrearBalance.resx">
+      <DependentUpon>ucArrearBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\SIBalance\ucInPatientInfo.resx">
+      <DependentUpon>ucInPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\SIBalance\ucBalance.resx">
+      <DependentUpon>ucBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\ucInBalance.resx">
+      <DependentUpon>ucInBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\ucDerateFee.resx">
+      <DependentUpon>ucDerateFee.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\ucOutBalance.resx">
+      <DependentUpon>ucOutBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\frmBalancePayNew.resx">
+      <DependentUpon>frmBalancePayNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\ucOutBalanceNew.resx">
+      <DependentUpon>ucOutBalanceNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\ucOutPreBalance.resx">
+      <DependentUpon>ucOutPreBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IBorn\GZSI\ucSIFeeDetail.resx">
+      <DependentUpon>ucSIFeeDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\ucRePrint.resx">
+      <DependentUpon>ucRePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalanceCheck\ucInpatientBalanceCheck.resx">
+      <DependentUpon>ucInpatientBalanceCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalanceCheck\ucLeftQueryCondition.resx">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalanceCheck\ucTopQueryCondition.resx">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalance\ucDayBalanceDetail.resx">
+      <DependentUpon>ucDayBalanceDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalance\ucInpatientBalance.resx">
+      <DependentUpon>ucInpatientBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalance\ucLeftQueryCondition.resx">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalance\ucTopQueryCondition.resx">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\frmQueryInfoSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\frmQueryInfoSetting.Designer.cs">
+      <DependentUpon>frmQueryInfoSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ICommonReportController.cs" />
+    <Compile Include="Report\DayBalanceCheck\ucInpatientBalanceCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucInpatientBalanceCheck.Designer.cs">
+      <DependentUpon>ucInpatientBalanceCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucMainFpReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucMainFpReport.Designer.cs">
+      <DependentUpon>ucMainFpReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\frmQueryInfoSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\frmQueryInfoSetting.Designer.cs">
+      <DependentUpon>frmQueryInfoSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\ICommonReportController.cs" />
+    <Compile Include="Report\DayBalance\ucDayBalanceDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucDayBalanceDetail.Designer.cs">
+      <DependentUpon>ucDayBalanceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucInpatientBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucInpatientBalance.Designer.cs">
+      <DependentUpon>ucInpatientBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucMainFpReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucMainFpReport.Designer.cs">
+      <DependentUpon>ucMainFpReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Result.cs" />
+    <Compile Include="WSHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SOC.HISFC.InpatientFee.BizProcess\SOC.HISFC.InpatientFee.BizProcess.csproj">
+      <Project>{D9C7F1AC-86B3-479F-8069-8201F4590579}</Project>
+      <Name>SOC.HISFC.InpatientFee.BizProcess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

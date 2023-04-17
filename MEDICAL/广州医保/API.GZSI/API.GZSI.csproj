@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A0950B4-54B6-449B-94A6-9794A27BCB33}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>API.GZSI</RootNamespace>
+    <AssemblyName>API.GZSI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\HIS正式库\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Order, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.RADT, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Registration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Registration, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.WinForms.Resources, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.81.0.1407, Culture=neutral, PublicKeyToken=1b03e6acf1164f73" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\SOC.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.TreeListView, Version=1.0.3037.31124, Culture=neutral, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\DictionaryService.cs" />
+    <Compile Include="Class\Result.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\Function.cs" />
+    <Compile Include="Common\Webservices.cs" />
+    <Compile Include="LocalManager.cs" />
+    <Compile Include="Models\Request\RequestBase.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3501.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3502.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3503.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3504.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3505.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3506.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3507.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4101.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4101A.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4201.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4201A.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4202.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4203.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4204.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4205.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4206.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4207.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4208.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4209.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5102.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5203.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5260.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5261.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5302.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5401.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5402.cs" />
+    <Compile Include="Models\Response\ResponseBase.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1101.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1160.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1201.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1301.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1302.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1303.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1304.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1305.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1306.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1307.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1308.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1309.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1310.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1311.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1312.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1313.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1314.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1315.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1316.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1317.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1318.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1319.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel1901.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2201.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2202.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2203.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2204.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2205.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2206.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2207.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2208.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2260.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2261.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2301.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2302.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2303.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2304.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2305.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2401.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2402.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2403.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2404.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2405.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel2601.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3201.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3202.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3301.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3302.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3360.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3401.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3402.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3403.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3461.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3462.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3463.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3467.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3468.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3469.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3501.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3502.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3503.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3504.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3505.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3506.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel3507.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4101.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4101A.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4201.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4201A.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4202.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4203.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4204.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4205.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4206.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4207.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4208.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4209.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4401.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4402.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel4701.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5102.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5163.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5203.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5260.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5261.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5302.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5303.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5401.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel5402.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel9001.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel9002.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel9101.cs" />
+    <Compile Include="Models\Response\ResponseGzsiModel9102.cs" />
+    <Compile Include="Models\SpInfo.cs" />
+    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="Print\uc4101\ucBaseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\uc4101\ucBaseInfo.Designer.cs">
+      <DependentUpon>ucBaseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\uc4101\ucDiseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\uc4101\ucDiseInfo.Designer.cs">
+      <DependentUpon>ucDiseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\uc4101\ucDiseInfoCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\uc4101\ucDiseInfoCount.Designer.cs">
+      <DependentUpon>ucDiseInfoCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\uc4101\ucICUInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\uc4101\ucICUInfo.Designer.cs">
+      <DependentUpon>ucICUInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\uc4101\ucOprnInfoCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\uc4101\ucOprnInfoCount.Designer.cs">
+      <DependentUpon>ucOprnInfoCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\uc4101\ucPayType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\uc4101\ucPayType.Designer.cs">
+      <DependentUpon>ucPayType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\uc4101\ucPrint4101.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\uc4101\ucPrint4101.Designer.cs">
+      <DependentUpon>ucPrint4101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ucInBalanceInfoForClinic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ucInBalanceInfoForClinic.Designer.cs">
+      <DependentUpon>ucInBalanceInfoForClinic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ucInBalanceInfoPrintForClinic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ucInBalanceInfoPrintForClinic.Designer.cs">
+      <DependentUpon>ucInBalanceInfoPrintForClinic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RollbackManager.cs" />
+    <Compile Include="UI\frmComPareUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmComPareUpload.Designer.cs">
+      <DependentUpon>frmComPareUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmEleInvoiceQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmEleInvoiceQuery.Designer.cs">
+      <DependentUpon>frmEleInvoiceQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmOtherQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmOtherQuery.Designer.cs">
+      <DependentUpon>frmOtherQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmGoodUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmGoodUpload.Designer.cs">
+      <DependentUpon>frmGoodUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCatalogueQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCatalogueQuery.Designer.cs">
+      <DependentUpon>frmCatalogueQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmPatientQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmPatientQuery.Designer.cs">
+      <DependentUpon>frmPatientQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucDictionaryUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucDictionaryUpdate.Designer.cs">
+      <DependentUpon>ucDictionaryUpdate.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\修改必阅说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Print\uc4101\ucBaseInfo.resx">
+      <DependentUpon>ucBaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\uc4101\ucDiseInfo.resx">
+      <DependentUpon>ucDiseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\uc4101\ucDiseInfoCount.resx">
+      <DependentUpon>ucDiseInfoCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\uc4101\ucICUInfo.resx">
+      <DependentUpon>ucICUInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\uc4101\ucOprnInfoCount.resx">
+      <DependentUpon>ucOprnInfoCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\uc4101\ucPayType.resx">
+      <DependentUpon>ucPayType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\uc4101\ucPrint4101.resx">
+      <DependentUpon>ucPrint4101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ucInBalanceInfoForClinic.resx">
+      <DependentUpon>ucInBalanceInfoForClinic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ucInBalanceInfoPrintForClinic.resx">
+      <DependentUpon>ucInBalanceInfoPrintForClinic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmBalanceShow.resx">
+      <DependentUpon>frmBalanceShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmComPareUpload.resx">
+      <DependentUpon>frmComPareUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmEleInvoiceQuery.resx">
+      <DependentUpon>frmEleInvoiceQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmOtherQuery.resx">
+      <DependentUpon>frmOtherQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmGoodUpload.resx">
+      <DependentUpon>frmGoodUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCatalogueQuery.resx">
+      <DependentUpon>frmCatalogueQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCatalogueDownload.resx">
+      <DependentUpon>frmCatalogueDownload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmPatientQuery.resx">
+      <DependentUpon>frmPatientQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucCatalogueManager.resx">
+      <DependentUpon>ucCatalogueManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucDictionaryUpdate.resx">
+      <DependentUpon>ucDictionaryUpdate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucGJItemCompare.resx">
+      <DependentUpon>ucGJItemCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucInPatientUpload.resx">
+      <DependentUpon>ucInPatientUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucInPatientUploadLX.resx">
+      <DependentUpon>ucInPatientUploadLX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucOwnPayUpload.resx">
+      <DependentUpon>ucOwnPayUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ucUploadSIInfo.resx">
+      <DependentUpon>ucUploadSIInfo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\AbstractService.cs" />
+    <Compile Include="Business\CommonService.cs" />
+    <Compile Include="Business\InPatientService.cs" />
+    <Compile Include="Business\IService.cs" />
+    <Compile Include="Business\OutPatientService.cs" />
+    <Compile Include="Business\PatientService.cs" />
+    <Compile Include="Class\HttpHelper.cs" />
+    <Compile Include="Class\JsonHelper.cs" />
+    <Compile Include="Class\Log.cs" />
+    <Compile Include="Class\ZipFloClass.cs" />
+    <Compile Include="Common\DisplayAttribute.cs" />
+    <Compile Include="Common\JsonHelper.cs" />
+    <Compile Include="Common\SM3Helper.cs" />
+    <Compile Include="Common\SM3Helper2.cs" />
+    <Compile Include="Common\SystemInfo.cs" />
+    <Compile Include="Models\Agnterinfo.cs" />
+    <Compile Include="Models\Baseinfo.cs" />
+    <Compile Include="Models\Codeinfo.cs" />
+    <Compile Include="Models\Config.cs" />
+    <Compile Include="Models\Idetinfo.cs" />
+    <Compile Include="Models\Inpatient\Diseinfo.cs" />
+    <Compile Include="Models\Inpatient\Feedetail.cs" />
+    <Compile Include="Models\Insuinfo.cs" />
+    <Compile Include="Models\Outpatient\Detlcutinfo.cs" />
+    <Compile Include="Models\Outpatient\Diseinfo.cs" />
+    <Compile Include="Models\Outpatient\Feedetail.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1201.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1101.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1160.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel1302.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1303.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1304.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1305.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1306.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1307.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1308.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1309.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1310.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1311.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1312.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1313.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1314.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1315.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1316.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1317.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1318.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1319.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1301.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel1901.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel2201.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel2202.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel2203.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel2204.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel2205.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel2206.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel2207.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel2208.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2260.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2261.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2301.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2302.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2303.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2304.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2305.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2401.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2402.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2403.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2404.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2405.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel2601.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel3201.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel3202.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel3301.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3302.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3360.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3401.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3402.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3403.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3461.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3462.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3463.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3467.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3468.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel3469.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4401.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4402.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel4701.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5163.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel5303.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel9001.cs" />
+    <Compile Include="Models\Request\RequestGzsiModel9002.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel9101.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Request\RequestGzsiModel9102.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ServiceResult.cs" />
+    <Compile Include="Models\Setldetail.cs" />
+    <Compile Include="Models\Setlinfo.cs" />
+    <Compile Include="Models\UserPatient.cs" />
+    <Compile Include="Models\Voladetail.cs" />
+    <Compile Include="Models\WebMessage.cs" />
+    <Compile Include="Process.cs" />
+    <Compile Include="UI\frmBalanceShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmBalanceShow.Designer.cs">
+      <DependentUpon>frmBalanceShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCatalogueDownload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCatalogueDownload.Designer.cs">
+      <DependentUpon>frmCatalogueDownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucCatalogueManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucCatalogueManager.designer.cs">
+      <DependentUpon>ucCatalogueManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucGJItemCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucGJItemCompare.Designer.cs">
+      <DependentUpon>ucGJItemCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucInPatientUpload.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucInPatientUpload.Designer.cs">
+      <DependentUpon>ucInPatientUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucInPatientUploadLX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucInPatientUploadLX.Designer.cs">
+      <DependentUpon>ucInPatientUploadLX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucOwnPayUpload.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucOwnPayUpload.Designer.cs">
+      <DependentUpon>ucOwnPayUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ucUploadSIInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ucUploadSIInfo.Designer.cs">
+      <DependentUpon>ucUploadSIInfo.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B132C08-52F6-44F8-B810-91EFCF749D4F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.OutpatientFee</RootNamespace>
+    <AssemblyName>SOC.Local.OutpatientFee</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DataWindow, Version=2.5.0.0, Culture=neutral, PublicKeyToken=cc0f66dd9541b3da, processorArchitecture=x86" />
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FSDataWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FSLocal.OutPatientFee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Order, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Registration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Terminal, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Account, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.OutpatientFee, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Registration, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Terminal, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Medical.Bizlogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MagicLibrary, Version=1.7.3.0, Culture=neutral, PublicKeyToken=3a6eb82f876a49bc" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="SOC.Fee.DayBalance, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.BizProcess, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System">
+      <HintPath>C:\Windows\Microsoft.NET\Framework64\v2.0.50727\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.TreeListView, Version=1.0.3037.31124, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WinForms.Report, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default\ExecDept.cs" />
+    <Compile Include="Default\KeepAccountPatientDefault.cs" />
+    <Compile Include="Default\ucKeeyAccountPatientDefend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Default\ucKeeyAccountPatientDefend.Designer.cs">
+      <DependentUpon>ucKeeyAccountPatientDefend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSan\frmInvoiceInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoSan\frmInvoiceInfo.Designer.cs">
+      <DependentUpon>frmInvoiceInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSan\frmQueryPatientByName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoSan\frmQueryPatientByName.Designer.cs">
+      <DependentUpon>frmQueryPatientByName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSan\Function.cs" />
+    <Compile Include="FoSan\Interface\IOutPatientInvoiceShow.cs" />
+    <Compile Include="FoSan\outScreen.cs" />
+    <Compile Include="FoSan\ucInvoiceTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSan\ucInvoiceTree.Designer.cs">
+      <DependentUpon>ucInvoiceTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSan\ucOutpatientGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSan\ucQueryFeeDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSan\ucQueryFeeDetail.Designer.cs">
+      <DependentUpon>ucQueryFeeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\CheckPactInfo.cs" />
+    <Compile Include="FoSi\Controls\ucCharge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\Controls\ucCharge.Designer.cs">
+      <DependentUpon>ucCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\Controls\ucPatientList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\Controls\ucPatientList.Designer.cs">
+      <DependentUpon>ucPatientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\Forms\frmBalanceAddUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoSi\Forms\frmBalanceAddUp.Designer.cs">
+      <DependentUpon>frmBalanceAddUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\Forms\frmDealBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoSi\Forms\frmDealBalance.Designer.cs">
+      <DependentUpon>frmDealBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\Forms\frmInvoiceInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoSi\Forms\frmInvoiceInfo.Designer.cs">
+      <DependentUpon>frmInvoiceInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\Forms\ucCostDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\Forms\ucCostDisplay.Designer.cs">
+      <DependentUpon>ucCostDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\FoSiOutPatientFeeRoundOff.cs" />
+    <Compile Include="FoSi\Forms\frmMiltScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoSi\Forms\frmMiltScreen.Designer.cs">
+      <DependentUpon>frmMiltScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\MiltScreenByCom.cs" />
+    <Compile Include="FoSi\ucPatientInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\ucPatientInformation.Designer.cs">
+      <DependentUpon>ucPatientInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\ucPatientTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\ucPatientTree.Designer.cs">
+      <DependentUpon>ucPatientTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\ucQueryOutPatientFee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\ucQueryOutPatientFee.Designer.cs">
+      <DependentUpon>ucQueryOutPatientFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\ucInvoiceTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\ucInvoiceTree.Designer.cs">
+      <DependentUpon>ucInvoiceTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoSi\ucOutpatientGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\ucQueryFeeDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoSi\ucQueryFeeDetail.Designer.cs">
+      <DependentUpon>ucQueryFeeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\frmConfirmBalanceRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\frmConfirmBalanceRecord.designer.cs">
+      <DependentUpon>frmConfirmBalanceRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\ucOutPatientDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\ucOutPatientDayBalance.designer.cs">
+      <DependentUpon>ucOutPatientDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\ucOutPatientDayBalanceDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\ucOutPatientDayBalanceDateControl.designer.cs">
+      <DependentUpon>ucOutPatientDayBalanceDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\ucOutPatientDayBalanceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\ucOutPatientDayBalanceReport.designer.cs">
+      <DependentUpon>ucOutPatientDayBalanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\ucReprintDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\DayBalance\ucReprintDateControl.designer.cs">
+      <DependentUpon>ucReprintDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\frmMiltScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuYou\frmMiltScreen.Designer.cs">
+      <DependentUpon>frmMiltScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Function\Functions.cs" />
+    <Compile Include="FuYou\Function\OutPatientDayBalance.cs" />
+    <Compile Include="FuYou\Models\ClinicDayBalanceNew.cs" />
+    <Compile Include="FuYou\Models\OutPatientDayBalance.cs" />
+    <Compile Include="FuYou\OutpatientFeeInvoicePrint\ucSDFYOutpatientFeeInvoicePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\OutpatientFeeInvoicePrint\ucSDFYOutpatientFeeInvoicePrint.designer.cs">
+      <DependentUpon>ucSDFYOutpatientFeeInvoicePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\PrintInterfaceImplement.cs" />
+    <Compile Include="FuYou\Report\ucElecRecipeUseRatioByDept.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Report\ucElecRecipeUseRatioByDept.designer.cs">
+      <DependentUpon>ucElecRecipeUseRatioByDept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Report\ucElecRecipeUseRatioByDoct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Report\ucElecRecipeUseRatioByDoct.designer.cs">
+      <DependentUpon>ucElecRecipeUseRatioByDoct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Report\ucFinOpbQueryInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Report\ucFinOpbQueryInvoice.designer.cs">
+      <DependentUpon>ucFinOpbQueryInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutpatientFeeInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutpatientFeeInfo.designer.cs">
+      <DependentUpon>ucOutpatientFeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutPatientIncoming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutPatientIncoming.designer.cs">
+      <DependentUpon>ucOutPatientIncoming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutPatientIncomingMoney.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutPatientIncomingMoney.designer.cs">
+      <DependentUpon>ucOutPatientIncomingMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutPatientIncomingMoneyComparison.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutPatientIncomingMoneyComparison.designer.cs">
+      <DependentUpon>ucOutPatientIncomingMoneyComparison.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutPatientMinfee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\Report\ucOutPatientMinfee.designer.cs">
+      <DependentUpon>ucOutPatientMinfee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\SubFeeSet.cs" />
+    <Compile Include="FuYou\ucItemListBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\ucItemListBill.Designer.cs">
+      <DependentUpon>ucItemListBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuYou\ucMZZLDRePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuYou\ucMZZLDRePrint.Designer.cs">
+      <DependentUpon>ucMZZLDRePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYSY\ucFeedetailPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYSY\ucFeedetailPrint.designer.cs">
+      <DependentUpon>ucFeedetailPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\frmConfirmBalanceRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\frmConfirmBalanceRecord.designer.cs">
+      <DependentUpon>frmConfirmBalanceRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucAccDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucAccDayBalance.designer.cs">
+      <DependentUpon>ucAccDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucOutPatientDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucOutPatientDayBalance.designer.cs">
+      <DependentUpon>ucOutPatientDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucOutPatientDayBalanceDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucOutPatientDayBalanceDateControl.designer.cs">
+      <DependentUpon>ucOutPatientDayBalanceDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucOutPatientDayBalanceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucOutPatientDayBalanceReport.designer.cs">
+      <DependentUpon>ucOutPatientDayBalanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucOutPatientDayBalanceQuitFee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucOutPatientDayBalanceQuitFee.designer.cs">
+      <DependentUpon>ucOutPatientDayBalanceQuitFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucReprintDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\DayBalance\ucReprintDateControl.designer.cs">
+      <DependentUpon>ucReprintDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Functions\OutPatientDayBalance.cs" />
+    <Compile Include="GYZL\Models\ClinicDayBalance.cs" />
+    <Compile Include="GYZL\Models\ClinicDayBalanceNew.cs" />
+    <Compile Include="GYZL\OutpatientFeeInvoicePrint\ucGYZLOutpatientFeeInvoicePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\OutpatientFeeInvoicePrint\ucGYZLOutpatientFeeInvoicePrint.designer.cs">
+      <DependentUpon>ucGYZLOutpatientFeeInvoicePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Report\ucOutpatientFeeInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\Report\ucOutpatientFeeInfo.designer.cs">
+      <DependentUpon>ucOutpatientFeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\ucQuitDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQuitDrugBill.designer.cs">
+      <DependentUpon>ucQuitDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NanZhuang\Function.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\Object\CooperatePatient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\PatientEvaluation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\ucCooperatePatientMaintenance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NanZhuang\ucCooperatePatientMaintenance.Designer.cs">
+      <DependentUpon>ucCooperatePatientMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FuYou\SubInterfaceImplement.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\CheckPactInfo.cs" />
+    <Compile Include="QiaoTou\frmCreateCardMultiScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\frmCreateCardMultiScreen.Designer.cs">
+      <DependentUpon>frmCreateCardMultiScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\frmChargeMultiScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\frmChargeMultiScreen.Designer.cs">
+      <DependentUpon>frmChargeMultiScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\frmRegiserMultiScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\frmRegiserMultiScreen.Designer.cs">
+      <DependentUpon>frmRegiserMultiScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\ucQueryBaseForDataWindowBySQL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\ucQueryBaseForDataWindowBySQL.Designer.cs">
+      <DependentUpon>ucQueryBaseForDataWindowBySQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\ucQueryItemReportForOutPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\ucQueryItemReportForOutPatient.Designer.cs">
+      <DependentUpon>ucQueryItemReportForOutPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QiaoTou\ucSetSubDepartment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QiaoTou\ucSetSubDepartment.Designer.cs">
+      <DependentUpon>ucSetSubDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\fosiweb\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\ucOutPatientInvoiceIncome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\ucOutPatientInvoiceIncome.Designer.cs">
+      <DependentUpon>ucOutPatientInvoiceIncome.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Default\ucKeeyAccountPatientDefend.resx">
+      <DependentUpon>ucKeeyAccountPatientDefend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSan\frmInvoiceInfo.resx">
+      <DependentUpon>frmInvoiceInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSan\frmQueryPatientByName.resx">
+      <DependentUpon>frmQueryPatientByName.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSan\ucInvoiceTree.resx">
+      <DependentUpon>ucInvoiceTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSan\ucOutpatientGuide.resx">
+      <DependentUpon>ucOutpatientGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSan\ucQueryFeeDetail.resx">
+      <DependentUpon>ucQueryFeeDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\Controls\ucCharge.resx">
+      <DependentUpon>ucCharge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\Controls\ucPatientList.resx">
+      <DependentUpon>ucPatientList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\Forms\frmBalanceAddUp.resx">
+      <DependentUpon>frmBalanceAddUp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\Forms\frmDealBalance.resx">
+      <DependentUpon>frmDealBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\Forms\frmInvoiceInfo.resx">
+      <DependentUpon>frmInvoiceInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\Forms\frmMiltScreen.resx">
+      <DependentUpon>frmMiltScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\Forms\ucCostDisplay.resx">
+      <DependentUpon>ucCostDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\ucPatientInformation.resx">
+      <DependentUpon>ucPatientInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\ucPatientTree.resx">
+      <DependentUpon>ucPatientTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\ucQueryOutPatientFee.resx">
+      <DependentUpon>ucQueryOutPatientFee.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\ucInvoiceTree.resx">
+      <DependentUpon>ucInvoiceTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\ucOutpatientGuide.resx">
+      <DependentUpon>ucOutpatientGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoSi\ucQueryFeeDetail.resx">
+      <DependentUpon>ucQueryFeeDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\DayBalance\frmConfirmBalanceRecord.resx">
+      <DependentUpon>frmConfirmBalanceRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\DayBalance\ucOutPatientDayBalance.resx">
+      <DependentUpon>ucOutPatientDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\DayBalance\ucOutPatientDayBalanceDateControl.resx">
+      <DependentUpon>ucOutPatientDayBalanceDateControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\DayBalance\ucOutPatientDayBalanceReport.resx">
+      <DependentUpon>ucOutPatientDayBalanceReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\DayBalance\ucReprintDateControl.resx">
+      <DependentUpon>ucReprintDateControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\frmMiltScreen.resx">
+      <DependentUpon>frmMiltScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\OutpatientFeeInvoicePrint\ucSDFYOutpatientFeeInvoicePrint.resx">
+      <DependentUpon>ucSDFYOutpatientFeeInvoicePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Report\ucElecRecipeUseRatioByDept.resx">
+      <DependentUpon>ucElecRecipeUseRatioByDept.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Report\ucElecRecipeUseRatioByDoct.resx">
+      <DependentUpon>ucElecRecipeUseRatioByDoct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Report\ucFinOpbQueryInvoice.resx">
+      <DependentUpon>ucFinOpbQueryInvoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Report\ucOutpatientFeeInfo.resx">
+      <DependentUpon>ucOutpatientFeeInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Report\ucOutPatientIncoming.resx">
+      <DependentUpon>ucOutPatientIncoming.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Report\ucOutPatientIncomingMoney.resx">
+      <DependentUpon>ucOutPatientIncomingMoney.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Report\ucOutPatientIncomingMoneyComparison.resx">
+      <DependentUpon>ucOutPatientIncomingMoneyComparison.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\Report\ucOutPatientMinfee.resx">
+      <DependentUpon>ucOutPatientMinfee.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\ucItemListBill.resx">
+      <DependentUpon>ucItemListBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuYou\ucMZZLDRePrint.resx">
+      <DependentUpon>ucMZZLDRePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYSY\ucFeedetailPrint.resx">
+      <DependentUpon>ucFeedetailPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\DayBalance\frmConfirmBalanceRecord.resx">
+      <DependentUpon>frmConfirmBalanceRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\DayBalance\ucAccDayBalance.resx">
+      <DependentUpon>ucAccDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\DayBalance\ucOutPatientDayBalance.resx">
+      <DependentUpon>ucOutPatientDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\DayBalance\ucOutPatientDayBalanceDateControl.resx">
+      <DependentUpon>ucOutPatientDayBalanceDateControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\DayBalance\ucOutPatientDayBalanceReport.resx">
+      <DependentUpon>ucOutPatientDayBalanceReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\DayBalance\ucOutPatientDayBalanceQuitFee.resx">
+      <DependentUpon>ucOutPatientDayBalanceQuitFee.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\DayBalance\ucReprintDateControl.resx">
+      <DependentUpon>ucReprintDateControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\OutpatientFeeInvoicePrint\ucGYZLOutpatientFeeInvoicePrint.resx">
+      <DependentUpon>ucGYZLOutpatientFeeInvoicePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\Report\ucOutpatientFeeInfo.resx">
+      <DependentUpon>ucOutpatientFeeInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQuitDrugBill.resx">
+      <DependentUpon>ucQuitDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NanZhuang\ucCooperatePatientMaintenance.resx">
+      <DependentUpon>ucCooperatePatientMaintenance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\frmCreateCardMultiScreen.resx">
+      <DependentUpon>frmCreateCardMultiScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\frmChargeMultiScreen.resx">
+      <DependentUpon>frmChargeMultiScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\frmRegiserMultiScreen.resx">
+      <DependentUpon>frmRegiserMultiScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\ucQueryBaseForDataWindowBySQL.resx">
+      <DependentUpon>ucQueryBaseForDataWindowBySQL.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\ucQueryItemReportForOutPatient.resx">
+      <DependentUpon>ucQueryItemReportForOutPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QiaoTou\ucSetSubDepartment.resx">
+      <DependentUpon>ucSetSubDepartment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\ucOutPatientInvoiceIncome.resx">
+      <DependentUpon>ucOutPatientInvoiceIncome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://128.111.22.122/FosiWeb/FosiWeb.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\fosiweb\</RelPath>
+      <UpdateFromURL>http://128.111.22.122/FosiWeb/FosiWeb.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SOC_Local_OutpatientFee_fosiweb_FosiWeb</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\fosiweb\FosiWeb.disco" />
+    <None Include="Web References\fosiweb\FosiWeb.wsdl" />
+    <None Include="Web References\fosiweb\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

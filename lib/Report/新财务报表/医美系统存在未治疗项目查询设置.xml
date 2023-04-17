@@ -1,0 +1,63 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dtEndTime2</Name><Text>截止时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>440</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>txtname</Name><Text>姓名或客户卡号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>680</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>
+
+
+
+
+
+
+
+
+
+select decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,xf.khkh,'合计：') khkh,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,xf.pid,'/') pid ,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,xf.khxm,'/') khxm,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,(case when xf.sftckd='Y' then '是' when xf.qybz is not null then '是' else '否' end),'/') sftckd,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,cd.name,'/') type,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,nvl(xf.tcmc,ep.package_name),'/') tcmc,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,xf.xmmc,'/') xmmc,
+       sum(nvl(xf.xmsl,0)+nvl(zl2.bczlcs,0)) xmsl,
+       sum(xf.ksyj) zhje,
+       sum(nvl(zl.bczlcs,0)) bczlcs,
+       sum(case when xf.sflx=1 then nvl(xf.xmsl,0)-nvl(zl.bczlcs,0) else nvl(xf.xmsl,0)+nvl(zl2.bczlcs,0) end) sycs,
+       sum(case when xf.xmsl&lt;&gt;0 and xf.ksyj&lt;&gt;0 then round((xf.xmsl-nvl(zl.bczlcs,0))*xf.ksyj/xf.xmsl,2) else 0 end) syje,
+       sum(case when xf.xmsl&lt;&gt;0 and xf.ksyj&lt;&gt;0 then round(nvl(zl.bczlcs,0)*xf.ksyj/xf.xmsl,2) else 0 end) yyje,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,xf.syyxm,'/') syyxm,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,xf.jzsj,to_date('0001-01-01','yyyy-mm-dd')) jzsj,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd')),to_date('0001-01-01','yyyy-mm-dd')) zlsj,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,(case when xf.qybz is not null then '是' else '否'end),'/') sfqysj,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,kh.xczxxm,'/') xczxxm,
+       decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,kh.khdbxm,'/') khdbxm,
+      decode(grouping_id(xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))),0,(case when feel.recipe_no is not null then '是' else '否'end),'/') xfmz
+  from inf_xfmx_abe xf 
+  left join (select zl.sfdh,zl.sfmxid,sum(zl.bczlcs) bczlcs,min(zl.zlsj) zlsj
+                 from (
+                      select zls.sfdh,zls.sfmxid,case when zls.YJZXLX='11' or  zls.YJZXLX='12' then  -zls.bczlcs else  bczlcs end  bczlcs,zls.zlsj zlsj
+                           from inf_zljl_abe zls
+                           where to_char(zls.zlsj,'yyyy-mm-dd hh24:mi:ss')&lt; '&amp;dtEndTime2') zl
+                 group by zl.sfdh,zl.sfmxid ) zl on zl.sfdh=xf.sfdh and zl.sfmxid=xf.id
+  left join
+     (select zl.sfdh,zl.sfmxid,sum(zl.bczlcs) bczlcs,min(zl.zlsj) zlsj
+                 from (
+                      select zls.sfdh,zls.sfmxid,case when zls.YJZXLX='11' or  zls.YJZXLX='12' then  -zls.bczlcs else  bczlcs end  bczlcs,zls.zlsj zlsj
+                           from inf_zljl_abe zls
+                           where to_char(zls.zlsj,'yyyy-mm-dd hh24:mi:ss')&lt; '2022-03-292') zl
+                 group by zl.sfdh,zl.sfmxid ) zl2 on zl2.sfmxid=xf.ysfmx
+  left join exp_packagedetail epd on epd.invoice_no=xf.qybz and epd.clinic_code=xf.qytclsh and epd.sequence_no=xf.qyxmlsh and epd.cancel_flag=0
+  left join exp_package ep on epd.clinic_code=ep.clinic_code and epd.trans_type=ep.trans_type and ep.cancel_flag=0
+  left join bd_com_package bp on ep.package_id=bp.package_id
+  left join com_dictionary cd on bp.package_kind=cd.code and cd.type='PACKAGETYPE'
+  left join inf_khsx_abe kh on xf.khkh=kh.khkh
+   left join fin_opb_feedetail feel on feel.recipe_no=xf.qytclsh 
+ where xf.jzsj between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1  
+   and xf.sflx in ('1','11')
+   and (xf.khkh like '%&amp;txtname%' or xf.pid like '%&amp;txtname%' or xf.khxm like '%&amp;txtname%' or '&amp;txtname' is null)
+   --and xf.khxm='cici'
+   --and xf.khkh='9999930868'
+   --and xf.sfdh in ('BL202102260020','BL202106150030')
+   --and (xf.qybz like '20%' or xf.qybz is null)
+  group by rollup((xf.khkh,xf.pid,xf.khxm,xf.sftckd,xf.tcmc,xf.xmmc,xf.syyxm,ep.package_name,cd.name,xf.qybz,kh.xczxxm,kh.khdbxm,xf.jzsj,feel.recipe_no,nvl(zl.zlsj,to_date('0001-01-01','yyyy-mm-dd'))))
+ 
+ 
+
+    
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新财务报表\医美系统存在未治疗项目查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,42 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dt</Name><Sql>select g.name 证件类型,g.idenno 证件号码,g.names 姓名,g.home_tel 电话号码,'本机构免费检测' 检测类型,g.oper_date 检测日期,'广州爱博恩妇产医院' 检测机构,case when g.官网 is not null then '是' else '否' end 艾滋病是否检测,g.官网 艾滋病抗体筛查实验,
+ case when g.官微 is not null then '是' else '否' end 梅毒是否检测, case when g.官微 is not null then '是' else '否' end 梅毒是否梅毒螺旋体检测 ,'梅毒螺旋体颗粒凝集(TPPA)' 梅毒是否梅毒螺,g.官微 梅毒是否梅毒螺旋体抗结果,
+   case when g.挂号网 is not null then '是' else '否' end 梅毒否非梅毒螺旋体血清学检测 ,'甲苯胺红不加热血清试验(TRUST)' 梅毒是否非梅毒螺检测方法,g.挂号网 梅毒是否血清学检测结果, 
+   case when g.商城 is not null then '是' else '否' end 乙肝是否检测 ,g.商城 乙肝表面抗原, g.其它网络 乙肝表面抗体, g.大众点评 乙肝e抗原, g.美团 乙肝e抗体, g.有赞 乙肝核心抗体
+    from (   
+                                     
+select * from (        
+                              
+        select rank() over (order by bc.bc_occ_date asc)  id,
+           p."pat_id" ,
+           dic.name,
+           info.idenno,
+           p."pat_name" names,
+           info.HOME_TEL,
+           bc.bc_occ_date oper_date,
+           nvl(re."res_itm_rep_ecd",dc."com_name") itm_name,
+           re."res_chr" result
+      from (select "res_itm_id","res_itm_ecd","res_itm_rep_ecd","res_chr","res_id","res_com_id" ,"res_date"
+              from resulto@lisdblink 
+             where 
+                "res_date" between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 ) re
+      left join (select "pat_in_no","pat_name","pat_dep_name","pat_doc_name","pat_id","pat_bar_code","pat_ori_id","pat_flag"
+                   from patients@lisdblink where "pat_flag" in ('2','4')) p on re."res_id"=p."pat_id" 
+      left join com_dictionary cd1 on cd1.type='amy' and cd1.code=re."res_itm_id"
+      left join (select "bc_bar_code",max("bc_occ_date") bc_occ_date from bc_cname@lisdblink where "bc_flag"=1 group by "bc_bar_code") bc on bc."bc_bar_code"=p."pat_bar_code" 
+      left join (select "bc_bar_code","bc_his_code" from bc_cname@lisdblink where "bc_flag"=1) cnames on cnames."bc_bar_code"=p."pat_bar_code" 
+      left join (select "ori_id","ori_name" from dict_origin@lisdblink) do on p."pat_ori_id"=do."ori_id"
+      left join (select dc."com_id",dc."com_name" from dict_combine@lisdblink dc) dc on dc."com_id"=re."res_itm_id"
+      left join com_patientinfo info on info.card_no= p."pat_in_no"
+      left join com_dictionary dic on dic.code =info.idcardtype and dic.type = 'IDCard'
+      left join ( select CARD_NO,CLINIC_CODE from exp_package where  CANCEL_FLAG='0' ) v on v.card_no= p."pat_in_no"
+     where 
+     
+      cd1.code is not null and v.CLINIC_CODE is not null
+      and  cnames."bc_his_code"  in ('F00000031785','F00000031786','F00000031787','F00000031788')
+      
+      )   --group by pat_id,name,idenno,name,home_tel,oper_date,
+      
+       pivot (min（RESULT） for itm_name in('艾滋病抗体检测(定量)(电化学发光法)(Anti-HIV)' 官网,'梅毒螺旋体抗体凝集(凝集法)(TPPA)' 官微,'梅毒甲苯胺红不加热血清学试验(TRUST)' 挂号网,'乙肝表面抗原(定性)(乳胶法)(HBsAg)' 商城,'乙肝核心抗体(定性)(乳胶法)(HBcAb)' 其它网络,'乙肝病毒e抗原(定性)(乳胶法)(HBeAg)' 大众点评,'乙肝病毒e抗体(定性)(乳胶法)(HBeAb)' 美团
+                                 ,'乙肝核心抗体(定性)(乳胶法)(HBcAb)' 有赞))
+      
+      )g</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新医务报表\传染病实验室艾梅乙检测情况设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

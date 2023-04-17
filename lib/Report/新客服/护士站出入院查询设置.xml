@@ -1,0 +1,99 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-7</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtsource</Name><Sql>select tt.护士站,tt.时间,sum(tt.入院) 入院人数,sum(tt.出院) 出院人数  from (
+  select '妇产科五楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,count(1) as 入院, 0 as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.in_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1  
+  and    a.nurse_cell_name = '妇产科五楼'
+  
+  union 
+  
+  select '妇产科五楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,0 as 入院,count(1) as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.out_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '妇产科五楼'  
+ 
+   union
+  
+  select '妇产科六楼' 护士站,  '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,count(1) as 入院, 0 as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.in_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '妇产科六楼'
+  
+  union 
+  
+  select '妇产科六楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,0 as 入院,count(1) as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.out_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '妇产科六楼'
+  
+
+  union
+  
+  select '月子中心五楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,count(1) as 入院, 0 as 出院 from fin_ipr_inmaininfo a
+  where  1 = 1
+  and    a.patient_type in ('Y') and a.in_state &lt;&gt; 'N'
+  and    a.in_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '月子中心五楼'
+  
+  union
+  
+  select '月子中心五楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,0 as 入院,count(1) as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('Y') and a.in_state &lt;&gt; 'N'
+  and    a.out_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '月子中心五楼'
+  
+  union 
+   
+  select '月子中心六楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,count(1) as 入院, 0 as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('Y','P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.in_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '月子中心六楼'
+  
+  union
+  
+  select '月子中心六楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,0 as 入院,count(1) as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('Y','P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.out_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '月子中心六楼'
+
+   union 
+   
+  select '新生儿科五楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,count(1) as 入院, 0 as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('Y','P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.in_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '新生儿科五楼'
+  
+  union
+  
+  select '新生儿科五楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,0 as 入院,count(1) as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('Y','P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.out_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '新生儿科五楼'
+  
+   union 
+   
+  select '产房七楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,count(1) as 入院, 0 as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('Y','P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.in_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '产房七楼'
+  
+  union
+  
+  select '产房七楼' 护士站, '&amp;dtBeginTime'||'至'|| '&amp;dtEndTime' 时间,0 as 入院,count(1) as 出院 from fin_ipr_inmaininfo a 
+  where  1 = 1
+  and    a.patient_type in ('Y','P','F','L') and a.in_state &lt;&gt; 'N'
+  and    a.out_date between  to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date( '&amp;dtEndTime','yyyy-mm-dd')+1
+  and    a.nurse_cell_name = '产房七楼'
+  ) tt
+  where 1 = 1
+  group by tt.护士站,tt.时间
+  order by tt.护士站,tt.时间</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新客服\护士站出入院查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

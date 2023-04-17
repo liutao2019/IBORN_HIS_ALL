@@ -1,0 +1,37 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>beginday</Name><Text>（查询时间为预出院时间的条件）查询时间</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>endday</Name><Text>结束时间</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>400</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dgvIprInMainInfo</Name><Sql>select k.name,k.bed_no,k.deliveryname,k.in_date,to_char（k.out_date,'yyyy-mm-dd') out_date,
+         case when k.out_date1 &lt; to_date('2001-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss') then null  else out_date1 end out_date1,
+         case when to_char（k.out_date,'yyyy-mm-dd') &lt; to_char（k.out_date1,'yyyy-mm-dd') then '是' else '否' end  isover,
+         case when trunc(months_between(out_date1,out_date)/12) &gt;0 then trunc(months_between(out_date1,out_date)/12)||'年' when trunc(months_between(out_date1,out_date)) &gt;0 then trunc(months_between(out_date1,out_date))||'月'
+              when trunc(TO_NUMBER(out_date1- out_date))&gt;0 then trunc(out_date1,'dd')- trunc(out_date,'dd')||'天'  else ''  end overdays 
+  
+  from  
+ ( select distinct t.name,replace(t.bed_no,nurse_cell_code,'') bed_no,
+        (case b.delivery_code when '1' then '自然分娩' when '2'  then '剖腹分娩' when '3'  then '无痛分娩'  else '其他' end) deliveryName,
+        to_char(t.in_date,'yyyy-MM-dd hh24:mi:ss') in_date,
+        (case  when (b.delivery_code='1' or b.delivery_code='3') then t.in_date+3  else t.in_date+4  end) out_date,
+        t.out_date out_date1
+  from  fin_ipr_inmaininfo t
+  left  join fin_ipr_babyinfo b on t.inpatient_no = b.mother_inpatient_no
+  where 1 = 1
+  and   t.patient_type not in( 'Y')
+  and   t.in_state not in ('N')
+  and   t.card_no not like 'B%'
+  and   t.inpatient_no in (select max(inpatient_no) from fin_ipr_inmaininfo where dept_code &lt;&gt; '1010'  and card_no=t.card_no )
+  
+  union
+  
+  select distinct f.name,replace(bed_no,nurse_cell_code,'') bed_no,'月子中心',
+   to_char(f.in_date,'yyyy-MM-dd hh24:mi:ss') in_date,
+   (select max( ib.outdate) from iborn_roomorder ib where ib.patientid=f.card_no and ib.packagetype=2 group by ib.patientid, ib.packagetype) out_date ,
+   f.out_date out_date1
+   from fin_ipr_inmaininfo f
+   where 1 = 1
+   and   f.patient_type in( 'Y')
+   and   f.in_state not in ('N')
+   and   f.card_no not like 'B%'
+   and   f.inpatient_no in (select max(inpatient_no) from fin_ipr_inmaininfo where dept_code = '1010'  and card_no=f.card_no ) 
+  ) k
+  where  k.out_date&gt;=to_date('2018-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')  
+  and    k.out_date between to_date('&amp;beginday','yyyy-mm-dd hh24:mi:ss') and to_date('&amp;endday','yyyy-mm-dd hh24:mi:ss')+0.99
+
+  order by  k.out_date</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\即将出院患者统计设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

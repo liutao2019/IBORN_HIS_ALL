@@ -1,0 +1,3269 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>cmbHospital</Name><Text>院区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>false</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select code,name,' ', spell_code,wb_code,mark from com_dictionary  where type = 'HOSPITALLIST'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>MZ_CA_Cost</Name><Sql>----门诊现金收入
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm'))||'.1'||a.type 年,  
+'1001' F1日期F2类别,  --科目代码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+--门诊收入--现金
+ select nvl(sum(t.tot_cost),0) ca_cost,'门诊' type
+   from fin_opb_paymode t 
+   left join (select distinct f.invoice_no,f.trans_type,f.reg_dpcd from fin_opb_feedetail f) fd 
+          on t.invoice_no=fd.invoice_no and t.trans_type=fd.trans_type 
+   left join com_department cd on cd.dept_code=fd.reg_dpcd
+  where 
+     cd.hospital_id = '&amp;cmbHospital'
+     and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+     and t.mode_code in  ('CA') 
+) a </Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>MZ_Non_CA_Cost</Name><Sql>--门诊收入--非现金
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm'))||'.1'||a.type 年,  
+--case when ps='ZW' then '100202' else '1001' end F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码
+'1001' F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码 
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+--case when ps='ZW' then '广东华兴银行广州天河路支行' else '银行' end  F62科目名称,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+--门诊收入--非现金
+ select nvl(sum(t.tot_cost),0) ca_cost,
+        case when t.mode_code in ('ZB','WP') then 'ZW' else  'POS' end ps,
+        '门诊' type
+   from fin_opb_paymode t 
+   left join (select distinct f.invoice_no,f.trans_type,f.reg_dpcd from fin_opb_feedetail f) fd 
+          on t.invoice_no=fd.invoice_no and t.trans_type=fd.trans_type 
+   left join com_department cd on cd.dept_code=fd.reg_dpcd
+  where 
+     (cd.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+     and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+     and t.mode_code in('UP','ZB','WP','PO','CD')
+  group by case when t.mode_code in ('ZB','WP') then 'ZW' else  'POS' end
+) a 
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>MZ_DETAIL</Name><Sql>--门诊收入--按费用类别
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||mm||'.'||dd||'门诊费' 年,  
+a.费别代码 F1日期F2类别,  --科目代码
+0 F3凭证号F4附单据数,
+a.金额 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+a.用友部门编码 F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select dd.input_code from com_dictionary dd where dd.type='CWHospital' and dd.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+a.费别 F62科目名称,
+a.用友部门名称 F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+select f.item_code 费别代码, f.item_name 费别,p.序号 用友部门编码,p.用友部门名称,
+round(sum(z.实收金额*z.own_cost/z.tot_cost),2) 金额,mm,dd
+from (
+  SELECT i.invoice_no,
+         d.Reg_Dpcd,
+         nvl(i.own_cost-i.eco_cost-i.donate_cost,0) tot_cost,
+         (i.tot_cost-nvl(i.pub_cost,0)-nvl(i.eco_cost,0)-nvl(i.donate_cost,0)) 合计,
+         t.tot_cost 实收金额,
+         d.fee_code,
+         d.own_cost-d.donate_cost-d.eco_cost own_cost,
+         to_number(to_char(t.oper_date,'mm')) mm,
+         to_number(to_char(t.oper_date,'dd')) dd
+ from fin_opb_invoiceinfo i join fin_opb_feedetail d on i.invoice_no=d.invoice_no and i.clinic_code=d.clinic_code and i.trans_type=d.trans_type
+ join fin_opb_paymode t on t.invoice_no=i.invoice_no and t.trans_type=i.trans_type and t.invoice_seq=i.invoice_seq
+ left join (select distinct f.invoice_no,f.trans_type,f.reg_dpcd from fin_opb_feedetail f) fd on t.invoice_no=fd.invoice_no and t.trans_type=fd.trans_type 
+ left join com_department cd on cd.dept_code=fd.reg_dpcd
+ where (cd.hospital_id = '&amp;cmbHospital') 
+     and t.mode_code in ('CA','UP','ZB','WP','PO','CD','YS','CI')
+     and t.oper_code not in ('0a0713','000207','000225','000203')
+     and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+)   z 
+left join fin_com_feecodestat fe on fe.report_code='MZ01' and z.fee_code=fe.fee_code
+left join financial_account_subject f on fe.fee_stat_cate = f.user_code and f.item_code like '510101_%' and f.supplementary_type='部门核算'
+left join his_com_department p on z.reg_dpcd=p.部门编码 
+where z.tot_cost &lt;&gt;0 
+group by f.item_code,f.item_name,p.序号,p.用友部门名称,mm,dd
+) a where a.金额 &lt;&gt; 0
+order by mm,dd,用友部门编码,费别
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>YJK_CA_Cost</Name><Sql>----门诊充值收入+住院押金+套餐押金--现金
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm'))||'.1'||a.type 年,  
+'1001' F1日期F2类别,  --科目代码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+   select nvl(sum(b.ca_cost),0) ca_cost,type
+     from (
+          --门诊充值收入--现金
+           select fcp.prepay_cost ca_cost,
+                  '门诊充值收入+住院押金+套餐押金' type
+             from fin_opb_accountprepay fcp 
+            where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+              and ((case when (fcp.invoice_no like '%IB%' or fcp.invoice_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+              and fcp.prepay_type in ('CA')
+            union all
+          --住院押金--现金
+           select fcp.prepay_cost ca_cost,
+                  '门诊充值收入+住院押金+套餐押金' type
+             from fin_ipb_inprepay fcp 
+            where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+              and ((case when (fcp.receipt_no like '%IB%' or fcp.receipt_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+              and fcp.pay_way in ('CA')
+            union all
+          --套餐押金--现金
+           select fcp.amount ca_cost,
+                  '门诊充值收入+住院押金+套餐押金' type
+             from exp_packagedeposit fcp 
+            where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+              and ((case when (fcp.hospital_id like '%IB%' or fcp.hospital_id is null) then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+              and fcp.mode_code in ('CA'))b group by type
+) a 
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>YJK_Non_CA_Cost</Name><Sql>--门诊充值收入+住院押金+套餐押金--非现金
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm'))||'.1'||a.type 年,  
+--case when ps='ZW' then '100202' else '1001' end F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码
+'1001' F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码 
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+--case when ps='ZW' then '广东华兴银行广州天河路支行' else '银行' end  F62科目名称,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+  select nvl(sum(b.ca_cost),0) ca_cost,
+         ps,
+         type
+    from (
+        --门诊充值收入--非现金
+         select fcp.prepay_cost ca_cost,
+                case when fcp.prepay_type in ('ZB','WP') then 'ZW' else  'POS' end ps,
+                '门诊充值收入+住院押金+套餐押金' type
+           from fin_opb_accountprepay fcp 
+          where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+            and ((case when (fcp.invoice_no like '%IB%' or fcp.invoice_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+            and fcp.prepay_type in ('UP','ZB','WP','PO','CD')
+          union all
+        --住院押金--非现金
+         select fcp.prepay_cost ca_cost,
+                case when fcp.pay_way in ('ZB','WP') then 'ZW' else  'POS' end ps,
+                '门诊充值收入+住院押金+套餐押金' type
+           from fin_ipb_inprepay fcp 
+          where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+            and ((case when (fcp.receipt_no like '%IB%' or fcp.receipt_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+            and fcp.pay_way in ('UP','ZB','WP','PO','CD')
+          union all
+        --套餐押金--非现金
+         select fcp.amount ca_cost,
+                case when fcp.mode_code in ('ZB','WP') then 'ZW' else  'POS' end ps,
+                '门诊充值收入+住院押金+套餐押金' type
+           from exp_packagedeposit fcp 
+          where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+            and ((case when (fcp.hospital_id like '%IB%' or fcp.hospital_id is null) then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+            and fcp.mode_code in ('UP','ZB','WP','PO','CD'))b 
+     group by ps,type
+) a 
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>YJK_DETAIL</Name><Sql>--门诊充值收入+住院押金+套餐押金
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+case when a.ca_cost&lt;0 and 操作类型！='套餐消费' then '退' else '收' end||
+mm||'.'||dd||
+case when a.type='医美' then a.name||'医美会员充值'
+     /*when a.type='普通' then a.name||操作类型*/
+     when a.type='套餐' then a.name||case when 操作类型 like '%押金%' then '套餐押金' else 操作类型 end
+     else a.name||a.操作类型 end 年,  
+decode(a.type,'医美','213110','213104') F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码
+decode(操作类型,'套餐消费',abs(a.ca_cost),0) F3凭证号F4附单据数,
+decode(操作类型,'套餐消费',0,a.ca_cost) F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+a.nub F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+decode(a.type,'医美','预收医美会员充值','预收普通会员充值')  F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+a.name F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+select  ps, 
+        nvl(round(sum(ca_cost),2),0) ca_cost, 
+        name, 
+        type, 
+        nub, 
+        to_number(to_char(substr(oper_date,6,2))) mm,
+        to_number(to_char(substr(oper_date,9,2))) dd,
+        操作类型
+  from (  
+      --账户充值收入
+        select case when fcp.prepay_type in ('ZB','WP') then 'ZW' else  'POS' end ps,
+               fcp.prepay_cost ca_cost,
+               cp.name，
+               decode(fcp.type_code,1,'普通',2,'医美') type,
+               fun_get_FMIS_CustomerCode(cp.name,cp.idenno) nub,
+               to_char(to_date(fcp.oper_date),'yyyy-mm-dd') oper_date,
+               decode(fcp.type_code,1,'普通会员充值',2,'医美会员充值') 操作类型
+          from fin_opb_accountprepay fcp 
+         inner join com_patientinfo cp on fcp.card_no=cp.card_no
+         where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+           and ((case when (fcp.invoice_no like '%IB%' or fcp.invoice_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+           and fcp.prepay_type in ('CA','UP','ZB','WP','PO','CD','CI','YS')
+           and fcp.oper_code not in ('0a0713','000207','000225','000203')
+         union all
+        --住院押金
+        select case when fcp.pay_way in ('ZB','WP') then 'ZW' else  'POS' end ps,
+               fcp.prepay_cost ca_cost,
+               case when fi.name like '%B%' and cp.familyname is not null then cp.familyname 
+                    when fi.name like '%B%' and cp2.name is not null and substr(fi.linkman_name,0,2)=substr(fi.name,0,2) then cp2.name 
+                    else fi.name end name,
+               '住院押金' type,
+               fun_get_FMIS_CustomerCode(case when fi.name like '%B%' and cp.familyname is not null then cp.familyname 
+                                              when fi.name like '%B%' and cp2.name is not null and substr(fi.linkman_name,0,2)=substr(fi.name,0,2) then cp2.name 
+                                              else fi.name end,
+                                         case when fi.name like '%B%' and cp.familyname is not null then cp.idenno 
+                                              when fi.name like '%B%' and cp2.name is not null and substr(fi.linkman_name,0,2)=substr(fi.name,0,2) then cp2.idenno 
+                                              else fi.idenno end) nub,
+               to_char(to_date(fcp.oper_date),'yyyy-mm-dd') oper_date,
+               '住院押金' 操作类型
+          from fin_ipb_inprepay fcp 
+         inner join fin_ipr_inmaininfo fi on fcp.inpatient_no=fi.inpatient_no
+          left join com_patientinfo cp on fi.card_no=cp.card_no 
+          left join com_patientinfo cp1 on cp.familyid=cp1.familyid and cp1.familyroleid=1
+          left join com_patientinfo cp2 on fi.linkman_name=cp2.name and fi.linkman_tel=cp2.home_tel
+         where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+           and ((case when (fcp.receipt_no like '%IB%' or fcp.receipt_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+           and fcp.pay_way in ('CA','UP','ZB','WP','PO','CD','CI','YS')
+           and fcp.oper_code not in ('0a0713','000207','000225','000203')
+         union all
+        --套餐押金
+        select case when fcp.mode_code in ('ZB','WP') then 'ZW' else  'POS' end ps,
+               fcp.amount ca_cost,
+               cp.name，
+               '套餐' type,
+               fun_get_FMIS_CustomerCode(cp.name,cp.idenno) nub,
+               to_char(to_date(fcp.oper_date),'yyyy-mm-dd') oper_date,
+               case oper_type when 'JYJ' then '缴押金' when 'TYJ' then '退押金'  when 'TCXF' then '套餐消费' else '' end  操作类型
+          from exp_packagedeposit fcp 
+         inner join com_patientinfo cp on fcp.card_no=cp.card_no
+         where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+           and ((case when (fcp.hospital_id like '%IB%' or fcp.hospital_id is null) then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+           and fcp.mode_code in ('CA','UP','ZB','WP','PO','CD','CI','YS')
+           and fcp.oper_code not in ('0a0713','000207','000225','000203'))b
+ group by ps, 
+          name, 
+          type, 
+          nub, 
+          to_number(to_char(substr(oper_date,6,2))) ,
+          to_number(to_char(substr(oper_date,9,2))) ,
+          操作类型
+) a  where a.ca_cost&lt;&gt;0
+order by a.mm,a.dd
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ZY_CA_Cost</Name><Sql>----住院收入--现金
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm'))||'.1'||a.type 年,  
+'1001' F1日期F2类别,  --科目代码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+--住院收入--现金
+ select nvl(sum(case when t.reutrnorsupply_flag = '2' and t.trans_kind = '1' then -t.cost else t.cost end),0) ca_cost,'住院' type
+   from fin_ipb_balancepay t 
+  where 
+     ( '&amp;cmbHospital'='IBORN')
+     and t.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+     and t.pay_way in  ('CA') 
+) a 
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ZY_Non_CA_Cost</Name><Sql>--住院收入--非现金
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm'))||'.1'||a.type 年,  
+--case when ps='ZW' then '100202' else '1001' end F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码
+'1001' F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码 
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+--case when ps='ZW' then '广东华兴银行广州天河路支行' else '银行' end  F62科目名称,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+--住院收入--非现金
+ select nvl(sum(case when t.reutrnorsupply_flag = '2' and t.trans_kind = '1' then -t.cost else t.cost end),0) ca_cost,
+        case when t.pay_way in ('ZB','WP') then 'ZW' else  'POS' end ps,
+        '住院' type
+   from fin_ipb_balancepay t 
+  where 
+     ('&amp;cmbHospital' = 'IBORN')
+     and t.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+     and t.pay_way in('UP','ZB','WP','PO','CD')
+  group by case when t.pay_way in ('ZB','WP') then 'ZW' else  'POS' end
+) a  
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ZY_DETAIL</Name><Sql>--住院收入--按费用类别
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||a.type 年,  
+a.费别代码  F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码
+0 F3凭证号F4附单据数,
+a.ca_cost F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+a.用友部门编码 F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+a.费别  F62科目名称,
+a.用友部门名称 F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+--住院收入--按费用类别
+select  type, 
+        ca_cost-nvl(ds_cost,0) ca_cost, 
+        费别代码, 
+        费别, 
+        用友部门编码, 
+        用友部门名称, 
+        balance_date
+  from (
+      select  b.type type, 
+              round(sum(case when a.tot_cost=0 then 0 else a.cost/a.tot_cost*a.dt_cost end),2) ca_cost,
+              nvl(f.item_code,f1.item_code) 费别代码,
+              nvl(f.item_name,f1.item_name) 费别,
+              a.dept_code 用友部门编码,
+              a.dept_name 用友部门名称,
+              a.balance_date,
+              a.stat_code
+        from (
+          select sum(bl.own_cost) dt_cost,
+                 fun_get_yy_dept_code(bl.inpatient_no) dept_code,
+                 fun_get_yy_dept_name(bl.inpatient_no)  dept_name，
+                 to_char(bl.balance_date,'yyyy-mm-dd') balance_date,
+                 bl.stat_code,
+                 bl.stat_name,
+                 (select sum(b.cost) cost 
+                    from fin_ipb_balancepay b
+                   where b.pay_way in ( 'CA','UP','ZB','WP','PO','CD','CI','YS','PR')
+                     and b.balance_opercode not in ('0a0713','000207','000225','000203')
+                     and b.invoice_no=bl.invoice_no and b.trans_type=bl.trans_type
+                     ) cost,
+                  (select sum(b.cost) tot_cost 
+                     from fin_ipb_balancepay b
+                    where b.balance_opercode not in ('0a0713','000207','000225','000203')
+                      and b.invoice_no=bl.invoice_no and b.trans_type=bl.trans_type )tot_cost,
+                  to_number(to_char(bl.balance_date,'mm')) mm,
+                  to_number(to_char(bl.balance_date,'dd')) dd 
+            from fin_ipb_balancelist bl
+            left join fin_ipr_inmaininfo fi on fi.inpatient_no=bl.inpatient_no
+           where bl.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+             and bl.balance_opercode not in ('0a0713','000207','000225','000203')
+           group by to_char(bl.balance_date,'yyyy-mm-dd'),bl.inpatient_no,bl.stat_code,bl.stat_name,fi.inpatient_no,bl.invoice_no,bl.trans_type,
+                    to_number(to_char(bl.balance_date,'mm')),to_number(to_char(bl.balance_date,'dd')))a
+        left join (
+                  select mm||'.'||dd||replace(wm_concat(distinct a.name||a.type),',','/')||'出院结算' type,
+                         a.dept_code,
+                         a.dept_name,
+                         mm,
+                         dd
+                    from (
+                       select 
+                              wm_concat(distinct (case when cd.his编码='21' then ''
+                                                       else (case when bp.package_name like '%平%' and bp.package_name not like '%自选包%' and bp.package_name like '%顺产%' then bp.package_name
+                                                                  when bp.package_name like '%平%' and bp.package_name not like '%自选包%' and bp.package_name like '%剖宫产%' then bp.package_name
+                                                                  when bp.package_name like '%平%' and bp.package_name not like '%自选包%' and bp.package_name like '%月子%' then bp.package_name
+                                                                  when cd.用友编码 in ('213103','213102') and bp.package_name like '%平%' and bp.package_name like '%自选包%' then ''
+                                                                  when cd.用友编码 in ('213103','213102') and bp.package_name not like '%平%'  then ''
+                                                                  else bp.package_name end) end)) type,
+                             case when f.name like '%B%' and f.dept_code in ('1002') then cp.familyname else f.name end name,
+                             sum(case when cd.his编码='21' then 0 else ep.real_cost end) cost,
+                             sum(case when cd.his编码='21' then ep.real_cost else 0 end) ds_cost,
+                             fun_get_yy_dept_code(h.inpatient_no) dept_code,
+                             fun_get_yy_dept_name(h.inpatient_no) dept_name,
+                             to_number(to_char(h.balance_date,'mm')) mm,
+                             to_number(to_char(h.balance_date,'dd')) dd
+                        from  fin_ipb_balancehead h 
+                        left join exp_package ep on ep.cost_invoice=h.invoice_no
+                        left join view_srpz_package bp on ep.package_id=bp.package_id 
+                        left join his_com_package cd on cd.his编码=bp.package_kind
+                        left join fin_ipr_inmaininfo f on h.inpatient_no=f.inpatient_no
+                        left join com_patientinfo cp on f.card_no=cp.card_no
+                       where h.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                       group by case when f.name like '%B%'and f.dept_code in ('1002') then cp.familyname else f.name end，h.inpatient_no,
+                                to_number(to_char(h.balance_date,'mm')),to_number(to_char(h.balance_date,'dd'))
+                       )a group by a.dept_code,a.dept_name,mm,dd)b on a.dept_code=b.dept_code and a.mm=b.mm and a.dd=b.dd
+        left join financial_account_subject f on f.supplementary_type='部门核算' and a.stat_code = f.user_code and a.dept_code!='15' and f.item_code like '510102_%'
+        left join financial_account_subject f1 on f1.supplementary_type='部门核算' and a.stat_code = f1.user_code and a.dept_code='15' and f1.item_code like '5103_%'
+       group by b.type,
+                nvl(f.item_code,f1.item_code) ,
+                nvl(f.item_name,f1.item_name) ,
+                a.dept_code ,
+                a.dept_name ,
+                a.balance_date,
+                stat_code)a
+  left join (
+              select nvl(sum(ds_cost),0) ds_cost, 
+                     dept_code, 
+                     to_char(balance_date,'yyyy-mm-dd') ds_date,
+                     '12' stat_code
+                from(
+                    select sum((select nvl(sum(ca_cost),0) ds from     
+                               (select b.card_no,
+                                      b.cost_invoice,
+                                      nvl(round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2),0) ca_cost
+                                from (
+                                      select  ep.cost_invoice,
+                                              epi.trans_type,
+                                              epi.real_cost invoice_real,
+                                              ep.real_cost,
+                                              nvl((select sum(a.real_cost)
+                                                     from exp_packagepaymode a
+                                                    where a.invoice_no = epi.invoice_no
+                                                          and a.trans_type = epi.trans_type 
+                                                          and (a.mode_code in   ( 'CA','UP','ZB','WP','PO','CD','CI','YS','PR')
+                                                          or a.mode_code='DE' and a.realated_code in  ( 'CA','UP','ZB','WP','PO','CD','CI','YS','PR'))),0) cashCost,
+                                              ep.card_no
+                                        from exp_packageinvoice epi
+                                        left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                                        left join (select epd.real_cost,epd.trans_type,epd.clinic_code,epd.item_name from exp_packagedetail epd 
+                                                    where epd.item_code='F00000000082') epd
+                                               on epd.clinic_code=ep.clinic_code and epd.trans_type=ep.trans_type
+                                        left join view_srpz_package bp on ep.package_id=bp.package_id 
+                                       where (bp.package_kind='21' or epd.clinic_code is not null)
+                                        )b group by b.card_no, b.cost_invoice)b 
+                                        where i.card_no=b.card_no and h.invoice_no=b.cost_invoice)) ds_cost,
+                                        fun_get_yy_dept_code(i.inpatient_no) dept_code,
+                                        h.balance_date balance_date
+                         from fin_ipb_balancehead h 
+                         left join fin_ipr_inmaininfo i on h.inpatient_no=i.inpatient_no 
+                        where h.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                        group by i.inpatient_no,h.balance_date)a
+               group by dept_code, to_char(balance_date,'yyyy-mm-dd'),to_number(to_char(balance_date,'mm')) , to_number(to_char(balance_date,'dd'))
+               having nvl(sum(ds_cost),0)&lt;&gt;0)c on a.用友部门编码=c.dept_code and c.ds_date=a.balance_date and a.stat_code=c.stat_code
+) a where a.ca_cost&lt;&gt;0
+ order by a.type,a.用友部门名称 desc,a.费别代码 asc
+ 
+                   
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ZY_TC_Cost</Name><Sql>--住院收入--套餐
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(substr(a.balance_date,6,2))||'.'||to_number(substr(a.balance_date,9,2))||a.type 年,  
+a.item_code F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy-mm-dd') F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+a.code F19供应商编码,--
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+a.item_name F62科目名称,--
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+a.name F66供应商简称,--
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+--住院收入--套餐
+select b.inpatient_no, 
+       name, 
+       b.balance_date, 
+       code, 
+       item_code, 
+       item_name, 
+       type, 
+       round(ca_cost,2) ca_cost
+  from (
+        select   
+                inpatient_no, 
+                h.name,
+                h.balance_date, 
+                h.code,
+                case when cd.用友编码 is null and h.dept_code='1010' then '213103'
+                     when cd.用友编码 is null and h.dept_code='1001' then '213102'
+                     else cd.用友编码 end item_code,
+                case when cd.用友名称 is null and h.dept_code='1010' then '预收月子套餐'
+                     when cd.用友名称 is null and h.dept_code='1001' then '预收分娩套餐'
+                     else cd.用友名称 end item_name,
+                h.name||wm_concat(distinct (case when bp.package_name like '%平%'  and bp.package_name like '%顺产%' then ep.parentpackagename
+                                                 when bp.package_name like '%平%'  and bp.package_name like '%剖宫产%' then ep.parentpackagename
+                                                 when bp.package_name like '%平%'  and bp.package_name like '%月子%' then ep.parentpackagename
+                                                 when cd.用友编码 in ('213103','213102') and bp.package_name like '%平%' and bp.package_name like '%自选包%' then ''
+                                                 when cd.用友编码 in ('213103','213102') and bp.package_name not like '%平%'  then ''
+                                                 else bp.package_name end))||'出院结算' type                                   
+          from (
+              select  
+                     h.inpatient_no,
+                     h.name,
+                     h.invoice_no,
+                     to_char(h.balance_date,'yyyy-mm-dd') balance_date,
+                     fun_get_fmis_customercode(cp.name,cp.idenno) code,
+                     i.dept_code
+                from  fin_ipb_balancehead h 
+                left join fin_ipb_balancepay b on h.invoice_no=b.invoice_no and h.trans_type=b.trans_type
+                left join fin_ipr_inmaininfo i on i.inpatient_no=h.inpatient_no
+                left join com_patientinfo cp on i.card_no=cp.card_no
+               where h.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                 and h.balance_opercode not in ('0a0713','000207','000225','000203')
+                 and b.pay_way='PR')h
+          left join exp_package ep on ep.cost_invoice=h.invoice_no 
+          left join exp_packageinvoice epi on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+          left join view_srpz_package bp on ep.package_id=bp.package_id and bp.package_kind&lt;&gt;'21'
+          left join his_com_package cd on cd.his编码=bp.package_kind
+         group by h.name,h.inpatient_no,h.balance_date,h.code,
+                  case when cd.用友编码 is null and h.dept_code='1010' then '213103'
+                       when cd.用友编码 is null and h.dept_code='1001' then '213102'
+                       else cd.用友编码 end ,
+                  case when cd.用友名称 is null and h.dept_code='1010' then '预收月子套餐'
+                       when cd.用友名称 is null and h.dept_code='1001' then '预收分娩套餐'
+                       else cd.用友名称 end)b
+   left join ( select  inpatient_no, 
+                       sum(case when b.ca_cost is not null then a.cost-b.ca_cost else a.cost end) ca_cost, 
+                       balance_date
+                 from (
+                     select h.inpatient_no,sum(b.cost) cost,to_char(h.balance_date,'yyyy-mm-dd') balance_date,h.invoice_no,i.card_no
+                       from  fin_ipb_balancehead h 
+                       left join fin_ipb_balancepay b on h.invoice_no=b.invoice_no and h.trans_type=b.trans_type
+                       left join fin_ipr_inmaininfo i on i.inpatient_no=h.inpatient_no 
+                      where b.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                        and b.balance_opercode not in ('0a0713','000207','000225','000203')
+                        and b.pay_way='PR'group by h.inpatient_no,to_char(h.balance_date,'yyyy-mm-dd'),h.invoice_no,i.card_no)a
+                  left join (select b.card_no,
+                                    b.cost_invoice,
+                                    nvl(round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2),0) ca_cost
+                              from (
+                                    select  ep.cost_invoice,
+                                            epi.trans_type,
+                                            epi.real_cost invoice_real,
+                                            ep.real_cost,
+                                            nvl((select sum(a.real_cost)
+                                                   from exp_packagepaymode a
+                                                  where a.invoice_no = epi.invoice_no
+                                                        and a.trans_type = epi.trans_type 
+                                                        and (a.mode_code in   ( 'CA','UP','ZB','WP','PO','CD','CI','YS','PR')
+                                                        or a.mode_code='DE' and a.realated_code in  ( 'CA','UP','ZB','WP','PO','CD','CI','YS','PR'))),0) cashCost,
+                                            ep.card_no
+                                      from exp_packageinvoice epi
+                                      left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                                      left join (select epd.real_cost,epd.trans_type,epd.clinic_code,epd.item_name from exp_packagedetail epd 
+                                                  where epd.item_code='F00000000082') epd
+                                             on epd.clinic_code=ep.clinic_code and epd.trans_type=ep.trans_type
+                                      left join view_srpz_package bp on ep.package_id=bp.package_id 
+                                     where (bp.package_kind='21' or epd.clinic_code is not null)
+                                       and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                                                 then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital'
+                                      )b group by b.card_no, b.cost_invoice)b on a.card_no=b.card_no and a.invoice_no=b.cost_invoice
+                            group by inpatient_no,balance_date)c on b.inpatient_no=c.inpatient_no and b.balance_date=c.balance_date
+) a  where a.ca_cost&lt;&gt;0
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>TC_CA_Cost</Name><Sql>----套餐现金收入
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm'))||'.1'||a.type 年,  
+'1001' F1日期F2类别,  --科目代码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+--套餐收入--现金
+select ps,'套餐' type,
+            round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2) ca_cost
+      from (
+            select  epi.invoice_no,
+                    epi.trans_type,
+                    bp.package_name,
+                    bp1.package_name father_name,
+                    ep.patient_name,
+                    bp.package_kind name1,
+                    cd.name name2,
+                    epi.real_cost invoice_real,
+                    ep.real_cost,
+                    nvl((select sum(a.real_cost)
+                           from exp_packagepaymode a
+                          where a.invoice_no = epi.invoice_no
+                                and a.trans_type = epi.trans_type 
+                                and (a.mode_code in  ( 'CA')
+                                or a.mode_code='DE' and a.realated_code in ( 'CA'))),0) cashCost,
+                   'CA' ps
+              from exp_packageinvoice epi
+              left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+              left join bd_com_package bp on ep.package_id=bp.package_id 
+              left join bd_com_package bp1 on bp.parent_code=bp1.package_id
+              left join com_dictionary cd on cd.type='PACKAGETYPE' and bp.package_kind=cd.code
+             where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+               and cd.code not in ('21')
+               and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                         then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital'
+              )b
+      group by ps
+) a  
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>TC_Non_CA_Cost</Name><Sql>--套餐收入--非现金
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm'))||'.1'||a.type 年,  
+--case when ps='ZW' then '100202' else '1001' end F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码
+'1001' F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码 
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+--case when ps='ZW' then '广东华兴银行广州天河路支行' else '银行' end  F62科目名称,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+--套餐收入--非现金
+ select ps,'套餐' type,
+            round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2) ca_cost
+      from (
+            select  epi.invoice_no,
+                    epi.trans_type,
+                    bp.package_name,
+                    bp1.package_name father_name,
+                    ep.patient_name,
+                    bp.package_kind name1,
+                    cd.name name2,
+                    epi.real_cost invoice_real,
+                    ep.real_cost,
+                    nvl((select sum(a.real_cost)
+                           from exp_packagepaymode a
+                          where a.invoice_no = epi.invoice_no
+                                and a.trans_type = epi.trans_type 
+                                and (a.mode_code in  ( 'UP','ZB','WP','PO','CD')
+                                or a.mode_code='DE' and a.realated_code in ( 'UP','ZB','WP','PO','CD'))),0) cashCost,
+                   (select distinct case when a.mode_code in ('ZB','WP') or (a.mode_code='DE' and a.realated_code in ('ZB','WP'))
+                                then 'ZW' else  'POS' end mode_code
+                           from exp_packagepaymode a
+                          where a.invoice_no = epi.invoice_no
+                                and a.trans_type = epi.trans_type 
+                                and (a.mode_code in  ( 'UP','ZB','WP','PO','CD')
+                                or (a.mode_code='DE' and a.realated_code in ( 'UP','ZB','WP','PO','CD')))) ps
+              from exp_packageinvoice epi
+              left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+              left join bd_com_package bp on ep.package_id=bp.package_id 
+              left join bd_com_package bp1 on bp.parent_code=bp1.package_id
+              left join com_dictionary cd on cd.type='PACKAGETYPE' and bp.package_kind=cd.code
+             where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+               and cd.code not in ('21')
+               and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                         then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital'
+)b
+      where ps is not null
+      group by ps
+) a 
+
+     
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>TC_DETAIL</Name><Sql>--套餐收入--按费用类别
+ select   凭证输出, 
+          V800, 
+          c, 
+          院区, 
+          年, 
+          F1日期F2类别,
+           F3凭证号F4附单据数, 
+           F5摘要F6科目编码, 
+           F7借方F8贷方, 
+           F9数量F10原币, 
+           F11汇率, 
+           F12制单人,
+           F13结算方式, 
+           F14票号,
+           F15发生日期, 
+           F16部门编码, 
+           F17个人编码, 
+           F18客户编码, 
+           F19供应商编码, 
+           F20业务员, 
+           F21项目编码, 
+           F22自定义项1, 
+           F23自定义项2, 
+           F24自由项1, 
+           F25自由项2, 
+           F26自由项3, 
+           F27自由项4, 
+           F28自由项5, 
+           F29自由项6, 
+           F30自由项7, 
+           F31自由项8, 
+           F32自由项9, 
+           F33自由项10,
+           F34外部系统标识, 
+           F35业务类型, 
+           F36单据类型, 
+           F37单据日期, 
+           F38单据号, 
+           F39凭证是否可改, 
+           F40分录是否可增删, 
+           F41合计金额是否保值, 
+           F42数值是否可改, 
+           F43科目是否可改, 
+           F44受控科目, 
+           F45往来是否可改, 
+           F46部门是否可改, 
+           F47项目是否可改, 
+           F48往来项是否必输, 
+           F49账套号, 
+           F50核算单位, 
+           F51会计年度, 
+           F52会计期间, 
+           F53类别顺序号, 
+           F54凭证号, 
+           F55审核人, 
+           F56记账人, 
+           F57是否记账, 
+           F58出纳人, 
+           F59行号, 
+           F60原币名称, 
+           数量单位, 
+           F61单价, 
+           F62科目名称, 
+           F63部门名称, 
+           F64个人名称, 
+           F65客户简称, 
+           F66供应商简称, 
+           F67项目名称, 
+           F68项目大类编码, 
+           F69项目大类名称, 
+           F70对方科目, 
+           F71银行两清标志, 
+           F72往来两清标志, 
+           F73银行核销标志, 
+           F74外部系统名称, 
+           F75外部账套号, 
+           F76外部会计年度, 
+           F77外部会计期间, 
+           F78外部制单日期, 
+           F79外部系统版本, 
+           F80凭证标识, 
+           F81分录自动编号,
+           F82唯一标识, 
+           F83主管签字, 
+           F84自由项11, 
+           F85自由项12, 
+           F86自由项13, 
+           F87自由项14, 
+           F88自由项15, 
+           F89自由项16, 
+           F90审核日期
+   from (
+            select 
+            to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+            '收'  V800,
+            '0001' c,
+            '0' 院区,
+            a.trans_type||a.mm||'.'||a.dd||a.patient_name||a.name5 年,  
+            a.code F1日期F2类别,  --科目代码
+            0 F3凭证号F4附单据数,
+            a.ca_cost F5摘要F6科目编码,
+            0 F7借方F8贷方,
+            0 F9数量F10原币,
+            '' F11汇率,
+            '张澌铃' F12制单人,
+            '' F13结算方式,
+            '' F14票号,
+            '' F15发生日期,
+            '' F16部门编码,
+            '' F17个人编码,
+            '' F18客户编码,
+            case when a.name5='脐带血造血干细胞储存费(18年)' then 'GY0177' else a.cus_code end F19供应商编码,
+            '' F20业务员,
+            '' F21项目编码,
+            '' F22自定义项1  ,
+            '' F23自定义项2,
+            '' F24自由项1,
+            '' F25自由项2,
+            '' F26自由项3,
+            '' F27自由项4,
+            '0' F28自由项5,
+            '' F29自由项6,
+            '0' F30自由项7,
+            '' F31自由项8,
+            '' F32自由项9,
+            '' F33自由项10,
+            'SC' F34外部系统标识,
+            '出纳管理' F35业务类型,
+            '' F36单据类型,
+            '' F37单据日期,
+            '' F38单据号,
+            'FALSE' F39凭证是否可改,
+            'FALSE' F40分录是否可增删,
+            'FALSE' F41合计金额是否保值,
+            'FALSE' F42数值是否可改,
+            'FALSE' F43科目是否可改,
+            '' F44受控科目,
+            'FALSE' F45往来是否可改,
+            'FALSE' F46部门是否可改,
+            'FALSE' F47项目是否可改,
+            'FALSE' F48往来项是否必输,
+            '001' F49账套号,
+            (select dd.input_code from com_dictionary dd where dd.type='CWHospital' and dd.code='&amp;cmbHospital') F50核算单位,
+            to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+            to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+            '1' F53类别顺序号,
+            '' F54凭证号,
+            '' F55审核人,
+            '' F56记账人,
+            '0' F57是否记账,
+            '张澌铃' F58出纳人,
+            '' F59行号,
+            '' F60原币名称,
+            '' 数量单位,
+            0 F61单价,
+            a.name F62科目名称,
+            '' F63部门名称,
+            '' F64个人名称,
+            '' F65客户简称,
+            case when a.name5='脐带血造血干细胞储存费(18年)' then '广州市天河诺亚生物工程有限公司' else a.patient_name end F66供应商简称,
+            '' F67项目名称,
+            '' F68项目大类编码,
+            '' F69项目大类名称,
+            '' F70对方科目,
+            '0' F71银行两清标志,
+            '0' F72往来两清标志,
+            'FALSE' F73银行核销标志,
+            '出纳管理' F74外部系统名称,
+            '' F75外部账套号,
+            '0' F76外部会计年度,
+            to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+            to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+            '' F79外部系统版本,
+            '' F80凭证标识,
+            '' F81分录自动编号,
+            '' F82唯一标识,
+            '' F83主管签字,
+            '' F84自由项11,
+            '' F85自由项12,
+            '' F86自由项13,
+            '' F87自由项14,
+            '0' F88自由项15,
+            '0' F89自由项16,
+            '' F90审核日期,
+            line
+            from 
+            (
+        select  b.patient_name, 
+                b.name, 
+                b.code, 
+                b.name4, 
+                case when b.name4='儿保' then nvl(yp.name2,b.name5) else b.name5 end name5, 
+                b.cus_code, 
+                b.trans_type, 
+                b.mm, 
+                b.dd, 
+                b.ca_cost,
+                b.line 
+          from (  
+               select   b.patient_name, 
+                        b.name1 name, 
+                        b.name2 code,
+                        b.name4  name4,
+                        wm_concat(distinct (case when real_cost=ysqt then '' else b.name3 end)) name5,
+                        b.cus_code,
+                        decode(b.trans_type,1,'收'，2,'退') trans_type,
+                        b.mm,
+                        b.dd,
+                        round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),1) ca_cost,
+                        oper_date,
+                        card_no,
+                        1 line
+                from (           
+                  select  
+                          epi.invoice_no,
+                          epi.trans_type,
+                          bp.package_name,
+                          bp1.package_name father_name,
+                          case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp.familyname else ep.patient_name end patient_name,
+                          cd.用友名称 name1,
+                          cd.用友编码 name2,
+                          epi.real_cost invoice_real,
+                          nvl(epd.real_cost,ep.real_cost) real_cost,
+                          nvl((select sum(a.real_cost)
+                                 from exp_packagepaymode a
+                                where a.invoice_no = epi.invoice_no
+                                      and a.trans_type = epi.trans_type 
+                                      and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD','CI','YS')
+                                      or a.mode_code='DE' and a.realated_code in ( 'CA','UP','ZB','WP','PO','CD','CI','YS'))),0) cashCost,
+                          nvl((select sum(a.real_cost)
+                                 from exp_packagepaymode a
+                                where a.invoice_no = epi.invoice_no
+                                      and a.trans_type = epi.trans_type 
+                                      and (a.mode_code in  ( 'YE')
+                                      or a.mode_code='DE' and a.realated_code in ( 'YE'))),0) ysqt,
+                          case when epd.item_name like '%纸尿裤%' then '' else epd.item_name end item_name,
+                          fun_get_fmis_customercode(case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp.familyname else cp.name end,
+                            case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp2.idenno else cp.idenno end) cus_code,
+                          to_number(to_char(epi.oper_date,'mm')) mm,
+                          to_number(to_char(epi.oper_date,'dd')) dd,
+                          case when bp.package_name like '%平%' and bp.package_name not like '%自选包%'
+                               then (
+                                    case when bp.package_name like '顺产%' then substr(bp.package_name,0,12)
+                                         when bp.package_name like '剖宫产%' then replace(substr(bp.package_name,0,13),'[自','')
+                                         when bp.package_name like '新%顺产%' then substr(bp.package_name,0,18) 
+                                         when bp.package_name like '新%剖宫产%' then substr(bp.package_name,0,19) 
+                                         else bp.package_name end)
+                               when bp.package_name like '%自选包%' then (case when epd.item_name like '%纸尿裤%' then bp.package_name else bp.package_name||'-'||epd.item_name end)
+                               when bp.package_name like '%产检%' then bp1.package_name
+                               when bp1.package_name like '%儿保%' then bp1.package_name
+                               when bp.package_name not like '%自选包%' and (bp.package_name like '%顺产%' or bp.package_name like '%剖宫产%') then ''
+                               else bp.package_name 
+                                end  name3,
+                           case when bp.package_name like '%顺产%' and bp.package_name not like '%自选包%' then '顺产'
+                                when bp.package_name like '%剖宫产%' and bp.package_name not like '%自选包%' then '剖宫产'
+                                when bp1.package_name like '%儿保%' and bp1.package_name not like '%疫苗%' then '儿保'
+                                when bp1.package_name like '%儿保+疫苗%' then '儿保'
+                                when cd.用友名称 like '%儿保%' and (bp.package_name like '%单次%' or bp.package_name like '%体验%' or bp.package_name like '%水上感统训练套餐[自选包]%') then '儿保套餐'
+                                else (case when bp.package_name like '%自选包%' then (case when epd.item_name like '%纸尿裤%' then bp.package_name else bp.package_name||'-'||epd.item_name end)
+                                           when bp.package_name like '%产检%' then bp1.package_name
+                                           else bp.package_name end)  
+                                end  name4,
+                                to_char(epi.oper_date,'yyyy-mm-dd') oper_date,
+                                ep.card_no
+                    from exp_packageinvoice epi
+                    left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                    left join view_srpz_package bp on ep.package_id=bp.package_id 
+                    left join view_srpz_package bp1 on bp.parent_code=bp1.package_id
+                    left join (select ep.package_id,epd.item_name,ep.clinic_code,ep.trans_type,epd.real_cost 
+                                 from exp_package ep 
+                                 left join bd_com_package bp on ep.package_id=bp.package_id
+                                 left join exp_packagedetail epd on epd.clinic_code=ep.clinic_code and epd.trans_type=ep.trans_type
+                                where bp.package_name like '%自选包%' and ep.pay_flag=1) epd on ep.clinic_code=epd.clinic_code and ep.trans_type=epd.trans_type 
+                    left join com_patientinfo cp on ep.card_no=cp.card_no
+                    left join com_patientinfo cp1 on cp.familyid=cp1.familyid and cp1.familyroleid=1 and cp1.is_valid=1 and cp.name=cp1.name
+                    left join com_patientinfo cp2 on cp1.crmid=cp2.crmid and cp2.is_valid=1 and cp1.familyname=cp2.name
+                    left join his_com_package cd on  bp.package_kind=cd.his编码
+                   where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+                     and epi.oper_code not in ('0a0713','000207','000225','000203')
+                     and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                               then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital'
+                    )b
+               where  invoice_real!=ysqt
+               group by b.patient_name, 
+                        b.name1 , 
+                        b.name2 ,
+                        b.name4 ,
+                        b.cus_code,
+                        decode(b.trans_type,1,'收'，2,'退') ,
+                        oper_date,
+                        card_no,
+                        b.mm,
+                        b.dd)b
+          left join view_yy_package_name yp on yp.card_no=b.card_no and yp.trans_type=b.trans_type and yp.oper_date=b.oper_date and yp.ca_cost=b.ca_cost
+           and yp.oper_date between '&amp;dtBeginTime' and '&amp;dtEndTime'
+            ) a where a.ca_cost&lt;&gt;0
+            union all
+            select 
+            to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+            '收'  V800,
+            '0001'  ,
+            '0' 院区,
+            a.trans_type||a.mm||'.'||a.dd||a.patient_name||a.name5 年,  
+            a.code F1日期F2类别,  --科目代码
+            a.ca_cost F3凭证号F4附单据数,
+            0 F5摘要F6科目编码,
+            0 F7借方F8贷方,
+            0 F9数量F10原币,
+            '' F11汇率,
+            '张澌铃' F12制单人,
+            '' F13结算方式,
+            '' F14票号,
+            '' F15发生日期,
+            '' F16部门编码,
+            '' F17个人编码,
+            '' F18客户编码,
+            a.cus_code F19供应商编码,
+            '' F20业务员,
+            '' F21项目编码,
+            '' F22自定义项1  ,
+            '' F23自定义项2,
+            '' F24自由项1,
+            '' F25自由项2,
+            '' F26自由项3,
+            '' F27自由项4,
+            '0' F28自由项5,
+            '' F29自由项6,
+            '0' F30自由项7,
+            '' F31自由项8,
+            '' F32自由项9,
+            '' F33自由项10,
+            'SC' F34外部系统标识,
+            '出纳管理' F35业务类型,
+            '' F36单据类型,
+            '' F37单据日期,
+            '' F38单据号,
+            'FALSE' F39凭证是否可改,
+            'FALSE' F40分录是否可增删,
+            'FALSE' F41合计金额是否保值,
+            'FALSE' F42数值是否可改,
+            'FALSE' F43科目是否可改,
+            '' F44受控科目,
+            'FALSE' F45往来是否可改,
+            'FALSE' F46部门是否可改,
+            'FALSE' F47项目是否可改,
+            'FALSE' F48往来项是否必输,
+            '001' F49账套号,
+            (select dd.input_code from com_dictionary dd where dd.type='CWHospital' and dd.code='&amp;cmbHospital') F50核算单位,
+            to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+            to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+            '1' F53类别顺序号,
+            '' F54凭证号,
+            '' F55审核人,
+            '' F56记账人,
+            '0' F57是否记账,
+            '张澌铃' F58出纳人,
+            '' F59行号,
+            '' F60原币名称,
+            '' 数量单位,
+            0 F61单价,
+            a.name F62科目名称,
+            '' F63部门名称,
+            '' F64个人名称,
+            '' F65客户简称,
+            a.patient_name F66供应商简称,
+            '' F67项目名称,
+            '' F68项目大类编码,
+            '' F69项目大类名称,
+            '' F70对方科目,
+            '0' F71银行两清标志,
+            '0' F72往来两清标志,
+            'FALSE' F73银行核销标志,
+            '出纳管理' F74外部系统名称,
+            '' F75外部账套号,
+            '0' F76外部会计年度,
+            to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+            to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+            '' F79外部系统版本,
+            '' F80凭证标识,
+            '' F81分录自动编号,
+            '' F82唯一标识,
+            '' F83主管签字,
+            '' F84自由项11,
+            '' F85自由项12,
+            '' F86自由项13,
+            '' F87自由项14,
+            '0' F88自由项15,
+            '0' F89自由项16,
+            '' F90审核日期,
+            line
+            from 
+            (
+               select   b.patient_name, 
+                        b.name1 name, 
+                        b.name2 code,
+                        case when b.name1 in ('预收儿保套餐') and b.father_name like '%儿保%' then b.father_name else b.name4 end name4,
+                        wm_concat(distinct (case when real_cost=ysqt then '' else b.name3 end)) name5,
+                        b.cus_code,
+                        decode(b.trans_type,1,'收'，2,'退') trans_type,
+                        b.mm,
+                        b.dd,
+                        round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),1) ca_cost,
+                        2 line
+                from (          
+                 select   
+                          epi.invoice_no,
+                          epi.trans_type,
+                          bp.package_name,
+                          bp1.package_name father_name,
+                          case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp.familyname else ep.patient_name end patient_name,
+                          cd.用友名称 name1,
+                          cd.用友编码 name2,
+                          epi.real_cost invoice_real,
+                          nvl(epd.real_cost,ep.real_cost) real_cost,
+                          nvl((select sum(a.real_cost)
+                                 from exp_packagepaymode a
+                                where a.invoice_no = epi.invoice_no
+                                      and a.trans_type = epi.trans_type 
+                                      and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD','CI','YS')
+                                      or a.mode_code='DE' and a.realated_code in ( 'CA','UP','ZB','WP','PO','CD','CI','YS'))),0) cashCost,
+                          nvl((select sum(a.real_cost)
+                                 from exp_packagepaymode a
+                                where a.invoice_no = epi.invoice_no
+                                      and a.trans_type = epi.trans_type 
+                                      and (a.mode_code in  ( 'YE')
+                                      or a.mode_code='DE' and a.realated_code in ( 'YE'))),0) ysqt,
+                          case when epd.item_name like '%纸尿裤%' then '' else epd.item_name end item_name,
+                          fun_get_fmis_customercode(case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp.familyname else cp.name end,
+                            case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp2.idenno else cp.idenno end) cus_code,
+                          to_number(to_char(epi.oper_date,'mm')) mm,
+                          to_number(to_char(epi.oper_date,'dd')) dd,
+                          case when bp.package_name like '%平%' and bp.package_name not like '%自选包%'
+                               then (
+                                    case when bp.package_name like '顺产%' then substr(bp.package_name,0,12)
+                                         when bp.package_name like '剖宫产%' then replace(substr(bp.package_name,0,13),'[自','')
+                                         when bp.package_name like '新%顺产%' then substr(bp.package_name,0,18) 
+                                         when bp.package_name like '新%剖宫产%' then substr(bp.package_name,0,19) 
+                                         else bp.package_name end)
+                               when bp.package_name like '%自选包%' then (case when epd.item_name like '%纸尿裤%' then bp.package_name else bp.package_name||'-'||epd.item_name end)
+                               when bp.package_name like '%产检%' then bp1.package_name
+                               when bp1.package_name like '%儿保%' then bp1.package_name
+                               when bp.package_name not like '%自选包%' and (bp.package_name like '%顺产%' or bp.package_name like '%剖宫产%') then ''
+                               else bp.package_name 
+                                end  name3,
+                           case when bp.package_name like '%顺产%' and bp.package_name not like '%自选包%' then '顺产'
+                                when bp.package_name like '%剖宫产%' and bp.package_name not like '%自选包%' then '剖宫产'
+                                when cd.用友名称 like '%儿保%' and (bp.package_name like '%单次%' or bp.package_name like '%体验%' or bp.package_name like '%水上感统训练套餐[自选包]%') then '儿保套餐'
+                                when bp1.package_name like '%儿保%' and bp1.package_name not like '%疫苗%' then '儿保'
+                                when bp1.package_name like '%儿保+疫苗%' then '疫苗'
+                                else (case when bp.package_name like '%自选包%' then (case when epd.item_name like '%纸尿裤%' then bp.package_name else bp.package_name||'-'||epd.item_name end)
+                                           when bp.package_name like '%产检%' then bp1.package_name
+                                           else bp.package_name end)  
+                                end  name4
+                    from exp_packageinvoice epi
+                    left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                    left join view_srpz_package bp on ep.package_id=bp.package_id 
+                    left join view_srpz_package bp1 on bp.parent_code=bp1.package_id
+                    left join (select ep.package_id,epd.item_name,ep.clinic_code,ep.trans_type,epd.real_cost 
+                                 from exp_package ep 
+                                 left join bd_com_package bp on ep.package_id=bp.package_id
+                                 left join exp_packagedetail epd on epd.clinic_code=ep.clinic_code and epd.trans_type=ep.trans_type
+                                where bp.package_name like '%自选包%' and ep.pay_flag=1) epd on ep.clinic_code=epd.clinic_code and ep.trans_type=epd.trans_type 
+                    left join com_patientinfo cp on ep.card_no=cp.card_no
+                    left join com_patientinfo cp1 on cp.familyid=cp1.familyid and cp1.familyroleid=1 and cp1.is_valid=1 and cp.name=cp1.name
+                    left join com_patientinfo cp2 on cp1.crmid=cp2.crmid and cp2.is_valid=1 and cp1.familyname=cp2.name 
+                    left join his_com_package cd on  bp.package_kind=cd.his编码
+                   where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+                     and epi.oper_code not in ('0a0713','000207','000225','000203')
+                     and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                               then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital'
+                     and cd.用友编码 in ('213105','213109','213111')
+                     )b
+               where  invoice_real!=ysqt
+               group by b.patient_name, 
+                    b.name1 , 
+                    b.name2 ,
+                    case when b.name1 in ('预收儿保套餐') and b.father_name like '%儿保%' then b.father_name else b.name4 end,
+                    b.cus_code,
+                    decode(b.trans_type,1,'收'，2,'退') ,
+                    b.mm,
+                    b.dd
+            ) a where a.ca_cost&lt;&gt;0
+            union all
+            select 
+            to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+            '收'  V800,
+            '0001'  ,
+            '0' 院区,
+            a.trans_type||a.mm||'.'||a.dd||a.patient_name||a.name5 年,  
+            a.code F1日期F2类别,  --科目代码
+            0 F3凭证号F4附单据数,
+            a.ca_cost F5摘要F6科目编码,
+            0 F7借方F8贷方,
+            0 F9数量F10原币,
+            '' F11汇率,
+            '张澌铃' F12制单人,
+            '' F13结算方式,
+            '' F14票号,
+            '' F15发生日期,
+            a.name1 F16部门编码,
+            '' F17个人编码,
+            '' F18客户编码,
+            '' F19供应商编码,
+            '' F20业务员,
+            '' F21项目编码,
+            '' F22自定义项1  ,
+            '' F23自定义项2,
+            '' F24自由项1,
+            '' F25自由项2,
+            '' F26自由项3,
+            '' F27自由项4,
+            '0' F28自由项5,
+            '' F29自由项6,
+            '0' F30自由项7,
+            '' F31自由项8,
+            '' F32自由项9,
+            '' F33自由项10,
+            'SC' F34外部系统标识,
+            '出纳管理' F35业务类型,
+            '' F36单据类型,
+            '' F37单据日期,
+            '' F38单据号,
+            'FALSE' F39凭证是否可改,
+            'FALSE' F40分录是否可增删,
+            'FALSE' F41合计金额是否保值,
+            'FALSE' F42数值是否可改,
+            'FALSE' F43科目是否可改,
+            '' F44受控科目,
+            'FALSE' F45往来是否可改,
+            'FALSE' F46部门是否可改,
+            'FALSE' F47项目是否可改,
+            'FALSE' F48往来项是否必输,
+            '001' F49账套号,
+            (select dd.input_code from com_dictionary dd where dd.type='CWHospital' and dd.code='&amp;cmbHospital') F50核算单位,
+            to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+            to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+            '1' F53类别顺序号,
+            '' F54凭证号,
+            '' F55审核人,
+            '' F56记账人,
+            '0' F57是否记账,
+            '张澌铃' F58出纳人,
+            '' F59行号,
+            '' F60原币名称,
+            '' 数量单位,
+            0 F61单价,
+            a.name4 F62科目名称,
+            a.name2 F63部门名称,
+            '' F64个人名称,
+            '' F65客户简称,
+            '' F66供应商简称,
+            '' F67项目名称,
+            '' F68项目大类编码,
+            '' F69项目大类名称,
+            '' F70对方科目,
+            '0' F71银行两清标志,
+            '0' F72往来两清标志,
+            'FALSE' F73银行核销标志,
+            '出纳管理' F74外部系统名称,
+            '' F75外部账套号,
+            '0' F76外部会计年度,
+            to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+            to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+            '' F79外部系统版本,
+            '' F80凭证标识,
+            '' F81分录自动编号,
+            '' F82唯一标识,
+            '' F83主管签字,
+            '' F84自由项11,
+            '' F85自由项12,
+            '' F86自由项13,
+            '' F87自由项14,
+            '0' F88自由项15,
+            '0' F89自由项16,
+            '' F90审核日期,
+            line
+            from 
+            (
+               select   b.patient_name, 
+                        b.code , 
+                        b.name2 name2,
+                        b.name1 name1,
+                        b.name3 name5,
+                        b.name4 ,
+                        b.cus_code,
+                        decode(b.trans_type,1,'收'，2,'退') trans_type,
+                        b.mm,
+                        b.dd,
+                        round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),1) ca_cost,
+                        3 line
+                from (          
+                 select    
+                          epi.invoice_no,
+                          epi.trans_type,
+                          bp.package_name,
+                          bp1.package_name father_name,
+                          case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp.familyname else ep.patient_name end patient_name,
+                          decode(cd.用友编码,'213105','51030111','51010105') code,
+                          decode(cd.用友编码,'213109','32','213111','33','15') name1,
+                          decode(cd.用友编码,'213109','医学美容科','213111','中医科','月子中心') name2,
+                          decode(cd.用友编码,'213105','居家月子收入','治疗收入') name4,
+                          epi.real_cost invoice_real,
+                          nvl(epd.real_cost,ep.real_cost) real_cost,
+                          nvl((select sum(a.real_cost)
+                                 from exp_packagepaymode a
+                                where a.invoice_no = epi.invoice_no
+                                      and a.trans_type = epi.trans_type 
+                                      and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD','CI','YS')
+                                      or a.mode_code='DE' and a.realated_code in ( 'CA','UP','ZB','WP','PO','CD','CI','YS'))),0) cashCost,
+                          nvl((select sum(a.real_cost)
+                                 from exp_packagepaymode a
+                                where a.invoice_no = epi.invoice_no
+                                      and a.trans_type = epi.trans_type 
+                                      and (a.mode_code in  ( 'YE')
+                                      or a.mode_code='DE' and a.realated_code in ( 'YE'))),0) ysqt,
+                          case when epd.item_name like '%纸尿裤%' then '' else epd.item_name end item_name,
+                          fun_get_fmis_customercode(case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp.familyname else cp.name end,
+                            case when substr(ep.patient_name,length(ep.patient_name)-1,length(ep.patient_name)) like '%B%' then cp2.idenno else cp.idenno end) cus_code,
+                          to_number(to_char(epi.oper_date,'mm')) mm,
+                          to_number(to_char(epi.oper_date,'dd')) dd,
+                          case when bp.package_name like '%平%' and bp.package_name not like '%自选包%'
+                               then (
+                                    case when bp.package_name like '顺产%' then substr(bp.package_name,0,12)
+                                         when bp.package_name like '剖宫产%' then replace(substr(bp.package_name,0,13),'[自','')
+                                         when bp.package_name like '新%顺产%' then substr(bp.package_name,0,18) 
+                                         when bp.package_name like '新%剖宫产%' then substr(bp.package_name,0,19) 
+                                         else bp.package_name end)
+                               when bp.package_name like '%自选包%' then (case when epd.item_name like '%纸尿裤%' then bp.package_name else bp.package_name||'-'||epd.item_name end)
+                               when bp.package_name like '%产检%' then bp1.package_name
+                               when bp1.package_name like '%儿保%' then bp1.package_name
+                               when bp.package_name not like '%自选包%' and (bp.package_name like '%顺产%' or bp.package_name like '%剖宫产%') then ''
+                               else bp.package_name 
+                                end  name3
+                    from exp_packageinvoice epi
+                    left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                    left join view_srpz_package bp on ep.package_id=bp.package_id 
+                    left join view_srpz_package bp1 on bp.parent_code=bp1.package_id
+                    left join (select ep.package_id,epd.item_name,ep.clinic_code,ep.trans_type,epd.real_cost 
+                                 from exp_package ep 
+                                 left join bd_com_package bp on ep.package_id=bp.package_id
+                                 left join exp_packagedetail epd on epd.clinic_code=ep.clinic_code and epd.trans_type=ep.trans_type
+                                where bp.package_name like '%自选包%' and ep.pay_flag=1) epd on ep.clinic_code=epd.clinic_code and ep.trans_type=epd.trans_type 
+                    left join com_patientinfo cp on ep.card_no=cp.card_no
+                    left join com_patientinfo cp1 on cp.familyid=cp1.familyid and cp1.familyroleid=1 and cp1.is_valid=1 and cp.name=cp1.name
+                    left join com_patientinfo cp2 on cp1.crmid=cp2.crmid and cp2.is_valid=1 and cp1.familyname=cp2.name 
+                    left join his_com_package cd on  bp.package_kind=cd.his编码
+                   where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+                     and epi.oper_code not in ('0a0713','000207','000225','000203')
+                     and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                               then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital'
+                     and cd.用友编码 in ('213105','213109','213111')
+                     )b
+               where  invoice_real!=ysqt
+               group by b.patient_name, 
+                        b.code , 
+                        b.name2 ,
+                        b.name1 ,
+                        b.name3 ,
+                        b.name4 ,
+                        b.cus_code,
+                        decode(b.trans_type,1,'收'，2,'退') ,
+                        b.mm,
+                        b.dd
+            ) a where a.ca_cost&lt;&gt;0
+            order by 年,line
+)a
+                             
+                             
+                                       
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ALL_CA_Cost</Name><Sql>----门诊现金收入
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||mm||'.'||dd||a.type 年,  
+'1001' F1日期F2类别,  --科目代码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+      select nvl(sum(mzsr+czsr+zyyj+tcyj+zysr+tcsr),0) ca_cost,
+             '门诊+充值+住院押金+套餐押金+住院+套餐' type,
+             to_number(to_char(oper_date,'mm')) mm,
+             to_number(to_char(oper_date,'dd')) dd
+        from (
+            --门诊收入--现金
+             select nvl(t.tot_cost,0) mzsr，0 czsr,0 zyyj,0 tcyj,0 zysr,0 tcsr,t.oper_date
+               from fin_opb_paymode t 
+               left join (select distinct f.invoice_no,f.trans_type,f.reg_dpcd from fin_opb_feedetail f) fd 
+                      on t.invoice_no=fd.invoice_no and t.trans_type=fd.trans_type 
+               left join com_department cd on cd.dept_code=fd.reg_dpcd
+              where cd.hospital_id = '&amp;cmbHospital'
+                and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and t.mode_code in  ('CA')
+              union all 
+             --门诊充值收入--现金
+             select 0,nvl(fcp.prepay_cost,0) czsr,0,0,0,0,fcp.oper_date
+               from fin_opb_accountprepay fcp 
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.invoice_no like '%IB%' or fcp.invoice_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.prepay_type in ('CA')
+              union all
+            --住院押金--现金
+             select 0,0,nvl(fcp.prepay_cost,0) zyyj,0,0,0,fcp.oper_date
+               from fin_ipb_inprepay fcp 
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.receipt_no like '%IB%' or fcp.receipt_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.pay_way in ('CA')
+              union all
+            --套餐押金--现金
+             select 0,0,0,nvl(fcp.amount,0) tcyj,0,0,fcp.oper_date
+               from exp_packagedeposit fcp 
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.hospital_id like '%IB%' or fcp.hospital_id is null) then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.mode_code in ('CA')
+              union all
+             --住院收入--现金
+             select 0,0,0,0,nvl(case when t.reutrnorsupply_flag = '2' and t.trans_kind = '1' then -t.cost else t.cost end,0) zysr,0,t.balance_date
+               from fin_ipb_balancepay t 
+              where ( '&amp;cmbHospital'='IBORN')
+                 and t.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                 and t.pay_way in  ('CA')
+               union all
+              --套餐收入--现金
+              select  0,0,0,0,0,nvl(case when invoice_real = 0 then 0 else cashCost*real_cost/invoice_real end,0) ca_cost,b.oper_date
+                    from (
+                          select  epi.invoice_no,
+                                  epi.trans_type,
+                                  bp.package_name,
+                                  bp1.package_name father_name,
+                                  ep.patient_name,
+                                  bp.package_kind name1,
+                                  cd.name name2,
+                                  epi.real_cost invoice_real,
+                                  ep.real_cost,
+                                  nvl((select sum(a.real_cost)
+                                         from exp_packagepaymode a
+                                        where a.invoice_no = epi.invoice_no
+                                              and a.trans_type = epi.trans_type 
+                                              and (a.mode_code in  ( 'CA')
+                                              or a.mode_code='DE' and a.realated_code in ( 'CA'))),0) cashCost,
+                                  'CA' ps,
+                                  epi.oper_date
+                            from exp_packageinvoice epi
+                            left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                            left join bd_com_package bp on ep.package_id=bp.package_id 
+                            left join bd_com_package bp1 on bp.parent_code=bp1.package_id
+                            left join com_dictionary cd on cd.type='PACKAGETYPE' and bp.package_kind=cd.code
+                           where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+                             and cd.code not in ('21')
+                             and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                                       then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital')b
+                  )b
+          group by to_number(to_char(oper_date,'mm')) ,
+                   to_number(to_char(oper_date,'dd'))
+) a 
+order by a.mm,a.dd</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ALL_Non_CA_Cost</Name><Sql>--门诊收入--非现金
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||mm||'.'||dd||a.type 年,  
+--case when ps='ZW' then '100202' else '1001' end F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码
+'1001' F1日期F2类别,  --科目代码，这里需要和财务沟通确认POS机的编码 
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+--case when ps='ZW' then '广东华兴银行广州天河路支行' else '银行' end  F62科目名称,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(    
+ select  nvl(sum(mzsr+czsr+zyyj+tcyj+zysr+tcsr),0) ca_cost, 
+         ps, 
+         '门诊+充值+住院押金+套餐押金+住院+套餐' type ,
+         to_number(to_char(oper_date,'mm')) mm,
+         to_number(to_char(oper_date,'dd')) dd
+   from (
+        --门诊收入--非现金
+         select nvl(t.tot_cost,0) mzsr,0 czsr,0 zyyj,0 tcyj,0 zysr,0 tcsr,
+                case when t.mode_code in ('ZB','WP') then 'ZW' else  'POS' end ps,t.oper_date
+           from fin_opb_paymode t 
+           left join (select distinct f.invoice_no,f.trans_type,f.reg_dpcd from fin_opb_feedetail f) fd 
+                  on t.invoice_no=fd.invoice_no and t.trans_type=fd.trans_type 
+           left join com_department cd on cd.dept_code=fd.reg_dpcd
+          where 
+             (cd.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+             and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+             and t.mode_code in('UP','ZB','WP','PO','CD')
+         union all 
+       --门诊充值收入--非现金
+         select 0,nvl(fcp.prepay_cost,0) czsr,0,0,0,0,
+                case when fcp.prepay_type in ('ZB','WP') then 'ZW' else  'POS' end ps,fcp.oper_date
+           from fin_opb_accountprepay fcp 
+          where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+            and ((case when (fcp.invoice_no like '%IB%' or fcp.invoice_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+            and fcp.prepay_type in ('UP','ZB','WP','PO','CD')
+          union all
+        --住院押金--非现金
+         select 0,0,nvl(fcp.prepay_cost,0) zyyj,0,0,0,
+                case when fcp.pay_way in ('ZB','WP') then 'ZW' else  'POS' end ps,fcp.oper_date
+           from fin_ipb_inprepay fcp 
+          where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+            and ((case when (fcp.receipt_no like '%IB%' or fcp.receipt_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+            and fcp.pay_way in ('UP','ZB','WP','PO','CD')
+          union all
+        --套餐押金--非现金
+         select 0,0,0,nvl(fcp.amount,0) tcyj,0,0,
+                case when fcp.mode_code in ('ZB','WP') then 'ZW' else  'POS' end ps,fcp.oper_date
+           from exp_packagedeposit fcp 
+          where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+            and ((case when (fcp.hospital_id like '%IB%' or fcp.hospital_id is null) then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+            and fcp.mode_code in ('UP','ZB','WP','PO','CD')
+          union all
+         --住院收入--非现金
+         select 0,0,0,0,nvl(case when t.reutrnorsupply_flag = '2' and t.trans_kind = '1' then -t.cost else t.cost end,0) zysr,0,
+                case when t.pay_way in ('ZB','WP') then 'ZW' else  'POS' end ps,t.balance_date
+           from fin_ipb_balancepay t 
+          where 
+             ('&amp;cmbHospital' = 'IBORN')
+             and t.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+             and t.pay_way in('UP','ZB','WP','PO','CD')
+           union all
+          --套餐收入--非现金
+          select  0,0,0,0,0,round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2) tcsr，
+                  ps,oper_date
+            from (
+                  select  epi.invoice_no,
+                          epi.trans_type,
+                          bp.package_name,
+                          bp1.package_name father_name,
+                          ep.patient_name,
+                          bp.package_kind name1,
+                          cd.name name2,
+                          epi.real_cost invoice_real,
+                          ep.real_cost,
+                          nvl((select sum(a.real_cost)
+                                 from exp_packagepaymode a
+                                where a.invoice_no = epi.invoice_no
+                                      and a.trans_type = epi.trans_type 
+                                      and (a.mode_code in  ( 'UP','ZB','WP','PO','CD')
+                                      or a.mode_code='DE' and a.realated_code in ( 'UP','ZB','WP','PO','CD'))),0) cashCost,
+                         (select distinct case when a.mode_code in ('ZB','WP') or (a.mode_code='DE' and a.realated_code in ('ZB','WP'))
+                                      then 'ZW' else  'POS' end mode_code
+                                 from exp_packagepaymode a
+                                where a.invoice_no = epi.invoice_no
+                                      and a.trans_type = epi.trans_type 
+                                      and (a.mode_code in  ( 'UP','ZB','WP','PO','CD')
+                                      or (a.mode_code='DE' and a.realated_code in ( 'UP','ZB','WP','PO','CD')))) ps,
+                                      epi.oper_date
+                    from exp_packageinvoice epi
+                    left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                    left join bd_com_package bp on ep.package_id=bp.package_id 
+                    left join bd_com_package bp1 on bp.parent_code=bp1.package_id
+                    left join com_dictionary cd on cd.type='PACKAGETYPE' and bp.package_kind=cd.code
+                   where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+                     and cd.code not in ('21')
+                     and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                               then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital'
+                     )b
+            where ps is not null
+            group by ps,oper_date
+            )b 
+        group by ps,
+                 to_number(to_char(oper_date,'mm')) ,
+                 to_number(to_char(oper_date,'dd'))       
+) a 
+order by a.mm,a.dd
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ALL_SB_Cost</Name><Sql>----门诊商保收入
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||mm||'.'||dd||a.type 年,  
+'1131' F1日期F2类别,  --科目代码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+'应收账款' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+      select nvl(sum(mzsr),0)+nvl(sum(czsr),0)+nvl(sum(zyyj),0)
+             +nvl(sum(tcyj),0)+nvl(sum(zysr),0)+nvl(sum(tcsr),0) ca_cost,
+             '商报记账'||'('||name||type||')' type,
+             to_number(to_char(oper_date,'mm')) mm,
+             to_number(to_char(oper_date,'dd')) dd
+        from (
+            --门诊收入--商保
+             select nvl(t.tot_cost,0) mzsr，0 czsr,0 zyyj,0 tcyj,0 zysr,0 tcsr,'门诊收入' type,cp.name,t.oper_date
+               from fin_opb_paymode t 
+               left join fin_opb_invoiceinfo f on t.invoice_no=f.invoice_no and t.trans_type=f.trans_type
+               left join (select distinct f.invoice_no,f.trans_type,f.reg_dpcd from fin_opb_feedetail f) fd 
+                      on t.invoice_no=fd.invoice_no and t.trans_type=fd.trans_type 
+               left join com_department cd on cd.dept_code=fd.reg_dpcd
+               left join com_patientinfo cp on f.card_no=cp.card_no
+              where cd.hospital_id = '&amp;cmbHospital'
+                and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and t.mode_code in  ('CI') 
+                and t.oper_code not in ('0a0713','000207','000225','000203')
+              union all 
+             --门诊充值收入--商保
+             select 0,nvl(fcp.prepay_cost,0) czsr,0,0,0,0,'充值' type,fcp.name,fcp.oper_date
+               from fin_opb_accountprepay fcp 
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.invoice_no like '%IB%' or fcp.invoice_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.prepay_type in ('CI')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+            --住院押金--商保
+             select 0,0,nvl(fcp.prepay_cost,0) zyyj,0,0,0,'住院押金' type,fcp.name,fcp.oper_date
+               from fin_ipb_inprepay fcp 
+              where fcp.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.receipt_no like '%IB%' or fcp.receipt_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.pay_way in ('CI')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+            --套餐押金--商保
+             select 0,0,0,nvl(fcp.amount,0) tcyj,0,0,'套餐押金' type,cp.name,fcp.oper_date
+               from exp_packagedeposit fcp 
+               left join com_patientinfo cp on fcp.card_no=cp.card_no
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.hospital_id like '%IB%' or fcp.hospital_id is null) then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.mode_code in ('CI')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+             --住院收入--商保
+             select 0,0,0,0,nvl(case when t.reutrnorsupply_flag = '2' and t.trans_kind = '1' then -t.cost else t.cost end,0) zysr,0
+                    ,'住院收入' type,i.name,t.balance_date
+               from fin_ipb_balancepay t 
+               left join fin_ipb_balancehead b on t.invoice_no=b.invoice_no and t.trans_type=b.trans_type
+               left join fin_ipr_inmaininfo i on b.inpatient_no=i.inpatient_no
+              where ( '&amp;cmbHospital'='IBORN')
+                 and t.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                 and t.pay_way in  ('CI')
+                 and t.balance_opercode not in ('0a0713','000207','000225','000203')
+               union all
+              --套餐收入--商保
+              select  0,0,0,0,0,nvl(case when invoice_real = 0 then 0 else cashCost*real_cost/invoice_real end,0) ca_cost,'套餐收入' type,b.name,oper_date
+                    from (
+                          select  epi.invoice_no,
+                                  epi.trans_type,
+                                  bp.package_name,
+                                  bp1.package_name father_name,
+                                  ep.patient_name name,
+                                  bp.package_kind name1,
+                                  cd.name name2,
+                                  epi.real_cost invoice_real,
+                                  ep.real_cost,
+                                  nvl((select sum(a.real_cost)
+                                         from exp_packagepaymode a
+                                        where a.invoice_no = epi.invoice_no
+                                              and a.trans_type = epi.trans_type 
+                                              and (a.mode_code in  ( 'CI')
+                                              or a.mode_code='DE' and a.realated_code in ( 'CI'))),0) cashCost,
+                                 'CA' ps,epi.oper_date
+                            from exp_packageinvoice epi
+                            left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                            left join bd_com_package bp on ep.package_id=bp.package_id 
+                            left join bd_com_package bp1 on bp.parent_code=bp1.package_id
+                            left join com_dictionary cd on cd.type='PACKAGETYPE' and bp.package_kind=cd.code
+                           where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+                             and epi.oper_code not in ('0a0713','000207','000225','000203')
+                             and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                                       then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital')b
+                  )b 
+                  group by name,type,to_number(to_char(oper_date,'mm')),to_number(to_char(oper_date,'dd'))
+                 having nvl(sum(mzsr+czsr+zyyj+tcyj+zysr+tcsr),0)&lt;&gt;0
+) a 
+order by a.mm,a.dd
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ALL_Non_SB_Cost</Name><Sql>----非商保、账户收入
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+'收'||mm||'.'||dd||a.type 年,  
+'1001' F1日期F2类别,  --科目代码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+'' F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+'库存现金' F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+'' F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+      select nvl(sum(mzsr),0)+nvl(sum(czsr),0)+nvl(sum(zyyj),0)
+             +nvl(sum(tcyj),0)+nvl(sum(zysr),0)+nvl(sum(tcsr),0) ca_cost,
+             '门诊+充值+住院押金+套餐押金+住院+套餐' type,
+             to_number(to_char(oper_date,'mm')) mm,
+             to_number(to_char(oper_date,'dd')) dd
+        from (
+            --门诊收入--现金
+             select nvl(decode(t.mode_code,'CA',round(t.tot_cost,1),round(t.tot_cost,2)),0) mzsr，
+                    0 czsr,0 zyyj,0 tcyj,0 zysr,0 tcsr,t.oper_date
+               from fin_opb_paymode t 
+               left join (select distinct f.invoice_no,f.trans_type,f.reg_dpcd from fin_opb_feedetail f) fd 
+                      on t.invoice_no=fd.invoice_no and t.trans_type=fd.trans_type 
+               left join com_department cd on cd.dept_code=fd.reg_dpcd
+              where cd.hospital_id = '&amp;cmbHospital'
+                and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and t.mode_code in  ('CA','UP','ZB','WP','PO','CD')
+                and t.oper_code not in ('0a0713','000207','000225','000203')
+              union all 
+             --门诊充值收入--现金
+             select 0,nvl(decode(fcp.prepay_type,'CA',round(fcp.prepay_cost,1),round(fcp.prepay_cost,2)),0) czsr,0,0,0,0,fcp.oper_date
+               from fin_opb_accountprepay fcp 
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.invoice_no like '%IB%' or fcp.invoice_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.prepay_type in ('CA','UP','ZB','WP','PO','CD')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+            --住院押金--现金
+             select 0,0,nvl(decode(fcp.pay_way,'CA',round(fcp.prepay_cost,1),round(fcp.prepay_cost,2)),0) zyyj,0,0,0,fcp.oper_date
+               from fin_ipb_inprepay fcp 
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.receipt_no like '%IB%' or fcp.receipt_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.pay_way in ('CA','UP','ZB','WP','PO','CD')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+            --套餐押金--现金
+             select 0,0,0,nvl(decode(fcp.mode_code,'CA',round(fcp.amount,1),round(fcp.amount,2)),0) tcyj,0,0,fcp.oper_date
+               from exp_packagedeposit fcp 
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.hospital_id like '%IB%' or fcp.hospital_id is null) then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.mode_code in ('CA','UP','ZB','WP','PO','CD')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+             --住院收入--现金
+             select 0,0,0,0,
+                   nvl(case when t.reutrnorsupply_flag = '2' and t.trans_kind = '1' 
+                            then nvl(decode(t.pay_way,'CA',round(-t.cost,1),round(-t.cost,2)),0)
+                            else nvl(decode(t.pay_way,'CA',round(t.cost,1),round(t.cost,2)),0) end,0) zysr,0,t.balance_date
+               from fin_ipb_balancepay t 
+              where ( '&amp;cmbHospital'='IBORN')
+                 and t.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                 and t.pay_way in  ('CA','UP','ZB','WP','PO','CD')
+                 and t.balance_opercode not in ('0a0713','000207','000225','000203')
+               union all
+              --套餐收入--现金
+              select  0,0,0,0,0,nvl(case when invoice_real = 0 then 0 else cashCost*real_cost/invoice_real end,0) ca_cost,b.oper_date
+                    from (
+                          select  epi.invoice_no,
+                                  epi.trans_type,
+                                  bp.package_name,
+                                  bp1.package_name father_name,
+                                  ep.patient_name,
+                                  bp.package_kind name1,
+                                  cd.name name2,
+                                  epi.real_cost invoice_real,
+                                  ep.real_cost,
+                                  nvl((select sum(nvl((case when a.mode_code='CA' or (a.mode_code='DE' and a.realated_code='CA') 
+                                                            then round(a.real_cost,1) else round(a.real_cost,2) end),0))
+                                         from exp_packagepaymode a
+                                        where a.invoice_no = epi.invoice_no
+                                              and a.trans_type = epi.trans_type 
+                                              and (a.mode_code in  ('CA','UP','ZB','WP','PO','CD')
+                                              or a.mode_code='DE' and a.realated_code in ('CA','UP','ZB','WP','PO','CD'))),0) cashCost,
+                                  epi.oper_date
+                            from exp_packageinvoice epi
+                            left join exp_package ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                            left join bd_com_package bp on ep.package_id=bp.package_id 
+                            left join bd_com_package bp1 on bp.parent_code=bp1.package_id
+                            left join com_dictionary cd on cd.type='PACKAGETYPE' and bp.package_kind=cd.code
+                           where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+                             and epi.oper_code not in ('0a0713','000207','000225','000203')
+                             and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                                       then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital')b
+                  )b
+          group by to_number(to_char(oper_date,'mm')) ,
+                   to_number(to_char(oper_date,'dd'))
+) a 
+order by a.mm,a.dd
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>ALL_YS_Cost</Name><Sql>----账户收入
+select 
+to_char(sysdate,'yyyy-mm-dd') 凭证输出,
+'收'  V800,
+'0001'  ,
+'0' 院区,
+decode(trans_type,1,'收',2,'退')
+||mm||'.'||a.dd||a.type||'(账户收入)-'||
+case when a.name1=a.name2 then a.name1 
+     when a.name2 is not null and a.name1 is not null and a.name1&lt;&gt;a.name2 then  a.name2||'代'||a.name1||'账户支付'
+     else nvl(a.name1,a.name2)end 年,  
+case when item_name like '%医美%' then '213110' else '213104' end F1日期F2类别,  --科目代码
+a.ca_cost F3凭证号F4附单据数,
+0 F5摘要F6科目编码,
+0 F7借方F8贷方,
+0 F9数量F10原币,
+'' F11汇率,
+'张澌铃' F12制单人,
+'' F13结算方式,
+'' F14票号,
+'' F15发生日期,
+'' F16部门编码,
+'' F17个人编码,
+'' F18客户编码,
+case when a.code1=a.code1 then a.code1 else a.code2 end F19供应商编码,
+'' F20业务员,
+'' F21项目编码,
+'' F22自定义项1  ,
+'' F23自定义项2,
+'' F24自由项1,
+'' F25自由项2,
+'' F26自由项3,
+'' F27自由项4,
+'0' F28自由项5,
+'' F29自由项6,
+'0' F30自由项7,
+'' F31自由项8,
+'' F32自由项9,
+'' F33自由项10,
+'SC' F34外部系统标识,
+'出纳管理' F35业务类型,
+'' F36单据类型,
+'' F37单据日期,
+'' F38单据号,
+'FALSE' F39凭证是否可改,
+'FALSE' F40分录是否可增删,
+'FALSE' F41合计金额是否保值,
+'FALSE' F42数值是否可改,
+'FALSE' F43科目是否可改,
+'' F44受控科目,
+'FALSE' F45往来是否可改,
+'FALSE' F46部门是否可改,
+'FALSE' F47项目是否可改,
+'FALSE' F48往来项是否必输,
+'001' F49账套号,
+(select d.input_code from com_dictionary d where d.type='CWHospital' and d.code='&amp;cmbHospital') F50核算单位,
+to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'yyyy') F51会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F52会计期间,
+'1' F53类别顺序号,
+'' F54凭证号,
+'' F55审核人,
+'' F56记账人,
+'0' F57是否记账,
+'张澌铃' F58出纳人,
+'' F59行号,
+'' F60原币名称,
+'' 数量单位,
+0 F61单价,
+a.item_name F62科目名称,
+'' F63部门名称,
+'' F64个人名称,
+'' F65客户简称,
+case when a.name1=a.name2 then a.name1 else a.name2 end F66供应商简称,
+'' F67项目名称,
+'' F68项目大类编码,
+'' F69项目大类名称,
+'' F70对方科目,
+'0' F71银行两清标志,
+'0' F72往来两清标志,
+'FALSE' F73银行核销标志,
+'出纳管理' F74外部系统名称,
+'' F75外部账套号,
+'0' F76外部会计年度,
+to_number(to_char(to_date('&amp;dtBeginTime','yyyy-mm-dd'),'mm')) F77外部会计期间,
+to_char(sysdate,'yyyy-mm-dd') F78外部制单日期,
+'' F79外部系统版本,
+'' F80凭证标识,
+'' F81分录自动编号,
+'' F82唯一标识,
+'' F83主管签字,
+'' F84自由项11,
+'' F85自由项12,
+'' F86自由项13,
+'' F87自由项14,
+'0' F88自由项15,
+'0' F89自由项16,
+'' F90审核日期
+from 
+(
+      select nvl(sum(mzsr),0)+nvl(sum(czsr),0)+nvl(sum(zyyj),0)
+             +nvl(sum(tcyj),0)+nvl(sum(zysr),0)+nvl(sum(tcsr),0) ca_cost,
+             type type,
+             to_number(to_char(b.oper_date,'mm')) mm,
+             to_number(to_char(b.oper_date,'dd')) dd，
+             fun_get_fmis_customercode(cp1.name,cp1.idenno) code1,
+             fun_get_fmis_customercode(cp2.name,cp2.idenno) code2,
+             item_name,
+             cp1.name name1,cp2.name name2,
+             trans_type
+        from (
+            --门诊收入--账户
+              select nvl(t.tot_cost,0) mzsr，0 czsr,0 zyyj,0 tcyj,0 zysr,0 tcsr,
+                     '门诊收入' type,f.card_no card_no1,t.oper_date,
+                     decode(fa.type_code,'1','预收普通会员充值','预收医美会员充值') item_name,a.card_no card_no2,t.trans_type
+                from fin_opb_paymode t 
+                left join fin_opb_invoiceinfo f on t.invoice_no=f.invoice_no and t.trans_type=f.trans_type
+                left join (select distinct f.invoice_no,f.trans_type,f.reg_dpcd from fin_opb_feedetail f) fd 
+                        on t.invoice_no=fd.invoice_no and t.trans_type=fd.trans_type 
+                left join com_department cd on cd.dept_code=fd.reg_dpcd
+                left join fin_opb_accountrecord fa on fa.pay_invoiceno=t.invoice_no and decode(fa.opertype,4,1,5,2)=t.trans_type and t.tot_cost=fa.base_money*(-1)
+                left join fin_opb_account a on fa.account_no=a.account_no
+               where cd.hospital_id = '&amp;cmbHospital'
+                 and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                 and t.mode_code in  ('YS') 
+                 and t.oper_code not in ('0a0713','000207','000225','000203')
+              union all 
+             --门诊充值收入--账户
+             select 0,nvl(fcp.prepay_cost,0) czsr,0,0,0,0,
+                    decode(fcp.type_code,'1','普通会员充值','2','医美会员充值') type,fcp.card_no card_no1,fcp.oper_date,
+                    decode(fcp.type_code,'1','预收普通会员充值','预收医美会员充值') item_name, a.card_no card_no2,to_char(fcp.happen_no)
+               from fin_opb_accountprepay fcp
+               left join fin_opb_account a on fcp.account_no=a.account_no 
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.invoice_no like '%IB%' or fcp.invoice_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.prepay_type in ('YS')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+            --住院押金--账户
+             select 0,0,nvl(fcp.prepay_cost,0) zyyj,0,0,0,'住院押金' type,f.card_no card_no,fcp.oper_date,
+                    decode(fa.type_code,'1','预收普通会员充值','预收医美会员充值') item_name,a.card_no card_no2,to_char(fcp.happen_no)
+               from fin_ipb_inprepay fcp 
+               left join fin_ipr_inmaininfo f on fcp.inpatient_no=f.inpatient_no
+               left join fin_opb_accountrecord fa on fa.pay_invoiceno=fcp.invoice_no and decode(fa.opertype,4,1,5,2)=fcp.happen_no and fcp.prepay_cost=fa.base_money*(-1)
+               left join fin_opb_account a on fa.account_no=a.account_no
+              where fcp.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.receipt_no like '%IB%' or fcp.receipt_no not like '%B%') then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.pay_way in ('YS')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+            --套餐押金--账户
+             select 0,0,0,nvl(fcp.amount,0) tcyj,0,0,'套餐押金' type,fcp.card_no card_no,fcp.oper_date,
+                    decode(fa.type_code,'1','预收普通会员充值','预收医美会员充值') item_name,a.card_no card_no2,fcp.trans_type
+               from exp_packagedeposit fcp 
+               left join fin_opb_accountrecord fa on fa.pay_invoiceno=fcp.deposit_no and decode(fa.opertype,4,1,5,2)=fcp.trans_type and fcp.amount=fa.base_money*(-1)
+               left join fin_opb_account a on fa.account_no=a.account_no
+              where fcp.oper_date  between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                and ((case when (fcp.hospital_id like '%IB%' or fcp.hospital_id is null) then 'IBORN' else 'BELLAIRE' end)= '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+                and fcp.mode_code in ('YS')
+                and fcp.oper_code not in ('0a0713','000207','000225','000203')
+              union all
+             --住院收入--账户
+              select 0,0,0,0,nvl(case when t.reutrnorsupply_flag = '2' and t.trans_kind = '1' then -t.cost else t.cost end,0) zysr,0
+                    ,'住院收入' type,i.card_no card_no1,t.balance_date,
+                    decode(fa.type_code,'1','预收普通会员充值','预收医美会员充值') item_name, a.card_no card_no2,t.trans_type
+               from fin_ipb_balancepay t 
+               left join fin_ipb_balancehead b on t.invoice_no=b.invoice_no and t.trans_type=b.trans_type
+               left join fin_ipr_inmaininfo i on b.inpatient_no=i.inpatient_no
+               left join fin_opb_accountrecord fa on fa.pay_invoiceno=t.invoice_no and decode(fa.opertype,4,1,5,2)=t.trans_type and t.cost=(-1)*fa.base_money
+               left join fin_opb_account a on fa.account_no=a.account_no
+              where ( '&amp;cmbHospital'='IBORN')
+                 and t.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+                 and t.pay_way in  ('YS')
+                 and t.balance_opercode not in ('0a0713','000207','000225','000203')
+               union all
+              --套餐收入--账户
+              select  0,0,0,0,0,nvl(ca_cost,0) ca_cost,'套餐收入' type,
+                      b.card_no1,oper_date,b.item_name, b.card_no2,b.trans_type
+                from (
+                     select  epi.invoice_no,
+                             epi.trans_type,
+                             ep.patient_name name,
+                             epi.oper_date,
+                             ep.card_no card_no1,
+                             a.card_no  card_no2,
+                             decode(fa.type_code,'1','预收普通会员充值','预收医美会员充值') item_name,
+                             base_money*(-1) ca_cost
+                       from exp_packageinvoice epi
+                       left join (select distinct ep.invoice_no,ep.trans_type,ep.card_no,ep.patient_name
+                                     from exp_package ep)ep on epi.invoice_no=ep.invoice_no and epi.trans_type=ep.trans_type
+                       left join (select distinct opertype,pay_invoiceno,account_no,type_code,base_money
+                                   from fin_opb_accountrecord) fa on fa.pay_invoiceno=epi.invoice_no and decode(fa.opertype,4,1,5,2)=epi.trans_type 
+                       left join fin_opb_account a on fa.account_no=a.account_no
+                      inner join (select distinct epd.invoice_no,epd.trans_type,epd.real_cost from exp_packagepaymode epd where epd.mode_code='YS') epd
+                               on epd.invoice_no=fa.pay_invoiceno and decode(fa.opertype,4,1,5,2)=epd.trans_type and epd.real_cost=fa.base_money*(-1)
+                      where epi.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1  
+                        and epi.oper_code not in ('0a0713','000207','000225','000203')
+                        and (case when (epi.print_invoiceno like '%IB%' or epi.hospital_id='IBORN' or epi.print_invoiceno not like '%B%') 
+                                  then 'IBORN' else 'BELLAIRE' end )='&amp;cmbHospital')b
+                  )b 
+                  left join com_patientinfo cp1 on b.card_no1=cp1.card_no
+                  left join com_patientinfo cp2 on b.card_no2=cp2.card_no
+                  group by cp1.name,cp2.name,
+                           type,to_number(to_char(b.oper_date,'mm')),
+                           to_number(to_char(b.oper_date,'dd')),cp1.name,
+                           cp1.idenno,cp2.name,cp2.idenno,item_name,trans_type
+) a 
+where a.ca_cost&lt;&gt;0
+order by a.mm,a.dd
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\收入凭证DS.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

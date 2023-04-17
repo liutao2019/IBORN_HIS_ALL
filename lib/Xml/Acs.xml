@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ACS>
+	<Include>
+		<DepartmentCode>6001,0107</DepartmentCode>
+		<DiagnoseName>前壁急性透壁性心肌硬死,下壁急性透壁性心肌梗死,其他部位的急性透壁心肌梗死,未特指部位的急性透壁性心肌梗死,未特指的急性心肌梗死,急性心内膜下心肌梗死,不稳定性心绞痛,心绞痛伴有确证的痉挛,未特指的心绞痛,声带息肉</DiagnoseName>
+		<DiagnoseCode>I21.0,I21.1,I21.2,I21.3,I21.9,I21.4,I20.0,I20.1,I20.9</DiagnoseCode>
+		<Age min="18" max="80"></Age>
+	</Include>
+	<Exclude>
+		<Inpatient>72</Inpatient>
+		<ExpDay>5</ExpDay>
+	</Exclude>
+</ACS>

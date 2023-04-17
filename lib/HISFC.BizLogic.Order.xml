@@ -1,0 +1,2694 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.BizLogic.Order</name>
+    </assembly>
+    <members>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.CurePhase">
+            <summary>
+            CurePhase 的摘要说明。
+            患者治疗阶段信息管理类
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.CurePhase.FormatCurePhaseInfo(System.String,Neusoft.HISFC.Models.Order.CurePhase)">
+            <summary>
+            格式化SQL语句
+            </summary>
+            <param name="strSql"></param>
+            <param name="curePhase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.CurePhase.myCurePhaseQuery(System.String)">
+            <summary>
+            查询
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.CurePhase.InsertCurePhase(Neusoft.HISFC.Models.Order.CurePhase)">
+            <summary>
+            插入一条数据
+            </summary>
+            <param name="curePhase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.CurePhase.UpdateCurePhase(Neusoft.HISFC.Models.Order.CurePhase)">
+            <summary>
+            更新治疗阶段信息
+            </summary>
+            <param name="curePhase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.CurePhase.GetNewCurePhaseID">
+            <summary>
+            取治疗阶段信息序列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.CurePhase.QueryCurePhaseByInPatientNO(System.String)">
+            <summary>
+            按照住院流水号查询
+            </summary>
+            <param name="inPatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.CurePhase.QuerCurePhaseBySeq(System.String)">
+            <summary>
+            按照序列号查询
+            </summary>
+            <param name="seqNO"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.Consultation">
+            <summary>
+            会诊管理类<br></br>
+            <Font color='#FF1111'>[管理住院患者会诊信息]</Font><br></br>
+            [创 建 者: ]<br>wolf</br>
+            [创建时间: ]<br>2004-11</br>
+            <修改记录 
+            	修改人='张琦' 
+            	修改时间='2007-8-24' 
+            	修改目的='能够更新数据库的开立医嘱属性列'
+            	修改描述='在插入和更新方法中添加了一个参数(能否开立医嘱)'
+            	/>
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.Insert(Neusoft.HISFC.Models.Order.Consultation)">
+            <summary>
+            
+            </summary>
+            <param name="consultation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.Update(System.String)">
+            <summary>
+            更新审核标记
+            </summary>
+            <param name="consultationNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.InsertConsultation(Neusoft.HISFC.Models.Order.Consultation)">
+            <summary>
+            插入会诊记录
+            </summary>
+            <param name="consultation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.UpdateConsultation(Neusoft.HISFC.Models.Order.Consultation)">
+            <summary>
+            更新会诊记录
+            </summary>
+            <param name="consultation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.UpdateConsultationAuditingFlag(System.String)">
+            <summary>
+            更新审核标记
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.UpdateConsulationRecord(Neusoft.HISFC.Models.Order.Consultation)">
+            <summary>
+            更新会诊记录和会诊意见
+            </summary>
+            <param name="consultation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.DeleteConsulation(System.String)">
+            <summary>
+            删除会诊记录
+            </summary>
+            <param name="ConsultationNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.myGetList(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.QueryConsulation(System.String)">
+            <summary>
+            获得会诊列表
+            </summary>
+            <param name="InpatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.GetConsultation(System.String)">
+            <summary>
+            根据会诊流水号查询会诊信息
+            </summary>
+            <param name="consulationNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.QueryOutHosConsultaion(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            获得院外会诊列表
+            </summary>
+            <param name="dt1"></param>
+            <param name="dt2"></param>
+            <param name="iState"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Consultation.QueryOuthosConsultation(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            查询会诊单
+            </summary>
+            <param name="dt1"></param>
+            <param name="dt2"></param>
+            <param name="iState"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.ChargeBill">
+            <summary>
+            ChargeBill 病区收费单
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.InsertChargeBill(Neusoft.HISFC.Models.Fee.Inpatient.ChargeBill)">
+            <summary>
+            插入一张收费单
+            </summary>
+            <param name="bill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.UpdateChargeBill(Neusoft.HISFC.BizLogic.Order.EnumUpdateType,Neusoft.HISFC.Models.Fee.Inpatient.ChargeBill)">
+            <summary>
+            更新标记
+            更新打印标记，或者收费标记
+            </summary>
+            <param name="p"></param>
+            <param name="bill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.DeleteChargeBill(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="billID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.QuerySpFlag(System.Boolean,System.String)">
+            <summary>
+            查询患者出单显示的特殊标志.
+            </summary>
+            <param name="isPharmacy"></param>
+            <param name="itemCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.UpdatePrintFlag(Neusoft.HISFC.Models.Fee.Inpatient.ChargeBill)">
+            <summary>
+            更新打印标志
+            </summary>
+            <param name="bill"></param>
+            <returns>-1 错误 0 没有更新（没有查到记录） >0 更新到信息</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.UpdateChargeFlag(Neusoft.HISFC.Models.Fee.Inpatient.ChargeBill)">
+            <summary>
+            更新收费标志
+            </summary>
+            <param name="bill"></param>
+            <returns>-1 错误 0 没有更新（没有查到记录） >0 更新到信息</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.QueryChargeBillNotPrinted(System.String,System.Boolean)">
+            <summary>
+            按患者查询未打印收费单
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="isPharmacy"></param>
+            <returns>null 错误</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.QueryChargeBillByNurseStation(System.String,System.Boolean)">
+            <summary>
+            护士占出单查询,关联执行档, 排序按,医嘱流水号，comb_no和useTime
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="isPharmacy"></param>
+            <returns>null 错误</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.QueryChargeBillByNurseStation(System.String,System.Boolean,System.DateTime,System.DateTime)">
+            <summary>
+            按患者、时间段查询已打印收费单
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="isPharmacy"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.QueryChargeBill(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            按患者、是否打印、是否收费查询收费单
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="isPrint"></param>
+            <param name="isCharge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.QueryChargeBill(System.String,System.Boolean,System.DateTime,System.DateTime)">
+            <summary>
+            按患者、时间段查询已打印收费单
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="isPharmacy"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.myQueryChargeBill(System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ChargeBill.myQueryChargeBillByNurseStation(System.String)">
+            <summary>
+            基本查询为护士占查询服务
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Neusoft.HISFC.BizLogic.Order.EnumUpdateType.Print">
+            <summary>
+            更新打印
+            </summary>
+        </member>
+        <member name="F:Neusoft.HISFC.BizLogic.Order.EnumUpdateType.Charge">
+            <summary>
+            确认收费
+            </summary>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.Order">
+            <summary>
+            医嘱管理类。
+            
+            <说明>
+                1 2007-04 增加配液中心处理
+                    执行挡插入函数增加参数是否需配液
+                2 增加查询、更新函数
+            </说明>
+            </summary>
+        </member>
+        <member name="F:Neusoft.HISFC.BizLogic.Order.Order.hsCompoundUsage">
+            <summary>
+            需配液用法
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.CreateOrder(Neusoft.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.InsertOrder(Neusoft.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            开立新医嘱(插入新医嘱记录)
+            </summary>
+            <param name="order"></param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateOrder(Neusoft.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            更新医嘱
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DeleteOrder(Neusoft.HISFC.Models.Order.Order)">
+            <summary>
+            删除医嘱
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.InsertExecOrder(Neusoft.HISFC.Models.Order.ExecOrder)">
+            <summary>
+            建立执行档(插入执行档记录)
+            </summary>
+            <param name="execOrder"></param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.SetOrder(Neusoft.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            保存医嘱 -根据Order.ID =="" or =="-1" 是新的 插入，其他的更新
+            设置医嘱
+            </summary>
+            <param name="Order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcOneOrder(Neusoft.HISFC.Models.Order.Order)">
+            <summary>
+            停止医嘱
+            Order.Status = 1预停止;Order.Status = 3直接停止
+            </summary>
+            <param name="Order">医嘱信息</param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DeleteOrderSubtbl(System.String)">
+            <summary>
+            删除医嘱附材
+            </summary>
+            <param name="ComboID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.ComboOrder(System.Collections.ArrayList)">
+             <summary>
+             '组合
+            将医嘱组合成组合医嘱一起执行
+            条件：usage用法相同
+                  frq  频次相同
+             </summary>
+             <param name="alOrder"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrder(System.String)">
+            <summary>
+            查询所有医嘱
+            </summary>
+            <param name="inpatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderSubtbl(System.String)">
+            <summary>
+            查询所有医嘱的附材
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrdeSub(System.String,System.String)">
+            <summary>
+            查找某一个患者的有效附材 {24F859D1-3399-4950-A79D-BCCFBEEAB939}
+            </summary>
+            <param name="inpatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrder(System.String,System.Int32)">
+            <summary>
+            按状态查询医嘱
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrder(System.String,System.Int32,System.Boolean)">
+            <summary>
+            查询审核的非附材医嘱
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="status"></param>
+            <param name="isSubtbl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrder(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            按开立时间查询医嘱
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryCircuitCard(System.String,System.String,System.Boolean)">
+            <summary>
+            检索有效需要打印的患者巡回卡信息
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="usage"></param>
+            <param name="isPrint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrder(System.String,System.String)">
+            <summary>
+            按医嘱类型查询医嘱
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOutHosDrug(System.String)">
+            <summary>
+            查询出院带药单
+            </summary>
+            <param name="inpatientNO">患者流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryTempOutHosDrug(System.String)">
+            <summary>
+            查询请假带药单
+            </summary>
+            <param name="inpatientNO">患者流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOutHosCure(System.String)">
+            <summary>
+            查询出院带疗项目
+            </summary>
+            <param name="inpatientNO">患者流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOneOrder(System.String)">
+            <summary>
+            按医嘱流水号查询医嘱信息-不分有效作废
+            </summary>
+            <param name="OrderNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOneOrderState(System.String)">
+            <summary>
+            通过医嘱号查询医嘱状态
+            </summary>
+            <param name="OrderNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrder(System.String,Neusoft.HISFC.Models.Order.EnumType,System.Int32)">
+            <summary>
+            按医嘱类型（长期/临时），状态）查询医嘱（不包含附材）
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="type"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryIsConfirmOrder(System.String,Neusoft.HISFC.Models.Order.EnumType,System.Boolean)">
+            <summary>
+            查询是否审核的医嘱 - 不包括附材
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="type"></param>
+            <param name="isConfirmed"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryDcOrder(System.String)">
+            <summary>
+            查询所有医嘱
+            </summary>
+            <param name="InPatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryDcOrder(System.String,System.Int32,System.Boolean)">
+            <summary>
+            按医嘱状态,停止审核标志 查询医嘱（不包含附材）
+            停止未审核医嘱查询
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="isConfirm"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QuerySubtbl(System.String)">
+            <summary>
+            获得医嘱项目的附材信息(组合号）
+            </summary>
+            <param name="combNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderSubtblCurrentDay(System.String,System.String,System.String)">
+            <summary>
+            从非药品执行档查找某个非药品当天是否存在执行记录
+            {24F859D1-3399-4950-A79D-BCCFBEEAB939}
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="undrugID"></param>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderHypotest(System.String)">
+            <summary>
+            获得医嘱皮试信息
+            </summary>
+            <param name="orderNo"></param>
+            <returns>-1错误 1不需要皮试/2需要皮试，未做/3皮试阳/4皮试阴</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderNote(System.String)">
+            <summary>
+            获得医嘱批注信息
+            </summary>
+            <param name="orderNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderWithSubtbl(System.String,Neusoft.HISFC.Models.Order.EnumType,System.Int32)">
+            <summary>
+            按医嘱类型（长期/临时），状态）查询医嘱（包含附材）
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="type"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryValidOrderWithSubtbl(System.String,Neusoft.HISFC.Models.Order.EnumType)">
+            <summary>
+            查询有效的医嘱
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.GetNewOrderID">
+            <summary>
+            获得医嘱流水号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.GetNewOrderExecID">
+            <summary>
+            获得医嘱执行流水号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.GetNewOrderComboID">
+            <summary>
+            获得新医嘱组合序号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateFeedback(System.String,System.String,System.String,System.Int32)">
+            <summary>   
+            更新医嘱反馈信息（护士批注，皮试结果）
+            更新皮试前请判断该标志是否需要皮试（1不需要皮试/2需要皮试，未做/3皮试阳/4皮试阴）
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="orderNo"></param>
+            <param name="notes">批注</param>
+            <param name="hypotest">皮试（1不需要皮试/2需要皮试，未做/3皮试阳/4皮试阴）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateOrderExecuted(System.String)">
+            <summary>
+            更新医嘱执行标记
+            </summary>
+            <param name="orderNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateChargeOrder(System.String,System.String)">
+            <summary>
+            更新医嘱记帐情况
+            更新为记帐
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="orderNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateSubtblNum(System.String,System.Decimal)">
+            <summary>
+            更新医嘱附材数量
+            </summary>
+            <param name="orderNo">附材医嘱编码</param>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateExecTime(System.String,System.String)">
+            <summary>
+            护士站更新临时医嘱备注信息
+            </summary>
+            <param name="orderNo"></param>
+            <param name="txt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateExecValidFlag(System.String,System.Boolean,System.String)">
+            <summary>
+            更新执行档有效标记
+            </summary>
+            <param name="execOrderID"></param>
+            <param name="flag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcExecImmediate(System.String,System.Boolean,Neusoft.FrameWork.Models.NeuObject)">
+            <summary>
+            作废执行档 非常规操作
+            </summary>
+            <param name="SqnNo"></param>
+            <param name="isDrug"></param>
+            <param name="dcPerson"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcExecImmediate(Neusoft.HISFC.Models.Order.Order,Neusoft.FrameWork.Models.NeuObject)">
+            <summary>
+            作废执行档
+            </summary>
+            <param name="dcPerson">执行档信息</param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcExecImmediate(Neusoft.HISFC.Models.Order.ExecOrder,Neusoft.FrameWork.Models.NeuObject)">
+            <summary>
+            停止指定执行档
+            </summary>
+            <param name="execOrder"></param>
+            <param name="dcPerson"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcExecLater(Neusoft.HISFC.Models.Order.Order,Neusoft.FrameWork.Models.NeuObject,System.DateTime)">
+            <summary>
+            按医嘱流水号作废执行档
+            </summary>
+            <param name="Order"></param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateOrderStatus(System.String,System.Int32)">
+            <summary>
+            更新医嘱状态
+            为已经执行
+            </summary>
+            <param name="orderNo"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateOrderSortID(System.String,System.String)">
+            <summary>
+            更新医嘱排序号
+            </summary>
+            <param name="orderID"></param>
+            <param name="sortID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateExecOrderPrinted(System.String,System.String)">
+            <summary>
+            更新执行单打印标记
+            </summary>
+            <param name="execOrderID"></param>
+            <param name="itemType">1 药品 ,2 非药品</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateExecNeedFeePrinted(System.String,System.String)">
+            <summary>
+            更新收费打印
+            </summary>
+            <param name="execOrderID"></param>
+            <param name="itemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateTransfusionPrinted(System.String)">
+            <summary>
+             更新收费打印
+             </summary>
+             <param name="execOrderID"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateCircultPrinted(System.String)">
+            <summary>
+            更新巡回卡打印标记
+            </summary>
+            <param name="execOrderID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrder(System.String,System.String)">
+            <summary>
+            查询所有医嘱执行情况
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="itemType">"" 全部，1药2非药</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrder(System.String,System.String,System.Boolean)">
+            <summary>
+            按查询是否有效执行医嘱
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="itemType">"" 全部，1药2非药</param>
+            <param name="isValid">是否有效</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderIsExec(System.String,System.String,System.Boolean)">
+            <summary>
+            按查询是否执行医嘱
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="itemType">"" 全部，1药2非药</param>
+            <param name="isExec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderByExecOrderID(System.String,System.String)">
+            <summary>
+            按查询执行医嘱信息
+            </summary>
+            <param name="execOrderID"></param>
+            <param name="itemType"></param>
+            <returns>Neusoft.HISFC.Models.Order.ExecOrder</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderByDept(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            按执行部门查询是否执行医嘱
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="itemType"></param>
+            <param name="isExec"></param>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderIsCharg(System.String,System.String,System.Boolean)">
+            <summary>
+            按查询是否收费医嘱
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="itemType"></param>
+            <param name="isCharge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderByDrugFlag(System.String,System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            按查询配药状态医嘱
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="drugFlag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderByDrugFlag(System.String,System.Int32)">
+            <summary>
+            按查询配药状态医嘱
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="drugFlag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderByOneOrder(System.String,System.String)">
+            <summary>
+            按医嘱流水号查询医嘱执行信息
+            </summary>
+            <param name="orderNo"></param>
+            <param name="itemType">1药2非药""全部</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderSubtblByMainOrder(System.String,System.String)">
+            <summary>
+            通过一条主医嘱查询其对应的附材信息{92A0CF31-27BC-472e-9C15-1ED2C8A81F36} by zhang.xs 2010.10.19
+            </summary>
+            <param name="execSqn">执行序列号</param>
+            <param name="combNO">组合号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderExec(System.String,System.DateTime,System.DateTime,System.String,System.Boolean)">
+            <summary>
+             患者输液卡查询
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="usageCode"></param>
+            <param name="isPrinted"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderCircult(System.String,System.DateTime,System.DateTime,System.String,System.Boolean)">
+            <summary>
+            查询巡回卡信息
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="usageCode"></param>
+            <param name="isPrinted"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderExecBill(System.String,System.DateTime,System.DateTime,System.String,System.Boolean)">
+            <summary>
+            获得患者执行单-药品和非药品
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="isPrinted"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderLisApplyBill(System.String,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            获得患者检验单信息
+            </summary>
+            <param name="inpatientNo">患者住院号</param>
+            <param name="beginTime">开始时间</param>
+            <param name="endTime">结束时间</param>
+            <param name="isPrinted">打印标记</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderBillNeedCharge(System.String,System.String,System.Boolean)">
+            <summary>
+            查询医嘱收费单
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="itemType"></param>
+            <param name="isPrinted"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderBillByReceiptNo(System.String,System.String)">
+            <summary>
+            查询医嘱执行档根据处方号
+            </summary>
+            <param name="itemType"></param>
+            <param name="receiptNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QureyExecOrderNeedSendDrug(System.String)">
+            <summary>
+            查询需要发药的医嘱信息
+            </summary>
+            <param name="deptcode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecDrugOrderByInpatientNo(System.String)">
+            <summary>
+            查询药品执行医嘱通过住院流水号
+            </summary>
+            <param name="inpatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecUndrugOrderByInpatientNo(System.String)">
+            <summary>
+            根据患者住院流水号，查询非药品医嘱执行档信息
+            writed by cuipeng
+            2005-06
+            </summary>
+            <param name="inpatientNo">患者住院流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryTotalUseDrug(System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            根据住院流水号、药品编码、时间段检索患者累计用药情况  
+            writed by liangjz 2005-06
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <param name="drugCode">药品编码</param>
+            <param name="myBeginTime">起始时间</param>
+            <param name="myEndTime">终止时间</param>
+            <returns>dataset</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryChargedMedicine(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照时间，最小费用，科室查询收费的药品信息
+            </summary>
+            <param name="minFee"></param>
+            <param name="deptCode"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryChargedItem(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照时间，最小费用，科室查询收费的非药品信息
+            </summary>
+            <param name="minFee"></param>
+            <param name="deptCode"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryChargedMedicineDetail(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照时间，编码查询收费的药品明细信息
+            </summary>
+            <param name="code"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryChargedItemDetail(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照时间，编码查询收费的非药品明细信息
+            </summary>
+            <param name="code"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.IsCanPrintOutHosDrug(System.String,System.Boolean@)">
+            <summary>
+            判断出院带药单是否全部收费
+            </summary>
+            <param name="inpatient_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.ConfirmOrder(Neusoft.HISFC.Models.Order.Inpatient.Order,System.Boolean,System.DateTime)">
+            <summary>
+            审核医嘱 -审核未审核的和作废的医嘱
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.ConfirmAndExecOrder(Neusoft.HISFC.Models.Order.Inpatient.Order,System.Boolean,System.String)">
+             <summary>
+             审核医嘱处理（涉及执行档、收费接口由表现层完成）
+            (审核、执行本科室;通过是否收费更新收费标记）
+             </summary>
+             <param name="order"></param>
+             <param name="isCharge"></param>
+             <param name="execID"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.ConfirmAndExecOrder(Neusoft.HISFC.Models.Order.Inpatient.Order,System.Boolean,System.String,System.DateTime)">
+            <summary>
+            重载审核函数
+            </summary>
+            <param name="order"></param>
+            <param name="isCharge"></param>
+            <param name="execID"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DecomposeTime(System.String)">
+            <summary>
+            分解时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Neusoft.HISFC.BizLogic.Order.Order.hourFerquenceID">
+            <summary>
+            {97FA5C9D-F454-4aba-9C36-8AF81B7C9CCF} 小时频次
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DecomposeOrderToNow(Neusoft.HISFC.Models.Order.Inpatient.Order,System.Int32,System.Boolean,System.DateTime)">
+            <summary>
+            {97FA5C9D-F454-4aba-9C36-8AF81B7C9CCF} 分解方法
+            </summary>
+            <param name="order"></param>
+            <param name="days"></param>
+            <param name="isCharge"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DecomposeOrder(Neusoft.HISFC.Models.Order.Inpatient.Order,System.Int32,System.Boolean,System.DateTime)">
+            <summary>
+            重载分解函数
+            </summary>
+            <param name="order"></param>
+            <param name="days"></param>
+            <param name="isCharge"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DecomposeOrder(Neusoft.HISFC.Models.Order.Inpatient.Order,System.Int32,System.Boolean)">
+            <summary>
+             药、非药嘱分解
+             Days分解天数IsCharge 是否收费
+            </summary>
+            <param name="order"></param>
+            <param name="days">分解天数</param>
+            <param name="isCharge">是否收费</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DecomposeTime(Neusoft.HISFC.Models.Order.Inpatient.Order,System.DateTime,System.DateTime,System.Boolean,Neusoft.HISFC.Models.Order.ExecOrder,System.DateTime,Neusoft.HISFC.Models.Base.Employee,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="order"></param>
+            <param name="dtCurDeco"></param>
+            <param name="dtEndTime"></param>
+            <param name="isCharge"></param>
+            <param name="objExec"></param>
+            <param name="dtCurTime"></param>
+            <param name="curUser"></param>
+            <param name="addDays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.ComputeAmount(System.String,System.String,System.Decimal,System.Decimal,System.String)">
+            <summary>
+            获得分解取整标准
+            </summary>
+            <param name="drugCode"></param>
+            <param name="doseCode"></param>
+            <param name="doseOnce"></param>
+            <param name="baseDose"></param>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.GetDrugProperty(System.String,System.String,System.String)">
+            <summary>
+            获取药品配药属性
+            </summary>
+            <param name="drugCode">药品编码</param>
+            <param name="deptCode">科室编码</param>
+            <returns>成功返回配药属性 0 不可拆分 1 可拆分不取整 2 可拆分上取整，失败返回NULL</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateDecoTime(Neusoft.HISFC.Models.Order.Order)">
+            <summary>
+            更新分解时间（本次，下次）
+            </summary>
+            <param name="order">医嘱id,(本次，下次)分解时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateDecoTime(System.String,System.Int32)">
+            <summary>
+            下次分解时间
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="days">+_天数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateDecoTime(System.String,System.DateTime)">
+            <summary>
+            下次分解时间
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="nextDecoDateTime">下次分解时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.SelectIfExistTheSameUN(System.String,System.DateTime,System.String)">
+            <summary>
+            查询是否存在同一天内同一护理级别的其他计费信息
+            </summary>
+            <param name="unDrugCode">项目代码</param>
+            <param name="useTime">执行时间</param>
+            <returns>成功返回所有条件相同的执行流水号数组，否则NULL</returns>
+        </member>
+        <member name="F:Neusoft.HISFC.BizLogic.Order.Order.htDrugedProperty">
+            <summary>
+            配药属性表
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateForConfirmExecDrug(Neusoft.HISFC.Models.Order.ExecOrder)">
+            <summary>
+            为了优化性能整合的医嘱分解保存时更新药品执行档用的函数
+            </summary>
+            <param name="execOrder">药品执行档</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateForConfirmExecUnDrug(Neusoft.HISFC.Models.Order.ExecOrder)">
+            <summary>
+            为了优化性能整合的医嘱分解保存时更新非药品执行档用的函数
+            </summary>
+            <param name="execOrder">非药品执行档</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcOrder(System.String,Neusoft.HISFC.Models.Base.SysClassEnumService,System.DateTime)">
+            <summary>
+            停止医嘱
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="sysClass"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcOrder(System.String,System.DateTime)">
+            <summary>
+            停止医嘱
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcOrder(Neusoft.HISFC.Models.Order.Inpatient.Order,System.Boolean,System.String@)">
+            <summary>
+            停止医嘱处理（包括直接停止，预停止）
+            停止原因Order.DcReason
+            </summary>
+            <param name="order"></param>
+            <param name="isAllDc">组合医嘱是否全部停止</param>
+            <param name="ReturnMemo">返回医嘱原始状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcOrder(System.String,System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            根据患者住院号、系统类别和停止原因，停止患者此大类的医嘱主档。如果没有大类则还要停止医嘱执行档
+            0 患者住院流水号，1 系统类别，2停止时间 ,3停止原因代码，4停止原因名称 
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="sysClassCode"></param>
+            <param name="dcDate"></param>
+            <param name="dcReasonCode"></param>
+            <param name="dcReasonName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcOrder(System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            /// 根据患者住院号和停止原因，停止患者所有医嘱主档和医嘱执行档
+            </summary>
+            <param name="inpatientNo">0 患者住院流水号,1 停止时间 ,2 停止原因代码，3 停止原因名称 </param>
+            <param name="dcDate"></param>
+            <param name="dcReasonCode"></param>
+            <param name="dcReasonName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.DcOneOrderDeal(Neusoft.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            执行单条医嘱DC操作
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderByCombNO(System.String,System.Boolean)">
+            <summary>
+            按组合号查询医嘱
+            按照数据库的SQL语句来看，目前isSubtbl参数没用了
+            </summary>
+            <param name="combno">组合号</param>
+            <param name="isSubtbl">按照数据库的SQL语句来看，目前这个参数没用了</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryExecOrderForCompound(System.Boolean,System.String,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            检索待配液信息
+            </summary>
+            <param name="isNurse">是否按病区检索 即deptCode传入为病区编码</param>
+            <param name="deptCode">科室</param>
+            <param name="dtBegin">开始执行时间</param>
+            <param name="dtEnd">终止执行时间</param>
+            <param name="isExec">状态 是否查询已配液的</param>
+            <returns>成功返回待配液信息 失败返回null</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateOrderCompound(System.String,Neusoft.HISFC.Models.Order.Compound)">
+            <summary>
+            配液信息更新
+            </summary>
+            <param name="execOrderID">执行挡流水号</param>
+            <param name="compound">配液信息</param>
+            <returns>成功返回1 失败返回-1 无记录更新返回0</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryMutex(System.String)">
+            <summary>
+            获得互斥
+            </summary>
+            <param name="sysClassID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.myGetOutHosCure(System.String)">
+            <summary>
+            获得项目集合
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.getOrderInfo(System.String,Neusoft.HISFC.Models.Order.Inpatient.Order)">
+            <summary>
+            获得医嘱信息
+            </summary>
+            <param name="sqlOrder"></param>
+            <param name="Order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.OrderQuerySelect">
+            查询患者信息的select语句（无where条件）
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.JudgeItemType(Neusoft.HISFC.Models.Order.Order)">
+            <summary>
+            判断医嘱项目类别，药品/非药品
+            </summary>
+            <param name="Order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.ExecOrderQuerySelect(System.String)">
+            <summary>
+            查询患者信息的select语句（无where条件）
+            </summary>
+            <param name="Type">"" 药品非药品都查，1 药品， 2 非药品</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateRecordExec(Neusoft.HISFC.Models.Order.ExecOrder)">
+            <summary>
+            执行记录
+            更新医嘱执行信息
+            对医技开放使用
+            </summary>
+            <param name="execOrder">执行档信息</param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateChargeExec(Neusoft.HISFC.Models.Order.ExecOrder)">
+            <summary>
+            收费记录
+            更新执行医嘱收费人，收费标记，发票号等
+            对费用开放使用
+            </summary>
+            <param name="execOrder">执行档信息</param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateDrugExec(Neusoft.HISFC.Models.Order.ExecOrder)">
+            <summary>
+            配药记录
+            对药房开放使用,更新DrugFlag
+            </summary>
+            <param name="execOrder">执行档信息</param>
+            <returns>0 success -1 fail</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateOrderDruged(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新医嘱配药标记
+            对药房的接口
+            对药房开放使用
+            </summary>
+            <param name="execOrderID">执行单ID</param>
+            <param name="orderNo">主挡ID</param>
+            <param name="userID">操作员</param>
+            <param name="deptID">配药科室</param>
+            <returns>-1 失败 0 成功</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateOrderDruged(System.String,System.String,System.String)">
+            <summary>
+            更新医嘱配药标记
+            对药房开放使用
+            </summary>
+            <param name="execOrderID">执行单ID</param>
+            <param name="userID">操作员</param>
+            <param name="deptID">配药科室</param>
+            <returns>-1 失败 0 成功</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.SetDrugFlag(System.String,System.Int32)">
+            <summary>
+            发送摆药通知\设置发药方式
+            0不需发送/1集中发送/2分散发送/3已配药
+            对药房开放使用
+            </summary>
+            <param name="execOrderID"></param>
+            <param name="drugFlag">0不需发送/1集中发送/2分散发送/3已配药</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.SendInformation(Neusoft.FrameWork.Models.NeuObject)">
+            <summary>
+            更新发送通知
+            对药房开放使用
+            </summary>
+            <param name="nurse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateExecOrderLisBarCode(System.String,System.String)">
+            <summary>
+            更新lis条码号
+            对LIS开放使用
+            </summary>
+            <param name="execOrderID"></param>
+            <param name="barCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdateExecOrderLisPrint(System.String)">
+            <summary>
+            更新LIS已经打印
+            对LIS开放使用
+            </summary>
+            <param name="execOrderID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryPatientDeptByConfirmDeptID(System.String)">
+            <summary>
+            根据执行科室查询需要确认项目的患者的所在科室
+            </summary>
+            <param name="deptID">执行科室</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryPatientByConfirmDeptAndPatDept(System.String,System.String)">
+            <summary>
+            根据执行科室、患者所在科室查询需要确认项目的患者
+            </summary>
+            <param name="confirmDept">执行科室</param>
+            <param name="patientDept">患者所在科室</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.CheckLongUndrugIsConfirm(System.String)">
+            <summary>
+            校验长期非药品医嘱执行档护士是否分解保存
+            </summary>
+            <param name="execOrderID">执行档流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryPrnOrder(System.String)">
+            <summary>
+            查询医嘱单打印的医嘱
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryUnFeeExecOrderByOrderID(System.String,System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            {97FA5C9D-F454-4aba-9C36-8AF81B7C9CCF} 扩展医嘱
+            按医嘱流水号查询一段时间内应该收费但是未收费的医嘱
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <param name="itemType">项目类型</param>
+            <param name="orderID">医嘱流水号</param>
+            <param name="beginDate">开始时间</param>
+            <param name="endDate">结束时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.OrderReform(System.String)">
+            <summary>
+            医嘱重整，给一部分医嘱状态置4，表示该医嘱归档
+            </summary>
+            <param name="OrderID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.QueryOrderExedInfoByNurseCell(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            通过护士站查询患者的医嘱执行情况
+            </summary>
+            <param name="nurseCell"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="isInPuted">是否已录入执行情况</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Order.UpdatePrnOrder(System.String,Neusoft.HISFC.Models.Order.Order)">
+            <summary>
+            更新临时医嘱单的打印表的执行护士和执行时间
+            </summary>
+            <param name="id"></param>
+            <param name="ord"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.SpecialLimit">
+            <summary>
+            
+            医嘱药品限制管理类
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialLimit.FormatPharcamyLimit(System.String,Neusoft.HISFC.Models.Order.PharmacyLimit)">
+            <summary>
+            格式化SQL语句
+            </summary>
+            <param name="strSql"></param>
+            <param name="pharmacyLimit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialLimit.myPharmacyLimitQuery(System.String)">
+            <summary>
+            查询
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialLimit.InsertSpecialLimit(Neusoft.HISFC.Models.Order.PharmacyLimit)">
+            <summary>
+            插入一条数据
+            </summary>
+            <param name="pharmacyLimit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialLimit.UpdateSpecialLimit(Neusoft.HISFC.Models.Order.PharmacyLimit)">
+            <summary>
+            更新一条数据
+            </summary>
+            <param name="pharmacyLimit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialLimit.DeleteSpecialLimitByID(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="pharmacyID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialLimit.QueryPharmacyLimit">
+            <summary>
+            查询全部数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialLimit.QueryPharmacyLimitByID(System.String)">
+            <summary>
+            查询一条
+            </summary>
+            <param name="pharmacyID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialLimit.QueryValid">
+            <summary>
+            查询有效数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.PacsBill">
+            <summary>
+            检查管理类
+            written by zuowy 
+            2005-8-20
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.PacsBill.SavePacsBill(Neusoft.HISFC.Models.Order.PacsBill)">
+            <summary>
+            
+            </summary>
+            <param name="PacsBill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.PacsBill.InsertPacsBill(Neusoft.HISFC.Models.Order.PacsBill)">
+            <summary>
+            开立新的检查单
+            </summary>
+            <param name="PacsBill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.PacsBill.UpdatePacsBill(Neusoft.HISFC.Models.Order.PacsBill)">
+            <summary>
+            更新检查单信息
+            </summary>
+            <param name="pacsbill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.PacsBill.DeletePacsBill(System.String)">
+            <summary>
+            删除一条记录
+            </summary>
+            <param name="PacsID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.PacsBill.SetPacsBill(Neusoft.HISFC.Models.Order.PacsBill)">
+            <summary>
+            保存时的判断
+            </summary>
+            <param name="pacsbill"></param>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.PacsBill.QueryPacsBill(System.String)">
+            <summary>
+            查询检查单信息
+            </summary>
+            <param name="combNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.PacsBill.GetPacsBillInfo(System.String,Neusoft.HISFC.Models.Order.PacsBill)">
+            <summary>
+            获得检查单信息
+            </summary>
+            <param name="pacsbill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.PacsBill.myPacsBillQuery(System.String)">
+            <summary>
+            获得检查单信息实体
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.InsertOrUpdateTable(System.String,Neusoft.HISFC.Models.Order.Inpatient.MedicalTeamForDoct)">
+            <summary>
+            插入或删除信息
+            </summary>
+            <param name="sqlIndex"></param>
+            <param name="medicalTeam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.ExcuteQueryMedicalTeamForDoctBySql(System.String)">
+            <summary>
+            根据sql语句插叙医疗组维护信息
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.QueryMedicalTeamForDoctBySqlIndex(System.String,System.String[])">
+            <summary>
+            根据索引查询
+            </summary>
+            <param name="sqlIndex"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.QueryQueryMedicalTeamForDoctInfo(System.String,System.String)">
+            <summary>
+            根据科室和医生姓名查询医疗组信息
+            </summary>
+            <param name="deptCode"></param>
+            <param name="doctCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.QueryQueryMedicalTeamForDoctInfo(System.String)">
+            <summary>
+            根据科室查询医疗组
+            </summary>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.QueryQueryMedicalTeamForDoctInfo(System.String,System.String,System.String)">
+            <summary>
+            根据科室和医疗组信息查询医生信息
+            </summary>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.InsertMedicalTeamForDoct(Neusoft.HISFC.Models.Order.Inpatient.MedicalTeamForDoct)">
+            <summary>
+            插入数据
+            </summary>
+            <param name="medicalTeam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.UpdateMedicalTeamForDoct(Neusoft.HISFC.Models.Order.Inpatient.MedicalTeamForDoct)">
+            <summary>
+            更新数据
+            </summary>
+            <param name="medicalTeam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.DeleteMedicalTeamMedicalTeamForDoct(System.String,System.String,System.String)">
+            <summary>
+            根据科室医疗组医生信息删除医疗组信息
+            </summary>
+            <param name="deptCode"></param>
+            <param name="medicalTeamCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.UpdateValidFlag(System.String,System.String,System.String)">
+            <summary>
+            更细医疗组下所以医生状态
+            </summary>
+            <param name="deptCode"></param>
+            <param name="medicalTeamCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeamForDoct.UpdateValidFlag(System.String,System.String,System.String,System.String)">
+            <summary>
+            更细医疗组下所以医生状态
+            </summary>
+            <param name="deptCode"></param>
+            <param name="medicalTeamCode"></param>
+            <param name="doctCode"></param>
+            <param name="isValidFalg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.MedicalTeam">
+            <summary>
+            Neusoft.HISFC.Models.Order.Inpatient.MedicalTeam<br></br>
+            [功能描述: 医疗组维护业务层]<br></br>
+            [创 建 者: 牛鑫元]<br></br>
+            [创建时间: 2010-06-29]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeam.ExcuteQueryBySql(System.String)">
+            <summary>
+            根据sql语句插叙医疗组维护信息
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeam.QueryMedicalTeamBySqlIndex(System.String,System.String[])">
+            <summary>
+            根据索引查询
+            </summary>
+            <param name="sqlIndex"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeam.InsertOrUpdateTable(System.String,Neusoft.HISFC.Models.Order.Inpatient.MedicalTeam)">
+            <summary>
+            插入或删除信息
+            </summary>
+            <param name="sqlIndex"></param>
+            <param name="medicalTeam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeam.InsertMedicalTeam(Neusoft.HISFC.Models.Order.Inpatient.MedicalTeam)">
+            <summary>
+            插入数据
+            </summary>
+            <param name="medicalTeam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeam.UpdateMedicalTeam(Neusoft.HISFC.Models.Order.Inpatient.MedicalTeam)">
+            <summary>
+            更新数据
+            </summary>
+            <param name="medicalTeam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeam.DeleteMedicalTeam(System.String,System.String)">
+            <summary>
+            根据科室医疗组编码删除医疗组信息
+            </summary>
+            <param name="deptCode"></param>
+            <param name="medicalTeamCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeam.QueryMedicalTeamByDept(System.String)">
+            <summary>
+            根据科室查询医疗组信息
+            </summary>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.MedicalTeam.UpdateValidFlag(System.String,System.String,System.String)">
+            <summary>
+            更新标记
+            </summary>
+            <param name="deptCode"></param>
+            <param name="medicalTeamCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.#ctor">
+            <summary>
+            医嘱打印管理类
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.InsertOrderBill(Neusoft.HISFC.Models.Order.OrderBill)">
+            <summary>
+            插入医嘱打印信息
+            </summary>
+            <param name="orderBill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.GetOrderBill(System.String,System.String)">
+            <summary>
+            获得医嘱打印信息
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <param name="prnFlag">打印标志（0未打印，1已打印）</param>
+            <returns>医嘱打印信息</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.GetOrderBill(System.String,System.String,System.Int32)">
+            <summary>
+            获得医嘱打印信息
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <param name="prnFlag">打印标志（0未打印，1已打印）</param>
+            <param name="pageNo">页码</param>
+            <returns>医嘱打印信息</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.GetPrnOrderBill(System.String)">
+            <summary>
+            获得已打印医嘱
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <returns>打印信息</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.GetUnPrnOrderBill(System.String)">
+            <summary>
+            获得未打印医嘱
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <returns>打印信息</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.GetLastOrderBillArg(System.String,System.String,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            获取患者已打印医嘱单的最大序号,页码,行号
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="orderType">0临时医嘱1长期医嘱</param>
+            <param name="orderSeq"></param>
+            <param name="orderPageNO"></param>
+            <param name="orderLineNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.UpdatePrnFlag(System.String,System.String)">
+            <summary>
+            更新医嘱是否打印
+            </summary>
+            <param name="OrderNo">医嘱流水号</param>
+            <param name="prnFlag">打印标志（0未打印，1已打印）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.UpdatePrnFlag(System.String,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            更新医嘱是否打印
+            </summary>
+            <param name="OrderNo"></param>
+            <param name="prnFlag"></param>
+            <param name="Seq"></param>
+            <param name="pageNO"></param>
+            <param name="lineNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.UpdateOderBill(System.String,Neusoft.HISFC.Models.Order.OrderBill)">
+            <summary>
+            
+            </summary>
+            <param name="OrderNo"></param>
+            <param name="orderBill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.UpdateLineNoPageNo(System.String,System.Int32,System.Int32)">
+            <summary>
+            更新医嘱单打印行号和页码
+            </summary>
+            <param name="orderID"></param>
+            <param name="lineNo"></param>
+            <param name="pageNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.UpdateStopFlag(System.String,System.String)">
+            <summary>
+            更新医嘱是否停止
+            </summary>
+            <param name="OrderNo">医嘱流水号</param>
+            <param name="stopFlag">停止标志（0未停止，1已停止）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.GetOrderBillByOrderID(System.String)">
+            <summary>
+            查询一条医嘱单打印信息
+            </summary>
+            <param name="orderID">医嘱流水号</param>
+            <returns>OrderBill</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OrderBill.UpdatePrinStopFlag(System.String)">
+            <summary>
+            更新医嘱是否停止
+            </summary>
+            <param name="OrderNo">医嘱流水号</param>
+            <param name="stopFlag">停止标志（0未停止，1已停止）</param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.ExecBill">
+            <summary>
+            ExecBill 的摘要说明。
+            执行单设置管理类
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.InsertExecBill(Neusoft.FrameWork.Models.NeuObject,System.String)">
+            <summary>
+            插入执行单信息
+            必须填写（objBill.ID 执行单流水号，objBill.Name 执行单名,objBill.Memo执行单类型，1药/2非药,objBill.user01 医嘱类型,
+            objBill.user02非药系统类别、药品类别,objBill.user03 药品用法）
+            </summary>
+            <param name="objBill"></param>
+            <param name="nurseCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.UpdateExecBillAllItem(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新非药品项目执行单（全部）
+            </summary>
+            <param name="nurseID">护士站</param>
+            <param name="billNO">执行单号</param>
+            <param name="typeCode">医嘱类型</param>
+            <param name="classCode">医嘱项目类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.DeleteExecBillAllItem(System.String,System.String,System.String)">
+            <summary>
+            删除非药品项目执行单（全部）
+            </summary>
+            <param name="nurseID">护士站</param>
+            <param name="billNO">执行单号</param>
+            <param name="typeCode">医嘱类型</param>
+            <param name="classCode">医嘱项目类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.InsertExecBillAllItem(System.String,System.String,System.String,System.String)">
+            <summary>
+            增加非药品项目执行单（全部）
+            </summary>
+            <param name="nurseID">护士站编码</param>
+            <param name="billNO">执行单编码</param>
+            <param name="typeCode">医嘱类型</param>
+            <param name="classCode">医嘱项目类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.InsertExecBillOtherItem(System.String,System.String,System.String,System.String)">
+            <summary>
+            增加非药品项目执行单（剩余全部）
+            </summary>
+            <param name="nurseID">护士站编码</param>
+            <param name="billNO">执行单编码</param>
+            <param name="typeCode">医嘱类型</param>
+            <param name="classCode">医嘱项目类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.UpdateExecBillItem(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            更新非药品项目执行单（单个）
+            </summary>
+            <param name="nurseID">护士站编码</param>
+            <param name="billNO">执行单</param>
+            <param name="orderType">医嘱类型</param>
+            <param name="sysClass">医嘱项目类型</param>
+            <param name="itemCode">项目编码</param>
+            <param name="itemName">项目名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.DeleteExecBillItem(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            删除非药品项目执行单（单个）
+            </summary>
+            <param name="nurseID">护士站编码</param>
+            <param name="billNO">执行单编码</param>
+            <param name="orderType">医嘱类型</param>
+            <param name="sysClass">医嘱项目类型</param>
+            <param name="itemCode">项目编码</param>
+            <param name="itemName">项目名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.InsertExecBillItem(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            插入非药品项目执行单（单个）
+            </summary>
+            <param name="nurseID">护士站编码</param>
+            <param name="billNO">执行单</param>
+            <param name="orderType">医嘱类型</param>
+            <param name="sysClass">医嘱项目类型</param>
+            <param name="itemCode">项目编码</param>
+            <param name="itemName">项目名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.SetExecBill(Neusoft.FrameWork.Models.NeuObject,System.String)">
+            <summary>
+            插入新执行单
+            必须填写（objBill.Name 执行单名,objBill.Memo执行单类型，1药/2非药,objBill.user01 医嘱类型
+            objBill.user02非药系统类别、药品类别 objBill.user03 药品用法）
+            </summary>
+            <param name="al"></param>
+            <param name="nurseCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.UpdateExecBill(Neusoft.FrameWork.Models.NeuObject,System.String)">
+             <summary>
+             更新执行内容
+            必须填写（objBill.ID 执行单流水号，objBill.Memo执行单类型，1药/2非药,objBill.user01 医嘱类型,
+             objBill.user02非药系统类别、药品类别,objBill.user03 药品用法）
+             </summary>
+             <param name="objBill"></param>
+             <param name="nurseCode"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.DeleteExecBill(System.String)">
+            <summary>
+            删除执行单
+            </summary>
+            <param name="billNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.DeleteExecBillOneItem(Neusoft.FrameWork.Models.NeuObject)">
+            <summary>
+            删除执行单内容其中的一个项目
+            必须填写（objBill.ID 执行单流水号，objBill.Memo执行单类型，1药/2非药,objBill.user01 医嘱类型,
+            objBill.user02非药系统类别、药品类别,objBill.user03 药品用法）
+            </summary>
+            <param name="objBill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.SetExecBill(System.Collections.ArrayList,Neusoft.FrameWork.Models.NeuObject,System.String,System.String@)">
+            <summary>
+            执行单设置
+            必须填写（objBill.Name 执行单名,objBill.Memo执行单类型，1药/2非药,objBill.user01 医嘱类型
+            objBill.user02非药系统类别、药品类别 objBill.user03 药品用法）
+            </summary>
+            <param name="al"></param>
+            <param name="nurseCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.GetNewExecBillID">
+            <summary>
+            获得执行单流水号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.GetItemInfo(System.String)">
+            <summary>
+            从com_dirctionary表里取得项目信息
+            </summary>
+            <param name="itemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.UpdateExecBillName(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新执行单名称
+            </summary>
+            <param name="billNo"></param>
+            <param name="billName"></param>
+            <param name="Memo"></param>
+            <param name="style"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.DeleteExecBill(Neusoft.FrameWork.Models.NeuObject)">
+            <summary>
+            删除执行单内容
+            必须填写（objBill.ID 执行单流水号，objBill.Memo执行单类型，1药/2非药,objBill.user01 医嘱类型,
+            objBill.user02非药系统类别、药品类别,objBill.user03 药品用法）
+            </summary>
+            <param name="objBill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.QueryExecBill(System.String)">
+            <summary>
+            获得病区执行单
+            </summary>
+            <param name="nurseCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.QueryExecBillDetail(System.String)">
+            <summary>
+            获得执行单控制信息by执行单流水号
+            </summary>
+            <param name="billNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.DeleteAllExecBill(System.String)">
+            <summary>
+            删除某个护理站下的所有执行单及明细
+            </summary>
+            <param name="nurseCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.ExecBill.QueryExecBillDetailByBillNo(System.String)">
+            <summary>
+            获得执行单控制信息by执行单流水号　返回neuobject 实体类型列表
+            </summary>
+            <param name="billNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.SpecialFrequency">
+            <summary>
+            SpecialFrequency 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialFrequency.InsertSpecialFrequency(Neusoft.HISFC.Models.Order.SpecialFrequency)">
+            <summary>
+            插入特殊频次
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialFrequency.UpdateSpecialFrequency(Neusoft.HISFC.Models.Order.SpecialFrequency)">
+            <summary>
+            更新特殊频次
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialFrequency.SetFrequency(Neusoft.HISFC.Models.Order.SpecialFrequency)">
+            <summary>
+            更新或插入数据
+            </summary>
+            <param name="info"></param>
+            <returns>  -1 失败 >=0 返回更新记录的条数 </returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.SpecialFrequency.GetSpecialFrequency(System.String,System.String)">
+            <summary>
+            获得特殊频次
+            </summary>
+            <param name="moOrder"></param>
+            <param name="comNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.AdditionalItem">
+            <summary>
+            AdditionalItem 的摘要说明。
+            附材项目管理
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.AdditionalItem.InsertAdditionalItem(Neusoft.HISFC.Models.Base.Item,System.String,System.Boolean,System.String,System.String,System.Decimal)">
+            <summary>
+            添加附材信息
+            必须填写（item.id,item.Amount,Item.isPharmacy）
+            {24F859D1-3399-4950-A79D-BCCFBEEAB939}
+            </summary>
+            <param name="item"></param>
+            <param name="deptCode"></param>
+            <param name="isPharmacy"></param>
+            <param name="typeCode"></param>
+            <param name="USE_INTERVAL"></param>{24F859D1-3399-4950-A79D-BCCFBEEAB939}
+            <returns></returns>
+            {8F86BB0D-9BB4-4c63-965D-969F1FD6D6B2} 医嘱附材绑定物资 by gengxl 增加参数price
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.AdditionalItem.UpdateAdditionalItem(Neusoft.HISFC.Models.Base.Item,System.String,System.Boolean,System.String,System.String,System.Decimal)">
+            <summary>
+             更新附材信息
+            必须填写（item.id,item.Amount,Item.isPharmacy）
+            </summary>
+            <param name="item"></param>
+            <param name="deptCode"></param>
+            <param name="isPharmacy"></param>
+            <param name="typeCode"></param>
+            <param name="USE_INTERVAL"></param>//{24F859D1-3399-4950-A79D-BCCFBEEAB939}
+            <returns></returns>
+            {8F86BB0D-9BB4-4c63-965D-969F1FD6D6B2} 医嘱附材绑定物资 by gengxl 增加参数price
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.AdditionalItem.DeleteAdditionalItem(Neusoft.HISFC.Models.Base.Item,System.String,System.Boolean,System.String)">
+            <summary>
+             删除附材信息
+            必须填写（item.id,item.Amount,Item.isPharmacy）
+            </summary>
+            <param name="item"></param>
+            <param name="deptCode"></param>
+            <param name="isPharmacy"></param>
+            <param name="typeCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.AdditionalItem.SetAdditionalItem(Neusoft.HISFC.Models.Base.Item,System.String,System.Boolean,System.String,System.String,System.Decimal)">
+            <summary>
+            设置附材
+            </summary>
+            <param name="item"></param>
+            <param name="deptCode"></param>
+            <param name="isPharmacy"></param>
+            <param name="typeCode"></param>
+            <param name="USE_INTERVAL"></param>//{24F859D1-3399-4950-A79D-BCCFBEEAB939}
+            <returns></returns>
+            {8F86BB0D-9BB4-4c63-965D-969F1FD6D6B2} 医嘱附材绑定物资 by gengxl 增加参数price
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.AdditionalItem.GetAdditionalItem(System.Boolean,System.String,System.String)">
+            <summary>
+            获得医嘱用法（项目）的附材信息
+            </summary>
+            <param name="IsPharmacy"></param>
+            <param name="TypeCode"></param>
+            <param name="DeptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.AdditionalItem.QueryAdditionalItem(System.Boolean,System.String,System.String)">
+            <summary>
+            获得医嘱用法（项目）的附材信息
+            </summary>
+            <param name="isPharmacy"></param>
+            <param name="typeCode"></param>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.AdditionalItem.QueryAdditionalItem(System.Boolean,System.String)">
+            <summary>
+            获得已经维护的非药品附材项目
+            只获得非药品项目
+            </summary>
+            <param name="isPharmacy"></param>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.Report">
+            <summary>
+            Report 的摘要说明。
+            医嘱报表查询管理类
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Report.ExecDrugByInpatientNo(System.String)">
+            <summary>
+            根据患者住院流水号，查询药品医嘱执行档信息
+            writed by cupeng
+            2005-06
+            </summary>
+            <param name="inpatientNo">患者住院流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Report.ExecUndrugByInpatientNo(System.String)">
+            <summary>
+            根据患者住院流水号，查询非药品医嘱执行档信息
+            writed by cupeng
+            2005-06
+            </summary>
+            <param name="inpatientNo">患者住院流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Report.TotalUseDrug(System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            根据住院流水号、药品编码、时间段检索患者累计用药情况  
+            writed by liangjz 2005-06
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <param name="drugCode">药品编码</param>
+            <param name="myBeginTime">起始时间</param>
+            <param name="myEndTime">终止时间</param>
+            <returns>dataset</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Report.QueryChargedMedicine(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照时间，最小费用，科室查询收费的药品信息
+            </summary>
+            <param name="minFee"></param>
+            <param name="deptCode"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Report.QueryChargedItem(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照时间，最小费用，科室查询收费的非药品信息
+            </summary>
+            <param name="minFee"></param>
+            <param name="deptCode"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Report.QueryChargedMedicineDetail(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照时间，编码查询收费的药品明细信息
+            </summary>
+            <param name="code"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Report.QueryChargedItemDetail(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照时间，编码查询收费的非药品明细信息
+            </summary>
+            <param name="code"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.FSInsurance">
+            <summary>
+            佛山医保业务处理
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.FSInsurance.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.FSInsurance.InsertMedicare(Neusoft.HISFC.Models.Order.FSMedicare)">
+            <summary>
+            插入佛山医保临时表
+            </summary>
+            <param name="fsMedicare"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.FSInsurance.QueryMedicare(System.String)">
+            <summary>
+            查询处方情况
+            </summary>
+            <param name="cardNo">病历号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.FSInsurance.UpdateMedicare(Neusoft.HISFC.Models.Order.FSMedicare)">
+            <summary>
+            更新佛山医保信息
+            </summary>
+            <param name="fsMedicare"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.CheckSlip">
+            <summary>
+            检查申请单
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.CheckSlip.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.Medical.Ability">
+            <summary>
+            Ability<br></br>
+            [功能描述: 执业资质管理类]<br></br>
+            [创 建 者: 孙久海]<br></br>
+            [创建时间: 2008-04-09]<br></br>
+            <修改记录
+            	修改人='于洋'
+            	修改时间='2008-09-08'
+            	修改目的='增加特殊检查权限检查'
+            	修改描述='在方法CheckPopedom中添加了特殊检查的权限检查'
+             />
+            </summary>
+        </member>
+        <!-- 对于成员“M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.#ctor”忽略有格式错误的 XML 注释 -->
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.UpdateSingleTable(System.String,System.String[])">
+            <summary>
+            更新单表操作
+            </summary>
+            <param name="sqlIndex">SQL语句索引</param>
+            <param name="args">参数</param>
+            <returns>成功: >= 1 失败 -1 没有更新到数据 0</returns>
+        </member>
+        <!-- 对于成员“M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.GetParamsBySql(System.String,System.String[])”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.QueryBySql(System.String,System.String[])”忽略有格式错误的 XML 注释 -->
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.GetDrugLevlByItemID(System.String)">
+            <summary>
+            根据药品代码获得药品等级
+            </summary>
+            <param name="itemID">药品代码</param>
+            <returns>成功 字符串 失败 null</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.GetDrugQualityByItemID(System.String)">
+            <summary>
+            根据药品代码获得药品性质
+            </summary>
+            <param name="itemID">药品代码</param>
+            <returns>成功 字符串 失败 null</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.GetOperateTypeByItemID(System.String)">
+            <summary>
+            根据项目代码获得手术规模
+            </summary>
+            <param name="itemID">项目代码</param>
+            <returns>成功 字符串 失败 null</returns>
+        </member>
+        <!-- 对于成员“M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.CheckByType(System.String,System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.CheckByType(System.String,System.String)">
+            <summary>
+            通过权限类型验证权限
+            </summary>
+            <param name="emplID">人员代码</param>
+            <param name="popedomType">权限类型</param>
+            <returns>成功 "1" 失败 "-1" 无权限 "0"</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.CheckByEmplID(System.String,System.String)">
+            <summary>
+            验证传入人员ID是否存在权限表中
+            </summary>
+            <param name="emplID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.CheckByEmplRight(System.String,System.String,System.String)">
+            <summary>
+            验证人员的某权限信息是否存在
+            {EC320C77-250E-4f44-863D-2E47B9F2FA22}
+            </summary>
+            <param name="emplID">人员ID</param>
+            <param name="popedomType">权限类型</param>
+            <param name="popeCode">权限编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.QueryAbilityByPersonID(System.String)">
+            <summary>
+            通过人员代码查询资质信息
+            </summary>
+            <param name="emplID">人员代码</param>
+            <returns>资质实体</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.QueryAbilityByDeptID(System.String)">
+            <summary>
+            通过科室代码查询资质信息
+            </summary>
+            <param name="deptID">科室代码</param>
+            <returns>资质实体</returns>
+        </member>
+        <!-- 对于成员“M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.InsertAbility(Neusoft.HISFC.Models.Order.Medical.Ability)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.UpdateAbility(Neusoft.HISFC.Models.Order.Medical.Ability)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.DeleteAbilityByHappenNO(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.GetAbilityCountByEmplAndSpeciality(System.String,System.String)">
+            <summary>
+            根据人员，专业查询资质信息记录个数
+            {65C2D1EE-A2ED-4781-BB10-48D7156CFD6C}
+            </summary>
+            <param name="emplCode"></param>
+            <param name="speciality"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.CheckPopedom(System.String,System.String,System.String,System.Boolean,System.String@)">
+            <summary>
+            医疗权限检查方法
+            修改了，增加参数isAllowNonRight{67FBD55B-1B0E-41e9-B13B-976E235D9FA2}
+            </summary>
+            <param name="emplCode">医生代码</param>
+            <param name="itemCode">项目代码</param>
+            <param name="sysClass">系统类别</param>
+            <param name="isAllowNonRight">当在医疗权限管理中，所给医生没有被维护过所给系统类型权限的情况下，默认该医生具有该类型的所有权限</param>
+            <param name="failCause">验证失败原因</param>
+            <returns>成功 1 失败 -1 无权限 0</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.InsertPopedom(Neusoft.HISFC.Models.Order.Medical.Popedom)">
+            <summary>
+            插入医疗权限
+            </summary>
+            <param name="ppd">权限实体</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.UpdatePopedom(Neusoft.HISFC.Models.Order.Medical.Popedom)">
+            <summary>
+            修改医疗权限审核标志
+            </summary>
+            <param name="ppd">权限实体</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <!-- 对于成员“M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.DeletePopedom(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.QueryPopedomByEmplID(System.String)">
+            <summary>
+            通过人员代码查询医疗权限
+            </summary>
+            <param name="emplID">人员代码</param>
+            <returns>成功 权限实体列表 失败 null</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Medical.Ability.QueryAbilityList">
+            <summary>
+            查询全部资质信息
+            </summary>
+            <returns>资质实体</returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.OutPatient.Order">
+            <summary>
+            Order 的摘要说明。
+            门诊医嘱
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.InsertOrder(Neusoft.HISFC.Models.Order.OutPatient.Order)">
+            <summary>
+            插入一条
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrder(Neusoft.HISFC.Models.Order.OutPatient.Order)">
+            <summary>
+            更新
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.DeleteOrder(System.String,System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="seeNo"></param>
+            <param name="seqNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrderChangedInfo(Neusoft.HISFC.Models.Order.OutPatient.Order)">
+            <summary>
+            更新医嘱变更纪录
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrderBeCaceled(Neusoft.HISFC.Models.Order.OutPatient.Order)">
+            <summary>
+            作废医嘱
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.GetNewSeeNo(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.GetNewOrderComboID">
+            <summary>
+            获得新医嘱组合序号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.ReComputeQty(Neusoft.HISFC.Models.Pharmacy.Item,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal@,System.String@,System.String@)">
+            <summary>
+            根据药品拆分属性计算总数量和总单位
+            </summary>
+            <param name="itm">药品项目</param>
+            <param name="DoseOnce">每次剂量</param>
+            <param name="BaseDose">基本剂量</param>
+            <param name="Frequence">频次</param>
+            <param name="Days">天数</param>
+            <param name="Qty">数量</param>
+            <param name="unit">返回的单位</param>
+            <param name="unitFlag">是否最小单位：1 最小单位，0 包装单位</param>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrderCharged(System.String)">
+            <summary>
+            更新医嘱已经收费
+            </summary>
+            <param name="orderID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrderCharged(System.String,System.String)">
+            <summary>
+            更新医嘱已经收费
+            </summary>
+            <param name="reciptNo"></param>
+            <param name="seqNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrderChargedByOrderID(System.String,System.String)">
+            <summary>
+            更新医嘱已经收费
+            </summary>
+            <param name="orderID"></param>
+            <param name="chargeOperID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrderSortID(System.String,System.Int32)">
+            <summary>
+            更新医嘱序号
+            </summary>
+            <param name="orderID"></param>
+            <param name="sortID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrderHyTest(System.String,System.String)">
+            <summary>
+            更新医嘱皮试结果//{26E88889-B2CF-4965-AFD8-6D9BE4519EBF}
+            </summary>
+            <param name="sequenceNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateOrderHyTest(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新医嘱皮试结果{55BBD9DB-F5C9-4e0a-94E5-9F7FCB121350}
+            </summary>
+            <param name="sequenceNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryOrderByCardNOClinicNO(System.String,System.String)">
+            <summary>
+            根据病历号，门诊流水号，查询需要做皮试的有效医嘱{55BBD9DB-F5C9-4e0a-94E5-9F7FCB121350}
+            </summary>
+            <param name="cardNO"></param>
+            <param name="clinicNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryOrderByKey(System.String,System.String)">
+            <summary>
+            根据主键查询医嘱
+            </summary>
+            <param name="seeNO"></param>
+            <param name="sqeNO"></param>
+            <returns></returns>{55BBD9DB-F5C9-4e0a-94E5-9F7FCB121350}
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryOrder(System.String)">
+            <summary>
+            查询执行医嘱--通过看诊序号查询
+            </summary>
+            <param name="seeNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryOrderByRecipeNO(System.String)">
+            <summary>
+            根据处方号查询医嘱
+            </summary>
+            <param name="recipeNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryOneOrder(System.String)">
+            <summary>
+            查询一条医嘱
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QuerySeeNoListByCardNo(System.String)">
+            <summary>
+            获得看诊序号列表
+            </summary>
+            <param name="cardNo">门诊卡号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QuerySeeNoListByCardNo(System.String,System.String)">
+            <summary>
+            获得看诊序号列表
+            </summary>
+            <param name="clinicNo"></param>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QuerySeeNoListByName(System.String)">
+            <summary>
+            查询看诊序号根据名子
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.GetPhaRecipeNoByClinicNoAndSeeNo(System.String,System.String)">
+            <summary>
+            取得药品处方号通过门诊号和看诊号
+            </summary>
+            <param name="clinicNo"></param>
+            <param name="seeNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.InsertCaseHistory(Neusoft.HISFC.Models.Registration.Register,Neusoft.HISFC.Models.Order.OutPatient.ClinicCaseHistory)">
+            <summary>
+            插入一条病历
+            </summary>
+            <param name="reg"></param>
+            <param name="casehistory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateCaseHistory(Neusoft.HISFC.Models.Registration.Register,Neusoft.HISFC.Models.Order.OutPatient.ClinicCaseHistory,System.String)">
+            <summary>
+            更新一条病历
+            </summary>
+            <param name="reg"></param>
+            <param name="casehistory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryCaseHistoryByClinicCode(System.String)">
+            <summary>
+            根据门诊流水号查询一条门诊病历
+            </summary>
+            <param name="clinicCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryCaseHistoryByClinicCode(System.String,System.String)">
+            <summary>
+            根据门诊流水号和操作时间查询一条门诊病历
+            </summary>
+            <param name="clinicCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryAllCaseHistory(System.String)">
+            <summary>
+            根据门诊号查询门诊所有病历
+            </summary>
+            <param name="CardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryMaxOperTimeByClinicCode(System.String)">
+            <summary>
+            通过门诊号取病历最大操作时间
+            </summary>
+            <param name="ClinicCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.GetMyObjectByCardNO(System.String)">
+            <summary>
+            得到病历实体
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.GetMyObject(System.String)">
+            <summary>
+            得到病历实体
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.GetModuleSeq">
+            <summary>
+            获取病历模板流水号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.SetCaseModule(Neusoft.HISFC.Models.Order.OutPatient.ClinicCaseHistory)">
+            <summary>
+            根据传入的实体更新或者插入门诊病历模板
+            </summary>
+            <param name="casehistory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.InsertCaseModule(Neusoft.HISFC.Models.Order.OutPatient.ClinicCaseHistory)">
+            <summary>
+            插入一条记录
+            </summary>
+            <param name="casehistory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateCaseModuleType(System.String,System.String)">
+            <summary>
+            更新病历模板Type
+            </summary>
+            <param name="ModuleType">模板类型</param>
+            <param name="Module_NO">模板ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.UpdateCaseModule(Neusoft.HISFC.Models.Order.OutPatient.ClinicCaseHistory)">
+            <summary>
+            更新一条记录
+            </summary>
+            <param name="casehistory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.DeleteCaseModule(System.String)">
+            <summary>
+            删除一条记录
+            </summary>
+            <param name="moduleNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryCaseModule(System.String)">
+            <summary>
+            根据模板流水号查询一条记录
+            </summary>
+            <param name="moduleNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.QueryAllCaseModule(System.String,System.String)">
+            <summary>
+            根据类别获得所有模板
+            </summary>
+            <param name="moduletype"></param>
+            <param name="Code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.GetMyModule(System.String)">
+            <summary>
+            得到病历模板实体
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.myGetSql(System.String,Neusoft.HISFC.Models.Order.OutPatient.Order)">
+            <summary>
+            获得sql，传入参数
+            </summary>
+            <param name="sql"></param>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.myGetSelectSql(System.String@)">
+            <summary>
+            获得查询sql语句
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.OutPatient.Order.myGetExecOrder(System.String)">
+            <summary>
+            获得执行医嘱信息
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.TransFusion">
+            <summary>
+            TransFusion 的摘要说明。
+            输液卡管理
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.TransFusion.InsertTransFusion(System.String,System.String)">
+            <summary>
+            添加输液卡设置信息
+            必须填写（NURSE_CELL_CODE,USAGE_CODE）
+            </summary>
+            <param name="nurseCode"></param>
+            <param name="usageCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.TransFusion.DeleteTransFusion(System.String,System.String)">
+            <summary>
+             删除输液卡设置信息
+             必须填写（NURSE_CELL_CODE,USAGE_CODE）
+            </summary>
+            <param name="nurseCode"></param>
+            <param name="usageCode"></param>
+            <returns>-1 错误 0 没有找到记录 >0 记录行数</returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.TransFusion.QueryTransFusion(System.String)">
+            <summary>
+             获得输液卡设置信息
+            </summary>
+            <param name="nurseCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Neusoft.HISFC.BizLogic.Order.Permission">
+            <summary>
+            Permission 的摘要说明。
+            会诊权限
+            </summary>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Permission.InsertPermission(Neusoft.HISFC.Models.Order.Consultation)">
+            <summary>
+            插入权限记录
+            </summary>
+            <param name="consultation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Permission.UpdatePermission(Neusoft.HISFC.Models.Order.Consultation)">
+            <summary>
+            更新权限记录
+            </summary>
+            <param name="consultation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Permission.DeletePermission(System.String)">
+            <summary>
+            删除权限记录
+            </summary>
+            <param name="consultationNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Neusoft.HISFC.BizLogic.Order.Permission.QueryPermission(System.String)">
+            <summary>
+            获得医疗会诊权限列表
+            </summary>
+            <param name="inpatientNo"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

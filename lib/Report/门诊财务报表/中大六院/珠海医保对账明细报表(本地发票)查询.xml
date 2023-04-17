@@ -1,0 +1,46 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>260</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dtSiType</Name><Text>参保险种：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>500</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName>ZhuHaiSiType</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>dtEmployee</Name><Text>收费员:</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>700</X><Y>2</Y></Location><QueryDataSource>EmployeeType</QueryDataSource><DataSourceTypeName>F</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtMainReport</Name><Sql>
+SELECT t.OPER_DATE 时间,
+       FUN_GET_EMPLOYEE_NAME(t.OPER_CODE) 收费员,
+       t.NAME 患者姓名,
+       t.INVOICE_NO 发票电脑号,
+       t.PRINT_INVOICENO 发票印刷号,
+       t.TOT_COST 总金额,
+       t.PUB_COST 基金支付金额,
+       t.OWN_COST 自费金额,
+       (SELECT b.APPROVAL_COST FROM FIN_IPR_SIINMAININFO a,FIN_IPR_SIINMAININFO_ZHUHAI b
+        WHERE a.INPATIENT_NO = b.INPATIENT_NO AND a.BALANCE_NO = b.BALANCE_NO 
+        AND a.TYPE_CODE = '1' AND a.INPATIENT_NO = t.clinic_code AND
+        a.INVOICE_NO = t.INVOICE_NO AND a.TOT_COST = t.TOT_COST) 核准金额,
+       (SELECT b.BILL_NO FROM FIN_IPR_SIINMAININFO a,FIN_IPR_SIINMAININFO_ZHUHAI b
+        WHERE a.INPATIENT_NO = b.INPATIENT_NO AND a.BALANCE_NO = b.BALANCE_NO 
+        AND a.TYPE_CODE = '1' AND a.INPATIENT_NO = t.clinic_code AND
+        a.INVOICE_NO = t.INVOICE_NO AND a.TOT_COST = t.TOT_COST) 结算单号,
+       (SELECT r.IDENNO FROM FIN_IPR_SIINMAININFO r 
+        WHERE r.TYPE_CODE = '1' AND r.INVOICE_NO = t.INVOICE_NO
+        AND r.INPATIENT_NO = t.clinic_code AND r.TOT_COST = t.TOT_COST) 身份证号,
+       (SELECT r.MCARD_NO||' ' FROM FIN_IPR_SIINMAININFO r 
+        WHERE r.TYPE_CODE = '1' AND r.INVOICE_NO = t.INVOICE_NO
+        AND r.INPATIENT_NO = t.clinic_code AND r.TOT_COST = t.TOT_COST) 社会保障号,
+        (SELECT c.NAME FROM FIN_IPR_SIINMAININFO r,COM_DICTIONARY c
+        WHERE r.TYPE_CODE = '1' AND r.INVOICE_NO = t.INVOICE_NO
+        AND r.INPATIENT_NO = t.clinic_code AND r.TOT_COST = t.TOT_COST
+        AND c.TYPE = 'ZhuHaiSiType' AND r.ZHUHAISITYPE = c.CODE) 险种,
+        t.PACT_NAME 合同单位,
+        decode(t.CANCEL_FLAG,'1','正常','0','退费','2','重打','作废') 状态,
+        (SELECT r.END_DATE FROM FIN_OPB_DAYREPORT r WHERE r.BALANCE_NO = t.BALANCE_NO) 日结日期
+FROM FIN_OPB_INVOICEINFO t,FIN_COM_PACTUNITINFO f
+WHERE t.PACT_CODE = f.PACT_CODE 
+AND t.CANCEL_FLAG = '1'
+AND t.OPER_DATE &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+AND t.OPER_DATE &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+AND f.DLL_NAME = 'ZhuHaiSI.dll'
+AND ('ALL' = '&amp;dtSiType' 
+     OR 
+     (SELECT c.CODE FROM FIN_IPR_SIINMAININFO r,COM_DICTIONARY c
+      WHERE r.TYPE_CODE = '1' AND r.INVOICE_NO = t.INVOICE_NO
+      AND r.INPATIENT_NO = t.clinic_code AND r.TOT_COST = t.TOT_COST
+      AND c.TYPE = 'ZhuHaiSiType' AND r.ZHUHAISITYPE = c.CODE) = '&amp;dtSiType'
+     )
+AND ('ALL' =  '&amp;dtEmployee' OR t.OPER_CODE =  '&amp;dtEmployee')
+ORDER BY t.OPER_DATE 
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\门诊财务报表\中大六院\珠海医保对账明细报表(本地发票)查询.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

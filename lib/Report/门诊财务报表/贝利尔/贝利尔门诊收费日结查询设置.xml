@@ -1,0 +1,249 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>上次日结时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>本次日结时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd HH:mm:ss</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPayModeSum</Name><Sql>--dtPayModeSum
+--
+select '门诊收费',
+d.name 支付方式,
+       sum(decode(a.trans_type,'1', a.tot_cost, 0)) 开单发票金额,
+       0 收取账户金额,
+       sum(decode(a.trans_type,'1',0, a.tot_cost)) 退还发票金额,
+       0 退还赠送金额,
+       sum(a.tot_cost) 缴款合计
+  from fin_opb_paymode a, com_dictionary d
+ where a.mode_code = d.code
+   and d.type = 'PAYMODES'
+   and a.oper_code='&amp;CurrentOperID'
+   and ((a.oper_date&gt;=to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and a.oper_date&lt;=to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   and (a.balance_flag='0'or a.balance_flag is null)) or a.balance_no='&amp;balanceNO')
+ group by a.mode_code, d.name</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>false</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInvoiceSum</Name><Sql>--dtInvoiceSum
+select (select i.invoice_no from fin_opb_invoiceinfo i where i.print_invoiceno = min_invoiceno and rownum = 1) 首张发票电脑号,
+       (select i.invoice_no from fin_opb_invoiceinfo i where i.print_invoiceno = max_invoiceno and rownum = 1) 尾张发票电脑号,
+       min_invoiceno 首张发票印刷号,
+       max_invoiceno 尾张发票印刷号,
+       count 张数,
+       cost 收费金额,
+       0 赠送金额
+  from
+(
+select min(t.print_invoiceno) min_invoiceno,
+       max(t.print_invoiceno) max_invoiceno,
+       count(*) count,
+       sum(tot_cost) cost
+  from (select aa.*,
+               fun_get_addnumber(aa.print_invoiceno, -rownum) kk
+          from (select a.print_invoiceno, a.tot_cost
+                  from fin_opb_invoiceinfo a
+                 where nvl(a.print_invoiceno, ' ') &lt;&gt; ' '
+                   and a.oper_code = '&amp;CurrentOperID'
+                   and ((a.oper_date &gt;=
+                        to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+                        a.oper_date &lt;=
+                        to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+                        (a.balance_flag = '0' or a.balance_flag is null)) or
+                        a.balance_no = '&amp;balanceNO')
+                   and a.trans_type = '1'
+                 order by print_invoiceno) aa) t
+ group by t.kk
+ order by min(t.print_invoiceno) ASC
+)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>false</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtQuitPrintInvoice</Name><Sql>select wm_concat(a.print_invoiceno) || '   共' ||count(*)|| '张' 发票
+                  from fin_opb_invoiceinfo a
+                 where nvl(a.print_invoiceno, ' ') &lt;&gt; ' '
+                   and a.oper_code = '&amp;CurrentOperID'
+                   and ((a.oper_date &gt;=
+                        to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+                        a.oper_date &lt;=
+                        to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+                        (a.balance_flag = '0' or a.balance_flag is null)) or
+                        a.balance_no = '&amp;balanceNO')
+                   and a.trans_type = '2'
+                 order by print_invoiceno</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>false</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPrepayModeSum</Name><Sql>--dtPrepayModeSum
+select '门诊账户',aa.支付方式,aa.收取账户金额,aa.赠送金额,aa.退还账户金额,aa.取消赠送金额,aa.缴费合计 from (
+select d.name 支付方式,
+       sum(decode(a.cancel_flag, '1', a.prepay_cost, 0)) 收取账户金额,
+       sum(decode(a.cancel_flag, '1', a.donate_cost, 0)) 赠送金额,
+       sum(decode(a.cancel_flag, '1', 0, a.prepay_cost)) 退还账户金额,
+       sum(decode(a.cancel_flag, '1', 0, a.donate_cost)) 取消赠送金额,       
+       sum(a.prepay_cost) 缴费合计
+  from fin_opb_accountprepay a, com_dictionary d
+ where a.prepay_type = d.code
+   and d.type = 'PAYMODES'
+   and a.oper_code='&amp;CurrentOperID'
+   and ((a.oper_date&gt;=to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and a.oper_date&lt;=to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+    and (a.balance_flag='0'or a.balance_flag is null)) or a.balance_no='&amp;balanceNO')
+ group by d.name)aa
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtModeAllSum</Name><Sql>select '',
+       sum(开单发票金额) 开单发票金额,
+       sum(收取账户金额) 收取账户金额,
+       sum(退还发票金额) 退还发票金额,
+       sum(退还赠送金额) 退还赠送金额,
+       sum(缴款合计) 缴款合计
+  from (select '' 合计,
+               sum(decode(a.trans_type, '1', a.tot_cost, 0)) 开单发票金额,
+               0 收取账户金额,
+               sum(decode(a.trans_type, '1', 0, a.tot_cost)) 退还发票金额,
+               0 退还赠送金额,
+               sum(a.tot_cost) 缴款合计,
+               999 sort_id
+          from fin_opb_paymode a, com_dictionary d
+         where a.mode_code = d.code
+           and d.type = 'PAYMODES'
+           and a.oper_code = '&amp;CurrentOperID'
+           and ((a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+               a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+               (a.balance_flag = '0' or a.balance_flag is null)) or
+               a.balance_no = '&amp;balanceNO')
+        union all
+        
+        select '' 合计,
+               sum(decode(a.cancel_flag, '1', a.prepay_cost, 0)) 收取账户金额,
+               sum(decode(a.cancel_flag, '1', a.donate_cost, 0)) 赠送金额,
+               sum(decode(a.cancel_flag, '1', 0, a.prepay_cost)) 退还账户金额,
+               sum(decode(a.cancel_flag, '1', 0, a.donate_cost)) 取消赠送金额,
+               sum(a.prepay_cost) 缴费合计,
+               999 sort_id
+          from fin_opb_accountprepay a, com_dictionary d
+         where a.prepay_type = d.code
+           and d.type = 'PAYMODES'
+           and a.oper_code = '&amp;CurrentOperID'
+           and ((a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+               a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+               (a.balance_flag = '0' or a.balance_flag is null)) or
+               a.balance_no = '&amp;balanceNO'))
+ group by 合计
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPrepayInvoiceSum</Name><Sql>select '无' 首张发票电脑号,
+       '无' 尾张发票电脑号,
+       min(a.invoice_no) 首张发票印刷号,
+       max(a.invoice_no) 尾张发票印刷号,
+       count(*) 张数,
+       sum(a.prepay_cost) 充值金额,
+       sum(a.donate_cost) 赠送金额
+  from fin_opb_accountprepay a
+ where a.cancel_flag = '1'
+   and nvl(a.invoice_no, ' ') &lt;&gt; ' '
+   and a.oper_code = '&amp;CurrentOperID'
+   and ((a.oper_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+       a.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+       (a.balance_flag = '0' or a.balance_flag is null)) or
+       a.balance_no = '&amp;balanceNO')
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInvoiceAllSum</Name><Sql>select '','','','', nvl(sum(张数),0) 张数,  nvl(sum(充值金额),0) 充值金额,  nvl(sum(赠送金额),0) 赠送金额
+  from (select count(*) 张数,
+               sum(a.prepay_cost) 充值金额,
+               sum(a.donate_cost) 赠送金额
+          from fin_opb_accountprepay a
+         where a.cancel_flag = '1'
+           and nvl(a.invoice_no, ' ') &lt;&gt; ' '
+           and a.oper_code = '&amp;CurrentOperID'
+           and ((a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+               a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+               (a.balance_flag = '0' or a.balance_flag is null)) or
+               a.balance_no = '&amp;balanceNO')
+        union all
+        
+        select count(*) 张数, sum(tot_cost) 充值金额, 0 赠送金额
+          from (select aa.*,
+                       fun_get_addnumber(aa.print_invoiceno, -rownum) kk
+                  from (select a.print_invoiceno, a.tot_cost
+                          from fin_opb_invoiceinfo a
+                         where nvl(a.print_invoiceno, ' ') &lt;&gt; ' '
+                           and a.oper_code = '&amp;CurrentOperID'
+                           and ((a.oper_date &gt;=
+                                to_date('&amp;dtBeginTime',
+                                         'yyyy-mm-dd hh24:mi:ss') and
+                                a.oper_date &lt;=
+                                to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+                                (a.balance_flag = '0' or
+                                a.balance_flag is null)) or
+                                a.balance_no = '&amp;balanceNO')
+                           and a.trans_type = '1'
+                         order by print_invoiceno) aa) t)
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPrepayQuitSum</Name><Sql>select nvl(sum(a.prepay_cost),0) 返还基本金额,nvl(sum(a.donate_cost),0) 返还赠送金额
+  from fin_opb_accountprepay a
+ where a.oper_code = '&amp;CurrentOperID'
+           and ((a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+               a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+               (a.balance_flag = '0' or a.balance_flag is null)) or
+               a.balance_no = '&amp;balanceNO')
+   and a.cancel_flag != '1'</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPrepayQuitInvoice</Name><Sql>select wm_concat(a.invoice_no) || '   共' || count(*) ||'张' str 
+  from fin_opb_accountprepay a
+ where a.oper_code = '&amp;CurrentOperID'
+           and ((a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+               a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+               (a.balance_flag = '0' or a.balance_flag is null)) or
+               a.balance_no = '&amp;balanceNO')
+   and a.cancel_flag != '1'</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtQuitInvoice</Name><Sql>select wm_concat(a.invoice_no) || '   共' ||count(*)|| '张' 发票
+                  from fin_opb_invoiceinfo a
+                 where nvl(a.print_invoiceno, ' ') &lt;&gt; ' '
+                   and a.oper_code = '&amp;CurrentOperID'
+                   and ((a.oper_date &gt;=
+                        to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+                        a.oper_date &lt;=
+                        to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+                        (a.balance_flag = '0' or a.balance_flag is null)) or
+                        a.balance_no = '&amp;balanceNO')
+                   and a.trans_type = '2'
+                 order by invoice_no</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtQuitSum</Name><Sql>select nvl(sum(a.tot_cost),0) 退费基本金额,0 退费赠送金额
+  from fin_opb_invoiceinfo a
+ where nvl(a.print_invoiceno, ' ') &lt;&gt; ' '
+   and a.oper_code = '&amp;CurrentOperID'
+   and ((a.oper_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+        a.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+        (a.balance_flag = '0' or a.balance_flag is null)) or
+        a.balance_no = '&amp;balanceNO')
+   and a.trans_type = '2'</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtQuitAllSum</Name><Sql>select sum(退费基本金额) 退费基本金额,sum(退费赠送金额) 退费赠送金额 from (
+select nvl(sum(a.tot_cost), 0) 退费基本金额, 0 退费赠送金额
+  from fin_opb_invoiceinfo a
+ where nvl(a.print_invoiceno, ' ') &lt;&gt; ' '
+   and a.oper_code = '&amp;CurrentOperID'
+   and ((a.oper_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+        a.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+        (a.balance_flag = '0' or a.balance_flag is null)) or
+        a.balance_no = '&amp;balanceNO')
+   and a.trans_type = '2'
+union all
+
+select nvl(sum(a.prepay_cost),0)退费基本金额, nvl(sum(a.donate_cost),0)退费赠送金额
+  from fin_opb_accountprepay a
+ where a.oper_code = '&amp;CurrentOperID'
+   and ((a.oper_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') and
+       a.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') and
+       (a.balance_flag = '0' or a.balance_flag is null)) or
+       a.balance_no = '&amp;balanceNO')
+   and a.cancel_flag != '1')
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtModeTypeAllSum</Name><Sql>
+select wm_concat(bb.支付方式 || ':'||bb.缴款合计 || ' ') from (
+select aa.支付方式 ,sum(aa.缴款合计) 缴款合计 from (
+--门诊收费
+select d.name 支付方式,
+       sum(a.tot_cost) 缴款合计
+  from fin_opb_paymode a left outer join com_dictionary d
+ on a.mode_code = d.code  and d.type = 'PAYMODES'
+   where  a.oper_code='&amp;CurrentOperID'
+   and ((a.oper_date&gt;=to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and a.oper_date&lt;=to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   and (a.balance_flag='0'or a.balance_flag is null)) or a.balance_no='&amp;balanceNO')
+ group by a.mode_code, d.name
+ 
+ union all
+--门诊账户
+select d.name 支付方式,    
+       sum(a.prepay_cost) 缴费合计
+  from fin_opb_accountprepay a left outer join com_dictionary d
+ on a.prepay_type = d.code  and d.type = 'PAYMODES'
+   where  a.oper_code='&amp;CurrentOperID'
+   and ((a.oper_date&gt;=to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and a.oper_date&lt;=to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+    and (a.balance_flag='0'or a.balance_flag is null)) or a.balance_no='&amp;balanceNO')
+ group by d.name) aa
+ group by  aa.支付方式
+ ) bb
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\门诊财务报表\中大五院\门诊收费日结查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

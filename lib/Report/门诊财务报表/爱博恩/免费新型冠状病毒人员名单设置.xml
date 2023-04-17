@@ -1,0 +1,38 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select case when fe.cancel_flag=0 then '['||'退费'||']'||fe.recipe_no else fe.recipe_no end recipe_no,
+       cp.idenno,
+       fr.idenno,
+       cp.name ,
+       '门诊',
+       '' ,
+       fr.card_no,
+       fr.DEPT_NAME 挂号科室,
+       fun_get_employee_name(fe.DOCT_CODE) 开单医生,
+       fe.OPER_DATE,
+			 fcp.pact_name
+  from fin_opb_feedetail fe
+  left join fin_opr_register fr on fe.clinic_code=fr.clinic_code
+  left join com_patientinfo cp on fr.card_no=cp.card_no
+	left join fin_com_pactunitinfo fcp on fr.pact_code = fcp.pact_code
+ inner join com_dictionary cd on cd.type='covid-9' and cd.code=fe.item_code
+ where  fe.pay_flag=1
+   and fe.fee_date between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+ union all
+select case when mo.mo_stat='3' then '['||'作废'||']'||mo.mo_order when mo.type_code like 'Z%' then '['||'嘱托'||']'||mo.mo_order else mo.mo_order end mo_order,
+       cp.idenno,
+       fi.idenno ,
+       fi.name,
+       '住院',
+       fi.patient_no,
+       fi.card_no,
+       fun_get_dept_name(mo.DEPT_CODE),
+       mo.DOC_NAME,
+       mo.MO_DATE,
+			 fcp.pact_name
+  from fin_ipr_inmaininfo fi 
+  left join com_patientinfo cp on fi.card_no=cp.card_no
+  left join met_ipm_order mo on fi.inpatient_no=mo.inpatient_no
+	left join fin_com_pactunitinfo fcp on fi.pact_code = fcp.pact_code
+ inner join com_dictionary cd on cd.type='covid-9' and cd.code=mo.item_code
+ where fi.in_state&lt;&gt;'N' 
+   and (case when mo.mo_stat='3' then mo.date_end else mo.date_bgn end) between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+ order by recipe_no</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\免费新型冠状病毒人员名单设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

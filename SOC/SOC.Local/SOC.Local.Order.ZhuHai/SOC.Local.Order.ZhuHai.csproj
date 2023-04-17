@@ -1,0 +1,1064 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39DF705D-BAD3-47B9-AA90-AA30BBF925D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.Order.ZhuHai</RootNamespace>
+    <AssemblyName>SOC.Local.Order.ZhuHai</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="DataWindow, Version=2.5.0.0, Culture=neutral, PublicKeyToken=cc0f66dd9541b3da, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\DataWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FSDataWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Nurse, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.RADT, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Registration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\SOC.HISFC.BizProcess.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.OrderInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.Models, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.RADT.Components, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WinForms.Report, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\WinForms.Report.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\CacheManager.cs" />
+    <Compile Include="Classes\Function.cs" />
+    <Compile Include="Classes\LocalManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Common\IMedicalResult\LIS\frmLisResultShow.resx">
+      <DependentUpon>frmLisResultShow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Common\IOrderChooseUL\ucSelectInPatientItem.resx">
+      <DependentUpon>ucSelectInPatientItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Common\IOrderChooseUL\ucSelectItem.resx">
+      <DependentUpon>ucSelectItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\BedCardIcu\ucBedCardFp.resx">
+      <DependentUpon>ucBedCardFp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\BedCardIcu\ucBedCardShow.resx">
+      <DependentUpon>ucBedCardShow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\BedCard\ucBedCardFp.resx">
+      <DependentUpon>ucBedCardFp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\BedCard\ucBedCardPanel.resx">
+      <DependentUpon>ucBedCardPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\BedCardYk\ucBedCard.resx">
+      <DependentUpon>ucBedCard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\BedCardYk\ucBedCardFp.resx">
+      <DependentUpon>ucBedCardFp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\BedCardYk\ucBedCardPanel.resx">
+      <DependentUpon>ucBedCardPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\BedCardYk\ucBedCardShow.resx">
+      <DependentUpon>ucBedCardShow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\CircuitControl\ucCircuitCardControl.resx">
+      <DependentUpon>ucCircuitCardControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\CircuitControl\ucCircuitCardFP.resx">
+      <DependentUpon>ucCircuitCardFP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\CircuitControl\ucCircuitCardPrint.resx">
+      <DependentUpon>ucCircuitCardPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\CircuitControl\ucCircuitZDWY.resx">
+      <DependentUpon>ucCircuitZDWY.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\DrugCard\ucDrugTransfusionPanel.resx">
+      <DependentUpon>ucDrugTransfusionPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\DrugCard\ucInfusionLabel.resx">
+      <DependentUpon>ucInfusionLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\DrugCard\ucInfusionLabelNew.resx">
+      <DependentUpon>ucInfusionLabelNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ExecBill\ucExecBillFP.resx">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ExecBill\ucLisBillPrint.resx">
+      <DependentUpon>ucLisBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ExecBill\ucNewExecBill.resx">
+      <DependentUpon>ucNewExecBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ExecBill\ExecBillPrintControl.resx">
+      <DependentUpon>ExecBillPrintControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ExecBill\ucPrint.resx">
+      <DependentUpon>ucPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ExecBill\ExecBillPrintControlNew.resx">
+      <DependentUpon>ExecBillPrintControlNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ExecBill\ExecTreatmentBillPrintControl.resx">
+      <DependentUpon>ExecTreatmentBillPrintControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\LisBillPrint\ucLisBillPrintIBORN.resx">
+      <DependentUpon>ucLisBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\LisBillPrint\ucLisReceiptBillPrintIBORN.resx">
+      <DependentUpon>ucLisReceiptBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\OrderPrint\frmNotice.resx">
+      <DependentUpon>frmNotice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\OrderPrint\frmOrderPrint.resx">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\OrderPrint\ucOrderBillHeader.resx">
+      <DependentUpon>ucOrderBillHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\PacsBillPrint\ucPacsBillPrintIBORN.resx">
+      <DependentUpon>ucPacsBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\PacsBillPrint\ucPacsBillPrintIBORN.zh-CHS.resx">
+      <DependentUpon>ucPacsBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\PacsBillPrint\ucPacsBillPrintIBORNA4.resx">
+      <DependentUpon>ucPacsBillPrintIBORNA4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\PacsBillPrint\ucPacsBillPrintIBORNA4.zh-CHS.resx">
+      <DependentUpon>ucPacsBillPrintIBORNA4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\PacsBillPrint\ucPacsInformedBillPrintIBORNA4.resx">
+      <DependentUpon>ucPacsInformedBillPrintIBORNA4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\PacsBillPrint\ucPacsInformedBillPrintIBORNA4.zh-CHS.resx">
+      <DependentUpon>ucPacsInformedBillPrintIBORNA4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrintIBORN.resx">
+      <DependentUpon>ucClinicsBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrint.resx">
+      <DependentUpon>ucClinicsBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrintBLE.resx">
+      <DependentUpon>ucClinicsBillPrintBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\DiagnoseProve\ucDiagnoseProve.resx">
+      <DependentUpon>ucDiagnoseProve.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\DiagnoseProve\ucLeavePrint.resx">
+      <DependentUpon>ucLeavePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\frmPreviewControl.resx">
+      <DependentUpon>frmPreviewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrint.resx">
+      <DependentUpon>ucInjectBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintBLE.resx">
+      <DependentUpon>ucInjectBillPrintBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintBLENew.resx">
+      <DependentUpon>ucInjectBillPrintBLENew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintIBORN.resx">
+      <DependentUpon>ucInjectBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrint.resx">
+      <DependentUpon>ucLisBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrintBLE.resx">
+      <DependentUpon>ucLisBillPrintBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrintIBORN.resx">
+      <DependentUpon>ucLisBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\LisBillPrint\ucLisReceiptBillPrintIBORN.resx">
+      <DependentUpon>ucLisReceiptBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\MaterialsBillPrint\ucMaterialsBillPrintIBORN.resx">
+      <DependentUpon>ucMaterialsBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\OutPatientGuide\ucOutPatientGuide.resx">
+      <DependentUpon>ucOutPatientGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrint.resx">
+      <DependentUpon>ucPacsBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrint.zh-CHS.resx">
+      <DependentUpon>ucPacsBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintBLE.resx">
+      <DependentUpon>ucPacsBillPrintBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintBLE.zh-CHS.resx">
+      <DependentUpon>ucPacsBillPrintBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintEndoscope.resx">
+      <DependentUpon>ucPacsBillPrintEndoscope.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintEndoscope.zh-CHS.resx">
+      <DependentUpon>ucPacsBillPrintEndoscope.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintXBLE.resx">
+      <DependentUpon>ucPacsBillPrintXBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintXBLE.zh-CHS.resx">
+      <DependentUpon>ucPacsBillPrintXBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintIBORN.resx">
+      <DependentUpon>ucPacsBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintIBORN.zh-CHS.resx">
+      <DependentUpon>ucPacsBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintEndoscopeIBORN.resx">
+      <DependentUpon>ucPacsBillPrintEndoscopeIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintEndoscopeIBORN.zh-CHS.resx">
+      <DependentUpon>ucPacsBillPrintEndoscopeIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsInformedBillPrintIBORN.resx">
+      <DependentUpon>ucPacsInformedBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PacsBillPrint\ucPacsInformedBillPrintIBORN.zh-CHS.resx">
+      <DependentUpon>ucPacsInformedBillPrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PrePayIn\ucOutPatientNotice.resx">
+      <DependentUpon>ucOutPatientNotice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PrePayIn\ucPrepayIn.resx">
+      <DependentUpon>ucPrepayIn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PrePayIn\ucPrepayInQuery.resx">
+      <DependentUpon>ucPrepayInQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\PrePayIn\ucOutPatientNoticeIBORN.resx">
+      <DependentUpon>ucOutPatientNoticeIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\Controls\ucOperInfoBase.resx">
+      <DependentUpon>ucOperInfoBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\Controls\ucOrderInfoBase.resx">
+      <DependentUpon>ucOrderInfoBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\Controls\ucPatientInfoBase.resx">
+      <DependentUpon>ucPatientInfoBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\Controls\ucTitleBase.resx">
+      <DependentUpon>ucTitleBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\IBORN\ucRecipePrintHerbIBORN.resx">
+      <DependentUpon>ucRecipePrintHerbIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\ucRecipeBase.resx">
+      <DependentUpon>ucRecipeBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintBLE.resx">
+      <DependentUpon>ucRecipePrintBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintST.resx">
+      <DependentUpon>ucRecipePrintST.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintHerb.resx">
+      <DependentUpon>ucRecipePrintHerb.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\frmRecipePrint.resx">
+      <DependentUpon>frmRecipePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\ucRecipePrint.resx">
+      <DependentUpon>ucRecipePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RecipePrint\IBORN\ucRecipePrintIBORN.resx">
+      <DependentUpon>ucRecipePrintIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportBLE.resx">
+      <DependentUpon>ucMedicalReportBLE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportIBORN.resx">
+      <DependentUpon>ucMedicalReportIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportBLEA5.resx">
+      <DependentUpon>ucMedicalReportBLEA5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportIBORNA5.resx">
+      <DependentUpon>ucMedicalReportIBORNA5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ZDWY\Common\Comparer\BedCompare.cs" />
+    <Compile Include="ZDWY\Common\Comparer\ExecBedCompare.cs" />
+    <Compile Include="ZDWY\Common\Comparer\ExecBillCompare.cs" />
+    <Compile Include="ZDWY\Common\Comparer\ExecTimeCompare.cs" />
+    <Compile Include="ZDWY\Common\Comparer\FeeCompare.cs" />
+    <Compile Include="ZDWY\Common\Comparer\OrderCompare.cs" />
+    <Compile Include="ZDWY\Common\Comparer\OrderCompareByMoDate.cs" />
+    <Compile Include="ZDWY\Common\Comparer\OrderCompareByPatientAndUsage.cs" />
+    <Compile Include="ZDWY\Common\Comparer\OrderCompareByUsage.cs" />
+    <Compile Include="ZDWY\Common\Comparer\OrderComparerByBillBedCombo.cs" />
+    <Compile Include="ZDWY\Common\Comparer\OrderComparerByPatient.cs" />
+    <Compile Include="ZDWY\Common\Comparer\UsageCompare.cs" />
+    <Compile Include="ZDWY\Common\IBeforeSaveOrder\FoShanOrderAudit\SiOrderAudit.cs" />
+    <Compile Include="ZDWY\Common\IBeforeSaveOrder\FoShanOrderAudit\WebApihelper.cs" />
+    <Compile Include="ZDWY\Common\IMedicalResult\LIS\frmLisResultShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Common\IMedicalResult\LIS\frmLisResultShow.Designer.cs">
+      <DependentUpon>frmLisResultShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Common\IMedicalResult\MedicalResult.cs" />
+    <Compile Include="ZDWY\InPatient\CircuitControl\ucCircuitCardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\CircuitControl\ucCircuitCardControl.Designer.cs">
+      <DependentUpon>ucCircuitCardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\CircuitControl\ucCircuitZDWY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\CircuitControl\ucCircuitZDWY.Designer.cs">
+      <DependentUpon>ucCircuitZDWY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\DrugCard\ucInfusionLabelNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\DrugCard\ucInfusionLabelNew.designer.cs">
+      <DependentUpon>ucInfusionLabelNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ucNewExecBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ucNewExecBill.designer.cs">
+      <DependentUpon>ucNewExecBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ExecBillPrintControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ExecBillPrintControl.designer.cs">
+      <DependentUpon>ExecBillPrintControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ucPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ucPrint.Designer.cs">
+      <DependentUpon>ucPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ExecBillPrintControlNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ExecBillPrintControlNew.designer.cs">
+      <DependentUpon>ExecBillPrintControlNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ExecTreatmentBillPrintControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ExecTreatmentBillPrintControl.designer.cs">
+      <DependentUpon>ExecTreatmentBillPrintControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\LisBillPrint\ucLisBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\LisBillPrint\ucLisBillPrintIBORN.designer.cs">
+      <DependentUpon>ucLisBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\LisBillPrint\ucLisReceiptBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\LisBillPrint\ucLisReceiptBillPrintIBORN.designer.cs">
+      <DependentUpon>ucLisReceiptBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\LocalManager.cs" />
+    <Compile Include="ZDWY\InPatient\OrderPrint\Function.cs" />
+    <Compile Include="ZDWY\InPatient\AfterQueryRegList\AfterQueryRegList.cs" />
+    <Compile Include="ZDWY\Common\IBeforeAddItem\BeforeAddItem.cs" />
+    <Compile Include="ZDWY\Common\IBeforeAddOrder\BeforeAddOrder.cs" />
+    <Compile Include="ZDWY\Common\IBeforeSaveOrder\BeforeSaveOrder.cs" />
+    <Compile Include="ZDWY\Common\IItemExtendInfo\ItemExtendInfo.cs" />
+    <Compile Include="ZDWY\Common\IOrderChooseUL\SelectItem.cs" />
+    <Compile Include="ZDWY\Common\IOrderChooseUL\SelectItemInPatient.cs" />
+    <Compile Include="ZDWY\Common\IOrderChooseUL\ucSelectInPatientItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Common\IOrderChooseUL\ucSelectInPatientItem.Designer.cs">
+      <DependentUpon>ucSelectInPatientItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Common\IOrderChooseUL\ucSelectItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Common\IOrderChooseUL\ucSelectItem.Designer.cs">
+      <DependentUpon>ucSelectItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Common\OrderSplit\OrderSplit.cs" />
+    <Compile Include="ZDWY\InPatient\PacsBillPrint\ucPacsBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\PacsBillPrint\ucPacsBillPrintIBORN.Designer.cs">
+      <DependentUpon>ucPacsBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\PacsBillPrint\ucPacsBillPrintIBORNA4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\PacsBillPrint\ucPacsBillPrintIBORNA4.Designer.cs">
+      <DependentUpon>ucPacsBillPrintIBORNA4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\PacsBillPrint\ucPacsInformedBillPrintIBORNA4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\PacsBillPrint\ucPacsInformedBillPrintIBORNA4.Designer.cs">
+      <DependentUpon>ucPacsInformedBillPrintIBORNA4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\SaveOrderFactory.cs" />
+    <Compile Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrintIBORN.Designer.cs">
+      <DependentUpon>ucClinicsBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrintBLE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrintBLE.designer.cs">
+      <DependentUpon>ucClinicsBillPrintBLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\DiagnoseProve\ucDiagnoseProve.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\DiagnoseProve\ucDiagnoseProve.Designer.cs">
+      <DependentUpon>ucDiagnoseProve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\DiagnoseProve\ucLeavePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\DiagnoseProve\ucLeavePrint.Designer.cs">
+      <DependentUpon>ucLeavePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintBLE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintBLE.designer.cs">
+      <DependentUpon>ucInjectBillPrintBLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintBLENew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintBLENew.Designer.cs">
+      <DependentUpon>ucInjectBillPrintBLENew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrintIBORN.designer.cs">
+      <DependentUpon>ucInjectBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrintBLE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrintBLE.designer.cs">
+      <DependentUpon>ucLisBillPrintBLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrintIBORN.Designer.cs">
+      <DependentUpon>ucLisBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\LisBillPrint\ucLisReceiptBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\LisBillPrint\ucLisReceiptBillPrintIBORN.Designer.cs">
+      <DependentUpon>ucLisReceiptBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\MaterialsBillPrint\ucMaterialsBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\MaterialsBillPrint\ucMaterialsBillPrintIBORN.Designer.cs">
+      <DependentUpon>ucMaterialsBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintBLE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintBLE.designer.cs">
+      <DependentUpon>ucPacsBillPrintBLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintEndoscope.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintEndoscope.Designer.cs">
+      <DependentUpon>ucPacsBillPrintEndoscope.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintXBLE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintXBLE.designer.cs">
+      <DependentUpon>ucPacsBillPrintXBLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintIBORN.Designer.cs">
+      <DependentUpon>ucPacsBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintEndoscopeIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrintEndoscopeIBORN.Designer.cs">
+      <DependentUpon>ucPacsBillPrintEndoscopeIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsInformedBillPrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsInformedBillPrintIBORN.Designer.cs">
+      <DependentUpon>ucPacsInformedBillPrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PrePayIn\ucOutPatientNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PrePayIn\ucOutPatientNotice.designer.cs">
+      <DependentUpon>ucOutPatientNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PrePayIn\ucPrepayIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PrePayIn\ucPrepayIn.designer.cs">
+      <DependentUpon>ucPrepayIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PrePayIn\ucPrepayInQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PrePayIn\ucPrepayInQuery.designer.cs">
+      <DependentUpon>ucPrepayInQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PrePayIn\ucOutPatientNoticeIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PrePayIn\ucOutPatientNoticeIBORN.designer.cs">
+      <DependentUpon>ucOutPatientNoticeIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\Function.cs" />
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\ucOperInfoBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\ucOperInfoBase.Designer.cs">
+      <DependentUpon>ucOperInfoBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\ucOrderInfoBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\ucOrderInfoBase.Designer.cs">
+      <DependentUpon>ucOrderInfoBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\ucPatientInfoBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\ucPatientInfoBase.Designer.cs">
+      <DependentUpon>ucPatientInfoBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\ucTitleBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Controls\ucTitleBase.Designer.cs">
+      <DependentUpon>ucTitleBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\IBORN\ucRecipePrintHerbIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\IBORN\ucRecipePrintHerbIBORN.Designer.cs">
+      <DependentUpon>ucRecipePrintHerbIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Interface\IOperInfo.cs" />
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Interface\IOrderInfo.cs" />
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Interface\IPatientInfo.cs" />
+    <Compile Include="ZDWY\OutPatient\RecipePrint\Interface\ITitle.cs" />
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipeBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipeBase.Designer.cs">
+      <DependentUpon>ucRecipeBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintBLE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintBLE.designer.cs">
+      <DependentUpon>ucRecipePrintBLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintST.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintST.Designer.cs">
+      <DependentUpon>ucRecipePrintST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\IBORN\ucRecipePrintIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\IBORN\ucRecipePrintIBORN.Designer.cs">
+      <DependentUpon>ucRecipePrintIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportBLE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportBLE.designer.cs">
+      <DependentUpon>ucMedicalReportBLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportIBORN.designer.cs">
+      <DependentUpon>ucMedicalReportIBORN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportBLEA5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportBLEA5.designer.cs">
+      <DependentUpon>ucMedicalReportBLEA5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportIBORNA5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RegistionExtend\ucMedicalReportIBORNA5.designer.cs">
+      <DependentUpon>ucMedicalReportIBORNA5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\SplitRecipe\SplitRecipe.cs" />
+    <Compile Include="ZDWY\Function.cs" />
+    <Compile Include="ZDWY\InPatient\BedCardIcu\ucBedCardFp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardIcu\ucBedCardFp.Designer.cs">
+      <DependentUpon>ucBedCardFp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardIcu\ucBedCardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardIcu\ucBedCardPanel.Designer.cs">
+      <DependentUpon>ucBedCardPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardIcu\ucBedCardShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardIcu\ucBedCardShow.Designer.cs">
+      <DependentUpon>ucBedCardShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCard\ucBedCardFp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCard\ucBedCardFp.Designer.cs">
+      <DependentUpon>ucBedCardFp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCard\ucBedCardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCard\ucBedCardPanel.Designer.cs">
+      <DependentUpon>ucBedCardPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardYk\ucBedCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardYk\ucBedCard.Designer.cs">
+      <DependentUpon>ucBedCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardYk\ucBedCardFp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardYk\ucBedCardFp.Designer.cs">
+      <DependentUpon>ucBedCardFp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardYk\ucBedCardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardYk\ucBedCardPanel.Designer.cs">
+      <DependentUpon>ucBedCardPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardYk\ucBedCardShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\BedCardYk\ucBedCardShow.Designer.cs">
+      <DependentUpon>ucBedCardShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\CircuitControl\ucCircuitCardFP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\CircuitControl\ucCircuitCardFP.designer.cs">
+      <DependentUpon>ucCircuitCardFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\CircuitControl\ucCircuitCardPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\CircuitControl\ucCircuitCardPrint.designer.cs">
+      <DependentUpon>ucCircuitCardPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\DrugCard\ucDrugTransfusionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\DrugCard\ucDrugTransfusionPanel.designer.cs">
+      <DependentUpon>ucDrugTransfusionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\DrugCard\ucInfusionLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\DrugCard\ucInfusionLabel.designer.cs">
+      <DependentUpon>ucInfusionLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ucExecBillFP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ucExecBillFP.Designer.cs">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ucLisBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ExecBill\ucLisBillPrint.designer.cs">
+      <DependentUpon>ucLisBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Common\IAfterSaveOrder\AfterSaveOrder.cs" />
+    <Compile Include="ZDWY\InPatient\OrderPrint\frmNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\OrderPrint\frmOrderPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\OrderPrint\frmOrderPrint.Designer.cs">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\OrderPrint\ucOrderBillHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\OrderPrint\ucOrderBillHeader.Designer.cs">
+      <DependentUpon>ucOrderBillHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\ClinicsBillPrint\ucClinicsBillPrint.Designer.cs">
+      <DependentUpon>ucClinicsBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\frmPreviewControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\frmPreviewControl.Designer.cs">
+      <DependentUpon>frmPreviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\InjectBillPrint\ucInjectBillPrint.designer.cs">
+      <DependentUpon>ucInjectBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\LisBillPrint\ucLisBillPrint.Designer.cs">
+      <DependentUpon>ucLisBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\OutPatientGuide\ucOutPatientGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\OutPatientGuide\ucOutPatientGuide.Designer.cs">
+      <DependentUpon>ucOutPatientGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\PacsBillPrint\ucPacsBillPrint.Designer.cs">
+      <DependentUpon>ucPacsBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintHerb.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipePrintHerb.Designer.cs">
+      <DependentUpon>ucRecipePrintHerb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\frmRecipePrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\frmRecipePrint.Designer.cs">
+      <DependentUpon>frmRecipePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\RecipePrint\ucRecipePrint.Designer.cs">
+      <DependentUpon>ucRecipePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\OutPatient\SaveOrderFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\标无白边.ico" />
+    <None Include="ZDWY\OutPatient\PrePayIn\Resource\中山大学附属第五医院入院登记表.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medicalreport.png" />
+    <None Include="Resources\logo.jpg" />
+    <Content Include="Resources\bakimg1.png" />
+    <Content Include="Resources\bakimg2.png" />
+    <Content Include="Resources\bakimg3.png" />
+    <Content Include="Resources\iborn.png" />
+    <Content Include="ZDWY\Common\IMedicalResult\LIS\LIS报告查询接口说明.txt" />
+    <Content Include="ZDWY\Common\IMedicalResult\LIS\接口视图.txt" />
+    <Content Include="ZDWY\OutPatient\PrePayIn\Resource\中山大学附属第五医院入院登记表.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\HISFC\HISFC.BizLogic\Order\HISFC.BizLogic.Order.csproj">
+      <Project>{6C5F58FB-0D9B-4936-A53C-472D18A557DC}</Project>
+      <Name>HISFC.BizLogic.Order</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\HISFC\HISFC.BizProcess\Interface\HISFC.BizProcess.Interface.csproj">
+      <Project>{5B40826A-10E4-4667-ACD6-49AC52F5FA79}</Project>
+      <Name>HISFC.BizProcess.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ZDWY\OutPatient\TreatmentBillPrint\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

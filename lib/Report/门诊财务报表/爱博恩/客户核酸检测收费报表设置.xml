@@ -1,0 +1,46 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>txtname</Name><Text>姓名/卡号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>440</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>--姓名 就诊卡号 结算类别 支付方式 支付金额 时间 挂号科室
+select  decode(grouping_id( 就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型),0,就诊卡号,'合计:') 就诊卡号, 
+        decode(grouping_id( 就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型),0,姓名,'/') 姓名, 
+        decode(grouping_id( 就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型),0,结算类别,'/') 结算类别, 
+        decode(grouping_id( 就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型),0,科室名称,'/') 科室名称, 
+        decode(grouping_id( 就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型),0,开单医生,'/') 开单医生, 
+        decode(grouping_id( 就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型),0,项目名称,'/') 项目名称, 
+        sum(折后金额) 折后金额, 
+        收费时间, 
+        decode(grouping_id( 就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型),0,收银员,'/') 收银员, 
+        decode(grouping_id( 就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型),0,类型,'/') 类型
+  from (
+      select fr.card_no 就诊卡号,
+             fr.name 姓名,
+             fr.pact_name 结算类别,
+             fr.dept_name 科室名称,
+             fr.doct_name 开单医生,
+             fe.item_name 项目名称,
+             nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0) 折后金额,
+             fe.fee_date 收费时间,
+             fun_get_employee_name(fe.fee_cpcd) 收银员,
+             '门诊' 类型
+        from fin_opb_feedetail fe
+        left join fin_opr_register fr on fe.clinic_code=fr.clinic_code
+       inner join com_dictionary cd on cd.type='2019-nCoV' and fe.item_code=cd.code
+       where fe.fee_date between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+         and (fr.card_no like '%&amp;txtname%' or fr.name like '%&amp;txtname%' or '&amp;txtname' is null)
+         and fe.pay_flag=1
+       union all
+      select fi.patient_no,
+             fi.name,
+             fi.pact_name,
+             fi.dept_name,
+             fun_get_employee_name(il.recipe_doccode),
+             il.item_name,
+             nvl(il.own_cost,0)-nvl(il.eco_cost,0)-nvl(il.donate_cost,0) tot_cost,
+             il.fee_date,
+             fun_get_employee_name(il.fee_opercode),
+             '住院' 类型
+        from fin_ipb_itemlist il
+        left join fin_ipr_inmaininfo fi on il.inpatient_no=fi.inpatient_no
+       inner join com_dictionary cd on cd.type='2019-nCoV' and il.item_code=cd.code
+       where il.fee_date between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+         and (fi.card_no like '%&amp;txtname%' or fi.name like '%&amp;txtname%' or '&amp;txtname' is null)
+       order by 收费时间)
+ group by rollup((就诊卡号, 姓名, 结算类别, 科室名称, 开单医生, 项目名称, 收费时间, 收银员, 类型))</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\门诊财务报表\爱博恩\客户核酸检测收费报表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

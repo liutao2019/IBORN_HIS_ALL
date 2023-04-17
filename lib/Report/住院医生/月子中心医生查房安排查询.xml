@@ -1,0 +1,175 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>txtname</Name><Text>姓名</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dept</Name><Text>月子中心护士站</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>300</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select d.dept_code,d.dept_name from com_department d where d.dept_code in ('3011','3012')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>Datasource</Name><Sql>select a.name 姓名,substr(a.bed_no,5) 房间,ed.rq 入住天数,to_char（a.in_date,'yyyy-mm-dd') 入住日期,
+ case to_char(a.in_date,'d') when '1' THEN '星期天' when '2' THEN '星期一' when '3' THEN '星期二' when '4' THEN '星期三' when '5' THEN '星期四' when '6' THEN '星期五'when '7' THEN '星期六' END 入住星期,
+ --------产科查房
+ case  when to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3012' and ed.rq = 8   then '产科六楼查房：'||to_char（a.in_date + 2 ,'yyyy-mm-dd') 
+       when to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) then '产科六楼查房：'||to_char（a.in_date + 2 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 5 ,'dd')||'、'||to_char（a.in_date + 9 ,'dd') ||'、'||to_char（a.in_date + 12 ,'dd')  
+       when to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3011' and ed.rq = 8   then '产科五楼查房：'||to_char（a.in_date + 1 ,'yyyy-mm-dd') 
+       when to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) then '产科五楼查房：'||to_char（a.in_date + 1 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 4 ,'dd')||'、'||to_char（a.in_date + 8 ,'dd') ||'、'||to_char（a.in_date + 11 ,'dd')  
+          
+       when to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3012' and ed.rq = 8   then '产科六楼查房：'||to_char（a.in_date + 1 ,'yyyy-mm-dd')
+       when to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43)   then '产科六楼查房：'||to_char（a.in_date + 1 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 4 ,'dd')||'、'||to_char（a.in_date + 8 ,'dd') ||'、'||to_char（a.in_date + 11 ,'dd') 
+       when to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3011' and ed.rq = 8   then '产科五楼查房：'||to_char（a.in_date + 3 ,'yyyy-mm-dd') 
+       when to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43)   then '产科五楼查房：'||to_char（a.in_date + 3 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 7 ,'dd')||'、'||to_char（a.in_date + 10 ,'dd') ||'、'||to_char（a.in_date + 14 ,'dd') 
+        
+       when to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3012' and ed.rq = 8   then '产科六楼查房：'||to_char（a.in_date + 3 ,'yyyy-mm-dd') 
+       when to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43)  then '产科六楼查房：'||to_char（a.in_date + 3 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 7 ,'dd')||'、'||to_char（a.in_date + 10 ,'dd')||'、'||to_char（a.in_date + 14 ,'dd')
+       when to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3011' and ed.rq = 8   then '产科五楼查房：'||to_char（a.in_date + 2 ,'yyyy-mm-dd') 
+       when to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43)  then '产科五楼查房：'||to_char（a.in_date + 2 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 6 ,'dd')||'、'||to_char（a.in_date + 9 ,'dd')||'、'||to_char（a.in_date + 13 ,'dd')
+           
+       when to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3012' and ed.rq = 8   then '产科六楼查房：'||to_char（a.in_date + 2 ,'yyyy-mm-dd')
+       when to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43)  then '产科六楼查房：'||to_char（a.in_date + 2 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 6 ,'dd')||'、'||to_char（a.in_date + 9 ,'dd') ||'、'||to_char（a.in_date + 13 ,'dd') 
+       when to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3011' and ed.rq = 8   then '产科五楼查房：'||to_char（a.in_date + 1 ,'yyyy-mm-dd')
+       when to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43)  then '产科五楼查房：'||to_char（a.in_date + 1 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 5 ,'dd')||'、'||to_char（a.in_date + 8 ,'dd') ||'、'||to_char（a.in_date + 12 ,'dd')  
+       
+       when to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3012' and ed.rq = 8   then '产科六楼查房：'||to_char（a.in_date + 1 ,'yyyy-mm-dd') 
+       when to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43)  then '产科六楼查房：'||to_char（a.in_date + 1 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 5 ,'dd')||'、'||to_char（a.in_date + 8 ,'dd')  ||'、'||to_char（a.in_date + 12 ,'dd') 
+       when to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3011' and ed.rq = 8   then '产科五楼查房：'||to_char（a.in_date + 4 ,'yyyy-mm-dd')
+       when to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43)  then '产科五楼查房：'||to_char（a.in_date + 4 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 7 ,'dd')||'、'||to_char（a.in_date + 11 ,'dd') ||'、'||to_char（a.in_date + 14 ,'dd')  
+      
+       when to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3012' and ed.rq = 8   then '产科六楼查房：'||to_char（a.in_date + 4 ,'yyyy-mm-dd')  
+       when to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) then '产科六楼查房：'||to_char（a.in_date + 4 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 7 ,'dd')||'、'||to_char（a.in_date + 11 ,'dd') ||'、'||to_char（a.in_date + 14 ,'dd')  
+       when to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3011' and ed.rq = 8   then '产科五楼查房：'||to_char（a.in_date + 3 ,'yyyy-mm-dd')  
+       when to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) then '产科五楼查房：'||to_char（a.in_date + 3 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 6 ,'dd')||'、'||to_char（a.in_date + 10 ,'dd') ||'、'||to_char（a.in_date + 13 ,'dd') 
+       
+       
+       when to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3012' and ed.rq = 8   then '产科六楼查房：'||to_char（a.in_date + 3 ,'yyyy-mm-dd')  
+       when to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43)  then '产科六楼查房：'||to_char（a.in_date + 3 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 6 ,'dd')||'、'||to_char（a.in_date + 10 ,'dd') ||'、'||to_char（a.in_date + 13 ,'dd') 
+       when to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3011' and ed.rq = 8   then '产科五楼查房：'||to_char（a.in_date + 2 ,'yyyy-mm-dd')  
+       when to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43)  then '产科五楼查房：'||to_char（a.in_date + 2 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 5 ,'dd')||'、'||to_char（a.in_date + 9 ,'dd')  ||'、'||to_char（a.in_date + 12 ,'dd') 
+       else '' END 预定产科医生查房日期,
+       ---------当天查房信息 
+       case  when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3012' and ed.rq = 8 and trunc(sysdate) = trunc(a.in_date + 2)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 2) or trunc(sysdate) = trunc(a.in_date + 5) or trunc(sysdate) = trunc(a.in_date + 9) or trunc(sysdate) = trunc(a.in_date + 12)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3011' and ed.rq = 8  and trunc(sysdate) = trunc(a.in_date + 1)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 1 ) or trunc(sysdate) = trunc(a.in_date + 4) or trunc(sysdate) = trunc(a.in_date + 8) or trunc(sysdate) = trunc(a.in_date + 11)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd') 
+      
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3012' and ed.rq = 8 and trunc(sysdate) = trunc(a.in_date + 1)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 1 ) or trunc(sysdate) = trunc(a.in_date + 4) or trunc(sysdate) = trunc(a.in_date + 8) or trunc(sysdate) = trunc(a.in_date + 11)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3011' and ed.rq = 8  and trunc(sysdate) = trunc(a.in_date + 3)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 3 ) or trunc(sysdate) = trunc(a.in_date + 7) or trunc(sysdate) = trunc(a.in_date + 11) or trunc(sysdate) = trunc(a.in_date + 14)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd') 
+      
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3012' and ed.rq = 8 and trunc(sysdate) = trunc(a.in_date + 3)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 3 ) or trunc(sysdate) = trunc(a.in_date + 7) or trunc(sysdate) = trunc(a.in_date + 10) or trunc(sysdate) = trunc(a.in_date + 14)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3011' and ed.rq = 8  and trunc(sysdate) = trunc(a.in_date + 2)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 2 ) or trunc(sysdate) = trunc(a.in_date + 6) or trunc(sysdate) = trunc(a.in_date + 9) or trunc(sysdate) = trunc(a.in_date + 13)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd') 
+             
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3012' and ed.rq = 8 and trunc(sysdate) = trunc(a.in_date + 2)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 2 ) or trunc(sysdate) = trunc(a.in_date + 6) or trunc(sysdate) = trunc(a.in_date + 9) or trunc(sysdate) = trunc(a.in_date + 13)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3011' and ed.rq = 8  and trunc(sysdate) = trunc(a.in_date + 1)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 1 ) or trunc(sysdate) = trunc(a.in_date + 5) or trunc(sysdate) = trunc(a.in_date + 8) or trunc(sysdate) = trunc(a.in_date + 12)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd') 
+             
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3012' and ed.rq = 8 and trunc(sysdate) = trunc(a.in_date + 1)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 1 ) or trunc(sysdate) = trunc(a.in_date + 5) or trunc(sysdate) = trunc(a.in_date + 8) or trunc(sysdate) = trunc(a.in_date + 12)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3011' and ed.rq = 8  and trunc(sysdate) = trunc(a.in_date + 4)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 4 ) or trunc(sysdate) = trunc(a.in_date + 7) or trunc(sysdate) = trunc(a.in_date + 11) or trunc(sysdate) = trunc(a.in_date + 14)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd') 
+             
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3012' and ed.rq = 8 and trunc(sysdate) = trunc(a.in_date + 4)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 4 ) or trunc(sysdate) = trunc(a.in_date + 7) or trunc(sysdate) = trunc(a.in_date + 11) or trunc(sysdate) = trunc(a.in_date + 14)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3011' and ed.rq = 8  and trunc(sysdate) = trunc(a.in_date + 3)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 3 ) or trunc(sysdate) = trunc(a.in_date + 6) or trunc(sysdate) = trunc(a.in_date + 10) or trunc(sysdate) = trunc(a.in_date + 13)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd') 
+           
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3012' and ed.rq = 8 and trunc(sysdate) = trunc(a.in_date + 2)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '3' or to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 3 ) or trunc(sysdate) = trunc(a.in_date + 6) or trunc(sysdate) = trunc(a.in_date + 10) or trunc(sysdate) = trunc(a.in_date + 13)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3011' and ed.rq = 8  and trunc(sysdate) = trunc(a.in_date + 1)  then '查房：'||to_char(sysdate,'yyyy-mm-dd')
+             when (to_char(sysdate,'d') = '2' or to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 2 ) or trunc(sysdate) = trunc(a.in_date + 5) or trunc(sysdate) = trunc(a.in_date + 9)  or trunc(sysdate) = trunc(a.in_date + 12)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd') 
+          
+             else '' end 今日产科查房,
+  --------妇科查房
+  case  when to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3012' and ed.rq = 29  then '妇科六楼查房：'||to_char（a.in_date + 19 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 26 ,'dd')
+        when to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3012' and ed.rq = 43  then '妇科六楼查房：'||to_char（a.in_date + 19 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 26 ,'dd')||'、'||to_char（a.in_date + 33 ,'dd') ||'、'||to_char（a.in_date + 40 ,'dd')  
+        when to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3011' and ed.rq = 29  then '妇科五楼查房：'||to_char（a.in_date + 18 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 25 ,'dd')  
+        when to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3011' and ed.rq = 43  then '妇科五楼查房：'||to_char（a.in_date + 18 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 25 ,'dd')||'、'||to_char（a.in_date + 32 ,'dd') ||'、'||to_char（a.in_date + 39 ,'dd')  
+  
+        when to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3012' and ed.rq = 29  then '妇科六楼查房：'||to_char（a.in_date + 18 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 25 ,'dd')
+        when to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3012' and ed.rq = 43  then '妇科六楼查房：'||to_char（a.in_date + 18 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 25 ,'dd')||'、'||to_char（a.in_date + 32 ,'dd') ||'、'||to_char（a.in_date + 39 ,'dd')  
+        when to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3011' and ed.rq = 29  then '妇科五楼查房：'||to_char（a.in_date + 17 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 24 ,'dd')  
+        when to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3011' and ed.rq = 43  then '妇科五楼查房：'||to_char（a.in_date + 17 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 24 ,'dd')||'、'||to_char（a.in_date + 31 ,'dd') ||'、'||to_char（a.in_date + 38 ,'dd')  
+        
+        when to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3012' and ed.rq = 29  then '妇科六楼查房：'||to_char（a.in_date + 17 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 24 ,'dd')
+        when to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3012' and ed.rq = 43  then '妇科六楼查房：'||to_char（a.in_date + 17 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 24 ,'dd')||'、'||to_char（a.in_date + 31 ,'dd') ||'、'||to_char（a.in_date + 38 ,'dd')  
+        when to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3011' and ed.rq = 29  then '妇科五楼查房：'||to_char（a.in_date + 16 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 23 ,'dd')  
+        when to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3011' and ed.rq = 43  then '妇科五楼查房：'||to_char（a.in_date + 16 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 23 ,'dd')||'、'||to_char（a.in_date + 30 ,'dd') ||'、'||to_char（a.in_date + 37 ,'dd')  
+  
+        when to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3012' and ed.rq = 29  then '妇科六楼查房：'||to_char（a.in_date + 16 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 23 ,'dd')
+        when to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3012' and ed.rq = 43  then '妇科六楼查房：'||to_char（a.in_date + 16 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 23 ,'dd')||'、'||to_char（a.in_date + 30 ,'dd') ||'、'||to_char（a.in_date + 37 ,'dd')  
+        when to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3011' and ed.rq = 29  then '妇科五楼查房：'||to_char（a.in_date + 15 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 22 ,'dd')  
+        when to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3011' and ed.rq = 43  then '妇科五楼查房：'||to_char（a.in_date + 15 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 22 ,'dd')||'、'||to_char（a.in_date + 29 ,'dd') ||'、'||to_char（a.in_date + 36 ,'dd')  
+  
+        when to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3012' and ed.rq = 29  then '妇科六楼查房：'||to_char（a.in_date + 15 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 22 ,'dd')
+        when to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3012' and ed.rq = 43  then '妇科六楼查房：'||to_char（a.in_date + 15 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 22 ,'dd')||'、'||to_char（a.in_date + 29 ,'dd') ||'、'||to_char（a.in_date + 36 ,'dd')  
+        when to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3011' and ed.rq = 29  then '妇科五楼查房：'||to_char（a.in_date + 14 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 21 ,'dd')  
+        when to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3011' and ed.rq = 43  then '妇科五楼查房：'||to_char（a.in_date + 14 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 21 ,'dd')||'、'||to_char（a.in_date + 28 ,'dd') ||'、'||to_char（a.in_date + 35 ,'dd')  
+ 
+        when to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3012' and ed.rq = 29  then '妇科六楼查房：'||to_char（a.in_date + 14 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 21 ,'dd')
+        when to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3012' and ed.rq = 43  then '妇科六楼查房：'||to_char（a.in_date + 14 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 21 ,'dd')||'、'||to_char（a.in_date + 28 ,'dd') ||'、'||to_char（a.in_date + 35 ,'dd')  
+        when to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3011' and ed.rq = 29  then '妇科五楼查房：'||to_char（a.in_date + 20 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 27 ,'dd')  
+        when to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3011' and ed.rq = 43  then '妇科五楼查房：'||to_char（a.in_date + 20 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 27 ,'dd')||'、'||to_char（a.in_date + 34 ,'dd') ||'、'||to_char（a.in_date + 41 ,'dd')  
+   
+        when to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3012' and ed.rq = 29  then '妇科六楼查房：'||to_char（a.in_date + 20 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 27 ,'dd')
+        when to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3012' and ed.rq = 43  then '妇科六楼查房：'||to_char（a.in_date + 20 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 27 ,'dd')||'、'||to_char（a.in_date + 34 ,'dd') ||'、'||to_char（a.in_date + 41 ,'dd')  
+        when to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3011' and ed.rq = 29  then '妇科五楼查房：'||to_char（a.in_date + 19 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 26 ,'dd')  
+        when to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3011' and ed.rq = 43  then '妇科五楼查房：'||to_char（a.in_date + 19 ,'yyyy-mm-dd')||'、'||to_char（a.in_date + 26 ,'dd')||'、'||to_char（a.in_date + 33 ,'dd') ||'、'||to_char（a.in_date + 40 ,'dd')  
+  
+  else '' END 预定妇科医生查房日期,
+  ------------妇科当日查房
+  case  when (to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 19) or trunc(sysdate) = trunc(a.in_date + 26) or trunc(sysdate) = trunc(a.in_date + 33) or trunc(sysdate) = trunc(a.in_date + 40)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '1' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 18) or trunc(sysdate) = trunc(a.in_date + 25) or trunc(sysdate) = trunc(a.in_date + 32) or trunc(sysdate) = trunc(a.in_date + 39)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 18) or trunc(sysdate) = trunc(a.in_date + 25) or trunc(sysdate) = trunc(a.in_date + 32) or trunc(sysdate) = trunc(a.in_date + 39)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '2' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 17) or trunc(sysdate) = trunc(a.in_date + 24) or trunc(sysdate) = trunc(a.in_date + 31) or trunc(sysdate) = trunc(a.in_date + 38)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+       
+        when (to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 17) or trunc(sysdate) = trunc(a.in_date + 24) or trunc(sysdate) = trunc(a.in_date + 31) or trunc(sysdate) = trunc(a.in_date + 38)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '3' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 16) or trunc(sysdate) = trunc(a.in_date + 23) or trunc(sysdate) = trunc(a.in_date + 30) or trunc(sysdate) = trunc(a.in_date + 37)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 16) or trunc(sysdate) = trunc(a.in_date + 23) or trunc(sysdate) = trunc(a.in_date + 30) or trunc(sysdate) = trunc(a.in_date + 37)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '4' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 15) or trunc(sysdate) = trunc(a.in_date + 22) or trunc(sysdate) = trunc(a.in_date + 29) or trunc(sysdate) = trunc(a.in_date + 36)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 15) or trunc(sysdate) = trunc(a.in_date + 22) or trunc(sysdate) = trunc(a.in_date + 29) or trunc(sysdate) = trunc(a.in_date + 36)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '5' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 14) or trunc(sysdate) = trunc(a.in_date + 21) or trunc(sysdate) = trunc(a.in_date + 28) or trunc(sysdate) = trunc(a.in_date + 35)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+       
+        when (to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 14) or trunc(sysdate) = trunc(a.in_date + 21) or trunc(sysdate) = trunc(a.in_date + 28) or trunc(sysdate) = trunc(a.in_date + 35)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '6' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 20) or trunc(sysdate) = trunc(a.in_date + 27) or trunc(sysdate) = trunc(a.in_date + 34) or trunc(sysdate) = trunc(a.in_date + 41)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '6')  and to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3012' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 20) or trunc(sysdate) = trunc(a.in_date + 27) or trunc(sysdate) = trunc(a.in_date + 34) or trunc(sysdate) = trunc(a.in_date + 41)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        when (to_char(sysdate,'d') = '5')  and to_char(a.in_date,'d') = '7' and a.nurse_cell_code = '3011' and (ed.rq = 29 or ed.rq = 43) 
+               and (trunc(sysdate) = trunc(a.in_date + 19) or trunc(sysdate) = trunc(a.in_date + 26) or trunc(sysdate) = trunc(a.in_date + 33) or trunc(sysdate) = trunc(a.in_date + 40)) then  '查房：'||to_char(sysdate,'yyyy-mm-dd')
+        
+        else '' end 今日妇科查房,
+  ------------出院
+  case ed.rq when 8 then to_char（a.in_date + 7 ,'yyyy-mm-dd') when 29 then to_char（a.in_date + 28 ,'yyyy-mm-dd') when 43 then to_char（a.in_date + 42 ,'yyyy-mm-dd') end 计划出院日期 
+ from  fin_ipr_inmaininfo   a
+ left join  (select d.card_no,d.item_name，(case when d.item_name like '7%'  then 8 when d.item_name like '2%' then 29 when d.item_name like '4%' then 43 end) rq ,max(d.oper_date) oper_date 
+ from exp_packagedetail d where d.cancel_flag = '0' and d.rtn_qty &gt; 0 and d.item_name like '%天月子%' group by d.card_no,d.item_name ) ed  on a.card_no = ed.card_no 
+ where 1 = 1
+ and   (a.nurse_cell_code = '&amp;dept' or  '&amp;dept' = 'ALL')
+ and   (a.name like '%&amp;txtname%'  or nvl('&amp;txtname','1') = '1')
+ and   a.in_state not in ('O','N')
+ and   a.patient_type in ('Y')
+ order by 房间
+ 
+ 
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\住院医生\月子中心医生查房安排查询.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,70 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>opsType</Name><Text>手术分类：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="Neusoft.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select '门诊手术','门诊手术' from dual union all select '住院手术','住院手术' from dual</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select * from(
+SELECT distinct '住院手术' 手术类型 ,IT.NAME 姓名,
+    (SELECT IM.PATIENT_NO FROM FIN_IPR_INMAININFO IM WHERE IM.INPATIENT_NO = IT.INPATIENT_NO) 住院号或门诊号,
+    (SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = OP.Apply_Docd) 申请人,
+    op.apply_date 申请时间,
+    op.diagnose 术前诊断,
+    mo.item_name 手术名称,
+    (SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = OP.OPS_DOCD) 主刀医生,
+    (SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = OP.ANES_DOCD) 麻醉医师,
+   HL1.EMPL_NAME 一助,
+   HL2.EMPL_NAME 二助,
+   WN.EMPL_NAME  洗手护士,
+   IN1.EMPL_NAME  巡回护士,
+    '' 器械护士,
+    OP.PRE_DATE 手术开始时间,
+    REPLACE(OP.LASTTIME, '|', '') 拟持续时间
+    ,case when op.execstatus='1' then '手术申请'
+          when op.execstatus='2' then '手术审批'
+          when op.execstatus='3' then '手术安排'
+          when op.execstatus='4' then '手术完成'
+          when op.execstatus='5' then '取消手术登记' end 手术状态,
+      op.arrange_note 手术不安排原因
+FROM FIN_IPB_ITEMLIST IT 
+INNER JOIN MET_OPS_APPLY OP ON OP.CLINIC_CODE = IT.INPATIENT_NO and IT.operationno=op.operationno
+LEFT JOIN(SELECT A.OPERATIONNO,wm_concat(A.EMPL_NAME) EMPL_NAME  FROM MET_OPS_ARRANGE A 
+WHERE  A.ROLE_CODE = 'WashingHandNurse1' GROUP BY A.OPERATIONNO ) WN ON WN.OPERATIONNO = OP.OPERATIONNO 
+LEFT JOIN (SELECT B.OPERATIONNO,wm_concat(B.EMPL_NAME) EMPL_NAME  FROM  MET_OPS_ARRANGE B
+WHERE  B.ROLE_CODE = 'Helper1' GROUP BY B.OPERATIONNO )HL1 ON HL1.OPERATIONNO = OP.OPERATIONNO 
+LEFT JOIN (SELECT C.OPERATIONNO,wm_concat(C.EMPL_NAME) EMPL_NAME  FROM  MET_OPS_ARRANGE C
+WHERE  C.ROLE_CODE = 'Helper2' GROUP BY C.OPERATIONNO )HL2 ON HL2.OPERATIONNO = OP.OPERATIONNO 
+LEFT JOIN (SELECT D.OPERATIONNO,wm_concat(D.EMPL_NAME) EMPL_NAME  FROM  MET_OPS_ARRANGE D
+WHERE  D.ROLE_CODE = 'ItinerantNurse1' GROUP BY D.OPERATIONNO )IN1 ON IN1.OPERATIONNO = OP.OPERATIONNO 
+INNER JOIN FIN_COM_UNDRUGINFO UN ON IT.ITEM_CODE=UN.ITEM_CODE
+INNER JOIN met_ops_operationitem mo ON op.clinic_code=mo.clinic_code and op.operationno=mo.operationno
+union all
+select distinct '门诊手术' operType ,
+ (select name from com_patientinfo where card_no=fpf.card_no)  name,
+fpf.card_no, 
+(SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = op.apply_docd) 申请人,
+op.apply_date 申请时间,
+op.diagnose 术前诊断,
+mo.item_name 手术名称,
+(SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = op.OPS_DOCD) 主刀医生,
+    (SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = OP.ANES_DOCD) 麻醉医师,
+        (SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'Helper1')一助,
+    (SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'Helper2')二助,
+    (SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'WashingHandNurse1') 洗手护士,
+    (SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'ItinerantNurse1') 巡回护士,
+        '' 器械护士,
+    OP.PRE_DATE 手术开始时间,
+    REPLACE(OP.LASTTIME, '|', '') 拟持续时间
+    ,case when op.execstatus='1' then '手术申请'
+          when op.execstatus='2' then '手术审批'
+          when op.execstatus='3' then '手术安排'
+          when op.execstatus='4' then '手术完成'
+          when op.execstatus='5' then '取消手术登记' end 手术状态,
+      op.arrange_note 手术不安排原因
+ from fin_opb_feedetail  fpf 
+ INNER JOIN MET_OPS_APPLY OP ON OP.CLINIC_CODE =fpf.clinic_code
+ INNER JOIN met_ops_operationitem mo ON op.clinic_code=mo.clinic_code and op.operationno=mo.operationno
+ inner join fin_com_undruginfo un on fpf.item_code=un.item_code
+ )t
+where 手术开始时间 BETWEEN TO_DATE('&amp;dtBeginTime', 'yyyy-MM-dd') AND TO_DATE('&amp;dtEndTime', 'yyyy-MM-dd')+0.99
+and (手术类型='&amp;opsType' or '&amp;opsType'='ALL')
+ORDER BY 手术开始时间
+
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\手术室\手术单申请明细查询设置.xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

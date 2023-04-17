@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="QueryCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryCardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryNewCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cardticketid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryNewCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryNewCardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExchangeNewCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cardticketid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oper" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExchangeNewCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExchangeNewCardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExchangeOldCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cardticketid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExchangeOldCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExchangeOldCardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExchangeCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExchangeCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExchangeCardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="QueryCardSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryCard" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryNewCardSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryNewCard" />
+  </wsdl:message>
+  <wsdl:message name="QueryNewCardSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryNewCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeNewCardSoapIn">
+    <wsdl:part name="parameters" element="tns:ExchangeNewCard" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeNewCardSoapOut">
+    <wsdl:part name="parameters" element="tns:ExchangeNewCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeOldCardSoapIn">
+    <wsdl:part name="parameters" element="tns:ExchangeOldCard" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeOldCardSoapOut">
+    <wsdl:part name="parameters" element="tns:ExchangeOldCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeCardSoapIn">
+    <wsdl:part name="parameters" element="tns:ExchangeCard" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeCardSoapOut">
+    <wsdl:part name="parameters" element="tns:ExchangeCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardHttpGetIn">
+    <wsdl:part name="data" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryNewCardHttpGetIn">
+    <wsdl:part name="cardticketid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryNewCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeNewCardHttpGetIn">
+    <wsdl:part name="cardticketid" type="s:string" />
+    <wsdl:part name="oper" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeNewCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeOldCardHttpGetIn">
+    <wsdl:part name="cardticketid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeOldCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeCardHttpGetIn">
+    <wsdl:part name="data" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardHttpPostIn">
+    <wsdl:part name="data" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryNewCardHttpPostIn">
+    <wsdl:part name="cardticketid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryNewCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeNewCardHttpPostIn">
+    <wsdl:part name="cardticketid" type="s:string" />
+    <wsdl:part name="oper" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeNewCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeOldCardHttpPostIn">
+    <wsdl:part name="cardticketid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeOldCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeCardHttpPostIn">
+    <wsdl:part name="data" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExchangeCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="CardTicketServiceSoap">
+    <wsdl:operation name="QueryCard">
+      <wsdl:input message="tns:QueryCardSoapIn" />
+      <wsdl:output message="tns:QueryCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryNewCard">
+      <wsdl:input message="tns:QueryNewCardSoapIn" />
+      <wsdl:output message="tns:QueryNewCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeNewCard">
+      <wsdl:input message="tns:ExchangeNewCardSoapIn" />
+      <wsdl:output message="tns:ExchangeNewCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeOldCard">
+      <wsdl:input message="tns:ExchangeOldCardSoapIn" />
+      <wsdl:output message="tns:ExchangeOldCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeCard">
+      <wsdl:input message="tns:ExchangeCardSoapIn" />
+      <wsdl:output message="tns:ExchangeCardSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CardTicketServiceHttpGet">
+    <wsdl:operation name="QueryCard">
+      <wsdl:input message="tns:QueryCardHttpGetIn" />
+      <wsdl:output message="tns:QueryCardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryNewCard">
+      <wsdl:input message="tns:QueryNewCardHttpGetIn" />
+      <wsdl:output message="tns:QueryNewCardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeNewCard">
+      <wsdl:input message="tns:ExchangeNewCardHttpGetIn" />
+      <wsdl:output message="tns:ExchangeNewCardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeOldCard">
+      <wsdl:input message="tns:ExchangeOldCardHttpGetIn" />
+      <wsdl:output message="tns:ExchangeOldCardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeCard">
+      <wsdl:input message="tns:ExchangeCardHttpGetIn" />
+      <wsdl:output message="tns:ExchangeCardHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CardTicketServiceHttpPost">
+    <wsdl:operation name="QueryCard">
+      <wsdl:input message="tns:QueryCardHttpPostIn" />
+      <wsdl:output message="tns:QueryCardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryNewCard">
+      <wsdl:input message="tns:QueryNewCardHttpPostIn" />
+      <wsdl:output message="tns:QueryNewCardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeNewCard">
+      <wsdl:input message="tns:ExchangeNewCardHttpPostIn" />
+      <wsdl:output message="tns:ExchangeNewCardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeOldCard">
+      <wsdl:input message="tns:ExchangeOldCardHttpPostIn" />
+      <wsdl:output message="tns:ExchangeOldCardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeCard">
+      <wsdl:input message="tns:ExchangeCardHttpPostIn" />
+      <wsdl:output message="tns:ExchangeCardHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CardTicketServiceSoap" type="tns:CardTicketServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryCard">
+      <soap:operation soapAction="http://tempuri.org/QueryCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryNewCard">
+      <soap:operation soapAction="http://tempuri.org/QueryNewCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeNewCard">
+      <soap:operation soapAction="http://tempuri.org/ExchangeNewCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeOldCard">
+      <soap:operation soapAction="http://tempuri.org/ExchangeOldCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeCard">
+      <soap:operation soapAction="http://tempuri.org/ExchangeCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CardTicketServiceSoap12" type="tns:CardTicketServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryCard">
+      <soap12:operation soapAction="http://tempuri.org/QueryCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryNewCard">
+      <soap12:operation soapAction="http://tempuri.org/QueryNewCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeNewCard">
+      <soap12:operation soapAction="http://tempuri.org/ExchangeNewCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeOldCard">
+      <soap12:operation soapAction="http://tempuri.org/ExchangeOldCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeCard">
+      <soap12:operation soapAction="http://tempuri.org/ExchangeCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CardTicketServiceHttpGet" type="tns:CardTicketServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="QueryCard">
+      <http:operation location="/QueryCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryNewCard">
+      <http:operation location="/QueryNewCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeNewCard">
+      <http:operation location="/ExchangeNewCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeOldCard">
+      <http:operation location="/ExchangeOldCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeCard">
+      <http:operation location="/ExchangeCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CardTicketServiceHttpPost" type="tns:CardTicketServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="QueryCard">
+      <http:operation location="/QueryCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryNewCard">
+      <http:operation location="/QueryNewCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeNewCard">
+      <http:operation location="/ExchangeNewCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeOldCard">
+      <http:operation location="/ExchangeOldCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExchangeCard">
+      <http:operation location="/ExchangeCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CardTicketService">
+    <wsdl:port name="CardTicketServiceSoap" binding="tns:CardTicketServiceSoap">
+      <soap:address location="http://192.168.34.9:8087/CardTicketService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CardTicketServiceSoap12" binding="tns:CardTicketServiceSoap12">
+      <soap12:address location="http://192.168.34.9:8087/CardTicketService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CardTicketServiceHttpGet" binding="tns:CardTicketServiceHttpGet">
+      <http:address location="http://192.168.34.9:8087/CardTicketService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CardTicketServiceHttpPost" binding="tns:CardTicketServiceHttpPost">
+      <http:address location="http://192.168.34.9:8087/CardTicketService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

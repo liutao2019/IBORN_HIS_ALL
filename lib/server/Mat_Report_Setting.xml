@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Setting>
+  <Fun ID="Mat">
+    <Report ID="InByMat" sqlLocation="0">
+      <Sql index="Mat.Report.InByMat"><![CDATA[]]></Sql>
+      <FormatPathName fileName="InByMat" />
+    </Report>
+    <Report ID="InByMatBill" sqlLocation="0">
+      <Sql index="Mat.Report.InByBill"><![CDATA[]]></Sql>
+      <FormatPathName fileName="InByMatBill" />
+    </Report>
+    <Report ID="InByMatCompany" sqlLocation="0">
+      <Sql index="Mat.Report.InByCompany"><![CDATA[]]></Sql>
+      <FormatPathName fileName="InByMatCompany" />
+    </Report>
+    <Report ID="InByLDetailForMat" sqlLocation="0">
+      <Sql index="Mat.Report.InByLDetailForMat"><![CDATA[]]></Sql>
+      <FormatPathName fileName="InByLDetailForMat" />
+    </Report>
+    <Report ID="InByLDetailForMatBill" sqlLocation="0">
+      <Sql index="Mat.Report.InByLDetailForBill"><![CDATA[]]></Sql>
+      <FormatPathName fileName="InByLDetailForMatBill" />
+    </Report>
+    <Report ID="InByLDetailForMatCompany" sqlLocation="0">
+      <Sql index="Mat.Report.InByLDetailForCompany"><![CDATA[]]></Sql>
+      <FormatPathName fileName="InByLDetailForMatCompany" />
+    </Report>
+    <Report ID="OutByMat" sqlLocation="0">
+      <Sql index="Mat.Report.OutByMat"><![CDATA[]]></Sql>
+      <FormatPathName fileName="OutByMat" />
+    </Report>
+    <Report ID="OutByMatBill" sqlLocation="0">
+      <Sql index="Mat.Report.OutByBill"><![CDATA[]]></Sql>
+      <FormatPathName fileName="OutByMatBill" />
+    </Report>
+    <Report ID="OutByMatCompany" sqlLocation="0">
+      <Sql index="Mat.Report.OutByCompany"><![CDATA[]]></Sql>
+      <FormatPathName fileName="OutByMatCompany" />
+    </Report>
+    <Report ID="OutByPDetail" sqlLocation="0">
+      <Sql index="Material.Report.OutByPDetail"><![CDATA[]]></Sql>
+      <FormatPathName fileName="OutByPDetail" />
+    </Report>
+    <Report ID="OutByLDetailForMatBill" sqlLocation="0">
+      <Sql index="Mat.Report.OutByLDetailForBill"><![CDATA[]]></Sql>
+      <FormatPathName fileName="OutByLDetailForMatBill" />
+    </Report>
+    <Report ID="OutByLDetailForMatCompany" sqlLocation="0">
+      <Sql index="Mat.Report.OutByLDetailForCompany"><![CDATA[]]></Sql>
+      <FormatPathName fileName="OutByLDetailForMatCompany" />
+    </Report>
+    <Report ID="OutByLDetailForMat" sqlLocation="0">
+      <Sql index="Mat.Report.OutByLDetailForMat"><![CDATA[]]></Sql>
+      <FormatPathName fileName="OutByLDetailForMat" />
+    </Report>
+	<Report ID="CheckByMat" sqlLocation="0">
+	  <Sql index="Mat.Report.CheckByMat"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="CheckByMat" />
+	</Report>
+	<Report ID="CheckByMatBill" sqlLocation="0">
+	  <Sql index="Mat.Report.CheckByMatBill"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="CheckByMatBill" />
+	</Report>
+	<Report ID="CheckByMatCompany" sqlLocation="0">
+	  <Sql index="Mat.Report.CheckByMatCompany"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="CheckByMatCompany" />
+	</Report>
+	<Report ID="AdjustByMat" sqlLocation="0">
+	  <Sql index="Mat.Report.AdjustByMat"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="AdjustByMat" />
+	</Report>
+	<Report ID="AdjustByMatBill" sqlLocation="0">
+	  <Sql index="Mat.Report.AdjustByMatBill"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="AdjustByMatBill" />
+	</Report>
+	<Report ID="AdjustByMatCompany" sqlLocation="0">
+	  <Sql index="Mat.Report.AdjustByMatCompany"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="AdjustByMatCompany" />
+	</Report>
+	<Report ID="CheckByLDetailForMatCompany" sqlLocation="0">
+	  <Sql index="Mat.Report.CheckByLDetailForMatCompany"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="CheckByLDetailForMatCompany" />
+	</Report>
+	<Report ID="CheckByLDetailForMatBill" sqlLocation="0">
+	  <Sql index="Mat.Report.CheckByLDetailForBill"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="CheckByLDetailForMatBill" />
+	</Report>
+	<Report ID="CheckByLDetailForMat" sqlLocation="0">
+	  <Sql index="Mat.Report.CheckByLDetailForMat"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="CheckByLDetailForMat" />
+	</Report>
+	<Report ID="AdjustByLDetailForMatCompany" sqlLocation="0">
+	  <Sql index="Mat.Report.AdjustByMatCompany"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="AdjustByLDetailForMatCompany" />
+	</Report>
+	<Report ID="AdjustByLDetailForMatBill" sqlLocation="0">
+	  <Sql index="Mat.Report.AdjustByLDetailForBill"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="AdjustByLDetailForMatBill" />
+	</Report>
+	<Report ID="AdjustByLDetailForMat" sqlLocation="0">
+	  <Sql index="Mat.Report.AdjustByLDetailForMat"><![CDATA[]]></Sql>
+	  <FormatPathName fileName="AdjustByLDetailForMat" />
+	</Report>
+  </Fun>
+</Setting>

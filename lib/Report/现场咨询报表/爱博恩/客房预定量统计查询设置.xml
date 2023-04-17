@@ -1,0 +1,36 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtDataSource</Name><Sql> select  decode(grouping_id(to_number(to_char(i.indate,'mm')),ep.item_name,ep.name),0,to_number(to_char(i.indate,'mm'))||'月份','合计:' ) 时间,
+         decode(grouping_id(to_number(to_char(i.indate,'mm')),ep.item_name,ep.name),0,ep.name,'/' )  类型 ,
+         decode(grouping_id(to_number(to_char(i.indate,'mm')),ep.item_name,ep.name),0,ep.item_name,'/' )  房型 ,
+         count(card_no) amount
+   from ( 
+          select i.patientid,
+                 case when i.packagetype='1' then '分娩套餐' else '月子套餐' end  name,
+                 i.indate  
+            from iborn_roomorder i 
+          where i.indate between to_date('&amp;dtBeginTime','yyyy-mm-dd')  and to_date('&amp;dtEndTime','yyyy-mm-dd')+0.99
+           ) i
+left join (select distinct ep.card_no,
+                    ep.patient_name, 
+                    cd.name,
+                    case when cd.code='3' and epd.item_name like '%标准%' then '无忧版'
+                         when cd.code='3' and epd.item_name like '%家庭%' then '经典版'
+                         when cd.code='3' and epd.item_name like '%豪华尊享%' then '豪华尊享版'
+                         else epd.item_name end item_name
+               from exp_package ep 
+              inner join bd_com_package bd on ep.package_id=bd.package_id
+              inner join com_dictionary cd on cd.code=bd.package_kind and cd.type='PACKAGETYPE'
+              inner join exp_packagedetail epd on ep.clinic_code=epd.clinic_code 
+              where cd.code in ('1','3') and ep.pay_flag=1 and ep.cancel_flag=0 and epd.item_name like '%平%' and bd.package_name not like '%赠送%'
+               -- and ep.card_no='0000506501'
+               ) ep on i.patientid=ep.card_no and i.name =ep.name
+      group by rollup(to_number(to_char(i.indate,'mm')),ep.name,(ep.item_name))
+      order by to_number(to_char(i.indate,'mm')),ep.name，ep.item_name 
+
+
+
+       
+       
+
+       
+       
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\现场咨询报表\爱博恩\客房预定量统计查询设置.xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

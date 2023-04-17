@@ -1,0 +1,118 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>txtname</Name><Text>姓名/卡号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>dept</Name><Text>科室：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>false</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>640</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select cd.code,cd.name,'',cd.spell_code,cd.wb_code from com_dictionary cd where cd.type='confirm_dept'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select 诊疗卡, 姓名, 套餐名称, 项目名称, 总数量, 单位, 执行数量, 剩余数量, 执行人, 执行时间, 执行科室
+  from (
+     select ep.card_no 诊疗卡,
+            ep.patient_name 姓名,
+            bp.package_name 套餐名称,
+            epd.item_name 项目名称, 
+            epd.qty 总数量,
+            epd.unit 单位,
+            nvl(de.confirm_number,db.amount) 执行数量,
+            nvl(epd.qty-df.confirm_number,epd.rtn_qty) 剩余数量,
+            nvl(de.empl_name,db.empl_name) 执行人,
+            nvl(de.oper_date,db.oper_date) 执行时间,
+            nvl(de.dept_name,db.dept_name) 执行科室,
+            nvl(de.dept_code,db.dept_code) 执行科室代码
+      from exp_package ep 
+      left join (select epd.item_code,epd.item_name,epd.clinic_code,epd.trans_type,epd.unit,sum(epd.qty) qty,sum(epd.rtn_qty) rtn_qty
+                   from exp_packagedetail epd 
+                  group by epd.item_code,epd.item_name,epd.clinic_code,epd.trans_type,epd.unit)epd
+             on ep.clinic_code=epd.clinic_code and ep.trans_type=epd.trans_type
+      left join bd_com_package bp on ep.package_id=bp.package_id
+      left join (
+                    select distinct 
+                           e.item_name,
+                           mt.confirm_num ,
+                           mtd.confirm_number,
+                           e.trans_type,
+                           e.clinic_code cliniccode,
+                           mt.item_code,
+                           ce.empl_name,
+                           mtd.oper_date,
+                           cd.dept_name,
+                           cd.dept_code
+                      from 
+                      (select distinct f.clinic_code,f.invoice_no,f.trans_type,f.mo_order from fin_opb_feedetail f
+                        where f.pay_flag=1 and f.cancel_flag=1) f
+                      left join exp_packagecost ec on ec.invoice_no=f.invoice_no and f.trans_type=ec.trans_type
+                      left join exp_packagedetail e on e.clinic_code=ec.clinic_code and ec.trans_type=e.trans_type and ec.detailseq=e.sequence_no
+                      left join met_tec_terminalapply mt on mt.clinic_no=f.clinic_code and mt.item_code=e.item_code
+                      left join met_tec_ta_detail mtd on mt.apply_number=mtd.apply_code and mt.clinic_no=mtd.clinic_code and f.mo_order=mtd.extend_field1
+                      left join com_employee ce on mtd.oper_code=ce.empl_code
+                      left join com_department cd on cd.dept_code=mtd.confirm_department
+                     where mtd.status=0 
+                       /*and mt.name='刘少凭'*/
+       ) de on epd.clinic_code=de.cliniccode and epd.trans_type=de.trans_type and de.item_code=epd.item_code /*and epd.sequence_no=de.detailseq*/
+      left join (
+                    select  
+                           e.item_name,
+                           e.qty confirm_num,
+                           sum(mt.confirm_num) confirm_number,
+                           e.cliniccode ,
+                           mt.item_code,
+                           e.trans_type
+                      from 
+                      (select e.item_code,e.item_name,f.clinic_code,e.clinic_code cliniccode，e.trans_type,sum(e.qty) qty,sum(e.rtn_qty) rtn_qty
+                         from exp_packagedetail e 
+                        inner join ( select distinct fr.clinic_code,ec.clinic_code cliniccode,ec.trans_type,ec.detailseq
+                                       from fin_opb_feedetail f,fin_opr_register fr,exp_packagecost ec
+                                      where f.clinic_code=fr.clinic_code 
+                                        and f.pay_flag=1 and f.cancel_flag=1
+                                        and ec.invoice_no=f.invoice_no and f.trans_type=ec.trans_type)f
+                                on e.clinic_code=f.cliniccode and f.trans_type=e.trans_type and f.detailseq=e.sequence_no
+                        group by e.item_code,e.item_name,f.clinic_code,e.trans_type,e.clinic_code) e 
+                      left join met_tec_terminalapply mt on mt.clinic_no=e.clinic_code and mt.item_code=e.item_code
+                    /* where  mt.name='江映辉'*/
+                     group by e.item_name,
+                              e.qty,
+                              e.cliniccode ,
+                              mt.item_code,
+                              e.trans_type
+       ) df on epd.clinic_code=df.cliniccode and epd.trans_type=df.trans_type and df.item_code=epd.item_code /*and epd.sequence_no=df.detailseq*/
+        left join ( select e.clinic_code,
+                           e.item_name,
+                           sum(ec.amount) amount,
+                           e.trans_type,
+                           e.clinic_code cliniccode,
+                           e.qty,
+                           e.item_code,
+                           e.rtn_qty ,
+                           ce.empl_name,
+                           ec.balance_date oper_date,
+                           decode(fu.fee_code,'033','检验科','015','超声室',cd.dept_name) dept_name,
+                           decode(fu.fee_code,'033','6001','015','6003',cd.dept_code) dept_code
+                      from (select distinct f.clinic_code,f.invoice_no,f.trans_type,f.reg_dpcd,f.doct_code from fin_opb_feedetail f 
+                             where f.pay_flag=1 and f.cancel_flag=1) f
+                     inner join exp_packagecost ec on ec.invoice_no=f.invoice_no and f.trans_type=ec.trans_type
+                      left join exp_packagedetail e on e.clinic_code=ec.clinic_code and ec.trans_type=e.trans_type and ec.detailseq=e.sequence_no
+                      left join com_employee ce on f.doct_code=ce.empl_code
+                      left join com_department cd on f.reg_dpcd=cd.dept_code
+                     inner join fin_com_undruginfo fu on e.item_code=fu.item_code and fu.confirm_flag&lt;&gt;2
+                      /*left join fin_opr_register fr on fr.clinic_code=f.clinic_code
+                     where fr.name='成彦卿'*/
+                     group by e.clinic_code,
+                              e.item_name,
+                              e.trans_type,
+                              e.clinic_code ,
+                              e.qty,
+                              e.item_code,
+                              e.rtn_qty ,
+                              ce.empl_name,
+                              ec.balance_date ,
+                              decode(fu.fee_code,'033','检验科','015','超声室',cd.dept_name) ,
+                              decode(fu.fee_code,'033','6001','015','6003',cd.dept_code)
+                     ) db 
+                       on epd.clinic_code=db.cliniccode and epd.trans_type=db.trans_type and db.item_code=epd.item_code /*and epd.sequence_no=db.detailseq*/
+      where bp.package_kind='26'
+       and ep.pay_flag=1 and ep.cancel_flag=0)b
+  where (b.姓名='&amp;txtname' or 诊疗卡='&amp;txtname' or '&amp;txtname' is null)
+    and 执行时间 between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1
+    and (执行科室代码='&amp;dept' or '&amp;dept' is null)
+  order by 姓名，套餐名称,项目名称
+    
+
+
+
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新财务报表\产康执行明细设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

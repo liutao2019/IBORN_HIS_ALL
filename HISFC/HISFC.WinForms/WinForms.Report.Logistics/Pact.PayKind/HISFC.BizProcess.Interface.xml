@@ -1,0 +1,4784 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.BizProcess.Interface</name>
+    </assembly>
+    <members>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.ICountSpecialRegFee">
+            <summary>
+            计算特殊挂号费接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.ICountSpecialRegFee.CountSpecialRegFee(System.DateTime,System.String,System.String,System.Decimal@,System.Decimal@,System.Decimal@,FS.HISFC.Models.Registration.Register@)">
+            <summary>
+            计算特殊挂号费接口
+            </summary>
+            <param name="birthday">生日</param>
+            <param name="name">姓名</param>
+            <param name="idenno">身份证号</param>
+            <param name="regfee">挂号费</param>
+            <param name="digfee">诊金</param>
+            <param name="othfee">病历本费</param>
+            <param name="regObj">挂号患者实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IucOutPatient">
+            <summary>
+            出院登记接口
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.ICallBackPatient">
+            <summary>
+            护士站出院召回接口
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IPatientShiftValid">
+            <summary>
+            出院、出院召回等地方的判断,是否可以执行下一步操作
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPatientShiftValid.IsPatientShiftValid(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.EnumPatientShiftValid,System.String@)">
+            <summary>
+            出院、出院召回等地方的判断,是否可以执行下一步操作
+            </summary>
+            <param name="p">患者信息</param>
+            <param name="type">操作类型</param>
+            <param name="err">错误</param>
+            <returns>true判断成功 false错误返回错误err</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IPrintInHosNotice">
+            <summary>
+            打印住院通知单 //{C3AA974A-D98C-455b-ABDC-68781DB0306F}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintInHosNotice.SetValue(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            住院通知单赋值
+            </summary>
+            <param name="prePatientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintInHosNotice.Print">
+            <summary>
+            打印
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintInHosNotice.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IQueryGFPatient">
+            <summary>
+            住院登记查询公费人员信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IQueryGFPatient.QueryGFPatient(FS.HISFC.Models.RADT.PatientInfo,System.String@,System.String[])">
+            <summary>
+            住院登记查询公费人员信息
+            </summary>
+            <param name="patient"></param>
+            <param name="errText"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IPatientOutCheck">
+            <summary>
+             出院登记时判断是否可以进行下一步（德惠本地化需求）
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPatientOutCheck.IPatientOutCheck(FS.HISFC.Models.RADT.PatientInfo,System.String@)">
+            <summary>
+            出院登记时判断是否可以进行下一步（德惠本地化需求）
+            </summary>
+            <param name="p">患者住院信息</param>
+            <param name="err">错误日志</param>
+            <returns>成功：true 失败：false</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.Inpatient.IBraceletPrint">
+            <summary>
+            腕带打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.Inpatient.IBraceletPrint.Print">
+            <summary>
+            打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.Inpatient.IBraceletPrint.myPatientInfo">
+            <summary>
+            患者信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Material.IBillPrint">
+            <summary>
+            物资入库/出库单据打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IBillPrint.SetData(System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.Input})">
+            <summary>
+            传送打印数据
+            </summary>
+            <param name="alInData">待打印数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IBillPrint.SetData(System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.Output})">
+            <summary>
+            传送出库待打印数据
+            </summary>
+            <param name="alOutData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IBillPrint.SetData(System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.InputPlan})">
+            <summary>
+            传送入库计划待打印数据
+            </summary>
+            <param name="alPlan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IBillPrint.SetData(System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.Check})">
+            <summary>
+            传送盘点待打印数据
+            </summary>
+            <param name="alCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IExecDept">
+            <summary>
+            获取执行科室
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IExecDept.GetExecDept(FS.FrameWork.Models.NeuObject,FS.HISFC.Models.Fee.Item.Undrug,System.String@)">
+            <summary>
+            获取执行科室
+            </summary>
+            <param name="recipeDept"></param>
+            <param name="item"></param>
+            <param name="errorInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IAccountProcessPrepay">
+            <summary>
+            根据预交金信息处理预交金优惠信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IAccountProcessPrepay.GetDerateCost(FS.HISFC.Models.Account.PrePay,System.String@)">
+            <summary>
+            更具
+            </summary>
+            <param name="p"></param>
+            <param name="errText"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.IGetCardNOByInputCardNO">
+            <summary>
+            根据输入的卡号判断患者的主索引和物理卡类型和患者主索引
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IGetCardNOByInputCardNO.GetCardNOByInputCardNO(System.String,System.String@,System.String@,System.String@)">
+            <summary>
+            根据输入的卡号判断患者的主索引和物理卡类型和患者主索引
+            </summary>
+            <param name="inputCardNO">输入卡号</param>
+            <param name="cardNO">患者主索引</param>
+            <param name="physicalTypeID">物理卡类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.IInjectNumberPrint">
+            <summary>
+            IInjectNumberPrint<br></br>
+            <Font color='#FF1111'>[功能描述:门诊注射号码条打印接口{637EDB0D-3F39-4fde-8686-F3CD87B64581}]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-7-29]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Equipment.IInRePrint">
+            <summary>
+            IInRePrint<br></br>
+            [功能描述: 设备入库单补打接口]<br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2008-03-19]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IInRePrint.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IInRePrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Equipment.IExamPrint">
+            <summary>
+            IApplyPrint<br></br>
+            [功能描述: 设备购置申请打印接口]<br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2007-12-3]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IExamPrint.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IExamPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.DCP.IDCP">
+            <summary>
+            传染病报告接口类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.DCP.IDCP.RegisterDiseaseReport(System.Windows.Forms.IWin32Window,FS.HISFC.Models.RADT.Patient,FS.HISFC.Models.Base.ServiceTypes)">
+            <summary>
+            患者传染病报告
+            </summary>
+            <param name="patient"></param>
+            <param name="patientType">患者类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.DCP.IDCP.CheckDiseaseReport(System.Windows.Forms.IWin32Window,FS.HISFC.Models.RADT.Patient,FS.HISFC.Models.Base.ServiceTypes,System.String,System.String@)">
+            <summary>
+            必须填写传染病报告
+            </summary>
+            <param name="owner"></param>
+            <param name="patient"></param>
+            <param name="patientType"></param>
+            <param name="diagName"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.DCP.IDCP.LoadNotice(System.Windows.Forms.IWin32Window,FS.HISFC.Models.Base.ServiceTypes)">
+            <summary>
+            登录时是否提示不合格的报告卡
+            </summary>
+            <param name="patientType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Terminal.IOutpatientCase">
+            <summary>
+            {967CA656-AB9D-4841-8BFE-9A2EC7E8F886}
+            [功能描述：门诊病历接口显示]
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Terminal.IOutpatientCase.InitUC">
+            <summary>
+            数据初始化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Terminal.IOutpatientCase.Register">
+            <summary>
+            患者信息赋值
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundJudge">
+            <summary>
+            配液中心项目判断接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundJudge.SetCompoundApply(FS.HISFC.Models.Pharmacy.ApplyOut,System.String@)">
+            <summary>
+            根据出库申请实体判断该项目是否需要发送到配置中心
+            </summary>
+            <param name="applyOut"></param>
+            <param name="errInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundJudge.GetComboItems(System.Collections.ArrayList,System.DateTime,System.Collections.Hashtable@)">
+            <summary>
+            获取组合项目列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Operation.IAnaeFormPrint">
+            <summary>
+            [功能描述: 麻醉登记打印接口]<br></br>
+            [创 建 者: 孙刚]<br></br>
+            [创建时间: 2007-10-23]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Operation.IAnaeFormPrint.AnaeRecord">
+            <summary>
+            麻醉登记单对象
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Material.IMatFee">
+            <summary>
+            IMatFee<br></br>
+            <Font color='#FF1111'>[功能描述: 物资收费接口]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-07-06]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            事务设置
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.ApplyMaterialFeeBack(System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.Output},System.Boolean)">
+            <summary>
+            物资退费申请
+            </summary>
+            <param name="outputList"></param>
+            <param name="isCancelApply"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.GetMetItem(System.String)">
+            <summary>
+            通过物资项目编号查询物资项目信息
+            </summary>
+            <param name="itemCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.GetOutput(System.String,System.String)">
+            <summary>
+            获取出库记录
+            </summary>
+            <param name="outNo">出库流水号</param>
+            <param name="stockNo">库存序号</param>
+            <returns>出库记录</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.MaterialFeeOutput(System.Collections.ArrayList)">
+            <summary>
+            物资收费
+            </summary>
+            <param name="feeItemLists">收费项目列表</param>
+            <returns>成功：1；失败：-1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.MaterialFeeOutputBack(System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.Output})">
+            <summary>
+            物资退费确认
+            </summary>
+            <param name="outputList">收费项目申请列表</param>
+            <returns>成功：1；失败：-1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.MaterialFeeOutputBack(System.Collections.Generic.List{FS.HISFC.Models.Fee.ReturnApplyMet})">
+            <summary>
+            物资退费确认
+            </summary>
+            <param name="returnApplyList">收费项目申请列表</param>
+            <returns>成功：1；失败：-1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.MaterialFeeOutputBack(FS.HISFC.Models.FeeStuff.Output)">
+            <summary>
+            物资退费
+            </summary>
+            <param name="backOutput">收费项目</param>
+            <returns>成功：1；失败：-1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.MaterialFeeOutputBack(System.Collections.ArrayList)">
+            <summary>
+            物资退费确认
+            </summary>
+            <param name="feeitemLists"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.MaterialOutpubBack(System.String,System.Int32,System.Decimal,System.Data.IDbTransaction,System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.Output}@)">
+            <summary>
+            物资退库
+            </summary>
+            <param name="recipeNO"></param>
+            <param name="sequenceNO"></param>
+            <param name="backQty"></param>
+            <param name="trans"></param>
+            <param name="backOutList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.MaterialOutput(FS.HISFC.Models.Fee.FeeItemBase,System.Data.IDbTransaction,System.Boolean@,System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.Output}@)">
+            <summary>
+            物资扣库
+            </summary>
+            <param name="feeItem"></param>
+            <param name="trans"></param>
+            <param name="isCompare"></param>
+            <param name="outListCollect"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.OutputByStore(FS.HISFC.Models.FeeStuff.StoreDetail,System.Decimal)">
+            <summary>
+            出库
+            </summary>
+            <param name="storeDetail">库存明细信息</param>
+            <param name="outQty">出库量</param>
+            <returns>1 成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.QueryOutput(System.String,System.String)">
+            <summary>
+            获取出库记录
+            </summary>
+            <param name="outNo">出库流水号</param>
+            <param name="itemCode">物资编码</param>
+            <returns>出库记录列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.QueryOutput(System.String)">
+            <summary>
+            获取出库记录
+            </summary>
+            <param name="outNo">出库流水号</param>
+            <returns>出库记录列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.QueryOutput(FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            获取出库记录
+            </summary>
+            <param name="feeItemList">收费项目</param>
+            <returns>出库记录列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.QueryStockHeadItemForFee(System.String)">
+            <summary>
+            根据库存部门与科目类别获取库存汇总信息
+            包含帐目信息,不包括已对照和不收费的物资帐目
+            </summary>
+            <param name="storeDeptCode">库存部门</param>
+            <returns>成功返回库存物资数组 失败返回null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.QueryUnCompareMaterialStoreDetail(System.String)">
+            <summary>
+            根据库存科室编码获取所有未对照物资项目库存明细
+            </summary>
+            <param name="storeDeptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.QueryUnCompareMaterialStoreHead(System.String)">
+            <summary>
+            根据库存科室编码获取所有未对照物资项目库存汇总
+            </summary>
+            <param name="storeDeptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Material.IMatFee.UpdateFeeRecipe(System.Collections.Generic.List{FS.HISFC.Models.FeeStuff.Output},System.String,System.Int32)">
+            <summary>
+            针对物资出库记录 更新相应收费记录处方号、处方内项目流水号
+            </summary>
+            <param name="outListCollect"></param>
+            <param name="recipeNO"></param>
+            <param name="sequenceNO"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Material.IMatFee.Err">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Material.IMatFee.ErrCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Material.IMatFee.DBErrCode">
+            <summary>
+            数据库错误码
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IHE.IADT">
+            <summary>
+            [功能描述：ADT接口]
+            [创 建 者：薛文进]
+            [创建时间：2010-03-08]
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.RegInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            登记住院患者
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.PreRegInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            预登记住院患者
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.RegOutPatient(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            登记出院患者
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.UpdatePatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新住院患者信息
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.TransferPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            传送住院患者信息
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.CancelTransferPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            取消转科
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.InPatientToOutpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            在院患者转出
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.OutpatientToInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            患者转入
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.MergeInpatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            合并患者
+            </summary>
+            <param name="patient"></param>
+            <param name="patient2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.DischargeInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            出院登记
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.CancelPreRegInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            取消预约登记的患者
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.CancelRegPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            无费退院
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.CancelDischargePatientMessage(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            登记召回
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IADT.ProduceInpatientToOutPatientMessage(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            生成住院患者转门诊的HL7消息
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IOutpatientAfterFee">
+            <summary>
+            [功能描述: 门诊收费保存后发生]<br></br>
+            [创 建 者: cube]<br></br>
+            [创建时间: 2011-03]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IOutpatientAfterFee.AfterFee(System.Collections.ArrayList,System.String)">
+            <summary>
+            门诊收费保存后发生
+            </summary>
+            <param name="alFeeItem">本次收费项目</param>
+            <param name="info">信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Equipment.IOutPrint">
+            <summary>
+            IApplyPrint<br></br>
+            [功能描述: 设备出库单打印接口]<br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2007-12-9]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IOutPrint.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IOutPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Equipment.IApplyPrint">
+            <summary>
+            IApplyPrint<br></br>
+            [功能描述: 设备购置申请打印接口]<br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2007-11-29]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IApplyPrint.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IApplyPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.IControlParamMaint">
+            <summary>
+            参数维护接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IControlParamMaint.Init">
+            <summary>
+            初始化方法
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IControlParamMaint.Apply">
+            <summary>
+            应用
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IControlParamMaint.Save">
+            <summary>
+            保存
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IControlParamMaint.Description">
+            <summary>
+            控制参数维护UC的描述
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IControlParamMaint.ErrText">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IControlParamMaint.IsShowOwnButtons">
+            <summary>
+            是否显示UC自带保存,退出按钮等
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IControlParamMaint.IsModify">
+            <summary>
+            是否更改了参数信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.INoticeManager">
+            <summary>
+            提示信息接口，用于HIS启动/注销后的自动提示信息
+            
+            {5BE03DF2-25DE-4e7a-9B47-85CE92911277} 修改接口定义
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.INoticeManager.Notice">
+            <summary>
+            信息提示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.INoticeManager.Schedule">
+            <summary>
+            计划提示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.INoticeManager.Warn">
+            <summary>
+            警示提示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.INoticeManager.MsgOnLogout">
+            <summary>
+            HIS系统注销前提示信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.ISetup">
+            <summary>
+            插件设置接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ISetup.Default">
+            <summary>
+            恢复默认(慎用)
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ISetup.Show">
+            <summary>
+            打开设计界面
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.ISetup.IsWindow">
+            <summary>
+            是否设置界面为窗口
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.IPreview">
+            <summary>
+            预览
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPreview.Preview">
+            <summary>
+            预览
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IPreview.PreviewControl">
+            <summary>
+            当前预览控件
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IClinicPath.ClickClinicPath(System.String)">
+            点击患者时调用
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IClinicPath.PatientIsSelectedPath(System.String)">
+            患者是否在临床路径
+             <param name="inpatientNo">患者住院号</param>
+             <returns>成功返回true 失败返回false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IClinicPath.PatientOutByDoctor(System.String)">
+            <summary>
+            医生站出院操作
+            </summary>
+            <param name="inpatientNO">患者住院号</param>
+            <returns>成功返回true 失败返回false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IClinicPath.PatientOutByNurse(System.String,System.DateTime)">
+            <summary>
+            医生站出院操作
+            </summary>
+            <param name="inpatientNO">患者住院号</param>
+            <returns>成功返回true 失败返回false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IClinicPath.PatientSaveOrder(System.String,System.Collections.Generic.List{FS.HISFC.Models.Order.Inpatient.Order})">
+            <summary>
+            保存医嘱时，自动判断医生开立的医嘱，是否在路径中，如不在路径中，则弹出提示，填写变异原因。
+            </summary>
+            <param name="inpatientNo">患者住院号</param>
+            <param name="orderList">医嘱列表</param>
+            <returns>成功返回true 失败返回false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IClinicPath.StopClinicPath(System.String)">
+            <summary>
+            退出路径
+            </summary>
+            <param name="inpatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IClinicPath.ExecutePathOrder(System.String)">
+            <summary>
+            执行路径医嘱
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IReadMCard">
+            <summary>
+            读取医保卡信息接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IReadMCard.GetMCardInfo(System.String@,System.String@,System.DateTime@,System.String@,System.String@,System.String@,System.String@,System.DateTime@,System.String@)">
+            <summary>
+            获取社保卡信息
+            </summary>
+            <param name="cardId">卡识别码</param>
+            <param name="cardNo">卡号</param>
+            <param name="cardIssueDate">发卡日期</param>
+            <param name="userId">身份证号码</param>
+            <param name="userName">姓名</param>
+            <param name="userSex">性别</param>
+            <param name="userPhoneNumber">联系电话</param>
+            <param name="dtBirth">生日</param>
+            <param name="errInfo">错误信息</param>
+            <returns>0找不到读卡动态库，-1打开设备失败，-2关闭设备失败，-3读取社保卡信息失败，1成功</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IPrintCardFee">
+            <summary>
+            诊疗收费凭证打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintCardFee.SetValue(FS.HISFC.Models.Account.AccountCardFee)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="cardFee"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintCardFee.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IPrintReturnCardFee">
+            <summary>
+            诊疗返还凭证打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintReturnCardFee.SetValue(FS.HISFC.Models.Account.AccountCardFee)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="cardFee"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintReturnCardFee.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IOutpatientGuide">
+            <summary>
+             病人指引单接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IOutpatientGuide.SetValue(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="rInfo"></param>
+            <param name="invoices"></param>
+            <param name="feeDetails"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IOutpatientGuide.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.ISelfRegister">
+            <summary>
+            挂号接口
+            {0F383ECD-2CB9-40a7-8712-341C44BA56F0}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.ISelfRegister.SaveRegister(System.String,System.String,System.Boolean,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.String,System.Decimal,System.String,FS.HISFC.Models.Registration.Register@,System.String@)">
+            <summary>
+            保存挂号
+            </summary>
+            <param name="CardNO"></param>
+            <param name="Name"></param>
+            <param name="isPre"></param>
+            <param name="DeptCode"></param>
+            <param name="DoctCode"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="reglevel"></param>
+            <param name="payCode"></param>
+            <param name="amount"></param>
+            <param name="operCode"></param>
+            <param name="regObj"></param>
+            <param name="errText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.ISelfRegister.SaveBegin(System.String@)">
+            <summary>
+            保存开始时处理
+            </summary>
+            <param name="regObj"></param>
+            <param name="errText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.ISelfRegister.SaveEnd(System.String@)">
+            <summary>
+            保存结束时处理
+            </summary>
+            <param name="regObj"></param>
+            <param name="errText"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.IOutpatientPrintFactory">
+            <summary>
+            [功能描述: 门诊打印接口工厂 通过该接口工厂返回打印接口IDrugPrint]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2006-11]<br></br>
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.IBillPrint">
+            <summary>
+            [功能描述: 药品入库/出库单据打印 ]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2006-11]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IBillPrint.SetData(System.String)">
+            <summary>
+            传送打印数据
+            </summary>
+            <param name="billNO">单据号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IBillPrint.SetData(System.Collections.ArrayList,System.String)">
+            <summary>
+            传送打印数据
+            </summary>
+            <param name="alPrintData">待打印数据</param>
+            <param name="privType">系统类型 Class3_Meaning_Code</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IBillPrint.SetData(System.Collections.ArrayList,FS.HISFC.BizProcess.Interface.Pharmacy.BillType)">
+            <summary>
+            传送打印数据
+            </summary>
+            <param name="alPrintData"></param>
+            <param name="billType">enum BillType</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.BillType">
+            <summary>
+            单据类型
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Pharmacy.BillType.Input">
+            <summary>
+            入库
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Pharmacy.BillType.Output">
+            <summary>
+            出库
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Pharmacy.BillType.InPlan">
+            <summary>
+            入库计划
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Pharmacy.BillType.StockPlan">
+            <summary>
+            采购计划
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Pharmacy.BillType.Check">
+            <summary>
+            盘点
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Pharmacy.BillType.Adjust">
+            <summary>
+            调价
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Pharmacy.BillType.InnerApplyIn">
+            <summary>
+            内部入库申请              //{0084F0DF-44E5-4fe9-9DBC-E92CFCDC0636} 实现内部入库申请单打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.ITransferDeptApplyable">
+            <summary>
+            [功能描述: 转科申请控件接口]<br></br>
+            [创 建 者: wolf]<br></br>
+            [创建时间: 2007-1-25]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.ITransferDeptApplyable.SetPatientInfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            设置患者信息
+            </summary>
+            <param name="patientInfo"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.ITransferDeptApplyable.ShowDialog">
+            <summary>
+            显示
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.ITransferDeptApplyable.Dept">
+            <summary>
+            申请转入科室
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IPrintOrder">
+            <summary>
+            打印医嘱单接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintOrder.SetPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            设置患者
+            </summary>
+            <param name="patientInfo"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintOrder.Print">
+            <summary>
+            直接打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintOrder.ShowPrintSet">
+            <summary>
+            打印设置
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.Inpatient.IRecipePrint">
+            <summary>
+            门诊处方打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.Inpatient.IRecipePrint.SetPatientInfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            患者信息
+            </summary>
+            <param name="patientInfo"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.Inpatient.IRecipePrint.OnInPatientPrint(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList,System.Collections.ArrayList,System.Boolean,System.Boolean,System.String,System.Object)">
+            <summary>
+            打印接口
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">处方开立科室</param>
+            <param name="reciptDoct">处方开立医生</param>
+            <param name="orderList">处方List</param>
+            <param name="orderSelectList">选中的List</param>
+            <param name="IsReprint">是否补打</param>
+            <param name="IsPreview">是否预览</param>
+            <param name="printType">打印类型</param>
+            <param name="obj">预留字段</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.Inpatient.IRecipePrint.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IBeforeAddItem">
+            <summary>
+            开立医嘱（处方），选择项目之前操作
+            [创 建 者: houwb]<br></br>
+            [创建时间: 2011-8-1]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IBeforeAddItem.OnBeforeAddItemForOutPatient(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            门诊保存处方
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">处方列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IBeforeAddItem.OnBeforeAddItemForInPatient(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            住院保存医嘱
+            </summary>
+            <param name="patientInfo">住院患者实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IBeforeAddItem.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Operation.IArrangeNotifyFormPrint">
+            <summary>
+            [功能描述: 手术安排通知单打印接口]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Operation.IApplicationFormPrint">
+            <summary>
+            [功能描述: 手术申请单打印接口]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-04]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Operation.IApplicationFormPrint.OperationApplicationForm">
+            <summary>
+            手术申请单对象
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Operation.IArrangeNotifyFormPrint.IsPrintExtendTable">
+            <summary>
+            是否打印加台申请单
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.IInjectItineratePrint">
+            <summary>
+            IInjectItineratePrint<br></br>
+            <Font color='#FF1111'>[功能描述:门诊注射签名卡打印接口{637EDB0D-3F39-4fde-8686-F3CD87B64581}]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-7-29]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Nurse.IInjectItineratePrint.IsReprint">
+            <summary>
+            是否补打
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IHE.IOP">
+            <summary>
+            [功能描述：OP接口]
+            [创 建 者：薛文进]
+            [创建时间：2010-03-08]
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IOP.PlaceOrder(FS.HISFC.Models.Order.Order)">
+            <summary>
+            传送医嘱
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IOP.PlaceOrder(System.Collections.Generic.List{FS.HISFC.Models.Order.Inpatient.Order})">
+            <summary>
+            传送医嘱
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IHE.IOP.PlaceOrder(System.Collections.ArrayList)">
+            <summary>
+            传送医嘱
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine">
+            <summary>
+            合理用药接口定义
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassInit(FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.String)">
+            <summary>
+            合理用药系统初始化
+            </summary>
+            <param name="logEmpl">登陆人员</param>
+            <param name="logDept">登陆科室</param>
+            <param name="workStationType">工作站类型</param>
+            <returns>0 初始化失败 1 初始化成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassSetPatientInfo(FS.HISFC.Models.RADT.Patient,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            设置传入患者基本信息
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassShowSingleDrugInfo(FS.HISFC.Models.Order.Order,System.Drawing.Point,System.Drawing.Point,System.Boolean)">
+            <summary>
+            显示单个药品要点提示
+            </summary>
+            <param name="order">处方（医嘱）信息</param>
+            <param name="LeftTop">左上角坐标</param>
+            <param name="RightButton">右下角坐标</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassShowFloatWindow(System.Boolean)">
+            <summary>
+            设置是否显示要点提示框
+            </summary>
+            <param name="isShow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassDrugCheck(System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            药品统一审查
+            </summary>
+            <param name="patientInfo">患者信息</param>
+            <param name="alOrder">处方（医嘱）列表</param>
+            <param name="isSave">是否保存</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassRefresh">
+            <summary>
+            合理用药功能初始化刷新
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassClose">
+            <summary>
+            合理用药功能关闭
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassShowOtherInfo(FS.HISFC.Models.Order.Order,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList@)">
+            <summary>
+            获取查询功能
+            </summary>
+            <param name="order">医嘱</param>
+            <param name="queryType">查询功能类别</param>
+            <param name="alShowMemu">查询菜单列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassShowWarnDrug(FS.HISFC.Models.Order.Order)">
+            <summary>
+            获取药品警告信息
+            </summary>
+            <param name="?"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassSetDiagnoses(System.Collections.ArrayList)">
+            <summary>
+            设置诊断信息
+            </summary>
+            <param name="diagnoseList"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.StationType">
+            <summary>
+            工作站类别
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.PassEnabled">
+            <summary>
+            合理用药功能是否可用
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IReasonableMedicine.Err">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IPrintTransFusion">
+            <summary>
+            [功能描述: 输液卡、贴瓶单、瓶签打印接口]<br></br>
+            [创 建 者: wolf]<br></br>
+            [创建时间: 2004-10-12]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间=''
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintTransFusion.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintTransFusion.Query(System.Collections.Generic.List{FS.HISFC.Models.RADT.PatientInfo},System.String,System.DateTime,System.DateTime,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            查询批量患者指定时间点的，指定用法的输液卡
+            </summary>
+            <param name="patients"></param>
+            <param name="usagecode"></param>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <param name="isPrinted">是否补打</param>
+            <param name="orderType">医嘱类别:长嘱LONG、临嘱SHORT、全部ALL</param>
+            <param name="isFirst">是否首日量</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintTransFusion.PrintSet">
+            <summary>
+            打印设置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintTransFusion.SetSpeOrderType(System.String)">
+            <summary>
+            特殊医嘱类型
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.IPrintTransFusion.DCIsPrint">
+            <summary>
+            停止后是否打印
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.IPrintTransFusion.NoFeeIsPrint">
+            <summary>
+            未收费知否打印
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.IPrintTransFusion.QuitFeeIsPrint">
+            <summary>
+            退费是否打印
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.InterFacePassWord.IPassWord.ValidPassWord">
+            <summary>
+            验证密码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.InterFacePassWord.IPassWord.Patient">
+            <summary>
+            门诊卡号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.InterFacePassWord.IPassWord.IsOK">
+            <summary>
+            是否验证密码
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.IJob">
+            <summary>
+            IJob 的摘要说明。
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.ICompletionAddress">
+            <summary>
+            补全地址接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.ICompletionAddress.CompletionAddress(System.String)">
+            <summary>
+            补全地址
+            </summary>
+            <param name="address">输入地址</param>
+            <returns>补完后地址</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.IOutpatientLEDShow">
+            <summary>
+            [功能描述: 门诊待取药患者LED大屏显示接口]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2006-11]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IOutpatientLEDShow.SetShowData(System.Collections.Generic.List{FS.HISFC.Models.Pharmacy.DrugRecipe})">
+            <summary>
+            传送数据
+            </summary>
+            <param name="drugRecipe">需显示数据</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IOutpatientLEDShow.Show">
+            <summary>
+            大屏幕显示
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugBillClass.GetDrugBillClass(FS.HISFC.Models.Pharmacy.ApplyOut)">
+            <summary>
+            发药申请发送时获取对应的摆药单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundPrint">
+            <summary>
+            [功能描述: 配置标签打印 ]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2006-11]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundPrint.AddCombo(System.Collections.ArrayList)">
+            <summary>
+            打印 组合打印 
+            </summary>
+            <param name="alCombo">打印组合数据</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundPrint.AddAllData(System.Collections.ArrayList)">
+            <summary>
+            对所有打印数据传出
+            </summary>
+            <param name="al">所有待打印数据</param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundPrint.LabelTotNum">
+            <summary>
+            本次打印标签总页数
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundPrint.InpatientInfo">
+            <summary>
+            住院患者信心
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IRecipePrint">
+            <summary>
+            门诊处方打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IRecipePrint.SetPatientInfo(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            患者信息
+            </summary>
+            <param name="register"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IRecipePrint.PrintRecipe">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IRecipePrint.PrintRecipeView(System.Collections.ArrayList)">
+            <summary>
+            打印预览用
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.IRecipePrint.RecipeNO">
+            <summary>
+            处方号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.IRecipePrint.Printer">
+            <summary>
+            设置打印机
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IDiagInDisplay">
+            <summary>
+            门诊医生叫号接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IDiagInDisplay.DiagInDisplay">
+            <summary>
+            医生叫号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.IDiagInDisplay.RegInfo">
+            <summary>
+            患者挂号信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.IDiagInDisplay.ObjRoom">
+            <summary>
+            医生诊室
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.NurseAssignCallResult">
+            <summary>
+            代表叫号接口返回值的类
+            </summary>
+            {4316de20-69b3-40e2-80ac-7033f60cd1ed}
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Nurse.NurseAssignCallResult.ReturnValue">
+            <summary>
+            返回值，-1出错。
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Nurse.NurseAssignCallResult.AssignRegiterId">
+            <summary>
+            叫号患者的流水号
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IPrintFeeList">
+            <summary>
+            打印费用清单接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IPrintFeeList.SetValue(FS.HISFC.Models.Fee.Outpatient.Balance)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="invoice"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IPrintFeeList.PrintFeeList">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundGroup">
+            <summary>
+            配液中心分批次算法接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundGroup.GetCompoundGroup(FS.HISFC.Models.Order.ExecOrder)">
+            <summary>
+            得到根据指定算法计算出的批次号
+            </summary>
+            <param name="info">药品申请实体</param>
+            <returns>返回批次号</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.ICompoundGroup.GetCompoundGroup(System.Collections.ArrayList,System.String@)">
+            <summary>
+            批次号赋值
+            </summary>
+            <param name="List">申请实体数组</param>
+            <param name="List">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IPacsReportPrint">
+            <summary>
+            检查申请单打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IPacsReportPrint.PacsReportPrintForOutPatient(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            门诊检查申请单打印
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alLisOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IPacsReportPrint.PacsReportPrintForInPatient(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            住院检查申请单打印
+            </summary>
+            <param name="regObj">病人信息实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IPacsReportPrint.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.Inpatient.IRecipePrintST">
+            <summary>
+            门诊处方打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.Inpatient.IRecipePrintST.SetPatientInfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            患者信息
+            </summary>
+            <param name="patientInfo"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.Inpatient.IRecipePrintST.OnInPatientPrint(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList,System.Collections.ArrayList,System.Boolean,System.Boolean,System.String,System.Object)">
+            <summary>
+            打印接口
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">处方开立科室</param>
+            <param name="reciptDoct">处方开立医生</param>
+            <param name="orderList">处方List</param>
+            <param name="orderSelectList">选中的List</param>
+            <param name="IsReprint">是否补打</param>
+            <param name="IsPreview">是否预览</param>
+            <param name="printType">打印类型</param>
+            <param name="obj">预留字段</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.Inpatient.IRecipePrintST.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IDealSubjob">
+            <summary>
+            医生站辅材处理
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IDealSubjob.DealSubjob(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList,FS.HISFC.Models.Order.OutPatient.Order,System.Collections.ArrayList@,System.String@)">
+            <summary>
+            门诊辅材带出
+            </summary>
+            <param name="r"></param>
+            <param name="alOrders"></param>
+            <param name="alSubOrders"></param>
+            <param name="errText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IDealSubjob.DealSubjob(FS.HISFC.Models.RADT.PatientInfo,System.Boolean,FS.HISFC.Models.Order.Inpatient.Order,System.Collections.ArrayList,System.Collections.ArrayList@,System.String@)">
+            <summary>
+            住院附材带出
+            </summary>
+            <param name="patientInfo"></param>
+            <param name="isRealTime">是否实时收取，否则为后台收取</param>
+            <param name="order"></param>
+            <param name="alOrders"></param>
+            <param name="alSubOrders"></param>
+            <param name="errInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IDealSubjob.IsAllowUsageSubPopChoose">
+            <summary>
+            用法带出的项目是否允许弹出选择
+            避免效率太慢，一般情况下不需要
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IDealSubjob.FeeDate">
+            <summary>
+            附材收取的时间
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IDealSubjob.IsPopForChose">
+            <summary>
+            是否弹出附材窗口供选择
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IPrePayIn">
+            <summary>
+            预约入院接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IPrePayIn.ShowDialog">
+            <summary>
+            显示控件
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Fee.IPrePayIn.IsShowButton">
+            <summary>
+            是否显示控件
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Fee.IPrePayIn.PatientInfo">
+            <summary>
+            患者信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Equipment.IPrepayPrint">
+            <summary>
+            IPrepayPrint<br></br>
+            [功能描述: 设备预交金打印接口]<br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2007-4-9]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IPrepayPrint.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IPrepayPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.ICheckPactInfo">
+            <summary>
+            [功能描述: 校验患者合同单位信息]<br></br>
+            [创 建 者: houwb]<br></br>
+            [创建时间: 2011-12-6]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ICheckPactInfo.CheckIsValid">
+            <summary>
+            校验是否有效
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.ICheckPactInfo.PatientInfo">
+            <summary>
+            患者基本信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.ICheckPactInfo.Err">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.RADT.IBedCard">
+            <summary>
+             住院床头卡打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBedCard.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBedCard.PrintPreview">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBedCard.ShowBedCard(System.Collections.ArrayList)">
+            <summary>
+            查询显示床头卡
+            </summary>
+            <param name="patients"></param>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.IOutpatientShow">
+            <summary>
+            [功能描述: 门诊患者信息显示接口]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2006-11]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IOutpatientShow.ShowInfo(FS.HISFC.Models.Pharmacy.DrugRecipe)">
+            <summary>
+            需显示患者数据
+            </summary>
+            <param name="drugRecipe"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IOutpatientShow.Clear">
+            <summary>
+            清除信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.ISaveOrder">
+            <summary>
+            门诊处方保存、住院医嘱保存，调用接口
+            [创 建 者: houwb]<br></br>
+            [创建时间: 2011-8-1]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.ISaveOrder.OnSaveOrderForOutPatient(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            门诊保存处方
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.ISaveOrder.OnSaveOrderForInPatient(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            住院保存医嘱
+            </summary>
+            <param name="patientInfo">住院患者实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.ISaveOrder.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IOutPatientPrint.OnOutPatientPrint(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.Generic.List{FS.HISFC.Models.Order.OutPatient.Order},System.Collections.Generic.List{FS.HISFC.Models.Order.OutPatient.Order},System.Boolean,System.Boolean,System.String,System.Object)">
+            <summary>
+            打印接口
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">处方开立科室</param>
+            <param name="reciptDoct">处方开立医生</param>
+            <param name="orderList">处方List</param>
+            <param name="orderSelectList">选中的List</param>
+            <param name="IsReprint">是否补打</param>
+            <param name="IsPreview">是否预览</param>
+            <param name="printType">打印类型</param>
+            <param name="obj">预留字段</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IOutPatientPrint.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IBeforeSaveOrder">
+            <summary>
+            门诊处方保存、住院医嘱保存前，调用接口
+            [创 建 者: houwb]<br></br>
+            [创建时间: 2011-8-1]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IBeforeSaveOrder.BeforeSaveOrderForOutPatient(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            门诊保存处方
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IBeforeSaveOrder.BeforeSaveOrderForInPatient(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            住院保存医嘱
+            </summary>
+            <param name="patientInfo">住院患者实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IBeforeSaveOrder.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Operation.EnumArrangeType.Operation">
+            <summary>
+            手术安排
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizProcess.Interface.Operation.EnumArrangeType.Anaesthesia">
+            <summary>
+            麻醉安排
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.IPacs">
+            <summary>
+            [功能描述: PACS医嘱接口]<br></br>
+            [创 建 者: 不详]<br></br>
+            [创建时间: 未知]<br></br>
+            <修改记录
+            	修改人='孙盟'
+            	修改时间='2009-02-12'
+            	修改目的=''
+            	修改描述='原来这个接口什么都没有，现在抽象一个'
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.PlaceOrder(FS.HISFC.Models.Order.Order)">
+            <summary>
+            下医嘱
+            </summary>
+            <param name="Order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.PlaceOrder(System.Collections.Generic.List{FS.HISFC.Models.Order.Order})">
+            <summary>
+            下组合医嘱
+            </summary>
+            <param name="OrderList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.CheckOrder(FS.HISFC.Models.Order.Order)">
+            <summary>
+            检查医嘱项目是否可以开立
+            </summary>
+            <param name="Order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.SetPatient(FS.HISFC.Models.RADT.Patient)">
+            <summary>
+            设置患者信息
+            </summary>
+            <param name="Patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.Connect">
+            <summary>
+            数据库连接
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.Disconnect">
+            <summary>
+            数据库关闭
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.Commit">
+            <summary>
+            提交
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.Rollback">
+            <summary>
+            回滚
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.ShowResult(System.String)">
+            <summary>
+            按医嘱显示检验结果
+            </summary>
+            <param name="id">申请单号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.QueryResult">
+            <summary>
+            查询检验结果
+            </summary>
+            <param name="PatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.ShowResultByPatient">
+            <summary>
+            显示结果
+            </summary>
+            <param name="PatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.IsReportValid(System.String)">
+            <summary>
+            检验结果是否已经生成
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置本地数据库连接
+            </summary>
+            <param name="t"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IPacs.ShowForm">
+            <summary>
+            显示窗口
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IPacs.ErrCode">
+            <summary>
+            错误编码
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IPacs.ErrMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IPacs.OprationMode">
+            <summary>
+            调用模式(1:门诊2:住院)
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IPacs.PacsViewType">
+            <summary>
+            pacs结果察看类型1：图像2：报告
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IPacs.ResultType">
+            <summary>
+            结果类型
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.IProcessRegiter">
+            <summary>
+            挂号处理接口{E43E0363-0B22-4d2a-A56A-455CFB7CF211}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IProcessRegiter.SaveBegin(FS.HISFC.Models.Registration.Register@,System.String@)">
+            <summary>
+            保存开始时处理
+            </summary>
+            <param name="regObj"></param>
+            <param name="errText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IProcessRegiter.SaveEnd(FS.HISFC.Models.Registration.Register@,System.String@)">
+            <summary>
+            保存结束时处理
+            </summary>
+            <param name="regObj"></param>
+            <param name="errText"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.IRegPrint">
+            <summary>
+            挂号票打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IRegPrint.SetPrintValue(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            添值
+            </summary>
+            <param name="register"></param>
+            <param name="reglvlfee"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IRegPrint.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IRegPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IRegPrint.Clear">
+            <summary>
+            清空当前信息
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IRegPrint.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置本地数据库连接
+            </summary>
+            <param name="trans">数据库连接</param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Registration.IRegPrint.Trans">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.IBraceletPrint">
+            <summary>
+            腕带打印// {AD405AA0-3101-46c0-A0B6-846DC3AAB10A}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IBraceletPrint.SetPrintValue(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            添值
+            </summary>
+            <param name="register"></param>
+            <param name="reglvlfee"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IBraceletPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.IShowLED">
+            <summary>
+            挂号票打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IShowLED.Query">
+            <summary>
+            查找
+            </summary>
+            <param name="register"></param>
+            <param name="reglvlfee"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IShowLED.SetFPFormat">
+            <summary>
+            显示farpoint格式
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.IShowLED.CreateString">
+            <summary>
+             调用LED 接口 组成显示串给LED
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.ISearchCardNoFalse">
+            <summary>
+            查找卡号或者病历号失败处理
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Registration.ISearchCardNoFalse.PostMarkNo(System.String@)">
+            <summary>
+            传递卡号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Privilege.IPrivInfo">
+            <summary>
+            对外接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Privilege.IPrivInfo.QueryAppID">
+            <summary>
+            获取应用Id
+            </summary>       
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Privilege.IPrivInfo.QueryPerson">
+            <summary>
+            查询组织所有有效人员
+            </summary>        
+            <returns></returns>        
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Privilege.IPrivInfo.QueryUnit">
+            <summary>
+            查询所有有效组织
+            </summary>        
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Privilege.IPrivInfo.GetOrgType">
+            <summary>
+            查询所有组织类别
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug">
+            <summary>
+            [功能描述: 住院摆药业务接口]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2006-11]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.ShowData(System.Collections.ArrayList)">
+            <summary>
+            根据传入的出库申请数据，显示在控件中
+            </summary>
+            <param name="alApplyOut">出库申请数据</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.CheckAll">
+            <summary>
+            Check全部数据
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.CheckNone">
+            <summary>
+            没有Check任何数据
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.Clear">
+            <summary>
+            清空全部数据
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.Save(FS.HISFC.Models.Pharmacy.DrugMessage)">
+            <summary>
+            保存
+            </summary>
+            <returns>1成功，-1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.Preview">
+            <summary>
+            预览
+            </summary>
+        </member>
+        <member name="E:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.BeginSaveEvent">
+            <summary>
+            保存前
+            </summary>
+        </member>
+        <member name="E:FS.HISFC.BizProcess.Interface.Pharmacy.IInpatientDrug.EndSaveEvent">
+            <summary>
+            保存后
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint">
+            <summary>
+            [功能描述: 药品摆药单/标签 打印接口 ]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2006-11]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.AddSingle(FS.HISFC.Models.Pharmacy.ApplyOut)">
+            <summary>
+            打印新摆药标签 单个药品
+            </summary>
+            <param name="info">摆药数据</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.AddCombo(System.Collections.ArrayList)">
+            <summary>
+            打印配药标签 组合打印 
+            </summary>
+            <param name="alCombo">打印组合数据</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.AddAllData(System.Collections.ArrayList)">
+            <summary>
+            打印配药清单
+            </summary>
+            <param name="al">所有待打印数据</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.AddAllData(System.Collections.ArrayList,FS.HISFC.Models.Pharmacy.DrugBillClass)">
+            <summary>
+            摆药单打印 显示全部数据
+            </summary>
+            <param name="al">待打印的摆药申请信息</param>
+            <param name="drugBillClass">摆药通知信息</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.AddAllData(System.Collections.ArrayList,FS.HISFC.Models.Pharmacy.DrugRecipe)">
+            <summary>
+            摆药单打印 显示全部数据
+            </summary>
+            <param name="al">待打印的摆药申请信息</param>
+            <param name="drugRecipe">门诊处方调剂信息</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.Print">
+            <summary>
+            打印摆药单
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.Preview">
+            <summary>
+            预览摆药单
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.OutpatientInfo">
+            <summary>
+            门诊患者信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.InpatientInfo">
+            <summary>
+            住院患者信心
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.LabelTotNum">
+            <summary>
+            本次打印标签总页数
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Pharmacy.IDrugPrint.DrugTotNum">
+            <summary>
+            一次打印药品种类总数量
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.ILisReportPrint">
+            <summary>
+            LIS申请单打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.ILisReportPrint.LisReportPrintForOutPatient(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            门诊LIS申请单打印
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alLisOrder">检验医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.ILisReportPrint.LisReportPrintForInPatient(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.ArrayList)">
+            <summary>
+            住院LIS申请单打印
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.ILisReportPrint.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IFirsDayUseQuantity.SetFirstUseQuanlity(FS.HISFC.Models.Order.Inpatient.Order,System.Data.IDbTransaction)">
+             <summary>
+             设置首日量的 rder.BeginTime
+            order.CurMOTime = order.BeginTime;
+            order.NextMOTime 
+             </summary>
+             <param name="order">医嘱信息</param>
+             <param name="t">System.Data.IDbTransaction</param>
+             <returns>反回医嘱信息</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IMedicalReportPrint">
+            <summary>
+            门诊病历打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IMedicalReportPrint.Print">
+            <summary>
+            打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IMedicalReportPrint.PrintView">
+            <summary>
+            打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IMedicalReportPrint.RegId">
+            <summary>
+            患者挂号流水号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IMedicalReportPrint.IsPrint">
+            <summary>
+            是否打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.INurseAssign">
+            <summary>
+            接收叫号信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Nurse.INurseAssign.Insert(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,FS.HISFC.Models.Base.Noon,System.String@)">
+            <summary>
+             门诊分诊接收叫号信息
+            </summary>
+            <param name="register">挂号实体</param>
+            <param name="dept">看诊科室信息</param>
+            <param name="room">看诊诊室</param>
+            <param name="console">看诊诊台</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Nurse.INurseAssign.Call(System.String,System.String)">
+            <summary>
+            门诊分诊叫号
+            </summary>
+            <param name="nurseCode">护士站</param>
+            <param name="noon">午别</param>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.IInjectCurePrint">
+            <summary>
+            IInjectCurePrint<br></br>
+            <Font color='#FF1111'>[功能描述:门诊注射瓶签打印接口{637EDB0D-3F39-4fde-8686-F3CD87B64581}]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-7-29]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.IGetInjectOrderNo">
+            <summary>
+            IGetInjectOrderNo<br></br>
+            <Font color='#FF1111'>[功能描述:获得门诊注射号码接口{30E1EF7D-1236-4e38-A8E3-7567C9E33B0B}]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-7-19]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Nurse.IGetInjectOrderNo.GetOrderNo(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            获得门诊注射号码
+            </summary>
+            <param name="reg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Nurse.IGetInjectOrderNo.GetSamePatientNextOrderNo(System.String)">
+            <summary>
+            相同患者根据当前顺序号生成下一个顺序号
+            </summary>
+            <param name="orderNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Nurse.IGetInjectOrderNo.SetPrintNo(System.Collections.ArrayList)">
+            <summary>
+            获得打印序号
+            </summary>
+            <param name="injectList"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackageInvoice.SetPrintValue(System.String)">
+            <summary>
+            填值
+            </summary>
+            <param name="InvoiceNO">发票号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackageInvoice.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackageInvoice.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackageInvoice.Clear">
+            <summary>
+            清空当前信息
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackageInvoice.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置本地数据库连接
+            </summary>
+            <param name="trans">数据库连接</param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackageInvoice.Trans">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IBankTrans.InputListInfo">
+            <summary>
+            0:交易类型，1：交易金额
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IBankTrans.OutputListInfo">
+            <summary>
+             0:银行 1：账号 2：pos号 3：金额
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IMultiScreen">
+            <summary>
+            IConnect 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMultiScreen.ShowScreen">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMultiScreen.CloseScreen">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IMultiScreen.ListInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IOutScreen">
+            <summary>
+            门诊收费外接屏接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IOutScreen.ShowInfo(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IOutScreen.ClearInfo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareTranscation">
+            <summary>
+            IConnect 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareTranscation.Connect">
+            <summary>
+            数据库连接
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareTranscation.Disconnect">
+            <summary>
+            数据库关闭
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareTranscation.Commit">
+            <summary>
+            数据库提交
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareTranscation.Rollback">
+            <summary>
+            数据库回滚
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareTranscation.BeginTranscation">
+            <summary>
+            开始数据库事务
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare">
+            <summary>
+            医保接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置本地数据库连接
+            </summary>
+            <param name="t"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.QueryCanMedicare(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            判断指定门诊病人是否享受此医保
+            {199EF4E9-EF21-4067-97A7-9AA97AF74CDE}
+            </summary>
+            <param name="r"></param>
+            <returns>
+            0：可以享受居民门诊医保报销并且当日无报销记录
+            -1：不可以享受居民门诊医保报销
+            -2：失败
+            其它值：可以享受居民门诊医保报销并且当日有报销记录（返回值为当日报销次数）
+            </returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.QueryBlackLists(System.Collections.ArrayList@)">
+            <summary>
+            获得黑名单信息
+            </summary>
+            <param name="blackLists">黑名单信息</param>
+            <returns>成功 >= 1 失败 -1 没有获得数据 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.IsInBlackList(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            验证在院患者是否属于黑名单
+            </summary>
+            <param name="patient">在院患者基本信息</param>
+            <returns>在黑名单内 true 不在和名单内false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.IsInBlackList(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            验证门诊患者是否属于黑名单
+            </summary>
+            <param name="r">门诊患者基本信息</param>
+            <returns>在黑名单内 true 不在和名单内false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.QueryUndrugLists(System.Collections.ArrayList@)">
+            <summary>
+            获得非药品信息目录
+            </summary>
+            <param name="undrugLists">非药品信息目录</param>
+            <returns>成功 >= 1 失败: -1 没有获得数据 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.QueryDrugLists(System.Collections.ArrayList@)">
+            <summary>
+            获得药品信息目录
+            </summary>
+            <param name="drugLists">药品信息目录</param>
+            <returns>成功 >= 1 失败: -1 没有获得数据 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.UploadRegInfoOutpatient(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            门诊挂号函数
+            </summary>
+            <param name="r">挂号信息</param>
+            <returns>-1 失败 0 没有记录 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.CancelRegInfoOutpatient(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            取消入院登记方法
+            </summary>
+            <param name="patient">住院患者基本信息实体</param>
+            <returns>成功 1 失败 -1 没有记录 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.GetRegInfoOutpatient(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            获得医保挂号信息
+            </summary>
+            <param name="r">门诊挂号实体</param>
+            <returns>-1 失败 0 没有记录 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.UploadFeeDetailOutpatient(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Fee.Outpatient.FeeItemList)">
+            <summary>
+            单条上传费用明细
+            </summary>
+            <param name="r">挂号信息</param>
+            <param name="f">门诊费用明细</param>
+            <returns>-1 失败 0 没有记录 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.UploadFeeDetailsOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            多条上传费用明细
+            </summary>
+            <param name="r">挂号信息</param>
+            <param name="feeDetails">费用明细实体集合</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.QueryFeeDetailsOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            查询上传费用明细
+            </summary>
+            <param name="r">挂号信息</param>
+            <param name="feeDetails">费用明细实体集合</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.DeleteUploadedFeeDetailOutpatient(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Fee.Outpatient.FeeItemList)">
+            <summary>
+            删除单条已经上传明细
+            </summary>
+            <param name="r">挂号信息</param>
+            <param name="f">费用明细信息</param>
+            <returns>-1 失败 0 没有记录 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.DeleteUploadedFeeDetailsAllOutpatient(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            删除患者的所有费用上传明细
+            </summary>
+            <param name="r">挂号信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.DeleteUploadedFeeDetailsOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            删除指定数据集的明细
+            </summary>
+            <param name="r">挂号信息</param>
+            <param name="feeDetails">要删除的费用实体明细</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.ModifyUploadedFeeDetailOutpatient(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Fee.Outpatient.FeeItemList)">
+            <summary>
+            修改单条门诊已上传明细
+            </summary>
+            <param name="r">挂号信息</param>
+            <param name="f">要修改的费用实体明细</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.ModifyUploadedFeeDetailsOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            修改多条门诊已上传明细
+            </summary>
+            <param name="r">挂号信息</param>
+            <param name="feeDetails">要修改的费用实体明细集合</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.PreBalanceOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            医保预结算
+            </summary>
+            <param name="r">患者挂号信息</param>
+            <param name="feeDetails">患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.BalanceOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            医保结算
+            </summary>
+            <param name="r">患者挂号信息</param>
+            <param name="feeDetails">患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.CancelBalanceOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            取消结算
+            </summary>
+            <param name="r">患者挂号信息</param>
+            <param name="feeDetails">要取消结算的患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.CancelBalanceOutpatientHalf(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            取消结算(半退)
+            </summary>
+            <param name="r">患者挂号信息</param>
+            <param name="feeDetails">要取消结算的患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.UpdateFeeItemListInpatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            更新费用信息
+            /// </summary>
+            <param name="patient">患者基本信息实体</param>
+            <param name="f">费用明细</param>
+            <returns>成功 1 失败 -1 没有更新到数据 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.RecomputeFeeItemListInpatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            重新计算费用明细
+            </summary>
+            <param name="patient">住院患者基本信息</param>
+            <param name="feeItemList">住院费用单条明细</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.UploadRegInfoInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            住院登记函数
+            </summary>
+            <param name="patient">住院登记患者基本信息</param>
+            <returns>-1 失败 0 没有记录 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.CancelRegInfoInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            取消入院登记方法
+            </summary>
+            <param name="patient">住院患者基本信息实体</param>
+            <returns>成功 1 失败 -1 没有记录 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.RecallRegInfoInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            出院召回方法
+            </summary>
+            <param name="patient">住院患者基本信息实体</param>
+            <returns>成功 1 失败 -1 没有记录 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.GetRegInfoInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            获得医保住院登记信息
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <returns>-1 失败 0 没有记录 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.LogoutInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            出院登记方法
+            </summary>
+            <param name="patient">住院患者基本信息实体</param>
+            <returns>成功 1 失败 -1 没有记录 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.UploadFeeDetailInpatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            单条上传费用明细
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="f">住院费用明细</param>
+            <returns>-1 失败 0 没有记录 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.UploadFeeDetailsInpatient(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            多条上传费用明细
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="feeDetails">费用明细实体集合</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.QueryFeeDetailsInpatient(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            查询上传费用明细
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="feeDetails">费用明细实体集合</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.DeleteUploadedFeeDetailInpatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            删除单条已经上传明细
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="f">费用明细信息</param>
+            <returns>-1 失败 0 没有记录 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.DeleteUploadedFeeDetailsAllInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            删除患者的所有费用上传明细
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.DeleteUploadedFeeDetailsInpatient(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            删除指定数据集的明细
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="feeDetails">要删除的费用实体明细</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.ModifyUploadedFeeDetailInpatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList)">
+            <summary>
+            修改单条住院已上传明细
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="f">要修改的费用实体明细</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.ModifyUploadedFeeDetailsInpatient(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            修改多条住院已上传明细
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="feeDetails">要修改的费用实体明细集合</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.PreBalanceInpatient(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            住院医保预结算
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="feeDetails">患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.MidBalanceInpatient(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            住院医保中途结算
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="feeDetails">患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.BalanceInpatient(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            医保结算
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="feeDetails">患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.CancelBalanceInpatient(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            取消结算
+            </summary>
+            <param name="patient">住院登记基本信息</param>
+            <param name="feeDetails">要取消结算的患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.GetCodeScanningVerification(FS.HISFC.Models.Registration.Register,System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.Trans">
+            <summary>
+            本地数据连接
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.ErrCode">
+            <summary>
+            错误编码
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.ErrMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.Description">
+            <summary>
+            控件描述，最好填写。
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcare.IsUploadAllFeeDetailsOutpatient">
+            <summary>
+            门诊结算时是否整体上传
+            </summary>
+            <remarks>true 整体上传 false 部分上传</remarks>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareExtend">
+            <summary>
+            医保接口 扩展，支持HIS内部医保结算，必须继成此接口
+            {293FDD11-FC10-4ceb-8E4C-1A4304F22592}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareExtend.LocalBalanceOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@,System.Collections.ArrayList)">
+            <summary>
+            HIS内部医保结算
+            </summary>
+            <param name="r">患者挂号信息</param>
+            <param name="feeDetails">患者费用信息</param>
+            <param name="arlOther">其他信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareExtend.IsLocalProcess">
+            <summary>
+            获取或设置结算方式 
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareBuDan">
+            <summary>
+            医保接口 扩展，补单接口，支持HIS内部的补单结算
+            {293FDD11-FC10-4ceb-8E4C-1A4304F22592}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareBuDan.BdBalanceOutpatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            HIS内部医保补单结算
+            </summary>
+            <param name="r">患者挂号信息</param>
+            <param name="feeDetails">患者费用信息</param>
+            <returns>-1 失败 0 没有记录 >=1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMedcareBuDan.BalanceOutpatientAfterPreBalance(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+             <summary>
+            预结算后记录社保的结算信息
+             </summary>
+             <param name="r"></param>
+             <param name="feeDetails"></param>
+             <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IFeeExtend.IsValid(FS.HISFC.Models.Fee.Inpatient.FeeItemList,System.String@)">
+            <summary>
+            特殊验证合法性
+            </summary>
+            <param name="feeItemList">当前收费项目信息</param>
+            <param name="errText">错误信息</param>
+            <returns>true合法 false不合法</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IFeeExtendOutpatient">
+            <summary>
+            门诊收费再次判断有效性接口;{DA12F709-B696-4eb9-AD3B-6C9DB7D780CF}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IFeeExtendOutpatient.IsValid(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList,System.Collections.ArrayList,System.Object[])">
+            <summary>
+            验证门诊收费正常业务结束后,事务提交前,补充判断的方法
+            </summary>
+            <param name="r">患者挂号实体</param>
+            <param name="Invoices">发票实体集合</param>
+            <param name="feeItemLists">费用明细实体结合</param>
+            <param name="otherObjects">其他对象,根据当前项目实际传入判断,默认: object[0] 支付方式实体集合 object[1] 发票明细集合</param>
+            <returns>成功 true 失败 false</returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IFeeExtendOutpatient.Trans">
+            <summary>
+            本地事务
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IFeeExtendOutpatient.Err">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IRegisterExtend">
+            <summary>
+            住院登记扩展信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IRegisterExtend.IsInputValid(System.Windows.Forms.Control,System.String@)">
+            <summary>
+            附加判断输入的合法性
+            </summary>
+            <returns>成功: true 失败: false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IRegisterExtend.OpenExtendInputWindow(System.Int32,FS.HISFC.Models.RADT.Patient,System.String@)">
+            <summary>
+            在指定的TabIndex控件之后弹出扩展窗口
+            </summary>
+            <param name="tabIndex">指定的TabIndex</param>
+            <param name="patient">当前的患者基本信息实体</param>
+            <param name="errText">错误信息</param>
+            <returns>成功: 1 失败: -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IRegisterExtend.GetExtentPatientInfomation(FS.HISFC.Models.RADT.Patient,System.String@)">
+            <summary>
+            如果有附加信息录入,那么获得该录入信息
+            </summary>
+            <param name="patient">当前患者基本信息实体</param>
+            <param name="errText">错误信息</param>
+            <returns>成功: 1 失败: -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IRegisterExtend.InsertOtherInfomation(FS.HISFC.Models.RADT.Patient,FS.FrameWork.Management.Transaction,System.String@)">
+            <summary>
+            如果有附加信息,并且不在PatientInfo实体并且需要新的业务插入的时候,
+            如果主键重复,自己写处理.
+            </summary>
+            <param name="patient">当前患者基本信息实体</param>
+            <param name="t">当前的数据库事务</param>
+            <param name="errText">错误信息</param>
+            <returns>成功: 1 失败: -1 没有插入数据 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IRegisterExtend.UpdateOtherInfomation(FS.HISFC.Models.RADT.Patient,System.String@)">
+            <summary>
+            如果有附加信息,并且不在PatientInfo实体并且需要新的业务更新的时候,
+            如果主键重复,自己写处理.
+            </summary>
+            <param name="patient">当前患者基本信息实体</param>
+            <param name="t">当前的数据库事务</param>
+            <param name="errText">错误信息</param>
+            <returns>成功: 1 失败: -1 没有插入数据 0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IRegisterExtend.ClearOtherInfomation">
+            <summary>
+            清空其他信息,包括新增的控件等
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IRegisterExtend.InitExtendInfomation(System.String@)">
+            <summary>
+            初始化扩展信息
+            </summary>
+            <param name="errText">错误信息</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IBackFeeRecipePrint">
+            <summary>
+            住院退费申请单打印接口
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IPrepayPrint">
+            <summary>
+            预交金发票打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IPrepayPrint.SetValue(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.Prepay)">
+            <summary>
+            设置发票打印参数
+            </summary>
+            <param name="patient">住院患者基本信息实体</param>
+            <param name="prepay">预交金打印实体</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IPrepayPrint.SetValue(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList)">
+            <summary>
+            设置押金发票打印参数
+            </summary>
+            <param name="patient">住院患者基本信息实体</param>
+            <param name="alPrepay">预交金打印实体</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IPrepayPrint.Print">
+            <summary>
+            预交金打印函数
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IPrepayPrint.Clear">
+            <summary>
+            清空当前信息
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IPrepayPrint.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置本地数据库连接
+            </summary>
+            <param name="trans">数据库连接</param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IPrepayPrint.Trans">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.SetValueForPrint(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.Balance,System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            设置住院发票打印内容
+            </summary>
+            <param name="patientInfo">住院患者基本信息实体</param>
+            <param name="balanceInfo">结算打印实体</param>
+            <param name="alBalanceList">结算大类明细数组</param>
+            /// <param name="alPayList">支付方式</param>{A9A96DBA-B9D1-4227-9336-B4D5BBC42B4A}
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.SetValueForPreview(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.Balance,System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            设置住院发票预览打印内容
+            </summary>
+            <param name="patientInfo">住院患者基本信息实体</param>
+            <param name="balanceInfo">结算打印实体</param>
+            <param name="alBalanceList">结算大类明细数组</param>
+            <param name="alPayList">支付方式</param>{A9A96DBA-B9D1-4227-9336-B4D5BBC42B4A}
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.Print">
+            <summary>
+            住院发票打印函数
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.PrintPreview">
+            <summary>
+            住院发票打印预览函数
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.Clear">
+            <summary>
+            清空当前信息
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置本地数据库连接
+            </summary>
+            <param name="trans">数据库连接</param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.Trans">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.PatientInfo">
+            <summary>
+            患者综合实体
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IBalanceInvoicePrint.InvoiceType">
+            <summary>
+            发票所属大类，如“ZY01”“ZY02”“ZY03”等
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IMoneyAlert.SetPatientInfo">
+            <summary>
+            显示患者信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.delegateFeeItemListChanged">
+            <summary>
+            项目变化代理
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint">
+            <summary>
+            门诊发票打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.SetPreView(System.Boolean)">
+            <summary>
+            设置是否为预览模式
+            </summary>
+            <param name="isPreView">true预览 false 不预览</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.Print">
+            <summary>
+            打印自身
+            </summary>
+            <returns>-1 失败 1 成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置数据库连接
+            </summary>
+            <param name="t"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.SetPrintValue(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Fee.Outpatient.Balance,System.Collections.ArrayList,System.Collections.ArrayList,System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            设置发票打印内容
+            </summary>
+            <param name="regInfo">挂号信息</param>
+            <param name="invoice">发票主表信息</param>
+            <param name="invoiceDetails">发票明细信息</param>
+            <param name="feeDetails">费用明细信息</param>
+            <param name="alPayModes">支付方式集合</param>
+            <param name="isPreview">是否预览模式</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.SetPrintValue(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Fee.Outpatient.Balance,System.Collections.ArrayList,System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            设置发票打印内容
+            </summary>
+            <param name="regInfo">挂号信息</param>
+            <param name="invoice">发票主表信息</param>
+            <param name="invoiceDetails">发票明细信息</param>
+            <param name="feeDetails">费用明细信息</param>
+            <param name="isPreview">是否预览模式</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.SetPrintOtherInfomation(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList,System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            设置打印其他内容
+            </summary>
+            <param name="regInfo">挂号信息</param>
+            <param name="Invoices">所有主发票信息</param>
+            <param name="invoiceDetails">所有发票明细信息</param>
+            <param name="feeDetails">所有费用信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.PrintOtherInfomation">
+            <summary>
+            打印其他内容
+            </summary>
+            <returns>-1 失败 1 成功</returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.Register">
+            <summary>
+            挂号信息实体
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.InvoiceType">
+            <summary>
+            发票所属大类，如“ZY01”“ZY02”“ZY03”等
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.SetPayModeType">
+            <summary>
+            分发票后支付方式类别 1 不做处理 2 单独处理
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.SplitInvoicePayMode">
+            <summary>
+            分发票后的支付方式
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.Description">
+            <summary>
+            控件描述，最好填写。
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.IsPreView">
+            <summary>
+            设置是否为预览模式
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.IInvoicePrint.Trans">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.ISplitInvoice">
+            <summary>
+            门诊分发票
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.ISplitInvoice.SplitInvoice(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            门诊分发票
+            </summary>
+            <param name=" register">患者的信息</param>
+            <param name="feeItemLists">患者的总体费用明细</param>
+            <returns>成功 分好的费用明细,每个ArrayList代表一组应该生成发票的费用明细 失败 null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.ISplitInvoice.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            事务（需要时处理）
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.ISplitInvoice.Trans">
+            <summary>
+            事务
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.ISIReadCard">
+            <summary>
+            医保读卡，设置患者基本信息接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.ISIReadCard.ReadCard(System.String)">
+            <summary>
+            读卡方法
+            </summary>
+            <param name="pactCode">合同单位编码</param>
+            <returns>成功 1 失败 －1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.ISIReadCard.SetSIPatientInfo">
+            <summary>
+            设置界面医保患者信息
+            </summary>
+            <returns>成功 1 失败 －1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IInpatientChargePrint">
+            <summary>
+            住院记帐打印接口
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IAdptIllnessOutPatient">
+            <summary>
+            处理门诊适应症 {6586C3F9-2B89-4597-B9DA-63122A296F22}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IAdptIllnessOutPatient.SaveOutPatientFeeDetail(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList@)">
+            <summary>
+            保存门诊患者适应症
+            </summary>
+            <param name="registerObj">门诊患者实体</param>
+            <param name="alOutFeeDetail">门诊费用实体数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IAdptIllnessOutPatient.ProcessOutPatientFeeDetail(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Fee.Outpatient.FeeItemList@)">
+            <summary>
+            门诊患者适应症处理方法
+            </summary>
+            <param name="registerObj">门诊患者实体</param>
+            <param name="outFeeDetail">门诊费用实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IAdptIllnessInPatient">
+            <summary>
+            处理适住院应症{6586C3F9-2B89-4597-B9DA-63122A296F22}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IAdptIllnessInPatient.SaveInpatientFeeDetail(FS.HISFC.Models.RADT.PatientInfo,System.Collections.ArrayList@)">
+            <summary>
+            住院患者适应症处理方法
+            </summary>
+            <param name="patientObj">住院患者实体</param>
+            <param name="alInpatientDetail">住院费用实体数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IAdptIllnessInPatient.ProcessInpatientFeeDetail(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Fee.Inpatient.FeeItemList@)">
+            <summary>
+            住院患者适应症处理方法
+            </summary>
+            <param name="patientObj">住院患者实体</param>
+            <param name="alInpatientDetail">住院费用实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IGetSiItemGrade">
+            <summary>
+            获取医保类别(1甲2乙3丙4自费定死)
+            
+            {112B7DB5-0462-4432-AD9D-17A7912FFDBE}   项目医保类别显示接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IGetSiItemGrade.GetSiItemGrade(System.String,System.String@)">
+            <summary>
+            根据项目编码获取医保等级
+            </summary>
+            <param name="hisItemCode">医院项目编码</param>
+            <param name="siGrade">医院项目编码</param>
+            <returns>医保等级</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IGetSiItemGrade.GetSiItemGrade(System.String,System.String,System.String@)">
+            <summary>
+            根据合同
+            </summary>
+            <param name="pactID">合同单位编码</param>
+            <param name="hisItemCode">医院项目编码</param>
+            <param name="siGrade">医保等级</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IFeeOweMessage.FeeOweMessage(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.FT,System.Collections.ArrayList,FS.HISFC.Models.Base.MessType@,System.String@)">
+            <summary>
+            欠费提示
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="ft">费用信息</param>
+            <param name="feeItemLists">费用明细</param>
+            <param name="type">欠费提示类型</param>
+            <param name="err">提示信息</param>
+            <returns>true:成功 false:函数内部报错</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IPrintSurety">
+            <summary>
+            担保金打印凭证{0374EA05-782E-4609-9CDC-03236AB97906}
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.ISplitRecipe">
+            <summary>
+            分处方
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.ISplitRecipe.SplitRecipe(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList,System.String@)">
+            <summary>
+            分处方号
+            </summary>
+            <param name="feeItemList">费用集合</param>
+            <param name="errText">错误信息</param>
+            <returns>true成功 false失败</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IDoctIdirectFee">
+            <summary>
+            医生站直接收费
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IDoctIdirectFee.DoctIdirectFee(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList,System.DateTime,System.String@)">
+             <summary>
+             医生站直接收费函数
+             </summary>
+             <param name="r">患者挂号信息</param>
+             <param name="feeItemLists">费用明细</param>
+             <param name="FeeTime">收费时间</param>
+             <param name="errText">错误信息</param>
+            <returns>1成功 0为普通患者 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IDoctIdirectFee.UpdateOrderFee(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList,System.DateTime,System.String@)">
+            <summary>
+            直接收费后更新医嘱收费信息
+            </summary>
+            <param name="r">患者挂号信息</param>
+            <param name="feeItemLists">费用信息</param>
+            <param name="alOrder">医嘱信息</param>
+            <param name="feeTime">收费时间</param>
+            <param name="errText">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IDoctIdirectFee.CancelOrder(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Order.OutPatient.Order,System.String@)">
+            <summary>
+            作废医嘱信息
+            </summary>
+            <param name="r">患者挂号信息</param>
+            <param name="order">医嘱实体</param>
+            <param name="errText">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IValidPactItemChoose">
+            <summary>
+            合同单位优惠项目维护验证接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IValidPactItemChoose.ValidPactItemChoose(System.String,FS.HISFC.Models.Base.Item,System.String@)">
+            <summary>
+            合同单位优惠项目维护验证
+            </summary>
+            <param name="pactCode">合同单位编码</param>
+            <param name="baseItem">项目</param>
+            <param name="errText">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IOutPatientFeeRoundOff">
+            <summary>
+            门诊收费总费用取整接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IOutPatientFeeRoundOff.OutPatientFeeRoundOff(FS.HISFC.Models.Registration.Register,System.Decimal@,FS.HISFC.Models.Fee.Outpatient.FeeItemList@,System.String)">
+            <summary>
+            按插入明细方式取整
+            {DE54BEAE-EF40-4aa4-8DF5-8CCB2A3DDA1D}
+            </summary>
+            <param name="r"></param>
+            <param name="totCost"></param>
+            <param name="feeItemList"></param>
+            <param name="recipeSequence"></param>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.IInPatientFeeRoundOff">
+            <summary>
+            住院收费总费用取整接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.IInPatientFeeRoundOff.InPatientFeeRoundOff(FS.HISFC.Models.RADT.PatientInfo,System.Decimal@,FS.HISFC.Models.Fee.Inpatient.FeeItemList@)">
+            <summary>
+            按插入明细方式取整
+            {DE54BEAE-EF40-4aa4-8DF5-8CCB2A3DDA1D}
+            </summary>
+            <param name="r"></param>
+            <param name="totCost"></param>
+            <param name="feeItemList"></param>
+            <param name="recipeSequence"></param>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.FeeInterface.ILisCalculateTube">
+            <summary>
+            Lis计算试管接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.ILisCalculateTube.LisCalculateTubeForOutPatient(FS.HISFC.Models.Registration.Register,System.Collections.ArrayList,System.String,System.Decimal@,System.Collections.ArrayList@)">
+            <summary>
+            门诊计算试管接口
+            </summary>
+            <param name="r">患者信息</param>
+            <param name="alFeeItemList">收费信息集合</param>
+            <param name="recipeSequence">收费序列</param>
+            <param name="owncost">试管金额</param>
+            <param name="alTubeList">收取试管集合</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.FeeInterface.ILisCalculateTube.LisCalculateTubeForInPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            住院计算试管接口
+            </summary>
+            <param name="patientInfo">患者信息</param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.FeeInterface.ILisCalculateTube.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.StatisticsPoint.IStatisticsPoint">
+            <summary>
+            数据统计节点通用接口
+            {7930AB5C-6E33-4855-87E8-B87749639B88}
+            创建者：胡云贵
+            创建时间2020年7月13日
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.StatisticsPoint.IStatisticsPoint.SetValue(System.Object)">
+            <summary>
+            数据统计项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.StatisticsPoint.IStatisticsPoint.SetPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            设置患者信息
+            </summary>
+            <param name="patientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.StatisticsPoint.IStatisticsPoint.DoStatistics">
+            <summary>
+            数据统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.StatisticsPoint.IStatisticsPoint.DoAfter">
+            <summary>
+            后期操作
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IAccountPay">
+            <summary>
+            账户消费接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IAccountPay.OutpatientPay(FS.HISFC.Models.RADT.Patient,System.String,System.String,System.Decimal,System.Decimal,System.String,FS.HISFC.Models.RADT.Patient,FS.HISFC.Models.Account.PayWayTypes,System.Int32)">
+            <summary>
+            门诊消费
+            </summary>
+            <param name="patient">授权人</param>
+            <param name="accountNo">账号</param>
+            <param name="acountTypeCode">账户类型</param>
+            <param name="baseCost">基本金额</param>
+            <param name="donateCost">赠送金额</param>
+            <param name="payInvoiceNo">对应消费发票号</param>
+            <param name="empowerPatient">被授权人</param>
+            <param name="payWayTypes">消费类型：P购买套餐；R门诊挂号；C门诊消费；I住院结算;M套餐押金</param>
+            <param name="aMod">0退费1消费</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IAccountPay.QueryAccountDetail(System.String,System.String)">
+            <summary>
+            根据账号和账户类型查找账户明细
+            </summary>
+            <param name="accountNo">账号</param>
+            <param name="accountType">账号类型ALL 全部</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IAccountPay.UpdateCoupon(System.String,System.Decimal,System.String)">
+            <summary>
+            消费时的积分
+            </summary>
+            <param name="cardNO">卡号</param>
+            <param name="money">金额，负为退费，否则收费</param>
+            <param name="invoiceNo">发票号</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IReadIDCard">
+            <summary>
+            读取身份证信息接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IReadIDCard.GetIDInfo(System.String@,System.String@,System.String@,System.DateTime@,System.String@,System.String@,System.String@,System.DateTime@,System.DateTime@,System.String@,System.String@)">
+            <summary>
+            获取身份证信息
+            </summary>
+            <param name="IDCode">身份证</param>
+            <param name="Name">姓名</param>
+            <param name="Sex">性别</param>
+            <param name="BirthDay">出生日期</param>
+            <param name="Nation">民族</param>
+            <param name="Adress">地址</param>   
+            <param name="Agency">发证机关</param>
+            <param name="ExpireStart">有效期起</param>
+            <param name="ExpireEnd">有效期至</param>        
+            <param name="Message">图片</param> 
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IPrintExecDrug">
+            <summary>
+            药品执行医嘱打印接口 
+            配液单、领药单使用此接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintExecDrug.SetTitle(FS.HISFC.Models.Base.OperEnvironment,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            操作环境信息
+            </summary>
+            <param name="oper">配液人员信息</param>
+            <param name="dept">需配液科室</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintExecDrug.SetExecOrder(System.Collections.ArrayList,System.Collections.Hashtable)">
+            <summary>
+            执行医嘱信息
+            </summary>
+            <param name="alExecOrder">执行医嘱信息</param>
+            <param name="hsPatient">医嘱内包含患者信息</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintExecDrug.SetExecOrder(System.Collections.ArrayList)">
+            <summary>
+            执行医嘱信息
+            </summary>
+            <param name="alExecOrder">执行医嘱信息</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintExecDrug.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IPrintExecDrug.PrintPreview">
+            <summary>
+            打印预览
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.ITruncFee">
+            <summary>
+            金额四舍五入、四舍五舍接口
+            cao-lin
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.ITruncFee.TruncFee(System.Object[])">
+            <summary>
+            金额四舍五入、四舍五舍接口
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.ITruncFee.TruncFee(System.Object)">
+            <summary>
+            金额四舍五入、四舍五舍接口
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IPrintCancleFee">
+            <summary>
+            诊疗收费凭证打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IPrintCancleFee.SetValue(FS.HISFC.Models.Account.AccountRecord,FS.HISFC.Models.Account.AccountRecord)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="cardFee"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IPrintCancleFee.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.EMR.IEMR">
+            <summary>
+            传染病报告接口类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.EMR.IEMR.EMRRegister(System.Windows.Forms.IWin32Window,FS.HISFC.Models.RADT.Patient,FS.HISFC.Models.Base.ServiceTypes)">
+            <summary>
+            电子病历对外接口
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="patientType">患者类型：0门诊或者1住院</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.EMR.IEMR.ErrMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.ILeavePrint">
+            <summary>
+            病假建议书打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.ILeavePrint.Print">
+            <summary>
+            打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.ILeavePrint.PrintView">
+            <summary>
+            打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.ILeavePrint.RegId">
+            <summary>
+            患者挂号流水号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.ILeavePrint.IsPrint">
+            <summary>
+            是否打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.ClinicPath.IClinicPath.PatientIsSelectedPath(System.String)">
+            患者是否在临床路径
+             <param name="inpatientNo">患者住院号</param>
+             <returns>成功返回true 失败返回false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.ClinicPath.IClinicPath.ClickClinicPath(System.String)">
+            <summary>
+            点击患者
+            </summary>
+            <param name="inpatientNo">患者住院号</param>
+             <returns>在临床路径返回1 不在返回-1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.ClinicPath.IClinicPath.PatientOutByNurse(System.String)">
+            <summary>
+            护士站出院操作
+            </summary>
+            <param name="inpatientNO">患者住院号</param>
+            <returns>成功返回true 失败返回false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.ClinicPath.IClinicPath.PatientOutByDoctor(System.String)">
+            <summary>
+            医生站出院操作
+            </summary>
+            <param name="inpatientNO">患者住院号</param>
+            <returns>成功返回true 失败返回false</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.ClinicPath.IClinicPath.PatientSaveOrder(System.String,System.Collections.Generic.List{FS.HISFC.Models.Order.Inpatient.Order})">
+            <summary>
+            保存医嘱时，自动判断医生开立的医嘱，是否在路径中，如不在路径中，则弹出提示，填写变异原因。
+            </summary>
+            <param name="inpatientNo">患者住院号</param>
+            <param name="orderList">医嘱列表</param>
+            <returns>成功返回true 失败返回false</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Statistics.IStatistics">
+            <summary>
+            数据统计通用接口
+            创建者：胡云贵
+            创建时间2020年7月13日
+            {7930AB5C-6E33-4855-87E8-B87749639B88}
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Statistics.IStatistics.SetValue(System.Object)">
+            <summary>
+            数据统计项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Statistics.IStatistics.SetPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            设置患者信息
+            </summary>
+            <param name="patientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Statistics.IStatistics.DoStatistics">
+            <summary>
+            数据统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Statistics.IStatistics.DoAfter">
+            <summary>
+            后期操作
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.RADT.IPatientOut">
+            <summary>
+            出院登记调用接口
+            [创 建 者: houwb]<br></br>
+            [创建时间: 2011-8-23]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IPatientOut.BeforePatientOut(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            出院登记前调用
+            </summary>
+            <param name="patientInfo">住院患者实体</param>
+            <param name="oper">当前登陆操作员</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IPatientOut.OnPatientOut(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            出院登记过程中调用
+            </summary>
+            <param name="patientInfo">住院患者实体</param>
+            <param name="oper">当前登陆操作员</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IPatientOut.AfterPatientOut(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            出院登记后调用
+            </summary>
+            <param name="patientInfo">住院患者实体</param>
+            <param name="oper">当前登陆操作员</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.RADT.IPatientOut.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.IAlterOrder">
+            <summary>
+            [功能描述: 医嘱信息处理接口]<br></br>
+            [创 建 者: Dorian]<br></br>
+            [创建时间: 2008－01－22]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IAlterOrder.AlterOrderOnSaving(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.Generic.List{FS.HISFC.Models.Order.Inpatient.Order}@)">
+            <summary>
+            住院医嘱信息变更  
+            此方法内传入参数 orderList内没有医嘱流水号
+            {76FBAEE1-C996-41b4-9D77-F6CE457F6518}  更改原方法为增加保存前、保存后两个方法
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="recipeDoc">开立医师</param>
+            <param name="orderList">医嘱信息</param>
+            <returns>成功返回1 失败返回－1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IAlterOrder.AlterOrderOnSaved(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.Generic.List{FS.HISFC.Models.Order.Inpatient.Order}@)">
+            <summary>
+            住院医嘱信息变更 
+             {76FBAEE1-C996-41b4-9D77-F6CE457F6518}  更改原方法为增加保存前、保存后两个方法
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="recipeDoc">开立医师</param>
+            <param name="orderList">医嘱信息</param>
+            <returns>成功返回1 失败返回－1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IAlterOrder.AlterOrder(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,FS.HISFC.Models.Order.Inpatient.Order@)">
+            <summary>
+            住院医嘱信息变更
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="recipeDoc">开立医师</param>
+            <param name="order">医嘱信息</param>
+            <returns>成功返回1 失败返回－1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IAlterOrder.AlterOrder(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Collections.Generic.List{FS.HISFC.Models.Order.OutPatient.Order}@)">
+            <summary>
+            住院医嘱信息变更{48E6BB8C-9EF0-48a4-9586-05279B12624D}
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="recipeDoc">开立医师</param>
+            <param name="orderList">医嘱信息</param>
+            <returns>成功返回1 失败返回－1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.IAlterOrder.AlterOrder(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,FS.HISFC.Models.Order.OutPatient.Order@)">
+            <summary>
+            住院医嘱信息变更{48E6BB8C-9EF0-48a4-9586-05279B12624D}
+            </summary>
+            <param name="patient">患者信息</param>
+            <param name="recipeDoc">开立医师</param>
+            <param name="order">医嘱信息</param>
+            <returns>成功返回1 失败返回－1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.ITreatmentPrint">
+            <summary>
+            治疗单打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Nurse.ITreatmentPrint.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Nurse.ITreatmentPrint.SetData(System.Collections.ArrayList)">
+            <summary>
+            加载数据（门诊费用明细）
+            </summary>
+            <param name="feeItemList"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Nurse.ITreatmentPrint.PrintBill">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.InterfaceManager">
+            <summary>
+            接口实现配置
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.InterfaceManager.GetTruncFeeType">
+            <summary>
+            获取金额四舍五入、四舍五舍接口配置
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IKeepAccountPatient">
+            <summary>
+            [功能描述：收费前--记帐患者处理]
+            [创建时间： 2011-12-30]
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IKeepAccountPatient.IsKeepAccountPatient(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            判断是否记帐患者
+            </summary>
+            <param name="PatientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IKeepAccountPatient.DealwithKeepAccount(FS.HISFC.Models.Registration.Register@,System.Collections.ArrayList@,System.Collections.ArrayList@,System.Collections.ArrayList@,System.Collections.ArrayList@,System.Collections.ArrayList@,System.String@)">
+            <summary>
+            记帐处理
+            </summary>
+            <param name="PatientInfo"></param>
+            <param name="balancePays"></param>
+            <param name="invoices"></param>
+            <param name="invoiceDetails"></param>
+            <param name="invoiceFeeDetails"></param>
+            <param name="comFeeItemLists"></param>
+            <param name="errMsg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Equipment.IOutRePrint">
+            <summary>
+            IOutRePrint<br></br>
+            [功能描述: 设备出库单补打接口]<br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2008-03-19]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IOutRePrint.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IOutRePrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.IItemCompareInfo">
+            <summary>
+            获取项目扩展信息接口
+            获取医保、公费对照信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.IItemCompareInfo.GetCompareItemInfo(FS.HISFC.Models.Base.Item,FS.HISFC.Models.Base.PactInfo,FS.HISFC.Models.SIInterface.Compare@,System.String@)">
+            <summary>
+            获取医保对照项目
+            </summary>
+            <param name="itemID"></param>
+            <param name="compareItem"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.IItemCompareInfo.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IPrintCreateAccount">
+            <summary>
+            打印建帐户打印凭证
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintCreateAccount.SetValue(FS.HISFC.Models.Account.Account)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="account">帐户实体</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintCreateAccount.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IPrintPrePayRecipe">
+            <summary>
+            打印预交金收据
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintPrePayRecipe.SetValue(FS.HISFC.Models.Account.PrePay)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="account">帐户实体</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintPrePayRecipe.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IPrintCancelVacancy">
+            <summary>
+            打印退帐户余额
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintCancelVacancy.SetValue(FS.HISFC.Models.Account.AccountRecord)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="account">帐户实体</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintCancelVacancy.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IPrintOperRecipe">
+            <summary>
+            帐户操作凭证打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintOperRecipe.SetValue(FS.HISFC.Models.Account.AccountRecord)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="accountRecord"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintOperRecipe.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IPrintLable">
+            <summary>
+            高保患者标签打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IPrintLable.PrintLable(FS.HISFC.Models.Account.AccountCard)">
+            <summary>
+            打印高保患者标签
+            </summary>
+            <param name="accountCard"></param>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Account.IAccountPrint">
+            <summary>
+            [功能描述: 门诊帐户预交金打印]<br></br>
+            [创 建 者: 路志鹏]<br></br>
+            [创建时间: 2006-6-22]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间=''
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IAccountPrint.PrintSetValue(FS.HISFC.Models.Account.Account)">
+            <summary>
+            设置打印数据
+            </summary>
+            <param name="account">帐户实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IAccountPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Account.IPassWord.ValidPassWord">
+            <summary>
+            验证密码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Account.IPassWord.Patient">
+            <summary>
+            门诊卡号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Account.IPassWord.IsOK">
+            <summary>
+            是否验证密码
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.IBookingRegisterBill">
+            <summary>
+            预约挂号打印{C9ABAAAF-18E3-4553-B5A0-822E527BE685}
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.RADT.IBillPrint">
+            <summary>
+             住院床头卡打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBillPrint.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBillPrint.PrintPreview">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBillPrint.ShowBill(System.Collections.ArrayList,FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            设置信息
+            </summary>
+            <param name="patients"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBillPrint.Export(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            导出{A57CF487-9900-42a4-AEB7-B94BAEC41AD1}
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBillPrint.ShowData(System.Data.DataTable,FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+             给要导出的控件绑定数据源{A57CF487-9900-42a4-AEB7-B94BAEC41AD1}
+            </summary>
+            <param name="dt"></param>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.RADT.IBillPrint.Clear">
+            <summary>
+            清空
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IAfterQueryRegList">
+            <summary>
+            门诊医生站输入卡号查询挂号列表后操作
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IAfterQueryRegList.OnAfterQueryRegList(System.Collections.ArrayList,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            查询患者挂号列表后操作
+            </summary>
+            <param name="alReginfo">有效挂号列表</param>
+            <param name="dept">当前登录科室</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IAfterQueryRegList.OnConfirmRegInfo(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            医生站自助挂号后操作
+            </summary>
+            <param name="regInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IAfterQueryRegList.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IDepositInvoice.SetPrintValue(System.Collections.ArrayList)">
+            <summary>
+            填值
+            </summary>
+            <param name="InvoiceNO">发票号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IDepositInvoice.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IDepositInvoice.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IDepositInvoice.Clear">
+            <summary>
+            清空当前信息
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IDepositInvoice.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置本地数据库连接
+            </summary>
+            <param name="trans">数据库连接</param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.MedicalPackage.IDepositInvoice.Trans">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterface">
+            <summary>
+            [功能描述: 病案接口类]<br></br>
+            [创 建 者: 张俊义]<br></br>
+            [创建时间: 2007-4-4 ]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterface.ControlValue(FS.HISFC.Models.HealthRecord.Base)">
+            <summary>
+            病案实体 ,因为此实体聚合了FS.HISFC.Models.RADT.PatientInfo，所以住院实体可以先转化成病案实体
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterface.Reset">
+            <summary>
+            清空数据
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterfaceBack">
+             <summary>
+            病案首页第二页  {DC8452B8-FF77-4639-9522-A2CCED4B8A5C}
+             </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterfaceBack.ControlValue(FS.HISFC.Models.HealthRecord.Base)">
+            <summary>
+            病案实体 ,因为此实体聚合了FS.HISFC.Models.RADT.PatientInfo，所以住院实体可以先转化成病案实体
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterfaceBack.Reset">
+            <summary>
+            清空数据
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterfaceAdditional">
+             <summary>
+            病案首页附页  {DC8452B8-FF77-4639-9522-A2CCED4B8A5C}
+             </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterfaceAdditional.ControlValue(FS.HISFC.Models.HealthRecord.Base)">
+            <summary>
+            病案实体 ,因为此实体聚合了FS.HISFC.Models.RADT.PatientInfo，所以住院实体可以先转化成病案实体
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.HealthRecord.HealthRecordInterfaceAdditional.Reset">
+            <summary>
+            清空数据
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IOutpatientEvaluation.WorkAppriaseEvaluation(System.String,System.String,System.String,System.String)">
+            <summary>
+            工作评价
+            </summary>
+            <param name="szDoctorName">操作员名称</param>
+            <param name="szOfisName">科室名称</param>
+            <param name="szSickCard">社保卡号(CardNO)</param>
+            <param name="szSickName">患者姓名</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IOutpatientEvaluation.WorkAppriaseEvaluation(System.String,System.String)">
+            <summary>
+            工作评价
+            </summary>
+            <param name="szSickCard">社保卡号(CardNO)</param>
+            <param name="szSickName">患者姓名</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Fee.IOutpatientEvaluation.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IGetItemPrice">
+            <summary>
+            取价格函数接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IGetItemPrice.GetPrice(System.String,FS.HISFC.Models.Registration.Register,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal@)">
+            <summary>
+            门诊获取项目价格函数
+            </summary>
+            <param name="itemCode">项目编码</param>
+            <param name="register">挂号信息</param>
+            <param name="UnitPrice">三甲价</param>
+            <param name="ChildPrice">儿童价</param>
+            <param name="SPPrice">特诊价</param>
+            <param name="PurchasePrice">购入价</param>
+            <param name="orgPrice">原始价格</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IGetItemPrice.GetPriceForInpatient(System.String,FS.HISFC.Models.RADT.PatientInfo,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal@)">
+            <summary>
+            住院取价格函数，根据合同单位和项目信息获取患者收费价格和原始价格
+            </summary>
+            <param name="itemCode">项目编码</param>
+            <param name="patientInfo">患者信息</param>
+            <param name="UnitPrice">三甲价</param>
+            <param name="ChildPrice">儿童价</param>
+            <param name="SPPrice">特诊价</param>
+            <param name="PurchasePrice">购入价</param>
+            <param name="orgPrice">原始价格</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IDiagnosisProvePrint">
+            <summary>
+            诊断证明书打印接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IDiagnosisProvePrint.Print">
+            <summary>
+            打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IDiagnosisProvePrint.PrintView">
+            <summary>
+            打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IDiagnosisProvePrint.RegId">
+            <summary>
+            患者挂号流水号
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IDiagnosisProvePrint.IsPrint">
+            <summary>
+            是否打印
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Registration.IPrintBar">
+            <summary>
+            打印条码{D2F77BDA-F5E5-48fe-AB73-B7FE6D92E6E2}
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Order.IBeforeAddOrder">
+            <summary>
+            开立动作前接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IBeforeAddOrder.OnBeforeAddOrderForOutPatient(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            门诊保存处方
+            </summary>
+            <param name="regObj">挂号实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">处方列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Order.IBeforeAddOrder.OnBeforeAddOrderForInPatient(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            住院保存医嘱
+            </summary>
+            <param name="patientInfo">住院患者实体</param>
+            <param name="reciptDept">开立科室</param>
+            <param name="reciptDoct">开立医生</param>
+            <param name="alOrder">医嘱列表</param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Order.IBeforeAddOrder.ErrInfo">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.IInjectPrint">
+            <summary>
+            IInjectPrint<br></br>
+            <Font color='#FF1111'>[功能描述:门诊注射单打印接口{637EDB0D-3F39-4fde-8686-F3CD87B64581}]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-7-29]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.ILis">
+            <summary>
+            [功能描述: LIS医嘱接口]<br></br>
+            [创 建 者: wolf]<br></br>
+            [创建时间: 2007-05-11]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.PlaceOrder(FS.HISFC.Models.Order.Order)">
+            <summary>
+            下医嘱
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.PlaceOrder(System.Collections.Generic.ICollection{FS.HISFC.Models.Order.Order})">
+            <summary>
+            下组合医嘱
+            </summary>
+            <param name="orders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.CheckOrder(FS.HISFC.Models.Order.Order)">
+            <summary>
+            检查医嘱项目是否可以开立
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.SetPatient(FS.HISFC.Models.RADT.Patient)">
+            <summary>
+            设置患者信息
+            </summary>
+            <param name="patientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.Connect">
+            <summary>
+            数据库连接
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.Disconnect">
+            <summary>
+            数据库关闭
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.Commit">
+            <summary>
+            提交
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.Rollback">
+            <summary>
+            回滚
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.ShowResult(System.String)">
+            <summary>
+            按医嘱显示检验结果
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.QueryResult">
+            <summary>
+            查询检验结果
+            </summary>
+            <param name="inpatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.ShowResultByPatient">
+            <summary>
+            显示结果
+            </summary>
+            <param name="inpatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.IsReportValid(System.String)">
+            <summary>
+            检验结果是否已经生成
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ILis.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            设置本地数据库连接
+            </summary>
+            <param name="t"></param>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.ILis.ErrCode">
+            <summary>
+            错误编码
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.ILis.ErrMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.ILis.PatientType">
+            <summary>
+            患者类别
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Common.ILis.ResultType">
+            <summary>
+            结果类型
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IOperCard.ReadMCardNO(System.String@,System.String@)">
+            <summary>
+            读取卡面号 0为读取成功 -1失败
+            </summary>
+            <param name="MCardNO"></param>
+            <param name="Message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IOperCard.ReadCardNO(System.String@,System.String@)">
+            <summary>
+            读取病历号0为读取成功 -1失败
+            </summary>
+            <param name="CardNO"></param>
+            <param name="Message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Account.IOperCard.WriterCardNO(System.Int32,System.String,System.String@)">
+            <summary>
+            写入病历号 0为成功 -1失败
+            </summary>
+            <param name="sec">扇区</param>
+            <param name="CardNO"></param>
+            <param name="Message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Operation.IRecordFormPrint">
+            <summary>
+            [功能描述: 手术登记打印接口]<br></br>
+            [创 建 者: 王铁全]<br></br>
+            [创建时间: 2007-01-08]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.Operation.IRecordFormPrint.OperationRecord">
+            <summary>
+            手术登记单对象
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Nurse.IInjectPatientPrint">
+            <summary>
+            IInjectPatientPrint<br></br>
+            <Font color='#FF1111'>[功能描述:门诊注射患者卡打印接口{637EDB0D-3F39-4fde-8686-F3CD87B64581}]</Font><br></br>
+            [创 建 者: 耿晓雷]<br></br>
+            [创建时间: 2010-7-29]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IReprintInvoice">
+            <summary>
+            发票重打接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IReprintInvoice.SetValue(FS.HISFC.Models.Fee.Outpatient.Balance)">
+            <summary>
+            为打印UC赋值
+            </summary>
+            <param name="invoice"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IReprintInvoice.PrintInvoice">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Fee.IReprintInvoice.PrintInvoiceNotRollCode">
+            <summary>
+            补打
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Fee.IMoneyAlert">
+            <summary>
+            患者欠费单据打印接口
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Equipment.IInPrint">
+            <summary>
+            IInPrint<br></br>
+            [功能描述: 设备入库单打印接口]<br></br>
+            [创 建 者: 许超]<br></br>
+            [创建时间: 2007-12-16]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IInPrint.PrintView">
+            <summary>
+            打印预览
+            </summary>
+            <returns>>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Equipment.IInPrint.Print">
+            <summary>
+            打印
+            </summary>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.Common.ICheckPrint">
+            <summary>
+            打印检查申请单
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ICheckPrint.ControlValue(FS.HISFC.Models.RADT.Patient,System.Collections.Generic.List{FS.HISFC.Models.Order.Inpatient.Order})">
+            <summary>
+            
+            </summary>
+            <param name="patient">住院患者实体</param>
+            <param name="orderList">医嘱实体列表</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ICheckPrint.ControlValue(FS.HISFC.Models.Registration.Register,System.Collections.Generic.List{FS.HISFC.Models.Order.OutPatient.Order})">
+            <summary>
+            
+            </summary>
+            <param name="patient">门诊患者实体</param>
+            <param name="orderList">医嘱实体列表</param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.Common.ICheckPrint.Reset">
+            <summary>
+            清空数据
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage">
+            <summary>
+            IPackage<br></br>
+            [功能描述: 套餐管理接口]
+            [创建时间: 2017-03-04]
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+            	/>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.SetTrans(System.Data.IDbTransaction)">
+            <summary>
+            事务设置
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.GetPackage(System.String)">
+            <summary>
+            通过编号获取套餐信息
+            </summary>
+            <param name="packageID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.GetPackageListByType(System.String)">
+            <summary>
+            按类型获取套餐
+            </summary>
+            <param name="Type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.AddPackage(FS.HISFC.Models.MedicalPackage.Package)">
+            <summary>
+            增加套餐
+            </summary>
+            <param name="package"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.UpdatePackage(FS.HISFC.Models.MedicalPackage.Package)">
+            <summary>
+            更新套餐
+            </summary>
+            <param name="package"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.DeletePackage(FS.HISFC.Models.MedicalPackage.Package)">
+            <summary>
+            删除套餐
+            </summary>
+            <param name="package"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.SetPackageValid(FS.HISFC.Models.MedicalPackage.Package,System.Boolean)">
+            <summary>
+            设置套餐启用或禁用
+            </summary>
+            <param name="package"></param>
+            <param name="valid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.QueryTotFeeByPackge(System.String)">
+            <summary>
+            根据套餐查询套餐总金额
+            </summary>
+            <param name="packageID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.ShiftPackageOwner(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.MedicalPackage.Fee.Invoice,System.String)">
+            <summary>
+            套餐转移，套餐主表
+            </summary>
+            <param name="PatientInfo"></param>
+            <param name="PatientInfoNew"></param>
+            <param name="invoiceInfo"></param>
+            <param name="operCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.GetPackageItem(System.String,System.String)">
+            <summary>
+            通过套餐编号和序号获取套餐信息
+            </summary>
+            <param name="packageID"></param>
+            <param name="sequenceNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.GetPackageItemByPackageID(System.String)">
+            <summary>
+            根据套餐编号获取套餐明细
+            </summary>
+            <param name="PackageID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.AddPackageDetail(FS.HISFC.Models.MedicalPackage.Package,FS.HISFC.Models.MedicalPackage.PackageDetail)">
+            <summary>
+            增加套餐明细
+            </summary>
+            <param name="package"></param>
+            <param name="packageDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.DeletePackageDetail(FS.HISFC.Models.MedicalPackage.Package,FS.HISFC.Models.MedicalPackage.PackageDetail)">
+            <summary>
+            删除套餐明细
+            </summary>
+            <param name="package"></param>
+            <param name="packageDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.UpdatePackageDetail(FS.HISFC.Models.MedicalPackage.PackageDetail)">
+            <summary>
+            更新套餐明细
+            </summary>
+            <param name="packageDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.DeletePackageDetail(System.String)">
+            <summary>
+            根据套餐编号删除套餐明细
+            </summary>
+            <param name="packageID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.ShiftPackageDetailOwner(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.MedicalPackage.Fee.Invoice,System.String)">
+            <summary>
+            套餐转移，套餐明细表{3599D82C-0E7E-4628-8FC6-DDAAA1CC6335}
+            </summary>
+            <param name="PatientInfo"></param>
+            <param name="PatientInfoNew"></param>
+            <param name="invoiceInfo"></param>
+            <param name="operCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.Err">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.ErrCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Interface.MedicalPackage.IPackage.DBErrCode">
+            <summary>
+            数据库错误码
+            </summary>
+        </member>
+    </members>
+</doc>

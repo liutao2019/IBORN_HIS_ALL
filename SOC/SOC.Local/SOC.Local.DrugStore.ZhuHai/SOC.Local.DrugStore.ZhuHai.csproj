@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F6E82817-8903-4051-B181-B7835BD1AB6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.DrugStore.ZhuHai</RootNamespace>
+    <AssemblyName>SOC.Local.DrugStore.ZhuHai</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.HealthRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Order, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Order.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.RADT, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SpeechLib, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="policy.3.0.FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="policy.3.0.FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizLogic.Pharmacy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizLogic.Pharmacy.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.PharmacyInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.PharmacyInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Local.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.Public.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CallSpeak.cs" />
+    <Compile Include="Common\Function.cs" />
+    <Compile Include="Common\LocalWorkLoadManager.cs" />
+    <Compile Include="Common\WorkLoadManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportPrint\ucInPatientInfusionConsumptionReportPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ReportPrint\ucInPatientInfusionConsumptionReportPrint.Designer.cs">
+      <DependentUpon>ucInPatientInfusionConsumptionReportPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucOutPatientDrugReturnDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucOutPatientDrugReturnDetail.Designer.cs">
+      <DependentUpon>ucOutPatientDrugReturnDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucOutPatientDrugWorkLoad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucOutPatientDrugWorkLoad.Designer.cs">
+      <DependentUpon>ucOutPatientDrugWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInPatientDrugWorkLoad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInPatientDrugWorkLoad.Designer.cs">
+      <DependentUpon>ucInPatientDrugWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInPatientDrugWorkLoadPCC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInPatientDrugWorkLoadPCC.Designer.cs">
+      <DependentUpon>ucInPatientDrugWorkLoadPCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInPatientUnReduceStockQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInPatientUnReduceStockQuery.Designer.cs">
+      <DependentUpon>ucInPatientUnReduceStockQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInPatientInfusionConsumptionReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInPatientInfusionConsumptionReport.Designer.cs">
+      <DependentUpon>ucInPatientInfusionConsumptionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInPatientUnSendDrugQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInPatientUnSendDrugQuery.Designer.cs">
+      <DependentUpon>ucInPatientUnSendDrugQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInPatientDeptDrugedQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInPatientDeptDrugedQuery.Designer.cs">
+      <DependentUpon>ucInPatientDeptDrugedQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInPatientDeptReturnDrugQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInPatientDeptReturnDrugQuery.Designer.cs">
+      <DependentUpon>ucInPatientDeptReturnDrugQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucSendDrugKSSReportTot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucSendDrugKSSReportTot.Designer.cs">
+      <DependentUpon>ucSendDrugKSSReportTot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucSendDrugBaseDrugReportTot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucSendDrugBaseDrugReportTot.Designer.cs">
+      <DependentUpon>ucSendDrugBaseDrugReportTot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucOutPatientDrugWorkLoadPCC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucOutPatientDrugWorkLoadPCC.Designer.cs">
+      <DependentUpon>ucOutPatientDrugWorkLoadPCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\DrugBillInterfaceImplement.cs" />
+    <Compile Include="ZDWY\InPatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\frmWorkLoad.designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\PrintInterfaceImplement.cs" />
+    <Compile Include="ZDWY\InPatient\ucDetailDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucDetailDrugBill.designer.cs">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucHerbalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucHerbalDrugBill.designer.cs">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucNormalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucNormalDrugBill.designer.cs">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucTotalDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucTotalDrugBill.designer.cs">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="ZDWY\InPatient\ucHerbalDrugBillPrintByPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucHerbalDrugBillPrintByPatient.designer.cs">
+      <DependentUpon>ucHerbalDrugBillPrintByPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucAnestheticDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucAnestheticDrugBill.designer.cs">
+      <DependentUpon>ucAnestheticDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucAnestheticByPatientDrugBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InPatient\ucAnestheticByPatientDrugBill.designer.cs">
+      <DependentUpon>ucAnestheticByPatientDrugBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\Bizlogic\DrugStoreAsign.cs" />
+    <Compile Include="ZDWY\Outpatient\Models\DrugStoreAsign.cs" />
+    <Compile Include="ZDWY\Outpatient\frmOutpatientLEDShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\frmOutpatientLEDShow.designer.cs">
+      <DependentUpon>frmOutpatientLEDShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\frmWorkLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\frmWorkLoad.designer.cs">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\PrintInterfaceImplement.cs" />
+    <Compile Include="ZDWY\Outpatient\ucCallQueueManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\ucCallQueueManager.Designer.cs">
+      <DependentUpon>ucCallQueueManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\ucDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\ucDrugList.designer.cs">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\ucHerbalDrugList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\ucHerbalDrugList.designer.cs">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\ucReicpeInfoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\ucReicpeInfoLabel.designer.cs">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\WorkLoadInterfaceImplement.cs" />
+    <Compile Include="ZDWY\Outpatient\ucReicpeInfoLabelPCC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Outpatient\ucReicpeInfoLabelPCC.designer.cs">
+      <DependentUpon>ucReicpeInfoLabelPCC.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportPrint\ucInPatientInfusionConsumptionReportPrint.resx">
+      <DependentUpon>ucInPatientInfusionConsumptionReportPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucOutPatientDrugReturnDetail.resx">
+      <DependentUpon>ucOutPatientDrugReturnDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucOutPatientDrugWorkLoad.resx">
+      <DependentUpon>ucOutPatientDrugWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInPatientDrugWorkLoad.resx">
+      <DependentUpon>ucInPatientDrugWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInPatientDrugWorkLoadPCC.resx">
+      <DependentUpon>ucInPatientDrugWorkLoadPCC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInPatientUnReduceStockQuery.resx">
+      <DependentUpon>ucInPatientUnReduceStockQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInPatientInfusionConsumptionReport.resx">
+      <DependentUpon>ucInPatientInfusionConsumptionReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInPatientUnSendDrugQuery.resx">
+      <DependentUpon>ucInPatientUnSendDrugQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInPatientDeptDrugedQuery.resx">
+      <DependentUpon>ucInPatientDeptDrugedQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInPatientDeptReturnDrugQuery.resx">
+      <DependentUpon>ucInPatientDeptReturnDrugQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucSendDrugKSSReportTot.resx">
+      <DependentUpon>ucSendDrugKSSReportTot.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucSendDrugBaseDrugReportTot.resx">
+      <DependentUpon>ucSendDrugBaseDrugReportTot.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucOutPatientDrugWorkLoadPCC.resx">
+      <DependentUpon>ucOutPatientDrugWorkLoadPCC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ucDetailDrugBill.resx">
+      <DependentUpon>ucDetailDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ucHerbalDrugBill.resx">
+      <DependentUpon>ucHerbalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ucNormalDrugBill.resx">
+      <DependentUpon>ucNormalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ucTotalDrugBill.resx">
+      <DependentUpon>ucTotalDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ucHerbalDrugBillPrintByPatient.resx">
+      <DependentUpon>ucHerbalDrugBillPrintByPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ucAnestheticDrugBill.resx">
+      <DependentUpon>ucAnestheticDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InPatient\ucAnestheticByPatientDrugBill.resx">
+      <DependentUpon>ucAnestheticByPatientDrugBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Outpatient\frmOutpatientLEDShow.resx">
+      <DependentUpon>frmOutpatientLEDShow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Outpatient\frmWorkLoad.resx">
+      <DependentUpon>frmWorkLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Outpatient\ucCallQueueManager.resx">
+      <DependentUpon>ucCallQueueManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Outpatient\ucDrugList.resx">
+      <DependentUpon>ucDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Outpatient\ucHerbalDrugList.resx">
+      <DependentUpon>ucHerbalDrugList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Outpatient\ucReicpeInfoLabel.resx">
+      <DependentUpon>ucReicpeInfoLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Outpatient\ucReicpeInfoLabelPCC.resx">
+      <DependentUpon>ucReicpeInfoLabelPCC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

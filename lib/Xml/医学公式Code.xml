@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicalFormulas>
+	<Formulas>
+		<Formula name="补钠计算" level="2">
+			<Item ID="1" name="应补钠总量"/>
+			<Item ID="2" name="应补氯化钠总量"/>
+			<Item ID="3" name="应补生理盐水"/>
+			<Item ID="4" name="应补3%氯化钠"/>
+			<Item ID="5" name="应补5%氯化钠"/>
+		</Formula>
+		<Formula name="补液计算" level="1">
+			<Item ID="6" name="输液量"/>
+			<Item ID="7" name="补液量"/>
+		</Formula>
+		<Formula name="补铁计算" level="1">
+			<Item ID="8" name="总缺铁量"/>
+			<Item ID="9" name="需补充铁量"/>
+		</Formula>
+	</Formulas>
+	<!-- 补钠计算 -->
+	<MedicalFormula name="补钠计算" level="2">
+		<Group name="男性可使用公式">
+			<Item>
+				<ID>1</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补钠总量</Name>
+				<Factor>0.6</Factor>
+				<Code>NaTotal</Code>
+			</Item>
+			<Item>
+				<ID>2</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补氯化钠总量</Name>
+				<Factor>0.035</Factor>
+				<Code>NaLvTotal</Code>
+			</Item>
+			<Item>
+				<ID>3</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补生理盐水</Name>
+				<Factor>3.888</Factor>
+				<Code>NaSaline</Code>
+			</Item>
+			<Item>
+				<ID>4</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补3%氯化钠</Name>
+				<Factor>1.1666</Factor>
+				<Code>Na3Per</Code>
+			</Item>
+			<Item>
+				<ID>5</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补5%氯化钠</Name>
+				<Factor>0.7</Factor>
+				<Code>Na5Per</Code>
+			</Item>
+		</Group>
+		<Group name="女性可使用公式">
+			<Item>
+				<ID>1</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补钠总量</Name>
+				<Factor>0.5</Factor>
+				<Code>NaTotal</Code>
+			</Item>
+			<Item>
+				<ID>2</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补氯化钠总量</Name>
+				<Factor>0.03</Factor>
+				<Code>NaLvTotal</Code>
+			</Item>
+			<Item>
+				<ID>3</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补生理盐水</Name>
+				<Factor>3.311</Factor>
+				<Code>NaSaline</Code>
+			</Item>
+			<Item>
+				<ID>4</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补3%氯化钠</Name>
+				<Factor>3.311</Factor>
+				<Code>Na3Per</Code>
+			</Item>
+			<Item>
+				<ID>5</ID>
+				<Type>NaCalculate</Type>
+				<Name>应补5%氯化钠</Name>
+				<Factor>0.596</Factor>
+				<Code>Na5Per</Code>
+			</Item>
+		</Group>
+	</MedicalFormula>
+	<!-- 补液计算 -->
+	<MedicalFormula name="补液计算" level="1">
+		<Item>
+			<ID>6</ID>
+			<Type>FluidInfusionCalculate</Type>
+			<Name>输液量</Name>
+			<Factor/>
+			<Code>FluidVolume</Code>
+		</Item>
+		<Item>
+			<ID>7</ID>
+			<Type>InfusionInfusionCalculate</Type>
+			<Name>补液量</Name>
+			<Factor/>
+			<Code>InfusionVolume</Code>
+		</Item>
+	</MedicalFormula>
+	<!-- 补铁计算 -->
+	<MedicalFormula name="补铁计算" level="1">
+		<Item>
+			<ID>8</ID>
+			<Type>IronDeficiency</Type>
+			<Name>总缺铁量</Name>
+			<Factor/>
+			<Code>IronDeficiency</Code>
+		</Item>
+		<Item>
+			<ID>9</ID>
+			<Type>IronVolume</Type>
+			<Name>需补充铁量</Name>
+			<Factor/>
+			<Code>InfusionVolume</Code>
+		</Item>
+	</MedicalFormula>
+</MedicalFormulas>

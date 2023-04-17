@@ -1,0 +1,99 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>datasource</Name><Sql>select datee,'全院' alldept,'all' alldeptcode,sum(医生人日数), sum(主任), sum(工时), sum(诊疗人次合计), sum(专科人次), sum(专家人次), sum(健康检查), sum(手术例数), sum(家庭病床), sum(其他诊疗) from ( select 
+to_char(ttt.rq,'yyyy-mm-dd') datee,
+case when ttt.dept_name='妇产科门诊' then '3001' 
+       when ttt.dept_name='妇产科急诊' then '3006' 
+       when ttt.dept_name='优生遗传门诊' then '3007' 
+       when ttt.dept_name='助产咨询门诊' then '3008' 
+       when ttt.dept_name='营养咨询门诊' then '3009' 
+       when ttt.dept_name='盆底康复门诊' then '3010' 
+       when ttt.dept_name='儿科门诊' then '3002' 
+       when ttt.dept_name='中医科门诊' then '3003' 
+       when ttt.dept_name='内科门诊' then '3015' 
+       when ttt.dept_name='外科门诊' then '3005' 
+       when ttt.dept_name='预防保健科门诊' then '3004' 
+       when ttt.dept_name='儿童保健门诊' then '3013' 
+       when ttt.dept_name='产后膳食调理门诊' then '3011' 
+       when ttt.dept_name='孕产妇全程照护咨询门诊' then '3012' 
+       when ttt.dept_name='心理咨询门诊' then '3016' 
+       when ttt.dept_name='儿科急诊' then '3014' 
+       when ttt.dept_name='医学美容门诊' then ttt.dept_code  
+         else ttt.dept_code   end dept_code,
+ttt.dept_name,
+ttt.医生人日数,
+ttt.主任,
+nvl((ttt.医生人日数+ttt.主任)*4,0)  工时,
+nvl((ttt.专家人次+ttt.专科人次)   ,0)诊疗人次合计,
+ttt.专科人次,
+ttt.专家人次,
+ttt.健康检查,
+ttt.手术例数,
+'0' 家庭病床,
+'0' 其他诊疗
+from 
+(select 
+* from 
+(   select 
+            nvl(dd.rq,tt.rq) rq,
+            nvl(dd.dept_code,pp.dept_code) dept_code  ,
+            nvl(dd.dept_name,pp.dept_name) dept_name  ,
+            nvl((select sum(1)   from (select distinct to_char(a.reg_date,'yyyy-mm-dd') rq,a.noon_code,a.doct_code,a.dept_code from fin_opr_register  a where --a.reglevl_code not in ('3','4') and 
+                a.noon_code is not null) aa where aa.rq = to_char(tt.rq,'yyyy-mm-dd') and aa.dept_code = pp.dept_code ),0)医生人日数,
+            nvl((select sum(1)   from (select distinct to_char(a.reg_date,'yyyy-mm-dd') rq,a.noon_code,a.doct_code,a.dept_code from fin_opr_register  a where a.reglevl_code  in ('3','4')
+               ) bb where bb.rq = to_char(tt.rq,'yyyy-mm-dd') and bb.dept_code = pp.dept_code ),0)主任,
+            nvl((select count(a.clinic_code) from fin_opr_register  a where  a.clinic_code not in (select clinic_code from fin_opr_register where trans_type = 2  )
+             and a.reglevl_code in ('3','4') and a.dept_code = pp.dept_code   and to_char(a.reg_date,'yyyy-mm-dd') = to_char(tt.rq,'yyyy-mm-dd') group by to_char(a.reg_date,'yyyy-mm-dd')),0 ) 专家人次,
+            nvl((select count(a.clinic_code) from fin_opr_register  a where  a.clinic_code not in (select clinic_code from fin_opr_register where trans_type = 2  )
+             and a.reglevl_code not  in ('3','4') and a.dept_code = pp.dept_code   and to_char(a.reg_date,'yyyy-mm-dd') = to_char(tt.rq,'yyyy-mm-dd') group by to_char(a.reg_date,'yyyy-mm-dd')),0) 专科人次,
+              nvl((select  distinct count(r.clinic_code) from fin_opr_register r where r.class1desease =10 
+             and r.clinic_code not in (select rr.clinic_code from fin_opr_register rr where rr.trans_type = 2 )and to_char(r.reg_date,'yyyy-mm-dd') = to_char(tt.rq,'yyyy-mm-dd') and r.dept_code = pp.dept_code ),0)健康检查,
+             nvl((select count(1)  from MET_OPS_APPLY m where to_char(m.oper_date,'yyyy-mm-dd') = to_char(tt.rq,'yyyy-mm-dd') and  m.dept_code = pp.dept_code   group by to_char(m.oper_date,'yyyy-mm-dd')  ),0 )  手术例数
+    from
+         ( SELECT TO_date('&amp;dtBeginTime', 'yyyy-MM-dd') + ROWNUM - 1 as rq  FROM DUAL
+           CONNECT BY ROWNUM &lt;= trunc(to_date('&amp;dtEndTime', 'yyyy-MM-dd') -to_date('&amp;dtBeginTime', 'yyyy-MM-dd')) + 1 )tt  
+    full join (select distinct to_char(t.reg_date,'yyyy-mm-dd') rq ,t.dept_code,t.dept_name 
+                 from   fin_opr_register t   where  t.dept_code not in (5011,5080) /*and t.dept_code='5012'*/
+                  and t.reg_date between to_date('&amp;dtBeginTime', 'yyyy-MM-dd') and to_date('&amp;dtEndTime', 'yyyy-MM-dd')+1) pp 
+           on pp.rq =to_char(tt.rq,'yyyy-mm-dd') 
+    full join (  select d.dept_code,d.dept_name ,rq
+                   from (select * from com_department d 
+                         where d.dept_type='C' and d.valid_state=1 and d.regdept_flag=1 and d.dept_code not in ('5011','5080') /*and d.dept_code='5012'*/) d 
+                  full join ( SELECT 'C' dept_type,TO_date('&amp;dtBeginTime', 'yyyy-MM-dd') + ROWNUM - 1 as rq  FROM DUAL
+                             CONNECT BY ROWNUM &lt;= trunc(to_date('&amp;dtEndTime', 'yyyy-MM-dd') -to_date('&amp;dtBeginTime', 'yyyy-MM-dd')) + 1 ) pp
+                    on  d.dept_type=pp.dept_type 
+                -- where d.dept_code is not null
+              ) dd on  pp.dept_code=dd.dept_code and tt.rq=dd.rq
+union all
+select 
+distinct
+tt.rq,
+'5011' dept_code  ,
+ '妇产科门诊' dept_name  ,
+nvl((select sum(1)   from (select distinct to_char(a.reg_date,'yyyy-mm-dd') rq,a.noon_code,a.doct_code from fin_opr_register  a where --a.reglevl_code not in ('3','4') and 
+a.dept_code  in (5011,5080) and a.noon_code is not null) aa where aa.rq = to_char(tt.rq,'yyyy-mm-dd')),0)医生人日数,
+nvl((select sum(1)   from (select distinct to_char(a.reg_date,'yyyy-mm-dd') rq,a.noon_code,a.doct_code from fin_opr_register  a where a.reglevl_code  in ('3','4')
+ and a.dept_code  in (5011,5080)  ) bb where bb.rq = to_char(tt.rq,'yyyy-mm-dd')  ),0)主任,
+nvl((select count(a.clinic_code) from fin_opr_register  a where  a.clinic_code not in (select clinic_code from fin_opr_register where trans_type = 2  )
+ and a.reglevl_code  in ('3','4') and a.dept_code  in (5011,5080)   and to_char(a.reg_date,'yyyy-mm-dd') = to_char(tt.rq,'yyyy-mm-dd') group by to_char(a.reg_date,'yyyy-mm-dd')),0 ) 专家人次,
+nvl((select count(a.clinic_code) from fin_opr_register  a where  a.clinic_code not in (select clinic_code from fin_opr_register where trans_type = 2  )
+ and a.reglevl_code not  in ('3','4') and a.dept_code  in (5011,5080)   and to_char(a.reg_date,'yyyy-mm-dd') = to_char(tt.rq,'yyyy-mm-dd') group by to_char(a.reg_date,'yyyy-mm-dd')),0) 专科人次,
+  nvl((select  distinct count(r.clinic_code) from fin_opr_register r where r.class1desease =10 
+ and r.clinic_code not in (select rr.clinic_code from fin_opr_register rr where rr.trans_type = 2 )and to_char(r.reg_date,'yyyy-mm-dd') = to_char(tt.rq,'yyyy-mm-dd') and r.dept_code  in (5011,5080)),0)健康检查,
+ nvl((select count(1)  from MET_OPS_APPLY m where to_char(m.oper_date,'yyyy-mm-dd') = to_char(tt.rq,'yyyy-mm-dd') and  m.dept_code  in (5011,5080)   group by to_char(m.oper_date,'yyyy-mm-dd')  ),0 )  手术例数
+ from
+ ( SELECT TO_date('&amp;dtBeginTime', 'yyyy-MM-dd') + ROWNUM - 1 as rq  FROM DUAL
+   CONNECT BY ROWNUM &lt;= trunc(to_date('&amp;dtEndTime', 'yyyy-MM-dd') -to_date('&amp;dtBeginTime', 'yyyy-MM-dd')) + 1 )tt  
+  full join (select distinct to_char(t.reg_date,'yyyy-mm-dd') rq ,t.dept_code,t.dept_name 
+               from   fin_opr_register t   where t.dept_code  in (5011,5080) 
+                and t.reg_date between to_date('&amp;dtBeginTime', 'yyyy-MM-dd') and to_date('&amp;dtEndTime', 'yyyy-MM-dd')+1) pp 
+        on pp.rq =to_char(tt.rq,'yyyy-mm-dd')
+ ) tt1
+where 
+--tt1.dept_code = '&amp;dept_code'
+--and 
+dept_name is not null
+)ttt
+order by to_char(ttt.rq,'yyyy-mm-dd')
+)t
+group by datee 
+order by datee asc
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Profile\\7725.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

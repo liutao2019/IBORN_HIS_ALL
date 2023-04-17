@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net">
+
+  <!-- initialize NHibernate cache -->
+  <import resource="~/Conf/EMRCore2.0Repository.xml"/>
+
+  <!--{Bll对象}-->
+  <import resource="assembly://FS.Emr.Org.Bll/FS.Emr.Org.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Dawn.Codes.Bll/FS.Dawn.Codes.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Dawn.DbService.Bll/FS.Dawn.DbService.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.RecordTpl.Bll/FS.Emr.RecordTpl.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.RecordSetSubmission.Bll/FS.Emr.RecordSetSubmission.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.RecordMgnt.Bll/FS.Emr.RecordMgnt.Bll.Conf/Context.xml" /> 
+  <import resource="assembly://FS.Emr.Record.Bll/FS.Emr.Record.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Patient.Bll/FS.Emr.Patient.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Dawn.Params.Bll/FS.Dawn.Params.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.QCRule.Bll/FS.Emr.QCRule.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.QCMgnt.Bll/FS.Emr.QCMgnt.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Diagnosis.Bll/FS.Emr.Diagnosis.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.DxTerm.Bll/FS.Emr.DxTerm.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.HisInterface.Bll/FS.Emr.HisInterface.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.LisInterface.Bll/FS.Emr.LisInterface.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Schedule.Bll/FS.Emr.Schedule.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.DoctorStation.Bll/FS.Emr.DoctorStation.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Knowledge.Bll/FS.Emr.Knowledge.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Message.Bll/FS.Emr.Message.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Case.Bll/FS.Emr.Case.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.RecordCard.Bll/FS.Emr.RecordCard.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Consultation.Bll/FS.Emr.Consultation.Bll.Conf/Context.xml" />
+  <import resource="assembly://FS.Emr.PDAInterface.Bll/FS.Emr.PDAInterface.Bll.Conf/Context.xml" />
+  <import resource="assembly://FS.Emr.CAInterface.Bll/FS.Emr.CAInterface.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.PathInterface.Bll/FS.Emr.PathInterface.Bll.Conf/Context.xml" />
+  <import resource="assembly://FS.Emr.ICUInterface.Bll/FS.Emr.ICUInterface.Bll.Conf/Context.xml" />
+  <import resource="assembly://FS.Icu.Nursing.Bll/FS.Icu.Nursing.Bll.Conf/Context.xml" />
+  <import resource="assembly://FS.Icu.Monitor.Bll/FS.Icu.Monitor.Bll.Conf/Context.xml" />
+  <import resource="assembly://FS.Emr.Path.Bll/FS.Emr.Path.Bll.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.PathTpl.Bll/FS.Emr.PathTpl.Bll.Conf/Context.xml"/>	
+
+  <!--{Dal对象}-->
+  <import resource="assembly://FS.Emr.Org.OracleDal/FS.Emr.Org.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.RecordTpl.OracleDal/FS.Emr.RecordTpl.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Dawn.Codes.OracleDal/FS.Dawn.Codes.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Dawn.DbService.OracleDal/FS.Dawn.DbService.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.RecordSetSubmission.OracleDal/FS.Emr.RecordSetSubmission.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Record.OracleDal/FS.Emr.Record.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Patient.OracleDal/FS.Emr.Patient.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Dawn.Params.OracleDal/FS.Dawn.Params.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.QCRule.OracleDal/FS.Emr.QCRule.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.QCMgnt.OracleDal/FS.Emr.QCMgnt.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Diagnosis.OracleDal/FS.Emr.Diagnosis.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.DxTerm.OracleDal/FS.Emr.DxTerm.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.HisInterface.OracleDal/FS.Emr.HisInterface.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.LisInterface.OracleDal/FS.Emr.LisInterface.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Schedule.OracleDal/FS.Emr.Schedule.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.DoctorStation.OracleDal/FS.Emr.DoctorStation.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Knowledge.OracleDal/FS.Emr.Knowledge.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Message.OracleDal/FS.Emr.Message.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.Case.OracleDal/FS.Emr.Case.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.RecordCard.OracleDal/FS.Emr.RecordCard.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.RecordMgnt.OracleDal/FS.Emr.RecordMgnt.OracleDal.Conf/Context.xml" /> 
+  <import resource="assembly://FS.Emr.Consultation.OracleDal/FS.Emr.Consultation.OracleDal.Conf/Context.xml" />   
+  <import resource="assembly://FS.Emr.PDAInterface.OracleDal/FS.Emr.PDAInterface.OracleDal.Conf/Context.xml" />
+  <import resource="assembly://FS.Emr.CAInterface.OracleDal/FS.Emr.CAInterface.OracleDal.Conf/Context.xml" />
+  <import resource="assembly://FS.Emr.PathInterface.OracleDal/FS.Emr.PathInterface.OracleDal.Conf/Context.xml" />
+  <import resource="assembly://FS.Emr.ICUInterface.OracleDal/FS.Emr.ICUInterface.OracleDal.Conf/Context.xml" />
+  <import resource="assembly://FS.Icu.Nursing.OracleDal/FS.Icu.Nursing.OracleDal.Conf/Context.xml" />
+  <import resource="assembly://FS.Icu.Monitor.OracleDal/FS.Icu.Monitor.OracleDal.Conf/Context.xml" />
+  <import resource="assembly://FS.Emr.Path.OracleDal/FS.Emr.Path.OracleDal.Conf/Context.xml"/>
+  <import resource="assembly://FS.Emr.PathTpl.OracleDal/FS.Emr.PathTpl.OracleDal.Conf/Context.xml"/>
+
+</objects>
+

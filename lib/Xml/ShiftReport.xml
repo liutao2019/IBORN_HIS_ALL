@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Doctor>
+	<Table>
+		<!--列设置 text 列标题名称 length 列宽 lock true锁定 sortid 列顺序号从0开始-->
+		<Column name="BedNo" text="床号" length="72" lock="false" sortid="0"/>
+		<Column name="PatientNo" text="住院号" length="99" lock="false" sortid="1"/>
+		<Column name="NSA" text="姓名n(性别、年龄)" length="118" lock="false" sortid="2"/>
+		<Column name="Diag" text="诊断" length="210" lock="false" datasource="" sortid="3"/>
+		<Column name="DaySummer" text="病情摘要及白班要点" length="218" lock="false" sortid="4"/>
+		<Column name="NightSummer" text="夜班交班要求" length="300" lock="false" sortid="5"/>
+	</Table>
+	<Config>
+		<!--Diag 诊断类型优先级 NightTime 夜班时间 NightSummer 夜班摘要取值 SignType 签名方式：1. 签文字 2. 签图片(需要医院已维护图片)-->
+		<!--select * from dawn_code_code  t where t.code_type_id = 534 请用该句查询可以配置的诊断类型-->
+		<Diag value="5505>5504"/>
+		<NightTime value="18:00-06:00"/>
+		<SignType value="1"/>
+		<NightSummer show="true">
+			<!--1,2,3,4表示患者的优先级，数越大优先级越高，与vemr_doc_shift_report中的patient_type对应-->
+			<!--ChildTypeCode表示从哪种病历中取值，摘要中的不同内容(比如主诉，诊疗计划)用逗号隔开，存在优先级的用>分隔，高的放前，Element表示从病历的哪个元素取值，与ChildTypeCode对应-->
+			<!--病历类型可以通过语句查询select * from dawn_code_code t where t.code_type_id = 9 and t.parent_id is not null order by t.parent_id-->
+			<Record InpatientType="4" ChildTypeCode="OpsFirstRecord" Element="795"/>
+			<Record InpatientType="3" ChildTypeCode="In_Record,SalvageRecord" Element="2777,764"/>
+			<Record InpatientType="2" ChildTypeCode="In_Record,DirectorInvestigate>AttendingInvestigate>NormalRecord" Element="2777,381>381>1800"/>
+			<Record InpatientType="1" ChildTypeCode="In_Record,FirstRecord" Element="2777,381"/>
+		</NightSummer>
+		<!--表格以外的控件的配置 visible 是否可见 text 控件文本，用于label类型-->
+		<Control name="lblDaySign" visible="true" text="签名"/>
+		<Control name="rtbDaySignName" visible="true" text=""/>
+		<Control name="lblNightSign" visible="true" text="签名"/>
+		<Control name="rtbNightSignName" visible="true" text=""/>
+		<Control name="lblDept" visible="true" text="科室"/>
+		<Control name="lblDeptName" visible="true" text=""/>
+		<Control name="txtReportDate" visible="true" text=""/>
+		<Control name="lblTitle" visible="true" text="医师交班报告"/>
+	</Config>
+</Doctor>

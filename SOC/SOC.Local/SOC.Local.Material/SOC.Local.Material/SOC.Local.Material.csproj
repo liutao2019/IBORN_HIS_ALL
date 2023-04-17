@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76B47100-A636-4123-874C-EF700FEB7D85}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.Material</RootNamespace>
+    <AssemblyName>SOC.Local.Material</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\HIS_ALL\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\work\0目录结构\3.开发库\3.2 代码重构\lib\HISFC.BizLogic.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\WorkingSource\0目录结构\3.开发库\3.2 代码重构\lib\HISFC.BizProcess.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Interface.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.InterfaceAchieve.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\BaseReport.Designer.cs">
+      <DependentUpon>BaseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DataSetHelper.cs" />
+    <Compile Include="Base\DataBaseLogic.cs" />
+    <Compile Include="Base\Function.cs" />
+    <Compile Include="Base\LocalSort.cs" />
+    <Compile Include="Base\ucCrossPrivePowerReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\ucCrossPrivePowerReport.Designer.cs">
+      <DependentUpon>ucCrossPrivePowerReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\ucCrossQueryBaseForFarPoint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\ucCrossQueryBaseForFarPoint.Designer.cs">
+      <DependentUpon>ucCrossQueryBaseForFarPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\ucCrosstabReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\ucCrosstabReport.designer.cs">
+      <DependentUpon>ucCrosstabReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\ucPrivePowerReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\ucPrivePowerReport.Designer.cs">
+      <DependentUpon>ucPrivePowerReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\tvPrivTree.cs">
+    </Compile>
+    <Compile Include="Extend\tvPrivTree.Designer.cs">
+      <DependentUpon>tvPrivTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\ucBillRePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\ucBillRePrint.designer.cs">
+      <DependentUpon>ucBillRePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FoSi\ucMatInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FoSi\ucMatInputBill.designer.cs">
+      <DependentUpon>ucMatInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FoSi\ucMatOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FoSi\ucMatOutputBill.designer.cs">
+      <DependentUpon>ucMatOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\GYSYBarCode.cs" />
+    <Compile Include="Print\GYSY\GYSYIOutpt.cs" />
+    <Compile Include="Print\GYSY\ucMatInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucMatInputBill.designer.cs">
+      <DependentUpon>ucMatInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\ucMatOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucMatOutputBill.designer.cs">
+      <DependentUpon>ucMatOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ucCheckBill.designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ucMatInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ucMatInputBill.designer.cs">
+      <DependentUpon>ucMatInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ucMatOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ucMatOutputBill.designer.cs">
+      <DependentUpon>ucMatOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\lanshi\ucMatInputCompanyAndKind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatInputCompanyAndKind.Designer.cs">
+      <DependentUpon>ucMatInputCompanyAndKind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatInputInvoicedCAD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatInputInvoicedCAD.Designer.cs">
+      <DependentUpon>ucMatInputInvoicedCAD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatMonthBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatMonthBalance.designer.cs">
+      <DependentUpon>ucMatMonthBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatOutputDeptAndKind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatOutputDeptAndKind.Designer.cs">
+      <DependentUpon>ucMatOutputDeptAndKind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatInputNOInvoicedCAD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\lanshi\ucMatInputNOInvoicedCAD.Designer.cs">
+      <DependentUpon>ucMatInputNOInvoicedCAD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputDetail.Designer.cs">
+      <DependentUpon>ucInputDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatAdjustDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatAdjustDetail.Designer.cs">
+      <DependentUpon>ucMatAdjustDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucCrossSample.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucCrossSample.Designer.cs">
+      <DependentUpon>ucCrossSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatCheckDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatCheckDetail.Designer.cs">
+      <DependentUpon>ucMatCheckDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatCheckTotal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatCheckTotal.Designer.cs">
+      <DependentUpon>ucMatCheckTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatDeptConsuming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatDeptConsuming.Designer.cs">
+      <DependentUpon>ucMatDeptConsuming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatInputCompanyAndKind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatInputCompanyAndKind.Designer.cs">
+      <DependentUpon>ucMatInputCompanyAndKind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatInputTotalAndDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatInputTotalAndDetail.Designer.cs">
+      <DependentUpon>ucMatInputTotalAndDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatInvoiceRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatInvoiceRecord.Designer.cs">
+      <DependentUpon>ucMatInvoiceRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatMonthBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatMonthBalance.designer.cs">
+      <DependentUpon>ucMatMonthBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatMonthBalanceByKind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatMonthBalanceByKind.Designer.cs">
+      <DependentUpon>ucMatMonthBalanceByKind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatMonthStore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatMonthStore.Designer.cs">
+      <DependentUpon>ucMatMonthStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucOutputDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucOutputDetail.Designer.cs">
+      <DependentUpon>ucOutputDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatOutputTotalAndDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatOutputTotalAndDetail.Designer.cs">
+      <DependentUpon>ucMatOutputTotalAndDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatInvoiceItemRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatInvoiceItemRecord.Designer.cs">
+      <DependentUpon>ucMatInvoiceItemRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatOutputDeptAndKind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatOutputDeptAndKind.Designer.cs">
+      <DependentUpon>ucMatOutputDeptAndKind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatInputTotalAndDetailNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatInputTotalAndDetailNew.Designer.cs">
+      <DependentUpon>ucMatInputTotalAndDetailNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatOutputTotalAndDetailNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatOutputTotalAndDetailNew.Designer.cs">
+      <DependentUpon>ucMatOutputTotalAndDetailNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatMonthStoreTotal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatMonthStoreTotal.Designer.cs">
+      <DependentUpon>ucMatMonthStoreTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatInvoiceItemRecordNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatInvoiceItemRecordNew.Designer.cs">
+      <DependentUpon>ucMatInvoiceItemRecordNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMatMonthBalanceSaleByKind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMatMonthBalanceSaleByKind.Designer.cs">
+      <DependentUpon>ucMatMonthBalanceSaleByKind.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base\BaseReport.resx">
+      <DependentUpon>BaseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\ucCrossPrivePowerReport.resx">
+      <DependentUpon>ucCrossPrivePowerReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\ucCrossQueryBaseForFarPoint.resx">
+      <DependentUpon>ucCrossQueryBaseForFarPoint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\ucCrosstabReport.resx">
+      <DependentUpon>ucCrosstabReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\ucPrivePowerReport.resx">
+      <DependentUpon>ucPrivePowerReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\ucBillRePrint.resx">
+      <DependentUpon>ucBillRePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FoSi\ucMatInputBill.resx">
+      <DependentUpon>ucMatInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FoSi\ucMatOutputBill.resx">
+      <DependentUpon>ucMatOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucMatInputBill.resx">
+      <DependentUpon>ucMatInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucMatOutputBill.resx">
+      <DependentUpon>ucMatOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ucMatInputBill.resx">
+      <DependentUpon>ucMatInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ucMatOutputBill.resx">
+      <DependentUpon>ucMatOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\lanshi\ucMatInputCompanyAndKind.resx">
+      <DependentUpon>ucMatInputCompanyAndKind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\lanshi\ucMatInputInvoicedCAD.resx">
+      <DependentUpon>ucMatInputInvoicedCAD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\lanshi\ucMatMonthBalance.resx">
+      <DependentUpon>ucMatMonthBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\lanshi\ucMatOutputDeptAndKind.resx">
+      <DependentUpon>ucMatOutputDeptAndKind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\lanshi\ucMatInputNOInvoicedCAD.resx">
+      <DependentUpon>ucMatInputNOInvoicedCAD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInputDetail.resx">
+      <DependentUpon>ucInputDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatAdjustDetail.resx">
+      <DependentUpon>ucMatAdjustDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucCrossSample.resx">
+      <DependentUpon>ucCrossSample.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatCheckDetail.resx">
+      <DependentUpon>ucMatCheckDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatCheckTotal.resx">
+      <DependentUpon>ucMatCheckTotal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatDeptConsuming.resx">
+      <DependentUpon>ucMatDeptConsuming.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatInputCompanyAndKind.resx">
+      <DependentUpon>ucMatInputCompanyAndKind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatInputTotalAndDetail.resx">
+      <DependentUpon>ucMatInputTotalAndDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatInvoiceRecord.resx">
+      <DependentUpon>ucMatInvoiceRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatMonthBalance.resx">
+      <DependentUpon>ucMatMonthBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatMonthBalanceByKind.resx">
+      <DependentUpon>ucMatMonthBalanceByKind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatMonthStore.resx">
+      <DependentUpon>ucMatMonthStore.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatOutputTotalAndDetail.resx">
+      <DependentUpon>ucMatOutputTotalAndDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucOutputDetail.resx">
+      <DependentUpon>ucOutputDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatInvoiceItemRecord.resx">
+      <DependentUpon>ucMatInvoiceItemRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatOutputDeptAndKind.resx">
+      <DependentUpon>ucMatOutputDeptAndKind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatInputTotalAndDetailNew.resx">
+      <DependentUpon>ucMatInputTotalAndDetailNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatOutputTotalAndDetailNew.resx">
+      <DependentUpon>ucMatOutputTotalAndDetailNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatMonthStoreTotal.resx">
+      <DependentUpon>ucMatMonthStoreTotal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatInvoiceItemRecordNew.resx">
+      <DependentUpon>ucMatInvoiceItemRecordNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMatMonthBalanceSaleByKind.resx">
+      <DependentUpon>ucMatMonthBalanceSaleByKind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

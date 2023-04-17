@@ -1,0 +1,91 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtTimeCondition</Name><Sql>select '开始时间：'||'&amp;dtBeginTime'||'   结束时间：'||'&amp;dtEndTime' from dual</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtUltrasonicScalpel</Name><Sql>select fun_get_dept_name(inhos_deptcode1) 科室,mark1 价格,
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-01',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-02',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-03',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-04',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-05',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-06',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-07',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-08',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-09',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-10',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-11',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-12',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-13',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-14',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-15',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-16',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-17',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-18',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-19',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-20',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-21',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-22',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-23',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-24',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-25',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-26',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-27',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-28',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-29',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-30',num,0)),
+sum(decode(to_char(fee_date,'YYYY-MM-DD'),(to_char(fee_date,'YYYY-MM'))||'-31',num,0)),
+(select count(*) from fin_ipb_itemlist c, com_dictionary cc
+ where c.execute_deptcode = '&amp;CurrentDeptID'
+   and c.fee_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and c.fee_date &lt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+   and cc.type = 'UltrasonicScalpel'
+   and cc.name = c.item_code and cc.mark = mark1 and c.inhos_deptcode = inhos_deptcode1) 合计
+ from 
+(
+select c.inhos_deptcode inhos_deptcode1, cc.mark mark1, trunc(c.fee_date) fee_date, count(*) num
+  from fin_ipb_itemlist c, com_dictionary cc
+ where c.execute_deptcode = '&amp;CurrentDeptID'
+   and c.fee_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and c.fee_date &lt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+   and cc.type = 'UltrasonicScalpel'
+   and cc.name = c.item_code
+ group by c.inhos_deptcode, cc.mark, trunc(c.fee_date)
+) group by inhos_deptcode1,mark1 ORDER BY inhos_deptcode1
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>true</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns>科室</CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>false</IsSumRow><SumRows>科室</SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtsummary</Name><Sql>select '合计：','',
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-01',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-02',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-03',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-04',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-05',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-06',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-07',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-08',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-09',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-10',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-11',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-12',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-13',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-14',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-15',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-16',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-17',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-18',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-19',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-20',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-21',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-22',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-23',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-24',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-25',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-26',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-27',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-28',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-29',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-30',num,0)),
+sum(decode(to_char(trunc(fee_date),'YYYY-MM-DD'),to_char(trunc(fee_date),'YYYY-MM')||'-31',num,0))
+ from 
+(
+select trunc(c.fee_date) fee_date,count(*) num from fin_ipb_itemlist c, com_dictionary cc
+ where c.execute_deptcode = '&amp;CurrentDeptID'
+   and c.fee_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and c.fee_date &lt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+   and cc.type = 'UltrasonicScalpel'
+   and cc.name = c.item_code
+ group by  trunc(c.fee_date)
+ ) group by fee_date</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\手术室\超声刀统计表查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

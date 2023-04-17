@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database" xmlns:tx="http://www.springframework.net/tx">
+
+  <!--SessionFactory对象，其中包括一些比较重要的属性 -->
+  <object id="NHibernateSessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate21">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="MappingAssemblies">
+      <list>
+        <!--{包含hbm的程序集}-->
+        <value>FS.Emr.QCMgnt.OracleDal</value>
+        <value>FS.Emr.QCRule.OracleDal</value>
+        <value>FS.Emr.Record.OracleDal</value>
+        <value>FS.Emr.RecordSetSubmission.OracleDal</value>
+        <value>FS.Emr.RecordMgnt.OracleDal</value> 
+        <value>FS.Emr.Diagnosis.OracleDal</value>
+        <value>FS.Emr.Patient.OracleDal</value>
+        <value>FS.Emr.DxTerm.OracleDal</value>
+        <value>FS.Emr.RecordTpl.OracleDal</value>
+        <value>FS.Emr.Org.OracleDal</value>
+        <value>FS.Dawn.Codes.OracleDal</value>
+        <value>FS.Emr.HisInterface.OracleDal</value>
+        <value>FS.Emr.LisInterface.OracleDal</value>
+        <value>FS.Dawn.Params.OracleDal</value>
+        <value>FS.Emr.Schedule.OracleDal</value>
+        <value>FS.Emr.DoctorStation.OracleDal</value>
+        <value>FS.Emr.Message.OracleDal</value>
+        <value>FS.Emr.Knowledge.OracleDal</value>
+        <value>FS.Dawn.DbService.OracleDal</value>
+        <value>FS.Emr.Case.OracleDal</value>
+        <value>FS.Emr.Diagcase.OracleDal</value>
+        <value>FS.Emr.RecordCard.OracleDal</value>       
+	<value>FS.Emr.Consultation.OracleDal</value>
+        <value>FS.Emr.CAInterface.OracleDal</value>
+        <value>FS.Emr.PathInterface.OracleDal</value>
+	<value>FS.Emr.ICUInterface.OracleDal</value>
+	<value>FS.Icu.Nursing.OracleDal</value>
+        <value>FS.Icu.Monitor.OracleDal</value>
+	<value>FS.Emr.Path.OracleDal</value>
+        <value>FS.Emr.PathTpl.OracleDal</value>
+      </list>
+    </property>
+
+    <property name="HibernateProperties">
+      <dictionary>
+        <entry key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider"/>
+        <entry key="dialect" value="NHibernate.Dialect.Oracle9iDialect"/>
+        <entry key="use_outer_join" value="false"/>
+        <entry key="connection.driver_class" value="NHibernate.Driver.OracleClientDriver"/>
+        <!-- <entry key="connection.driver_class" value="FS.NHibernateDataDriver.OracleDataClientDriver, FS.NHibernateDataDriver"/> -->
+        <entry key="show_sql" value="true"/>
+        <entry key="adonet.batch_size" value="10"/>
+        <entry key="command_timeout" value="60"/>
+        <!--配置Nhibernate内置缓存提供程序-->
+        <entry key="cache.provider_class" value="NHibernate.Cache.HashtableCacheProvider"/>
+        <!--开启二级缓存-->
+        <entry key="cache.use_second_level_cache" value="true"/>
+        <entry key="query.substitutions" value="true 1, false 0, yes 'Y', no 'N"/>
+        <entry key="proxyfactory.factory_class" value="NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle"/>
+        <entry key="hbm2ddl.keywords" value="none"/>
+      </dictionary>
+    </property>
+    <property name="ExposeTransactionAwareSessionFactory" value="true"/>
+  </object>
+
+  <object id="HibernateTemplate" type="Spring.Data.NHibernate.Generic.HibernateTemplate">
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+    <property name="TemplateFlushMode" value="Auto"/>
+    <property name="CacheQueries" value="true"/>
+  </object>
+
+  <object id="EmrServiceCache" type="Spring.Caching.AspNetCache, Spring.Web">
+    <property name="SlidingExpiration" value="false"/>
+    <property name="Priority" value="Low"/>
+    <property name="TimeToLive" value="00:02:00"/>
+  </object>
+
+  <object id="AdoTemplate" type="Spring.Data.Core.AdoTemplate">
+    <property name="DbProvider" ref="DbProvider"/>
+  </object>
+
+</objects>

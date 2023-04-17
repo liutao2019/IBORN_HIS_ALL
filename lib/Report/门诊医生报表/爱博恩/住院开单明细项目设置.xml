@@ -1,0 +1,65 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbDept</Name><Text>开单科室：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select dept_code, dept_name, DEPT_ENAME, SPELL_CODE, WB_CODE  from com_department t where dept_type = 'I' ORDER BY dept_code</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>cmbPackage</Name><Text>项目属性：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource><DefaultDataSource Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>0</ID><Name>非套餐项目</Name><Memo>套餐外项目</Memo></DefaultDataSource><DefaultDataSource Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>1</ID><Name>套餐项目</Name><Memo>套餐内项目</Memo></DefaultDataSource></DefaultDataSource><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>640</X><Y>2</Y></Location><QueryDataSource>Custom</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select tt.card_no,
+       tt.name,
+       tt.item_name,
+       tt.specs,
+       tt.qty,
+       sum(nvl(tt.real_cost,0)) real_cost,
+       tt.inhos_deptcode,
+       tt.Recipe_Doccode,
+       tt.mo_date,
+       tt.charge_opercode,
+       tt.charge_date,
+       tt.balance_opercode,
+       tt.balance_date
+  from (select t2.card_no,
+               t2.name,
+               case when nvl(length(t.package_name),0) &gt; 0 then '['||t.package_name||']'||t.item_name else t.item_name end item_name,
+               t3.specs,
+               t.qty,
+               nvl(t.own_cost,0) - nvl(t.eco_cost,0) - nvl(t.donate_cost,0) real_cost,
+               fun_get_dept_name(t.Inhos_Deptcode) Inhos_Deptcode,
+               fun_get_employee_name(t.Recipe_Doccode) Recipe_Doccode,
+               t4.mo_date,
+               fun_get_employee_name(t.charge_opercode) charge_opercode,
+               t.charge_date,
+               fun_get_employee_name(t5.balance_opercode) balance_opercode,
+               t5.balance_date
+          from fin_ipb_itemlist t
+          left join fin_ipr_inmaininfo t2 on t.inpatient_no = t2.inpatient_no
+          left join fin_com_undruginfo t3 on t.item_code = t3.item_code
+          left join met_ipm_order t4 on t.mo_order = t4.mo_order
+          left join fin_ipb_balancehead t5 on t5.invoice_no = t.invoice_no
+         where t.balance_state = '1'
+           and t5.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and
+               to_date('&amp;dtEndTime', 'YYYY-MM-DD')
+           and (t.package_flag = '&amp;cmbPackage' or 'ALL' = '&amp;cmbPackage')
+           and (t.Inhos_Deptcode = '&amp;cmbDept' or 'ALL' = '&amp;cmbDept')
+        union all
+        select k2.card_no,
+               k2.name,
+               k.drug_name,
+               k.specs,
+               k.qty,
+               nvl(k.own_cost,0) - nvl(k.eco_cost,0) - nvl(k.donate_cost,0) real_cost,
+               fun_get_dept_name(k.Inhos_Deptcode) Inhos_Deptcode,
+               fun_get_employee_name(k.Recipe_Doccode) Recipe_Doccode,
+               k4.mo_date,
+               fun_get_employee_name(k.charge_opercode) charge_opercode,
+               k.charge_date,
+               fun_get_employee_name(k5.balance_opercode) balance_opercode,
+               k5.balance_date
+          from fin_ipb_medicinelist k
+          left join fin_ipr_inmaininfo k2 on k.inpatient_no =  k2.inpatient_no
+          left join pha_com_baseinfo k3 on k.drug_code = k3.drug_code
+          left join met_ipm_order k4 on k.mo_order = k4.mo_order
+          left join fin_ipb_balancehead k5 on k5.invoice_no = k.invoice_no
+         where k.balance_state = '1'
+           and k5.balance_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and
+               to_date('&amp;dtEndTime', 'YYYY-MM-DD')
+           and (k.package_flag = '&amp;cmbPackage' or 'ALL' = '&amp;cmbPackage')
+           and (k.Inhos_Deptcode = '&amp;cmbDept' or 'ALL' = '&amp;cmbDept')) tt
+ group by rollup(tt.Recipe_Doccode,
+                 (tt.card_no, tt.name, tt.item_name, tt.specs, tt.qty,
+                  tt.real_cost, tt.inhos_deptcode, tt.mo_date,
+                  tt.charge_opercode, tt.charge_date, tt.balance_opercode,
+                  tt.balance_date))</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊医生报表\爱博恩\住院开单明细项目设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,86 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>txtname</Name><Text>姓名：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>2</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>TT</Name><Text>说明：只买产检套餐的，首次套餐消费后280天，提醒进行核销。</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>0</Width><Height>0</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>250</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>false</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>ifnotdelivery</Name><Text>是否分娩：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>650</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select '未分娩','未分娩' from dual union all select '已分娩','已分娩' from dual </DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>ifnotcancel</Name><Text>是否核销：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>860</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select '待核销','待核销' from dual union all select '已核销','已核销' from dual</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dsdata</Name><Sql>    select * 
+      from (      
+              select tt.patient_name 姓名,
+                     tt.card_no 卡号,
+                     tt.p_name 分娩父套餐,
+                     tt.package_name 套餐名称,
+                     tt.delimiting_date 购买时间,
+                     nvl(fm.BZ1,'未分娩') 是否分娩,
+                     fm.delivery_name 分娩方式,
+                     fm.in_date 分娩入住时间,
+                     fm.out_date 分娩出院时间,
+                     yz.bz2 月子,
+                     yz.in_date 月子入住时间,
+                     yz.out_date 月子出院时间, 
+                     tt.oper_date 首次套餐消费,
+                     case when TCN&gt;0 then '待核销' when TCN=0 then '已核销' end 是否核销
+               from 
+               (select t.patient_name,t.card_no,t.clinic_code, TCN,
+                      (select package_name from bd_com_package where package_id = p.parent_code) as p_name,p.package_name,t.delimiting_date,dd.tag,s.oper_date
+                  from   exp_package t
+                  join   bd_com_package p on t.package_id = p.package_id
+                  join  (select d.card_no,d.clinic_code,sum(d.rtn_qty) as TCN,'待核销' as Tag from exp_packagedetail d 
+                          where 1 = 1  and   d.pay_flag = '1' and d.cancel_flag = '0'
+                          group by d.card_no,d.clinic_code ) dd on dd.clinic_code = t.clinic_code
+                  left join (select s.clinic_code,min(s.oper_date) oper_date from exp_packagecost s  group by s.clinic_code) s 
+                    on dd.clinic_code=s.clinic_code 
+                 where  1 = 1
+                   and    p.package_kind = '4' ----产检
+                   and    t.pay_flag = '1' and t.cancel_flag = '0'
+                   and    (t.patient_name like '%&amp;txtname%' or nvl('&amp;txtname','') = '')
+                 order by t.card_no ) tt
+                left join  (select  '已分娩' BZ1,delivery_name,
+                                    max(f.inpatient_no) ,max(fb.in_date) in_date,max(f.out_date) out_date,card_no,f.name 
+                             from fin_ipr_inmaininfo f 
+                             left join (select distinct b.mother_inpatient_no,to_char(b.birthday,'yyyy-mm-dd') in_date,b.delivery_name from fin_ipr_babyinfo b) fb 
+                               on f.inpatient_no=fb.mother_inpatient_no  
+                             where f.patient_type in ('F','P') and f.in_state in ( 'O') and f.baby_flag=1 group by f.card_no,f.name,f.baby_flag,delivery_name)  fm on fm.card_no = tt.card_no 
+                left join  (select  '已住月子' as BZ2,max(f.inpatient_no) ,max(f.in_date) in_date,max(f.out_date) out_date,card_no,f.name from fin_ipr_inmaininfo f 
+                             where f.patient_type in ('Y') and f.in_state in ( 'O')   group by f.card_no,f.name ) yz on yz.card_no = tt.card_no 
+               where 1 = 1
+                 and fm.bz1||yz.bz2 is not null
+
+               union all
+
+              select tt.patient_name 姓名,
+                     tt.card_no 卡号,
+                     tt.p_name 分娩父套餐,
+                     tt.package_name 套餐名称,
+                     tt.delimiting_date 购买时间,
+                     nvl(fm.BZ1,'未分娩') 分娩,
+                     fm.delivery_name 分娩方式,
+                     fm.in_date 分娩入住时间,
+                     fm.out_date 分娩出院时间,
+                     yz.bz2 月子,
+                     yz.in_date 月子入住时间,
+                     yz.out_date 月子出院时间, 
+                     tt.oper_date 首次套餐消费,
+                     case when TCN&gt;0 then '待核销' when TCN=0 then '已核销' end 是否核销
+                from (select t.patient_name,t.card_no,t.clinic_code, TCN,
+                            (select package_name from bd_com_package where package_id = p.parent_code) as p_name,p.package_name,t.delimiting_date,dd.tag,s.oper_date
+                        from   exp_package t
+                        join   bd_com_package p on t.package_id = p.package_id
+                        join  (select d.card_no,d.clinic_code,sum(d.rtn_qty) as TCN,'待核销' as Tag from exp_packagedetail d 
+                                where 1 = 1  and   d.pay_flag = '1' and d.cancel_flag = '0'
+                                group by d.card_no,d.clinic_code ) dd on dd.clinic_code = t.clinic_code
+                        left join (select s.clinic_code,min(s.oper_date) oper_date from exp_packagecost s  group by s.clinic_code) s 
+                          on dd.clinic_code=s.clinic_code 
+                       where  1 = 1
+                         and    p.package_kind = '4' ----产检
+                         and    t.pay_flag = '1' and t.cancel_flag = '0'
+                         and    (t.patient_name like '%&amp;txtname%' or nvl('&amp;txtname','') = '')
+                       order by t.card_no ) tt
+                  left join (select  '已分娩' BZ1,delivery_name,
+                                     max(f.inpatient_no) ,max(fb.in_date) in_date,max(f.out_date) out_date,card_no,f.name 
+                              from fin_ipr_inmaininfo f 
+                              left join (select distinct b.mother_inpatient_no,to_char(b.birthday,'yyyy-mm-dd') in_date,b.delivery_name from fin_ipr_babyinfo b) fb 
+                                on f.inpatient_no=fb.mother_inpatient_no  
+                             where f.patient_type in ('F','P') and f.in_state in ( 'O') and f.baby_flag=1 group by f.card_no,f.name,f.baby_flag,delivery_name)  fm on fm.card_no = tt.card_no 
+                  left join  (select  '已住月子' as BZ2,max(f.inpatient_no) ,max(f.in_date) in_date,max(f.out_date) out_date,card_no,f.name from fin_ipr_inmaininfo f 
+                            where f.patient_type in ('Y') and f.in_state in ( 'O')  group by f.card_no,f.name ) yz on yz.card_no = tt.card_no and yz.in_date &gt; tt.delimiting_date     
+                 where 1 = 1
+                   and   fm.bz1||yz.bz2 is  null
+                   and   (sysdate - tt.delimiting_date) &gt; 280)a
+               where (是否分娩='&amp;ifnotdelivery' or '&amp;ifnotdelivery'='ALL')
+                 and (是否核销='&amp;ifnotcancel' or '&amp;ifnotcancel'='ALL')
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊收费报表\产检套餐需要核销查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,416 @@
+﻿namespace FS.SOC.Local.RADT.GuangZhou.ZDLY.Controls
+{
+    partial class ucAlert
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要
+        /// 使用代码编辑器修改此方法的内容。
+
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            FarPoint.Win.Spread.TipAppearance tipAppearance1 = new FarPoint.Win.Spread.TipAppearance();
+            FarPoint.Win.Spread.CellType.CheckBoxCellType checkBoxCellType1 = new FarPoint.Win.Spread.CellType.CheckBoxCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType1 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType2 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType3 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType4 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType5 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType6 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType7 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType8 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType9 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType10 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType11 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType12 = new FarPoint.Win.Spread.CellType.TextCellType();
+            this.neuPanel1 = new FS.FrameWork.WinForms.Controls.NeuPanel();
+            this.labDay = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.neuSpread1 = new FS.FrameWork.WinForms.Controls.NeuSpread();
+            this.neuSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.lblInfo = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.lbltitle = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.cmbType = new FS.FrameWork.WinForms.Controls.NeuComboBox(this.components);
+            this.txtAlert = new FS.FrameWork.WinForms.Controls.NeuTextBox();
+            this.chkAll = new FS.FrameWork.WinForms.Controls.NeuCheckBox();
+            this.btnCompute = new FS.FrameWork.WinForms.Controls.NeuButton();
+            this.btnPrint = new FS.FrameWork.WinForms.Controls.NeuButton();
+            this.labPercent = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.labShow = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.chkSelectAll = new FS.FrameWork.WinForms.Controls.NeuCheckBox();
+            this.btnPrintGrid = new FS.FrameWork.WinForms.Controls.NeuButton();
+            this.neuPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.neuSpread1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neuSpread1_Sheet1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // neuPanel1
+            // 
+            this.neuPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.neuPanel1.BackColor = System.Drawing.Color.White;
+            this.neuPanel1.Controls.Add(this.labDay);
+            this.neuPanel1.Controls.Add(this.neuSpread1);
+            this.neuPanel1.Controls.Add(this.lblInfo);
+            this.neuPanel1.Controls.Add(this.lbltitle);
+            this.neuPanel1.Location = new System.Drawing.Point(0, 1);
+            this.neuPanel1.Name = "neuPanel1";
+            this.neuPanel1.Size = new System.Drawing.Size(677, 493);
+            this.neuPanel1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuPanel1.TabIndex = 0;
+            // 
+            // labDay
+            // 
+            this.labDay.AutoSize = true;
+            this.labDay.Location = new System.Drawing.Point(521, 44);
+            this.labDay.Name = "labDay";
+            this.labDay.Size = new System.Drawing.Size(0, 12);
+            this.labDay.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.labDay.TabIndex = 11;
+            // 
+            // neuSpread1
+            // 
+            this.neuSpread1.About = "3.0.2004.2005";
+            this.neuSpread1.AccessibleDescription = "neuSpread1, Sheet1, Row 0, Column 0, ";
+            this.neuSpread1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.neuSpread1.BackColor = System.Drawing.Color.White;
+            this.neuSpread1.FileName = "";
+            this.neuSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            this.neuSpread1.IsAutoSaveGridStatus = false;
+            this.neuSpread1.IsCanCustomConfigColumn = false;
+            this.neuSpread1.Location = new System.Drawing.Point(2, 68);
+            this.neuSpread1.Name = "neuSpread1";
+            this.neuSpread1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.neuSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
+            this.neuSpread1_Sheet1});
+            this.neuSpread1.Size = new System.Drawing.Size(671, 423);
+            this.neuSpread1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuSpread1.TabIndex = 2;
+            tipAppearance1.BackColor = System.Drawing.SystemColors.Info;
+            tipAppearance1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            tipAppearance1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.neuSpread1.TextTipAppearance = tipAppearance1;
+            this.neuSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            this.neuSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.neuSpread1_CellClick);
+            // 
+            // neuSpread1_Sheet1
+            // 
+            this.neuSpread1_Sheet1.Reset();
+            this.neuSpread1_Sheet1.SheetName = "Sheet1";
+            // Formulas and custom names must be loaded with R1C1 reference style
+            this.neuSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
+            this.neuSpread1_Sheet1.ColumnCount = 14;
+            this.neuSpread1_Sheet1.ActiveSkin = new FarPoint.Win.Spread.SheetSkin("CustomSkin1", System.Drawing.Color.White, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.LightGray, FarPoint.Win.Spread.GridLines.Both, System.Drawing.Color.White, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, false, false, false, true, true);
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 0).Value = "选择";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 1).Value = "护士站";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 2).Value = "床号";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 3).Value = "姓名";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 4).Value = "住院号";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 5).Value = "类别";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 6).Value = "合同单位";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 7).Value = "预交金";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 8).Value = "总金额";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 9).Value = "自付总金额";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 10).Value = "余额";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 11).Value = "警戒线";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 12).Value = "入院日期";
+            this.neuSpread1_Sheet1.ColumnHeader.Cells.Get(0, 13).Value = "补缴金额";
+            this.neuSpread1_Sheet1.ColumnHeader.DefaultStyle.BackColor = System.Drawing.Color.White;
+            this.neuSpread1_Sheet1.ColumnHeader.DefaultStyle.Parent = "HeaderDefault";
+            this.neuSpread1_Sheet1.Columns.Get(0).CellType = checkBoxCellType1;
+            this.neuSpread1_Sheet1.Columns.Get(0).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(0).Label = "选择";
+            this.neuSpread1_Sheet1.Columns.Get(0).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(0).Width = 31F;
+            this.neuSpread1_Sheet1.Columns.Get(1).Label = "护士站";
+            this.neuSpread1_Sheet1.Columns.Get(1).Width = 105F;
+            this.neuSpread1_Sheet1.Columns.Get(2).CellType = textCellType1;
+            this.neuSpread1_Sheet1.Columns.Get(2).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(2).Label = "床号";
+            this.neuSpread1_Sheet1.Columns.Get(2).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(2).Width = 50F;
+            this.neuSpread1_Sheet1.Columns.Get(3).CellType = textCellType2;
+            this.neuSpread1_Sheet1.Columns.Get(3).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(3).Label = "姓名";
+            this.neuSpread1_Sheet1.Columns.Get(3).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(4).CellType = textCellType3;
+            this.neuSpread1_Sheet1.Columns.Get(4).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(4).Label = "住院号";
+            this.neuSpread1_Sheet1.Columns.Get(4).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(4).Width = 80F;
+            this.neuSpread1_Sheet1.Columns.Get(5).CellType = textCellType4;
+            this.neuSpread1_Sheet1.Columns.Get(5).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(5).Label = "类别";
+            this.neuSpread1_Sheet1.Columns.Get(5).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(5).Width = 50F;
+            this.neuSpread1_Sheet1.Columns.Get(6).CellType = textCellType5;
+            this.neuSpread1_Sheet1.Columns.Get(6).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(6).Label = "合同单位";
+            this.neuSpread1_Sheet1.Columns.Get(6).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(6).Width = 80F;
+            this.neuSpread1_Sheet1.Columns.Get(7).CellType = textCellType6;
+            this.neuSpread1_Sheet1.Columns.Get(7).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
+            this.neuSpread1_Sheet1.Columns.Get(7).Label = "预交金";
+            this.neuSpread1_Sheet1.Columns.Get(7).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(7).Width = 80F;
+            this.neuSpread1_Sheet1.Columns.Get(8).CellType = textCellType7;
+            this.neuSpread1_Sheet1.Columns.Get(8).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
+            this.neuSpread1_Sheet1.Columns.Get(8).Label = "总金额";
+            this.neuSpread1_Sheet1.Columns.Get(8).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(8).Width = 93F;
+            this.neuSpread1_Sheet1.Columns.Get(9).CellType = textCellType8;
+            this.neuSpread1_Sheet1.Columns.Get(9).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
+            this.neuSpread1_Sheet1.Columns.Get(9).Label = "自付总金额";
+            this.neuSpread1_Sheet1.Columns.Get(9).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(9).Width = 86F;
+            this.neuSpread1_Sheet1.Columns.Get(10).CellType = textCellType9;
+            this.neuSpread1_Sheet1.Columns.Get(10).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
+            this.neuSpread1_Sheet1.Columns.Get(10).Label = "余额";
+            this.neuSpread1_Sheet1.Columns.Get(10).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(10).Width = 80F;
+            this.neuSpread1_Sheet1.Columns.Get(11).CellType = textCellType10;
+            this.neuSpread1_Sheet1.Columns.Get(11).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
+            this.neuSpread1_Sheet1.Columns.Get(11).Label = "警戒线";
+            this.neuSpread1_Sheet1.Columns.Get(11).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(11).Width = 80F;
+            this.neuSpread1_Sheet1.Columns.Get(12).CellType = textCellType11;
+            this.neuSpread1_Sheet1.Columns.Get(12).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(12).Label = "入院日期";
+            this.neuSpread1_Sheet1.Columns.Get(12).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(12).Width = 80F;
+            this.neuSpread1_Sheet1.Columns.Get(13).CellType = textCellType12;
+            this.neuSpread1_Sheet1.Columns.Get(13).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.neuSpread1_Sheet1.Columns.Get(13).Label = "补缴金额";
+            this.neuSpread1_Sheet1.Columns.Get(13).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.neuSpread1_Sheet1.Columns.Get(13).Width = 74F;
+            this.neuSpread1_Sheet1.RowHeader.Columns.Default.Resizable = false;
+            this.neuSpread1_Sheet1.RowHeader.Columns.Get(0).Width = 37F;
+            this.neuSpread1_Sheet1.RowHeader.DefaultStyle.BackColor = System.Drawing.Color.White;
+            this.neuSpread1_Sheet1.RowHeader.DefaultStyle.Parent = "HeaderDefault";
+            this.neuSpread1_Sheet1.SheetCornerStyle.BackColor = System.Drawing.Color.White;
+            this.neuSpread1_Sheet1.SheetCornerStyle.Locked = false;
+            this.neuSpread1_Sheet1.SheetCornerStyle.Parent = "HeaderDefault";
+            this.neuSpread1_Sheet1.VisualStyles = FarPoint.Win.VisualStyles.Off;
+            this.neuSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(277, 44);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(0, 12);
+            this.lblInfo.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblInfo.TabIndex = 1;
+            // 
+            // lbltitle
+            // 
+            this.lbltitle.AutoSize = true;
+            this.lbltitle.Font = new System.Drawing.Font("隶书", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbltitle.Location = new System.Drawing.Point(194, 8);
+            this.lbltitle.Name = "lbltitle";
+            this.lbltitle.Size = new System.Drawing.Size(236, 28);
+            this.lbltitle.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lbltitle.TabIndex = 0;
+            this.lbltitle.Text = "在院患者欠费报警";
+            // 
+            // cmbType
+            // 
+            this.cmbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cmbType.ArrowBackColor = System.Drawing.Color.Silver;
+            this.cmbType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.IsEnter2Tab = false;
+            this.cmbType.IsFlat = false;
+            this.cmbType.IsLike = true;
+            this.cmbType.IsListOnly = false;
+            this.cmbType.IsPopForm = true;
+            this.cmbType.IsShowCustomerList = false;
+            this.cmbType.IsShowID = false;
+            this.cmbType.IsShowIDAndName = false;
+            this.cmbType.Items.AddRange(new object[] {
+            "按指定标准",
+            "按比例",
+            "按最底下限"});
+            this.cmbType.Location = new System.Drawing.Point(4, 499);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.ShowCustomerList = false;
+            this.cmbType.ShowID = false;
+            this.cmbType.Size = new System.Drawing.Size(125, 20);
+            this.cmbType.Style = FS.FrameWork.WinForms.Controls.StyleType.Flat;
+            this.cmbType.TabIndex = 3;
+            this.cmbType.Tag = "";
+            this.cmbType.ToolBarUse = false;
+            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
+            // 
+            // txtAlert
+            // 
+            this.txtAlert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtAlert.IsEnter2Tab = false;
+            this.txtAlert.Location = new System.Drawing.Point(184, 499);
+            this.txtAlert.Name = "txtAlert";
+            this.txtAlert.Size = new System.Drawing.Size(63, 21);
+            this.txtAlert.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.txtAlert.TabIndex = 4;
+            this.txtAlert.TextChanged += new System.EventHandler(this.txtAlert_TextChanged);
+            // 
+            // chkAll
+            // 
+            this.chkAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkAll.AutoSize = true;
+            this.chkAll.Location = new System.Drawing.Point(288, 502);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(72, 16);
+            this.chkAll.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.chkAll.TabIndex = 5;
+            this.chkAll.Text = "全部病人";
+            this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
+            // 
+            // btnCompute
+            // 
+            this.btnCompute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCompute.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCompute.Location = new System.Drawing.Point(440, 499);
+            this.btnCompute.Name = "btnCompute";
+            this.btnCompute.Size = new System.Drawing.Size(74, 24);
+            this.btnCompute.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.btnCompute.TabIndex = 7;
+            this.btnCompute.Text = "查询";
+            this.btnCompute.Type = FS.FrameWork.WinForms.Controls.General.ButtonType.None;
+            this.btnCompute.UseVisualStyleBackColor = false;
+            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPrint.Location = new System.Drawing.Point(515, 499);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(74, 24);
+            this.btnPrint.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.btnPrint.TabIndex = 8;
+            this.btnPrint.Text = "打印催款";
+            this.btnPrint.Type = FS.FrameWork.WinForms.Controls.General.ButtonType.None;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // labPercent
+            // 
+            this.labPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labPercent.AutoSize = true;
+            this.labPercent.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labPercent.Location = new System.Drawing.Point(249, 502);
+            this.labPercent.Name = "labPercent";
+            this.labPercent.Size = new System.Drawing.Size(16, 15);
+            this.labPercent.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.labPercent.TabIndex = 9;
+            this.labPercent.Text = "%";
+            // 
+            // labShow
+            // 
+            this.labShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labShow.Location = new System.Drawing.Point(147, 503);
+            this.labShow.Name = "labShow";
+            this.labShow.Size = new System.Drawing.Size(35, 15);
+            this.labShow.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.labShow.TabIndex = 10;
+            // 
+            // chkSelectAll
+            // 
+            this.chkSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkSelectAll.AutoSize = true;
+            this.chkSelectAll.Location = new System.Drawing.Point(366, 502);
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.Size = new System.Drawing.Size(48, 16);
+            this.chkSelectAll.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.chkSelectAll.TabIndex = 11;
+            this.chkSelectAll.Text = "全选";
+            this.chkSelectAll.UseVisualStyleBackColor = true;
+            this.chkSelectAll.CheckedChanged += new System.EventHandler(this.chkSelectAll_CheckedChanged);
+            // 
+            // btnPrintGrid
+            // 
+            this.btnPrintGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintGrid.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPrintGrid.Location = new System.Drawing.Point(590, 499);
+            this.btnPrintGrid.Name = "btnPrintGrid";
+            this.btnPrintGrid.Size = new System.Drawing.Size(74, 24);
+            this.btnPrintGrid.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.btnPrintGrid.TabIndex = 12;
+            this.btnPrintGrid.Text = "打印表格";
+            this.btnPrintGrid.Type = FS.FrameWork.WinForms.Controls.General.ButtonType.None;
+            this.btnPrintGrid.UseVisualStyleBackColor = false;
+            this.btnPrintGrid.Click += new System.EventHandler(this.btnPrintGrid_Click);
+            // 
+            // ucAlert
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
+            this.Controls.Add(this.btnPrintGrid);
+            this.Controls.Add(this.chkSelectAll);
+            this.Controls.Add(this.neuPanel1);
+            this.Controls.Add(this.labShow);
+            this.Controls.Add(this.labPercent);
+            this.Controls.Add(this.cmbType);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.txtAlert);
+            this.Controls.Add(this.btnCompute);
+            this.Controls.Add(this.chkAll);
+            this.Name = "ucAlert";
+            this.Size = new System.Drawing.Size(677, 524);
+            this.Load += new System.EventHandler(this.ucAlert_Load);
+            this.neuPanel1.ResumeLayout(false);
+            this.neuPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.neuSpread1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neuSpread1_Sheet1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private FS.FrameWork.WinForms.Controls.NeuPanel neuPanel1;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblInfo;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lbltitle;
+        private FS.FrameWork.WinForms.Controls.NeuSpread neuSpread1;
+        private FarPoint.Win.Spread.SheetView neuSpread1_Sheet1;
+        private FS.FrameWork.WinForms.Controls.NeuLabel labPercent;
+        private FS.FrameWork.WinForms.Controls.NeuButton btnPrint;
+        private FS.FrameWork.WinForms.Controls.NeuButton btnCompute;
+        private FS.FrameWork.WinForms.Controls.NeuCheckBox chkAll;
+        private FS.FrameWork.WinForms.Controls.NeuTextBox txtAlert;
+        private FS.FrameWork.WinForms.Controls.NeuComboBox cmbType;
+        private FS.FrameWork.WinForms.Controls.NeuLabel labShow;
+        private FS.FrameWork.WinForms.Controls.NeuLabel labDay;
+        private FS.FrameWork.WinForms.Controls.NeuCheckBox chkSelectAll;
+        private FS.FrameWork.WinForms.Controls.NeuButton btnPrintGrid;
+    }
+}

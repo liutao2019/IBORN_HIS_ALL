@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.HISWebServicePivas", "SOC.Local.HISWebServicePivas.csproj", "{44178394-7995-4BB9-ABB5-D8EF43525FA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.HISWebService.GuangZhou", "..\SOC.Local.HISWebService.GuangZhou\SOC.Local.HISWebService.GuangZhou.csproj", "{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISFC.BizProcess.Integrate", "..\..\..\HISFC\Src\HISFC.BizProcess\Integrate\HISFC.BizProcess.Integrate.csproj", "{86C60E4F-2374-4E03-9303-92BB6E1E6949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fee", "..\..\..\HISFC\Src\HISFC.BizLogic\Fee\Fee.csproj", "{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manager", "..\..\..\HISFC\Src\HISFC.BizLogic\Manager\Manager.csproj", "{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 6
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SOC.Local.HISWebServicePivas.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\SOC.Local.HISWebService.GuangZhou\\SOC.Local.HISWebService.GuangZhou.csproj
+		SccProjectName2 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.HISWebService.GuangZhou\u0022,\u0020GHPBAAAA
+		SccLocalPath2 = ..\\SOC.Local.HISWebService.GuangZhou
+		SccProjectUniqueName3 = ..\\..\\..\\HISFC\\Src\\HISFC.BizProcess\\Integrate\\HISFC.BizProcess.Integrate.csproj
+		SccProjectName3 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizProcess/Integrate\u0022,\u0020RFDAAAAA
+		SccLocalPath3 = ..\\..\\..\\HISFC\\Src\\HISFC.BizProcess\\Integrate
+		SccProjectUniqueName4 = ..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Fee\\Fee.csproj
+		SccProjectName4 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Fee\u0022,\u0020CKCAAAAA
+		SccLocalPath4 = ..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Fee
+		SccProjectUniqueName5 = ..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Manager\\Manager.csproj
+		SccProjectName5 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Manager\u0022,\u0020JQCAAAAA
+		SccLocalPath5 = ..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Manager
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Release|.NET.ActiveCfg = Release|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Release|.NET.ActiveCfg = Release|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|.NET.ActiveCfg = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|.NET.ActiveCfg = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Release|.NET.ActiveCfg = Release|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

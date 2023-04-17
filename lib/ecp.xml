@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="GB2312"?>
+<configuration>
+  <appSettings>
+    <add key="ImageFolder" value="images/" />
+  </appSettings>
+  <connectionStrings>
+    <add name="OracleDb" connectionString="Data Source=192.175.8.150/orcl;User Id=ecp;Password=&quot;his&quot;" providerName="System.Data.OracleClient" />
+    <add name="Report" connectionString="Data Source=zwhis;User Id=emr;Password=&quot;emrzdwy102&quot;" providerName="System.Data.OracleClient" />
+  </connectionStrings>
+  <Dal>
+    <His class="FS.Emr.Path.HIS50.HisLogic,FS.Emr.Path.HIS50" dir="" />
+    <Emr class="FS.Emr.Path.EMR50.EmrLogic,FS.Emr.Path.EMR50" dir="" />
+    <PathPrint class="FS.Emr.Path.HIS50.PathPrint,FS.Emr.Path.HIS50" dir="" />
+  </Dal>
+<!--
+  <PathConfiguration>
+
+
+    <PathConfig Name="ExecutedColor" Type="2" Value="192, 255, 192" Visable="1" Encryption="0" Tip="已执行单元格背景色(绿色)" />
+    <PathConfig Name="NoExecutedColor" Type="2" Value="255, 255, 255" Visable="1" Encryption="0" Tip="未执行单元格背景色（白色）" />
+    <PathConfig Name="VarianceColor" Type="2" Value="255, 192, 192" Visable="1" Encryption="0" Tip="变异单元格背景色（红色）" />
+    <PathConfig Name="EmptyColor" Type="2" Value="255, 255, 255" Visable="1" Encryption="0" Tip="空单元格背景色（白色）" />
+    <PathConfig Name="TodayColor" Type="2" Value="" Visable="1" Encryption="0" Tip="路径执行当天列头颜色（粉红色）" />
+    <PathConfig Name="PredayColor" Type="2" Value="" Visable="1" Encryption="0" Tip="今天之前阶段的列头颜色，默认为紫色" />
+    <PathConfig Name="SimpledayColor" Type="2" Value="" Visable="1" Encryption="0" Tip="路径未执行阶段的列头颜色，默认淡粉）" />
+    <PathConfig Name="HolidayColor" Type="2" Value="" Visable="1" Encryption="0" Tip="路径节假日列头颜色，默认灰色" />
+    <PathConfig Name="IsValidateInHospitalDate" Type="1" Value="false" Visable="1" Encryption="1" Tip="判断登记日期是否符合要求（登记日期不能小于患者住院日期，登记后今天的日期不在第一阶段内，第一阶段天数不能小于患者到目前为止的住院天数）（true表示登记日期不能小于患者住院日期，false表示可以小于住院日期）" />
+    <PathConfig Name="PlaceOrderIsEnabled" Type="1" Value="true" Visable="1" Encryption="0" Tip="可开立医嘱功能的开关（true为打开，打开时可以开立路径医嘱,false为不能开立医嘱。）" />
+    <PathConfig Name="IsStopOrderEnable" Type="1" Value="false" Visable="1" Encryption="0" Tip="右键停止医嘱菜单与开立非路径医嘱按钮是否可用（电子病历开立医嘱设置为true，HIS开立医嘱设置为false）" />    <PathConfig Name="ReInHospitalOnOff" Type="1" Value="false" Visable="1" Encryption="0" Tip="录入再住院功能的开关（true表示登记一个再住院患者，会弹出对话框是否是再住院患者，false为关闭）,建议不要使用此功能" />
+   <PathConfig Name="EditVarianceType" Type="3" Value="EditAll" Visable="1" Encryption="0" Tip=" EditAll：查看变异时，双击变异记录可修改全部变异信息，EditPersonal ：只能修改自己填写的变异信息" />
+   <PathConfig Name="StrongStopIsEnabled" Type="1" Value="false" Visable="1" Encryption="1" Tip="强制退出路径开关（true为打开，如果3天内没有对路径当前阶段所对应的之前阶段内的必选项进行操作，点打开路径后会强制退出路径，false为关闭）" />
+   <PathConfig Name="NonPathOrderFeeForVariance" Type="3" Value="-1" Visable="1" Encryption="0" Tip="衡量非路径医嘱变异的价格标准，如果小于0，此功能关闭" />
+   <PathConfig Name="FilterSubjectForRegister" Type="1" Value="true" Visable="1" Encryption="0" Tip="通过科室编码再查询要登记的路径模板开关，true：登记路径时可以选择本科室所对应专业下的所有模板，false：登记路径时只能根据icd10编码匹配进行登记，即使本科室维护了某个模板，但是患者icd10编码与路径icd10编码匹配不上，也不能选择此模板进行登记" />
+    <PathConfig Name="IsHisInpatientId" Type="1" Value="true" Visable="1" Encryption="0" Tip="住院患者流水号是否是来自HIS（为true时HIS开立医嘱，为false时电子病历开立医嘱）" />
+    <PathConfig Name="IsDelayOperationElement" Type="1" Value="false" Visable="1" Encryption="0" Tip="住院手术元素是否根据节假日进行延迟，此开关暂时不用" />    
+   <PathConfig Name="IsVarianceNoTodayElement" Type="1" Value="false" Visable="1" Encryption="0" Tip="电子病历开医嘱时执行非今天元素是否填写变异信息,若从HIS开立医嘱必须为False。此开关暂时不用" />
+    <PathConfig Name="Num" Type="3" Value="wbCm4SGx3v0=" Visable="0" Encryption="1" Tip="路径条数限制" />
+    <PathConfig Name="HospitalName" Type="3" Value="抚顺中医院" Visable="1" Encryption="0" Tip="医院名称" />
+    <PathConfig Name="IsEnabledEditAppling" Type="1" Value="false" Visable="1" Encryption="0" Tip="当路径模板为申请状态时，是否可编辑（为true时申请中的模板可以修改，为false时，申请中的模板不可用编辑）" />
+    <PathConfig Name="IsUsingEmrDisease" Type="1" Value="false" Visable="1" Encryption="0" Tip="路径使用时，是否使用EMR版本单病种质控（为true时，路径使用模板中包含填写质控按钮，为false时，不包含填写质控按钮）" />
+    <PathConfig Name="IsNonPathVariance" Type="1" Value="false" Visable="1" Encryption="0" Tip="非路径医嘱是否必须写变异信息（为true时，非路径医嘱必须写变异信息，为false时，不用写变异）" />
+   <PathConfig Name="IsStopPathEnable" Type="1" Value="false" Visable="1" Encryption="0" Tip="人员权限管理中的中途退出路径权限是否有效（为true时，只有拥有中途退出权限的医生才能执行中途退出，为false时，所有医生都可执行中途退出）" />
+    <PathConfig Name="IsVarianceForDayModify" Type="1" Value="false" Visable="1" Encryption="0" Tip="延长或缩短阶段是否填写变异信息（为true时，需要写变异，false为不写变异）" />
+    <PathConfig Name="IsAddRecordTmpEnable" Type="1" Value="false" Visable="1" Encryption="0" Tip="模板维护时，诊疗病历模板添加按钮是否可用（true代表可用，false代表不可用）" />
+    <PathConfig Name="IsEmrRegPathEnable" Type="1" Value="false" Visable="1" Encryption="0" Tip="Emr诊断录入后根据ICD10匹配入路径是否可用（true代表可用，false代表不可用）" />
+    <PathConfig Name="IsMidNormalExitVisible" Type="1" Value="true" Visable="1" Encryption="0" Tip="中途治愈按钮是否显示（true代表显示该按钮，false代表不显示）" />
+    <PathConfig Name="IsVarianceForLongOrderNoStop" Type="1" Value="false" Visable="1" Encryption="0" Tip="长期医嘱不停止是否在非路径医嘱中显示变异（true代表显示，false代表不显示）" />
+    <PathConfig Name="IsModifyOrderEnable" Type="1" Value="false" Visable="1" Encryption="0" Tip="变更医嘱功能是否可用（true代表可用，false代表不可用）" />
+    <PathConfig Name="NoPathSmallerColor" Type="2" Value="130, 140, 143" Visable="1" Encryption="0" Tip="非路径医嘱费用小于参数NonPathOrderFeeForVariance中设置的判断费用时所显示的颜色" />
+    <PathConfig Name="IsInSamePath" Type="1" Value="false" Visable="1" Encryption="0" Tip="同一患者是否能再次进入同一路径(false为能进，true为不能进入)" />
+    <PathConfig Name="OrderState" Type="3" Value="1" Visable="1" Encryption="0" Tip="此参数控制开立今日医嘱界面，医嘱状态过滤下拉框：0  已执行，1未执行，2必选项，3可选项, 4全部。默认为1，未执行状态" />
+    <PathConfig Name="DynamicPrint" Type="1" Value="false" Visable="1" Encryption="0" Tip="是否采用固定行高度，单元格字体根据内容多少自动改变的打印方式。false为不采用，true为采用、并使用默认的每行高度设置。如需要改变每行默认高度，则将value值改为用|分隔符设置每行高度，保持程序内默认设置值则将数值设为-1。顺序为‘诊疗项目|长嘱|临嘱|径外长嘱|径外临嘱|护理项目|病情变异记录|护士签名|医师签名’ 例如:140|208|245|0|0|125|55|-1|-1" />
+    <PathConfig Name="GreaterFeeForVarianceStop" Type="3" Value="10000" Visable="1" Encryption="0" Tip="变异退出路径使用，路径标准费用基础上超过的费用，Value中请填写大于等于0的数字，大于value值时，属于变异退出" />
+    <PathConfig Name="GreaterDayForVarianceStop" Type="3" Value="10000" Visable="1" Encryption="0" Tip="变异退出路径使用，路径最大天数基础上超过的天数，Value中请填写大于等于0的整数，大于value值时，属于变异退出" />
+    <PathConfig Name="MustVarianceNumForVarianceStop" Type="3" Value="10000" Visable="1" Encryption="0" Tip="变异退出路径使用，必选项没执行的数量，Value中填写大于等于0的整数，大于value值时，属于变异退出" />
+    <PathConfig Name="InPatientHours" Type="3" Value="24" Visable="1" Encryption="0" Tip="此开关控制入院后多少小时算新入院患者（即入院多少小时匹配ICD入路径，超过24小时的患者不可以通过ICD匹配入路径)" />
+    <PathConfig Name="IsFilterOper" Type="1" Value="true" Visable="1" Encryption="0" Tip="此开关控制匹配ICD入路径是否过滤手术Code(默认true过滤，false不过滤)" />
+    <PathConfig Name="IsMustChecked" Type="1" Value="true" Visable="1" Encryption="0" Tip="此开关控制开立医嘱时是否默认选中必选项(默认为true选中，false为不选中)" />
+    <PathConfig Name="IsMutilExectureRecord" Type="1" Value="true" Visable="1" Encryption="0" Tip="是否开启批量执行诊疗项目 (true为开启，false不开启)" />
+    <PathConfig Name="IsMustElementVariance" Type="1" Value="true" Visable="1" Encryption="0" Tip="必选项是否填写变异(true为填写变异，false不填写)" />
+    <PathConfig Name="IsTreatmentResultChecked" Type="1" Value="false" Visable="1" Encryption="0" Tip="此开关控制结束评估界面是否强制填写并发症(默认为false不强制，true为必填写)" />
+    <PathConfig Name="IsShowICD_NAME" Type="1" Value="false" Visable="0" Encryption="0" Tip="控制临床路径登记表、变异退出表是否显示诊断名。(true代表显示，false为不显示)" />
+    <PathConfig Name="IsUseDiseaseQC" Type="1" Value="false" Visable="0" Encryption="0" Tip="中南医院类型的质控是否启用。(true：启用。false：不启用)" />  
+</PathConfiguration>
+-->
+</configuration>

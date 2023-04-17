@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Order>
+  <OrderType type="Base" name="基础">
+    <Attribute id="Name" name="名称" Length="200" />
+    <Attribute id="DoseOnce" name="每次用量" Length="70" />
+    <Attribute id="DoseOneUnit" name="每次用量单位" Length="40" />
+    <Attribute id="FrequenceId" name="频次名称" Length="20" />
+    <Attribute id="UsageName" name="用法名称" Length="80" />
+    <Attribute id="TotalQty" name="总量" Length="40" />
+    <Attribute id="TotalQtyUnit" name="总量单位" Length="40" />
+    <Attribute id="BeginDate" name="开始时间" Length="120" />
+    <Attribute id="EndDate" name="结束时间" Length="120" />
+    <Attribute id="DcOperTime" name="停止时间" Length="120" />
+    <Attribute id="DcReason" name="停止原因" Length="200" />
+    <Attribute id="State" name="状态" Length="40" />
+    <Attribute id="HypoTestFlag" name="皮试标记" Length="200" />
+    <Attribute id="HerbProcess" name="草药特殊煎制法" Length="200" />
+  </OrderType>
+  <OrderType type="ClinicOrder" name="门诊医嘱">
+    <Attribute id="Name" name="名称" Length="200" />
+    <Attribute id="DoseOnce" name="每次用量" Length="70" />
+    <Attribute id="DoseOneUnit" name="每次用量单位" Length="40" />
+    <Attribute id="FrequenceId" name="频次" Length="20" />
+    <Attribute id="UsageName" name="用法" Length="80" />
+    <Attribute id="TotalQty" name="总量" Length="40" />
+    <Attribute id="TotalQtyUnit" name="总量单位" Length="40" />
+    <Attribute id="Specs" name="规格" Length="80" />
+  </OrderType>
+  <OrderType type="P" name="西药">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="PCZ" name="中成药">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="PCC" name="中草药">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="M" name="描述医嘱">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="UN" name="护理级别">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="UND" name="护理常规">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="MF" name="膳食">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="MRD" name="转科">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="MRB" name="转床">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="MRH" name="预约出院">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="MC" name="会诊">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="UL" name="检验">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="UC" name="检查">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="UO" name="手术">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="UZ" name="治疗">
+    <Attribute id="" name="" />
+  </OrderType>
+  <OrderType type="UB" name="输血">
+    <Attribute id="" name="" />
+  </OrderType>
+  <ShowOrder>
+    <Attribute id="Name" name="名称" Length="200" />
+    <Attribute id="DoseOnce" name="每次用量" Length="80" />
+    <Attribute id="DoseOneUnit" name="单位" Length="40" />
+    <Attribute id="FrequenceId" name="频次" Length="40" />
+    <Attribute id="UsageName" name="用法" Length="80" />
+    <Attribute id="TotalQty" name="总量" Length="40" />
+    <Attribute id="TotalQtyUnit" name="单位" Length="40" />
+    <Attribute id="BeginDate" name="开始时间" Length="120" />
+    <Attribute id="EndDate" name="结束时间" Length="120" />
+    <Attribute id="DcOperTime" name="停止时间" Length="120" />
+    <Attribute id="DcReason" name="停止原因" Length="200" />
+    <Attribute id="State" name="状态" Length="40" />
+    <Attribute id="HypoTestFlag" name="皮试标记" Length="200" />
+    <Attribute id="HerbProcess" name="草药特殊煎制法" Length="200" />
+  </ShowOrder>
+  <ShowClinicOrder>
+    <Attribute id="Name" name="名称" Length="200" />
+    <Attribute id="DoseOnce" name="每次用量" Length="70" />
+    <Attribute id="DoseOneUnit" name="每次用量单位" Length="40" />
+    <Attribute id="FrequenceId" name="频次" Length="20" />
+    <Attribute id="UsageName" name="用法" Length="80" />
+    <Attribute id="TotalQty" name="总量" Length="40" />
+    <Attribute id="TotalQtyUnit" name="总量单位" Length="40" />
+    <Attribute id="Specs" name="规格" Length="80" />
+  </ShowClinicOrder>
+  <OrderState>
+    <Attribute id="0" name="未开立" />
+    <Attribute id="1" name="已开立待审核" />
+    <Attribute id="2" name="开立已审核" />
+    <Attribute id="3" name="已核对" />
+    <Attribute id="4" name="终端已接受" />
+    <Attribute id="5" name="已执行" />
+    <Attribute id="6" name="已废止" />
+  </OrderState>
+</Order>

@@ -1,0 +1,95 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cardno</Name><Text>姓名/卡号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>440</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>/*
+select 
+       t.cardno 卡号,
+       c.name 姓名,
+       u.item_name 项目名称,
+       u.other_name 项目别名,
+       t.invoice_no 发票号,
+       --t.sequence_no,
+       --t.trans_type,
+       --t.clinic_code,
+       --t.detailseq,
+       t.amount 核销次数,
+       t.unit 单位,
+       t.tot_cost 总价格,
+       t.real_cost 实付,
+       t.gift_cost 正宗,
+       t.eco_cost 优惠,
+       t.oper_code 核销人编码,
+       fun_get_employee_name( t.oper_code) 核销人,
+       to_char( t.oper_date,'yyyy-mm-dd hh24:mi:ss') 核销时间,
+       --t.balance_flag 日结标识,
+       --t.balance_no,
+       --t.balance_opcd,
+       --t.balance_date,
+       t.cancel_flag 取消标记,
+       t.cancel_oper 取消人,
+       to_char( t.cancel_date,'yyyy-mm-dd hh24:mi:ss')  取消日期,
+       t.memo 备注,
+       t.has_card_no 拥有套餐卡号,
+       t.use_card_no 使用者卡号,
+       t.costid 消费索引,
+       t.costclinic 业务流水号,
+       t.cost_type 消费类型,
+       --t.hospital_id 院区,
+       t.hospital_name 院区,
+       t.newclincode 新套餐流水号,
+       t.newseq 新套餐序号
+       from exp_packagecost t
+left join exp_packagedetail d on t.CLINIC_CODE = d.CLINIC_CODE and t.DETAILSEQ = d.sequence_no
+left join exp_package ep on ep.clinic_code = d.clinic_code and ep.sequence_no = d.sequence_no
+left join fin_com_undruginfo u on d.item_code = u.item_code 
+left join com_patientinfo  c on d.card_no = c.card_no
+where t.OPER_DATE between to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss') 
+and (ep.package_id in (select code from com_dictionary t  where type ='CRM_EXECUTE_PACKAGE') or d.item_code in ('F00000025661','F00000025662'))*/
+
+
+--前面的sql按照package来查，理论上应该是对的，但还是少了一些项目，所以这里按照项目补充查询
+select 
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,ep.card_no,'合计：') 卡号,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,cp.name,'/') 姓名,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,ed.item_name,'/') 项目名称,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,cd.input_code,'/') 项目别名,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.invoice_no,'/') 发票号,
+       --t.sequence_no,
+       --t.trans_type,
+       --t.clinic_code,
+       --t.detailseq,
+       sum(t.amount) 核销次数,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.unit,'/') 单位,
+       sum(round(ed.tot_cost/ed.qty*t.amount,2)) 总价格,
+       sum(round(ed.real_cost/ed.qty*t.amount,2)) 实付,
+       sum(round(ed.gift_cost/ed.qty*t.amount,2)) 赠送,
+       sum(round(ed.etc_cost/ed.qty*t.amount,2)) 优惠,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.oper_code,'/') 核销人编码, 
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,nvl((select bd.employee_name from bd_com_employee bd where t.oper_code=bd.employee_id),fun_get_employee_name(t.oper_code)),'/') 核销人,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.oper_date,to_date('0001-01-01','yyyy-mm-dd')) 核销时间,
+       --t.balance_flag 日结标识,
+       --t.balance_no,
+       --t.balance_opcd,
+       --t.balance_date,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,decode(t.cancel_flag,'1','取消','核销'),'/') 取消标记,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,nvl((select bd.employee_name from bd_com_employee bd where t.cancel_oper=bd.employee_id),fun_get_employee_name(t.cancel_oper)),'/') 取消人,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.cancel_date,to_date('0001-01-01','yyyy-mm-dd')) 取消日期,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.memo,'/') 备注,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.has_card_no,'/') 拥有套餐卡号,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.use_card_no,'/') 使用者卡号,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.costid,'/') 消费索引,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.costclinic,'/') 业务流水号,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,decode(t.cost_type,'MZ','门诊','ZY','住院'),'/') 消费类型,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.hospital_name,'/') 院区,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.newclincode,'/') 新套餐流水号,
+       decode(grouping_id(ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq),0,t.newseq,'/') 新套餐序号
+  from exp_packagecost t
+  left join exp_packagedetail ed on t.clinic_code = ed.clinic_code and t.detailseq = ed.sequence_no and ed.trans_type=1
+  left join exp_package ep on ep.clinic_code = ed.clinic_code and ep.trans_type=ed.trans_type
+  left join com_patientinfo cp on cp.card_no=ep.card_no
+ inner join com_dictionary cd on cd.type='YMITEMS' and ed.item_code=cd.code
+ where t.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+1 
+--and (ep.package_id in (select code from com_dictionary t  where type ='CRM_EXECUTE_PACKAGE') or d.item_code in ('F00000025661','F00000025662'))
+--and ep.package_id in (select code from com_dictionary t  where type ='CRM_EXECUTE_PACKAGE') 
+--and c.name not like '%胡云贵%' and c.name not like '%马爽%' and t.oper_code!='000202' 
+   and (ep.card_no like '%&amp;cardno%' or ep.patient_name like '%&amp;cardno%' or cp.name like '%&amp;cardno%' or '&amp;cardno' is null )   
+ group by rollup((ep.card_no,cp.name,ed.item_name,cd.input_code,t.invoice_no,t.unit,t.oper_code,t.oper_date,t.cancel_flag,t.cancel_oper,t.cancel_date,t.memo,t.has_card_no,t.use_card_no,t.costid,t.costclinic,t.cost_type,t.hospital_name,t.newclincode,t.newseq))
+ order by t.oper_date
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊收费报表\疫苗执行核销汇总查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

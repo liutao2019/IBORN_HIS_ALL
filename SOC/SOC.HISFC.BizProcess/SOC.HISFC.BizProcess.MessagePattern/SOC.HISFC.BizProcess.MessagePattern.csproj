@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E56196B3-DF4D-415B-A35C-AE25CDA298EB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.HISFC.BizProcess.MessagePattern</RootNamespace>
+    <AssemblyName>SOC.HISFC.BizProcess.MessagePattern</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FS.HL7Message.V24, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\FS.HL7Message.V24.dll</HintPath>
+    </Reference>
+    <Reference Include="HealthCheckup.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.HealthCheckup, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.HealthCheckup.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="LISChekupBizProcess, Version=1.0.4701.31120, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="NHapi.Base, Version=2.0.2.0, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\NHapi.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V24, Version=2.0.2.0, Culture=neutral, PublicKeyToken=4f19f6ea32017d22, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\NHapi.Model.V24.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Assign.BizProcess, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.Assign.BizProcess.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Assign.Models, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.Assign.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.BizProcess.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.BizProcess.CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.MessagePatternInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.BizProcess.MessagePatternInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.SocialSecurity.ShenZhen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.SocialSecurity.ShenZhen.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractReceiver.cs" />
+    <Compile Include="AbstractSender.cs" />
+    <Compile Include="BizLogic\DrugItem.cs" />
+    <Compile Include="BizLogic\Healthcheckup.cs" />
+    <Compile Include="HL7\FinancialManagement\DFT_P03\InpatientPrepay.cs" />
+    <Compile Include="HL7\FinancialManagement\DFT_P03\RecipeFee.cs" />
+    <Compile Include="HL7\FinancialManagement\DFT_P03\RegisterFee.cs" />
+    <Compile Include="HL7\ItemCodeMap.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\DrugCompare.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\DrugStorage.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\SICompare.cs" />
+    <Compile Include="HL7\MedicalRecordsInformationManagement\ZMR_ZH1\HealthRecord.cs" />
+    <Compile Include="HL7\OrderEntry\OMG_O19\HealthCheckupExaminationTerminalCancelConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\OMG_O19\HealthCheckupExaminationApply.cs" />
+    <Compile Include="HL7\OrderEntry\OML_O21\HealthCheckupInspectionApply.cs" />
+    <Compile Include="HL7\OrderEntry\ORG_O20\HealthCheckupExaminationFeeConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORG_O20\HealthCheckupExaminationTerminalConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORL_O22\HealthCheckupInspectionFeeConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORL_O22\HealthCheckupInspectionTerminalConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORU_R01\HealthCheckupExaminationReport.cs" />
+    <Compile Include="HL7\OrderEntry\OUL_R21\HealthCheckupInspectionReport.cs" />
+    <Compile Include="HL7\OrderEntry\OutPatientBalanceFee.cs" />
+    <Compile Include="HL7\OrderEntry\RAS_O17\InpatientFeeItem.cs" />
+    <Compile Include="HL7\OrderEntry\RGV_O15\OutPatientDrugStoreConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\RRG_O16\OutPatientDrugReceiveRowa.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A04\HealthCheckupRegister.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A08\HealthCheckupChangeInfo.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A11\HealthCheckupCancleRegister.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A32\OutpatientCancelSeeOut.cs" />
+    <Compile Include="HL7\Query\MFN_M15\QueryRowaDrug.cs" />
+    <Compile Include="HL7\Query\MFQ_M01\QueryDrug.cs" />
+    <Compile Include="HL7\Query\MFQ_M15\QueryDrugRowaStorage.cs" />
+    <Compile Include="HL7\Query\MFR_M15\DrugRowaStorage.cs" />
+    <Compile Include="HL7\Query\NMQ_N01\QueryRowaMachineState.cs" />
+    <Compile Include="HL7\Query\SQM_ZQ1\QueryBookingConfirm.cs" />
+    <Compile Include="HL7\Scheduling\SQM_S25\QueryBookingNumber.cs" />
+    <Compile Include="HL7\Scheduling\SQR_S25\Bookingnumber.cs" />
+    <Compile Include="HL7\Scheduling\SRM_S01\BookingOrder.cs" />
+    <Compile Include="HL7\Scheduling\SRM_S01\PreRegister.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MessageReceiver\ACK_V24_Receiver.cs" />
+    <Compile Include="MessageReceiver\DFT_P03_Receiver.cs" />
+    <Compile Include="MessageReceiver\GenericMessage_V24_Receiver.cs" />
+    <Compile Include="MessageReceiver\MFN_M01_Receiver.cs" />
+    <Compile Include="MessageReceiver\MFN_M15_Receiver.cs" />
+    <Compile Include="MessageReceiver\OMG_O19_Receiver.cs" />
+    <Compile Include="MessageReceiver\OMP_O09_Receiver.cs" />
+    <Compile Include="MessageReceiver\OML_O21_Receiver.cs" />
+    <Compile Include="MessageReceiver\ORG_O20_Receiver.cs" />
+    <Compile Include="MessageReceiver\ORL_O22_Receiver.cs" />
+    <Compile Include="MessageReceiver\ORM_O01_Receiver.cs" />
+    <Compile Include="MessageReceiver\ORR_O02_Receiver.cs" />
+    <Compile Include="MessageReceiver\ORU_R01_Receiver.cs" />
+    <Compile Include="MessageReceiver\OUL_R21_Receiver.cs" />
+    <Compile Include="MessageReceiver\RAS_O17_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A01_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A02_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A03_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A05_Receiver.cs" />
+    <Compile Include="MessageReceiver\RRG_O16_Receiver.cs" />
+    <Compile Include="MessageReceiver\SQM_ZQ1_Receiver.cs" />
+    <Compile Include="MessageReceiver\ZCT_Z04_Receiver.cs" />
+    <Compile Include="MessageReceiver\ZCT_Z05_Receiver.cs" />
+    <Compile Include="MessageReceiver\ZMR_ZH1_Receiver.cs" />
+    <Compile Include="MessageSender\ADT_A01_Sender.cs" />
+    <Compile Include="MessageSender\ADT_A02_Sender.cs" />
+    <Compile Include="MessageSender\ADT_A03_Sender.cs" />
+    <Compile Include="MessageSender\ADT_A04_Sender.cs" />
+    <Compile Include="MessageSender\ADT_A08_Sender.cs" />
+    <Compile Include="MessageSender\ADT_A11_Sender.cs" />
+    <Compile Include="MessageSender\ADT_A12_Sender.cs" />
+    <Compile Include="MessageSender\ADT_A13_Sender.cs" />
+    <Compile Include="MessageSender\ADT_A32_Sender.cs" />
+    <Compile Include="MessageSender\DFT_P03_Sender.cs" />
+    <Compile Include="MessageSender\MFQ_M15_Sender.cs" />
+    <Compile Include="MessageSender\NMQ_N01_Sender.cs" />
+    <Compile Include="MessageSender\OMG_O19_Sender.cs" />
+    <Compile Include="MessageSender\OML_O21_Sender.cs" />
+    <Compile Include="MessageSender\ORP_O10_Sender.cs" />
+    <Compile Include="MessageSender\ORG_O20_Sender.cs" />
+    <Compile Include="MessageSender\ORL_O22_Sender.cs" />
+    <Compile Include="MessageSender\ORR_O02_Sender.cs" />
+    <Compile Include="MessageSender\RAS_O17_Sender.cs" />
+    <Compile Include="MessageSender\RGV_O15_Sender.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A10\OutPatientArrive.cs" />
+    <Compile Include="MessageReceiver\ADT_A31_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A32_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A61_Receiver.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A03\BabyInPatientCancelRegister.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A01\BabyInPatientRegister.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A10\InPatientArrive.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A03\InPatientBalance.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A25\PatientCallBack.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A32\InPatientCancelArrive.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A13\PatientCancelBalance.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A11\InPatientCancelRegister.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A08\InPatientChangeInfo.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A08\InPatientChangeNurseInfo.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A31\InPatientDiagnose.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A16\PatientOut.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A01\InPatientRegister.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A42\PatientSwapBed.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A02\InPatientTransfer.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A05\DoctorCallPatient.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A61\DoctorLoginConsole.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A02\OutPatientAssign.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A12\OutPatientCancelAssign.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A32\OutPatientCancelInRoom.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A11\OutPatientCancelRegister.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A08\OutPatientChangeInfo.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A31\OutPatientDiagnose.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A04\OutPatientRegister.cs" />
+    <Compile Include="HL7\PatientAdministration\ADT_A03\OutPatientSeeOut.cs" />
+    <Compile Include="MessageSender\SQM_S25_Sender.cs" />
+    <Compile Include="PatientADT.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Bed.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Constant.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Department.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\DeptStat.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Drug.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Employee.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Frequency.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\ICD10.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Matrial.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\NuoConsole.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\NuoRoom.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Pact.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\RegLevel.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Schema.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Undrug.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\UndrugGroup.cs" />
+    <Compile Include="HL7\MasterFiles\MFN_M01\Usage.cs" />
+    <Compile Include="HL7\OrderEntry\OMG_O19\InpatientExaminationTerminalCancelConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORG_O20\InpatientExaminationTerminalConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\OMG_O19\OutpatientExaminationApply.cs" />
+    <Compile Include="HL7\OrderEntry\ORG_O20\OutpatientExaminationFeeConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\OMG_O19\OutpatientExaminationTerminalCancelConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORG_O20\OutpatientExaminationTerminalConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\Function.cs" />
+    <Compile Include="HL7\OrderEntry\ORL_O22\InpatientInspectionTerminalConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\OML_O21\OutpatientInspectionApply.cs" />
+    <Compile Include="HL7\OrderEntry\ORL_O22\OutpatientInspectionFeeConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORL_O22\OutpatientInspectionTerminalConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORM_O01\InpatientOperationTerminalCancelConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORR_O02\InpatientOperationTerminalConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\ORM_O01\OutpatientOperationApply.cs" />
+    <Compile Include="HL7\OrderEntry\ORR_O02\OutpatientOperationFeeConfirm.cs" />
+    <Compile Include="OrderControl.cs" />
+    <Compile Include="HL7\OrderEntry\RAS_O17\InpatientOrderApply.cs" />
+    <Compile Include="HL7\OrderEntry\RGV_O15\InpatientDrugStoreConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\RGV_O15\InpatientTerminalConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\OMP_O09\OutPatientRecipeApply.cs" />
+    <Compile Include="HL7\OrderEntry\ORP_O10\OutpatientRecipeFeeConfirm.cs" />
+    <Compile Include="HL7\OrderEntry\TerminalConfirm.cs" />
+    <Compile Include="MessageSender\MFN_M01_Sender.cs" />
+    <Compile Include="MessageReceiver\ADT_A10_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A08_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A16_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A25_Receiver.cs" />
+    <Compile Include="MessageReceiver\ADT_A42_Receiver.cs" />
+    <Compile Include="MessageReceiver\QRY_Q27_Receiver.cs" />
+    <Compile Include="HL7\Query\MFQ_M01\Department.cs" />
+    <Compile Include="HL7\Query\MFQ_M01\DoctorSchema.cs" />
+    <Compile Include="MessageReceiver\MFQ_M01_Receiver.cs" />
+    <Compile Include="HL7\Query\MFQ_M01\RegLevel.cs" />
+    <Compile Include="HL7\Query\QRY_Q27\QueryRecipe.cs" />
+    <Compile Include="HL7\ReceiveMessage.cs" />
+    <Compile Include="MessageReceiver\SRM_S04_Receiver.cs" />
+    <Compile Include="MessageReceiver\SRM_S01_Receiver.cs" />
+    <Compile Include="HL7\Scheduling\SRM_S04\CancelPreRegister.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HL7\MedicalRecordsInformationManagement\MDM_T02\" />
+    <Folder Include="HL7\Query\MFR_M01\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

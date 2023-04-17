@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UnQCCondition>
+  <!--单独属性判断条件 任意一个属性满足则不参与质控-->
+  <SingleCondition>
+    <!--是否婴儿 对应VHIS_INPATIENTINFO中BABY_FLAG 1婴儿不参加质控 婴儿默认不参与质控，修改配置无效-->
+	  <Property Code="IsBaby" Name="是否婴儿" Valid="1">1</Property>
+    <!--入院来源 对应VHIS_INPATIENTINFO中IN_SOURCE 1为门诊，2为急诊，3为转科，4为转院 ，6为家庭病床，7为血透患者，8为其它  多个时值以逗号分隔-->
+	  <Property Code="InSource" Name="入院来源" Valid="1">7</Property>
+    <!--科室编码 对应VHIS_INPATIENTINFO中DEPT_CODE 多个时值以逗号分隔-->
+	  <Property Code="DeptCode" Name="科室编码" Valid="0"></Property>
+  </SingleCondition>
+</UnQCCondition>

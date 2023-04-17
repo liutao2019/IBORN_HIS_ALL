@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Pharmacy"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="Pharmacy">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="PharmacyStyle" type="PharmacyStyleT"/>
+        
+        <!--降压-->
+        <xs:element name="pumpdown" type="YesNoT"/>
+        <xs:element name="pumpdownKind">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pd" type="PumpDownT" minOccurs="0" maxOccurs="6"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="pdID">
+            <xs:selector xpath=".//mstns:pd"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="pumpdownDesc" type="xs:string"/>
+  
+        <!--降糖-->
+        <xs:element name="sugerdown" type="YesNoT"/>
+        <xs:element name="sugerdownKind">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sd" type="SugerDownT" minOccurs="0" maxOccurs="6"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="sdID">
+            <xs:selector xpath=".//mstns:sd"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="sugerdownDesc" type="xs:string"/>
+        
+        <!--降脂-->
+        <xs:element name="fatdown" type="YesNoT"/>
+        <xs:element name="fatdownKind">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fd" type="FatDownT" minOccurs="0" maxOccurs="6"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="fdID">
+            <xs:selector xpath=".//mstns:fd"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="fatdownDesc" type="xs:string"/>
+        
+        <!--抗凝-->
+        <xs:element name="antiFreeze" type="YesNoT"/>
+        <xs:element name="antiFreezeKind">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="af" type="AntiFreezingT" minOccurs="0" maxOccurs="5"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="afID">
+            <xs:selector xpath=".//mstns:af"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="antiFreezeDesc" type="xs:string"/>
+        
+        <!--抗血小板-->
+        <xs:element name="antiPlatelet" type="YesNoT"/>
+        <xs:element name="antiPlateletKind">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ap" type="AntiPlateletT" minOccurs="0" maxOccurs="6"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="apID">
+            <xs:selector xpath=".//mstns:ap"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="antiPlateletDesc" type="xs:string"/>
+        
+        <!--溶栓-->
+        <xs:element name="thrombolytics" type="YesNoT"/>
+        <xs:element name="thrombolyticsKind">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="t" type="ThrombolyticsT" minOccurs="0" maxOccurs="7"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="tID">
+            <xs:selector xpath=".//mstns:t"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="thrombolyticsDesc" type="xs:string"/>
+        
+        <!--扩容-->
+        <xs:element name="bigVolume" type="YesNoT"/>
+        <xs:element name="bigVolumeKind">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="bv" type="BigVolumeT" minOccurs="0" maxOccurs="3"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="bvID">
+            <xs:selector xpath=".//mstns:bv"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="bigVolumeDesc" type="xs:string"/>
+        
+        <!--降纤-->
+        <xs:element name="fineDown" type="YesNoT"/>
+        <xs:element name="fineDownDesc" type="xs:string"/>
+        
+        <!--中药-->
+        <xs:element name="chinaDrug" type="YesNoT"/>
+        <xs:element name="chinaDrugDesc" type="xs:string"/>
+        
+        <!--降同型半胱氨酸-->
+        <xs:element name="homocys" type="YesNoT"/>
+        <xs:element name="homocysKind">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="h" type="homocysteineT" minOccurs="0" maxOccurs="4"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="hID">
+            <xs:selector xpath=".//mstns:h"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="homocysDesc" type="xs:string"/>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PharmacyStyleT">
+    <xs:restriction base="xs:int">
+      <!--1近两周用药 2住院用药-->
+      <xs:pattern value="1|2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="YesNoT">
+    <xs:restriction base="xs:int">
+      <!--1是 2否-->
+      <xs:pattern value="1|2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PumpDownT">
+    <xs:restriction base="xs:string">
+      <!--01利尿药 02钙拮抗剂 03β受体阻滞剂 04ACEI 05ARB 99其他-->
+      <xs:pattern  value="01|02|03|04|05|99" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SugerDownT">
+    <xs:restriction base="xs:string">
+      <!--01磺脲类 02双胍类 03噻唑烷二酮类 04α糖苷酶抑制剂 05胰岛素 99其他-->
+      <xs:pattern  value="01|02|03|04|05|99" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FatDownT">
+    <xs:restriction base="xs:string">
+      <!--01他汀类 02贝特类 03烟酸类 04树脂类 05胆固醇吸收抑制剂 99其他-->
+      <xs:pattern  value="01|02|03|04|05|99" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AntiFreezingT">
+    <xs:restriction base="xs:string">
+      <!--01华法林 02普通肝素 03低分子肝素 04水蛭素 99其他-->
+      <xs:pattern  value="01|02|03|04|99" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AntiPlateletT">
+    <xs:restriction base="xs:string">
+      <!--01阿司匹林 02氯吡格雷 03噻氯匹定 04双嚓达莫 05西洛他唑 99其他-->
+      <xs:pattern  value="01|02|03|04|05|99" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ThrombolyticsT">
+    <xs:restriction base="xs:string">
+      <!--01链激酶 02尿激酶 03阿替普酶 04瑞替普酶 05兰替普酶 06替奈普酶 99其他-->
+      <xs:pattern  value="01|02|03|04|05|06|99" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="BigVolumeT">
+    <xs:restriction base="xs:string">
+      <!--01低分子右旋糖酐 02706代血浆 99其他-->
+      <xs:pattern  value="01|02|99" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="homocysteineT">
+    <xs:restriction base="xs:string">
+      <!--01叶酸 02Vitb12 03Vitb6 99其他-->
+      <xs:pattern  value="01|02|03|99" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

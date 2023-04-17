@@ -1,0 +1,1000 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>250</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dept</Name><Text>库房：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>490</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select dept_code,dept_name,spell_code,wb_code from com_department where dept_code in ('7001','7005','7012','7002','7003','4003','4001')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>type</Name><Text>（报损填入报损，非报损填入出库，空为全部）类型：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>660</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtdata</Name><Sql>select 
+--库房,
+ 凭证日期,
+'转' 凭证字,
+'1' 凭证序号,
+ 摘要,
+会计科目编码,
+ 科目名称,
+  供应商编码,
+ 辅助核算,
+round(sum(借方金额),2) 借方金额, 
+round(sum(贷方金额),2) 贷方金额
+from (
+select '布草间' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份布草库物资出库成本' 摘要,
+(case when 用友部门名称 in ('管理综合部','后勤部') then '550202' 
+when 类型='医疗部门' and kind_name='办公费' then '540108' 
+when 类型='营销部门' and kind_name='办公费' then '550108' 
+when 类型='支持部门' and kind_name='办公费' then '550208'
+  else account_code end )   会计科目编码,
+''||(case when 用友部门名称 in ('管理综合部','后勤部') then '管理费用/福利费' 
+when 类型='医疗部门' then '医疗业务成本/'||kind_name 
+when 类型='营销部门' then '营业费用/'||kind_name
+   else '管理费用/办公费'
+  end ) 科目名称,
+'' 供应商编码,
+case when 用友部门名称 in ('管理综合部','后勤部') then '管理综合部' else TARGET_DEPT end 辅助核算, 
+SUM(OUT_COST) 借方金额, 
+0 贷方金额
+,'借' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       fun_get_mat_company_name(st.company_code) company_name,
+       fi.用友部门名称  target_dept,
+        k.account_code,nvl(k.account_name,k.kind_name) kind_name,
+fi.类型,fi.用友部门名称
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7005'
+and fi.部门编码=o.target_dept
+and k.kind_name&lt;&gt;'布草材料'
+) bb
+where COMPANY_NAME in ('深圳市朝纺科技有限公司','深圳市朝纺服饰有限公司','深圳市朝纺贸易有限公司','福州芭蒂服装有限公司','上海翌一实业有限公司',
+'深圳市大成华纺纺织科技有限公司','江西并序商贸有限公司')
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd'),
+to_char(out_date,'mm')||'月份布草库物资出库成本' ,
+(case when 用友部门名称 in ('管理综合部','后勤部') then '550202' 
+when 类型='医疗部门' and kind_name='办公费' then '540108' 
+when 类型='营销部门' and kind_name='办公费' then '550108' 
+when 类型='支持部门' and kind_name='办公费' then '550208'
+  else account_code end )  ,
+case when 用友部门名称 in ('管理综合部','后勤部') then '管理综合部' else TARGET_DEPT end ,
+''||(case when 用友部门名称 in ('管理综合部','后勤部') then '管理费用/福利费' 
+when 类型='医疗部门' then '医疗业务成本/'||kind_name 
+when 类型='营销部门' then '营业费用/'||kind_name
+   else '管理费用/办公费'
+  end )
+
+union all
+select '布草间' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份布草库物资出库成本'||'('||nvl(aa.wz_company_name,aa.company_name)||')' 摘要,
+'124303' 会计科目编码,
+'库存物资/其他材料'  科目名称,
+aa.yy_code 供应商编码,
+nvl(aa.wz_company_name,aa.company_name) 辅助核算,  
+0 借方金额, 
+SUM(OUT_COST) 贷方金额
+,'贷' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       st.company_code company_code,
+      fi.用友部门名称  target_dept,
+       k.kind_name,fi.类型,fi.用友部门名称
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7005'
+and fi.部门编码=o.target_dept
+and k.kind_name&lt;&gt;'布草材料') bb
+left join yy_com_company aa on bb.company_code=aa.company_code
+where aa.company_name in ('深圳市朝纺科技有限公司','深圳市朝纺服饰有限公司','深圳市朝纺贸易有限公司','福州芭蒂服装有限公司','上海翌一实业有限公司',
+'深圳市大成华纺纺织科技有限公司','江西并序商贸有限公司')
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份布草库物资出库成本'||'('||nvl(aa.wz_company_name,aa.company_name)||')' ,
+aa.yy_code ,
+nvl(aa.wz_company_name,aa.company_name)
+
+union all
+
+select '布草间' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份布草库物资出库成本' 摘要,
+'215102' 会计科目编码,
+'应付职工薪酬/福利费' 科目名称,
+--COMPANY_NAME,  
+'' 供应商编码,
+'' 辅助核算, 
+SUM(OUT_COST) 借方金额, 
+0  贷方金额
+,'借' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       fun_get_mat_company_name(st.company_code) company_name,
+       '管理综合部' target_dept,
+        k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7005'
+and o.target_dept in ('7014','9002','7008','7009')
+and k.kind_name&lt;&gt;'布草材料'
+) bb
+where COMPANY_NAME in ('深圳市朝纺科技有限公司','深圳市朝纺服饰有限公司','深圳市朝纺贸易有限公司','福州芭蒂服装有限公司','上海翌一实业有限公司',
+'深圳市大成华纺纺织科技有限公司','江西并序商贸有限公司')
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份布草库物资出库成本' 
+
+union all
+select '布草间' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份布草库物资出库成本' 摘要,
+'215102' 会计科目编码,
+'应付职工薪酬/福利费'  科目名称,
+'' 供应商编码,
+'' 辅助核算,  
+--TARGET_DEPT 辅助核算, 
+0 借方金额, 
+SUM(OUT_COST) 贷方金额
+,'贷' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       fun_get_mat_company_name(st.company_code) company_name,
+      '管理综合部' target_dept,
+       k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7005'
+and o.target_dept in ('7014','9002','7008','7009')
+and k.kind_name&lt;&gt;'布草材料') bb
+where COMPANY_NAME in ('深圳市朝纺科技有限公司','深圳市朝纺服饰有限公司','深圳市朝纺贸易有限公司','福州芭蒂服装有限公司','上海翌一实业有限公司',
+'深圳市大成华纺纺织科技有限公司','江西并序商贸有限公司')
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份布草库物资出库成本'
+
+
+union all
+
+select '物资仓库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份物资库材料出库成本' 摘要,
+(case when 用友部门名称 in ('管理综合部','后勤部') then '550202' 
+when 类型='医疗部门' and kind_name='办公费' then '540108' 
+when 类型='营销部门' and kind_name='办公费' then '550108' 
+when 类型='支持部门' and kind_name='办公费' then '550208'
+  else account_code end ) 会计科目编码 ,
+''||(case when 用友部门名称 in ('管理综合部','后勤部') then '管理费用/福利费' 
+when 类型='医疗部门' then '医疗业务成本/'||kind_name 
+when 类型='营销部门' then '营业费用/'||kind_name 
+   --when 类型 in ('总经办','支持部门') then 
+   else '管理费用/办公费'
+  end ) 科目名称,
+  '' 供应商编码,
+--COMPANY_NAME,  
+case when 用友部门名称 in ('管理综合部','后勤部') then '管理综合部' else TARGET_DEPT end 辅助核算, 
+SUM(OUT_COST) 借方金额, 
+0 贷方金额
+,'借' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       fun_get_mat_company_name(st.company_code) company_name,
+        fi.用友部门名称  target_dept,
+        k.account_code,nvl(k.account_name,k.kind_name) kind_name,fi.类型,fi.用友部门名称
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7001'
+and fi.部门编码=o.target_dept
+) bb
+where COMPANY_NAME in ('广州宝忱宝商贸有限公司','广州昌定贸易有限公司','广州虎辉集团有限公司','广州市好柔日用品有限公司','广州市世纪宝贝孕婴用品有限公司',
+'广州市扬逸贸易有限公司','广州市盈成昌贸易有限公司','广州市忠弘贸易发展有限公司',
+'上海翌一实业有限公司','深圳市锋厨实业有限公司','深圳市锋厨贸易有限公司','深圳市怡亚通深度供应链管理有限公司','深圳市金鑫酒店用品设备有限公司')
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份物资库材料出库成本' ,
+TARGET_DEPT ,
+(case when 用友部门名称 in ('管理综合部','后勤部') then '550202' 
+when 类型='医疗部门' and kind_name='办公费' then '540108' 
+when 类型='营销部门' and kind_name='办公费' then '550108' 
+when 类型='支持部门' and kind_name='办公费' then '550208'
+  else account_code end )  ,
+''||(case when 用友部门名称 in ('管理综合部','后勤部') then '管理费用/福利费' 
+when 类型='医疗部门' then '医疗业务成本/'||kind_name 
+when 类型='营销部门' then '营业费用/'||kind_name 
+   --when 类型 in ('总经办','支持部门') then 
+   else '管理费用/办公费'
+  end )
+
+union all
+
+select '物资仓库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份物资库材料出库成本'||'('||nvl(aa.wz_company_name,aa.company_name)||')' 摘要,
+'124303' 会计科目编码,
+'库存物资/其他材料'  科目名称,
+aa.yy_code 供应商编码,
+nvl(aa.wz_company_name,aa.company_name) 辅助核算,  
+--TARGET_DEPT 辅助核算, 
+0 借方金额, 
+SUM(OUT_COST) 贷方金额
+,'贷' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       st.company_code company_code,
+       fi.用友部门名称 target_dept,
+       k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7001'
+and o.target_dept=fi.部门编码) bb
+left join yy_com_company aa on bb.company_code=aa.company_code
+where aa.company_name in ('广州宝忱宝商贸有限公司','广州昌定贸易有限公司','广州虎辉集团有限公司','广州市好柔日用品有限公司','广州市世纪宝贝孕婴用品有限公司',
+'广州市扬逸贸易有限公司','广州市盈成昌贸易有限公司','广州市忠弘贸易发展有限公司',
+'上海翌一实业有限公司','深圳市锋厨实业有限公司','深圳市锋厨贸易有限公司','深圳市怡亚通深度供应链管理有限公司','深圳市金鑫酒店用品设备有限公司')
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份物资库材料出库成本'||'('||nvl(aa.wz_company_name,aa.company_name)||')' ,
+aa.yy_code ,
+nvl(aa.wz_company_name,aa.company_name)
+
+
+union all
+
+
+select '物资仓库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份物资库材料出库成本' 摘要,
+'215102' 会计科目编码,
+'应付职工薪酬/福利费'科目名称,
+--COMPANY_NAME,  
+'' 供应商编码,
+'' 辅助核算, 
+SUM(OUT_COST) 借方金额, 
+0 贷方金额
+,'借' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       fun_get_mat_company_name(st.company_code) company_name,
+       '管理综合部' target_dept,
+        k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7001'
+and  o.target_dept in ('7014','9002','7008','7009')) bb
+where COMPANY_NAME in ('广州宝忱宝商贸有限公司','广州昌定贸易有限公司','广州虎辉集团有限公司','广州市好柔日用品有限公司','广州市世纪宝贝孕婴用品有限公司',
+'广州市扬逸贸易有限公司','广州市盈成昌贸易有限公司','广州市忠弘贸易发展有限公司',
+'上海翌一实业有限公司','深圳市锋厨实业有限公司','深圳市锋厨贸易有限公司','深圳市怡亚通深度供应链管理有限公司','深圳市金鑫酒店用品设备有限公司')
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份物资库材料出库成本' 
+
+union all
+
+select '物资仓库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份物资库材料出库成本' 摘要,
+'215102' 会计科目编码,
+'应付职工薪酬/福利费'  科目名称,
+'' 供应商编码,
+'' 辅助核算,  
+--TARGET_DEPT 辅助核算, 
+0 借方金额, 
+SUM(OUT_COST) 贷方金额
+,'贷' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       fun_get_mat_company_name(st.company_code) company_name,
+       '管理综合部' target_dept,
+       k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7001'
+and  o.target_dept in ('7014','9002','7008','7009')) bb
+where COMPANY_NAME in ('广州宝忱宝商贸有限公司','广州昌定贸易有限公司','广州虎辉集团有限公司','广州市好柔日用品有限公司','广州市世纪宝贝孕婴用品有限公司',
+'广州市扬逸贸易有限公司','广州市盈成昌贸易有限公司','广州市忠弘贸易发展有限公司',
+'上海翌一实业有限公司','深圳市锋厨实业有限公司','深圳市锋厨贸易有限公司','深圳市怡亚通深度供应链管理有限公司','深圳市金鑫酒店用品设备有限公司')
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份物资库材料出库成本'
+
+
+union all
+
+select '母婴保健库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份母婴保健用品出库成本' 摘要,
+'540122' 会计科目编码,
+'医疗业务成本/母婴用品' 科目名称,
+'' 供应商编码,
+--COMPANY_NAME,  
+TARGET_DEPT 辅助核算, 
+SUM(OUT_COST) 借方金额, 
+0 贷方金额
+,'借' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       fun_get_mat_company_name(st.company_code) company_name,
+       fi.用友部门名称 target_dept,
+        k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7012'
+and o.target_dept=fi.部门编码) bb
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份母婴保健用品出库成本' ,
+TARGET_DEPT 
+
+union all
+select '母婴保健库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份母婴保健用品出库成本'||'('||nvl(aa.wz_company_name,aa.company_name)||')' 摘要,
+'124305' 会计科目编码,
+'库存物资/保健用品 '  科目名称,
+aa.yy_code 供应商编码,
+nvl(aa.wz_company_name,aa.company_name) 辅助核算,  
+0 借方金额, 
+SUM(OUT_COST) 贷方金额
+,'贷' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+      st.company_code company_code,
+       fi.用友部门名称 target_dept,
+       k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7012'
+and o.target_dept=fi.部门编码) bb
+left join yy_com_company aa on bb.company_code=aa.company_code
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份母婴保健用品出库成本'||'('||nvl(aa.wz_company_name,aa.company_name)||')' ,
+aa.yy_code ,
+nvl(aa.wz_company_name,aa.company_name)
+ 
+
+
+union all
+
+select '器械配件库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份器械库卫生材料出库成本' 摘要,
+'540118' 会计科目编码,
+'医疗业务成本/卫生材料费' 科目名称,
+''  供应商编码,
+--COMPANY_NAME,  
+TARGET_DEPT 辅助核算, 
+SUM(OUT_COST) 借方金额, 
+0 贷方金额
+,'借' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       fun_get_mat_company_name(st.company_code) company_name,
+      fi.用友部门名称 target_dept,
+        k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7003'
+and o.target_dept=fi.部门编码) bb
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份器械库卫生材料出库成本' ,
+TARGET_DEPT 
+
+union all
+select '器械配件库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份器械库卫生材料出库成本'||'('||nvl(aa.wz_company_name,aa.company_name)||')' 摘要,
+'124301' 会计科目编码,
+'库存物资/卫生材料'  科目名称,
+aa.yy_code 供应商编码,
+nvl(aa.wz_company_name,aa.company_name) 辅助核算,  
+0 借方金额, 
+SUM(OUT_COST) 贷方金额
+,'贷' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       o.out_cost,
+       st.company_code company_code,
+       fi.用友部门名称 target_dept,
+       k.kind_name
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7003'
+and o.target_dept=fi.部门编码) bb
+left join yy_com_company aa on bb.company_code=aa.company_code
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份器械库卫生材料出库成本'||'('||nvl(aa.wz_company_name,aa.company_name)||')' ,
+aa.yy_code ,
+nvl(aa.wz_company_name,aa.company_name)
+
+
+union all
+
+select '医疗耗材库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份'||case when OUTPUTTYPE='报损出库' then '医疗耗材库耗材报损' else '耗材库卫生材料出库成本' end  摘要,
+case when OUTPUTTYPE='报损出库'  then '560101' 
+        when 类型='医疗部门' then '540118' 
+         when 类型='营销部门' then '550108'
+          else '550208' end  会计科目编码,
+case when OUTPUTTYPE='报损出库'  then '营业外支出/其他' 
+        when 类型='医疗部门' then '医疗业务成本/卫生材料费' 
+         when 类型='营销部门' then '营业费用/办公费'
+          else '管理费用/办公费' end  科目名称,
+--COMPANY_NAME,  
+ '' 供应商编码,
+TARGET_DEPT 辅助核算, 
+SUM(OUT_COST) 借方金额, 
+0 贷方金额
+,'借' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       b.item_code,
+       b.custom_code,
+       b.item_name,
+       b.specs,
+       --b.min_unit,
+       o.batch_no,
+       round(o.out_num/b.pack_qty,4) pack_unit_qty,
+       b.pack_unit,
+       b.pack_qty,
+       b.min_unit,
+       round(o.out_num/b.pack_qty,4)*b.pack_qty pack_amount,
+       o.out_price,
+       o.out_cost,
+       o.sale_price,
+       o.sale_cost,
+       fun_get_mat_company_name(st.factory_code) factory_name,
+       fun_get_mat_company_name(st.company_code) company_name,
+       o.reg_code,
+       fi.用友部门名称 target_dept,
+       to_char(o.produce_date,'yyyy-MM-dd') produce_date,
+       to_char(o.valid_date,'yyyy-MM-dd') valid_date,
+        k.kind_name,
+       fun_get_employee_name(o.oper_code) oper_name,
+       o.out_list_code,
+       fun_get_employee_name(o.receive_person) receive_person,
+       o.memo,fi.类型
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7002'
+and o.target_dept=fi.部门编码) bb
+where COMPANY_NAME&lt;&gt;'江西锦润源商贸有限公司'
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份'||case when OUTPUTTYPE='报损出库' then '医疗耗材库耗材报损' else '耗材库卫生材料出库成本' end ,
+case when OUTPUTTYPE='报损出库'  then '560101' 
+        when 类型='医疗部门' then '540118' 
+         when 类型='营销部门' then '550108'
+          else '550208' end,
+case when OUTPUTTYPE='报损出库'  then '营业外支出/其他' 
+        when 类型='医疗部门' then '医疗业务成本/卫生材料费' 
+         when 类型='营销部门' then '营业费用/办公费'
+          else '管理费用/办公费' end   ,
+TARGET_DEPT
+
+union all
+
+select '医疗耗材库' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||'月份'||case when OUTPUTTYPE='报损出库' then '医疗耗材库耗材报损' else '耗材库卫生材料出库成本' end||'('||nvl(aa.wz_company_name,aa.company_name) ||')' 摘要,
+'124301' 会计科目编码,
+'库存物资/卫生材料'  科目名称,
+aa.yy_code 供应商编码,
+nvl(aa.wz_company_name,aa.company_name) 辅助核算,  
+0 借方金额, 
+SUM(OUT_COST) 贷方金额
+,'贷' 类型
+from (
+select (select a.class3_name from COM_PRIV_CLASS3 a where a.class2_code = '5520' and o.out_class3 = a.class3_code and o.out_class3mean = a.class3_meaning_code) outputtype,
+       o.out_date,
+       b.item_code,
+       b.custom_code,
+       b.item_name,
+       b.specs,
+       --b.min_unit,
+       o.batch_no,
+       round(o.out_num/b.pack_qty,4) pack_unit_qty,
+       b.pack_unit,
+       b.pack_qty,
+       b.min_unit,
+       round(o.out_num/b.pack_qty,4)*b.pack_qty pack_amount,
+       o.out_price,
+       o.out_cost,
+       o.sale_price,
+       o.sale_cost,
+       fun_get_mat_company_name(st.factory_code) factory_name,
+       st.company_code company_code,
+       o.reg_code,
+       fi.用友部门名称 target_dept,
+       to_char(o.produce_date,'yyyy-MM-dd') produce_date,
+       to_char(o.valid_date,'yyyy-MM-dd') valid_date,
+       k.kind_name,
+       fun_get_employee_name(o.oper_code) oper_name,
+       o.out_list_code,
+       fun_get_employee_name(o.receive_person) receive_person,
+       o.memo
+from mat_com_baseinfo b,mat_com_kindinfo k , mat_com_output o,mat_com_stockdetail st,yy_com_department fi
+where o.item_code=b.item_code
+and o.out_date&gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and k.kind_code=b.kind_code
+and o.stock_code=st.stock_code
+and o.storage_code='7002'
+and o.target_dept=fi.部门编码) bb
+left join yy_com_company aa on bb.company_code=aa.company_code
+where aa.COMPANY_NAME&lt;&gt;'江西锦润源商贸有限公司'
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||'月份'||case when OUTPUTTYPE='报损出库' then '医疗耗材库耗材报损' else '耗材库卫生材料出库成本' end||'('||nvl(aa.wz_company_name,aa.company_name) ||')',
+aa.yy_code ,
+nvl(aa.wz_company_name,aa.company_name)
+
+
+union all
+select 
+ '西药库' 库房,
+ to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(tt.out_date,'mm')||'月份西药库药品'||case when tt.出库类别 ='报损' then '报损' else '出库成本' end  摘要,
+case when tt.出库类别 ='报损' then '560101'  else (case when tt.MINFEE1='西药费' then '1243040101' 
+                               else   '1243040102' end) end  会计科目编码,
+case when tt.出库类别 ='报损' then '营业外支出/其他'  else (case when tt.MINFEE1='西药费' then '库存物资/药品/药房/西药' 
+                               else   '库存物资/药品/药房/中成药' end) end 科目名称,
+                                 '' 供应商编码,
+'' 辅助核算，
+sum(tt.all_purchase_price) 借方金额,
+0 贷方金额
+,'借' 类型
+from (
+select distinct
+       o.out_date,
+       b.custom_code,
+       o.trade_name,
+       o.specs,
+       --o.min_unit,
+       o.pack_unit,
+       o.batch_no,
+       round(o.out_num/o.pack_qty,2) amount,
+       o.purchase_price,
+       round(o.out_num/o.pack_qty,2)*o.purchase_price all_purchase_price,
+       o.retail_price,
+       round(o.out_num/o.pack_qty,2)*o.retail_price all_retail_price,
+       fun_get_company_name(s.PRODUCER_CODE) producer_name,
+       nvl(nvl(nvl(fun_get_company_name(tb1.company_code),fun_get_company_name(tb2.company_code)) ,
+       fun_get_company_name(tb3.company_code)),fun_get_company_name(tb4.company_code)) company_name,
+       b.Approve_Info, 
+       to_char(s.valid_date,'yyyy-MM-dd') valid_date,
+       fun_get_dictionary_name('DOSAGEFORM',b.DOSE_MODEL_CODE) DOSAGEFORM,
+       (select d.name from com_dictionary d where d.type='MINFEE' and d.code = b.fee_code) MINFEE1,
+       (select d.name from com_dictionary d where d.type='MINFEE' and d.code = b.fee_code) MINFEE2,
+       s.group_code,
+       fun_get_employee_name(o.EXAM_OPERCODE) exam_opername1,
+       fun_get_dept_name(o.drug_storage_code) storge_name,
+       o.out_list_code,
+       fun_get_employee_name(o.apply_opercode) apply_name,
+       fun_get_employee_name(o.EXAM_OPERCODE) exam_opername2,
+       o.mark,
+       (select c.class3_name from com_priv_class3 c where c.class2_code = '0320' and c.class3_code = o.out_type) 出库类别
+     
+from pha_com_output o,pha_com_baseinfo b  ,pha_com_storage s
+
+     left join (select distinct iu.drug_dept_code ,iu.group_code,iu.drug_code,iu.company_code 
+                from pha_com_input iu
+                where  fun_get_company_name(iu.company_code) is not null )  tb1
+     on tb1.drug_dept_code=s.drug_dept_code
+     and tb1.group_code=s.group_code
+     and tb1.drug_code =s.drug_code
+
+     left join (select distinct iu.drug_dept_code ,iu.group_code,iu.drug_code,iu.company_code from pha_com_input iu 
+     where iu.in_type='01' and iu.class3_meaning_code='11' and  fun_get_company_name(iu.company_code) is not null )  tb2
+     on  tb2.group_code=s.group_code
+     and tb2.drug_code =s.drug_code
+     and tb1.drug_dept_code&lt;&gt;s.drug_dept_code
+
+
+      left join (select distinct iu.drug_dept_code, iu.batch_no,iu.drug_code,iu.company_code
+                from pha_com_input iu 
+                left join  (select iu2.drug_dept_code, iu2.batch_no,iu2.drug_code,max(iu2.oper_date) dt
+                            from pha_com_input iu2 
+                            where fun_get_company_name(iu2.company_code) is not null         
+                            group by   iu2.drug_dept_code,iu2.batch_no,iu2.drug_code) ic
+                on ic.batch_no=iu.batch_no and ic.drug_code=iu.drug_code 
+                    and ic.dt=iu.oper_date and ic.drug_dept_code=iu.drug_dept_code
+                where iu.company_code is not null 
+                and ic.batch_no is not null )  tb3
+     on  tb3.batch_no=s.batch_no
+     and tb3.drug_code =s.drug_code
+     and tb3.drug_dept_code =s.drug_dept_code
+     
+      left join (select distinct iu.drug_dept_code, iu.batch_no,iu.drug_code,iu.company_code
+                from pha_com_input iu 
+                left join  (select iu2.drug_dept_code,iu2.batch_no,iu2.drug_code,max(iu2.oper_date) dt
+                            from pha_com_input iu2 
+                            where fun_get_company_name(iu2.company_code) is not null         
+                            group by   iu2.drug_dept_code,iu2.batch_no,iu2.drug_code) ic
+                on ic.batch_no=iu.batch_no and ic.drug_code=iu.drug_code 
+                    and ic.dt=iu.oper_date and ic.drug_dept_code=iu.drug_dept_code
+                where iu.company_code is not null 
+                and ic.batch_no is not null )  tb4
+     on  tb4.batch_no=s.batch_no
+     and tb4.drug_code =s.drug_code
+     and tb4.drug_dept_code &lt;&gt;s.drug_dept_code
+
+
+where o.out_type not in ('M1','M2','Z1','Z2')
+and s.group_code=o.group_code
+and s.drug_dept_code=o.drug_dept_code
+and s.drug_code=o.drug_code
+and b.drug_code=o.drug_code 
+and o.out_date &gt;=to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and o.drug_dept_code  ='4003'
+)tt
+where tt.MINFEE1&lt;&gt;'其他材料费'
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(tt.out_date,'mm')||'月份西药库药品'||case when tt.出库类别 ='报损' then '报损' else '出库成本' end  ,
+case when tt.出库类别 ='报损' then '560101'  else (case when tt.MINFEE1='西药费' then '1243040101' 
+                               else   '1243040102' end) end,
+case when tt.出库类别 ='报损' then '营业外支出/其他'  else (case when tt.MINFEE1='西药费' then '库存物资/药品/药房/西药' 
+                               else   '库存物资/药品/药房/中成药' end) end ,
+tt.company_name  
+union all
+
+select 
+ '西药库' 库房,
+ to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(tt.out_date,'mm')||'月份西药库药品'||case when tt.出库类别 ='报损' then '报损' else '出库成本' end||'('||
+case when tt.company_code is null and tt.trade_name='多糖铁复合物胶囊(红源达)' then '广州欣特医药有限公司'
+  when tt.company_code is null and tt.trade_name='甲硫酸新斯的明注射液' then '广州医药有限公司大众药品销售分公司' 
+    else nvl(aa.wz_company_name,aa.yf_company_name)  end||')'  摘要,
+case when tt.MINFEE1='西药费' then '1243040101'  else   '1243040102' end 会计科目编码,
+case when tt.MINFEE1='西药费' then '库存物资/药品/药库/西药'  else   '库存物资/药品/药库/中成药' end 科目名称,
+ case when tt.company_code is null and tt.trade_name='多糖铁复合物胶囊(红源达)' then 'YP0003'
+  when tt.company_code is null and tt.trade_name='甲硫酸新斯的明注射液' then 'YP0004' 
+    else   aa.yy_code  end 供应商编码,
+case when tt.company_code is null and tt.trade_name='多糖铁复合物胶囊(红源达)' then '广州欣特医药有限公司'
+  when tt.company_code is null and tt.trade_name='甲硫酸新斯的明注射液' then '广州医药有限公司大众药品销售分公司' 
+    else nvl(aa.wz_company_name,aa.yf_company_name)   end 辅助核算，
+0 借方金额,
+sum(tt.all_purchase_price) 贷方金额
+,'贷' 类型
+from (
+select distinct
+       o.out_date,
+       b.custom_code,
+       o.trade_name,
+       o.specs,
+       o.pack_unit,
+       o.batch_no,
+       round(o.out_num/o.pack_qty,2) amount,
+       o.purchase_price,
+       round(o.out_num/o.pack_qty,2)*o.purchase_price all_purchase_price,
+       o.retail_price,
+       round(o.out_num/o.pack_qty,2)*o.retail_price all_retail_price,
+       fun_get_company_name(s.PRODUCER_CODE) producer_name,
+         nvl(nvl(nvl(tb1.company_code,tb2.company_code),tb3.company_code),tb4.company_code) company_code,
+       b.Approve_Info, 
+       to_char(s.valid_date,'yyyy-MM-dd') valid_date,
+       fun_get_dictionary_name('DOSAGEFORM',b.DOSE_MODEL_CODE) DOSAGEFORM,
+       (select d.name from com_dictionary d where d.type='MINFEE' and d.code = b.fee_code) MINFEE1,
+       (select d.name from com_dictionary d where d.type='MINFEE' and d.code = b.fee_code) MINFEE2,
+       s.group_code,
+       fun_get_employee_name(o.EXAM_OPERCODE) exam_opername1,
+       fun_get_dept_name(o.drug_storage_code) storge_name,
+       o.out_list_code,
+       fun_get_employee_name(o.apply_opercode) apply_name,
+       fun_get_employee_name(o.EXAM_OPERCODE) exam_opername2,
+       o.mark,
+       (select c.class3_name from com_priv_class3 c where c.class2_code = '0320' and c.class3_code = o.out_type) 出库类别
+     
+from pha_com_output o,pha_com_baseinfo b  ,pha_com_storage s
+
+     left join (select distinct iu.drug_dept_code ,iu.group_code,iu.drug_code,iu.company_code 
+                from pha_com_input iu
+                where  fun_get_company_name(iu.company_code) is not null )  tb1
+     on tb1.drug_dept_code=s.drug_dept_code
+     and tb1.group_code=s.group_code
+     and tb1.drug_code =s.drug_code
+
+     left join (select distinct iu.drug_dept_code ,iu.group_code,iu.drug_code,iu.company_code from pha_com_input iu 
+     where iu.in_type='01' and iu.class3_meaning_code='11' and  fun_get_company_name(iu.company_code) is not null )  tb2
+     on  tb2.group_code=s.group_code
+     and tb2.drug_code =s.drug_code
+     and tb1.drug_dept_code&lt;&gt;s.drug_dept_code
+
+
+      left join (select distinct iu.drug_dept_code, iu.batch_no,iu.drug_code,iu.company_code
+                from pha_com_input iu 
+                left join  (select iu2.drug_dept_code, iu2.batch_no,iu2.drug_code,max(iu2.oper_date) dt
+                            from pha_com_input iu2 
+                            where fun_get_company_name(iu2.company_code) is not null         
+                            group by   iu2.drug_dept_code,iu2.batch_no,iu2.drug_code) ic
+                on ic.batch_no=iu.batch_no and ic.drug_code=iu.drug_code 
+                    and ic.dt=iu.oper_date and ic.drug_dept_code=iu.drug_dept_code
+                where iu.company_code is not null 
+                and ic.batch_no is not null )  tb3
+     on  tb3.batch_no=s.batch_no
+     and tb3.drug_code =s.drug_code
+     and tb3.drug_dept_code =s.drug_dept_code
+     
+      left join (select distinct iu.drug_dept_code, iu.batch_no,iu.drug_code,iu.company_code
+                from pha_com_input iu 
+                left join  (select iu2.drug_dept_code,iu2.batch_no,iu2.drug_code,max(iu2.oper_date) dt
+                            from pha_com_input iu2 
+                            where fun_get_company_name(iu2.company_code) is not null         
+                            group by   iu2.drug_dept_code,iu2.batch_no,iu2.drug_code) ic
+                on ic.batch_no=iu.batch_no and ic.drug_code=iu.drug_code 
+                    and ic.dt=iu.oper_date and ic.drug_dept_code=iu.drug_dept_code
+                where iu.company_code is not null 
+                and ic.batch_no is not null )  tb4
+     on  tb4.batch_no=s.batch_no
+     and tb4.drug_code =s.drug_code
+     and tb4.drug_dept_code &lt;&gt;s.drug_dept_code
+
+
+where o.out_type not in ('M1','M2','Z1','Z2')
+and s.group_code=o.group_code
+and s.drug_dept_code=o.drug_dept_code
+and s.drug_code=o.drug_code
+and b.drug_code=o.drug_code 
+and o.out_date &gt;=to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+and o.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and o.drug_dept_code  ='4003'
+)tt
+left join yy_com_company aa on tt.company_code=aa.yf_company_code
+where tt.MINFEE1&lt;&gt;'其他材料费'
+group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(tt.out_date,'mm')||'月份西药库药品'||case when tt.出库类别 ='报损' then '报损' else '出库成本' end||'('||
+case when tt.company_code is null and tt.trade_name='多糖铁复合物胶囊(红源达)' then '广州欣特医药有限公司'
+  when tt.company_code is null and tt.trade_name='甲硫酸新斯的明注射液' then '广州医药有限公司大众药品销售分公司' 
+    else nvl(aa.wz_company_name,aa.yf_company_name)  end||')'  ,
+      case when tt.MINFEE1='西药费' then '1243040101'  else   '1243040102' end,
+case when tt.MINFEE1='西药费' then '库存物资/药品/药库/西药'  else   '库存物资/药品/药库/中成药' end ,
+ case when tt.company_code is null and tt.trade_name='多糖铁复合物胶囊(红源达)' then 'YP0003'
+  when tt.company_code is null and tt.trade_name='甲硫酸新斯的明注射液' then 'YP0004' 
+    else   aa.yy_code  end  ,
+case when tt.company_code is null and tt.trade_name='多糖铁复合物胶囊(红源达)' then '广州欣特医药有限公司'
+  when tt.company_code is null and tt.trade_name='甲硫酸新斯的明注射液' then '广州医药有限公司大众药品销售分公司' 
+    else nvl(aa.wz_company_name,aa.yf_company_name)   end
+
+union all
+
+select '西药房' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||case when feename='其他材料费' then '月份卫生材料出库成本' else '月份西药房药品发出成本' end 摘要，
+case when feename='其他材料费' then '540118'
+                                      when feename='西药费' then '54011901' else '54011902' end  会计科目编码,
+'医疗业务成本/'||case when feename='其他材料费' then '卫生材料费'
+                                      when feename='西药费' then '药品费/西药费' else '药品费/中成药费' end   科目名称,
+                                        '' 供应商编码,
+fi.用友部门名称 辅助核算,
+sum(purchaseprice) 借方金额,
+0 贷方金额
+,'借' 类型
+from (
+select  
+        t1.out_date  out_date,
+         decode(t1.out_type ,'M1', fun_get_dept_name((select a.doct_dpcd from met_ord_recipedetail a where a.recipe_no = t1.recipe_no and a.recipe_seq = t1.sequence_no)),
+                                        'M2', fun_get_dept_name((select a.doct_dpcd from met_ord_recipedetail a where a.recipe_no = t1.recipe_no and a.recipe_seq = t1.sequence_no)),
+                                        fun_get_dept_name(t1.drug_storage_code)) dept,
+         round(t1.out_num*t1.purchase_price/t1.pack_qty,2) purchaseprice,
+         nvl( nvl(fun_get_company_name((select a.company_code 
+                                                            from pha_com_input a 
+                                                          where a.drug_dept_code = t1.drug_dept_code
+                                                              and a.group_code = t1.group_code
+                                                              and a.drug_code = t1.drug_code 
+                                                              and length(fun_get_company_name(a.company_code)) &gt; 0
+                                                              and rownum = 1)),
+                     fun_get_company_name((select a.company_code 
+                                                            from pha_com_input a 
+                                                          where a.drug_dept_code = decode('4001','4001','4003','4002','4004','4001')
+                                                              and a.group_code = t1.group_code
+                                                              and a.drug_code = t1.drug_code 
+                                                              and length(fun_get_company_name(a.company_code)) &gt; 0
+                                                              and rownum = 1))),
+              nvl(fun_get_company_name((select b.company_code 
+                                                      from pha_com_input b 
+                                                    where b.in_date  = (select max(a.in_date) from pha_com_input a 
+                                                                                  where a.drug_dept_code = t1.drug_dept_code
+                                                                                     and a.batch_no = t1.batch_no 
+                                                                                     and a.drug_code = t1.drug_code
+                                                                                     and length(fun_get_company_name(a.company_code)) &gt; 0) 
+                                                      and b.drug_dept_code = t1.drug_dept_code
+                                                      and b.batch_no = t1.batch_no 
+                                                      and b.drug_code = t1.drug_code
+                                                      and length(fun_get_company_name(b.company_code)) &gt; 0
+                                                      and rownum = 1 )),
+                  fun_get_company_name((select b.company_code 
+                                                      from pha_com_input b 
+                                                    where b.in_date  = (select max(a.in_date) from pha_com_input a 
+                                                                                  where a.drug_dept_code = decode('4001','4001','4003','4002','4004','4001') 
+                                                                                     and a.batch_no = t1.batch_no 
+                                                                                     and a.drug_code = t1.drug_code
+                                                                                     and length(fun_get_company_name(a.company_code)) &gt; 0) 
+                                                      and b.drug_dept_code = decode('4001','4001','4003','4002','4004','4001')
+                                                      and b.batch_no = t1.batch_no 
+                                                      and b.drug_code = t1.drug_code
+                                                      and length(fun_get_company_name(b.company_code)) &gt; 0
+                                                      and rownum = 1 )))
+            ) companyname,
+         (select a.name from com_dictionary a where a.type='MINFEE' and a.code = t2.fee_code) feename
+ from pha_com_output t1, pha_com_baseinfo t2, pha_com_storage t3
+where t1.out_type in ('M1','M2','Z1','Z2')
+    and t1.drug_code = t2.drug_code
+    and t2.drug_code = t3.drug_code
+    and t1.group_code = t3.group_code
+    and t1.drug_dept_code = t3.drug_dept_code
+    and t1.out_date &gt;=to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+    and t1.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+    and t1.drug_dept_code  ='4001')tt
+    left join com_department cd on tt.dept=cd.dept_name
+    left join yy_com_department fi on cd.dept_code=fi.部门编码
+    group by 
+    to_char(last_day(out_date),'yyyy-mm-dd') ,
+    to_char(out_date,'mm')||case when feename='其他材料费' then '月份卫生材料出库成本' else '月份西药房药品发出成本' end ，
+    case when feename='其他材料费' then '540118'
+                                      when feename='西药费' then '54011901' else '54011902' end ,
+'医疗业务成本/'||case when feename='其他材料费' then '卫生材料费'
+                                      when feename='西药费' then '药品费/西药费' else '药品费/中成药费' end,
+fi.用友部门名称
+
+union all
+
+select '西药房' 库房,
+to_char(last_day(out_date),'yyyy-mm-dd') 凭证日期,
+to_char(out_date,'mm')||case when feename='其他材料费' then '月份卫生材料出库成本' else '月份西药房药品发出成本' end 摘要，
+case when feename='其他材料费' then '124301'
+                                      when feename='西药费' then '1243040201' else '1243040202' end 会计科目编码,
+'库存物资/'||case when feename='其他材料费' then '卫生材料'
+                                      when feename='西药费' then '药品/药房/西药' else '药品/药房/中成药' end  科目名称,
+case when feename='其他材料费' then   aa.yy_code else '' end 供应商编码,               
+case when feename='其他材料费' then nvl(aa.yf_company_name,tt.companyname) else '' end 辅助核算,
+0 借方金额,
+sum(purchaseprice) 贷方金额
+,'贷' 类型
+from (
+select  
+        t1.out_date  out_date,
+         decode(t1.out_type ,'M1', fun_get_dept_name((select a.doct_dpcd from met_ord_recipedetail a where a.recipe_no = t1.recipe_no and a.recipe_seq = t1.sequence_no)),
+                                        'M2', fun_get_dept_name((select a.doct_dpcd from met_ord_recipedetail a where a.recipe_no = t1.recipe_no and a.recipe_seq = t1.sequence_no)),
+                                        fun_get_dept_name(t1.drug_storage_code)) dept,
+         round(t1.out_num*t1.purchase_price/t1.pack_qty,2) purchaseprice,
+         nvl( nvl(fun_get_company_name((select a.company_code 
+                                                            from pha_com_input a 
+                                                          where a.drug_dept_code = t1.drug_dept_code
+                                                              and a.group_code = t1.group_code
+                                                              and a.drug_code = t1.drug_code 
+                                                              and length(fun_get_company_name(a.company_code)) &gt; 0
+                                                              and rownum = 1)),
+                     fun_get_company_name((select a.company_code 
+                                                            from pha_com_input a 
+                                                          where a.drug_dept_code = decode('4001','4001','4003','4002','4004','4001')
+                                                              and a.group_code = t1.group_code
+                                                              and a.drug_code = t1.drug_code 
+                                                              and length(fun_get_company_name(a.company_code)) &gt; 0
+                                                              and rownum = 1))),
+              nvl(fun_get_company_name((select b.company_code 
+                                                      from pha_com_input b 
+                                                    where b.in_date  = (select max(a.in_date) from pha_com_input a 
+                                                                                  where a.drug_dept_code = t1.drug_dept_code
+                                                                                     and a.batch_no = t1.batch_no 
+                                                                                     and a.drug_code = t1.drug_code
+                                                                                     and length(fun_get_company_name(a.company_code)) &gt; 0) 
+                                                      and b.drug_dept_code = t1.drug_dept_code
+                                                      and b.batch_no = t1.batch_no 
+                                                      and b.drug_code = t1.drug_code
+                                                      and length(fun_get_company_name(b.company_code)) &gt; 0
+                                                      and rownum = 1 )),
+                  fun_get_company_name((select b.company_code 
+                                                      from pha_com_input b 
+                                                    where b.in_date  = (select max(a.in_date) from pha_com_input a 
+                                                                                  where a.drug_dept_code = decode('4001','4001','4003','4002','4004','4001') 
+                                                                                     and a.batch_no = t1.batch_no 
+                                                                                     and a.drug_code = t1.drug_code
+                                                                                     and length(fun_get_company_name(a.company_code)) &gt; 0) 
+                                                      and b.drug_dept_code = decode('4001','4001','4003','4002','4004','4001')
+                                                      and b.batch_no = t1.batch_no 
+                                                      and b.drug_code = t1.drug_code
+                                                      and length(fun_get_company_name(b.company_code)) &gt; 0
+                                                      and rownum = 1 )))
+            ) companyname,
+         (select a.name from com_dictionary a where a.type='MINFEE' and a.code = t2.fee_code) feename
+ from pha_com_output t1, pha_com_baseinfo t2, pha_com_storage t3
+where t1.out_type in ('M1','M2','Z1','Z2')
+    and t1.drug_code = t2.drug_code
+    and t2.drug_code = t3.drug_code
+    and t1.group_code = t3.group_code
+    and t1.drug_dept_code = t3.drug_dept_code
+    and t1.out_date &gt;=to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+    and t1.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+    and t1.drug_dept_code  ='4001')tt
+left join yy_com_company aa on tt.companyname=aa.yf_company_name
+    group by 
+to_char(last_day(out_date),'yyyy-mm-dd') ,
+to_char(out_date,'mm')||case when feename='其他材料费' then '月份卫生材料出库成本' else '月份西药房药品发出成本' end ，
+case when feename='其他材料费' then '124301'
+                                      when feename='西药费' then '1243040201' else '1243040202' end ,
+'库存物资/'||case when feename='其他材料费' then '卫生材料'
+                                      when feename='西药费' then '药品/药房/西药' else '药品/药房/中成药' end  ,
+                    case when feename='其他材料费' then   aa.yy_code else '' end  ,               
+case when feename='其他材料费' then nvl(aa.yf_company_name,tt.companyname) else '' end
+)tt
+where (select a.dept_code from com_department a where 库房=a.dept_name)='&amp;dept' or '&amp;dept'='ALL'
+and 摘要 like ( case when '&amp;type'='报损' then  '%报损%' when '&amp;type'='出库'  then '%出库%' else  '%%'  end)
+and (借方金额&lt;&gt;0 or 贷方金额&lt;&gt;0)
+group by  库房,摘要,科目名称,辅助核算,凭证日期, 供应商编码,会计科目编码, 类型
+order by 库房,摘要,类型 desc,科目名称 
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新财务报表\物资出库凭证设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

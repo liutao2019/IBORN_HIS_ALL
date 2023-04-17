@@ -1,0 +1,101 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtDetail</Name><Sql>select  nvl(fun_get_dept_name(tb2.execDept),'合计') 执行科室,
+        nvl(fun_get_dept_name(tb2.dept_name),'小计') 开立科室 ,
+        --nvl(fun_get_employee_name(tb2.doct_code),'挂号到科室') 医生,
+         (sum(decode(tb2.invo_name,'挂号费2',tb2.tot_cost,'挂号费1',tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'诊金'  ,tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'检查费',tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'诊查费',tb2.tot_cost,0))
+    +sum(decode(tb2.invo_name,'治疗费',tb2.tot_cost,0))
+    +sum(decode(tb2.invo_name,'护理费',tb2.tot_cost,0))
+    +sum(decode(tb2.invo_name,'材料费',tb2.tot_cost,0))) 合计,
+        sum(decode(tb2.invo_name,'挂号费2',tb2.tot_cost,'挂号费1',tb2.tot_cost,0)) 挂号费,
+        sum(decode(tb2.invo_name,'诊金'  ,tb2.tot_cost,0)) 诊金,   --未明分类
+        sum(decode(tb2.invo_name,'检查费',tb2.tot_cost,0)) 检查费, --未明分类
+        sum(decode(tb2.invo_name,'诊查费',tb2.tot_cost,0)) 诊查费,
+        sum(decode(tb2.invo_name,'治疗费',tb2.tot_cost,0)) 治疗费,
+        sum(decode(tb2.invo_name,'护理费',tb2.tot_cost,0)) 护理费,
+        sum(decode(tb2.invo_name,'材料费',tb2.tot_cost,0)) 医材收入
+from (
+select tb1.dept_name,
+       tb1.execDept,
+       tb1.invo_name,
+       --tb1.doct_code,
+       sum(tb1.tot_cost) tot_cost
+from 
+(
+select  f.belong_dept as dept_name,
+        f.exec_dpcd as execDept,
+        f.doct_code,
+        DECODE(F.FEE_CODE,'016','特需服务费1','006','挂号费1',ff.fee_stat_name) as  invo_name,
+       sum(f.own_cost+f.pub_cost+f.pay_cost) tot_cost 
+from fin_opb_feedetail f,fin_opb_invoiceinfo oi ,fin_com_feecodestat ff ,FIN_OPB_DAYREPORT od
+where  f.pay_flag='1' 
+and f.invoice_no=oi.invoice_no
+and f.invoice_seq=oi.invoice_seq
+and f.fee_code =ff.fee_code
+and ff.report_code='MZ01'
+and oi.balance_flag='1'
+and oi.oper_code=od.oper_code
+and oi.balance_no=od.balance_no
+and od.end_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')  and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+
+
+group by f.belong_dept,f.exec_dpcd,f.doct_code,DECODE(F.FEE_CODE,'016','特需服务费1','006','挂号费1',ff.fee_stat_name)
+
+UNION ALL
+
+select nvl(r.dept_code,'8004') as dept_name,
+       nvl(r.dept_code,'8004') as execDept,
+       nvl(r.doct_code,'挂号到科室') as doct_code,
+       decode(a.fee_type,'2','病历费','3','挂号费2','4','诊金','其他费') as  invo_name,
+       sum(a.tot_cost) tot_cost
+from fin_opr_daybalance od, Fin_Opb_Accountcardfee a 
+left join (select r.clinic_code,r.trans_type,nvl(c.dept_code,r.dept_code) as dept_code,r.doct_code from  fin_opr_register r left join  com_employee c on c.empl_code= r.doct_code) r 
+on a.clinic_no=r.clinic_code 
+   and a.trans_type=r.trans_type
+   where a.balance_flag=1
+   AND ABS(A.TOT_COST)&lt;&gt;50
+   and od.oper_code=a.oper_code
+   and od.balance_no=a.balance_no
+   and od.end_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')  and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+
+   group by nvl(r.dept_code,'8004'),nvl(r.doct_code,'挂号到科室'),decode(a.fee_type,'2','病历费','3','挂号费2','4','诊金','其他费')
+   
+   UNION ALL
+
+select nvl(r.dept_code,'8004') as dept_name,
+       nvl(r.dept_code,'8004') as execDept,
+       nvl(r.doct_code,'挂号到科室') as doct_code,
+       '特需服务费2' as invo_name,
+       sum(a.tot_cost) tot_cost
+from fin_opr_daybalance od,Fin_Opb_Accountcardfee a 
+left join (select r.clinic_code,r.trans_type,nvl(c.dept_code,r.dept_code) as dept_code,r.doct_code from  fin_opr_register r left join  com_employee c on c.empl_code= r.doct_code) r
+on a.clinic_no=r.clinic_code 
+   and a.trans_type=r.trans_type
+   where a.balance_flag=1
+   and ABS(a.tot_cost)=50
+   and a.fee_type=4
+   and od.oper_code=a.oper_code
+   and od.balance_no=a.balance_no
+   and od.end_date between to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')  and to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+
+   group by nvl(r.dept_code,'8004'),nvl(r.doct_code,'挂号到科室')
+
+       
+) tb1
+group by tb1.execDept,
+         tb1.dept_name,
+         --tb1.doct_code,
+         tb1.invo_name
+         
+         ) tb2
+         group by rollup(tb2.execDept ,tb2.dept_name)
+         having sum(decode(tb2.invo_name,'挂号费2',tb2.tot_cost,'挂号费1',tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'诊金'  ,tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'检查费',tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'诊查费',tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'治疗费',tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'护理费',tb2.tot_cost,0))
+                +sum(decode(tb2.invo_name,'材料费',tb2.tot_cost,0))&lt;&gt;0
+         order by fun_get_dept_sort(tb2.execDept) ,fun_get_dept_sort(tb2.dept_name)
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\门诊财务报表\门诊执行其他科室开立项目收入报表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

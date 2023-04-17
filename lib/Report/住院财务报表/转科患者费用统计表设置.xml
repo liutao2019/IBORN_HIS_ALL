@@ -1,0 +1,64 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtDetail</Name><Sql>
+select i.name ,
+       i.patient_no ,
+			 tb1.happen_no,
+       i.pact_name ,
+			 sitype.name as siname,
+       i.inpatient_no,
+       sum(fee.tot_cost),
+       fun_get_dept_name(tb1.old_data_code),
+			sum(decode(fee.inhos_deptcode,tb1.old_data_code,fee.tot_cost,0)) roTotCost,
+      sum(decode(fee.inhos_deptcode,tb1.old_data_code,decode(fc.fee_stat_cate,'01',fee.tot_cost,'02',fee.tot_cost,'03',fee.tot_cost,0),0)) roDrugFee,
+			sum(decode(fee.inhos_deptcode,tb1.old_data_code,decode(fc.fee_stat_cate,'11',fee.tot_cost,0),0)) roItemFee,
+      fun_get_dept_name(tb1.new_data_code),
+			sum(decode(fee.inhos_deptcode,tb1.new_data_code,fee.tot_cost,0)) riTotCost,
+			sum(decode(fee.inhos_deptcode,tb1.new_data_code,decode(fc.fee_stat_cate,'01',fee.tot_cost,'02',fee.tot_cost,'03',fee.tot_cost,0),0)) riDrugFee,
+			sum(decode(fee.inhos_deptcode,tb1.new_data_code,decode(fc.fee_stat_cate,'11',fee.tot_cost,0),0)) riItemFee
+from (
+select c1.*,
+      case
+       when (select max(c2.old_data_code) from com_shiftdata c2   
+                    where c1.clinic_no=c2.clinic_no
+                    and c2.shift_type='RO' 
+                    and c2.oper_date&lt;c1.oper_date
+                    and c1.new_data_code=c2.old_data_code) is not null 
+                        then (select max(c2.oper_date) from com_shiftdata c2   
+                              where c1.clinic_no=c2.clinic_no
+                              and c2.shift_type='RO' 
+                              and c2.oper_date&lt;c1.oper_date
+                              and c1.new_data_code=c2.old_data_code)  
+       else (SELECT I.IN_DATE FROM FIN_IPR_INMAININFO I WHERE I.INPATIENT_NO=C1.CLINIC_NO) end as indate,
+      case
+       when (select max(c2.old_data_code) from com_shiftdata c2   
+                    where c1.clinic_no=c2.clinic_no
+                    and c2.shift_type='RO' 
+                    and c2.oper_date&gt;c1.oper_date
+                    and c1.new_data_code=c2.old_data_code) is not null 
+                        then c1.oper_date  
+       else sysdate end as outdate 
+                     
+from com_shiftdata c1 
+where c1.shift_type='RO'
+order by c1.clinic_no,c1.happen_no ) tb1  ,fin_ipb_feeinfo fee,fin_com_feecodestat fc ,fin_ipr_inmaininfo i
+     left join  (select si.inpatient_no, c.name from fin_ipr_siinmaininfo si ,com_dictionary c 
+                 where si.zhuhaisitype=c.code  and si.balance_no='1' 
+                 and (c.type='ZhuHaiSiType' or c.type='ZhongShanSiType'))  sitype
+     on sitype.inpatient_no =i.inpatient_no
+where tb1.clinic_no=fee.inpatient_no
+and tb1.clinic_no=i.inpatient_no
+and fee.fee_code=fc.fee_code
+and fc.report_code='ZY01'
+and fee.fee_date between tb1.indate and tb1.outdate
+AND I.OUT_DATE BETWEEN TO_DATE('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') and TO_DATE('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+and i.in_state='O'
+group by i.name ,
+       i.patient_no ,
+       i.pact_name ,
+       i.inpatient_no,
+      sitype.name,
+      tb1.happen_no,
+      tb1.old_data_code,
+      tb1.new_data_code
+order by  i.patient_no ,tb1.happen_no
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院财务报表\转科患者费用统计表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

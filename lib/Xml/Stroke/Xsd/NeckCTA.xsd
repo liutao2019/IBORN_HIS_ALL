@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NeckCTA"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="NeckCTA">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="ncaCheckTime" type="xs:dateTime"/>
+        <xs:element name="ncaCheckUnit" type="sMaxL200T"/>
+        <xs:element name="ncaResult" type="NormalFNT"/>
+        <xs:element name="exType" type="MRACTAT"/>
+        <xs:element name="otherJudge" type="xs:string"/>
+        <xs:element name="A" type="NarrowT"/>
+        <xs:element name="lSA" type="NarrowT"/>
+        <xs:element name="lCCA" type="NarrowT"/>
+        <xs:element name="lICA" type="NarrowT"/>
+        <xs:element name="lECA" type="NarrowT"/>
+        <xs:element name="lVA" type="NarrowT"/>
+        <xs:element name="rSA" type="NarrowT"/>
+        <xs:element name="rCCA" type="NarrowT"/>
+        <xs:element name="rICA" type="NarrowT"/>
+        <xs:element name="rECA" type="NarrowT"/>
+        <xs:element name="rVA" type="NarrowT"/>
+        <xs:element name="IA" type="NarrowT"/>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NormalFNT">
+    <xs:restriction base="xs:int">
+      <!--1正常 2异常-->
+      <xs:pattern value="1|2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MRACTAT">
+    <xs:restriction base="xs:int">
+      <!--1任一部位有血管狭窄/闭塞 9其他诊断 -1未填-->
+      <xs:pattern value="1|9|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NarrowT">
+    <xs:restriction base="xs:int">
+      <!--1无狭窄 2轻中度 3重度 4闭塞 -1未填-->
+      <xs:pattern value="1|2|3|4|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sMaxL200T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

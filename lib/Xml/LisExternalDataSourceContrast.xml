@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <provider>SqlServers</provider> <!--provider"是数据库类型,"SqlServers"对应SqlServer-->
+  <connectionstring>user id=sa;password=emr;initial catalog=master;server=p-hxy37742\sqlexpress;connect timeout=30</connectionstring>
+    <!--"connectionstring"对应连接串-->
+  <LisValue>
+      <!--"LisValue"节点下数据为结果不需要拼接单位的数据-->
+    <Contrast>
+      <LisCode>HB</LisCode> <!--"LisCode"为本地数据源-->
+      <ExternalDataSourceCode>HB</ExternalDataSourceCode> <!--"ExternalDataSourceCode"为外地数据源-->
+    </Contrast>
+		<Contrast>
+			<LisCode>PT</LisCode>
+			<ExternalDataSourceCode>PT</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>APTT</LisCode>
+			<ExternalDataSourceCode>APTT</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>TT</LisCode>
+			<ExternalDataSourceCode>TT</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>LIVER</LisCode>
+			<ExternalDataSourceCode>LIVER</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>BUN</LisCode>
+			<ExternalDataSourceCode>BUN</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>Cr</LisCode>
+			<ExternalDataSourceCode>Cr</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>HCV</LisCode>
+			<ExternalDataSourceCode>HCV</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>HIV</LisCode>
+			<ExternalDataSourceCode>HIV</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>ABO</LisCode>
+			<ExternalDataSourceCode>ABO</ExternalDataSourceCode>
+		</Contrast>
+	</LisValue>
+	<LisValueWithUnit>		<!--"LisValueWithUnit"节点内的数据为结果需要拼接单位的数据-->
+		<Contrast>
+			<LisCode>HB</LisCode>
+			<ExternalDataSourceCode>HBWithUnit</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>PT</LisCode>
+			<ExternalDataSourceCode>PTWithUnit</ExternalDataSourceCode>
+		</Contrast>
+		<Contrast>
+			<LisCode>HBsAg</LisCode>  
+			<ExternalDataSourceCode>HBsAg</ExternalDataSourceCode>
+		</Contrast>
+	</LisValueWithUnit>
+</root>

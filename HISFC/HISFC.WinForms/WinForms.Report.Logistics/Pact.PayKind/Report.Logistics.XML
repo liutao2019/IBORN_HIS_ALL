@@ -1,0 +1,3098 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WinForms.Report.Logistics</name>
+    </assembly>
+    <members>
+        <member name="F:Report.Logistics.DrugStore.ucDrugRank.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucDrugRank.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucDrugRank.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Report.Logistics.DrugStore.ucPhaDispensedQuery">
+            <summary>
+            <修改记录>
+               1、初始化时间选择控件 by Sunjh 2010-8-23 {67896C13-1E0C-492e-B6A3-0843CC915D9E}
+            </修改记录>
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaDispensedQuery.GetItemzFunctionInfo">
+            <summary>
+            初始化药品类别
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaDispensedQuery.InitCbInOutType">
+            <summary>
+            初始化出入库类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaDispensedQuery.QueryInPut">
+            <summary>
+            查询入库信息
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaDispensedQuery.OnQuery(System.Object,System.Object)">
+            <summary>
+            查询
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaDispensedQuery.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaDispensedQuery.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaDispensedQuery.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaDmUse.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaDmUse.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaDmUse.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucStoDmdrugInfo.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoDmdrugInfo.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoDmdrugInfo.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucStoDrugInputAcc.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoDrugInputAcc.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoDrugInputAcc.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucStoDrugStoreZxb.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoDrugStoreZxb.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoDrugStoreZxb.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucStoDrugYh.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoDrugYh.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoDrugYh.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucStoLastmonthOutput.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoLastmonthOutput.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucStoLastmonthOutput.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucZyStoSenddrugForDept.OnLoad">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucZyStoSenddrugForDept.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucZyStoSenddrugForDept.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucZyStoSenddrugForDept.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucphaoutputlist.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucphaoutputlist.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucphaoutputlist.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugDoct.deptZone1">
+            <summary>
+            查询范围
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugDoct.itemManager">
+            <summary>
+            药品进销存管理类
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugDoct.itemObject">
+            <summary>
+            药品基本信息实体
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugDoct.arrDrugList">
+            <summary>
+            用于存储药品字典
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugDoct.itemList">
+            <summary>
+            用于存储药品字典list
+            </summary>
+        </member>
+        <member name="P:Report.Logistics.DrugStore.ucPhaMetDrugDoct.DeptZone1">
+            <summary>
+            查询范围
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugDoct.OnLoad">
+            <summary>
+            窗体加载事件
+            </summary>
+        </member>
+        <member name="T:Report.Logistics.DrugStore.ucPhaMetDrugDoct.DeptZone">
+            <summary>
+            枚举
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugDoct.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugDoct.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugDoct.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugMonth.deptManager">
+            <summary>
+            部门管理类
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugMonth.deptList">
+            <summary>
+            用于存储药库科室列表
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugMonth.deptListYK">
+            <summary>
+            用于存储药库科室列表
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugMonth.dayList">
+            <summary>
+            用于存储月结时间列
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugMonth.OnLoad">
+            <summary>
+            窗体加载事件
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugMonth.QueryDateList">
+            <summary>
+            获取已经月结的操作时间列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugMonth.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugMonth.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugMonth.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugInput.deptManager">
+            <summary>
+            部门管理类
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugInput.deptList">
+            <summary>
+            用于存储药库科室列表
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugInput.OnLoad">
+            <summary>
+            窗体加载事件
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugInput.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugInput.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugInput.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.deptManager">
+            <summary>
+            部门管理类
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.constManager">
+            <summary>
+            常数管理类
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.phaConstManager">
+            <summary>
+            药品常数管理类
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.phaItemManager">
+            <summary>
+            药品进销存管理类
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.deptArry">
+            <summary>
+            用于存储药库科室列表
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.drugList">
+            <summary>
+            用于存储药品基本信息list
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.drugArry">
+            <summary>
+            用于存储药品基本信息
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.drugQulityArry">
+            <summary>
+            用于存储药品性质列表
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.companyArry">
+            <summary>
+            用于存储供应商列表
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugSorted.OnLoad">
+            <summary>
+            窗体加载事件
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugSorted.txtDrug_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            文本改变事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugSorted.init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.DrugStore.ucPhaMetDrugSorted.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugSorted.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.DrugStore.ucPhaMetDrugSorted.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucDrugStoreNotUse.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucDrugStoreNotUse.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucDrugStoreNotUse.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Report.Logistics.Pharmacy.tvCustomQuery" -->
+        <member name="M:Report.Logistics.Pharmacy.tvCustomQuery.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.tvCustomQuery.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.tvCustomQuery.getObject(System.String,System.String[])">
+            <summary>
+            获取树结点
+            </summary>
+            <param name="sqlIndex">sql索引</param>
+            <param name="param">参数</param>
+            <returns>树结点数组</returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.tvCustomQuery.ShowMessageBox(System.String,System.String)">
+            <summary>
+            显示MessageBox
+            </summary>
+            <param name="text">内容</param>
+            <param name="caption">标题</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Report.Logistics.Pharmacy.tvCustomQuery.components" -->
+        <!-- Badly formed XML comment ignored for member "M:Report.Logistics.Pharmacy.tvCustomQuery.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:Report.Logistics.Pharmacy.tvCustomQuery.InitializeComponent" -->
+        <member name="T:Report.Logistics.Pharmacy.ucCustomQuery">
+            <summary>
+            [控件名称:药品自定义查询]
+            <修改记录>
+               1.设计了新的打印方式 by Sunjh 2009-3-13 {699DBE34-5DEA-4ba8-AFDD-A04364CFC8AD}
+               2.移植加入5.0 yangw 2010-05-18 {85997F7C-0E19-46e8-B552-2A60009747B4}
+            </修改记录>
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucCustomQuery.decimalValue">
+            <summary>
+            平均数计算时四舍五入精度
+            </summary>
+        </member>
+        <member name="P:Report.Logistics.Pharmacy.ucCustomQuery.DecimalValue">
+            <summary>
+            平均数计算时四舍五入精度
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucCustomQuery.daysSpan">
+            <summary>
+            SQL语句验证时时间间隔
+            </summary>
+        </member>
+        <member name="P:Report.Logistics.Pharmacy.ucCustomQuery.DaysSpan">
+            <summary>
+            SQL语句验证时时间间隔
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucCustomQuery.maxDaysSpan">
+            <summary>
+            SQL语句验证时时间间隔最大值
+            </summary>
+        </member>
+        <member name="P:Report.Logistics.Pharmacy.ucCustomQuery.MaxDaysSpan">
+            <summary>
+            SQL语句验证时时间间隔最大值
+            </summary>
+        </member>
+        <member name="P:Report.Logistics.Pharmacy.ucCustomQuery.OperCode">
+            <summary>
+            设置可以全部查看的工号
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.SetReportControlPerporty">
+            <summary>
+            设置报表控件属性
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.GetFilterAndSumCol(System.String@,System.String@)">
+            <summary>
+            获取过滤求和的列
+            </summary>
+            <param name="filters">过滤字符串</param>
+            <param name="sumCols">过滤列</param>
+            <returns>-1失败</returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.CheckSQL(System.String,System.String@)">
+            <summary>
+            检查SQl有效性
+            </summary>
+            <param name="sql"></param>
+            <param name="errInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.GetSQL">
+            <summary>
+            获取SQL语句
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.GetSQLID">
+            <summary>
+            获取SQL语句索引
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.GetID">
+            <summary>
+            获取流水号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.SaveSqlInfo(FS.FrameWork.Models.NeuObject,System.String@)">
+             <summary>
+            保存一条SQL信息 
+             </summary>
+             <param name="sqlManagerObject"></param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.SaveDefineInfo(System.String,System.String,System.String@)">
+            <summary>
+            保存定义信息
+            </summary>
+            <param name="sqlObject"></param>
+            <param name="errInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.DeleteSqlInfo(System.String)">
+            <summary>
+            删除一条信息
+            </summary>
+            <param name="sqlID"></param>
+            <param name="id"></param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.ShowDefine(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            显示用户定义的查询信息
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.SetFP">
+            <summary>
+            设置Farpoint
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.ShowMessageBox(System.String,System.String)">
+            <summary>
+            显示MessageBox
+            </summary>
+            <param name="text">内容</param>
+            <param name="caption">标题</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.Save">
+            <summary>
+            保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.Query">
+            <summary>
+            查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.Delete(System.String@)">
+            <summary>
+            删除 不可以删除别人共享的查询，不删除com_sql中的sql
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Report.Logistics.Pharmacy.ucCustomQuery.ColSet">
+            <summary>
+            列枚举
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Report.Logistics.Pharmacy.ucCustomQuery.components" -->
+        <member name="M:Report.Logistics.Pharmacy.ucCustomQuery.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Report.Logistics.Pharmacy.ucCustomQuery.InitializeComponent" -->
+        <member name="M:Report.Logistics.Pharmacy.ucPhabMedFee.OnRetrieve(System.Object[])">
+            <summary>
+            检索数据
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Report.Logistics.Pharmacy.ucPhabMedFee.components" -->
+        <!-- Badly formed XML comment ignored for member "M:Report.Logistics.Pharmacy.ucPhabMedFee.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:Report.Logistics.Pharmacy.ucPhabMedFee.InitializeComponent" -->
+        <member name="F:Report.Logistics.Pharmacy.ucPhaAdjustDetail.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaAdjustDetail.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaAdjustDetail.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaAdjustPriceByList.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaAdjustPriceByList.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaAdjustPriceByList.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaAdjustPriceByQuality.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaAdjustPriceByQuality.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaAdjustPriceByQuality.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaDrugstoresStat.empl">
+            <summary>
+            获得当前操作员的实例
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaDrugstoresStat.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaDrugstoresStat.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaDrugstoresStat.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaInDetail.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInDetail.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInDetail.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Report.Logistics.Pharmacy.ucPhaInputSum">
+            <summary>
+            [功能描述: 药库入库汇总]<br></br>
+            [创 建 者: 蒋飞]<br></br>
+            [创建时间: 2007-10]<br></br>
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInputSum.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Report.Logistics.Pharmacy.ucPhaInputSum.BeginTime">
+            <summary>
+            查询起始时间
+            </summary>
+        </member>
+        <member name="P:Report.Logistics.Pharmacy.ucPhaInputSum.EndTime">
+            <summary>
+            查询终止时间
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInputSum.Init">
+            <summary>
+            初始化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInputSum.Query">
+            <summary>
+            查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInputSum.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInputSum.PrintPreview(System.Object,System.Object)">
+            <summary>
+            预览
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Report.Logistics.Pharmacy.ucPhaInputSum.components" -->
+        <!-- Badly formed XML comment ignored for member "M:Report.Logistics.Pharmacy.ucPhaInputSum.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:Report.Logistics.Pharmacy.ucPhaInputSum.InitializeComponent" -->
+        <member name="F:Report.Logistics.Pharmacy.ucPhaInQuit.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInQuit.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaInQuit.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaOutDetail.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaOutDetail.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaOutDetail.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaOutQuery1.integrateManager">
+            <summary>
+            综合业务层实例
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaOutQuery1.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaOutQuery1.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaOutQuery1.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaOutQuery2.integrateManager">
+            <summary>
+            综合业务层实例
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaOutQuery2.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaOutQuery2.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaOutQuery2.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaOutUnget.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaOutUnget.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaOutUnget.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Report.Logistics.Pharmacy.ucPhaDrugstoresDm.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaDrugstoresDm.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Report.Logistics.Pharmacy.ucPhaDrugstoresDm.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.frmSetConfig.sqlConfigDoc">
+            <summary>
+            Spl配置段文件
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.frmSetConfig.sqlConfigPath">
+            <summary>
+            Sql配置文件路径
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.frmSetConfig.fpPathDoc">
+            <summary>
+            Fp格式配置段文件
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.frmSetConfig.hsFpPathCollection">
+            <summary>
+            已保存过的Fp格式集合
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.frmSetConfig.SaveSqlConfig">
+            <summary>
+            设置Sql配置
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.frmSetConfig.SaveFpPath">
+            <summary>
+            设置Fp配置
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.frmSetConfig.Save">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.frmSetConfig.SetFpByConfig(FarPoint.Win.Spread.SheetView,System.Xml.XmlDocument)">
+            <summary>
+            根据配置文件设置Fp显示
+            </summary>
+            <param name="sv"></param>
+            <param name="doc"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.frmSetConfig.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.frmSetConfig.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.frmSetConfig.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "T:FS.Report.Logistics.DrugStore.Function" -->
+        <member name="F:FS.Report.Logistics.DrugStore.Function.ucDrugBill">
+            <summary>
+            摆药单打印控件
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.Function.IDrugPrint">
+            <summary>
+            摆药单打印接口
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.Function.IsApproveInitPrintInterface">
+            <summary>
+            是否已使用摆药单核准初始化
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.Function.ICompoundPrint">
+            <summary>
+            配置标签打印
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.DrugConfirm(System.Collections.ArrayList,FS.HISFC.Models.Pharmacy.DrugMessage,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            对用户确认的出库申请数组进行发药处理（打印摆药单）
+            writed by cuipeng
+            2005-1
+            操作如下:
+            1、如果该记录未计费,则
+            	确定摆药是否对药品数量取整（只对每次量取整），确定数量。
+            	取最新的药品基本信息
+            2、更新医嘱执行档（摆药确认信息）
+            3、更新药嘱主档的最新的执行信息
+            4、如果摆药的同时需要出库则处理出库数据，否则，只确认不处理出库数据
+            5、更新出库申请表中的摆药信息
+            6、如果全部核准，则更新摆药通知信息。否则不更新摆药通知信息
+            摆药后产生的摆药单保存在drugMessage.DrugBillClass.Memo中
+            </summary>
+            <param name="arrayApplyOut">出库申请信息</param>
+            <param name="drugMessage">摆药通知，用来更新摆药通知(摆药后产生的摆药单保存在drugMessage.DrugBillClass.Memo中)</param>
+            <returns>1成功，-1失败</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.DrugConfirm(System.Collections.ArrayList,FS.HISFC.Models.Pharmacy.DrugMessage,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Data.IDbTransaction)">
+            <summary>
+            对用户确认的出库申请数组进行发药处理（打印摆药单）
+            writed by cuipeng
+            2005-1
+            操作如下:
+            1、如果该记录未计费,则
+            	确定摆药是否对药品数量取整（只对每次量取整），确定数量。
+            	取最新的药品基本信息
+            2、更新医嘱执行档（摆药确认信息）
+            3、更新药嘱主档的最新的执行信息
+            4、如果摆药的同时需要出库则处理出库数据，否则，只确认不处理出库数据
+            5、更新出库申请表中的摆药信息
+            6、如果全部核准，则更新摆药通知信息。否则不更新摆药通知信息
+            摆药后产生的摆药单保存在drugMessage.DrugBillClass.Memo中
+            </summary>
+            <param name="arrayApplyOut">出库申请信息</param>
+            <param name="drugMessage">摆药通知，用来更新摆药通知(摆药后产生的摆药单保存在drugMessage.DrugBillClass.Memo中)</param>
+            <returns>1成功，-1失败</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.DrugApprove(System.Collections.ArrayList,System.String,System.String)">
+            <summary>
+            对已打印的摆药单进行核准处理（摆药核准）
+            writed by cuipeng
+            2005-1
+            操作如下：
+            1、如果需要在核准时出库，则进行出库处理。并取得applyOut.OutBillCode
+            2、如果该记录未收费，则处理费用信息，否则更新费用表中的发药状态和出库流水号
+            3、核准摆药单
+            </summary>
+            <param name="arrayApplyOut">出库申请信息</param>
+            <param name="approveOperCode">核准人（摆药人）</param>
+            <param name="deptCode">核准科室</param>
+            <returns>1成功，-1失败</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.DrugApprove(System.Collections.ArrayList,System.String,System.String,System.Data.IDbTransaction)">
+            <summary>
+            对已打印的摆药单进行核准处理（摆药核准）
+            writed by cuipeng
+            2005-1
+            操作如下：
+            1、如果需要在核准时出库，则进行出库处理。并取得applyOut.OutBillCode
+            2、如果该记录未收费，则处理费用信息，否则更新费用表中的发药状态和出库流水号
+            3、核准摆药单
+            </summary>
+            <param name="arrayApplyOut">出库申请信息</param>
+            <param name="approveOperCode">核准人（摆药人）</param>
+            <param name="deptCode">核准科室</param>
+            <returns>1成功，-1失败</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.DrugReturnConfirm(System.Collections.ArrayList,FS.HISFC.Models.Pharmacy.DrugMessage,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            对退药申请进行核准处理（退药核准）
+            writed by cuipeng
+            2005-3
+            操作如下：
+            1、出库处理，返回出库流水号。
+            2、如果退药的同时退费,则处理费用信息
+            3、核准出库申请，将摆药状态由“0”改成ApplyState。
+            4、取费用信息
+            5、进行退费申请
+            6、如果全部核准，则更新摆药通知信息。否则不更新摆药通知信息
+            摆药后产生的摆药单保存在drugMessage.DrugBillClass.Memo中
+            </summary>
+            <param name="arrayApplyOut">出库申请信息</param>
+            <param name="drugMessage">摆药通知，用来更新摆药通知(摆药后产生的摆药单保存在drugMessage.DrugBillClass.Memo中)</param>
+            <returns>1成功，-1失败</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.JudgeInStatePatient(System.Collections.ArrayList,System.Data.IDbTransaction,System.String@)">
+            <summary>
+            根据药品申请，判断患者是否已出院，返回不允许继续进行摆药收费的患者信息
+            </summary>
+            <param name="arrayApplyOut">药品申请</param>
+            <param name="noPrivPatient">不在院的患者信息</param>
+            <returns>成功返回1 失败返回－1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.OutpatientDrug(System.Collections.Generic.List{FS.HISFC.Models.Pharmacy.ApplyOut},FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Boolean)">
+            <summary>
+            门诊配药保存
+            </summary>
+            <param name="applyOutCollection">摆药申请信息</param>
+            <param name="terminal">配药终端</param>
+            <param name="drugedDept">配药科室信息</param>
+            <param name="drugedOper">配药人员信息</param>
+            <param name="isUpdateAdjustParam">是否更新处方调剂参数</param>
+            <returns>配药确认成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.OutpatientSend(System.Collections.Generic.List{FS.HISFC.Models.Pharmacy.ApplyOut},FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Boolean,System.Boolean)">
+            <summary>
+            门诊发药保存
+            </summary>
+            <param name="applyOutCollection">摆药申请信息</param>
+            <param name="terminal">发药终端</param>
+            <param name="sendDept">发药科室信息(扣库科室)</param>
+            <param name="sendOper">发药人员信息</param>
+            <param name="isDirectSave">是否直接保存 (无配药流程)</param>
+            <param name="isUpdateAdjustParam">是否更新处方调剂参数</param>
+            <returns>发药确认成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.OutpatientBack(System.Collections.Generic.List{FS.HISFC.Models.Pharmacy.ApplyOut},FS.FrameWork.Models.NeuObject)">
+            <summary>
+            门诊还药操作 对已配药确认的数据 更新为未打印状态
+            </summary>
+            <param name="applyOutCollection">摆药申请信息</param>
+            <param name="backOper">还药人员信息</param>
+            <returns>成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.CompoundFee(System.Collections.ArrayList,FS.FrameWork.Models.NeuObject,System.Data.IDbTransaction)">
+            <summary>
+             配置中心收费
+            </summary>
+            <param name="arrayApplyOut">住院配置数据</param>
+            <param name="execDept">执行科室</param>
+            <returns>成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.Print(System.Collections.ArrayList,FS.HISFC.Models.Pharmacy.DrugBillClass,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            执行数据打印
+            </summary>
+            <param name="al">需打印数据</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.PrintBill(System.Collections.ArrayList,FS.HISFC.Models.Pharmacy.DrugBillClass)">
+            <summary>
+            摆药单打印
+            </summary>
+            <param name="alData">需打印数据</param>
+            <returns>成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.PrintLabelForOutpatient(System.Collections.ArrayList)">
+            <summary>
+            对传入的申请数据打印门诊标签
+            </summary>
+            <param name="alOutData">申请数据</param>
+            <returns>成功返回1 出错返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.Preview(System.Collections.ArrayList,FS.HISFC.Models.Pharmacy.DrugBillClass)">
+            <summary>
+            打印预览
+            </summary>
+            <param name="alOutData">申请数据</param>
+            <returns>成功返回1 出错返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.TerminalSelect(System.String,FS.HISFC.Models.Pharmacy.EnumTerminalType,System.Boolean)">
+            <summary>
+            门诊终端选择业务
+            </summary>
+            <param name="stockDept">操作库房科室</param>
+            <param name="terminalType">门诊终端类别 0 发药窗口 1 配药台</param>
+            <param name="isShowMessageBox">对相应的提示信息是否采用MessageBox弹出显示</param>
+            <returns>成功返回 门诊终端实体 失败返回null</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.InitLabelPrintInterface">
+            <summary>
+            设置处方打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.InitCompoundPrintInterface">
+            <summary>
+            设置配置标签打印接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.PrintCompound(System.Collections.ArrayList,System.Boolean,System.Boolean)">
+            <summary>
+            调用接口打印制定数据
+            </summary>
+            <param name="alData">待打印数据</param>
+            <param name="isPrintDetail">是否打印明细执行单</param>
+            <param name="isPrintLabel">是否打印标签</param>
+            <returns>成功返回1，失败返回－1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.Function.ShowMsg(System.String)">
+            <summary>
+            显示提示信息
+            </summary>
+            <param name="errStr">提示信息</param>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.OutpatientFun">
+            <summary>
+            门诊功能模块说明
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.OutpatientFun.Drug">
+            <summary>
+            配药
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.OutpatientFun.Send">
+            <summary>
+            发药
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.OutpatientFun.DirectSend">
+            <summary>
+            直接发药 无配药步骤
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.OutpatientFun.Back">
+            <summary>
+            还药
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.OutpatientWinFun">
+            <summary>
+            门诊配发药窗口功能
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.OutpatientBillType">
+            <summary>
+            单据检索方式
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.OutpatientBillType.处方号">
+            <summary>
+            处方号
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.OutpatientBillType.发票号">
+            <summary>
+            发票号
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.OutpatientBillType.病例卡号">
+            <summary>
+            病例卡号
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucCompanyInTotalCost.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucCompanyInTotalCost.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucCompanyInTotalCost.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucCoTotalCost.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucCoTotalCost.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucCoTotalCost.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucDrugStoreScarpOutPut.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucDrugStoreScarpOutPut.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucDrugStoreScarpOutPut.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucDrugStoreScarpOutPut2.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucDrugStoreScarpOutPut2.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucDrugStoreScarpOutPut2.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:FS.Report.Logistics.DrugStore.ucFixPrice" -->
+        <member name="P:FS.Report.Logistics.DrugStore.ucFixPrice.IsClinic">
+            <summary>
+            住院或门诊  
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucFixPrice.TotPrice" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucFixPrice.TotKind" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucFixPrice.AddData(FS.HISFC.Models.Pharmacy.Item)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucFixPrice.AddData(FS.HISFC.Models.Pharmacy.Item,System.String)" -->
+        <member name="M:FS.Report.Logistics.DrugStore.ucFixPrice.DelData">
+            <summary>
+            数据删除
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucFixPrice.Sum" -->
+        <member name="M:FS.Report.Logistics.DrugStore.ucFixPrice.Count">
+            <summary>
+            计算总量
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucFixPrice.Clear">
+            <summary>
+            清屏
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucFixPrice.SetLabel">
+            <summary>
+            设置label
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucFixPrice.SetFocus">
+            <summary>
+            设置焦点
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucFixPrice.SetJump(System.Boolean)">
+            <summary>
+            回车跳转
+            </summary>
+            <param name="isBottomToTop">在最后一行回车后是否返回第一行</param>
+            <returns>1 在最后一行回车 0 其他行回车</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucFixPrice.ShowPharmacyList">
+            <summary>
+            显示药品列表
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucFixPrice.ColEnum.ColTradeName">
+            <summary>
+            药品名称
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucFixPrice.ColEnum.ColSpecs">
+            <summary>
+            规格
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucFixPrice.ColEnum.ColNum">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucFixPrice.ColEnum.ColUnit" -->
+        <member name="F:FS.Report.Logistics.DrugStore.ucFixPrice.ColEnum.ColPrice">
+            <summary>
+            最小单位零售价
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucFixPrice.ColEnum.ColCost">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucFixPrice.ColEnum.ColPlace">
+            <summary>
+            货位
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucFixPrice.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucFixPrice.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucFixPrice.InitializeComponent" -->
+        <member name="T:FS.Report.Logistics.DrugStore.ucGeneralQuery">
+            <summary>
+            [功能描述: 综合查询]<br></br>
+            [创 建 者: 梁俊泽]<br></br>
+            [创建时间: 2006-12]<br></br>
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.dt">
+            <summary>
+            数据表
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.dtDetail">
+            <summary>
+            明细数据表
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.privOper">
+            <summary>
+            当前操作人
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.operDept">
+            <summary>
+            当前操作科室
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.operPriv">
+            <summary>
+            当前操作权限类型
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.assortType">
+            <summary>
+            当前操作类别分类 
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.dataManager">
+            <summary>
+            管理基类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.reportManager">
+            <summary>
+            报表管理类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.pList">
+            <summary>
+            药房/药库通用查询大类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.piList">
+            <summary>
+            药库查询大类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.pParam">
+            <summary>
+            药房/药库通用查询大类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.piParam">
+            <summary>
+            药库查询大类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.powerDetailManager">
+            <summary>
+            权限管理类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.BeginTime">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.EndTime">
+            <summary>
+            终止时间
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.companyHelper">
+            <summary>
+            供货公司帮助类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.producHelper">
+            <summary>
+            生产厂家帮助类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.numFpCellType">
+            <summary>
+            数值CellType
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.exeSqlIndex">
+            <summary>
+            当前执行的Sql代码索引
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.isUseSqlConfig">
+            <summary>
+            是否使用Sql配置文件方式
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.detailIndexNum">
+            <summary>
+            明细信息检索时使用的Fp列数(索引由0开始)
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.privIndex">
+            <summary>
+            当前查询主键
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.IsShowDeptList">
+            <summary>
+            是否显示操作树节点列表
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.IsShowPrivList">
+            <summary>
+            是否显示操作权限列表
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.IsShowList">
+            <summary>
+            是否显示科室/权限列表
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.PList">
+            <summary>
+            药房/药库通用查询大类
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.PParam">
+            <summary>
+            药房/药库通用查询大类
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.PIList">
+            <summary>
+            药库查询大类
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.PIParam">
+            <summary>
+            药库通用查询大类
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.IsUseSqlConfig">
+            <summary>
+            是否使用Sql配置文件方式
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucGeneralQuery.DetailIndexNum">
+            <summary>
+            明细信息检索时使用的Fp列数(索引由0开始)
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.SetToolButton">
+            <summary>
+            按钮有效性设置
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.SetToolButton(System.String)">
+            <summary>
+            按钮有效性设置 对于无Sql语句的按钮 按钮设置无效
+            </summary>
+            <param name="indexPrifx">Sql语句前缀</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.InitControlParam">
+            <summary>
+            控制参数获取 
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.InitData">
+            <summary>
+            初始化数据
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.InitPrivDept">
+            <summary>
+            权限科室初始化
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.InitPrivOper">
+            <summary>
+            权限类别初始化
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.Filter">
+            <summary>
+            设置过滤条件
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.GetSqlIndex(System.Boolean)">
+            <summary>
+            获取执行查询的Sql索引
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.GetDataTable(System.String,System.Boolean)">
+            <summary>
+            执行Sql语句获取DataTable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.GetDataByConfig(System.Boolean)">
+            <summary>
+            根据配置文件获取Sql语句信息
+            </summary>
+            <param name="isDetail">是否明细信息显示</param>
+            <returns>成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.ShowData">
+            <summary>
+            查询
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.ShowDetail">
+            <summary>
+            明细查询
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.SetFormat(System.Boolean)">
+            <summary>
+            格式化
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.Sum">
+            <summary>
+            合计计算
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.hsSqlConfig">
+            <summary>
+            Sql语句存储
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.hsSqlFpPath">
+            <summary>
+            Fp格式文件存储
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.serverPath">
+            <summary>
+            服务期路径
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.configPath">
+            <summary>
+            用户配置路径
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.GetSetting">
+            <summary>
+            读取Sql配置信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucGeneralQuery.GetFpSetting(System.Boolean)">
+            <summary>
+            Fp格式设置
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.ucGeneralQuery.AssortType">
+            <summary>
+            操作类别分类 
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.AssortType.Drug">
+            <summary>
+            按药品
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.AssortType.Company">
+            <summary>
+            按供货单位
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucGeneralQuery.AssortType.Bill">
+            <summary>
+            按单据
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucGeneralQuery.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucGeneralQuery.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucGeneralQuery.InitializeComponent" -->
+        <member name="T:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery">
+            <summary>
+            [模块描述: 住院摆药查询]
+            [创 建 人: 孙久海]
+            [创建时间: 2009-7-2]
+            [备注说明: 业务层方法以及查询语句都整合到了本控件中]
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.managerIntegrate">
+            <summary>
+            基本信息整合业务类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.drugType">
+            <summary>
+            发药类型
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.orderTypeCompare">
+            <summary>
+            退费医嘱类型与摆药单对照
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.PopedomOpers">
+            <summary>
+            查看所有药房的权限列表
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.InitControls">
+            <summary>
+            初始化控件信息
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.SetDrugType">
+            <summary>
+            设置发药类型
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.QueryType">
+            <summary>
+            按业务查询发药信息
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.QueryDept">
+            <summary>
+            按科室查询发药信息
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.QueryPatient">
+            <summary>
+            按患者查询发药信息 {ADD410D5-090B-4711-A4B7-635D4BE57F9C} 显示数据中 添加身份证号和诊断字段  shi.x  2009-09-15 
+            </summary> 
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucInpatientDrugQuery.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.DrugQueryClass">
+            <summary>
+            查询业务类
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.DrugQueryClass.QueryInPharmacyDrug(System.String)">
+            <summary>
+            综合查询药房住院摆药信息
+            </summary>
+            <param name="sqlStr">查询语句</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.ucPhaCostDeptTotal">
+            <summary>
+            药品消耗统计汇总表，按取药科室汇总
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaCostDeptTotal.OnDrawTree">
+            <summary>
+            重写画树方法，构建所有库存科室列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaCostDeptTotal.OnRetrieve(System.Object[])">
+            <summary>
+            查询方法
+            </summary>
+            <param name="objects"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhaCostDeptTotal.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaCostDeptTotal.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaCostDeptTotal.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhalose.employee">
+            <summary>
+            登录人员信息
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhalose.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhalose.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhalose.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhaOutRank.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaOutRank.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaOutRank.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhaStatOutAlert.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStatOutAlert.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStatOutAlert.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList">
+            <summary>
+            药品消耗统计表
+            <br>加入库存数量</br>
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList.OnDrawTree">
+            <summary>
+            重写画树方法，构建所有库存科室列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList.OnLoad">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new">
+            <summary>
+            药品消耗统计表
+            <br>加入库存数量</br>
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new.OnLoad">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new2">
+            <summary>
+            药品消耗统计表
+            <br>加入库存数量</br>
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new2.OnLoad">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new2.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new2.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaStoDetpCostList_new2.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoCompanyIn.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoCompanyIn.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoCompanyIn.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoCompanyInalone.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoCompanyInalone.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoCompanyInalone.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoDrugOrder.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoDrugOrder.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoDrugOrder.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoMzRecipeNum.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoMzRecipeNum.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoMzRecipeNum.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoOutFate.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoOutFate.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoOutFate.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoOutTypeandModle.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoOutTypeandModle.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoOutTypeandModle.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoSearch.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoSearch.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoSearch.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoSendDrug.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoSendDrug.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoSendDrug.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoTotalIn.employee">
+            <summary>
+            登录人员信息
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucStoTotalIn.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoTotalIn.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucStoTotalIn.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery">
+            <summary>
+            [功能描述: 住院药品消耗查询]<br></br>
+            [创 建 者: sel]<br></br>
+            [创建时间: 2009-07]<br></br>
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.Q_BeginTime">
+            <summary>
+            请求起始时间
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.Q_EndTime">
+            <summary>
+            请求终止时间
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.S_BeginTime">
+            <summary>
+            发药起始时间
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.S_EndTime">
+            <summary>
+            发药终止时间
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.Init">
+            <summary>
+            初始化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.SetFilter">
+            <summary>
+            过滤
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.GetQueryTime">
+            <summary>
+            时间选择
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.Query">
+            <summary>
+            查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucZyPhaExpenseQuery.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucPhaExpLogic.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucPhaExpLogic.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucPhaExpLogic.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucPhaExpType.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucPhaExpType.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucPhaExpType.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "T:FS.Report.Logistics.DrugStore.ucZyInWorkQuery" -->
+        <member name="F:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.itemManager">
+            <summary>
+            药品管理业务层
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.BeginTime">
+            <summary>
+            查询起始时间
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.EndTime">
+            <summary>
+            查询终止时间
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.toolBarService">
+            <summary>
+            定义工具栏服务
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.OnInit(System.Object,System.Object,System.Object)">
+            <summary>
+            初始化工具栏
+            </summary>
+            <param name="sender"></param>
+            <param name="NeuObject"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.Query">
+            <summary>
+            数据查询
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.QueryDetail(FS.FrameWork.Models.NeuObject,System.String)">
+            <summary>
+            明细查询
+            </summary>
+            <param name="operInfo">操作员</param>
+            <param name="class3MeaningCode">类型编码</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.Export">
+            <summary>
+            导出
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucZyInWorkQuery.InitializeComponent" -->
+        <member name="T:FS.Report.Logistics.DrugStore.ucMonthReport">
+            <summary>
+            药品月结 屏蔽 盘点相关的盈亏数据
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMonthReport.sqlInterval">
+            <summary>
+            获取月结间隔Sql
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMonthReport.sqlTotal">
+            <summary>
+            获取月结汇总Sql
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMonthReport.sqlDetail">
+            <summary>
+            获取月结明细Sql
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucMonthReport.OperDept">
+            <summary>
+            当前操作人员科室
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMonthReport.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMonthReport.QueryStoreInterval">
+            <summary>
+            获取月结记录
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMonthReport.QueryData">
+            <summary>
+            数据查询
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucMonthReport.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucMonthReport.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucMonthReport.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "T:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery" -->
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.deptData">
+            <summary>
+            药房数组
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.personData">
+            <summary>
+            人员数组
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.isDrugTerminalQuery">
+            <summary>
+            是否进行配药工作量查询
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.privDept">
+            <summary>
+            权限科室
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.privOper">
+            <summary>
+            权限人员
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.IsDrugTerminalQuery">
+            <summary>
+            是否进行配药工作量查询
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.DrugDeptQuery">
+            <summary>
+            是否按药房查询
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.toolBarService">
+            <summary>
+            定义工具栏服务
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.SetParm">
+            <summary>
+            根据参数进行不同设置
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.GetSqlIndex">
+            <summary>
+            获取Sql索引
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.IsValid">
+            <summary>
+            判断是否对查询条件已选择完整
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.QueryData">
+            <summary>
+            数据检索
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.QueryDetail(System.String)">
+            <summary>
+            明细查询
+            </summary>
+            <param name="operCode">欲查询人员编码</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.Sum(System.Int32[])">
+            <summary>
+            增加合计
+            </summary>
+            <param name="countColumns">需累加的列</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.Export">
+            <summary>
+            导出
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucMzOutWorkQuery.InitializeComponent" -->
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzStoOutput.OnDrawTree">
+            <summary>
+            科室树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzStoOutput.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzStoOutput.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzStoOutput.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery" -->
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.itemManager">
+            <summary>
+            药品管理类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.drugStoreManager">
+            <summary>
+            药品管理类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.operDept">
+            <summary>
+            操作科室
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.drugCollectioon">
+            <summary>
+            药品数组
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.isHerbalPrint">
+            <summary>
+            是否是草药方式打印 配药打印时是否打印草药摆药单而不打印标签
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.isCanExplan">
+            <summary>
+            防止出现大红叉
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.personHelper">
+            <summary>
+            人员帮助类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.drugTerminalHelper">
+            <summary>
+            配药终端帮助类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.sendTerminalHelper">
+            <summary>
+            发药终端帮助类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.toolBarService">
+            <summary>
+            定义工具栏服务
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.OnInit(System.Object,System.Object,System.Object)">
+            <summary>
+            初始化工具栏
+            </summary>
+            <param name="sender"></param>
+            <param name="NeuObject"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.DataInit">
+            <summary>
+            数据初始化
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.SetFP">
+            <summary>
+            设置FarPoint
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.Print(FS.HISFC.Models.Pharmacy.DrugRecipe,System.Collections.ArrayList)">
+            <summary>
+            执行打印
+            </summary>
+            <param name="al">打印数据</param>
+            <returns>成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.QueryData">
+            <summary>
+            数据查询
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.GetSqlIndex(System.Boolean,System.String@)">
+            <summary>
+            获取Sql索引
+            </summary>
+            <param name="isHead">是否头信息查询</param>
+            <param name="strIndex">Sql语句索引</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.GetQueryData(System.String@)">
+            <summary>
+            获取待查询数据
+            </summary>
+            <param name="queryData"></param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.GetDataSet(System.Data.DataSet@)">
+            <summary>
+            执行Sql语句 获取处方头信息
+            </summary>
+            <param name="dsData">查询后的DataSet</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.GetDrugDataSet(System.Data.DataSet@,System.Object)">
+            <summary>
+            执行Sql语句 获取处方明细信息
+            </summary>
+            <param name="dsData">处方明细信息</param>
+            <param name="queryData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.ExpandFp(System.Boolean)">
+            <summary>
+            Fp显示展开
+            </summary>
+            <param name="isExpand"></param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.Export">
+            <summary>
+            导出
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucMzOutRecipeQuery.InitializeComponent" -->
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzStoPatientQuery.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzStoPatientQuery.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzStoPatientQuery.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucMzStoRecipe.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucMzStoRecipe.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucMzStoRecipe.InitializeComponent" -->
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzStoUnSend.OnDrawTree">
+            <summary>
+            科室树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucMzStoUnSend.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzStoUnSend.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucMzStoUnSend.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.DrugStore.ucShiftData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucShiftData.alDrug">
+            <summary>
+            药品信息
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucShiftData.BeginTime">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.DrugStore.ucShiftData.EndTime">
+            <summary>
+            终止时间
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucShiftData.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucShiftData.GetSqlIndex">
+            <summary>
+            获取Sql索引
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucShiftData.IsValid">
+            <summary>
+            有效性
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucShiftData.Query">
+            <summary>
+            查询
+            </summary>
+            <returns>成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucShiftData.PrintPreview(System.Object,System.Object)">
+            <summary>
+            打印预览
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucShiftData.OnPrint(System.Object,System.Object)">
+            <summary>
+            打印
+            </summary>
+            <param name="sender"></param>
+            <param name="neuObject"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.DrugStore.ucShiftData.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucShiftData.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.DrugStore.ucShiftData.InitializeComponent" -->
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaDrugDateValidList.ncboDrugType_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            药品类型
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaDrugDateValidList.ncboDrugQuality_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            药品性质
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaDrugDateValidList.ncboCompany_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            供货单位
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:FS.Report.Logistics.DrugStore.ucPhaDrugDateValidList.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaDrugDateValidList.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.DrugStore.ucPhaDrugDateValidList.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.Pharmacy.ucItemizedBill">
+            <summary>
+            药品明细帐
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.hsDrug">
+            <summary>
+            药品列表
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.hsProduce">
+            <summary>
+            生产厂家
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.hsDept">
+            <summary>
+            科室
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.outItemizedBillSql">
+            <summary>
+            药品出库明细帐
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.inItemizedBillSql">
+            <summary>
+            药品入库明细帐 
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.adjuseItemizedBillSql">
+            <summary>
+            药品调价明细帐
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.checkItemizedBillSql">
+            <summary>
+            药品盘点明细帐
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.msCurrentItemizedBillSql">
+            <summary>
+            药品月结明细本期
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.msLastItemizedBillSql">
+            <summary>
+            药品月结明细上期
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.getQueryBeginDate">
+            <summary>
+            获取查询起始时间
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.dataManagment">
+            <summary>
+            业务管理类
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.Pharmacy.ucItemizedBill.DrugCode">
+            <summary>
+            统计药品
+            </summary>
+        </member>
+        <member name="P:FS.Report.Logistics.Pharmacy.ucItemizedBill.DrugDept">
+            <summary>
+            库存科室
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucItemizedBill.ShowData(System.Collections.ArrayList)">
+            <summary>
+            数据检索显示
+            </summary>
+            <param name="alData">所有数据</param>
+            <returns>成功返回1 失败返回-1</returns>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucItemizedBill.SumByMonth">
+            <summary>
+            按月汇总
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.Report.Logistics.Pharmacy.ucItemizedBill.CompareDate">
+            <summary>
+            排序类
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucItemizedBill.CompareDate.Compare(System.Object,System.Object)">
+            <summary>
+            排序方法
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucItemizedBill.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucItemizedBill.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucItemizedBill.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.Source">
+            <summary>
+            数据来源
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.OperDate">
+            <summary>
+            操作日期
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.ListNO">
+            <summary>
+            单据号
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.OperType">
+            <summary>
+            操作权限
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.TargetDeptNO">
+            <summary>
+            目标编码
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.Qty">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.RetailPrice">
+            <summary>
+            零售价
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.Cost">
+            <summary>
+             金额
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.BatchNo">
+            <summary>
+            批号
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ItemizedBill.PurchasePrice">
+            <summary>
+            购入价
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.deptManager">
+            <summary>
+            科室管理类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.constManager">
+            <summary>
+            常数管理类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.itemManager">
+            <summary>
+            药品基本信息管理类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.phaConstManager">
+            <summary>
+            药品常数管理类
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.deptArry">
+            <summary>
+            用于存储科室列表
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.deptYKArry">
+            <summary>
+            用于存储药库科室列表
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.constArry">
+            <summary>
+            用于存储药品性质列表
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.drugArry">
+            <summary>
+            用于存储药品基本信息
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.itemList">
+            <summary>
+            用于存储药品基本信息list
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.companyArry">
+            <summary>
+            用于存储供货公司列表
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.queryStr">
+            <summary>
+            过滤字符串
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.OnLoad">
+            <summary>
+            窗体加载事件
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.OnRetrieve(System.Object[])">
+            <summary>
+            检索数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.cmbDept_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            text更改事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhastoreStatic.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaAdjustAllBill.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaAdjustAllBill.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaAdjustAllBill.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaAdjustBill.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaAdjustBill.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaAdjustBill.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaAdjustSum.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaAdjustSum.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaAdjustSum.InitializeComponent" -->
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhaCheckBill.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaCheckBill.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaCheckBill.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaCompanyPay.OnRetrieve(System.Object[])">
+            <summary>
+            供货公司treeview
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhaCompanyPay.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaCompanyPay.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaCompanyPay.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhaDeptDrugInputDetail.queryStr">
+            <summary>
+            过滤字符串
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaDeptDrugInputDetail.neuTextBox1_TextChanged(System.Object,System.EventArgs)" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaDeptDrugInputDetail.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaDeptDrugInputDetail.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaDeptDrugInputDetail.InitializeComponent" -->
+        <member name="T:FS.Report.Logistics.Pharmacy.ucPhaInputByBill">
+            <summary>
+            药品出库汇总表
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaInputByBill.neuTextBox1_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            过滤事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhaInputByBill.queryStr">
+            <summary>
+            过滤字符串
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaInputByBill.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaInputByBill.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaInputByBill.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaInvalid.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaInvalid.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaInvalid.InitializeComponent" -->
+        <member name="T:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair">
+            <summary>
+            出库单补打
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair.OnLoad">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair.managerIntegrate">
+            <summary>
+            综合业务管理
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair.OnDrawTree">
+            <summary>
+            构建药房、药库列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair.InitCmb">
+            <summary>
+            初始化出库类别列表
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair.OnRetrieve(System.Object[])">
+            <summary>
+            查询方法
+            </summary>
+            <param name="objects"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaOutputRepair.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaStatCompany.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaStatCompany.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaStatCompany.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaStatInput.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaStatInput.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaStatInput.InitializeComponent" -->
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhaStatOut1.qualityNameCollection">
+            <summary>
+            库存性质名称集合
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaStatOut1.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaStatOut1.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaStatOut1.InitializeComponent" -->
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhaStatOut2.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaStatOut2.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhaStatOut2.InitializeComponent" -->
+        <member name="F:FS.Report.Logistics.Pharmacy.ucPhaStoreAlert.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaStoreAlert.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhaStoreAlert.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:FS.Report.Logistics.Pharmacy.ucPhatotByynzb">
+            <summary>
+            药品集中招标采购调查表
+            <br>查询药库入库的药品中招标药和采购药的数量及金额</br>
+            </summary>
+        </member>
+        <member name="M:FS.Report.Logistics.Pharmacy.ucPhatotByynzb.OnRetrieve(System.Object[])">
+            <summary>
+            查询方法
+            </summary>
+            <param name="objects"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FS.Report.Logistics.Pharmacy.ucPhatotByynzb.components" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhatotByynzb.Dispose(System.Boolean)" -->
+        <!-- Badly formed XML comment ignored for member "M:FS.Report.Logistics.Pharmacy.ucPhatotByynzb.InitializeComponent" -->
+        <member name="F:FS.WinForms.Report.Logistics.DrugStore.ucDrugStoreCheckQry.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FS.WinForms.Report.Logistics.DrugStore.ucDrugStoreCheckQry.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FS.WinForms.Report.Logistics.DrugStore.ucDrugStoreCheckQry.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FS.WinForms.Report.Logistics.DrugStore.ucDrugStoreNotUse1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FS.WinForms.Report.Logistics.DrugStore.ucDrugStoreNotUse1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FS.WinForms.Report.Logistics.DrugStore.ucDrugStoreNotUse1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FS.WinForms.Report.Logistics.Pharmacy.ucPhaCheckStatic.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FS.WinForms.Report.Logistics.Pharmacy.ucPhaCheckStatic.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FS.WinForms.Report.Logistics.Pharmacy.ucPhaCheckStatic.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FS.WinForms.Report.Logistics.Pharmacy.ucPhadrugtj.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FS.WinForms.Report.Logistics.Pharmacy.ucPhadrugtj.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FS.WinForms.Report.Logistics.Pharmacy.ucPhadrugtj.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FS.WinForms.Report.Logistics.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:FS.WinForms.Report.Logistics.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:FS.WinForms.Report.Logistics.Properties.Resources.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性，对
+              使用此强类型资源类的所有资源查找执行重写。
+            </summary>
+        </member>
+    </members>
+</doc>

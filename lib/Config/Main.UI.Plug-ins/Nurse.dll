@@ -1,0 +1,286 @@
+﻿<!--Navi对应的所有数据项XML，此XML中的节点、值、数据等等的命名符合编码规范中的Pascal命名法-->
+<NaviItems ImageList="NurseRecord-.png*NurseReport-.png*TemperatureRecord-.png*NursingDocument-.png">
+    <NaviItem Note="护理记录"  Type="TreeNode">
+    <!--对应业务系统中显示内容的中文名称，必须节点-->
+    <ItemNameCN>护理记录</ItemNameCN>
+    <!--对应dto SystemID（每个功能模块一个）对应业务系统中显示内容的英文名称，字符串，功能调用的类名（全称），但在NaviItems中不允许重复，必须节点-->
+    <ItemNameEN>NurseRecord</ItemNameEN>
+    <!--项目在数中的排序，必须节点-->
+    <ItemSort>2</ItemSort>
+    <!--项目是否绑定数据，true绑定数据（没有子项目节点，直接在此节点绑定数据），false不绑定数据仅绑定子项目节点（在有子项目节点时设置）
+	 Type=Leaf或Root，表示当节点绑定数据时的绑定方式，Leaf数据作为此节点的叶子节点绑定，Root直接将数据绑定到此节点，无Type默认绑定到项目节点的子节点（数据节点），必须节点-->
+    <Binding Type="Leaf">true</Binding>
+    <!--绑定节点的样式-->
+    <BindingShowFormat>
+      <!--排序数据集合的属性，按此属性对数据集合进行排序（具体值在NaviItemsDto中），必须节点-->
+      <OrderField>MRDate</OrderField>
+      <!--绑定的数据对象排序方式，Desc倒序，Asc正序，必须节点-->
+      <OrderType>Desc</OrderType>
+      <!--绑定的数据显示的折叠规则 None不折叠，Year=n按n年折叠，Day=n按n天折叠，Week=n按n周折叠，必须节点-->
+      <FoldRule>None</FoldRule>
+      <!--Navi中显示数据项的日期样式（标准日期格式），必须节点-->
+      <ItemDateFormat>yyyy/MM/dd</ItemDateFormat>
+      <!--在Navi中显示数据项，必须节点-->
+      <ShowDataField>ItemID</ShowDataField>
+      <!--在Navi中显示数据项的前缀，必须节点-->
+      <ShowItemPrefix></ShowItemPrefix>
+      <!--在Navi中显示数据项的后缀，必须节点-->
+      <ShowItemSuffix    Type="DtoProperty" PropertyName="CreateDate">(CreateDate)</ShowItemSuffix>
+      <!--在折叠情况下，折叠节点的日期显示样式（标准日期格式）-->
+      <FolderItemFormat>yyyy/MM/dd</FolderItemFormat>
+      <!--此节点字体,暂时不支持-->
+      <Font>StandardBold</Font>
+      <!--此节点文字颜色,暂时不支持-->
+      <ForeColor>CommonBlack</ForeColor>
+      <!--此节点使用的图片名称,必须是NaviItems ImageList的集合之一,暂时不支持-->
+      <HeaderImageKey>NurseRecord-.png</HeaderImageKey>
+    </BindingShowFormat>
+    <!--此数据项调用的业务系统的程序集名称-->
+    <AddinAssemblyInfo>NeusoftFujitsu.Emr.Nursing.NurseRecord.UI.Forms.NursingAdapter.NurseRecordAdapterForm,NeusoftFujitsu.Emr.Nursing.NurseRecord.UI</AddinAssemblyInfo>
+    <!--鼠标左键单击数据节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+    <MouseLeftClickAddinOperateType>Modify</MouseLeftClickAddinOperateType>
+    <!--鼠标左键双击项目节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+    <MouseDoubleClickAddinOperateType>Modify</MouseDoubleClickAddinOperateType>
+    <!--此项目数据在日历控件中用颜色表示时的优先级，整型数据，优先级越高值越小，比如：住院>护理，住院的优先级就为0，护理为1-->
+    <MonthCalendarLevel>0</MonthCalendarLevel>
+    <!--此项目数据在日历控件中用颜色表示时的颜色值-->
+    <MonthCalendarColor>StationNurseRecordMonthCalendar</MonthCalendarColor>
+    <!--此项绑定数据时，打开业务系统界面，是浏览还是可写入，Write可写入，Read只读（浏览）-->
+    <ReadWriteMode>Write</ReadWriteMode>
+    <!--此功能节点项绑定的右键菜单-->
+    <MouseRightClickAddins>
+      <!--绑定的右键菜单项 Type=Root菜单绑定到项目节点，Type=Leaf菜单绑定到数据节点，无Type默认绑定到数据节点-->
+      <Addin Type="Root">
+        <!--右键菜单项显示名-->
+        <AddinNameCN>护理一览</AddinNameCN>
+        <!--右键菜单项编码，固定数据项包括：Property（属性）、Delete（删除）、Create（新建）、Modiy、toolstripseparator（此单项分隔线）-->
+        <AddinNameEN>Create</AddinNameEN>
+        <!--菜单项排序-->
+        <AddinLevel>1</AddinLevel>
+        <!--打开的业务系统界面是输入界面还是浏览界面，Write可输入数据，Read仅是读（浏览），根据此值将界面分隔成左右两部分-->
+        <ReadWriteMode>Read</ReadWriteMode>
+      </Addin>
+      </MouseRightClickAddins>
+	 </NaviItem>
+  
+  <NaviItem Note="护理文书"  Type="TreeNode">
+    <!--对应业务系统中显示内容的中文名称，必须节点-->
+    <ItemNameCN>护理文书</ItemNameCN>
+    <!--对应dto SystemID（每个功能模块一个）对应业务系统中显示内容的英文名称，字符串，功能调用的类名（全称），但在NaviItems中不允许重复，必须节点-->
+    <ItemNameEN>NurseDocument</ItemNameEN>
+    <!--项目在数中的排序，必须节点-->
+    <ItemSort>2</ItemSort>
+    <!--项目是否绑定数据，true绑定数据（没有子项目节点，直接在此节点绑定数据），false不绑定数据仅绑定子项目节点（在有子项目节点时设置）
+	 Type=Leaf或Root，表示当节点绑定数据时的绑定方式，Leaf数据作为此节点的叶子节点绑定，Root直接将数据绑定到此节点，无Type默认绑定到项目节点的子节点（数据节点），必须节点-->
+    <Binding Type="Leaf">true</Binding>
+    <!--绑定节点的样式-->
+    <BindingShowFormat>
+      <!--排序数据集合的属性，按此属性对数据集合进行排序（具体值在NaviItemsDto中），必须节点-->
+      <OrderField>MRDate</OrderField>
+      <!--绑定的数据对象排序方式，Desc倒序，Asc正序，必须节点-->
+      <OrderType>Desc</OrderType>
+      <!--绑定的数据显示的折叠规则 None不折叠，Year=n按n年折叠，Day=n按n天折叠，Week=n按n周折叠，必须节点-->
+      <FoldRule>None</FoldRule>
+      <!--Navi中显示数据项的日期样式（标准日期格式），必须节点-->
+      <ItemDateFormat>yyyy/MM/dd</ItemDateFormat>
+      <!--在Navi中显示数据项，必须节点-->
+      <ShowDataField>ItemID</ShowDataField>
+      <!--在Navi中显示数据项的前缀，必须节点-->
+      <ShowItemPrefix></ShowItemPrefix>
+      <!--在Navi中显示数据项的后缀，必须节点 Type=String(固定字符串)、DtoProperty（Dto中的属性），PropertyName=属性名；(CreateDate) 属性在格式中替换-->
+      <ShowItemSuffix   Type="DtoProperty" PropertyName="CreateDate">(CreateDate)</ShowItemSuffix>
+      <!--在折叠情况下，折叠节点的日期显示样式（标准日期格式）-->
+      <FolderItemFormat>yyyy/MM/dd</FolderItemFormat>
+      <!--此节点字体,暂时不支持-->
+      <Font>StandardBold</Font>
+      <!--此节点文字颜色,暂时不支持-->
+      <ForeColor>CommonBlack</ForeColor>
+      <!--此节点使用的图片名称,必须是NaviItems ImageList的集合之一,暂时不支持-->
+      <HeaderImageKey>NursingDocument-.png</HeaderImageKey>
+    </BindingShowFormat>
+    <!--此数据项调用的业务系统的程序集名称-->
+    <AddinAssemblyInfo>NeusoftFujitsu.Emr.Nursing.NurseRecord.UI.Forms.NursingAdapter.NurseDocumentAdapterForm,NeusoftFujitsu.Emr.Nursing.NurseRecord.UI</AddinAssemblyInfo>
+    <!--鼠标左键单击数据节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+    <MouseLeftClickAddinOperateType>Modify</MouseLeftClickAddinOperateType>
+    <!--鼠标左键双击项目节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）
+    <MouseDoubleClickAddinOperateType>Modify</MouseDoubleClickAddinOperateType>-->
+    <!--此项目数据在日历控件中用颜色表示时的优先级，整型数据，优先级越高值越小，比如：住院>护理，住院的优先级就为0，护理为1-->
+    <MonthCalendarLevel>0</MonthCalendarLevel>
+    <!--此项目数据在日历控件中用颜色表示时的颜色值-->
+    <MonthCalendarColor>StationNurseDocumentMonthCalendar</MonthCalendarColor>
+    <!--此项绑定数据时，打开业务系统界面，是浏览还是可写入，Write可写入，Read只读（浏览）-->
+    <ReadWriteMode>Write</ReadWriteMode>
+    <!--此功能节点项绑定的右键菜单-->
+    <MouseRightClickAddins>
+      <!--绑定的右键菜单项 Type=Root菜单绑定到项目节点，Type=Leaf菜单绑定到数据节点，无Type默认绑定到数据节点-->
+      <Addin Type="Root">
+        <!--右键菜单项显示名-->
+        <AddinNameCN>护理文书一览</AddinNameCN>
+        <!--右键菜单项编码，固定数据项包括：Property（属性）、Delete（删除）、Create（新建）、Modiy、toolstripseparator（此单项分隔线）-->
+        <AddinNameEN>OpenBrowList</AddinNameEN>
+        <!--菜单项排序-->
+        <AddinLevel>1</AddinLevel>
+        <!--打开的业务系统界面是输入界面还是浏览界面，Write可输入数据，Read仅是读（浏览），根据此值将界面分隔成左右两部分-->
+        <ReadWriteMode>Read</ReadWriteMode>
+      </Addin>
+       </MouseRightClickAddins>
+  </NaviItem>
+  
+  
+<NaviItem Note="护理报告书"  Type="TreeNode">
+    <!--对应业务系统中显示内容的中文名称，必须节点-->
+    <ItemNameCN>护理报告书</ItemNameCN>
+    <!--对应dto SystemID（每个功能模块一个）对应业务系统中显示内容的英文名称，字符串，功能调用的类名（全称），但在NaviItems中不允许重复，必须节点-->
+    <ItemNameEN>NurseReport</ItemNameEN>
+    <!--项目在数中的排序，必须节点-->
+    <ItemSort>2</ItemSort>
+    <!--项目是否绑定数据，true绑定数据（没有子项目节点，直接在此节点绑定数据），false不绑定数据仅绑定子项目节点（在有子项目节点时设置）
+	 Type=Leaf或Root，表示当节点绑定数据时的绑定方式，Leaf数据作为此节点的叶子节点绑定，Root直接将数据绑定到此节点，无Type默认绑定到项目节点的子节点（数据节点），必须节点-->
+    <Binding Type="Leaf">true</Binding>
+    <!--绑定节点的样式-->
+    <BindingShowFormat>
+      <!--排序数据集合的属性，按此属性对数据集合进行排序（具体值在NaviItemsDto中），必须节点-->
+      <OrderField>CreateDate</OrderField>
+      <!--绑定的数据对象排序方式，Desc倒序，Asc正序，必须节点-->
+      <OrderType>Desc</OrderType>
+      <!--绑定的数据显示的折叠规则 None不折叠，Year=n按n年折叠，Day=n按n天折叠，Week=n按n周折叠，必须节点-->
+      <FoldRule>none</FoldRule>
+      <!--Navi中显示数据项的日期样式（标准日期格式），必须节点-->
+      <ItemDateFormat>yyyy/MM/dd</ItemDateFormat>
+      <!--在Navi中显示数据项，必须节点-->
+      <ShowDataField>ItemID</ShowDataField>
+      <!--在Navi中显示数据项的前缀，必须节点-->
+      <ShowItemPrefix></ShowItemPrefix>
+      <!--在Navi中显示数据项的后缀，必须节点-->
+     <ShowItemSuffix   Type="DtoProperty" PropertyName="CreateDate">(CreateDate)</ShowItemSuffix>
+      <!--在折叠情况下，折叠节点的日期显示样式（标准日期格式）-->
+      <FolderItemFormat>yyyy/MM/dd</FolderItemFormat>
+      <!--此节点字体,暂时不支持-->
+      <Font>StandardBold</Font>
+      <!--此节点文字颜色,暂时不支持-->
+      <ForeColor>CommonBlack</ForeColor>
+      <!--此节点使用的图片名称,必须是NaviItems ImageList的集合之一,暂时不支持-->
+      <HeaderImageKey>NurseReport-.png</HeaderImageKey>
+    </BindingShowFormat>
+    <!--此数据项调用的业务系统的程序集名称-->
+    <AddinAssemblyInfo>NeusoftFujitsu.Emr.Nursing.NurseRecord.UI.Forms.NursingAdapter.NurseReportAdapterForm,NeusoftFujitsu.Emr.Nursing.NurseRecord.UI</AddinAssemblyInfo>
+    <!--鼠标左键单击数据节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+    <MouseLeftClickAddinOperateType>Modify</MouseLeftClickAddinOperateType>
+    <!--鼠标左键双击项目节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+    <MouseDoubleClickAddinOperateType>None</MouseDoubleClickAddinOperateType>
+    <!--此项目数据在日历控件中用颜色表示时的优先级，整型数据，优先级越高值越小，比如：住院>护理，住院的优先级就为0，护理为1-->
+    <MonthCalendarLevel>0</MonthCalendarLevel>
+    <!--此项目数据在日历控件中用颜色表示时的颜色值-->
+    <MonthCalendarColor>StationNurseReportMonthCalendar</MonthCalendarColor>
+    <!--此项绑定数据时，打开业务系统界面，是浏览还是可写入，Write可写入，Read只读（浏览）-->
+    <ReadWriteMode>Write</ReadWriteMode>
+    <!--此功能节点项绑定的右键菜单-->
+    <MouseRightClickAddins>
+      <!--绑定的右键菜单项 Type=Root菜单绑定到项目节点，Type=Leaf菜单绑定到数据节点，无Type默认绑定到数据节点-->
+      <Addin Type="Root">
+        <!--右键菜单项显示名-->
+        <AddinNameCN>护理报告一览</AddinNameCN>
+        <!--右键菜单项编码，固定数据项包括：Property（属性）、Delete（删除）、Create（新建）、Modiy、toolstripseparator（此单项分隔线）-->
+        <AddinNameEN>OpenBrowList</AddinNameEN>
+        <!--菜单项排序-->
+        <AddinLevel>1</AddinLevel>
+        <!--打开的业务系统界面是输入界面还是浏览界面，Write可输入数据，Read仅是读（浏览），根据此值将界面分隔成左右两部分-->
+        <ReadWriteMode>Read</ReadWriteMode>
+      </Addin>
+   
+    </MouseRightClickAddins>
+  </NaviItem>
+  
+	 
+  <NaviItem Note="体温单"  Type="TreeNode">
+    <!--对应业务系统中显示内容的中文名称，必须节点-->
+    <ItemNameCN>体温单</ItemNameCN>
+    <!--对应dto SystemID（每个功能模块一个）对应业务系统中显示内容的英文名称，字符串，功能调用的类名（全称），但在NaviItems中不允许重复，必须节点-->
+    <ItemNameEN>TemperatureRecord</ItemNameEN>
+    <!--项目在数中的排序，必须节点-->
+    <ItemSort>2</ItemSort>
+    <!--项目是否绑定数据，true绑定数据（没有子项目节点，直接在此节点绑定数据），false不绑定数据仅绑定子项目节点（在有子项目节点时设置）
+	 Type=Leaf或Root，表示当节点绑定数据时的绑定方式，Leaf数据作为此节点的叶子节点绑定，Root直接将数据绑定到此节点，无Type默认绑定到项目节点的子节点（数据节点），必须节点-->
+    <Binding Type="Leaf">true</Binding>
+    <!--绑定节点的样式-->
+    <BindingShowFormat>
+      <!--排序数据集合的属性，按此属性对数据集合进行排序（具体值在NaviItemsDto中），必须节点-->
+      <OrderField>MRDate</OrderField>
+      <!--绑定的数据对象排序方式，Desc倒序，Asc正序，必须节点-->
+      <OrderType>Desc</OrderType>
+      <!--绑定的数据显示的折叠规则 None不折叠，Year=n按n年折叠，Day=n按n天折叠，Week=n按n周折叠，必须节点-->
+      <FoldRule>None</FoldRule>
+      <!--Navi中显示数据项的日期样式（标准日期格式），必须节点-->
+      <ItemDateFormat>yyyy/MM/dd</ItemDateFormat>
+      <!--在Navi中显示数据项，必须节点-->
+      <ShowDataField>ItemID</ShowDataField>
+      <!--在Navi中显示数据项的前缀，必须节点-->
+      <ShowItemPrefix></ShowItemPrefix>
+      <!--在Navi中显示数据项的后缀，必须节点-->
+      <ShowItemSuffix></ShowItemSuffix>
+      <!--在折叠情况下，折叠节点的日期显示样式（标准日期格式）-->
+      <FolderItemFormat>yyyy/MM/dd</FolderItemFormat>
+      <!--此节点字体,暂时不支持-->
+      <Font>StandardBold</Font>
+      <!--此节点文字颜色,暂时不支持-->
+      <ForeColor>CommonBlack</ForeColor>
+      <!--此节点使用的图片名称,必须是NaviItems ImageList的集合之一,暂时不支持-->
+      <HeaderImageKey>TemperatureRecord-.png</HeaderImageKey>
+    </BindingShowFormat>
+    <!--此数据项调用的业务系统的程序集名称-->
+    <AddinAssemblyInfo>NeusoftFujitsu.Emr.Nursing.NurseRecord.UI.Forms.NursingAdapter.TemperatureRecordAdapterForm,NeusoftFujitsu.Emr.Nursing.NurseRecord.UI</AddinAssemblyInfo>
+    <!--鼠标左键单击数据节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+    <MouseLeftClickAddinOperateType>Modify</MouseLeftClickAddinOperateType>
+    <!--鼠标左键双击项目节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+    <MouseDoubleClickAddinOperateType>Modify</MouseDoubleClickAddinOperateType>
+    <!--此项目数据在日历控件中用颜色表示时的优先级，整型数据，优先级越高值越小，比如：住院>护理，住院的优先级就为0，护理为1-->
+    <MonthCalendarLevel>0</MonthCalendarLevel>
+    <!--此项目数据在日历控件中用颜色表示时的颜色值-->
+    <MonthCalendarColor>StationTemperatureRecordMonthCalendar</MonthCalendarColor>
+    <!--此项绑定数据时，打开业务系统界面，是浏览还是可写入，Write可写入，Read只读（浏览）-->
+    <ReadWriteMode>Write</ReadWriteMode>
+    <!--此功能节点项绑定的右键菜单-->
+    <MouseRightClickAddins>
+      <!--绑定的右键菜单项 Type=Root菜单绑定到项目节点，Type=Leaf菜单绑定到数据节点，无Type默认绑定到数据节点-->
+      <Addin Type="Root">
+        <!--右键菜单项显示名-->
+        <AddinNameCN> 体温单一览</AddinNameCN>
+        <!--右键菜单项编码，固定数据项包括：Property（属性）、Delete（删除）、Create（新建）、Modiy、toolstripseparator（此单项分隔线）-->
+        <AddinNameEN>OpenBrowList</AddinNameEN>
+        <!--菜单项排序-->
+        <AddinLevel>1</AddinLevel>
+        <!--打开的业务系统界面是输入界面还是浏览界面，Write可输入数据，Read仅是读（浏览），根据此值将界面分隔成左右两部分-->
+        <ReadWriteMode>Read</ReadWriteMode>
+      </Addin>
+      
+    </MouseRightClickAddins>
+  
+  </NaviItem>
+  
+      <NaviItem Note="经过表" Name="btnPassTable"  Type="Button">
+      <!--对应业务系统中显示内容的中文名称，必须节点-->
+      <ItemNameCN>经过表</ItemNameCN>
+      <!--对应dto SystemID对应业务系统中显示内容的英文名称，任意字符串，但在NaviItems中不允许重复，必须节点-->
+      <ItemNameEN>PassTable</ItemNameEN>
+      <ReadWriteMode>Write</ReadWriteMode>
+      <AddinAssemblyInfo>NeusoftFujitsu.Emr.Nrsing.PassTable.UI.Forms.PassTableForm,NeusoftFujitsu.Emr.Nrsing.PassTable.UI</AddinAssemblyInfo>
+      <!--鼠标左键单击数据节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+      <MouseLeftClickAddinOperateType>Modify</MouseLeftClickAddinOperateType>
+      <WindowsOpenModelType>OpenSingleWindowsInFunctionArea</WindowsOpenModelType>
+    </NaviItem>
+
+    <NaviItem Note="路径" Name="btnClinicalPathway" Type="Button">
+
+      <!--对应业务系统中显示内容的中文名称，必须节点-->
+      <ItemNameCN>路径</ItemNameCN>
+      <!--对应dto SystemID对应业务系统中显示内容的英文名称，任意字符串，但在NaviItems中不允许重复，必须节点-->
+      <ItemNameEN>PathPortalForm</ItemNameEN>
+      <ReadWriteMode>Write</ReadWriteMode>
+      <AddinAssemblyInfo>NeusoftFujitsu.Emr.CP.UI.Forms.PathPortalForm,NeusoftFujitsu.Emr.CP.UI</AddinAssemblyInfo>
+	     <!--鼠标左键单击数据节点要执行的业务系统中的默认操作类型（业务系统根据此类型实现具体执行什么操作）-->
+      <MouseLeftClickAddinOperateType>Modify</MouseLeftClickAddinOperateType>
+      <WindowsOpenModelType>ShowDialogWindows</WindowsOpenModelType>
+    </NaviItem>
+	
+</NaviItems>
+

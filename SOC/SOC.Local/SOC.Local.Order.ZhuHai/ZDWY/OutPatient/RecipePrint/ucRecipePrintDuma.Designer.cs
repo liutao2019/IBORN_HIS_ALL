@@ -1,0 +1,786 @@
+﻿namespace Neusoft.SOC.Local.Order.ZhuHai.ZDWY.OutPatient.RecipePrint
+{
+    partial class ucRecipePrintDuma
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblJS = new System.Windows.Forms.Label();
+            this.chkOwn = new System.Windows.Forms.CheckBox();
+            this.chkPub = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblCardNo = new System.Windows.Forms.Label();
+            this.lblTel = new System.Windows.Forms.Label();
+            this.lblSendDoct = new System.Windows.Forms.Label();
+            this.lblDiag = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDrugDoct = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblPhaMoney = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPhaDoc = new System.Windows.Forms.Label();
+            this.lblSeeDept = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblDoc = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelSentDrugBatchNo = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.labelReceiver = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.labelAuthenDoc = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.chkPay = new System.Windows.Forms.CheckBox();
+            this.lblOrder = new System.Windows.Forms.Label();
+            this.chkOth = new System.Windows.Forms.CheckBox();
+            this.npbRecipeNo = new Neusoft.FrameWork.WinForms.Controls.NeuPictureBox();
+            this.npbBarCode = new Neusoft.FrameWork.WinForms.Controls.NeuPictureBox();
+            this.lbIdenNOM = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lbIdenNO = new System.Windows.Forms.Label();
+            this.labelGender = new System.Windows.Forms.Label();
+            this.labelAge = new System.Windows.Forms.Label();
+            this.labelSeeDate = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.labelAgentName = new System.Windows.Forms.Label();
+            this.labelAgentIdenNO = new System.Windows.Forms.Label();
+            this.lblDoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.npbRecipeNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npbBarCode)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.ForeColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(0, 704);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(550, 1);
+            this.panel3.TabIndex = 126;
+            // 
+            // lblJS
+            // 
+            this.lblJS.AutoSize = true;
+            this.lblJS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblJS.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblJS.Location = new System.Drawing.Point(467, 8);
+            this.lblJS.Name = "lblJS";
+            this.lblJS.Size = new System.Drawing.Size(58, 23);
+            this.lblJS.TabIndex = 125;
+            this.lblJS.Text = "精二";
+            this.lblJS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chkOwn
+            // 
+            this.chkOwn.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chkOwn.Location = new System.Drawing.Point(120, 91);
+            this.chkOwn.Name = "chkOwn";
+            this.chkOwn.Size = new System.Drawing.Size(53, 21);
+            this.chkOwn.TabIndex = 119;
+            // 
+            // chkPub
+            // 
+            this.chkPub.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chkPub.ForeColor = System.Drawing.Color.Black;
+            this.chkPub.Location = new System.Drawing.Point(61, 91);
+            this.chkPub.Name = "chkPub";
+            this.chkPub.Size = new System.Drawing.Size(48, 21);
+            this.chkPub.TabIndex = 118;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(2, 102);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 14);
+            this.label14.TabIndex = 115;
+            this.label14.Text = "费别：";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.ForeColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(4, 273);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(560, 1);
+            this.panel2.TabIndex = 105;
+            // 
+            // lblCardNo
+            // 
+            this.lblCardNo.AutoSize = true;
+            this.lblCardNo.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblCardNo.ForeColor = System.Drawing.Color.Black;
+            this.lblCardNo.Location = new System.Drawing.Point(134, 168);
+            this.lblCardNo.Name = "lblCardNo";
+            this.lblCardNo.Size = new System.Drawing.Size(77, 14);
+            this.lblCardNo.TabIndex = 114;
+            this.lblCardNo.Text = "0123456789";
+            // 
+            // lblTel
+            // 
+            this.lblTel.AutoSize = true;
+            this.lblTel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTel.ForeColor = System.Drawing.Color.Black;
+            this.lblTel.Location = new System.Drawing.Point(92, 224);
+            this.lblTel.Name = "lblTel";
+            this.lblTel.Size = new System.Drawing.Size(210, 14);
+            this.lblTel.TabIndex = 112;
+            this.lblTel.Text = "广东省珠海市香洲区/1362457952";
+            // 
+            // lblSendDoct
+            // 
+            this.lblSendDoct.AutoSize = true;
+            this.lblSendDoct.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblSendDoct.ForeColor = System.Drawing.Color.Black;
+            this.lblSendDoct.Location = new System.Drawing.Point(456, 31);
+            this.lblSendDoct.Name = "lblSendDoct";
+            this.lblSendDoct.Size = new System.Drawing.Size(98, 14);
+            this.lblSendDoct.TabIndex = 57;
+            this.lblSendDoct.Text = "             ";
+            this.lblSendDoct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblDiag
+            // 
+            this.lblDiag.AutoSize = true;
+            this.lblDiag.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDiag.ForeColor = System.Drawing.Color.Black;
+            this.lblDiag.Location = new System.Drawing.Point(57, 196);
+            this.lblDiag.Name = "lblDiag";
+            this.lblDiag.Size = new System.Drawing.Size(49, 14);
+            this.lblDiag.TabIndex = 111;
+            this.lblDiag.Text = "高血压";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(417, 141);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 14);
+            this.label8.TabIndex = 99;
+            this.label8.Text = "年龄：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(271, 140);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 14);
+            this.label7.TabIndex = 98;
+            this.label7.Text = "性别：";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(350, 31);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(119, 14);
+            this.label27.TabIndex = 30;
+            this.label27.Text = "核对、发药药师：";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(4, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(49, 14);
+            this.label22.TabIndex = 25;
+            this.label22.Text = "医师：";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(4, 31);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(77, 14);
+            this.label24.TabIndex = 27;
+            this.label24.Text = "审核药师：";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(2, 140);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 14);
+            this.label6.TabIndex = 97;
+            this.label6.Text = "姓名：";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(291, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 14);
+            this.label5.TabIndex = 96;
+            this.label5.Text = "处方编号：";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.ForeColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(4, 133);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(559, 1);
+            this.panel1.TabIndex = 95;
+            // 
+            // lblDrugDoct
+            // 
+            this.lblDrugDoct.AutoSize = true;
+            this.lblDrugDoct.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDrugDoct.ForeColor = System.Drawing.Color.Black;
+            this.lblDrugDoct.Location = new System.Drawing.Point(250, 31);
+            this.lblDrugDoct.Name = "lblDrugDoct";
+            this.lblDrugDoct.Size = new System.Drawing.Size(98, 14);
+            this.lblDrugDoct.TabIndex = 56;
+            this.lblDrugDoct.Text = "             ";
+            this.lblDrugDoct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(2, 168);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(126, 14);
+            this.label12.TabIndex = 102;
+            this.label12.Text = "门诊/住院病历号：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(297, 168);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 14);
+            this.label10.TabIndex = 101;
+            this.label10.Text = "科别：";
+            // 
+            // lblPhaMoney
+            // 
+            this.lblPhaMoney.AutoSize = true;
+            this.lblPhaMoney.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblPhaMoney.ForeColor = System.Drawing.Color.Black;
+            this.lblPhaMoney.Location = new System.Drawing.Point(470, 6);
+            this.lblPhaMoney.Name = "lblPhaMoney";
+            this.lblPhaMoney.Size = new System.Drawing.Size(84, 14);
+            this.lblPhaMoney.TabIndex = 54;
+            this.lblPhaMoney.Text = "9999944.5元";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(2, 279);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 32);
+            this.label2.TabIndex = 128;
+            this.label2.Text = "R";
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(19, 282);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(19, 32);
+            this.label13.TabIndex = 129;
+            this.label13.Text = "p";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(387, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 14);
+            this.label3.TabIndex = 53;
+            this.label3.Text = "药品金额：";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPhaDoc
+            // 
+            this.lblPhaDoc.AutoSize = true;
+            this.lblPhaDoc.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblPhaDoc.ForeColor = System.Drawing.Color.Black;
+            this.lblPhaDoc.Location = new System.Drawing.Point(44, 6);
+            this.lblPhaDoc.Name = "lblPhaDoc";
+            this.lblPhaDoc.Size = new System.Drawing.Size(49, 14);
+            this.lblPhaDoc.TabIndex = 52;
+            this.lblPhaDoc.Text = "111111";
+            this.lblPhaDoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeeDept
+            // 
+            this.lblSeeDept.AutoSize = true;
+            this.lblSeeDept.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblSeeDept.ForeColor = System.Drawing.Color.Black;
+            this.lblSeeDept.Location = new System.Drawing.Point(352, 168);
+            this.lblSeeDept.Name = "lblSeeDept";
+            this.lblSeeDept.Size = new System.Drawing.Size(119, 14);
+            this.lblSeeDept.TabIndex = 110;
+            this.lblSeeDept.Text = "二门诊(血液门诊)";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblName.ForeColor = System.Drawing.Color.Black;
+            this.lblName.Location = new System.Drawing.Point(57, 140);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(91, 14);
+            this.lblName.TabIndex = 109;
+            this.lblName.Text = "默罕默德萨尔";
+            // 
+            // lblDoc
+            // 
+            this.lblDoc.AutoSize = true;
+            this.lblDoc.Controls.Add(this.label4);
+            this.lblDoc.Controls.Add(this.labelSentDrugBatchNo);
+            this.lblDoc.Controls.Add(this.label11);
+            this.lblDoc.Controls.Add(this.labelReceiver);
+            this.lblDoc.Controls.Add(this.label9);
+            this.lblDoc.Controls.Add(this.labelAuthenDoc);
+            this.lblDoc.Controls.Add(this.lblPhaMoney);
+            this.lblDoc.Controls.Add(this.lblSendDoct);
+            this.lblDoc.Controls.Add(this.lblDrugDoct);
+            this.lblDoc.Controls.Add(this.label3);
+            this.lblDoc.Controls.Add(this.label27);
+            this.lblDoc.Controls.Add(this.lblPhaDoc);
+            this.lblDoc.Controls.Add(this.label22);
+            this.lblDoc.Controls.Add(this.label24);
+            this.lblDoc.Controls.Add(this.label25);
+            this.lblDoc.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblDoc.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDoc.ForeColor = System.Drawing.Color.Black;
+            this.lblDoc.Location = new System.Drawing.Point(0, 705);
+            this.lblDoc.Name = "lblDoc";
+            this.lblDoc.Size = new System.Drawing.Size(550, 95);
+            this.lblDoc.TabIndex = 107;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 14F);
+            this.label4.Location = new System.Drawing.Point(297, 76);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(257, 19);
+            this.label4.TabIndex = 146;
+            this.label4.Text = "（该处方开具24小时内有效）";
+            // 
+            // labelSentDrugBatchNo
+            // 
+            this.labelSentDrugBatchNo.AutoSize = true;
+            this.labelSentDrugBatchNo.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelSentDrugBatchNo.ForeColor = System.Drawing.Color.Black;
+            this.labelSentDrugBatchNo.Location = new System.Drawing.Point(300, 56);
+            this.labelSentDrugBatchNo.Name = "labelSentDrugBatchNo";
+            this.labelSentDrugBatchNo.Size = new System.Drawing.Size(161, 14);
+            this.labelSentDrugBatchNo.TabIndex = 62;
+            this.labelSentDrugBatchNo.Text = "                      ";
+            this.labelSentDrugBatchNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(189, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(105, 14);
+            this.label11.TabIndex = 61;
+            this.label11.Text = "发出药品批号：";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelReceiver
+            // 
+            this.labelReceiver.AutoSize = true;
+            this.labelReceiver.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelReceiver.ForeColor = System.Drawing.Color.Black;
+            this.labelReceiver.Location = new System.Drawing.Point(59, 56);
+            this.labelReceiver.Name = "labelReceiver";
+            this.labelReceiver.Size = new System.Drawing.Size(133, 14);
+            this.labelReceiver.TabIndex = 60;
+            this.labelReceiver.Text = "                  ";
+            this.labelReceiver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(4, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 14);
+            this.label9.TabIndex = 59;
+            this.label9.Text = "取药人：";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelAuthenDoc
+            // 
+            this.labelAuthenDoc.AutoSize = true;
+            this.labelAuthenDoc.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelAuthenDoc.ForeColor = System.Drawing.Color.Black;
+            this.labelAuthenDoc.Location = new System.Drawing.Point(71, 31);
+            this.labelAuthenDoc.Name = "labelAuthenDoc";
+            this.labelAuthenDoc.Size = new System.Drawing.Size(91, 14);
+            this.labelAuthenDoc.TabIndex = 58;
+            this.labelAuthenDoc.Text = "            ";
+            this.labelAuthenDoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(163, 31);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(98, 14);
+            this.label25.TabIndex = 28;
+            this.label25.Text = "调配药师/士：";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(2, 196);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(49, 14);
+            this.label19.TabIndex = 103;
+            this.label19.Text = "诊断：";
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelTitle.ForeColor = System.Drawing.Color.Black;
+            this.labelTitle.Location = new System.Drawing.Point(0, 43);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(558, 34);
+            this.labelTitle.TabIndex = 94;
+            this.labelTitle.Text = "中山大学附属第五医院麻醉处方";
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(2, 224);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(84, 14);
+            this.label20.TabIndex = 104;
+            this.label20.Text = "电话/住址：";
+            // 
+            // chkPay
+            // 
+            this.chkPay.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chkPay.Location = new System.Drawing.Point(61, 111);
+            this.chkPay.Name = "chkPay";
+            this.chkPay.Size = new System.Drawing.Size(48, 16);
+            this.chkPay.TabIndex = 120;
+            // 
+            // lblOrder
+            // 
+            this.lblOrder.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblOrder.ForeColor = System.Drawing.Color.Black;
+            this.lblOrder.Location = new System.Drawing.Point(42, 280);
+            this.lblOrder.Name = "lblOrder";
+            this.lblOrder.Size = new System.Drawing.Size(521, 358);
+            this.lblOrder.TabIndex = 106;
+            // 
+            // chkOth
+            // 
+            this.chkOth.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chkOth.Location = new System.Drawing.Point(120, 111);
+            this.chkOth.Name = "chkOth";
+            this.chkOth.Size = new System.Drawing.Size(53, 16);
+            this.chkOth.TabIndex = 121;
+            // 
+            // npbRecipeNo
+            // 
+            this.npbRecipeNo.Location = new System.Drawing.Point(367, 91);
+            this.npbRecipeNo.Name = "npbRecipeNo";
+            this.npbRecipeNo.Size = new System.Drawing.Size(150, 39);
+            this.npbRecipeNo.Style = Neusoft.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.npbRecipeNo.TabIndex = 140;
+            this.npbRecipeNo.TabStop = false;
+            // 
+            // npbBarCode
+            // 
+            this.npbBarCode.Location = new System.Drawing.Point(2, 3);
+            this.npbBarCode.Name = "npbBarCode";
+            this.npbBarCode.Size = new System.Drawing.Size(150, 39);
+            this.npbBarCode.Style = Neusoft.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.npbBarCode.TabIndex = 139;
+            this.npbBarCode.TabStop = false;
+            // 
+            // lbIdenNOM
+            // 
+            this.lbIdenNOM.AutoSize = true;
+            this.lbIdenNOM.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbIdenNOM.Location = new System.Drawing.Point(321, 226);
+            this.lbIdenNOM.Name = "lbIdenNOM";
+            this.lbIdenNOM.Size = new System.Drawing.Size(91, 14);
+            this.lbIdenNOM.TabIndex = 145;
+            this.lbIdenNOM.Text = "身份证号码：";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Location = new System.Drawing.Point(2, 252);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(91, 14);
+            this.label15.TabIndex = 146;
+            this.label15.Text = "代办人姓名：";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label18.Location = new System.Drawing.Point(321, 252);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(91, 14);
+            this.label18.TabIndex = 147;
+            this.label18.Text = "身份证号码：";
+            // 
+            // lbIdenNO
+            // 
+            this.lbIdenNO.AutoSize = true;
+            this.lbIdenNO.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbIdenNO.Location = new System.Drawing.Point(418, 226);
+            this.lbIdenNO.Name = "lbIdenNO";
+            this.lbIdenNO.Size = new System.Drawing.Size(133, 14);
+            this.lbIdenNO.TabIndex = 148;
+            this.lbIdenNO.Text = "441302198711011020";
+            // 
+            // labelGender
+            // 
+            this.labelGender.AutoSize = true;
+            this.labelGender.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelGender.ForeColor = System.Drawing.Color.Black;
+            this.labelGender.Location = new System.Drawing.Point(326, 140);
+            this.labelGender.Name = "labelGender";
+            this.labelGender.Size = new System.Drawing.Size(21, 14);
+            this.labelGender.TabIndex = 149;
+            this.labelGender.Text = "女";
+            // 
+            // labelAge
+            // 
+            this.labelAge.AutoSize = true;
+            this.labelAge.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelAge.ForeColor = System.Drawing.Color.Black;
+            this.labelAge.Location = new System.Drawing.Point(472, 140);
+            this.labelAge.Name = "labelAge";
+            this.labelAge.Size = new System.Drawing.Size(35, 14);
+            this.labelAge.TabIndex = 150;
+            this.labelAge.Text = "35岁";
+            // 
+            // labelSeeDate
+            // 
+            this.labelSeeDate.AutoSize = true;
+            this.labelSeeDate.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelSeeDate.ForeColor = System.Drawing.Color.Black;
+            this.labelSeeDate.Location = new System.Drawing.Point(481, 196);
+            this.labelSeeDate.Name = "labelSeeDate";
+            this.labelSeeDate.Size = new System.Drawing.Size(77, 14);
+            this.labelSeeDate.TabIndex = 151;
+            this.labelSeeDate.Text = "2014.05.08";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(398, 196);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(77, 14);
+            this.label21.TabIndex = 152;
+            this.label21.Text = "就诊日期：";
+            // 
+            // labelAgentName
+            // 
+            this.labelAgentName.AutoSize = true;
+            this.labelAgentName.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelAgentName.ForeColor = System.Drawing.Color.Black;
+            this.labelAgentName.Location = new System.Drawing.Point(99, 252);
+            this.labelAgentName.Name = "labelAgentName";
+            this.labelAgentName.Size = new System.Drawing.Size(35, 14);
+            this.labelAgentName.TabIndex = 153;
+            this.labelAgentName.Text = "张三";
+            // 
+            // labelAgentIdenNO
+            // 
+            this.labelAgentIdenNO.AutoSize = true;
+            this.labelAgentIdenNO.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelAgentIdenNO.Location = new System.Drawing.Point(418, 252);
+            this.labelAgentIdenNO.Name = "labelAgentIdenNO";
+            this.labelAgentIdenNO.Size = new System.Drawing.Size(133, 14);
+            this.labelAgentIdenNO.TabIndex = 154;
+            this.labelAgentIdenNO.Text = "441302198711011020";
+            // 
+            // ucRecipePrintDuma
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.labelAgentIdenNO);
+            this.Controls.Add(this.labelAgentName);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.labelSeeDate);
+            this.Controls.Add(this.labelAge);
+            this.Controls.Add(this.labelGender);
+            this.Controls.Add(this.lblSeeDept);
+            this.Controls.Add(this.lbIdenNO);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lbIdenNOM);
+            this.Controls.Add(this.npbRecipeNo);
+            this.Controls.Add(this.npbBarCode);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.lblJS);
+            this.Controls.Add(this.chkOwn);
+            this.Controls.Add(this.chkPub);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lblCardNo);
+            this.Controls.Add(this.lblTel);
+            this.Controls.Add(this.lblDiag);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblDoc);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.labelTitle);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.chkPay);
+            this.Controls.Add(this.lblOrder);
+            this.Controls.Add(this.chkOth);
+            this.Name = "ucRecipePrintDuma";
+            this.Size = new System.Drawing.Size(550, 800);
+            this.lblDoc.ResumeLayout(false);
+            this.lblDoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.npbRecipeNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npbBarCode)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblJS;
+        private System.Windows.Forms.CheckBox chkOwn;
+        private System.Windows.Forms.CheckBox chkPub;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblCardNo;
+        private System.Windows.Forms.Label lblTel;
+        private System.Windows.Forms.Label lblSendDoct;
+        private System.Windows.Forms.Label lblDiag;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblDrugDoct;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblPhaMoney;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPhaDoc;
+        private System.Windows.Forms.Label lblSeeDept;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Panel lblDoc;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.CheckBox chkPay;
+        private System.Windows.Forms.Label lblOrder;
+        private System.Windows.Forms.CheckBox chkOth;
+        private Neusoft.FrameWork.WinForms.Controls.NeuPictureBox npbRecipeNo;
+        private Neusoft.FrameWork.WinForms.Controls.NeuPictureBox npbBarCode;
+        private System.Windows.Forms.Label lbIdenNOM;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lbIdenNO;
+        private System.Windows.Forms.Label labelGender;
+        private System.Windows.Forms.Label labelAge;
+        private System.Windows.Forms.Label labelSeeDate;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label labelAgentName;
+        private System.Windows.Forms.Label labelAuthenDoc;
+        private System.Windows.Forms.Label labelAgentIdenNO;
+        private System.Windows.Forms.Label labelSentDrugBatchNo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelReceiver;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label4;
+    }
+}

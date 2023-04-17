@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.CallQueue.Models", "SOC.HISFC.CallQueue.Models\SOC.HISFC.CallQueue.Models.csproj", "{83103421-217D-41AE-B101-7211B0ACC692}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.CallQueue.Interface", "SOC.HISFC.CallQueue.Interface\SOC.HISFC.CallQueue.Interface.csproj", "{56936AAF-F2EB-4E68-814D-9E1189A4902F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.CallQueue.BizLogic", "SOC.HISFC.CallQueue.BizLogic\SOC.HISFC.CallQueue.BizLogic.csproj", "{BCC90326-0B49-472F-8F7F-BC66F0959305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.CallQueue.InterfaceImplement", "SOC.HISFC.CallQueue.InterfaceImplement\SOC.HISFC.CallQueue.InterfaceImplement.csproj", "{2ADD8150-96E5-45D7-8E2C-1D66AA2B6468}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.CallQueue.BizProcess", "SOC.HISFC.CallQueue.BizProcess\SOC.HISFC.CallQueue.BizProcess.csproj", "{3DE85817-295B-4843-A307-EC0E65EC3F48}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83103421-217D-41AE-B101-7211B0ACC692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83103421-217D-41AE-B101-7211B0ACC692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83103421-217D-41AE-B101-7211B0ACC692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83103421-217D-41AE-B101-7211B0ACC692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56936AAF-F2EB-4E68-814D-9E1189A4902F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56936AAF-F2EB-4E68-814D-9E1189A4902F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56936AAF-F2EB-4E68-814D-9E1189A4902F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56936AAF-F2EB-4E68-814D-9E1189A4902F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCC90326-0B49-472F-8F7F-BC66F0959305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC90326-0B49-472F-8F7F-BC66F0959305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC90326-0B49-472F-8F7F-BC66F0959305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC90326-0B49-472F-8F7F-BC66F0959305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADD8150-96E5-45D7-8E2C-1D66AA2B6468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADD8150-96E5-45D7-8E2C-1D66AA2B6468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADD8150-96E5-45D7-8E2C-1D66AA2B6468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADD8150-96E5-45D7-8E2C-1D66AA2B6468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE85817-295B-4843-A307-EC0E65EC3F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE85817-295B-4843-A307-EC0E65EC3F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE85817-295B-4843-A307-EC0E65EC3F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE85817-295B-4843-A307-EC0E65EC3F48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

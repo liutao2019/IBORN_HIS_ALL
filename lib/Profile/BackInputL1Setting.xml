@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Spread 说明="根节点">
+  <Sheet1 Locked="True" HorizontalAlignment="General" VerticalAlignment="Center" ZoomFactor="1">
+    <RowHeader Visible="False" />
+    <RowsDefault Height="24" VerticalAlignment="Center" HorizontalAlignment="General" />
+    <ColumnHeaderRows Count="1" Height="20" />
+    <ColumnHeaderDefault VerticalAlignment="General" HorizontalAlignment="General" FontName="宋体" FontSize="9" FontStyle="Regular" />
+    <Column Count="5">
+      <Column0 Index="0" Width="93" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column1 Index="1" Width="60" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column2 Index="2" Width="140" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column3 Index="3" Width="120" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" ReadOnly="True" AllowAutoSort="False" />
+      <Column4 Index="4" Width="90" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+    </Column>
+    <ColumnHeaderCell>
+      <Row0Col0 Text="IN_LIST_CODE" TextAS="入库单号" RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1" />
+      <Row0Col1 Text="COMPANY_CODE" TextAS="公司编码" RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1" />
+      <Row0Col2 Text="FAC_NAME" TextAS="公司名称" RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1" />
+      <Row0Col3 Text="IN_DATE" TextAS="入库时间" RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1" />
+      <Row0Col4 Text="APPLY_OPERCODE" TextAS="入库人工号" RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1" />
+    </ColumnHeaderCell>
+  </Sheet1>
+</Spread>

@@ -1,0 +1,104 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbHospital</Name><Text>院    区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select code,name,' ', spell_code,wb_code,mark from com_dictionary  where type = 'HOSPITALLIST'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtDataSource</Name><Sql>
+select hospital 院区,
+       sum(decode(mode_code, 'CA', nvl(tot_cost, 0), 0)) 现金,
+       sum(decode(mode_code, 'PO', nvl(tot_cost, 0), 0)) 转账,
+       sum(decode(mode_code, 'UP', nvl(tot_cost, 0), 0)) POS,
+       sum(decode(mode_code, 'ZB', nvl(tot_cost, 0), 0)) 支付宝,
+       sum(decode(mode_code, 'WP', nvl(tot_cost, 0), 0)) 微信,
+       sum(decode(mode_code, 'CD', nvl(tot_cost, 0), 0)) 信用卡,
+       sum(decode(mode_code, 'CI', nvl(tot_cost, 0), 0)) 商保记账,
+       sum(decode(mode_code, 'YE', nvl(tot_cost, 0), 0)) 应收其他,
+       sum(decode(mode_code, 'CH', nvl(tot_cost, 0), 0)) 旧门诊套餐
+--sum(decode(mode_code,'RC',nvl(tot_cost,0),0)) 优惠,
+--sum(decode(mode_code,'YS',nvl(tot_cost,0),0)) 账户支付,
+--sum(decode(mode_code,'DC',nvl(tot_cost,0),0)) 账户赠送,
+--sum(decode(mode_code,'DE',nvl(tot_cost,0),0)) 套餐押金,
+--sum(decode(mode_code,'PD',nvl(tot_cost,0),0)) 套餐赠送,
+--sum(decode(mode_code,'PR',nvl(tot_cost,0),0)) 套餐实收,
+--sum(decode(mode_code,'PY',nvl(tot_cost,0),0)) 套餐优惠,
+--sum(decode(mode_code,'PYZZ',nvl(tot_cost,0),0)) 套餐宰账
+  from (select '套餐购买' feeType,
+               (select a.hospital_id
+                  from com_department a
+                 where a.dept_code =
+                       (select b.dept_code
+                          from com_employee b
+                         where b.empl_code = t.balance_opcd)) hospital_id,
+               (select a.hospital_name
+                  from com_department a
+                 where a.dept_code =
+                       (select b.dept_code
+                          from com_employee b
+                         where b.empl_code = t.balance_opcd)) hospital,
+               (select distinct b.card_no
+                  from exp_package b
+                 where b.invoice_no = t.invoice_no) card_no,
+               t.tot_cost tot_cost,
+               case mode_code
+                 when 'DE' then
+                  t.realated_code
+                 else
+                  mode_code
+               end mode_code,
+               t.oper_code,
+               t.oper_date,
+               t.balance_flag,
+               t.balance_opcd,
+               t.balance_date
+          from exp_packagepaymode t
+        --不包含账户支付的
+         where (t.mode_code != 'YS' and t.mode_code != 'DC')
+            or (t.mode_code = 'DE' and t.realated_code &lt;&gt; 'YS' and
+               t.realated_code &lt;&gt; 'DC')
+        union all
+        select '押金缴纳' feeType,
+               (select a.hospital_id
+                  from com_department a
+                 where a.dept_code =
+                       (select b.dept_code
+                          from com_employee b
+                         where b.empl_code = t.balance_opcd)) hospital_id,
+               (select a.hospital_name
+                  from com_department a
+                 where a.dept_code =
+                       (select b.dept_code
+                          from com_employee b
+                         where b.empl_code = t.balance_opcd)) hospital,
+               t.card_no,
+               t.amount,
+               t.mode_code,
+               t.oper_code,
+               t.oper_date,
+               t.balance_flag,
+               t.balance_opcd,
+               t.balance_date
+          from exp_packagedeposit t
+        --不包含账户支付的
+         where (t.mode_code != 'YS' and t.mode_code != 'DC')
+        union all
+        select '充值账户' feeType,
+               (select a.hospital_id
+                  from com_department a
+                 where a.dept_code =
+                       (select b.dept_code
+                          from com_employee b
+                         where b.empl_code = t.balance_opcd)) hospital_id,
+               (select a.hospital_name
+                  from com_department a
+                 where a.dept_code =
+                       (select b.dept_code
+                          from com_employee b
+                         where b.empl_code = t.balance_opcd)) hospital,
+               t.card_no,
+               t.prepay_cost,
+               t.prepay_type,
+               t.oper_code,
+               t.oper_date,
+               t.balance_flag,
+               t.balance_opcd,
+               t.balance_date
+          from fin_opb_accountprepay t) tt
+ where tt.balance_date between to_date('&amp;dtBeginTime', 'yyyy-mm-dd') and
+       to_date('&amp;dtEndTime', 'yyyy-mm-dd') + 1
+           and (tt.hospital_id = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+ group by tt.hospital</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\预收款汇总统计设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

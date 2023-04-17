@@ -1,0 +1,464 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.BizProcess.Factory</name>
+    </assembly>
+    <members>
+        <member name="T:FS.HISFC.BizProcess.Factory.Function">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Factory.Function.IntegrateEPR">
+            <summary>
+            当前电子病历业务层
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Factory.Function.IntegrateManager">
+            <summary>
+            系统管理
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Factory.Function.IntegrateOrder">
+            <summary>
+            医嘱部分
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizProcess.Factory.Function.IntegrateRADT">
+            <summary>
+            入出转部分
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Factory.EPRBase">
+            <summary>
+            电子病历
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.QueryBaseDepartment">
+            <summary>
+            获得基础科室
+            虚拟科室
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.GetControlArgument(System.String)">
+            <summary>
+            获取系统设置
+            </summary>
+            <returns>截至时间字符串，若为Error,则系统参数未设置</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.SaveSetting(FS.FrameWork.Models.NeuObject,System.String)">
+            <summary>
+            保存
+            </summary>
+            <param name="obj"></param>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.GetSetting(System.String)">
+            <summary>
+            获得
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.QueryCalendar">
+            <summary>
+            查询全部日程
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.AddCalender(FS.HISFC.Models.Base.Calendar)">
+            <summary>
+            增加日程
+            </summary>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.QueryCatalogByName(System.String)">
+            <summary>
+            通过目录名称得到某个目录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.SetSuperMark(FS.FrameWork.Models.NeuObject,System.Byte[])">
+            <summary>
+            保存上级修改痕迹
+            </summary>
+            <param name="supermark">权限实体</param>
+            <param name="img">修改痕迹</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.UpdateSuperMark(FS.FrameWork.Models.NeuObject,System.Byte[])">
+            <summary>
+            修改一条上级修改记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.DeleteSuperMark(FS.FrameWork.Models.NeuObject,System.Byte[])">
+            <summary>
+            删除一条上级修改记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.InsertSuperMark(FS.FrameWork.Models.NeuObject,System.Byte[])">
+            <summary>
+            插入一条上级修改记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.GetSuperMark(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            获得上级修改痕迹
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.GetSuperMarkImage(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            获得上级修改痕迹
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.SetPrintPage(FS.HISFC.Models.EPR.EPRPrintPage,System.Byte[])">
+            <summary>
+            保存打印页
+            </summary>
+            <param name="printPage">权限实体</param>
+            <param name="img">修改痕迹</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.UpdatePrintPage(FS.HISFC.Models.EPR.EPRPrintPage,System.Byte[])">
+            <summary>
+            修改一条打印页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.DeletePrintPage(FS.HISFC.Models.EPR.EPRPrintPage,System.Byte[])">
+            <summary>
+            删除一条打印页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.InsertPrintPage(FS.HISFC.Models.EPR.EPRPrintPage,System.Byte[])">
+            <summary>
+            插入一条打印页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.GetPrintPage(FS.HISFC.Models.EPR.EPRPrintPage)">
+            <summary>
+            获得打印页
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.GetPrintPageList(FS.HISFC.Models.EPR.EPRPrintPage)">
+            <summary>
+            获得打印页
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.GetPrintPageImage(FS.HISFC.Models.EPR.EPRPrintPage)">
+            <summary>
+            获得打印页图片
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.QueryQCStatByPatientNO(System.String)">
+            <summary>
+            根据患者ID检索统计结果
+            </summary>
+            <param name="patientNo">患者ID</param>
+            <returns>ArrayList 中每个Item为FS.FrameWork.Object.NeuObject,ID为患者编码，Memo为患者入院日期，Name为质控ID，User01为质控名称，User02为质控结果，User03为统计日期</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.QueryQCStatByStatDate(System.DateTime,System.DateTime)">
+            <summary>
+            根据统计时间检索统计结果
+            </summary>
+            <param name="beginDate">统计时间起始时间</param>
+            <param name="endDate">统计时间终止时间</param>
+            <returns>ArrayList 中每个Item为FS.FrameWork.Object.NeuObject,ID为患者编码，Memo为患者入院日期，Name为质控ID，User01为质控名称，User02为质控结果，User03为统计日期</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.QueryQCStatByInDate(System.DateTime,System.DateTime)">
+            <summary>
+            根据患者入院时间检索统计结果
+            </summary>
+            <param name="beginDate">患者入院时间起始时间</param>
+            <param name="endDate">患者入院时间终止时间</param>
+            <returns>ArrayList 中每个Item为FS.FrameWork.Object.NeuObject,ID为患者编码，Memo为患者入院日期，Name为质控ID，User01为质控名称，User02为质控结果，User03为统计日期</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.InsertQCStat(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入统计结果
+            </summary>
+            <param name="result">FS.FrameWork.Object.NeuObject,ID为患者编码，Memo为患者入院日期，Name为质控ID，User01为质控名称，User02为质控结果，User03为统计日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.EPRBase.DeleteQCStat">
+            <summary>
+            删除不是今年统计结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Factory.ManagerBase">
+            <summary>
+            系统管理
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetDeptment(FS.HISFC.Models.Base.EnumDepartmentType)">
+            <summary>
+            根据科室类型获得科室列表
+            </summary>
+            <param name="Type">科室类型</param>
+            <returns>成功 根据科室类型获得科室列表 失败 null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetSpell(System.String)">
+            <summary>
+            根据传入字符串获得拼音码
+            </summary>
+            <param name="words"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.QuerySysModelFunction">
+            <summary>
+            查询系统功能模块
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.InsertSysModelFunction(FS.HISFC.Models.Admin.SysModelFunction)">
+            <summary>
+             增加系统功能模块信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.UpdateSysModelFunction(FS.HISFC.Models.Admin.SysModelFunction)">
+            <summary>
+            更新系统功能模块信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.DeleteSysModelFunction(FS.HISFC.Models.Admin.SysModelFunction)">
+            <summary>
+            删除系统功能模块信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetNewID">
+            <summary>
+            得到插入记录的新id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetPersonsByDeptIDAll(System.String)">
+            <summary>
+            根据科室获得当前科室的所有人员
+            </summary>
+            <param name="deptCode">科室编码</param>
+            <returns>成功 所有人员集合  失败 null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.QueryDeptmentsInHos(System.Boolean)">
+            <summary>
+            获得在院科室列表
+            </summary>
+            <param name="tr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.QueryEmployeeAll">
+            <summary>
+            获得全部人员列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetGroupList(System.String,System.String)">
+            <summary>
+            查找组别
+            </summary>
+            <param name="code"></param>
+            <param name="Type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.InsertUserText(FS.HISFC.Models.Base.UserText)">
+            <summary>
+            添加
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.UpdateUserText(FS.HISFC.Models.Base.UserText)">
+            <summary>
+            修改
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetQueryCondtion(System.String)">
+            <summary>
+            获得查询条件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetQueryCondtion(System.String,System.Boolean)">
+            <summary>
+            获得查询条件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.SetQueryCondition(System.String,System.String)">
+            <summary>
+            设置查询条件
+            </summary>
+            <param name="formName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.SetQueryCondition(System.String,System.String,System.Boolean)">
+            <summary>
+            设置查询条件
+            </summary>
+            <param name="formName"></param>
+            <param name="xml"></param>
+            <param name="isDefault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetPageSize(System.String,System.String)">
+            <summary>
+            获得纸张大小
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetPageSize(System.String)">
+            <summary>
+            获得纸张大小
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetPersonGroupList(System.String)">
+            <summary>
+            通过人员编码获得已经维护的登陆组信息
+            </summary>
+            <param name="personID">人员ID</param>
+            <returns>成功 已经维护的登陆组信息 失败 null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.QueryLogOnGroupList">
+            <summary>
+            获得所有登陆组信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.UpdatePersonGroup(FS.HISFC.Models.Base.Employee)">
+            <summary>
+            设置人员组
+            </summary>
+            <param name="Person">人员基本信息</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.IsExistLoginName(System.String,System.String)">
+            <summary>
+            是否存在登陆名字
+            </summary>
+            <param name="loginName">登陆名</param>
+            <param name="operCode">人员编码</param>
+            <returns>1存在 其他不存在</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetLoginInfoByEmplCode(System.String)">
+            <summary>
+            根据员工号获得登陆信息
+            </summary>
+            <param name="emplCode">员工编码</param>
+            <returns>登陆信息集合</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.InsertPersonGroup(FS.HISFC.Models.Base.Employee,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入人员组
+            </summary>
+            <param name="person">人员信息</param>
+            <param name="group">组信息</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.DeletePersonGroup(FS.HISFC.Models.Base.Employee,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            删除人员组
+            </summary>
+            <param name="person">人员信息</param>
+            <param name="group">组信息</param>
+            <returns>成功 1 失败 -1</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetAge(System.DateTime)">
+            <summary>
+            根据出生日期获取年龄
+            </summary>
+            <param name="birthday">出生日期</param>
+            <returns>年龄</returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetPeronList">
+            <summary>
+            获取所有人员组列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.GetDepartment">
+            <summary>
+             获得全部在用科室列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.QueryMessage(System.String)">
+            <summary>
+            查询消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.QueryMessageById(System.String)">
+            <summary>
+            根据id查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.InsertMessage(FS.HISFC.Models.Base.Message)">
+            <summary>
+            插入一条消息
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.QueryCalendar">
+            <summary>
+            查询全部日程
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.AddCalender(FS.HISFC.Models.Base.Calendar)">
+            <summary>
+            增加日程
+            </summary>
+            <param name="calendar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizProcess.Factory.ManagerBase.QueryCalendar(System.DateTime,System.DateTime)">
+            <summary>
+            按时间段查询
+            </summary>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Factory.OrderBase">
+            <summary>
+            医嘱相关
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizProcess.Factory.RADTBase">
+            <summary>
+            入出转相关
+            </summary>
+        </member>
+    </members>
+</doc>

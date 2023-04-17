@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Spread class="FarPoint.Win.Spread.FpSpread">
+  <!--Settings Section - This section contains the workbook properties, and the sheet objects, properties and selections.-->
+  <Settings>
+    <RootWorkbook>
+      <ActiveSheetIndex>0</ActiveSheetIndex>
+      <AllowDragDrop>False</AllowDragDrop>
+      <AllowDragFill>False</AllowDragFill>
+      <AllowCellOverflow>False</AllowCellOverflow>
+      <AllowColumnMove>False</AllowColumnMove>
+      <AllowEditOverflow>False</AllowEditOverflow>
+      <AllowUserFormulas>False</AllowUserFormulas>
+      <AllowRowMove>False</AllowRowMove>
+      <AllowSheetMove>False</AllowSheetMove>
+      <AllowUndo>True</AllowUndo>
+      <AllowUserZoom>True</AllowUserZoom>
+      <AutoClipboard>True</AutoClipboard>
+      <BackColor>White</BackColor>
+      <BackgroundImage></BackgroundImage>
+      <BorderCollapse>Separate</BorderCollapse>
+      <ScrollTipPolicy>Off</ScrollTipPolicy>
+      <ScrollBarTrackPolicy>Off</ScrollBarTrackPolicy>
+      <ScrollBarShowMax>True</ScrollBarShowMax>
+      <ScrollBarMaxAlign>True</ScrollBarMaxAlign>
+      <BorderStyle>Fixed3D</BorderStyle>
+      <ButtonDrawMode>Always</ButtonDrawMode>
+      <CellNoteIndicatorVisible>True</CellNoteIndicatorVisible>
+      <ClipboardOptions>AllHeaders</ClipboardOptions>
+      <ColumnSplitBoxAlignment>Leading</ColumnSplitBoxAlignment>
+      <ColumnSplitBoxPolicy>Always</ColumnSplitBoxPolicy>
+      <EditModePermanent>False</EditModePermanent>
+      <EditModeReplace>False</EditModeReplace>
+      <HorizontalScrollBarHeight>-1</HorizontalScrollBarHeight>
+      <HorizontalScrollBarPolicy>AsNeeded</HorizontalScrollBarPolicy>
+      <LeftTab>0</LeftTab>
+      <MoveActiveOnFocus>True</MoveActiveOnFocus>
+      <RetainSelectionBlock>True</RetainSelectionBlock>
+      <RightToLeft>No</RightToLeft>
+      <RowSplitBoxAlignment>Leading</RowSplitBoxAlignment>
+      <RowSplitBoxPolicy>Always</RowSplitBoxPolicy>
+      <SelectionBlockOptions>Cells, Rows, Columns, Sheet</SelectionBlockOptions>
+      <SheetCount>1</SheetCount>
+      <TabStrip>
+        <BackColor>Control</BackColor>
+        <Editable>False</Editable>
+        <ButtonPolicy>Always</ButtonPolicy>
+        <ActiveSheetTab />
+        <DefaultSheetTab />
+        <Items>
+          <SheetTab />
+        </Items>
+      </TabStrip>
+      <TabStripPlacement>WithHorizontalScrollBar</TabStripPlacement>
+      <TabStripPolicy>AsNeeded</TabStripPolicy>
+      <TabStripRatio>0.5</TabStripRatio>
+      <TextTipAppearance class="FarPoint.Win.Spread.TipAppearance">
+        <BackColor>Info</BackColor>
+        <ForeColor>InfoText</ForeColor>
+        <Font>
+          <Name>宋体</Name>
+          <Size>9</Size>
+          <Bold>False</Bold>
+          <CharSet>134</CharSet>
+          <Italic>False</Italic>
+          <Strikeout>False</Strikeout>
+          <Underline>False</Underline>
+          <Unit>Point</Unit>
+          <Vertical>False</Vertical>
+        </Font>
+      </TextTipAppearance>
+      <TextTipDelay>500</TextTipDelay>
+      <TextTipPolicy>Off</TextTipPolicy>
+      <VerticalScrollBarWidth>-1</VerticalScrollBarWidth>
+      <VerticalScrollBarPolicy>AsNeeded</VerticalScrollBarPolicy>
+      <VisualStyles>Auto</VisualStyles>
+      <SuspendAnimations>False</SuspendAnimations>
+    </RootWorkbook>
+    <Sheets>
+      <Sheet index="0" class="FarPoint.Win.Spread.SheetView">
+        <SheetName>Sheet1</SheetName>
+        <Categories>
+          <Appearance>
+            <VisualStyles>Off</VisualStyles>
+          </Appearance>
+          <Behavior />
+          <Layout>
+            <ColumnCount>41</ColumnCount>
+            <RowCount>1</RowCount>
+            <ActiveColumnIndex>7</ActiveColumnIndex>
+          </Layout>
+        </Categories>
+        <SelectionModel class="FarPoint.Win.Spread.Model.DefaultSheetSelectionModel">
+          <CellRange Row="-1" Column="7" RowCount="-1" ColumnCount="1" />
+          <AnchorColumn>7</AnchorColumn>
+        </SelectionModel>
+      </Sheet>
+    </Sheets>
+  </Settings>
+  <!--Styles Section - This section contains the workbook and sheet named style collections.-->
+  <Styles>
+    <NamedStyles class="FarPoint.Win.Spread.NamedStyleCollection" />
+  </Styles>
+  <!--Presentation Section - This section contains the column and row properties, cell spans, and the sheet, column, row, and cell styles.-->
+  <Presentation>
+    <Font />
+    <Sheets>
+      <Sheet index="0">
+        <ViewportInfo>
+          <RowPaneCount>1</RowPaneCount>
+          <ColumnPaneCount>1</ColumnPaneCount>
+          <ActiveRowPane>0</ActiveRowPane>
+          <ActiveColumnPane>0</ActiveColumnPane>
+          <RowPanes>
+            <RowPane row="0">
+              <TopRow>0</TopRow>
+              <PreferredHeight>-1</PreferredHeight>
+            </RowPane>
+          </RowPanes>
+          <ColumnPanes>
+            <ColumnPane column="0">
+              <LeftColumn>0</LeftColumn>
+              <PreferredWidth>-1</PreferredWidth>
+            </ColumnPane>
+          </ColumnPanes>
+        </ViewportInfo>
+        <ActiveSkin class="FarPoint.Win.Spread.SheetSkin">
+          <Name>CustomSkin2</Name>
+          <BackColor>Empty</BackColor>
+          <CellBackColor>Empty</CellBackColor>
+          <CellForeColor>Empty</CellForeColor>
+          <GridLines>Both</GridLines>
+          <GridLineColor>LightGray</GridLineColor>
+          <HeaderBackColor>Gainsboro</HeaderBackColor>
+          <HeaderForeColor>Empty</HeaderForeColor>
+          <FlatColumnHeader>False</FlatColumnHeader>
+          <FlatRowHeader>False</FlatRowHeader>
+          <HeaderFontBold>False</HeaderFontBold>
+          <SelectionBackColor>Empty</SelectionBackColor>
+          <SelectionForeColor>Empty</SelectionForeColor>
+          <EvenRowBackColor>#fff0f0f0</EvenRowBackColor>
+          <OddRowBackColor>Empty</OddRowBackColor>
+          <ShowColumnHeader>True</ShowColumnHeader>
+          <ShowRowHeader>True</ShowRowHeader>
+        </ActiveSkin>
+        <AxisModels>
+          <Row class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="1">
+            <Items>
+              <Item index="-1" />
+            </Items>
+          </Row>
+          <Column class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Horizontal" count="41">
+            <Items>
+              <Item index="-1" />
+              <Item index="0">
+                <Size>120</Size>
+              </Item>
+              <Item index="1">
+                <Size>100</Size>
+              </Item>
+              <Item index="2">
+                <Size>100</Size>
+              </Item>
+              <Item index="3">
+                <Size>100</Size>
+              </Item>
+              <Item index="4">
+                <Size>100</Size>
+              </Item>
+              <Item index="5">
+                <Size>80</Size>
+              </Item>
+              <Item index="6">
+                <Size>120</Size>
+              </Item>
+              <Item index="7">
+                <Size>200</Size>
+              </Item>
+              <Item index="8">
+                <Size>100</Size>
+              </Item>
+              <Item index="9">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="10">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="11">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="12">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="13">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="14">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="15">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="16">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="17">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="18">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="19">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="20">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="21">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="22">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="23">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="24">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="25">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="26">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="27">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="28">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="29">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="30">
+                <Size>100</Size>
+              </Item>
+              <Item index="31">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="32">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="33">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="34">
+                <Resizable>True</Resizable>
+                <Size>100</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="35">
+                <Resizable>True</Resizable>
+                <Size>60</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="36">
+                <Resizable>True</Resizable>
+                <Size>120</Size>
+                <SortIndicator>None</SortIndicator>
+                <Visible>True</Visible>
+                <PageBreak>False</PageBreak>
+                <MergePolicy>None</MergePolicy>
+              </Item>
+              <Item index="38">
+                <Size>120</Size>
+              </Item>
+              <Item index="39">
+                <Size>92</Size>
+              </Item>
+            </Items>
+          </Column>
+          <RowHeaderColumn class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" defaultSize="35" orientation="Horizontal" count="1">
+            <Items>
+              <Item index="-1">
+                <Resizable>False</Resizable>
+                <Size>35</Size>
+              </Item>
+            </Items>
+          </RowHeaderColumn>
+          <ColumnHeaderRow class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="1">
+            <Items>
+              <Item index="-1">
+                <Resizable>False</Resizable>
+              </Item>
+              <Item index="0">
+                <Size>30</Size>
+              </Item>
+            </Items>
+          </ColumnHeaderRow>
+        </AxisModels>
+        <StyleModels>
+          <RowHeader class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="1" Columns="1">
+            <AltRowCount>2</AltRowCount>
+            <DefaultStyle class="FarPoint.Win.Spread.StyleInfo" Parent="HeaderDefault">
+              <BackColor>Gainsboro</BackColor>
+            </DefaultStyle>
+            <ConditionalFormatCollections />
+          </RowHeader>
+          <ColumnHeader class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="1" Columns="41">
+            <AltRowCount>2</AltRowCount>
+            <DefaultStyle class="FarPoint.Win.Spread.StyleInfo" Parent="HeaderDefault">
+              <BackColor>Gainsboro</BackColor>
+            </DefaultStyle>
+            <ConditionalFormatCollections />
+          </ColumnHeader>
+          <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="1" Columns="41">
+            <AltRowCount>2</AltRowCount>
+            <AltRowStyles>
+              <AltRowStyle Index="0" class="FarPoint.Win.Spread.StyleInfo">
+                <BackColor>#fff0f0f0</BackColor>
+              </AltRowStyle>
+            </AltRowStyles>
+            <ConditionalFormatCollections />
+          </DataArea>
+        </StyleModels>
+        <SheetCornerStyle class="FarPoint.Win.Spread.NamedStyle" Parent="CornerDefault">
+          <BackColor>Gainsboro</BackColor>
+        </SheetCornerStyle>
+        <Notes class="FarPoint.Win.Spread.DrawingSpace.SpreadNotesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>792</Height>
+          <Width>1479</Width>
+          <Name>spreadNotesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+          <Gradient class="FarPoint.Win.Spread.DrawingSpace.PSGradient">
+            <GradientStyle>None</GradientStyle>
+            <GradientSections>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+            </GradientSections>
+          </Gradient>
+        </Notes>
+      </Sheet>
+    </Sheets>
+  </Presentation>
+  <!--Drawing Section - This section contains the drawing objects and their properties.-->
+  <Drawing>
+    <Sheets>
+      <Sheet index="0">
+        <DrawingContainer class="FarPoint.Win.Spread.DrawingSpace.SpreadShapesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>792</Height>
+          <Width>1479</Width>
+          <Name>spreadShapesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+        </DrawingContainer>
+      </Sheet>
+    </Sheets>
+  </Drawing>
+  <!--Data Section - This section contains the sheet data.-->
+  <Data>
+    <EnableCrossSheetReference>True</EnableCrossSheetReference>
+    <Sheets>
+      <Sheet index="0">
+        <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="41">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+          <SheetName>Sheet1</SheetName>
+          <Cells>
+            <Cell row="0" column="0">
+              <Tag type="System.String">dtSource</Tag>
+            </Cell>
+          </Cells>
+        </DataArea>
+        <RowHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="1">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+        </RowHeader>
+        <ColumnHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="41">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+          <Cells>
+            <Cell row="0" column="0">
+              <Data type="System.String">票据号</Data>
+            </Cell>
+            <Cell row="0" column="1">
+              <Data type="System.String">姓名</Data>
+            </Cell>
+            <Cell row="0" column="2">
+              <Data type="System.String">卡号</Data>
+            </Cell>
+            <Cell row="0" column="3">
+              <Data type="System.String">医美卡号</Data>
+            </Cell>
+            <Cell row="0" column="4">
+              <Data type="System.String">收费类型</Data>
+            </Cell>
+            <Cell row="0" column="5">
+              <Data type="System.String">是否套餐开单</Data>
+            </Cell>
+            <Cell row="0" column="6">
+              <Data type="System.String">套餐名称</Data>
+            </Cell>
+            <Cell row="0" column="7">
+              <Data type="System.String">项目名称</Data>
+            </Cell>
+            <Cell row="0" column="8">
+              <Data type="System.String">合计</Data>
+            </Cell>
+            <Cell row="0" column="9">
+              <Data type="System.String">西药费</Data>
+            </Cell>
+            <Cell row="0" column="10">
+              <Data type="System.String">中药费</Data>
+            </Cell>
+            <Cell row="0" column="11">
+              <Data type="System.String">挂号费</Data>
+            </Cell>
+            <Cell row="0" column="12">
+              <Data type="System.String">诊查费</Data>
+            </Cell>
+            <Cell row="0" column="13">
+              <Data type="System.String">检查费</Data>
+            </Cell>
+            <Cell row="0" column="14">
+              <Data type="System.String">检验费</Data>
+            </Cell>
+            <Cell row="0" column="15">
+              <Data type="System.String">治疗费</Data>
+            </Cell>
+            <Cell row="0" column="16">
+              <Data type="System.String">手术费</Data>
+            </Cell>
+            <Cell row="0" column="17">
+              <Data type="System.String">麻醉费</Data>
+            </Cell>
+            <Cell row="0" column="18">
+              <Data type="System.String">护理费</Data>
+            </Cell>
+            <Cell row="0" column="19">
+              <Data type="System.String">材料费</Data>
+            </Cell>
+            <Cell row="0" column="20">
+              <Data type="System.String">其他费</Data>
+            </Cell>
+            <Cell row="0" column="21">
+              <Data type="System.String">现金</Data>
+            </Cell>
+            <Cell row="0" column="22">
+              <Data type="System.String">商保</Data>
+            </Cell>
+            <Cell row="0" column="23">
+              <Data type="System.String">转账</Data>
+            </Cell>
+            <Cell row="0" column="24">
+              <Data type="System.String">POS</Data>
+            </Cell>
+            <Cell row="0" column="25">
+              <Data type="System.String">支付宝</Data>
+            </Cell>
+            <Cell row="0" column="26">
+              <Data type="System.String">应收其他</Data>
+            </Cell>
+            <Cell row="0" column="27">
+              <Data type="System.String">医美储值</Data>
+            </Cell>
+            <Cell row="0" column="28">
+              <Data type="System.String">医美储值赠送</Data>
+            </Cell>
+            <Cell row="0" column="29">
+              <Data type="System.String">全院储值</Data>
+            </Cell>
+            <Cell row="0" column="30">
+              <Data type="System.String">项目储值</Data>
+            </Cell>
+            <Cell row="0" column="31">
+              <Data type="System.String">优惠</Data>
+            </Cell>
+            <Cell row="0" column="32">
+              <Data type="System.String">预交金</Data>
+            </Cell>
+            <Cell row="0" column="33">
+              <Data type="System.String">员工折扣</Data>
+            </Cell>
+            <Cell row="0" column="34">
+              <Data type="System.String">积分</Data>
+            </Cell>
+            <Cell row="0" column="35">
+              <Data type="System.String">开单人</Data>
+            </Cell>
+            <Cell row="0" column="36">
+              <Data type="System.String">开单时间</Data>
+            </Cell>
+            <Cell row="0" column="37">
+              <Data type="System.String">收费员</Data>
+            </Cell>
+            <Cell row="0" column="38">
+              <Data type="System.String">收费时间</Data>
+            </Cell>
+            <Cell row="0" column="39">
+              <Data type="System.String">实付备注</Data>
+            </Cell>
+            <Cell row="0" column="40">
+              <Data type="System.String">科室名称</Data>
+            </Cell>
+          </Cells>
+        </ColumnHeader>
+      </Sheet>
+    </Sheets>
+  </Data>
+</Spread>

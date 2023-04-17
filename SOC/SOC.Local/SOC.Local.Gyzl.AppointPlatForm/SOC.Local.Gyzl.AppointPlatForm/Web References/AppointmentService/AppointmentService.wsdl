@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="FS.his" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="FS.his" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="FS.his">
+      <s:element name="stopReg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deptId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="doctorId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="stopRegResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stopRegResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="refundPay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="refundType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="refundTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="returnFee" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="refundReason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="refundPayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="refundPayResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="printRegInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="infoSeq" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InfoTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="printRegInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="printRegInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelOrderbyHis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelReason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelOrderbyHisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cancelOrderbyHisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="payOrderByHis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payAmout" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="payOrderByHisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="payOrderByHisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="stopRegSoapIn">
+    <wsdl:part name="parameters" element="tns:stopReg" />
+  </wsdl:message>
+  <wsdl:message name="stopRegSoapOut">
+    <wsdl:part name="parameters" element="tns:stopRegResponse" />
+  </wsdl:message>
+  <wsdl:message name="refundPaySoapIn">
+    <wsdl:part name="parameters" element="tns:refundPay" />
+  </wsdl:message>
+  <wsdl:message name="refundPaySoapOut">
+    <wsdl:part name="parameters" element="tns:refundPayResponse" />
+  </wsdl:message>
+  <wsdl:message name="printRegInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:printRegInfo" />
+  </wsdl:message>
+  <wsdl:message name="printRegInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:printRegInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelOrderbyHisSoapIn">
+    <wsdl:part name="parameters" element="tns:cancelOrderbyHis" />
+  </wsdl:message>
+  <wsdl:message name="cancelOrderbyHisSoapOut">
+    <wsdl:part name="parameters" element="tns:cancelOrderbyHisResponse" />
+  </wsdl:message>
+  <wsdl:message name="payOrderByHisSoapIn">
+    <wsdl:part name="parameters" element="tns:payOrderByHis" />
+  </wsdl:message>
+  <wsdl:message name="payOrderByHisSoapOut">
+    <wsdl:part name="parameters" element="tns:payOrderByHisResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AppointmentServiceSoap">
+    <wsdl:operation name="stopReg">
+      <wsdl:input message="tns:stopRegSoapIn" />
+      <wsdl:output message="tns:stopRegSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="refundPay">
+      <wsdl:input message="tns:refundPaySoapIn" />
+      <wsdl:output message="tns:refundPaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="printRegInfo">
+      <wsdl:input message="tns:printRegInfoSoapIn" />
+      <wsdl:output message="tns:printRegInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelOrderbyHis">
+      <wsdl:input message="tns:cancelOrderbyHisSoapIn" />
+      <wsdl:output message="tns:cancelOrderbyHisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="payOrderByHis">
+      <wsdl:input message="tns:payOrderByHisSoapIn" />
+      <wsdl:output message="tns:payOrderByHisSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AppointmentServiceSoap" type="tns:AppointmentServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="stopReg">
+      <soap:operation soapAction="FS.his/stopReg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refundPay">
+      <soap:operation soapAction="FS.his/refundPay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="printRegInfo">
+      <soap:operation soapAction="FS.his/printRegInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelOrderbyHis">
+      <soap:operation soapAction="FS.his/cancelOrderbyHis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="payOrderByHis">
+      <soap:operation soapAction="FS.his/payOrderByHis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AppointmentServiceSoap12" type="tns:AppointmentServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="stopReg">
+      <soap12:operation soapAction="FS.his/stopReg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refundPay">
+      <soap12:operation soapAction="FS.his/refundPay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="printRegInfo">
+      <soap12:operation soapAction="FS.his/printRegInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelOrderbyHis">
+      <soap12:operation soapAction="FS.his/cancelOrderbyHis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="payOrderByHis">
+      <soap12:operation soapAction="FS.his/payOrderByHis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AppointmentService">
+    <wsdl:port name="AppointmentServiceSoap" binding="tns:AppointmentServiceSoap">
+      <soap:address location="http://166.166.166.151:8085/AppointmentService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AppointmentServiceSoap12" binding="tns:AppointmentServiceSoap12">
+      <soap12:address location="http://166.166.166.151:8085/AppointmentService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

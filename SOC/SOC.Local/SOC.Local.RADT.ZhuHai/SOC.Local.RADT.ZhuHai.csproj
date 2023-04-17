@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.RADT.ZhuHai</RootNamespace>
+    <AssemblyName>SOC.Local.RADT.ZhuHai</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.EPRControl, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.RADT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="HISFC.Components.HealthRecord, Version=2.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="policy.3.0.FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="policy.3.0.FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.MessagePatternInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SOC.HISFC.RADT.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SOC.HISFC.RADT.BizProcess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SOC.HISFC.RADT.Components, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SOC.HISFC.RADT.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SOC.Public, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\IADT\ADTManager.cs" />
+    <Compile Include="Function.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZDWY\Base\Inpatient\frmPatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\frmPatientInfo.Designer.cs">
+      <DependentUpon>frmPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\frmQueryPatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\frmQueryPatientInfo.Designer.cs">
+      <DependentUpon>frmQueryPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\frmSiRegisterInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\frmSiRegisterInfo.Designer.cs">
+      <DependentUpon>frmSiRegisterInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\ucDayLimitTot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\ucDayLimitTot.designer.cs">
+      <DependentUpon>ucDayLimitTot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\ucModifyInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\ucModifyInfo.Designer.cs">
+      <DependentUpon>ucModifyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\ucPatientList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\ucPatientList.Designer.cs">
+      <DependentUpon>ucPatientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\ucRegisterInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\ucRegisterInfo.designer.cs">
+      <DependentUpon>ucRegisterInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\frmQueryPatientInfoNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Inpatient\frmQueryPatientInfoNew.Designer.cs">
+      <DependentUpon>frmQueryPatientInfoNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Base\Patient\ucPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Base\Patient\ucPatient.Designer.cs">
+      <DependentUpon>ucPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Common\NeuCombox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Common\ucBank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Common\ucBank.designer.cs">
+      <DependentUpon>ucBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Common\ucCmbTransType.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Controls\ucAlert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Controls\ucAlert.Designer.cs">
+      <DependentUpon>ucAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Controls\ucShiftRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Controls\ucShiftRecord.Designer.cs">
+      <DependentUpon>ucShiftRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Controls\ucShiftRecordForNurse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Controls\ucShiftRecordForNurse.Designer.cs">
+      <DependentUpon>ucShiftRecordForNurse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\IADT\ADTManager.cs" />
+    <Compile Include="ZDWY\IADT\RegManager.cs" />
+    <Compile Include="ZDWY\IMoneyAlert\ucMoneyAlert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\IMoneyAlert\ucMoneyAlert.Designer.cs">
+      <DependentUpon>ucMoneyAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\InpatientFee\ucPrepayPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\InpatientFee\ucPrepayPrint.Designer.cs">
+      <DependentUpon>ucPrepayPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Interface\InterfaceManager.cs" />
+    <Compile Include="ZDWY\Interface\ModifyPatient.cs" />
+    <Compile Include="ZDWY\Interface\SavePatient.cs" />
+    <Compile Include="ZDWY\IOutPrint\ucOutPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\IOutPrint\ucOutPrint.Designer.cs">
+      <DependentUpon>ucOutPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Modify\ucModifyInpatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Modify\ucModifyInpatient.Designer.cs">
+      <DependentUpon>ucModifyInpatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\NurseDayReport\DayReport.cs" />
+    <Compile Include="ZDWY\PrePayPrint\ucPrepayPrintNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\PrePayPrint\ucPrepayPrintNew.Designer.cs">
+      <DependentUpon>ucPrepayPrintNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Register\ucInpatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Register\ucInpatient.designer.cs">
+      <DependentUpon>ucInpatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Register\ucPatientBracelet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Register\ucBabyBracelet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Register\ucPrepayInQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Register\ucPrepayInQuery.Designer.cs">
+      <DependentUpon>ucPrepayInQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZDWY\Register\ucBabyBraceletIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZDWY\Register\ucMomBraceletIBORN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ZDWY\Base\Inpatient\frmPatientInfo.resx">
+      <DependentUpon>frmPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Base\Inpatient\frmQueryPatientInfo.resx">
+      <DependentUpon>frmQueryPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Base\Inpatient\frmSiRegisterInfo.resx">
+      <DependentUpon>frmSiRegisterInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Base\Inpatient\ucModifyInfo.resx">
+      <DependentUpon>ucModifyInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Base\Inpatient\ucPatientList.resx">
+      <DependentUpon>ucPatientList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Base\Inpatient\ucRegisterInfo.resx">
+      <DependentUpon>ucRegisterInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Base\Inpatient\frmQueryPatientInfoNew.resx">
+      <DependentUpon>frmQueryPatientInfoNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Base\Patient\ucPatient.resx">
+      <DependentUpon>ucPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Common\ucBank.resx">
+      <DependentUpon>ucBank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Controls\ucAlert.resx">
+      <DependentUpon>ucAlert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Controls\ucShiftRecord.resx">
+      <DependentUpon>ucShiftRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Controls\ucShiftRecordForNurse.resx">
+      <DependentUpon>ucShiftRecordForNurse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\IMoneyAlert\ucMoneyAlert.resx">
+      <DependentUpon>ucMoneyAlert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\InpatientFee\ucPrepayPrint.resx">
+      <DependentUpon>ucPrepayPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\IOutPrint\ucOutPrint.resx">
+      <DependentUpon>ucOutPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Modify\ucModifyInpatient.resx">
+      <DependentUpon>ucModifyInpatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\PrePayPrint\ucPrepayPrintNew.resx">
+      <DependentUpon>ucPrepayPrintNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Register\ucInpatient.resx">
+      <DependentUpon>ucInpatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Register\ucPatientBracelet.resx">
+      <DependentUpon>ucPatientBracelet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Register\ucBabyBracelet.resx">
+      <DependentUpon>ucBabyBracelet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Register\ucPrepayInQuery.resx">
+      <DependentUpon>ucPrepayInQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Register\ucBabyBraceletIBORN.resx">
+      <DependentUpon>ucBabyBraceletIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZDWY\Register\ucMomBraceletIBORN.resx">
+      <DependentUpon>ucMomBraceletIBORN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

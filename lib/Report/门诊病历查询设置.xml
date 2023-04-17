@@ -1,0 +1,99 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>pact_code</Name><Text>结算类别：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>false</IsAddAll><AllValue Type="Neusoft.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select '1','普通' from dual union all select '2','商保' from dual union all select '3','职工' from dual union all select '4','生育保险' from dual union all select '5','职工家属' from dual union all select '6','广州市医保(新)' from dual</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>txtname</Name><Text>姓名/卡号：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>640</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select fr.card_no 诊疗卡,
+       fr.name 姓名,
+       fr.pact_name 结算类别,
+       fr.reg_date 挂号时间,
+       nvl(ce.empl_name,fr.doct_name) 看诊医生,
+       m.casemain 主诉,--主诉
+       m.casenow 现病史,--现病史
+       m.caseold 既往史,--既往史
+       m.caseallery 过敏史,--过敏史
+       m.checkbody 查体,--查体
+       m.memo 嘱托,--备注
+       m.ext_flag1 治疗方案,  --备注2
+       m.memo2 备注, --b
+       d.主要诊断编码, 
+       d.主要诊断, 
+       d.其他诊断编码, 
+       d.其他诊断, 
+       d.并发诊断编码, 
+       d.并发诊断, 
+       d.感染诊断编码, 
+       d.感染诊断, 
+       d.损伤诊断编码, 
+       d.损伤诊断, 
+       d.病理诊断编码, 
+       d.病理诊断, 
+       d.过敏药编码, 
+       d.过敏药, 
+       d.新生儿疾病编码, 
+       d.新生儿疾病, 
+       d.新生儿院感编码, 
+       d.新生儿院感, 
+       d.门诊诊断编码, 
+       d.门诊诊断, 
+       d.入院诊断编码, 
+       d.入院诊断, 
+       d.出院诊断编码, 
+       d.出院诊断, 
+       d.术后诊断编码, 
+       d.术后诊断, 
+       d.死亡诊断编码, 
+       d.死亡诊断, 
+       d.临床诊断编码, 
+       d.临床诊断, 
+       d.确诊诊断编码, 
+       d.确诊诊断, 
+       d.术前诊断编码, 
+       d.术前诊断, 
+       d.住院诊断编码, 
+       d.住院诊断
+from fin_opr_register fr
+left join met_cas_history m on fr.clinic_code=m.clinic_code
+left join com_employee ce on fr.see_docd=ce.empl_code
+left join(select wm_concat(decode(d.diag_kind,'1',d.icd_code)) 主要诊断编码,
+                 wm_concat(decode(d.diag_kind,'1',d.diag_name)) 主要诊断,
+                 wm_concat(decode(d.diag_kind,'2',d.icd_code)) 其他诊断编码,
+                 wm_concat(decode(d.diag_kind,'2',d.diag_name)) 其他诊断,
+                 wm_concat(decode(d.diag_kind,'3',d.icd_code)) 并发诊断编码,
+                 wm_concat(decode(d.diag_kind,'3',d.diag_name)) 并发诊断,
+                 wm_concat(decode(d.diag_kind,'4',d.icd_code)) 感染诊断编码,
+                 wm_concat(decode(d.diag_kind,'4',d.diag_name)) 感染诊断,
+                 wm_concat(decode(d.diag_kind,'5',d.icd_code)) 损伤诊断编码,
+                 wm_concat(decode(d.diag_kind,'5',d.diag_name)) 损伤诊断,
+                 wm_concat(decode(d.diag_kind,'6',d.icd_code)) 病理诊断编码,
+                 wm_concat(decode(d.diag_kind,'6',d.diag_name)) 病理诊断,
+                 wm_concat(decode(d.diag_kind,'7',d.icd_code)) 过敏药编码,
+                 wm_concat(decode(d.diag_kind,'7',d.diag_name)) 过敏药,
+                 wm_concat(decode(d.diag_kind,'8',d.icd_code)) 新生儿疾病编码,
+                 wm_concat(decode(d.diag_kind,'8',d.diag_name)) 新生儿疾病,
+                 wm_concat(decode(d.diag_kind,'9',d.icd_code)) 新生儿院感编码,
+                 wm_concat(decode(d.diag_kind,'9',d.diag_name)) 新生儿院感,
+                 wm_concat(decode(d.diag_kind,'10',d.icd_code)) 门诊诊断编码,
+                 wm_concat(decode(d.diag_kind,'10',d.diag_name)) 门诊诊断,
+                 wm_concat(decode(d.diag_kind,'11',d.icd_code)) 入院诊断编码,
+                 wm_concat(decode(d.diag_kind,'11',d.diag_name)) 入院诊断,
+                 wm_concat(decode(d.diag_kind,'14',d.icd_code)) 出院诊断编码,
+                 wm_concat(decode(d.diag_kind,'14',d.diag_name)) 出院诊断,
+                 wm_concat(decode(d.diag_kind,'15',d.icd_code)) 术后诊断编码,
+                 wm_concat(decode(d.diag_kind,'15',d.diag_name)) 术后诊断,
+                 wm_concat(decode(d.diag_kind,'16',d.icd_code)) 死亡诊断编码,
+                 wm_concat(decode(d.diag_kind,'16',d.diag_name)) 死亡诊断,
+                 wm_concat(decode(d.diag_kind,'17',d.icd_code)) 临床诊断编码,
+                 wm_concat(decode(d.diag_kind,'17',d.diag_name)) 临床诊断,
+                 wm_concat(decode(d.diag_kind,'18',d.icd_code)) 确诊诊断编码,
+                 wm_concat(decode(d.diag_kind,'18',d.diag_name)) 确诊诊断,
+                 wm_concat(decode(d.diag_kind,'19',d.icd_code)) 术前诊断编码,
+                 wm_concat(decode(d.diag_kind,'19',d.diag_name)) 术前诊断,
+                 wm_concat(decode(d.diag_kind,'20',d.icd_code)) 住院诊断编码,
+                 wm_concat(decode(d.diag_kind,'20',d.diag_name)) 住院诊断,
+                 d.inpatient_no
+           from met_cas_diagnose d 
+          group by d.inpatient_no)d on m.clinic_code=d.inpatient_no
+where fr.reg_date between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+  and fr.valid_flag=1 and fr.ynsee=1
+  and (fr.card_no like '%&amp;txtname%' or fr.name like '%&amp;txtname%' or '&amp;txtname' is null)
+  and (fr.pact_code ='&amp;pact_code' or '&amp;pact_code' is null)
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊病历查询设置.xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

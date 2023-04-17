@@ -1,0 +1,43 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dsdata</Name><Sql> select 
+ aa.card_no card_no,
+ aa.patient_name patient_name,
+aa.package_name package_name,
+aa.item_name item_name，
+sum(aa.total) total，
+sum(aa.yizuo) yizuo,
+case when sum(nvl(aa.total -aa.yizuo-aa.tui,0))&lt;0 then 0 else sum(nvl(aa.total -aa.yizuo-aa.tui,0)) end shenyu,
+sum(aa.tui) tui
+ from 
+ (select
+ e.card_no,
+ e.patient_name ,
+ b.package_name,
+ c.item_name ，
+sum( c.qty) total，
+nvl((select  sum(t.amount) from exp_packagecost  t where t.clinic_code = e.clinic_code  and t.detailseq=c.sequence_no
+and t.cancel_flag =0  group by t.clinic_code,t.detailseq ) ,0)yizuo,
+nvl((select  sum(t1.amount) from exp_packagecost  t1 where t1.clinic_code = e.clinic_code and t1.detailseq=c.sequence_no
+and t1.cancel_flag =1  and t1.amount&gt;0  group by t1.clinic_code ,t1.detailseq) ,0) tui
+  from exp_package  e
+ left join  bd_com_package b on b.package_id = e.package_id 
+ left join   exp_packagedetail c  on c.clinic_code = e.clinic_code 
+ where e.clinic_code not in (select f.clinic_code from exp_package f where f.trans_type =2 ) and ( b.package_kind ='22'
+  and (c.item_name like '%治疗(综合门诊)%'  or c.item_name like '%治疗(外)(综合门诊)%'   )  or( b.package_kind ='23' and c.item_name not like '%服务费%'  and  c.item_name not like '%检测%' ))and e.pay_flag = '1'
+  and e.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and  to_date('&amp;dtEndTime','yyyy-mm-dd') 
+group by 
+e.clinic_code,
+ e.card_no,
+ e.patient_name ,
+ b.package_name,
+ c.item_name,
+ c.sequence_no
+order by  e.card_no,
+ e.patient_name ,
+ b.package_name,
+ c.item_name ) aa
+ group by 
+ aa.card_no,
+ aa.patient_name ,
+aa.package_name,
+aa.item_name
+order by aa.card_no,aa.package_name,aa.item_name</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新客服\综合门诊疫苗使用情况设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PreventionEvaluates>
+	<PreventionEvaluate Name="Braden评估" TotalScore="" ScoreString="Braden评   分  " ScoreFormatString="Braden评 {0} 分  ">
+		<EvaluateInstruction>
+		<![CDATA[要求：\r\n（1）一级护理患者，入科及评估。\r\n（2）评分低于18分者，每周评估。\r\n（3） 病情变化者及时评估。\r\n（4）在评估过程中，如果患者在同一评分项目中有两种以上不同得分，\r\n    在这种情况下，按最低得分计算。\r\n（5）评分结果及预防措施体现在一般护理记录单或危重护理记录单中。\r\n压疮危险性判断标准：对感知能力、潮湿度、移动能力、活动能力、营养及摩擦与剪切力6项累计得分<11分为PU发生高度危险（简称高危者），12-14分为中度危险（中危者），15-17分为低危危险（低危者），≥18分为无危者。]]>
+		</EvaluateInstruction>
+		<ScoreSections>
+			<Section Name="1分" Score="1"/>
+			<Section Name="2分" Score="2"/>
+			<Section Name="3分" Score="3"/>
+			<Section Name="4分" Score="4"/>
+		</ScoreSections>
+		<EvaluateItems>
+			<SubItem Name="感知能力">
+				<Item Name="完全受限" Score="1" Check=""/>
+				<Item Name="大部分受限" Score="2" Check=""/>
+				<Item Name="轻度受限" Score="3" Check=""/>
+				<Item Name="无损害" Score="4" Check=""/>
+			</SubItem>
+			<SubItem Name="潮湿程度">
+				<Item Name="持续潮湿" Score="1" Check=""/>
+				<Item Name="常常潮湿" Score="2" Check=""/>
+				<Item Name="偶尔潮湿" Score="3" Check=""/>
+				<Item Name="罕见潮湿" Score="4" Check=""/>
+			</SubItem>
+			<SubItem Name="活动能力">
+				<Item Name="卧床" Score="1" Check=""/>
+				<Item Name="坐椅子" Score="2" Check=""/>
+				<Item Name="偶尔步行" Score="3" Check=""/>
+				<Item Name="经常步行" Score="4" Check=""/>
+			</SubItem>
+			<SubItem Name="移动能力">
+				<Item Name="完全不能移动" Score="1" Check=""/>
+				<Item Name="非常受限" Score="2" Check=""/>
+				<Item Name="轻微受限" Score="3" Check=""/>
+				<Item Name="不受限" Score="4" Check=""/>
+			</SubItem>
+			<SubItem Name="营养摄取能力">
+				<Item Name="非常差" Score="1" Check=""/>
+				<Item Name="可能不足" Score="2" Check=""/>
+				<Item Name="充足" Score="3" Check=""/>
+				<Item Name="丰富" Score="4" Check=""/>
+			</SubItem>
+			<SubItem Name="摩擦力和剪切力">
+				<Item Name="存在问题" Score="1" Check=""/>
+				<Item Name="潜在问题" Score="2" Check=""/>
+				<Item Name="不存在问题" Score="3" Check=""/>
+			</SubItem>
+		</EvaluateItems>
+		<MeasureItems>
+			<SubItem Name="1.高危者">
+				<Item Name="给予气垫床持续减压" Check=""/>
+				<Item Name="每2h翻身1次" Check=""/>
+				<Item Name="皮肤清洁护理≥3次/天，确保皮肤清洁干燥" Check=""/>
+				<Item Name="已发生压疮患者：给予营养干预和伤口护理，同时对患者及家属进行皮肤护理的健康指导" Check=""/>
+			</SubItem>
+			<SubItem Name="2.中危者">
+				<Item Name="给予有效减压措施，如海绵垫、交替充气式气垫床、每隔1-2h托起患者尾骶部10min左右" Check=""/>
+				<Item Name="保持皮肤清洁干燥，加强营养摄入" Check=""/>
+			</SubItem>
+			<SubItem Name="3.低危者">
+				<Item Name="使用普通床垫" Check=""/>
+				<Item Name="压疮预防指导" Check=""/>
+			</SubItem>
+		</MeasureItems>
+	</PreventionEvaluate>
+
+
+	<PreventionEvaluate Name="Norton评估" TotalScore="" ScoreString="Norton评   分  " ScoreFormatString="Norton评 {0} 分  ">
+		<EvaluateInstruction>
+		<![CDATA[15-18分低危、13-14分中危，10-12分高危；≤14分则病人有发生压疮危险，≤12分高度危险，≤8分极高危险；分值≤12分的患者每班评估1次，其他患者每周评估1-2次或病情变化时随时评估。]]>
+		</EvaluateInstruction>
+		<ScoreSections>
+			<Section Name="4分" Score="4"/>
+			<Section Name="3分" Score="3"/>
+			<Section Name="2分" Score="2"/>
+			<Section Name="1分" Score="1"/>
+		</ScoreSections>
+		<EvaluateItems>
+			<SubItem Name="身体状况">
+				<Item Name="好" Score="4" Check=""/>
+				<Item Name="一般" Score="3" Check=""/>
+				<Item Name="不好" Score="2" Check=""/>
+				<Item Name="极差" Score="1" Check=""/>
+			</SubItem>
+			<SubItem Name="精神状况">
+				<Item Name="思维敏捷" Score="4" Check=""/>
+				<Item Name="无动于衷" Score="3" Check=""/>
+				<Item Name="不合逻辑" Score="2" Check=""/>
+				<Item Name="昏迷" Score="1" Check=""/>
+			</SubItem>
+			<SubItem Name="活动能力">
+				<Item Name="可以走动" Score="4" Check=""/>
+				<Item Name="帮助下可以走动" Score="3" Check=""/>
+				<Item Name="坐轮椅" Score="2" Check=""/>
+				<Item Name="卧床" Score="1" Check=""/>
+			</SubItem>
+			<SubItem Name="灵活程度">
+				<Item Name="行动自如" Score="4" Check=""/>
+				<Item Name="轻微受限" Score="3" Check=""/>
+				<Item Name="非常受限" Score="2" Check=""/>
+				<Item Name="不能活动" Score="1" Check=""/>
+			</SubItem>
+			<SubItem Name="失禁情况">
+				<Item Name="无失禁" Score="4" Check=""/>
+				<Item Name="偶有失禁" Score="3" Check=""/>
+				<Item Name="常常失禁" Score="2" Check=""/>
+				<Item Name="完全大小便失禁" Score="1" Check=""/>
+			</SubItem>
+		</EvaluateItems>
+		<MeasureItems>
+
+		</MeasureItems>
+	</PreventionEvaluate>
+
+
+</PreventionEvaluates>
+

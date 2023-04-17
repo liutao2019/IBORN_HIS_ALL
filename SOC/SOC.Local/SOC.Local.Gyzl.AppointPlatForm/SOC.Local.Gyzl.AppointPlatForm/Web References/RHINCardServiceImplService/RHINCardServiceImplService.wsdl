@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://card.rhin.wondersgroup.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RHINCardServiceImplService" targetNamespace="http://card.rhin.wondersgroup.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://card.rhin.wondersgroup.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="QueryCardStatus" type="tns:QueryCardStatus" />
+      <xs:element name="QueryCardStatusResponse" type="tns:QueryCardStatusResponse" />
+      <xs:element name="changeCard" type="tns:changeCard" />
+      <xs:element name="changeCardResponse" type="tns:changeCardResponse" />
+      <xs:element name="changePassword" type="tns:changePassword" />
+      <xs:element name="changePasswordResponse" type="tns:changePasswordResponse" />
+      <xs:element name="checkPassword" type="tns:checkPassword" />
+      <xs:element name="checkPasswordResponse" type="tns:checkPasswordResponse" />
+      <xs:element name="lockCard" type="tns:lockCard" />
+      <xs:element name="lockCardResponse" type="tns:lockCardResponse" />
+      <xs:element name="logoutCard" type="tns:logoutCard" />
+      <xs:element name="logoutCardResponse" type="tns:logoutCardResponse" />
+      <xs:element name="lostCard" type="tns:lostCard" />
+      <xs:element name="lostCardResponse" type="tns:lostCardResponse" />
+      <xs:element name="newCard" type="tns:newCard" />
+      <xs:element name="newCardResponse" type="tns:newCardResponse" />
+      <xs:element name="queryPerson" type="tns:queryPerson" />
+      <xs:element name="queryPersonResponse" type="tns:queryPersonResponse" />
+      <xs:element name="resetPassword" type="tns:resetPassword" />
+      <xs:element name="resetPasswordResponse" type="tns:resetPasswordResponse" />
+      <xs:element name="unlockCard" type="tns:unlockCard" />
+      <xs:element name="unlockCardResponse" type="tns:unlockCardResponse" />
+      <xs:element name="unlostCard" type="tns:unlostCard" />
+      <xs:element name="unlostCardResponse" type="tns:unlostCardResponse" />
+      <xs:element name="updatePerson" type="tns:updatePerson" />
+      <xs:element name="updatePersonResponse" type="tns:updatePersonResponse" />
+      <xs:complexType name="checkPassword">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="checkPasswordReq" type="tns:CheckPasswordRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckPasswordRequestType">
+        <xs:sequence>
+          <xs:element name="authObject" type="tns:CommonCardAuthObject" />
+          <xs:element name="card" type="tns:CardType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CommonCardAuthObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authTag" type="xs:string" />
+          <xs:element minOccurs="0" name="InstitutionCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="departmentCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="staffNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="passWord" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CardType">
+        <xs:sequence>
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="number" type="xs:string" />
+          <xs:element minOccurs="0" name="verfyNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="assigningAuthorityName" type="xs:string" />
+          <xs:element minOccurs="0" name="statusCode" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="issuedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="validDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="passWord" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkPasswordResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GeneralResponse">
+        <xs:sequence>
+          <xs:element name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="error" nillable="true" type="tns:GeneralError" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GeneralError">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+          <xs:element minOccurs="0" name="errorContext" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="queryPerson">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="queryPersonReq" type="tns:QueryPersonRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QueryPersonRequestType">
+        <xs:sequence>
+          <xs:element name="authObject" type="tns:CommonCardAuthObject" />
+          <xs:element minOccurs="0" name="card" nillable="true" type="tns:CardType" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="telephone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="queryPersonResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:QuestPersonResponseType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QuestPersonResponseType">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:GeneralResponse">
+            <xs:sequence>
+              <xs:element name="size" type="xs:int" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="persons" nillable="true" type="tns:PersonType" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="PersonType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cards" nillable="true" type="tns:CardType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ids" nillable="true" type="tns:CardType" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="birthDay" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="maritalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="educationLevel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="occupationalCategory" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="telephoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mobilePhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="addressOfResidence" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="addressRegisteredResidence" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="contactPerson" nillable="true" type="tns:ContactPersonType" />
+          <xs:element minOccurs="0" name="asEmployer" nillable="true" type="tns:EmployerType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AddressType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="administrativeDivisionsCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="province" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="county" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="town" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="village" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="houseNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="postcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactPersonType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="relationship" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ids" nillable="true" type="tns:CardType" />
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="telephoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mobilePhoneNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EmployerType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="address" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="telephoneNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="newCard">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="newCardReq" type="tns:NewCardRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NewCardRequestType">
+        <xs:sequence>
+          <xs:element name="authObject" type="tns:CommonCardAuthObject" />
+          <xs:element name="newCard" type="tns:CardType" />
+          <xs:element name="person" type="tns:PersonType" />
+          <xs:element minOccurs="0" name="secrecyLevel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="onlineEnquiry" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="accessToEHR" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="newCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changePassword">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="changePasswordReq" type="tns:PasswordRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PasswordRequestType">
+        <xs:sequence>
+          <xs:element name="authObject" type="tns:CommonCardAuthObject" />
+          <xs:element name="card" type="tns:CardType" />
+          <xs:element name="newPassword" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changePasswordResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lostCard">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lostCardReq" type="tns:CardRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CardRequestType">
+        <xs:sequence>
+          <xs:element name="authObject" type="tns:CommonCardAuthObject" />
+          <xs:element name="card" type="tns:CardType" />
+          <xs:element name="applyPerson" type="tns:SimplePersonType" />
+          <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SimplePersonType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="tns:CardType" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lostCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lockCard">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lockCardReq" type="tns:CardRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lockCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="unlostCard">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="unlostCardReq" type="tns:CardRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="unlostCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeCard">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="changeCardReq" type="tns:ChangeCardRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ChangeCardRequestType">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NewCardRequestType">
+            <xs:sequence>
+              <xs:element name="applyPerson" type="tns:SimplePersonType" />
+              <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="changeCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QueryCardStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cardStatusReq" type="tns:CardStatusRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CardStatusRequestType">
+        <xs:sequence>
+          <xs:element name="authObject" type="tns:CommonCardAuthObject" />
+          <xs:element name="queryCard" type="tns:CardType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QueryCardStatusResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:CardStatusQuestResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CardStatusQuestResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:GeneralResponse">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="card" type="tns:CardType" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="unlockCard">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="unlockCardReq" type="tns:CardRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="unlockCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updatePerson">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="updatePersonReq" type="tns:NewCardRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updatePersonResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logoutCard">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="logoutCardReq" type="tns:CardRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logoutCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetPassword">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="resetPasswordReq" type="tns:PasswordRequestType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetPasswordResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:GeneralResponse" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="changePasswordResponse">
+    <wsdl:part name="parameters" element="tns:changePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="changePassword">
+    <wsdl:part name="parameters" element="tns:changePassword" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardStatus">
+    <wsdl:part name="parameters" element="tns:QueryCardStatus" />
+  </wsdl:message>
+  <wsdl:message name="unlockCard">
+    <wsdl:part name="parameters" element="tns:unlockCard" />
+  </wsdl:message>
+  <wsdl:message name="unlostCard">
+    <wsdl:part name="parameters" element="tns:unlostCard" />
+  </wsdl:message>
+  <wsdl:message name="updatePerson">
+    <wsdl:part name="parameters" element="tns:updatePerson" />
+  </wsdl:message>
+  <wsdl:message name="lostCardResponse">
+    <wsdl:part name="parameters" element="tns:lostCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="changeCard">
+    <wsdl:part name="parameters" element="tns:changeCard" />
+  </wsdl:message>
+  <wsdl:message name="logoutCardResponse">
+    <wsdl:part name="parameters" element="tns:logoutCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="unlostCardResponse">
+    <wsdl:part name="parameters" element="tns:unlostCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="resetPasswordResponse">
+    <wsdl:part name="parameters" element="tns:resetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="logoutCard">
+    <wsdl:part name="parameters" element="tns:logoutCard" />
+  </wsdl:message>
+  <wsdl:message name="queryPerson">
+    <wsdl:part name="parameters" element="tns:queryPerson" />
+  </wsdl:message>
+  <wsdl:message name="changeCardResponse">
+    <wsdl:part name="parameters" element="tns:changeCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkPassword">
+    <wsdl:part name="parameters" element="tns:checkPassword" />
+  </wsdl:message>
+  <wsdl:message name="checkPasswordResponse">
+    <wsdl:part name="parameters" element="tns:checkPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="lockCardResponse">
+    <wsdl:part name="parameters" element="tns:lockCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="unlockCardResponse">
+    <wsdl:part name="parameters" element="tns:unlockCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePersonResponse">
+    <wsdl:part name="parameters" element="tns:updatePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="lostCard">
+    <wsdl:part name="parameters" element="tns:lostCard" />
+  </wsdl:message>
+  <wsdl:message name="newCardResponse">
+    <wsdl:part name="parameters" element="tns:newCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardStatusResponse">
+    <wsdl:part name="parameters" element="tns:QueryCardStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryPersonResponse">
+    <wsdl:part name="parameters" element="tns:queryPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="newCard">
+    <wsdl:part name="parameters" element="tns:newCard" />
+  </wsdl:message>
+  <wsdl:message name="lockCard">
+    <wsdl:part name="parameters" element="tns:lockCard" />
+  </wsdl:message>
+  <wsdl:message name="resetPassword">
+    <wsdl:part name="parameters" element="tns:resetPassword" />
+  </wsdl:message>
+  <wsdl:portType name="CardServicePortType">
+    <wsdl:operation name="checkPassword">
+      <wsdl:input name="checkPassword" message="tns:checkPassword" />
+      <wsdl:output name="checkPasswordResponse" message="tns:checkPasswordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="queryPerson">
+      <wsdl:input name="queryPerson" message="tns:queryPerson" />
+      <wsdl:output name="queryPersonResponse" message="tns:queryPersonResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="newCard">
+      <wsdl:input name="newCard" message="tns:newCard" />
+      <wsdl:output name="newCardResponse" message="tns:newCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="changePassword">
+      <wsdl:input name="changePassword" message="tns:changePassword" />
+      <wsdl:output name="changePasswordResponse" message="tns:changePasswordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="lostCard">
+      <wsdl:input name="lostCard" message="tns:lostCard" />
+      <wsdl:output name="lostCardResponse" message="tns:lostCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="lockCard">
+      <wsdl:input name="lockCard" message="tns:lockCard" />
+      <wsdl:output name="lockCardResponse" message="tns:lockCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="unlostCard">
+      <wsdl:input name="unlostCard" message="tns:unlostCard" />
+      <wsdl:output name="unlostCardResponse" message="tns:unlostCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="changeCard">
+      <wsdl:input name="changeCard" message="tns:changeCard" />
+      <wsdl:output name="changeCardResponse" message="tns:changeCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCardStatus">
+      <wsdl:input name="QueryCardStatus" message="tns:QueryCardStatus" />
+      <wsdl:output name="QueryCardStatusResponse" message="tns:QueryCardStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="unlockCard">
+      <wsdl:input name="unlockCard" message="tns:unlockCard" />
+      <wsdl:output name="unlockCardResponse" message="tns:unlockCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <wsdl:input name="updatePerson" message="tns:updatePerson" />
+      <wsdl:output name="updatePersonResponse" message="tns:updatePersonResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="logoutCard">
+      <wsdl:input name="logoutCard" message="tns:logoutCard" />
+      <wsdl:output name="logoutCardResponse" message="tns:logoutCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="resetPassword">
+      <wsdl:input name="resetPassword" message="tns:resetPassword" />
+      <wsdl:output name="resetPasswordResponse" message="tns:resetPasswordResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RHINCardServiceImplServiceSoapBinding" type="tns:CardServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkPassword">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkPassword">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkPasswordResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="newCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="newCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPerson">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="queryPerson">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryPersonResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changePassword">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="changePassword">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="changePasswordResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lockCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="lockCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="lockCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lostCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="lostCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="lostCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="changeCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="changeCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unlostCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="unlostCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="unlostCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCardStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="QueryCardStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="QueryCardStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unlockCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="unlockCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="unlockCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updatePerson">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updatePersonResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logoutCard">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="logoutCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="logoutCardResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetPassword">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="resetPassword">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="resetPasswordResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RHINCardServiceImplService">
+    <wsdl:port name="CardServicePortTypePort" binding="tns:RHINCardServiceImplServiceSoapBinding">
+      <soap:address location="http://166.166.166.151:8901/rhin_card/ws/CardService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

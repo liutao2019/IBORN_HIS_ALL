@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C44EE28A-005C-4888-B991-05B436EF1651}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.Nurse</RootNamespace>
+    <AssemblyName>SOC.Local.Nurse</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="EPRControl, Version=2.0.5.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Nurse, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Nurse.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Order, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Registration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="MagicLibrary, Version=1.7.3.0, Culture=neutral, PublicKeyToken=3a6eb82f876a49bc" />
+    <Reference Include="SOC.HISFC.BizLogic.EmrNew, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.NurseInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Local.RADT.GuangZhou, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InPatient\IArriveBase\IArriveBaseInterfaceImplement.cs" />
+    <Compile Include="InPatient\IPatientOut\IPatientOutInterfaceImplement.cs" />
+    <Compile Include="OutPatient\ChaoYang\ucPrintItinerateLarge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\ChaoYang\ucPrintItinerateLarge.Designer.cs">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\FoSan\ucPrintCureNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\FoSan\ucPrintCureNew.Designer.cs">
+      <DependentUpon>ucPrintCureNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\FoSan\ucPrintCureNewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\FoSan\ucPrintCureNewControl.Designer.cs">
+      <DependentUpon>ucPrintCureNewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\FoSan\ucPrintItinerateLarge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\FoSan\ucPrintItinerateLarge.Designer.cs">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\FoSan\ucPrintTreatment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\FoSan\ucPrintTreatment.Designer.cs">
+      <DependentUpon>ucPrintTreatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\FoSi\ucFoSiNurseByDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\FoSi\ucFoSiNurseByDay.Designer.cs">
+      <DependentUpon>ucFoSiNurseByDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\FoSi\ucPrintCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\FoSi\ucPrintCard.Designer.cs">
+      <DependentUpon>ucPrintCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\FoSi\ucPrintCard1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\FoSi\ucPrintCard1.Designer.cs">
+      <DependentUpon>ucPrintCard1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\FoSi\ucPrintItinerateLarge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\FoSi\ucPrintItinerateLarge.Designer.cs">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\GYSY\ComFun.cs" />
+    <Compile Include="OutPatient\GYSY\ucOrderInjectBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\GYSY\ucOrderInjectBill.designer.cs">
+      <DependentUpon>ucOrderInjectBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\GYSY\ucPrintCureNewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\GYSY\ucPrintCureNewControl.Designer.cs">
+      <DependentUpon>ucPrintCureNewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\GYSY\ucPrintItinerate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\GYSY\ucPrintItinerate.Designer.cs">
+      <DependentUpon>ucPrintItinerate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\HSHIS\ucTreatmentQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\HSHIS\ucTreatmentQuery.designer.cs">
+      <DependentUpon>ucTreatmentQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\Print\ucPrintTreatment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\Print\ucPrintTreatment.designer.cs">
+      <DependentUpon>ucPrintTreatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\QiaoTou\ucPrintItinerateLarge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\QiaoTou\ucPrintItinerateLarge.Designer.cs">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\ZDLY\ComFun.cs" />
+    <Compile Include="OutPatient\ZDLY\ucOrderInjectBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\ZDLY\ucOrderInjectBill.designer.cs">
+      <DependentUpon>ucOrderInjectBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\ZDLY\ucPrintCureNewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\ZDLY\ucPrintCureNewControl.Designer.cs">
+      <DependentUpon>ucPrintCureNewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\ZDLY\ucPrintItinerate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\ZDLY\ucPrintItinerate.Designer.cs">
+      <DependentUpon>ucPrintItinerate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\ZhangCha\ucPrintItinerateLarge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\ZhangCha\ucPrintItinerateLarge.Designer.cs">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OutPatient\ChaoYang\ucPrintItinerateLarge.resx">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\FoSan\ucPrintCureNew.resx">
+      <DependentUpon>ucPrintCureNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\FoSan\ucPrintCureNewControl.resx">
+      <DependentUpon>ucPrintCureNewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\FoSan\ucPrintItinerateLarge.resx">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\FoSan\ucPrintTreatment.resx">
+      <DependentUpon>ucPrintTreatment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\FoSi\ucFoSiNurseByDay.resx">
+      <DependentUpon>ucFoSiNurseByDay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\FoSi\ucPrintCard.resx">
+      <DependentUpon>ucPrintCard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\FoSi\ucPrintCard1.resx">
+      <DependentUpon>ucPrintCard1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\FoSi\ucPrintItinerateLarge.resx">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\GYSY\ucOrderInjectBill.resx">
+      <DependentUpon>ucOrderInjectBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\GYSY\ucPrintCureNewControl.resx">
+      <DependentUpon>ucPrintCureNewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\GYSY\ucPrintItinerate.resx">
+      <DependentUpon>ucPrintItinerate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\HSHIS\ucTreatmentQuery.resx">
+      <DependentUpon>ucTreatmentQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\Print\ucPrintTreatment.resx">
+      <DependentUpon>ucPrintTreatment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\QiaoTou\ucPrintItinerateLarge.resx">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\ZDLY\ucOrderInjectBill.resx">
+      <DependentUpon>ucOrderInjectBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\ZDLY\ucPrintCureNewControl.resx">
+      <DependentUpon>ucPrintCureNewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\ZDLY\ucPrintItinerate.resx">
+      <DependentUpon>ucPrintItinerate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\ZhangCha\ucPrintItinerateLarge.resx">
+      <DependentUpon>ucPrintItinerateLarge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OutPatient\ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="InPatient\IArriveBase\住院接诊、转入、召回接口实现.txt" />
+    <Content Include="InPatient\IPatientOut\护士站出院登记接口实现.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="InPatient\IArriveBase\GYSY\" />
+    <Folder Include="InPatient\IPatientOut\GYSY\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

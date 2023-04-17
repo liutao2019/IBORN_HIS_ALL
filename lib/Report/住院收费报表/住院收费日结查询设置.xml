@@ -1,0 +1,170 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.ReportQueryInfo,SOC.HISFC.InpatientFee.Components"><List><List Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.CommonReportQueryInfo,SOC.HISFC.InpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DateTimeType,SOC.HISFC.InpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location></ControlType></List><List Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.CommonReportQueryInfo,SOC.HISFC.InpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DateTimeType,SOC.HISFC.InpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location></ControlType></List></List><DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtPrepaySum</Name><Sql>--dtPrepaySum
+select sum(case when tot_cost &gt;= 0 then 1 else 0 end) 预收张数,
+       sum(case when tot_cost &gt;= 0 then tot_cost else 0 end) 预收金额,
+       sum(case when tot_cost &lt; 0 then 1 else 0 end) 退预收张数,
+       sum(case when tot_cost &lt; 0 then tot_cost else 0 end) 退预收金额,
+       0 注销预收张数,
+       0 注销预收金额,
+       sum(tot_cost) 应交预收合计
+  from
+(
+select p.receipt_no,
+       sum(p.prepay_cost) tot_cost,
+       p.prepay_state,
+       p.balance_state
+  from fin_ipb_inprepay p
+ where p.oper_code = '&amp;CurrentOperID'
+   and p.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and p.oper_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   AND p.EXT_FLAG = '1'    --EXT_FLAG '正常收取 1 结算召回 2';
+ group by p.receipt_no, p.prepay_state, p.balance_state
+)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><IsCross>false</IsCross><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><CrossSumColumns></CrossSumColumns><CrossGroupColumns></CrossGroupColumns></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtInvoiceSumPart1</Name><Sql>--dtInvoiceSumPart1
+select sum(case when trans_type = '1' then 1 else 0 end) 发票张数,
+       sum(case when trans_type = '1' then tot_cost else 0 end) 发票合计,
+       sum(case when trans_type = '2' then 1 else 0 end) 退费原单数,
+       sum(case when trans_type = '2' then tot_cost else 0 end) 退费原单,
+       sum(case when trans_type = '1' and pub_cost != 0 then 1 else 0 end) 医保统筹张数,
+       sum(case when pub_cost != 0 then pub_cost else 0 end) 医保统筹金额,
+       0 退费新单数,--意义不明,暂不处理
+       0 退费新单,--意义不明,暂不处理
+       0 注销发票数,--意义不明,暂不处理
+       0 注销发票金额,--意义不明,暂不处理
+       sum(tot_cost) 发票收入合计
+  from 
+(
+select b.invoice_no,
+       b.print_invoiceno,
+       b.trans_type,
+       sum(b.tot_cost) tot_cost,
+       sum(b.pub_cost) pub_cost
+  from fin_ipb_balancehead b
+ where b.balance_opercode = '&amp;CurrentOperID'
+   and b.balance_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and b.balance_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+ group by b.invoice_no,b.print_invoiceno, b.trans_type
+) aa</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><IsCross>false</IsCross><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><CrossSumColumns></CrossSumColumns><CrossGroupColumns></CrossGroupColumns></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtInvoiceSumPart2</Name><Sql>--dtInvoiceSumPart2
+select count(distinct p.receipt_no) 冲销预收款张数,
+       sum(p.prepay_cost) 冲销预收合计
+  from fin_ipb_inprepay p
+ where (p.invoice_no, p.balance_opercode,p.BALANCE_NO) in
+(
+select b.invoice_no, b.balance_opercode,b.BALANCE_NO
+  from fin_ipb_balancehead b
+ where b.balance_opercode = '&amp;CurrentOperID'
+   and b.balance_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and b.balance_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+)
+ and p.balance_opercode = '&amp;CurrentOperID'</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><IsCross>false</IsCross><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><CrossSumColumns></CrossSumColumns><CrossGroupColumns></CrossGroupColumns></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtPayWaySum</Name><Sql>--dtPayWaySum
+select bb.name 支付方式,
+       sum(case when trans_type in('1','2') then cost else 0 end) 发票金额,
+       sum(case when trans_type = '3' then cost else 0 end) 预收款金额,
+       sum(cost) 缴款合计
+  from
+(
+select p.pay_way,
+       p.trans_type,
+       (case when p.reutrnorsupply_flag = '2' and p.trans_kind = '1' then -p.cost 
+       else CASE WHEN p.reutrnorsupply_flag = '1' and p.trans_kind = '1' then p.cost ELSE 0 END END ) cost   
+ from fin_ipb_balancepay p
+ where p.balance_opercode = '&amp;CurrentOperID'
+   and p.balance_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and p.balance_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+ union all
+select r.pay_way,
+       '3' trans_type,
+       r.prepay_cost cost
+  from fin_ipb_inprepay r
+ where r.oper_code = '&amp;CurrentOperID'
+   and r.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and r.oper_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   AND r.EXT_FLAG = '1'    --EXT_FLAG '正常收取 1 结算召回 2';
+ union all
+
+/*
+--dtPayWaySumPart2
+select (case when p.dll_description like '珠海%' then 'PBZH' else case when p.dll_description like '中山%' then 'PBZS' end end) pay_way,
+       b.trans_type,
+       b.pub_cost cost
+  from fin_ipb_balancehead b, fin_com_pactunitinfo p
+ where b.pub_cost &gt; 0
+   and b.pact_code = p.pact_code
+   and b.balance_opercode = '&amp;CurrentOperID'
+   and b.balance_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and b.balance_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+ union all
+--dtPayWaySumPart2
+select 'ALL' pay_way,
+       b.trans_type,
+       b.pub_cost cost
+  from fin_ipb_balancehead b, fin_com_pactunitinfo p
+ where b.pub_cost &gt; 0
+   and b.pact_code = p.pact_code
+   and b.balance_opercode = '&amp;CurrentOperID'
+   and b.balance_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and b.balance_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+ union all
+*/
+
+select 'ALL',
+       p.trans_type,
+       (case when p.reutrnorsupply_flag = '2' and p.trans_kind = '1' then -p.cost 
+       else CASE WHEN p.reutrnorsupply_flag = '1' and p.trans_kind = '1' then p.cost ELSE 0 END END ) cost   
+ from fin_ipb_balancepay p
+ where p.balance_opercode = '&amp;CurrentOperID'
+   and p.balance_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and p.balance_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+ union all
+select 'ALL',
+       '3' trans_type,
+       r.prepay_cost cost
+  from fin_ipb_inprepay r
+ where r.oper_code = '&amp;CurrentOperID'
+   and r.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and r.oper_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   AND r.EXT_FLAG = '1'    --EXT_FLAG '正常收取 1 结算召回 2';
+) aa,
+(
+select d.code,
+       d.name,
+       d.sort_id
+  from com_dictionary d
+ where d.type = 'PAYMODES'
+ union all
+select 'ALL',
+       '合计',
+       9999
+  from dual
+) bb
+ where aa.pay_way = bb.code
+ group by bb.name, bb.sort_id
+ order by bb.sort_id</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><IsCross>false</IsCross><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><CrossSumColumns></CrossSumColumns><CrossGroupColumns></CrossGroupColumns></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtInvoiceDetail</Name><Sql>--dtInvoiceDetail
+select min_invoiceno 起始发票号,
+       '至'||max_invoiceno 截止发票号,
+       count||'张' 发票张数
+  from (select min(a.print_invoiceno) min_invoiceno,
+               max(a.print_invoiceno) max_invoiceno,
+               count(distinct a.print_invoiceno) count
+          from (select a.print_invoiceno print_invoiceno
+                  from fin_ipb_balancehead a
+                 where a.balance_opercode = '&amp;CurrentOperID'
+                   and a.balance_date &gt;=
+                       to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+                   and a.balance_date &lt;=
+                       to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+                   and nvl(a.ext1_flag, '0') = '0') a,
+               (select t.start_no, t.end_no
+                  from fin_com_invoice t
+                 where t.invoice_kind = 'I'
+                   and t.get_person_code = '&amp;CurrentOperID') b
+         where a.print_invoiceno &gt;= b.start_no
+           and a.print_invoiceno &lt;= b.end_no
+         group by b.start_no, b.end_no)
+ order by min_invoiceno</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><IsCross>false</IsCross><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><CrossSumColumns></CrossSumColumns><CrossGroupColumns></CrossGroupColumns></DataSourceType><DataSourceType Type="FS.SOC.HISFC.InpatientFee.Components.Report.DayBalance.DataSourceType,SOC.HISFC.InpatientFee.Components"><Name>dtQuitInoviceDetail</Name><Sql>--dtQuitInoviceDetail
+select a.print_invoiceno,a.balance_date,  a.tot_cost,a.name, '退费'
+  from fin_ipb_balancehead a
+ where a.balance_opercode = '&amp;CurrentOperID'
+   and a.balance_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') 
+   and a.balance_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') 
+   and a.trans_type = '2'
+   and nvl(a.ext1_flag, '0') = '0'
+ order by a.print_invoiceno</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><IsCross>false</IsCross><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><CrossSumColumns></CrossSumColumns><CrossGroupColumns></CrossGroupColumns></DataSourceType></DataSourceType><QueryFilePath>\Report\住院收费报表\住院收费日结查询设置.xml</QueryFilePath></ReportQueryInfo>

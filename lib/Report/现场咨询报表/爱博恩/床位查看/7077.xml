@@ -1,0 +1,24 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>cmbDept</Name><Text>病区</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select dept_code,dept_name from com_department p where  p.dept_type='N'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dgvBedInfo</Name><Sql>SELECT --IM.CARD_NO,
+    (SELECT DP.DEPT_NAME FROM COM_DEPARTMENT DP WHERE DP.DEPT_CODE = BD.NURSE_CELL_CODE) 病区,
+    BD.WARD_NO 房号,
+    IM.NAME 母亲姓名,
+
+/*    SUBSTR((SELECT DISTINCT CP.PACKAGE_NAME FROM EXP_PACKAGE PG LEFT JOIN BD_COM_PACKAGE CP ON PG.PACKAGE_ID = CP.PACKAGE_ID
+            WHERE PG.CARD_NO = IM.CARD_NO AND PG.CANCEL_FLAG = '0' AND PG.PAY_FLAG = '1' AND CP.PACKAGE_KIND = '3'  --分娩套餐（分娩3、产检4） AND (CP.PACKAGE_NAME LIKE '%天月子%' OR CP.PACKAGE_NAME LIKE '%型(%')),1,12) 分娩套餐,
+    (SELECT DISTINCT CP.PACKAGE_NAME FROM EXP_PACKAGE PG LEFT JOIN BD_COM_PACKAGE CP ON PG.PACKAGE_ID = CP.PACKAGE_ID
+            WHERE PG.CARD_NO = IM.CARD_NO AND PG.CANCEL_FLAG = '0' AND PG.PAY_FLAG = '1' AND CP.PACKAGE_KIND = '1' AND (CP.PACKAGE_NAME LIKE '%天月子%' OR CP.PACKAGE_NAME LIKE '%型(%')) 月子套餐,*/
+(select name from 
+    (SELECT p.name,r.patientid from iborn_roomorder r left join ag_com_package p on r.packagecontent=p.id
+        WHERE p.packagetype = '1'  order by r.operdate desc ) rr  where  rr.PATIENTID = IM.CARD_NO and  rownum&lt;=1 ) 分娩套餐,
+    (SELECT WM_CONCAT(p.name) from iborn_roomorder r left join ag_com_package p on r.packagecontent=p.id
+        WHERE p.packagetype = '2' AND R.PATIENTID = IM.CARD_NO AND SYSDATE BETWEEN r.indate AND r.outdate) 月子套餐,
+    (SELECT R.INDATE FROM iborn_roomorder R
+        WHERE R.PATIENTID = IM.CARD_NO AND R.PACKAGETYPE IN ('1','2') AND R.PATIENTID = IM.CARD_NO AND SYSDATE BETWEEN r.indate AND r.outdate) 入院时间,
+    (SELECT R.OUTDATE FROM iborn_roomorder R
+        WHERE R.PATIENTID = IM.CARD_NO AND R.PACKAGETYPE IN ('1','2') AND R.PATIENTID = IM.CARD_NO AND SYSDATE BETWEEN r.indate AND r.outdate) 预计出院时间,
+    (SELECT WM_CONCAT(BB.NAME||'【'||CASE BB.SEX_CODE WHEN 'M' THEN '男' WHEN 'F' THEN '女' END||'】') FROM FIN_IPR_BABYINFO BB
+        WHERE BB.MOTHER_INPATIENT_NO = IM.INPATIENT_NO AND BB.CANCEL_FLAG = '0') BB姓名性别
+FROM COM_BEDINFO BD LEFT JOIN FIN_IPR_INMAININFO IM ON BD.CLINIC_NO = IM.INPATIENT_NO
+WHERE  (BD.bed_no like '%&amp;cmbDept%' or  '&amp;cmbDept'  ='ALL' )  AND 
+BD.VALID_STATE = '1'
+ORDER BY (SELECT DP.DEPT_NAME FROM COM_DEPARTMENT DP WHERE DP.DEPT_CODE = BD.NURSE_CELL_CODE), BD.WARD_NO</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\现场咨询报表\爱博恩\床位查看\7077.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

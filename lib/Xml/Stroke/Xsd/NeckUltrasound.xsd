@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NeckUltrasound"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="NeckUltrasound">
+    <xs:complexType>
+      <xs:all>
+        
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="nuCheckTime" type="xs:date"/>
+        <xs:element name="nuCheckUnit" type="sMaxL200T"/><!--检查机构若为本单位请写本单位名称-->
+        <xs:element name="nuResult" type="nuResultT"/>
+
+        <xs:element name="lccThick" type="YesNoT"/>
+        <xs:element name="rccThick" type="YesNoT"/>
+        <xs:element name="num" type="AmountT"/>
+        
+        <xs:element name="lccShape" type="ShapeT"/>
+        <xs:element name="lsdShape" type="ShapeT"/>
+        <xs:element name="licShape" type="ShapeT"/>
+        <xs:element name="lSAShape" type="ShapeT"/>
+        <xs:element name="lVAShape" type="ShapeT"/>
+        <xs:element name="rccShape" type="ShapeT"/>
+        <xs:element name="rsdShape" type="ShapeT"/>
+        <xs:element name="ricShape" type="ShapeT"/>
+        <xs:element name="rSAShape" type="ShapeT"/>
+        <xs:element name="rVAShape" type="ShapeT"/>
+        
+        <xs:element name="lccSmooth" type="SkinShapeT"/>
+        <xs:element name="lsdSmooth" type="SkinShapeT"/>
+        <xs:element name="licSmooth" type="SkinShapeT"/>
+        <xs:element name="lSASmooth" type="SkinShapeT"/>
+        <xs:element name="lVASmooth" type="SkinShapeT"/>
+        <xs:element name="rccSmooth" type="SkinShapeT"/>
+        <xs:element name="rsdSmooth" type="SkinShapeT"/>
+        <xs:element name="ricSmooth" type="SkinShapeT"/>
+        <xs:element name="rSASmooth" type="SkinShapeT"/>
+        <xs:element name="rVASmooth" type="SkinShapeT"/>
+        
+        <xs:element name="lccUlcer" type="haveNotT"/>
+        <xs:element name="lsdUlcer" type="haveNotT"/>
+        <xs:element name="licUlcer" type="haveNotT"/>
+        <xs:element name="lSAUlcer" type="haveNotT"/>
+        <xs:element name="lVAUlcer" type="haveNotT"/>
+        <xs:element name="rccUlcer" type="haveNotT"/>
+        <xs:element name="rsdUlcer" type="haveNotT"/>
+        <xs:element name="ricUlcer" type="haveNotT"/>
+        <xs:element name="rSAUlcer" type="haveNotT"/>
+        <xs:element name="rVAUlcer" type="haveNotT"/>
+        
+        <xs:element name="lccEcho" type="EchoT"/>
+        <xs:element name="lsdEcho" type="EchoT"/>
+        <xs:element name="licEcho" type="EchoT"/>
+        <xs:element name="lSAEcho" type="EchoT"/>
+        <xs:element name="lVAEcho" type="EchoT"/>
+        <xs:element name="rccEcho" type="EchoT"/>
+        <xs:element name="rsdEcho" type="EchoT"/>
+        <xs:element name="ricEcho" type="EchoT"/>
+        <xs:element name="rSAEcho" type="EchoT"/>
+        <xs:element name="rVAEcho" type="EchoT"/>
+        
+        <xs:element name="lccStenosis" type="StrictureRateT"/>
+        <xs:element name="lsdStenosis" type="StrictureRateT"/>
+        <xs:element name="licStenosis" type="StrictureRateT"/>
+        <xs:element name="lSAStenosis" type="StrictureRateT"/>
+        <xs:element name="lVAStenosis" type="StrictureRateT"/>
+        <xs:element name="rccStenosis" type="StrictureRateT"/>
+        <xs:element name="rsdStenosis" type="StrictureRateT"/>
+        <xs:element name="ricStenosis" type="StrictureRateT"/>
+        <xs:element name="rSAStenosis" type="StrictureRateT"/>
+        <xs:element name="rVAStenosis" type="StrictureRateT"/>
+
+        <xs:element name="lCASccStenosis" type="AfterOPST"/>
+        <xs:element name="lCASsdStenosis" type="AfterOPST"/>
+        <xs:element name="lCASicStenosis" type="AfterOPST"/>
+        <xs:element name="lCASSAStenosis" type="AfterOPST"/>
+        <xs:element name="lCASVAStenosis" type="AfterOPST"/>
+        <xs:element name="rCASccStenosis" type="AfterOPST"/>
+        <xs:element name="rCASsdStenosis" type="AfterOPST"/>
+        <xs:element name="rCASicStenosis" type="AfterOPST"/>
+        <xs:element name="rCASSAStenosis" type="AfterOPST"/>
+        <xs:element name="rCASVAStenosis" type="AfterOPST"/>
+
+        <xs:element name="lCASccStenosisS" type="StrictureRateST"/>
+        <xs:element name="lCASsdStenosisS" type="StrictureRateST"/>
+        <xs:element name="lCASicStenosisS" type="StrictureRateST"/>
+        <xs:element name="lCASSAStenosisS" type="StrictureRateST"/>
+        <xs:element name="lCASVAStenosisS" type="StrictureRateST"/>
+        <xs:element name="rCASccStenosisS" type="StrictureRateST"/>
+        <xs:element name="rCASsdStenosisS" type="StrictureRateST"/>
+        <xs:element name="rCASicStenosisS" type="StrictureRateST"/>
+        <xs:element name="rCASSAStenosisS" type="StrictureRateST"/>
+        <xs:element name="rCASVAStenosisS" type="StrictureRateST"/>
+
+
+        <xs:element name="lCEAccStenosis" type="AfterOPST"/>
+        <xs:element name="lCEAsdStenosis" type="AfterOPST"/>
+        <xs:element name="lCEAicStenosis" type="AfterOPST"/>
+        <xs:element name="rCEAccStenosis" type="AfterOPST"/>
+        <xs:element name="rCEAsdStenosis" type="AfterOPST"/>
+        <xs:element name="rCEAicStenosis" type="AfterOPST"/>
+
+        <xs:element name="lCEAccStenosisS" type="StrictureRateST"/>
+        <xs:element name="lCEAsdStenosisS" type="StrictureRateST"/>
+        <xs:element name="lCEAicStenosisS" type="StrictureRateST"/>
+        <xs:element name="rCEAccStenosisS" type="StrictureRateST"/>
+        <xs:element name="rCEAsdStenosisS" type="StrictureRateST"/>
+        <xs:element name="rCEAicStenosisS" type="StrictureRateST"/>
+
+        <!-- <xs:element name="nuType" type=""/>
+        <xs:element name="uuid" type=""/>
+        <xs:element name="uNickName" type=""/>
+        <xs:element name="nuSurveyTime" type=""/>-->
+        
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nuResultT">
+    <xs:restriction base="xs:integer">
+      <!--1:正常 2:任一部位有异常 3:未填-->
+      <xs:pattern value="1|2|3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="YesNoT">
+    <xs:restriction base="xs:integer">
+      <!--1是 0否-->
+      <xs:pattern value="1|0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AmountT">
+    <xs:restriction base="xs:int">
+      <!--0无 1单发 2多发 -->
+      <xs:pattern value="0|1|2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ShapeT">
+    <xs:restriction base="xs:int">
+      <!--0规则 1不规则 -2未填-->
+      <xs:pattern value="0|1|-2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SkinShapeT">
+    <xs:restriction base="xs:int">
+      <!--0光滑 1不光滑 -2未填-->
+      <xs:pattern value="0|1|-2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="haveNotT">
+    <xs:restriction base="xs:int">
+      <!--1有 2无 -2未填-->
+      <xs:pattern value="2|1|-2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="EchoT">
+    <xs:restriction base="xs:int">
+      <!--1强 2中等 3低 4混合 -2未填-->
+      <xs:pattern value="1|2|3|4|-2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="StrictureRateST">
+    <xs:restriction base="xs:string">
+      <!--0无狭窄 1 1-49%  2 50-69%  3 70-99% 4闭塞  空 当其对应项为0时-->
+      <xs:pattern value="0|1|2|3|4|"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="StrictureRateT">
+    <xs:restriction base="xs:string">
+      <!--0无狭窄 1 1-49%  2 50-69%  3 70-99% 4闭塞-->
+      <xs:pattern value="0|1|2|3|4"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AfterOPST">
+    <xs:restriction base="xs:int">
+      <!--0：否  1：1个月  2：3个月  3：6个月 4：1年  5：2年 6：3年 7：4年 8：5年 9：5年以上-->
+      <xs:pattern value="0|1|2|3|4|5|6|7|8|9"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="sMaxL200T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

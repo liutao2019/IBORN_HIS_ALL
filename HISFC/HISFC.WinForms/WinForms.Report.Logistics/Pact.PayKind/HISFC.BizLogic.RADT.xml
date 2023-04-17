@@ -1,0 +1,2589 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.BizLogic.RADT</name>
+    </assembly>
+    <members>
+        <member name="T:FS.HISFC.BizLogic.RADT.StopPregnancy">
+            [功能描述: 终止妊娠登记管理数据访问层]<br></br>
+            [创 建 者: zhaoj]<br></br>
+            [创建时间: 2012-2-10]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.RADT.StopPregnancy.Insert(FS.HISFC.Models.RADT.StopPregnancy)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.RADT.StopPregnancy.Update(FS.HISFC.Models.RADT.StopPregnancy)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.RADT.StopPregnancy.Delete(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.RADT.StopPregnancy.Get(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="T:FS.HISFC.BizLogic.RADT.InpatientDayReport">
+            <summary>
+            住院床位日报管理类
+            writed by cuipeng
+            2005-3
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.GetInpatientDayReportList(System.DateTime,System.DateTime)">
+            <summary>
+            取全院某一天的住院日报数据
+            </summary>
+            <param name="dateBegin">起始日期</param>
+            <param name="dateEnd">终止日期</param>
+            <returns>住院日报数组，出错返回null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.GetInpatientDayReportList(System.DateTime)">
+            <summary>
+            取全院某一天的住院日报数据
+            </summary>
+            <param name="dateStat">日报的日期</param>
+            <returns>住院日报数组，出错返回null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.GetInpatientDayReport(System.DateTime,System.String,System.String)">
+            <summary>
+            取某一科室某一天的住院日报数据
+            </summary>
+            <param name="dateStat">统计大类</param>
+            <param name="deptCode">科室编码</param>
+            <param name="nurseStation">护理站编码</param>
+            <returns>住院日报实体</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.InsertInpatientDayReport(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            向住院日报汇总表中插入一条记录
+            </summary>
+            <param name="dayReport">住院日报实体</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.UpdateInpatientDayReport(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            更新住院日报汇总表中一条记录
+            </summary>
+            <param name="dayReport">住院日报实体</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.DeleteInpatientDayReport(System.String)">
+            <summary>
+            删除住院日报汇总表中一条记录
+            </summary>
+            <param name="dayReportID">库存记录类</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.SetInpatientDayReport(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            先更新住院日报，如果没有找到数据则插入一条新数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.DynamicUpdate(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            日报动态更新，在每次发生床位变动的时候更新
+            先更新住院日报，如果没有找到数据则找昨天日报中的期末数和固定床位数，插入一条新数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.DynamicUpdate(FS.HISFC.Models.RADT.PatientInfo,System.String)">
+            <summary>
+            日报动态更新，在每次发生床位变动的时候更新
+            先更新住院日报，如果没有找到数据则找昨天日报中的期末数和固定床位数，插入一条新数据
+            </summary>
+            <param name="patientInfo">患者实体</param>
+            <param name="type">床位变动类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.ComputeEndNum(FS.HISFC.Models.HealthRecord.InpatientDayReport@)">
+            <summary>
+            根据日报实体中的各分项数据计算期末人数
+            </summary>
+            <param name="dayReport"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.ComputeBeginingNum(FS.HISFC.Models.HealthRecord.InpatientDayReport@)">
+            <summary>
+            根据日报实体中的各分项数据计算期初人数
+            </summary>
+            <param name="dayReport"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.Clear(FS.HISFC.Models.HealthRecord.InpatientDayReport@)">
+            <summary>
+            清空日报中的各项数值(除了期初数,期末数等于期初数)
+            </summary>
+            <param name="dayReport"></param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.myGetInpatientDayReport(System.String)">
+            <summary>
+            取住院日报信息列表，可能是一条或者多条库存记录
+            私有方法，在其他方法中调用
+            writed by cuipeng
+            2005-1
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>住院日报信息对象数组</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.myGetParmInpatientDayReport(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            获得update或者insert库存表的传入参数数组
+            </summary>
+            <param name="dayReport">库存类</param>
+            <returns>字符串数组</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.GetDeptPatientNum(System.String,System.String)">
+            <summary>
+            获取某个科室中的住院的人数
+            </summary>
+            <param name="DeptId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.GetDayReportDetailList(System.DateTime,System.DateTime)">
+            <summary>
+            取全院某一天的住院日报数据
+            </summary>
+            <param name="dateBegin">起始日期</param>
+            <param name="dateEnd">终止日期</param>
+            <returns>住院日报数组，出错返回null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.GetDayReportDetailList(System.DateTime,System.DateTime,System.String,System.String)">
+            <summary>
+            取全院某一天的住院日报数据
+            </summary>
+            <param name="dateBegin">起始日期</param>
+            <param name="dateEnd">终止日期</param>
+            <returns>住院日报数组，出错返回null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.InsertDayReportDetail(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            向日报明细表中插入一条记录
+            </summary>
+            <param name="reportDetail">住院日报实体</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.UpdateDayReportDetail(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            更新日报明细表中一条记录
+            </summary>
+            <param name="reportDetail">住院日报实体</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.CancelDayReportDetail(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            作废日报明细表中一条记录
+            </summary>
+            <param name="reportDetail">住院日报实体</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.SetDayReportDetail(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            先更新住院日报，如果没有找到数据则插入一条新数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.myGetDayReportDetail(System.String)">
+            <summary>
+            取日报明细信息列表，可能是一条或者多条库存记录
+            私有方法，在其他方法中调用
+            writed by cuipeng
+            2006-3
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>NeuObject对象数组</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.myGetParmDayReportDetail(FS.HISFC.Models.HealthRecord.InpatientDayReport)">
+            <summary>
+            获得update或者insert库存表的传入参数数组
+            </summary>
+            <param name="reportDetail">库存类</param>
+            <returns>字符串数组</returns>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.RADT.InpatientDayReport.strType">
+            <summary>
+            上床下床标识，1-上床，0-下床
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.RADT.InpatientDayReport.strSource">
+            <summary>
+            操作来源编码
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.ArriveBed(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.EnumShiftType)">
+            <summary>
+            床位表处理
+            </summary>
+            <param name="patientInfo"></param>
+            <param name="type">场景:入院登记（接诊）、护士站接诊、无费退院、出院登记、出院召回 </param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.TransBed(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            床位表处理:转科
+            </summary>
+            <param name="patientInfoOld">转科前病人信息</param>
+            <param name="patientInfoNew">转科前病人信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.AddExtentBed(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.Bed,System.Boolean)">
+            <summary>
+            床位表处理:包床
+            </summary>
+            <param name="patientInfo">包床病人信息</param>
+            <param name="bedInfo">被包的床位信息 </param>
+            <param name="isAdd">是否包床，true-包床，false-解除包床 </param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.TransBedInfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            转换各种信息城标准的床位记录表插入格式
+            </summary>
+            <param name="patientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.TransBedInfoForChangeDept(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            转换各种信息城标准的床位记录表插入格式(转科操作专用)
+            </summary>
+            <param name="patientInfoOld"></param>
+            <param name="patientInfoNew"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.TransBedInfoAddBed(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.Bed)">
+            <summary>
+            转换各种信息城标准的床位记录表插入格式
+            </summary>
+            <param name="patientInfo"></param>
+            <param name="bedInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InpatientDayReport.InSertInPatientBedTransReord(FS.HISFC.Models.RADT.InPatientBedTransReord)">
+            <summary>
+            插入床位变更记录
+            </summary>
+            <param name="p_objBedInfo">床位记录信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.RADT.InPatient">
+             <summary>
+             主要是完成患者的入院（ADMISSION）、出院(DISCHARGE)和转院(TRANSFER)等任务。
+             它提供和管理的信息包括病人自然信息(Patient Identification)，病人访问信息(Patient Visit) ，
+             过敏信息，病人死亡和尸检信息等。门（急）诊挂号、住院登记，出院转院管理等都以此为基类。  
+            1、	RegisterPatient
+            2、	DischargePatient 
+            3、	TransferPatient
+            4、	--ChangeOutToIn
+            5、	--ChangeInToOut
+            6、	UpdatePatient
+            7、	ArrivePatient(2)
+            8、	CancelTransfer
+            9、	CancelDischarge
+            10、	PendingAdmit
+            11、	PendingTransfer
+            12、	PendingDischarge
+            13、	CancelPendingAdmit
+            14、	CancelPendingTransfer
+            15、	CancelPendingDischarge
+            16、	SwapPatient
+            17、	PatientQuery
+            18、	BedStatusUpdate
+            19、	DeletePatient
+            20、ChangePID
+              </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.#ctor">
+            <summary>
+            住院患者入出转
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateZGInfo(FS.HISFC.Models.RADT.PatientInfo,System.String)">
+            <summary>
+            更新转归情况  护士站调用
+            </summary>
+            <param name="patientInfo"></param>
+            <param name="patientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateZG(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新转归状态  医生站开立预约出院医嘱调用 by huangchw 2012-10-29
+            </summary>
+            <param name="patientID"></param>
+            <param name="ZG"></param>
+            <param name="diagName"></param>
+            <param name="healthCareType">医保类型 by zhaorong 2013-7-24</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateYIBAODAIYU(System.String,System.String)">
+            <summary>
+            更新医保待遇类型 医生站开立预约出院医嘱调用 by huyungui 2019-10-15
+            </summary>
+            {9BCBF464-EB90-4c07-AD4D-29481A069D3D}
+            <param name="patientID"></param>
+            <param name="ZG"></param>
+            <param name="diagName"></param>
+            <param name="healthCareType">医保类型 by huyungui 2019-10-15</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetYIBAODAIYU(System.String)">
+            <summary>
+            查询医保待遇类型 {d88ca0f0-6235-4a5d-b04e-4eac0f7a78e7}
+            </summary>
+            <param name="patientID"></param>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientAlert(System.String,System.Decimal,System.String,System.DateTime,System.DateTime)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientAlertByNurseCellID(System.String,System.Decimal,System.String,System.DateTime,System.DateTime)”忽略有格式错误的 XML 注释 -->
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientAlertByNurseCellIDAndDept(System.String,System.String,System.Decimal,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            更新患者警戒线(根据护士站和科室)
+            </summary>
+            <param name="nurseCellID"></param>
+            <param name="moneyAlert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientAlertByDeptID(System.String,System.Decimal,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            更新患者警戒线(根据住院科室)
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <param name="moneyAlert">警戒线</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientAlertFlag(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            更新是否启用警戒线
+            </summary>
+            <param name="payKindCode">合同单位类别 ALL表示全部</param>
+            <param name="pactCode">合同单位 ALL表示全部</param>
+            <param name="nureseCode">病区编码 ALL表示全部</param>
+            <param name="inPaitentNo">住院流水号 ALL表示全部</param>
+            <param name="alterFlag">是否启用警戒线</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientAlertFlag(System.String,System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            更新是否启用警戒线
+            </summary>
+            <param name="payKindCode">合同单位类别 ALL表示全部</param>
+            <param name="pactCode">合同单位 ALL表示全部</param>
+            <param name="nureseCode">病区编码 ALL表示全部</param>
+            <param name="inPaitentNo">住院流水号 ALL表示全部</param>
+            <param name="alterFlag">是否启用警戒线</param>
+            <param name="operCode">操作员记录下防止说不清</param>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientAlert(System.Decimal,System.String,System.DateTime,System.DateTime)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientAlertByPactID(System.String,System.Decimal,System.String,System.DateTime,System.DateTime)”忽略有格式错误的 XML 注释 -->
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientDiag(System.String,System.String)">
+            <summary>
+            更新患者诊断
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="diagName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.RegisterInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            患者入院登记,同时向变更信息表中插入一条记录
+            </summary>
+            <param name="PatientInfo">预约床位放置在PatientInfo的bed 中</param>
+            <returns>大于 0 成功 小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientNOState(System.String)">
+            <summary>
+            更新未使用的住院号为使用状态
+            </summary>
+            <param name="oldPatienNO">旧的住院号，未使用的</param>
+            <returns>1成功；0,产生并发，应该重新获取住院号；-1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QureyPatientInfo(System.String)">
+            <summary>
+            通过医疗卡号检索已经存在的患者信息
+            </summary>
+            <param name="CardNO">医疗卡卡号</param>
+            <returns>返回一条患者信息记录</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetMaxPatientNO(System.String)">
+            <summary>
+            取出最大的住院号---wangrc
+            </summary>
+            <param name="parm"></param>
+            <returns>string -最住院号</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetInDateByPatientNo(System.String)">
+            <summary>
+            根据住院号获取入院日期  {39942c2e-ec7b-4db2-a9e6-3da84d4742fb}
+            </summary>
+            <param name="patientno"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetNewTempPatientNo">
+            <summary>
+            获得一个新的临时住院号-自动获得住院临时号用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetNewTempPatientNoByType(System.String)">
+            <summary>
+            根据患者类型获取临时住院号-自动获得住院临时号用// {F6204EF5-F295-4d91-B81A-736A268DD394}
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetNewFertilityPatientNo">
+            <summary>
+            获得一个新的生殖住院号-自动获得住院生殖住院号用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetNewInpatientNO(System.String)">
+            <summary>
+            获得新的住院流水号
+            <memo>入院登记时候输入患者的住院号，自动生成新住院的住院流水号</memo>
+            </summary>
+            <param name="PatientNO">患者住院号</param>
+            <returns>新的住院流水号</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetMaxPatientNOByCardNO(System.String)">
+            <summary>
+            获得最大住院号by CardNO
+            </summary>
+            <param name="CardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetCardNOByPatientNO(System.String)">
+            <summary>
+            获得登记患者的门诊卡号 ----------wangrc
+            </summary>
+            <param name="PatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetInStateByInpatientNO(System.String)">
+            <summary>
+            获得患者的在院状态-----wangrc
+            </summary>
+            <param name="InpatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetInStateByCardNo(System.String)">
+            <summary>
+            获得患者的在院状态根据就诊卡号
+            </summary>
+            <param name="CardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.CheckIsPatientNORepeated(System.String)">
+            <summary>
+            检查表的PatientNO是否重复
+            </summary>
+            <param name="PatientNO"></param>
+            <returns>0 不重复 1重复</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInpatientNOByPatientNO(System.String)">
+            <summary>
+            查询住院流水号-根据住院号
+            多次入院问题
+            </summary>
+            <param name="patientNO">住院号</param>
+            <returns> 多次住院记录 ArrayList</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInpatientNOByPatientNO(System.String,System.Boolean)">
+            <summary>
+            查询患者信息
+            </summary>
+            <param name="patientNO">患者住院号</param>
+            <param name="bShowBaby">是否显示婴儿</param>
+            <returns>返回患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateCase(System.String,System.Boolean)">
+            <summary>
+            更新病历---wangrc
+            </summary>
+            <param name="InpatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateCase(System.String,System.String)">
+            <summary>
+            更新病例，CaseFlag ＝病案状态: 0 无需病案 1 需要病案 2 医生站形成病案 3 病案室形成病案 4病案封存
+            </summary>
+            <param name="InpatientNO">住院流水号</param>
+            <param name="CaseFlag">病例标志</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateInState(System.String,System.String,System.String,System.String)">
+            <summary>
+            按住院流水号更新患者在院状态
+            </summary>
+            <param name="InpatientNo">住院流水号</param>
+            <param name="inState">在院状态</param>
+            <param name="nurseCellCode">护士站编码</param>
+            <param name="nurseCellName">护士站名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.DeletePatientInfo(System.String)">
+            <summary>
+            删除患者基本信息 －不是患者主表
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryIsHaveCase(System.String)">
+            <summary>
+            是否有病历
+            </summary>
+            <param name="InpatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.InsertPatientInfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            插入病人基本信息表-不是患者主表 表名：com_patientinfo 
+            </summary>
+            <param name="PatientInfo">患者基本信息</param>
+            <returns>成功标志 0 失败，1 成功</returns>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientInfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新基本信息表－不是患者主表  表名：com_patientinfo
+            </summary>
+            <param name="PatientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientInfoForInpatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新基本信息表（住院用）－不是患者主表  表名：com_patientinfo
+            </summary>
+            <param name="PatientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.InsertPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            插入住院主表 
+            </summary>
+            <param name="PatientInfo">插入住院主表</param>
+            <returns>0成功 -1失败</returns>患者基本信息
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新主表
+            </summary>
+            <param name="PatientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientInTimes(System.String,System.Int32)">
+            <summary>
+            更新住院次数
+            </summary>
+            <param name="inPatientNO"></param>
+            <param name="times"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientByMother(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            根据妈妈的信息,更新患者她的所有孩子的住院主表信息
+            在患者科室,床位和住院状态发生变化的时候调用
+            UpdatePatient
+            </summary>
+            <param name="patientInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateBabyResponsibleDoc(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            //更新婴儿信息表的责任医师编码以及责任医师姓名
+            </summary>
+            <param name="?"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.InsertCACompare(System.String,System.String)">
+            <summary>
+            CA对照插入fin_com_ca  by ren.jch 2015-01-15
+            </summary>
+            <param name="emplcode"></param>
+            <param name="cacode"></param>
+            <returns></returns> 
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateCancelCACompare(System.String)">
+            <summary>
+            CA对照作废fin_com_ca  by ren.jch 2015-01-15
+            </summary>
+            <param name="emplcode"></param>
+            <param name="cacode"></param>
+            <returns></returns> 
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryAllCompare(System.String,System.String)">
+            <summary>
+            获得对照人员信息是否重复
+            </summary>
+            <param name="emplcode">员工编码</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateBloodType(System.String,System.String)">
+            <summary>
+            更新患者血型  出院登记时调用  by huangchw 2012-10-24
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="bloodType"></param>
+            <returns></returns> 
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientOutDate(System.String,System.DateTime)">
+            <summary>
+            更新患者出院日期 特殊入院时调用
+            </summary>
+            <param name="inpatientNO">患者住院流水号</param>
+            <param name="dtOutTime">出院日期</param>
+            <returns>成功返回1 出错返回－1 未找到数据返回0</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateOtherPatientInfoForRegister(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新登记时候的血滞纳金和公费日限额和日限额累计and生育保险电脑号and日限额超标金额-----wangrc
+            </summary>
+            <param name="patientInfo"></param>
+            <returns>大于 0 成功 小于0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientDeptByInpatientNo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新登记患者的科室信息
+            </summary>
+            <param name="patientInfo"></param>
+            <returns> 0 成功  －1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientNursCellByInpatientNo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新登记患者的病区信息{F0BF027A-9C8A-4bb7-AA23-26A5F3539586}
+            </summary>
+            <param name="patientInfo"></param>
+            <returns> 0 成功  －1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.RegisterOutHospital(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            患者出院登记
+            </summary>
+            <param name="patientInfo">患者基本信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientStatus(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            更新患者状态 以住院流水号为主键
+            </summary>
+            <param name="patientInfo">患者基本信息</param>
+            <param name="patientStatus">患者状态</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.DeletePatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            删除患者信息-删除一个患者的信息资料
+            </summary>
+            <param name="patientInfo">患者基本信息</param>
+            <returns>0 成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.ChangePID(FS.HISFC.Models.RADT.PatientInfo,System.String)">
+            <summary>
+            变化住院号-暂时不写
+            </summary>
+            <param name="PatientInfo">患者基本信息</param>
+            <param name="newPatientNo">新的住院号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.TransferPatientApply(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.Location,System.Boolean,System.String)">
+            <summary>
+            转移患者申请/取消 -换科室，换病区
+            也可用更新患者信息来做将TempLocation付给申请的科室 
+            </summary>
+            <param name="patientInfo">患者信息</param>
+            <param name="newLocation">新的位置信息</param>
+            <param name="isCancel">是否取消</param>
+            <returns>0,没有更新数据,1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.CheckShiftInHappenNo(System.String,FS.HISFC.Models.RADT.Location,System.String)">
+            <summary>
+            查找转入到某科室的转科申请序号
+            </summary>
+            <param name="InpatientNo">患者住院流水号</param>
+            <param name="newLocation">转入科室信息</param>
+            <param name="Type">转科状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.CheckShiftOutHappenNo(System.String,FS.HISFC.Models.RADT.Location,System.String)">
+            <summary>
+            查找转出到某科室的转科申请序号
+            </summary>
+            <param name="inpatientNo">患者住院流水号</param>
+            <param name="location">转出科室信息</param>
+            <param name="type">转科状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.TransferPatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.Location)">
+            <summary>
+            转移患者 -换床，换科室，换病区
+            需要事务操作(更新住院主表，更新病床表,更新变更表)
+            </summary>
+            <param name="PatientInfo">患者信息</param>
+            <param name="newLocation">新的位置信息</param>
+            <returns>0没有更新(并发操作),1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.TransferPatientLocation(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.Location)">
+            <summary>
+            （住院处使用，省略了申请）转移患者 -换床，换科室，换病区
+            需要事务操作(更新住院主表，更新病床表,更新变更表)
+            </summary>
+            <param name="PatientInfo">患者信息</param>
+            <param name="newLocation">新的位置信息</param>
+            <returns>0没有更新(并发操作),1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.RecievePatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            接诊了
+            </summary>
+            <param name="PatientInfo"></param>
+            <param name="Status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.RecievePatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者接诊-更新患者接诊信息 置接诊标记
+            </summary>
+            <param name="PatientInfo">患者基本信息(患者入院登记时已确定床位)</param>
+            <param name="Status">患者状态</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.CancelRecievePatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者接诊-更新患者接诊信息 置接诊标记
+            </summary>
+            <param name="PatientInfo">患者基本信息(患者入院登记时已确定床位)</param>
+            <param name="Status">患者状态</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.CancelRecievePatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.Bed,FS.HISFC.Models.Base.EnumShiftType,System.String)">
+            <summary>
+            取消接诊
+            </summary>
+            <param name="patientInfo"></param>
+            <param name="bed"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.RecievePatient(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.Base.Bed,FS.HISFC.Models.Base.EnumShiftType,System.String)">
+            <summary>
+            患者接诊-更新患者接诊信息 置接诊标记 更新床位记录
+            </summary>
+            <param name="patientInfo">患者信息</param>
+            <param name="bed">床位信息</param>
+            <param name="type">变更类别</param>
+            <param name="notes">注释信息</param>
+            <returns>0没有更新 1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.SwapPatientBed(FS.HISFC.Models.RADT.PatientInfo,FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            交换两个人的床位信息
+            <br>传入：源患者,目标患者</br>
+            </summary>
+            <param name="sourcePatientInfo">原患者基本信息</param>
+            <param name="targetPatientInfo">目标患者基本信息</param>
+            <returns>0成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.SwapPatientBed(FS.HISFC.Models.RADT.PatientInfo,System.String,System.String)">
+            <summary>
+            特殊床位管理 （包床、挂床）
+            挂床用此函数必须确定目标床位未占用
+            床位状态说明： C  = "关闭" U = "空床" K = "污染"  I = "隔离" O = "占用" R = "假床" W = "包床" H = "挂床"
+            </summary>
+            <param name="patientInfo">患者基本信息</param>
+            <param name="bedNO">病床id</param>
+            <param name="type">1挂床 2  包床 3 关闭 status = "C" </param>
+            <returns>0没有更新 1 成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateBedStatus(FS.HISFC.Models.Base.Bed)">
+            <summary>
+            更新患者病床状态-更新床位状态
+            </summary>
+            <param name="Bed">病床信息</param>
+            <returns>0没更新 >1 成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateBedStatus(FS.HISFC.Models.Base.Bed,FS.HISFC.Models.Base.Bed)">
+            <summary>
+            更新床位状态和inpatientNo,并用原病床信息进行并发判断
+            writed by cuipeng
+            2005-5
+            </summary>
+            <param name="newBed">新病床信息</param>
+            <param name="oldBed">旧病床信息</param>
+            <returns>0没更新 >1 成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.ChangeBedInfo(System.String,System.String,System.String)">
+            <summary>
+            记录包床、挂床信息 BED_KIND 1 挂床 2 包床
+            STATUS 状态 0 挂床 1 解挂
+            </summary>
+            <param name="inpatientNO">住院号</param>
+            <param name="bedNO">床号</param>
+            <param name="kind">类别</param>
+            <returns>大于 0 成功，小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UnWrapPatientBed(FS.HISFC.Models.RADT.PatientInfo,System.String,System.String)">
+            <summary>
+            解包床 将某个包床释放
+            解挂床用此函数必须确定目标床位未占用
+            </summary>
+            <param name="patientInfo">患者基本信息</param>
+            <param name="bedNO">病床id</param>
+            <param name="type">1挂床 2  包床</param>
+            <returns>0没有更新 1成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePreIn(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新单患者全部预约信息
+            </summary>
+            <param name="patientInfo">发生序号记录与PatientInfo.memo</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.InsertNewBabyInfo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            新婴儿登记
+            </summary>
+            <param name="babyInfo">新婴儿信息</param>
+            <returns> 大于 0 成功  小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.DiscardBabyRegister(System.String)">
+            <summary>
+            取消婴儿登记
+            </summary>
+            <param name="inpatientNO"> 住院流水号</param>
+            <returns>大于 0 成功 小于 0失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryAllBabiesByMother(System.String)">
+            <summary>
+            获得患者所有婴儿（包括取消登记的）
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <returns>婴儿列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryBabiesByMother(System.String)">
+            <summary>
+            获得患者婴儿
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <returns>婴儿列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.IsMotherHasBabiesInHos(System.String)">
+            <summary>
+            获得某患者是否有在院婴儿
+            </summary>
+            <param name="inpatientNO">母亲住院流水号</param>
+            <returns>1有，0没有</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetMaxBabyNO(System.String)">
+            <summary>
+            获得最大婴儿住院号 
+            </summary>
+            <param name="inpatientNO">住院号</param>
+            <returns>没有返回 0 有返回最大号 字符串</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateMumBabyFlag(System.String,System.Boolean)">
+            <summary>
+            更新母亲是否有婴标志
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <param name="isHasBaby">是否有婴儿</param>
+            <returns>-1 ,0 </returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryBabyMotherInpatientNO(System.String)">
+            <summary>
+            通过婴儿的住院流水号,查询母亲的住院流水号
+            </summary>
+            <param name="babyInpatientNO">婴儿住院流水号</param>
+            <returns>母亲的住院流水号 错误返回 null 或者 string.Empty</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPatientRADTInfo(System.String)">
+            <summary>
+            获取转科信息
+            </summary>
+            <param name="patientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPatientRADTShiftInfo(System.String)">
+            <summary>
+            获取转科信息
+            </summary>
+            <param name="patientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientShiftInfo(System.String)">
+            <summary>
+            获得患者的变更记录
+            </summary>
+            <param name="inpatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientShiftInfoNew(System.String)">
+            <summary>
+            获得患者的变更记录,返回的是CShiftData(注意有些字段没法对应实体，请具体查看本函数取值!)
+            上边原来的那个返回的是NeuObject，不全！
+            </summary>
+            <param name="inpatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.SetShiftData(System.String,System.DateTime,FS.HISFC.Models.Base.EnumShiftType,System.String,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Boolean)">
+            <summary>
+            设置变更信息-插入变更信息表
+            insert {FA32C976-E003-4a10-9028-71F2CD154052} 接诊时间
+            </summary>
+            <param name="InpatientNo">住院流水号</param>
+            <param name="operDate">操作时间</param>
+            <param name="Type">变更类型</param>
+            <param name="Memo">备注</param>
+            <param name="oldObject">变更前数据</param>
+            <param name="newObject">变更后数据</param>
+            <param name="IsBaby">是否婴儿</param>
+            <returns>0 成功  -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateShiftData(FS.HISFC.Models.Invalid.CShiftData)">
+            <summary>
+            根据住院流水号、发送序号、变更类型更新一条变更信息
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="shiftData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateShiftData(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新患者状态
+            </summary>
+            <param name="InpatientNo"></param>
+            <param name="OldType"></param>
+            <param name="Type"></param>
+            <param name="Mark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.SetShiftData(System.String,FS.HISFC.Models.Base.EnumShiftType,System.String,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Boolean)">
+            <summary>
+            设置变更信息-插入变更信息表
+            insert
+            </summary>
+            <param name="InpatientNo">住院流水号</param>
+            <param name="Type">变更类型</param>
+            <param name="Memo">备注</param>
+            <param name="oldObject">变更前数据</param>
+            <param name="newObject">变更后数据</param>
+            <param name="IsBaby">是否婴儿</param>
+            <returns>0 成功  -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.SetShiftData(System.String,FS.HISFC.Models.Base.EnumShiftType,System.String,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.Boolean,System.DateTime)">
+            <summary>
+            设置变更信息-插入变更信息表
+            insert
+            </summary>
+            <param name="InpatientNo">住院流水号</param>
+            <param name="Type">变更类型</param>
+            <param name="Memo">备注</param>
+            <param name="oldObject">变更前数据</param>
+            <param name="newObject">变更后数据</param>
+            <param name="IsBaby">是否婴儿</param>
+            <returns>0 成功  -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatemainInfoPact(System.String,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            修改住院主表合同单位和结算类别信息
+            </summary>
+            <param name="PatientNo"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateMainInfoPubPact(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            身份变更，更改变更后公费患者主表信息
+            </summary>
+            <param name="patient"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientPact(System.String,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            修改患者信息表合同单位和结算类别信息
+            </summary>
+            <param name="PatientNo"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.SetPactShiftData(FS.HISFC.Models.RADT.PatientInfo,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            身份变更
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetAutoPatientNO(System.String@,System.Boolean@)">
+            <summary>
+            自动获取住院号
+            </summary>
+            <param name="patientNO">住院号</param>
+            <param name="isRecycle">是否回收号码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetNoUsedPatientNO(System.String@,System.String@)">
+            <summary>
+            获取还没有用过的住院号
+            </summary>
+            <param name="patientNO">未用住院号</param>
+            <param name="usedPatientNo">已用住院号</param>
+            <returns>true,取到；false 没有未使用的住院号</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetMaxinPatientNOByPatientNO(System.String)">
+            <summary>
+            获得最大住院号by CardNO
+            </summary>
+            <param name="CardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.AutoCreatePatientNO(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            根据自动生成住院号，住院流水号
+            </summary>
+            <param name="pInfo">如果从未用住院号表中取得，pInfo.User03 = "UnUsed"</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.AutoCreatePatientNO(System.String,FS.HISFC.Models.RADT.PatientInfo@)">
+            <summary>
+            根据住院号生成住院流水号--用于多次入院,用已有住院号
+            </summary>
+            <param name="patientNO">患者住院号</param>
+            <param name="pInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetCardNOByPatientNO(System.String,System.String@)">
+            <summary>
+            根据住院号取第一个就诊卡号
+            </summary>
+            <param name="patientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.AutoCreatePatientNO(System.String,System.String,FS.HISFC.Models.RADT.PatientInfo@)">
+            <summary>
+            根据住院号生成住院流水号
+            </summary>
+            <param name="patientNO">患者住院号</param>
+            <param name="usedPatientNO">原来用患者新住院号的患者的当前住院号</param>
+            <param name="pInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.SetPatientNOShift(System.String,System.String)">
+            <summary>
+            插入住院号变更记录
+            </summary>
+            <param name="NewPatientNO">新住院号</param>
+            <param name="OldPatientNo">原住院号</param>
+            <returns>1成功 ；其他，失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientNoState(System.String)">
+            <summary>
+            更新未使用的住院号为使用状态
+            </summary>
+            <param name="OldPatienNo">旧的住院号，未使用的</param>
+            <returns>1成功；0,产生并发，应该重新获取住院号；-1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientNO(System.String,System.String,System.String)">
+            <summary>
+            更改住院号
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <param name="oldCardNo">原门诊卡号</param>
+            <param name="newPatientNO">新住院号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateSIPatientNO(System.String,System.String)">
+            <summary>
+            更改医保主表住院号
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <param name="newPatientNO">新住院号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.InsertShiftDept(System.String,FS.HISFC.Models.RADT.Location,FS.HISFC.Models.RADT.Location,System.String,System.String)">
+            <summary>
+            插入转科表
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <param name="oldLocation">原科室</param>
+            <param name="newLocation">新科室</param>
+            <param name="type"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateShiftApply(System.String,FS.HISFC.Models.RADT.Location)">
+            <summary>
+            更新转科确认新分配的病床和确认人.
+            </summary>
+            <param name="inpatientNo">患者住院流水号</param>
+            <param name="location">新分配的床位信息</param>
+            <returns>-1 失败, 0 更新失败(没有找到记录), rows 更新的行数</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateShiftDept(System.String,System.Int32,System.String,System.String,FS.HISFC.Models.RADT.Location)">
+            <summary>
+            更新科室申请（确认和取消）
+            </summary>
+            <param name="inPatientNo">患者信息</param>
+            <param name="happenno">转科序号</param>
+            <param name="type">1转科申请,2确认,3取消申请</param>
+            <param name="newLocation">床位信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateApplyState(System.String,FS.HISFC.Models.RADT.Location,System.String,System.String)">
+            <summary>
+             更新转科申请的状态
+            </summary>
+            <param name="inpatientNo"></param>// 住院流水号
+            <param name="newState"></param>// 新状态
+            <param name="oldState"></param>// 原来状态
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.InsertShiftNurseCell(System.String,FS.HISFC.Models.RADT.Location,FS.HISFC.Models.RADT.Location,System.String,System.String)">
+            <summary>
+            插入转科表
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <param name="oldLocation">原科室</param>
+            <param name="newLocation">新科室</param>
+            <param name="type"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateShiftNurseCell(System.String,FS.HISFC.Models.RADT.Location)">
+            <summary>
+            更新转科确认新分配的病床和确认人.
+            </summary>
+            <param name="inpatientNo">患者住院流水号</param>
+            <param name="location">新分配的床位信息</param>
+            <returns>-1 失败, 0 更新失败(没有找到记录), rows 更新的行数</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateShiftNurseCell(System.String,System.Int32,System.String,System.String,FS.HISFC.Models.RADT.Location)">
+            <summary>
+            更新科室申请（确认和取消）
+            </summary>
+            <param name="inPatientNo">患者信息</param>
+            <param name="happenno">转科序号</param>
+            <param name="type">1转科申请,2确认,3取消申请</param>
+            <param name="newLocation">床位信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateShiftNurseCellState(System.String,FS.HISFC.Models.RADT.Location,System.String,System.String)">
+            <summary>
+             更新转科申请的状态
+            </summary>
+            <param name="inpatientNo"></param>// 住院流水号
+            <param name="newState"></param>// 新状态
+            <param name="oldState"></param>// 原来状态
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.InsertPatientLeave(FS.HISFC.Models.RADT.Leave,FS.HISFC.Models.Base.Bed)">
+            <summary>
+            插入请假信息表 传入：0 InpatientNo,1 docid,2 days,3 remark 4 operator
+            </summary>
+            <param name="patientLeave">请假信息</param>
+            <param name="bed">床位</param>
+            <returns>大于 0 成功 小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientLeave(FS.HISFC.Models.RADT.Leave)">
+            <summary>
+            更新请假信息（请假）
+            </summary>
+            <param name="patientLeave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.SetPatientLeave(FS.HISFC.Models.RADT.Leave,FS.HISFC.Models.Base.Bed)">
+            <summary>
+            保存请假信息－－先执行更新操作，如果没有找到可以更新的数据，则插入一条新记录
+            </summary>
+            <param name="patientLeave"></param>
+            <param name="bed"></param>
+            <returns>0未更新，大于1成功，-1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.DiscardPatientLeave(FS.HISFC.Models.RADT.Leave,FS.HISFC.Models.Base.Bed)">
+            <summary>
+            取消患者请假信息
+            </summary>
+            <param name="patientLeave"></param>
+            <param name="bed"></param>
+            <returns>0没有更新, 1成功, -1未成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientLeaveInfo(System.String)">
+            <summary>
+            通过住院流水检索患者请假信息
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <returns>患者请假信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPatientLeaveAvailable(System.String)">
+            <summary>
+            检索患者请假信息
+            </summary>
+            <param name="inpatientNo">住院流水号</param>
+            <returns>住院患者一条有效的请假信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientLeave(System.String)">
+            <summary>
+            取患者请假信息
+            </summary>
+            <param name="strSQL">取请假的SQL语句</param>
+            <returns>请假信息数组</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetTendName(System.String)">
+            <summary>
+            获得护理级别
+            </summary>
+            <param name="inpatientNO">患者住院号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetFoodName(System.String)">
+            <summary>
+            获得患者饮食
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <returns>返回患者饮食名称</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientFood(System.String,System.String)">
+            <summary>
+            更新饮食
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="food"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePatientTend(System.String,System.String)">
+            <summary>
+            更新住院患者护理级别
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <param name="tend">级别护理</param>
+            <returns>大于 0 成功 小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetCardNOSequece">
+            <summary>
+            获取卡号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPatientInfoByPatientNO(System.String)">
+            <summary>
+            患者查询-按住院号查
+            </summary>
+            <param name="inPatientNO">患者住院流水号</param>
+            <returns>返回患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientInfoByTimeInState(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            查询一定时间断内的所有出院结算患者
+            </summary>
+            <param name="dtBegin"></param>
+            <param name="dtEnd"></param>
+            <param name="inState"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPatientInfoByPatientNo(System.String)">
+            <summary>
+            按住院号查
+            </summary>
+            <param name="patientNO">患者住院号</param>
+            <returns>返回患者List信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientBasicByInState(FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            患者查询-按住院状态查询患者基本信息
+            </summary>
+            <param name="inState">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientInfoByInpatientNO(System.String)">
+            <summary>
+            查询住院主表信息-按住院流水号查
+            </summary>
+            <param name="inPatientNO"></param>
+            <returns>患者信息 PatientInfo</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientTerminalFeeByInpatientNO(System.String)">
+            <summary>
+            查询住院主表信息-按住院流水号查
+            </summary>
+            <param name="inPatientNO"></param>
+            <returns>未确认费用</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryMotherInPatientNOByBabyID(System.String,System.String@)">
+            <summary>
+            获取婴儿母亲住院流水号
+            </summary>
+            <param name="babyInpatientNO"></param>
+            <param name="motherInpationNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInpatientNOByBedNO(System.String)">
+            <summary>
+            获得住院流水号从病床号
+            </summary>
+            <param name="BedNo">床号</param>
+            <returns>在院患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInpatientNOByBedNO(System.String,System.String)">
+            <summary>
+            获得住院流水号从病床号
+            </summary>
+            <param name="BedNo">床号</param>
+            <returns>在院患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatienByConditons(System.String,System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            根据过滤条件得到患者住院流水号
+            </summary>
+            <param name="pactCode">合同单位编码</param>
+            <param name="deptCode">部门编码</param>
+            <param name="status">患者状态</param>
+            <param name="beginDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns>符合条件的患者信息列表（住院号，姓名）</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientByConditons(System.String,System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            根据过滤条件得到患者住院详细信息--Edit By Maokb
+            </summary>
+            <param name="pactCode"></param>
+            <param name="deptCode"></param>
+            <param name="status"></param>
+            <param name="beginDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientByConditons(System.String,System.String,System.String,System.DateTime,System.DateTime,System.String)">
+            <summary>
+            根据过滤条件得到患者住院详细信息
+            </summary>
+            <param name="pactCode"></param>
+            <param name="deptCode"></param>
+            <param name="status"></param>
+            <param name="beginDate"></param>
+            <param name="endDate"></param>
+            <param name="doctCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientReceiveInfo(System.String)">
+            <summary>
+            查询患者接诊信息
+            </summary>
+            <param name="inPatientNO">住院流水号</param>
+            <returns>返回接诊病人信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetSpecialBedInfo(System.String)">
+            <summary>
+            查询患者特殊床位占用信息（包床、挂床）
+            </summary>
+            <param name="InPatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByPcNoRetArray(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strPcNo"></param>
+            <param name="strMcardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryShiftNewLocation(System.String,System.String)">
+            <summary>
+             查询患者申请转科的目标科室
+            </summary>
+            <param name="inpatientNO">住院流水号</param>
+            <param name="oldLocationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientBasicByNurseCell(System.String,FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            患者查询-查询病区不同状态的患者
+            </summary>
+            <param name="nurseCode">病区编码</param>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryQuitFeePatientByNurseCell(System.String)">
+            <summary>
+            按病区查询需要确认退费患者基本信息列表
+            </summary>
+            <param name="nurseCode">病区编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryQuitFeePatientByNurseCell(System.String,System.String)">
+            <summary>
+            按病区查询需要确认退费患者基本信息列表
+            </summary>
+            <param name="nurseCode">病区编码</param>
+            <param name="feeDeptCode">退费申请科室</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByNurseCell(System.String,FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者查询-查询病区不同状态的患者
+            </summary>
+            <param name="nurseCode">病区编码</param>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByInState(System.String)">
+            <summary>
+            患者查询-查询科室不同状态的患者
+            </summary>
+            <param name="deptCode">病区编码</param>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByNurseCellForAlert(System.String,FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者查询-查询病区不同状态的患者(欠费)
+            </summary>
+            <param name="nurseCode">病区编码</param>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByNurseCellAndDept(System.String,System.String,FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者查询-按病区和科室查询不同状态的患者
+            </summary>
+            <param name="nurseCode"></param>
+            <param name="State"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByNurseCellAndDeptForAlert(System.String,System.String,FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者查询-按病区和科室查询不同状态的患者(欠费){62EAD92D-49F6-45d5-B378-1E573EC27728}
+            </summary>
+            <param name="nurseCode"></param>
+            <param name="State"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryExceptBaby(System.String,FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者查询-查询病区不同状态的患者(不包括婴儿)
+            </summary>
+            <param name="nurseCode">病区编码</param>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByVaildDate(System.String,FS.HISFC.Models.RADT.InStateEnumService,System.Int32)">
+            <summary>
+            根据有效出院召回的有效天数查询出院登记患者信息
+            ----Create By ZhangQi
+            </summary>
+            <param name="deptCode"></param>
+            <param name="inState"></param>
+            <param name="vaildDays"></param> 
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByNurseCellVaildDate(System.String,FS.HISFC.Models.Base.EnumInState,System.Int32)">
+            <summary>
+            根据有效出院召回的有效天数查询出院登记患者信息
+            ----Create By Sunm
+            {9A2D53D3-25BE-4630-A547-A121C71FB1C5}
+            </summary>
+            <param name="deptCode"></param>
+            <param name="inState"></param>
+            <param name="vaildDays"></param> 
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.OutHosPatientByState(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            根据有效召回期查询一段时间内某个科室的出院登记患者(起止时间  科室代码 有效天数)
+            ----Create By ZhangQi
+            </summary>
+            <param name="deptCode"></param>
+            <param name="beginTime"></param>
+             <param name="endTime"></param>
+            <param name="vaildDays"></param> 
+             <param name="myPatientState"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientBasic(System.String,FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            患者查询-查询科室不同状态的患者
+            </summary>
+            <param name="dept_code">科室编码</param>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQuery(System.String,FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            患者查询-查询科室不同状态的患者
+            </summary>
+            <param name="dept_code">科室编码</param>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByMedicalTeam(System.String,FS.HISFC.Models.RADT.InStateEnumService,System.String)">
+            <summary>
+            患者查询-查询医疗组不同状态的患者//{AC6A5576-BA29-4dba-8C39-E7C5EBC7671E} 增加医疗组处理
+            </summary>
+            <param name="medicalTeamCode">科室编码</param>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientNoFeeQuery(System.String,System.String,System.String)">
+            <summary>
+            按照科室和时间段查询无费退院患者信息 --Create by ZhangQi
+            </summary>
+            <param name="deptCode"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientOutHosQuery(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            按照科室 时间段 和医生代码查询出院患者情况 --Create By ZhangQi
+            </summary>
+            <param name="inState"></param>
+            <param name="deptCode"></param>
+            <param name="docCode"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientDiagnoreQuery(System.String,System.String,System.String,System.String)">
+            <summary>
+            按照科室 时间段和主要诊断查询出院患者的诊断情况--Create By ZhangQi
+            </summary>
+            <param name="deptCode"></param>
+            <param name="diagnoreName"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.myPatientDiagnoreQuery(System.String)">
+            <summary>
+            诊断查询 ---Create By ZhangQi
+            </summary>
+            <param name="SQLPatient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.myPatientOutHosQuery(System.String)">
+            <summary>
+            出院患者情况查询 --Create By ZhangQi
+            </summary>
+            <param name="SQLPatient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.myPatientNoFeeQuery(System.String)">
+            <summary>
+            无费退院患者查询 --Create By ZhangQi
+            </summary>
+            <param name="SQLPatient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientInHosQueryByTime(System.String,System.String)">
+            <summary>
+            无费退院患者查询 --Create By ZhangQi 聊城项目需求
+            </summary>
+            <param name="SQLPatient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQuery(System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Begin"></param>
+            <param name="End"></param>
+            <param name="State"></param>
+            <param name="PayKind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQuery(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Begin"></param>
+            <param name="End"></param>
+            <param name="State"></param>
+            <param name="PayKind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QuerySpecialPatient(System.String)">
+            <summary>
+            按照病情查询患者
+            </summary>
+            <param name="criticalFlag">病情代码  0 普通 1 病重 2 病危</param>
+            <returns>返回患者信息列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QuerySpecilPatient(System.String)">
+            <summary>
+            获得病位，重 患者基本信息
+            </summary>
+            <param name="strWhere"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QuerySpecialPatient1">
+            <summary>
+            查询病重患者，供医务科管理
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientByUnit(System.String,System.String,System.String)">
+            <summary>
+            按照合同单位，时间段查询患者信息
+            </summary>
+            <param name="pactUnit">合同单位</param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientByName(System.String)">
+            <summary>
+            按姓名查询患者基本信息com_patientinfo
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientByNameAndCardno(System.String)">
+            <summary>
+            按姓名卡号查询患者基本信息com_patientinfo{F5F57671-B453-45ff-A663-A682A000F567}
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientByPhone(System.String)">
+            <summary>
+            按电话查询患者基本信息com_patientinfo
+            {8659FDB2-4200-475c-83B6-37092AD86D7D}
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPatientInfoByCardNO(System.String)">
+            <summary>
+            按就诊卡号查询患者
+            </summary>
+            <param name="cardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPatientInfoByCardNOAndInState(System.String)">
+            <summary>
+            按就诊卡号查询在院患者  {839B57B8-B74C-4818-9647-9881A0CE9013}
+            </summary>
+            <param name="cardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPatientInfoHaveCaseByCardNO(System.String)">
+            <summary>
+            按就诊卡号查询住院期间有病案的患者
+            </summary>
+            <param name="cardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfo(System.String)">
+            <summary>
+            患者基本信息查询  com_patientinfo
+            </summary>
+            <param name="cardNO">卡号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfoByIDNO(System.String)">
+            <summary>
+            患者基本信息查询  com_patientinfo
+            </summary>
+            <param name="idNO">身份证号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfoListByIDNO(System.String)">
+            <summary>
+            患者基本信息查询  com_patientinfo
+            </summary>
+            <param name="IDNO">身份证号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfoByMcardNO(System.String)">
+            <summary>
+            根据医保编号查询患者基本信息
+            </summary>
+            <param name="cardNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfoByCRMID(System.String)">
+            <summary>
+            患者基本信息查询  {F55EE363-24DB-4a01-B540-49761A5ADBC6}
+            </summary>
+            <param name="cardNO">卡号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatient(System.String,System.String[])">
+            <summary>
+            查询门诊患者信息(com_patientinfo)
+            </summary>
+            <param name="whereIndex"></param>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfoByName(System.String)">
+            <summary>
+            按照姓名查询患者信息
+            </summary>
+            <param name="name">患者姓名</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfoByIdenInfo(System.String,System.String)">
+            <summary>
+            查询患者信息
+            </summary>
+            <param name="idenType">证件类型</param>
+            <param name="idenNO">证件号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfoByIdenInfoAndName(System.String,System.String,System.String)">
+            <summary>
+            查询患者信息
+            </summary>
+            <param name="idenType">证件类型</param>
+            <param name="idenNO">证件号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientsForRegiDisplay(System.DateTime,System.DateTime)">
+            <summary>
+            患者查询--仅用于住院登记的时候显示当天患者和未接诊的患者
+            </summary>
+            <param name="beginDateTime"></param>
+            <param name="endDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientInfoByName(System.String)">
+            <summary>
+            患者姓名查询患者---wangrc
+            </summary>
+            <param name="patientName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInpatientNOByName(System.String)">
+            <summary>
+            患者姓名查询患者 wolf
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInpatientNoFromName(System.String)">
+            <summary>
+            获得住院流水号从姓名
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatient(FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者查询-按住院状态查
+            </summary>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatient(System.DateTime,System.DateTime)">
+            <summary>
+            患者查询--按入院时间查询 wangrc
+            </summary>
+            <param name="beginDateTime"></param>
+            <param name="endDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatient(System.DateTime,System.DateTime,FS.HISFC.Models.Base.EnumInState)">
+            <summary>
+            患者查询-按入院时间和状态查
+            </summary>
+            <param name="beginDateTime"></param>
+            <param name="endDateTime"></param>
+            <param name="State"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryMedicarePatientBasic(System.DateTime,System.DateTime,FS.HISFC.Models.Base.EnumInState,System.String,System.String)">
+            <summary>
+             入院时间,病人状态 ,科室 查询医保 患者
+            </summary>
+            <param name="beginDateTime">入院开始时间</param>
+            <param name="endDateTime">入院结束时间</param>
+            <param name="inState">病人状态</param>
+            <param name="deptCode">科室编码</param>
+            <param name="pactCode">合同单位编码</param>
+            <returns>符合条件的数据集</returns>
+            creator zhangjunyi@FS.com
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientsHavingCase(System.String)">
+            <summary>
+            查询未提交病案登记的患者信息
+            </summary>
+            <param name="caseFlag">患者得提交状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientShiftInApply(System.String,System.String)">
+            <summary>
+            患者查询-查询病区的转入患者
+            </summary>
+            <param name="deptCode">科室编码</param>
+            <param name="status">状态 1 申请 2 确认</param>
+            <returns>患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientShiftInApplyByNurseCell(System.String,System.String)">
+            <summary>
+            患者查询-查询病区的转入患者
+            </summary>
+            <param name="deptCode">病区编码</param>
+            <param name="status">状态 1 申请 2 确认</param>
+            <returns>患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryShiftOutPatientNeedConfirm(System.String)">
+            <summary>
+            获得需要确认的急诊留观科室患者列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientShiftOutApply(System.String,System.String)">
+            <summary>
+            患者查询-查询病区的转出患者
+            </summary>
+            <param name="deptCode">转出科室编码</param>
+            <param name="status">转入转出状态</param>
+            <returns>转出患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientShiftOutApplyByNurseCell(System.String,System.String)">
+            <summary>
+            患者查询-查询病区的转出患者
+            </summary>
+            <param name="deptCode"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientShiftApplyInfo(System.String,System.String)">
+            <summary>
+            查询转入患者转科信息
+            </summary>
+            <param name="inPatientNo">住院流水号</param>
+            <param name="shiftState">当前状态,0未生效,1转科申请,2确认,3取消申请</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryHouseDocPatient(FS.FrameWork.Models.NeuObject,FS.HISFC.Models.Base.EnumInState,System.String)">
+            <summary>
+            患者查询-查询医生分管患者，分管患者分给住院医生
+            </summary>
+            <param name="objOpertor">医生编码</param>
+            <param name="State">住院状态</param>
+            <returns>患者信息列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryConsultation(FS.FrameWork.Models.NeuObject,System.String,System.DateTime,System.DateTime,System.String)">
+            <summary>
+            患者查询-查询医生会诊患者
+            </summary>
+            <param name="objOpertor"></param>
+            <param name="status">1 申请 2 确认</param>
+            <param name="beginDateTime"></param>
+            <param name="endDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryConsultationPatientInfo(FS.FrameWork.Models.NeuObject,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            查询医生自己的会诊患者
+            </summary>
+            <param name="objOpertor">医生编码</param>
+            <param name="status">状态</param>
+            <param name="beginDateTime">处方起始时间</param>
+            <param name="endDateTime">处方终止时间</param>
+            <returns>患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientByPermission(System.String,System.String)">
+            <summary>
+            查询授权的患者 met_ipm_permission
+            </summary>
+            <param name="strDoc">医生代码</param>
+            <returns>患者信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByMcardNO(System.String)">
+            <summary>
+            根据医保卡号查询住院患者信息
+            </summary>
+            <param name="markNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPreInByCardNO(System.String)">
+            <summary>
+             预约信息查询--wangrc
+            </summary>
+            <param name="CardNO">就诊卡号</param>
+            <returns>大于1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPreInPatientBedNO(System.String)">
+            <summary>
+            按就诊卡号查询预约床号--wangrc
+            </summary>
+            <param name="CardNO">门诊卡号</param>
+            <returns>-1失败1成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetCommonSqlForPrepayin">
+            <summary>
+            无条件查询预约登记表---wangrc
+            </summary>
+            <returns>string sql</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPreInpatientInfo(System.String)">
+            <summary>
+            按传入的sql语句查询预约登记表
+            </summary>
+            <param name="strSql">sql语句</param>
+            <returns>数组 实体为patientinfo</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPrepayInAllDataByNo(System.String)">
+            <summary>
+            返回实体按发生序号
+            </summary>
+            <param name="strSql">sql语句</param>
+            <returns>实体patientinfo</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.InsertPreInPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            插入预约入院登记患者-基本信息
+            </summary>
+            <param name="PatientInfo"></param>
+            <returns>大于 0 成功 小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePreInPatientState(System.String,System.String,System.String)">
+            <summary>
+            患者可以预约多次，根据门诊号 发生序号更新预约状态 0 为预约 1 为作废 2转入院
+            </summary>
+            <param name="CardNO">门诊卡号</param>
+            <param name="State">状态</param>
+            <param name="HappenNO">发生序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePreInPatientByHappenNo(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新预约入院登记患者-基本信息
+            </summary>
+            <param name="PatientInfo"></param>
+            <returns>大于 0 成功 小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePreInPatientState(System.String,System.String)">
+            <summary>
+            更新预约状态 0 为预约 1 为作废 2转入院
+            </summary>
+            <param name="cardNO">门诊卡号</param>
+            <param name="State">状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPreInPatientInfoByDateAndState(System.String,System.String,System.String)">
+            <summary>
+            获取预约登记信息通过状态和预约时间
+            </summary>
+            <param name="State"></param>
+            <param name="Begin"></param>
+            <param name="End"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPrepayInByCardNoAndDate(System.String)">
+            <summary>
+            获取预约登记信息通过卡号和预约时间// {6BF1F99D-7307-4d05-B747-274D24174895}
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetPreInPatientInfoByCardNO(System.String,System.String)">
+            <summary>
+            按发生序号获得登记实体
+            </summary>
+            <param name="strNo">发生序号</param>
+            <param name="cardNO">卡号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetDeptInpatientNo(System.String,System.String,System.String)">
+            <summary>
+            获取在指定科室指定时间内发生过费用的人的住院流水号
+            </summary>
+            <param name="DeptID"></param>
+            <param name="BeginTime"></param>
+            <param name="EndTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientInfoGet(System.String)">
+            <summary>
+            查询病人基本信息 适用于 用组合查询框 生成查询条件的情况。
+            </summary>
+            <param name="strWhere"> 传入的where 条件</param>
+            <returns> 成功返回数组，失败返回null</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.myCardPatientQuery(System.String)">
+            <summary>
+            就诊卡查询
+            </summary>
+            <param name="SQLPatient">SQL语句</param>
+            <returns>返回一条患者卡基本信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.myPatientBasicQuery(System.String)">
+            <summary>
+            查询患者基本信息 基本查询
+            </summary>
+            <param name="SQLPatient">SQL语句</param>
+            <returns>返回一条患者基本信息</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetAge2(System.String)">
+            <summary>
+            获取宝宝年龄{1C22561B-E2E1-4372-A1EE-07B557A5BF6C}
+            </summary>
+            <param name="inpatientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetAge1(System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            获得年龄
+            </summary>
+            <param name="birthday"></param>
+            <param name="sysDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryBasicSelect">
+            <summary>
+            RADT.RADT.InPatient.QueryBaseInfo (fin_ipr_inmaininfo)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInpatientBySlurName(System.String,System.String)">
+            <summary>
+            根据患者姓名和在院状态模糊查找患者列表
+            </summary>
+            <param name="name"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetAlertPerson(System.String,System.Decimal)">
+            <summary>
+            获得欠费患者信息(按指定标准)
+            </summary>
+            <param name="nurseCellCode"></param>
+            <param name="alert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetAlertPerson(System.String,System.Decimal,System.String)">
+            <summary>
+            获得欠费患者信息(按指定标准)
+            </summary>
+            <param name="nurseCellCode"></param>
+            <param name="alert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetAlertPersonNew1(System.String,System.Decimal)">
+            <summary>
+            获得欠费患者信息(按指定标准)1 add by zhy
+            </summary>
+            <param name="nurseCellCode"></param>
+            <param name="alert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetAlertPercent(System.String,System.Decimal)">
+            <summary>
+            获得欠费患者信息(按指定比例)
+            </summary>
+            <param name="nurseCellCode"></param>
+            <param name="alert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetAlertPerson(System.String)">
+            <summary>
+            获得欠费患者信息(按最底下限)
+            </summary>
+            <param name="nurseCellCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.myGetSpecialPatient(System.String)">
+            <summary>
+            获得特殊病人列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.DischargePatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            注销用户 作废一个患者的信息资料
+            </summary>
+            <param name="PatientInfo">注销的患者信息</param>
+            <returns>0成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateCaseSend(System.String,System.Boolean)">
+            <summary>
+            更新病历是否送病案
+            </summary>
+            <param name="InpatientNo"></param>
+            <param name="IsSended"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryIsCaseSended(System.String)">
+            <summary>
+            查询是否病历送病案
+            </summary>
+            <param name="InpatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientNoSendCase">
+            <summary>
+            查询没有送病案的患者
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryComPatientInfoSelect">
+            <summary>
+            患者就诊卡卡列表查询 com_patientinfo
+            </summary>
+            <returns>COM_PATIENTINFO Select SQL语句</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQuerySelect">
+            <summary>
+            查询患者信息 FIN_IPR_INMAININFO
+            </summary>
+            <returns>FIN_IPR_INMAININFO SQL 语句</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientTerminalFeeQuerySelect">
+            <summary>
+            查询患者信息 FIN_IPR_INMAININFO add by zhy 用于处理终端费用
+            </summary>
+            <returns>FIN_IPR_INMAININFO SQL 语句</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQuerySelectNew1">
+            <summary>
+            查询患者信息 FIN_IPR_INMAININFO   add by zhy
+            </summary>
+            <returns>FIN_IPR_INMAININFO SQL 语句</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQuerySelectNew">
+            <summary>
+            查询患者信息 FIN_IPR_INMAININFO
+            </summary>
+            <returns>FIN_IPR_INMAININFO SQL 语句</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryBasic(System.DateTime,System.DateTime,FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            患者查询-按入院时间和状态查
+            </summary>
+            <param name="beginDateTime"></param>
+            <param name="endDateTime"></param>
+            <param name="State"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryPatientBasic(System.DateTime,System.DateTime)">
+            <summary>
+            患者查询--按入院时间查询 wangrc
+            </summary>
+            <param name="beginDateTime"></param>
+            <param name="endDateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQuery(System.String,System.Int32)">
+            <summary>
+             查询出院几天内的患者信息
+            </summary>
+            <param name="deptCode"></param>
+            <param name="outDays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.VerifyInpatientInTimes(System.String,System.String)">
+            <summary>
+            查询患者住院号，住院次数的重复情况{4949C040-E8C9-49d9-9BC2-548F7892206B}
+            </summary>
+            <param name="inpatientno"></param>
+            <param name="inTimes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQuery(System.String,System.DateTime,System.DateTime)">
+            <summary>
+             根据科室编码入院时间查询患者
+            </summary>
+            <param name="deptCode"></param>
+            <param name="outDays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByDeptAndOutDate(System.String,System.DateTime,System.DateTime)">
+            <summary>
+             根据科室编码出院时间查询患者// {F417D766-19C0-4d3e-AB72-D774058B497E}
+            </summary>
+            <param name="deptCode"></param>
+            <param name="outDays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.PatientQueryByName(System.String)">
+            <summary>
+             根据姓名模糊查询
+            </summary>
+            <param name="deptCode"></param>
+            <param name="outDays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateBZ_Info(System.String)">
+            <summary>
+            更新患者病情状态（更新为病重）
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdatePT_Info(System.String)">
+            <summary>
+            更新患者病情状态（更新为普通）
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.UpdateCondition_Info(System.String,System.String)">
+            <summary>
+            更新患者病情状态（更新为病重）{C9F9006D-AE0A-4e73-9ECE-68265A7A583E}
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInfoByConditons(System.String,System.String,System.String,System.DateTime,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            根据过滤条件得到患者住院详细信息--Edit By zhangjunyi
+            </summary>
+            <param name="pactCode"></param>
+            <param name="deptCode"></param>
+            <param name="status"></param>
+            <param name="beginDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.CaseUpLoadFlag(System.String,System.String)">
+            <summary>
+            上传标志
+            </summary>
+            <param name="inpatientNo"></param>
+            <param name="uploadFlag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.MyPatientExtendQuery(System.String)">
+            <summary>
+            获取患者扩展信息--这里所有字段借用PatientInfo，以后有需要时需重新写一个实体
+            </summary>
+            <param name="SQLPatient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QuerySIPatient(System.String)">
+            <summary>
+            根据住院号获取广州医保结算的患者简短信息
+            </summary>
+            <param name="patientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QuerySIPatientAll(System.String)">
+            <summary>
+            根据住院号获取广州医保结算的患者简短信息，不限制已结算类型
+            {6A7E6EED-9AC4-4198-BD90-DEE5057BF5F6}
+            </summary>
+            <param name="patientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.GetInPatientByDatePatientNO(System.DateTime,System.DateTime,System.String,System.String)">
+            {D3446DAF-E319-47a0-8BD5-EA748FCC4342}
+             <summary>
+             通过时间，住院号查询患者信息
+             </summary>
+             <param name="beginDate"></param>
+             <param name="endDate"></param>
+             <param name="patientNO"></param>
+             <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.getSIRegisterInfo(System.String)">
+            <summary>
+            {D3446DAF-E319-47a0-8BD5-EA748FCC4342}
+            获取医保患者登记信息
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.setSiUploadFlag(System.String,System.String)">
+            <summary>
+            {D3446DAF-E319-47a0-8BD5-EA748FCC4342}
+            设置上传标识
+            </summary>
+            <param name="patientNO"></param>
+            <param name="uploadFlag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryFoShanSIPatient(System.String)">
+            <summary>
+            根据住院号获取佛山医保结算的患者简短信息// {09B8B8C2-203C-4ca0-A28C-FA4C55254856} lfhm 2020-01-09
+            </summary>
+            <param name="patientNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInPatientNeedUploadFeeDetail(System.String)">
+            <summary>
+            获取住院需要上传的费用明细
+            </summary>
+            <param name="registerID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.InPatient.QueryInPatientNotUploadFeeDetail(System.String)">
+            <summary>
+            获取有匹配但手工选择不上传医保的项目
+            </summary>
+            <param name="registerID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.RADT.LifeCharacter">
+            <summary>
+            [功能描述: 患者生命体征管理类]<br></br>
+            [创 建 者: 孙盟]<br></br>
+            [创建时间: 2007-05-02]<br></br>
+            <修改记录/>
+            </summary> 
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.LifeCharacter.InsertLifeCharacter(FS.HISFC.Models.RADT.LifeCharacter)">
+            <summary>
+            插入一条记录
+            </summary>
+            <param name="lifeCharacter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.LifeCharacter.DeleteLifeCharacter(System.String,System.DateTime)">
+            <summary>
+            删除
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="measureDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.LifeCharacter.UpdateLifeCharacter(FS.HISFC.Models.RADT.LifeCharacter)">
+            <summary>
+            更新一条
+            </summary>
+            <param name="lifeCharacter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.LifeCharacter.QueryLifeCharacter(System.String,System.DateTime)">
+            <summary>
+            查询一条
+            </summary>
+            <param name="inpatientNO"></param>
+            <param name="measureDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.LifeCharacter.GetLifeCharacterAL(System.String)">
+            <summary>
+            读取数据生成ArrayList
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.LifeCharacter.GetLifeCharacterSql(System.String,FS.HISFC.Models.RADT.LifeCharacter)">
+            <summary>
+            获得SQL，传入参数
+            </summary>
+            <param name="sqlLifeCharacter"></param>
+            <param name="lifeCharacter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.RADT.OutPatient">
+            <summary>
+            急诊留观管理
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.#ctor">
+             <summary>
+             write by lisy 2005-01-01
+             </summary>
+            <history>
+             adjust by zhouxs 2005-5-16
+            </history>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.RegisterPatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            注册患者信息
+            </summary>
+            <param name="PatientInfo">登记的患者信息</param>
+            <returns>0成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.DischargePatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            注销用户
+            </summary>
+            <param name="PatientInfo">登记的患者信息</param>
+            <returns>0成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.UpdatePatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            更新患者信息 以住院流水号为主键
+            </summary>
+            <param name="PatientInfo"></param>
+            <returns>0 成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.DeletePatient(FS.HISFC.Models.RADT.PatientInfo)">
+            <summary>
+            删除患者信息
+            </summary>
+            <param name="PatientInfo"></param>
+            <returns>0 成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.ChangePID(FS.HISFC.Models.RADT.PatientInfo,System.String)">
+            <summary>
+            变化住院号
+            </summary>
+            <param name="PatientInfo"></param>
+            <param name="newPatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.GetNewCardNo">
+            <summary>
+            生成新的门诊号
+            </summary>
+            <returns>返回新的门诊号</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.PatientQuery(System.String)">
+            <summary>
+            按门诊卡号查询患者信息
+            </summary>
+            <param name="strPatientNo"></param>
+            <returns>患者信息实体</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.PatientQuery(System.DateTime,System.DateTime,FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            患者查询-按入院时间段和状态查询患者信息
+            </summary>
+            <param name="beginDateTime"></param>
+            <param name="endDateTime"></param>
+            <param name="State"></param>
+            <returns>ArrayList列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.UpdateCardInfo(FS.HISFC.Models.RADT.Card)">
+            <summary>
+            更新电脑卡信息 
+            </summary>
+            <param name="card">患者就诊卡信息</param>
+            <returns>0 成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.InsertPassWord(FS.HISFC.Models.RADT.Card)">
+            <summary>
+            密码变更记录
+            </summary>
+            <param name="card"></param>
+            <returns>0 成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.RegisterObservePatient(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            急诊留观登记,同时向变更信息表中插入一条记录
+            </summary>
+            <param name="PatientInfo">预约床位放置在PatientInfo的bed 中</param>
+            <returns>大于 0 成功 小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.RecievePatient(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Base.Bed,FS.HISFC.Models.Base.EnumShiftType,System.String)">
+            <summary>
+            急诊留观接诊
+            </summary>
+            <param name="register">急诊留观患者</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.OutObservePatientManager(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Base.EnumShiftType,System.String)">
+            <summary>
+            留观患者出关函数
+            </summary>
+            <param name="OutPatient">患者信息</param>
+            <param name="type">EO留观出院登记 CPI留观转住院 CI留观住院</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.RegisterOutHospital(FS.HISFC.Models.Registration.Register)">
+            <summary>
+            患者出院登记
+            </summary>
+            <param name="patientInfo">患者基本信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.ChangeBedInfo(System.String,System.String,System.String)">
+            <summary>
+            记录包床、挂床信息 BED_KIND 1 挂床 2 包床
+            STATUS 状态 0 挂床 1 解挂
+            </summary>
+            <param name="inpatientNO">住院号</param>
+            <param name="bedNO">床号</param>
+            <param name="kind">类别</param>
+            <returns>大于 0 成功，小于 0 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.GetSpecialBedInfo(System.String)">
+            <summary>
+            查询患者特殊床位占用信息（包床、挂床）
+            </summary>
+            <param name="InPatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.UnWrapPatientBed(FS.HISFC.Models.Registration.Register,System.String,System.String)">
+            <summary>
+            解包床 将某个包床释放
+            解挂床用此函数必须确定目标床位未占用
+            </summary>
+            <param name="patientInfo">患者基本信息</param>
+            <param name="bedNO">病床id</param>
+            <param name="type">1挂床 2  包床</param>
+            <returns>0没有更新 1成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.UpdateBedStatus(FS.HISFC.Models.Base.Bed,FS.HISFC.Models.Base.Bed)">
+            <summary>
+            更新床位状态和inpatientNo,并用原病床信息进行并发判断
+            writed by cuipeng
+            2005-5
+            </summary>
+            <param name="newBed">新病床信息</param>
+            <param name="oldBed">旧病床信息</param>
+            <returns>0没更新 >1 成功 -1 失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.TransferPatient(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.RADT.Location)">
+            <summary>
+            转移患者 -换床，换科室，换病区
+            需要事务操作(更新病床表,更新变更表)
+            </summary>
+            <param name="PatientInfo">患者信息</param>
+            <param name="newLocation">新的位置信息</param>
+            <returns>0没有更新(并发操作),1成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.SwapPatientBed(FS.HISFC.Models.Registration.Register,FS.HISFC.Models.Registration.Register)">
+            <summary>
+            交换两个人的床位信息
+            <br>传入：源患者,目标患者</br>
+            </summary>
+            <param name="sourcePatientInfo">原患者基本信息</param>
+            <param name="targetPatientInfo">目标患者基本信息</param>
+            <returns>0成功 -1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.UpdateEmergencyObserve(System.String,FS.HISFC.Models.Base.EnumInState,FS.HISFC.Models.Base.EnumInState,System.String,System.String,System.String)">
+            <summary>
+            急诊留观登记\接诊\结束
+            </summary>
+            <param name="clinicID">门诊号</param>
+            <param name="enuInstate">状态</param>
+            <param name="dtBeginTime">开始时间</param>
+            <param name="dtEndTime">结束时间</param>
+            <param name="strZG">转归代码</param>
+            <returns>-1失败,其它成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.myPatientQuery(System.String)">
+            <summary>
+            根据传入sql语句查询患者信息
+            </summary>
+            <param name="strSql">传入sql语句</param>
+            <returns>ArrayList患者信息列表</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.GetNewPassWordID">
+            流水号
+            
+            
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.SetCardPassword(System.String,System.String)">
+            <summary>
+            更新电脑卡信息 
+            <param name="strID"></param>
+            <param name="strPassWord"></param>
+            <returns></returns>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.leaveHospital(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="patientno">住院号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.GetValidCardState(System.String)">
+            <summary>
+            根据卡号获得卡的状态
+            </summary>
+            <param name="CardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.RADT.OutPatient.GetOldPassword(System.String)">
+            <summary>
+            根据卡号获得密码
+            </summary>
+            <param name="CardNo"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

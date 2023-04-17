@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8CF12C36-A9DA-44E7-98E4-FD1260A0D8B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.Nurse.GuangZhou</RootNamespace>
+    <AssemblyName>SOC.Local.Nurse.GuangZhou</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Nurse, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Nurse.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Order, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Order.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Nurse, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="policy.3.0.FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="policy.3.0.FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gyzl\Common.cs" />
+    <Compile Include="Gyzl\IInjectCurePrint\PrintCure.cs" />
+    <Compile Include="Gyzl\IInjectCurePrint\ucPrintCureBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IInjectCurePrint\ucPrintCureBase.designer.cs">
+      <DependentUpon>ucPrintCureBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IInjectCurePrint\ucPrintCureNewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IInjectCurePrint\ucPrintCureNewControl.Designer.cs">
+      <DependentUpon>ucPrintCureNewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IInjectItineratePrint\ucPrintItinerate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IInjectItineratePrint\ucPrintItinerate.Designer.cs">
+      <DependentUpon>ucPrintItinerate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\frmQueryPatientByName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gyzl\frmQueryPatientByName.designer.cs">
+      <DependentUpon>frmQueryPatientByName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IInjectPrint\ucInjectPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IInjectPrint\ucInjectPrint.Designer.cs">
+      <DependentUpon>ucInjectPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IInjectPrint\ucInjectPrintNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IInjectPrint\ucInjectPrintNew.Designer.cs">
+      <DependentUpon>ucInjectPrintNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IPrintBar\PrintLisCode.cs" />
+    <Compile Include="Gyzl\IPrintBar\ucPrintLisCode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IPrintBar\ucPrintLisCode.Designer.cs">
+      <DependentUpon>ucPrintLisCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\ucNurseRegisterGyzl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\ucNurseRegisterGyzl.Designer.cs">
+      <DependentUpon>ucNurseRegisterGyzl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gyzl\IInjectCurePrint\ucPrintCureBase.resx">
+      <DependentUpon>ucPrintCureBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IInjectCurePrint\ucPrintCureNewControl.resx">
+      <DependentUpon>ucPrintCureNewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IInjectItineratePrint\ucPrintItinerate.resx">
+      <DependentUpon>ucPrintItinerate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\frmQueryPatientByName.resx">
+      <DependentUpon>frmQueryPatientByName.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IInjectPrint\ucInjectPrint.resx">
+      <DependentUpon>ucInjectPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IInjectPrint\ucInjectPrintNew.resx">
+      <DependentUpon>ucInjectPrintNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IPrintBar\ucPrintLisCode.resx">
+      <DependentUpon>ucPrintLisCode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\ucNurseRegisterGyzl.resx">
+      <DependentUpon>ucNurseRegisterGyzl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

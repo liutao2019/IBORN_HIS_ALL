@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FamilyHistory"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="FamilyHistory">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="fhHypertension" type="YesNoNullT"/>
+        <xs:element name="fhHypertensionRelation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Relation" type="RelationT" minOccurs="0" maxOccurs="4"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="r1ID">
+            <xs:selector xpath=".//mstns:Relation"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+
+        <xs:element name="fhDM" type="YesNoNullT"/>
+        <xs:element name="fhDMRelation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Relation" type="RelationT" minOccurs="0" maxOccurs="4"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="r2ID">
+            <xs:selector xpath=".//mstns:Relation"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+
+        <xs:element name="fhCHD" type="YesNoNullT"/>
+        <xs:element name="fhCHDRelation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Relation" type="RelationT" minOccurs="0" maxOccurs="4"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="r3ID">
+            <xs:selector xpath=".//mstns:Relation"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+
+        <xs:element name="fhStroke" type="YesNoNullT"/>
+        <xs:element name="fhStrokeRelation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Relation" type="RelationT" minOccurs="0" maxOccurs="4"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="r4ID">
+            <xs:selector xpath=".//mstns:Relation"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="YesNoNullT">
+    <xs:restriction base="xs:int">
+      <!--1是 2否 9不详-->
+      <xs:pattern value="1|2|9"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="RelationT">
+    <xs:restriction base="xs:string">
+      <!--1父母 2子女 3兄弟姐妹 4其他-->
+      <xs:pattern value="1|2|3|4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

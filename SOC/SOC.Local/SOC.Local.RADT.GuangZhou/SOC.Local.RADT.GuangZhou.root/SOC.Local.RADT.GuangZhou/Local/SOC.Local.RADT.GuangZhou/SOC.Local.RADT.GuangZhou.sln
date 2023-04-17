@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.RADT.GuangZhou", "SOC.Local.RADT.GuangZhou.csproj", "{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.RADT.Interface", "..\..\HISFC\RADT\SOC.HISFC.RADT.Interface\SOC.HISFC.RADT.Interface.csproj", "{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccProjectName0 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.RADT.GuangZhou/SOC.Local.RADT.GuangZhou.root/SOC.Local.RADT.GuangZhou\u0022,\u0020BOVBAAAA
+		SccLocalPath0 = ..\\..
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectFilePathRelativizedFromConnection0 = Local\\SOC.Local.RADT.GuangZhou\\
+		SccProjectUniqueName1 = ..\\..\\HISFC\\RADT\\SOC.HISFC.RADT.Interface\\SOC.HISFC.RADT.Interface.csproj
+		SccLocalPath1 = ..\\..
+		SccProjectFilePathRelativizedFromConnection1 = HISFC\\RADT\\SOC.HISFC.RADT.Interface\\
+		SccProjectUniqueName2 = SOC.Local.RADT.GuangZhou.csproj
+		SccLocalPath2 = ..\\..
+		SccProjectFilePathRelativizedFromConnection2 = Local\\SOC.Local.RADT.GuangZhou\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33571BD0-A3ED-4AD0-90F5-980BC686B5E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

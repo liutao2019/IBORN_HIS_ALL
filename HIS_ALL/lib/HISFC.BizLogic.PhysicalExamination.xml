@@ -1,0 +1,2810 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.BizLogic.PhysicalExamination</name>
+    </assembly>
+    <members>
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType”忽略有格式错误的 XML 注释 -->
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Base.BaseFunction">
+            <summary>
+            终端业务层基类业务
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Base.BaseFunction.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Base.TableInterface">
+            <summary>
+            表业务层接口
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Base.TableInterface.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入表
+            <param name="record">记录的承载对象</param>
+            <returns>1－成功,-1-失败</returns>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Base.TableInterface.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新表
+            <param name="record">记录的承载对象</param>
+            <returns>1－成功,-1-失败</returns>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Base.TableInterface.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            根据条件查询表
+            <param name="recordList">返回的承载对象数组</param>
+            <param name="whereCondition">SQL条件语句</param>
+            <returns>1－成功,-1-失败</returns>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Base.TableInterface.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段
+            <param name="record">承载对象</param>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Base.TableInterface.ReturnArray(System.Collections.ArrayList@)">
+            <summary>
+            返回结果数组
+            <param name="recordList">结果数组</param>
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.ReaderToObject(FS.HISFC.Models.PhysicalExamination.Collective.Relation@)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.Insert(FS.FrameWork.Models.NeuObject)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.Update(FS.FrameWork.Models.NeuObject)”忽略有格式错误的 XML 注释 -->
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">联系方式类数组</param>
+            <param name="whereCondition">SQL语句的Where条件</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">联系方式类</param>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.LinkType.ReturnArray(System.Collections.ArrayList@)”忽略有格式错误的 XML 注释 -->
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType">
+            <summary>
+            体检各种实体的类别表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.Sequence">
+            <summary>
+            流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.Hospital">
+            <summary>
+            医院主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.BelongType">
+            <summary>
+            类别的类别
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.TypeName">
+            <summary>
+            类别名称
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.CreateOper">
+            <summary>
+            创建操作员
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.InvalidOper">
+            <summary>
+            使无效操作员
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.IsValid">
+            <summary>
+            有效性：1－有效，0－无效
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumClassType.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve">
+            <summary>
+            健康档案表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Hospital">
+            <summary>
+            医院主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.ArchieveID">
+            <summary>
+            流水主键，电脑编号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.ArchieveCode">
+            <summary>
+            手工编号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.ArchieveType">
+            <summary>
+            健康档案类别主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.CardNO">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Collective">
+            <summary>
+            所属集体、公司的主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Birthday">
+            <summary>
+            出生日期
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.IDCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Height">
+            <summary>
+            身高
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Weight">
+            <summary>
+            体重
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.BloodType">
+            <summary>
+            血型
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.TotalCount">
+            <summary>
+            总共体检次数
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.TotalCost">
+            <summary>
+            总共花费的体检金额
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.CRMType">
+            <summary>
+            客户关系类别
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumArchieve.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness">
+            <summary>
+            体检业务表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.BusinessID">
+            <summary>
+            流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.Hospital">
+            <summary>
+            医院流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.BusinessName">
+            <summary>
+            业务名称
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.PEType">
+            <summary>
+            体检类别：个人体检／集体体检
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumBusiness.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective">
+            <summary>
+            集体表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.Hospital">
+            <summary>
+            医院主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.CollectiveID">
+            <summary>
+            流水主键，电脑编号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.CollectiveCode">
+            <summary>
+            手工编号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.CollectiveName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.CollectiveType">
+            <summary>
+            集体、公司类别主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumCollective.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm">
+            <summary>
+            体检项目的执行情况表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.ConfirmID">
+            <summary>
+            流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.RegItemID">
+            <summary>
+            体检登记的项目的主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.ExecDept">
+            <summary>
+            体检科室主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.ConfirmDept">
+            <summary>
+            体检执行科室主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.ConfirmOper">
+            <summary>
+            体检执行人主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.ConfirmTime">
+            <summary>
+            体检执行时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.ItemResult">
+            <summary>
+            体检结果
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumConfirm.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept">
+            <summary>
+            体检科室表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.Hospital">
+            <summary>
+            医院主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.Dept">
+            <summary>
+            科室主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDept.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem">
+            <summary>
+            体检科室与项目关系表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.Business">
+            <summary>
+            体检业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.Department">
+            <summary>
+            科室主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.Item">
+            <summary>
+            项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptItem.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper">
+            <summary>
+            体检科室与人员关系表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.Business">
+            <summary>
+            体检业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.Department">
+            <summary>
+            科室主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.Employee">
+            <summary>
+            人员主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumDeptOper.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee">
+            <summary>
+            体检人员表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.Business">
+            <summary>
+            业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.Employee">
+            <summary>
+            人员主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumEmployee.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup">
+            <summary>
+            组合项目表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.Business">
+            <summary>
+            业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.GroupID">
+            <summary>
+            流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.GroupName">
+            <summary>
+            组合项目名称
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.GroupPrice">
+            <summary>
+            组合项目价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.CollectivePrice">
+            <summary>
+            集体体检价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.IndividualPrice">
+            <summary>
+            个人体检价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroup.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem">
+            <summary>
+            组合项目与项目关系表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.Business">
+            <summary>
+            体检业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.GroupID">
+            <summary>
+            组合项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.Item">
+            <summary>
+            项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.ItemType">
+            <summary>
+            项目类别，对应于体检项目表的项目类别
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumGroupItem.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem">
+            <summary>
+            体检项目表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.Business">
+            <summary>
+            业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.ItemID">
+            <summary>
+            项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.ItemType">
+            <summary>
+            项目类别（0－检查项目、1－药品项目、附材项目）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.Unit">
+            <summary>
+            单位
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.UnitPrice">
+            <summary>
+            单位价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.CompanyPrice">
+            <summary>
+            集体体检价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.IndividualPrice">
+            <summary>
+            个人体检价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.ResultType">
+            <summary>
+            结果类型：0－定性结果、1－值结果
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItem.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult">
+            <summary>
+            体检项目可选的结果表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.Hospital">
+            <summary>
+            医院主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.ResultID">
+            <summary>
+            流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.Item">
+            <summary>
+            体检项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.ItemResult">
+            <summary>
+            体检项目结果
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumItemResult.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal">
+            <summary>
+            体检套餐表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.Business">
+            <summary>
+            业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.MealID">
+            <summary>
+            套餐流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.MealName">
+            <summary>
+            套餐名称
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.MealPriece">
+            <summary>
+            套餐价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.CompanyPriece">
+            <summary>
+            集体体检价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.IndividualPrice">
+            <summary>
+            个人体检价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMeal.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem">
+            <summary>
+            组合项目与项目关系表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.Business">
+            <summary>
+            体检业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.Meal">
+            <summary>
+            体检套餐主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.Item">
+            <summary>
+            项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.ItemType">
+            <summary>
+            项目类别，对应于体检项目表的项目类别
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumMealItem.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem">
+            <summary>
+            体检人员与项目关系表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.Business">
+            <summary>
+            体检业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.Employee">
+            <summary>
+            人员主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.Item">
+            <summary>
+            项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumOperItem.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister">
+            <summary>
+            体检登记表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.Business">
+            <summary>
+            业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.RegisterID">
+            <summary>
+            体检登记流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.CardNO">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.ArchieveID">
+            <summary>
+            健康档案主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.Invoice">
+            <summary>
+            体检收费的发票号码
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.RegisterCost">
+            <summary>
+            体检登记的费用总额
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.ChargeCost">
+            <summary>
+            体检收费的费用总额
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegister.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem">
+            <summary>
+            体检登记的项目表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.RegItemID">
+            <summary>
+            流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.Register">
+            <summary>
+            体检登记主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.Business">
+            <summary>
+            体检业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.ItemID">
+            <summary>
+            体检项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.IsGroup">
+            <summary>
+            是否是组合项目：0－不是、1－是
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.GroupID">
+            <summary>
+            组合项目主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.IsMeal">
+            <summary>
+            是否是体检套餐：0－不是、1－是
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.MealID">
+            <summary>
+            体检套餐主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.Qty">
+            <summary>
+            开立数量
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.Unit">
+            <summary>
+            开立单位
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.IsDrug">
+            <summary>
+            是否是药品：0－不是、1－是
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.ItemPrice">
+            <summary>
+            项目的维护价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.RegPriece">
+            <summary>
+            项目的实际登记价格
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.ItemState">
+            <summary>
+            项目状态：0－登记、1－收费、2－执行
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRegItem.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation">
+            <summary>
+            联系方式表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.Hospital">
+            <summary>
+            医院
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.RelationID">
+            <summary>
+            流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.ObjectID">
+            <summary>
+            对象主键，个人体检－健康档案主键、集体体检－集体主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.IsCollective">
+            <summary>
+            是否是集体的联系方式，0－不是、1－是
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.RelationType">
+            <summary>
+            联系方式类别主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.Relation">
+            <summary>
+            联系方式
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumRelation.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery">
+            <summary>
+            检索码表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.Hospital">
+            <summary>
+            医院主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.TableName">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.Business">
+            <summary>
+            业务主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.PrimaryKey">
+            <summary>
+            记录主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.SpellCode">
+            <summary>
+            拼音码
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.WBCode">
+            <summary>
+            五笔码
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.UserCode">
+            <summary>
+            自定义码
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.CreateOper">
+            <summary>
+            创建操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.InvalidOper">
+            <summary>
+            使无效操作员流水主键
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.InvalidTime">
+            <summary>
+            使无效时间
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.IsValid">
+            <summary>
+            有效无效（1－有效，0－无效）
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.Extend1">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.Extend2">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Enum.EnumQuery.Extend3">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Suggestion">
+            <summary>
+            Suggestion<br></br>
+            [功能描述: 体检建议操作类]<br></br>
+            [创 建 者: 张俊义]<br></br>
+            [创建时间: 2007-06-11]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Register">
+            <summary>
+            Register<br></br>
+            [功能描述: 体检登记类]<br></br>
+            [创 建 者: 张俊义]<br></br>
+            [创建时间: 2007-03-2]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryPatient(System.String,System.String)">
+            <summary>
+            查询一段时间内体检人员信息 返回 动态数组
+            </summary>
+            <param name="BeginTime"></param>
+            <param name="EndTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryPatient(System.String)">
+            <summary>
+            根据卡号获取病人基本信息  注意不是登记信息 
+            </summary>
+            <param name="CardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryPatient(System.String,System.String,System.Data.DataSet@)">
+            <summary>
+            获取某个时间段内的体检人员信息 返回 DataSet 
+            </summary>
+            <param name="BeginTime"></param>
+            <param name="EndTime"></param>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.AddOrUpdate(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            增加或删除一行数据
+            </summary>
+            <param name="register"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.myGetItem(System.String)">
+            <summary>
+            取单位信息数据列表，可能是一条或者多条
+            私有方法，在其他方法中调用
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>单位信息对象数组</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetExamSequence">
+            <summary>
+            获取登记序号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.DeleteInfo(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            删除一行数据
+            </summary>
+            <param name="register">体检登记实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.InsertInfo(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            增加一行数据
+            </summary>
+            <param name="register">体检登记实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.UpdateInfo(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            修改一行数据
+            </summary>
+            <param name="register">体检登记实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.myGetParmItem(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            获得update或者insert单位项目信息表的传入参数数组
+            </summary>
+            <param name="Item">单位项目信息实体</param>
+            <returns>字符串数组</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetExamPatientSql">
+            <summary>
+            获取主SQL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetRegisterPatient(System.String,System.String,System.Data.DataSet@)">
+            <summary>
+            获取某个时间段内的体检人员信息 返回 DataSet 
+            </summary>
+            <param name="BeginTime"></param>
+            <param name="EndTime"></param>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetRegisterPatient(System.String,System.Data.DataSet@)">
+            <summary>
+            获取某个时间段内的体检人员信息 返回 DataSet 
+            </summary>
+            <param name="strWhere"></param>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetRegisterPatient(System.String,System.String,System.String,System.Data.DataSet@,FS.HISFC.BizLogic.PhysicalExamination.Enum.ExamType)">
+            <summary>
+            按编码查询体检人员信息
+            </summary>
+            <param name="ID">卡号 或健康档案号,体检单位,姓名 </param>
+            <param name="ds"></param>
+            <param name="type">类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetRegisterByClinicNO(System.String)">
+            <summary>
+            根据体检号获取体检登记信息
+            </summary>
+            <param name="ClinicNO">体检号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryRegisterByCollectivity(System.String,System.String)">
+            <summary>
+            根据集体体检号 和 内部序号
+            </summary>
+            <param name="ClinicNO">体检号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryRegisterByCardNO(System.String)">
+            <summary>
+            根据卡号查询登记信息
+            </summary>
+            <param name="CardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.myQueryInfo(System.String)">
+            <summary>
+            根据卡号获取这个卡号下的集体体检记录
+            </summary>
+            <param name="CardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryCollectivityRegisterByCardNO(System.String)">
+            <summary>
+            根据卡号或费用汇总号或集体体检号,获取个人体检和集体体检登记人员信息 划价用
+            </summary>
+            <param name="CollectivityCode">集体体检号</param>
+            <param name="CardNo">卡号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryRegisterByRecipeSequence(System.String)">
+            <summary>
+            查询根据汇总号查询
+            </summary>
+            <param name="RecipeSequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryRegisterByArchivesNO(System.String)">
+            <summary>
+            根据健康档案号查询登记信息
+            </summary>
+            <param name="ChkNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.AddOrUpdateRegister(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            增加或更新某行数据
+            </summary>
+            <param name="Register"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.AddInfoRegister(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            增加一行数据
+            </summary>
+            <param name="register"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.UpdateInfoRegister(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            修改一行数据
+            </summary>
+            <param name="register"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.DeleteInfoRegister(System.String)">
+            <summary>
+            根据体检流水号 删除一行数据
+            </summary>
+            <param name="ClinicNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetMaxSeeNo(System.String,System.String)">
+            <summary>
+            获取当天最大的看诊号
+            </summary>
+            <param name="strBegin"></param>
+            <param name="strEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetmyRegister(System.String)">
+            <summary>
+            获取登记人员信息
+            </summary>
+            <param name="SQLString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.myGetParmItemRegister(FS.HISFC.Models.PhysicalExamination.Register)">
+            <summary>
+            获得update或者insert登记信息信息表的传入参数数组
+            </summary>
+            <param name="Item">登记信息信息实体</param>
+            <returns>字符串数组</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetRegisterSqlSeparater">
+            <summary>
+            简单获取体检人员信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetRegisterSql">
+            <summary>
+            获取人员登记表SQL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetChkNo">
+            <summary>
+            获取体检档案号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetChkCollectivityCode">
+            <summary>
+            获取集体体检流水
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryCollectivity(System.String)">
+            <summary>
+            获取集体体检记录
+            </summary>
+            <param name="strCompCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryRegisterByCollectivityCode(System.String)">
+            <summary>
+            根据集体体检号获取该体检人员信息
+            </summary>
+            <param name="CollectivityCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryCompanyByCollectivityCode(System.String)">
+            <summary>
+            根据集体体检号获取该体检单位的历次集体体检号
+            </summary>
+            <param name="CollectivityCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryCollectivityRegister(System.String)">
+            <summary>
+            获取集体体检列表 -- 用于费用汇总
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.UpdateConfirmInfo(System.String,System.String,System.Int32)">
+            <summary>
+            更新体检明细的确认人＆确认事件
+            </summary>
+            <param name="obj">要确认的实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.UpdateConfirmAmount(System.String,System.Decimal)">
+            <summary>
+            更新确认数量
+            </summary>
+            <param name="moOrder"></param>
+            <param name="?"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryItemListByClinicNO(System.String)">
+            <summary>
+            获取体检明细
+            </summary>
+            <param name="ClinicNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.QueryItemListByClinicNO(System.String,System.String)">
+            <summary>
+            获取体检明细
+            </summary>
+            <param name="ClinicNo"></param>
+            <param name="feeFlag"> 0 未收费，1，已收费，2作废</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetItemListBySequence(System.String)">
+            <summary>
+            根据流水号获取体检项目明细
+            </summary>
+            <param name="SequenceNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.InsertChkItemList(FS.HISFC.Models.PhysicalExamination.ItemList)">
+            <summary>
+            插入一条记录
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.UpdateItemListFeeFlagByMoOrder(System.String,System.String)">
+            <summary>
+            更新收费标志
+            </summary>
+            <param name="feeFlag">  0 未收费，1，已收费，2作废 </param>
+            <param name="MoOrder">医嘱流水号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.UpdateItemListFeeFlagByRecipeSeq(System.String,System.String)">
+            <summary>
+            更新收费标志
+            </summary>
+            <param name="feeFlag">  0 未收费，1，已收费，2作废 </param>
+            <param name="RecipeSeq">收费组合号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.DeleteItemListByClinicNO(System.String)">
+            <summary>
+            删除所有体检记录
+            </summary>
+            <param name="ClinicNO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.DeleteItemListBySeqenceNO(System.String)">
+            <summary>
+            某一条体检明细
+            </summary>
+            <param name="SeqenceNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.UpdateItemListRecipeSequence(FS.HISFC.Models.PhysicalExamination.ItemList,System.String)">
+            <summary>
+            更新体检明细的发票组合序列
+            </summary>
+            <param name="item"></param>
+            <param name="recipeSequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.UpdateRegisterRecipeSequence(FS.HISFC.Models.PhysicalExamination.ItemList,System.String)">
+            <summary>
+            更新体检登记表最近一次汇总发票序列
+            </summary>
+            <param name="item"></param>
+            <param name="recipeSequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetParame(FS.HISFC.Models.PhysicalExamination.ItemList)">
+            <summary>
+            获取参数
+            </summary>
+            <param name="itemlist"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetItemList(System.String)">
+            <summary>
+            获取体检项目信息
+            </summary>
+            <param name="strSQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Register.GetChkItemSql">
+            <summary>
+            获取体检项目sql
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.ReaderToObject(FS.HISFC.Models.PhysicalExamination.Management.ClassType@)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.Insert(FS.FrameWork.Models.NeuObject)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.Update(FS.FrameWork.Models.NeuObject)”忽略有格式错误的 XML 注释 -->
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">类别类数组</param>
+            <param name="whereCondition">SQL语句的Where条件</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">类别类</param>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.ClassType.ReturnArray(System.Collections.ArrayList@)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper.ReaderToObject(FS.HISFC.Models.PhysicalExamination.HealthArchieve.HealthArchieve@)">
+            <summary>
+            转换Reader为对象
+            </summary>
+            <param name="archieve">体检科室与人员类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入表
+            </summary>
+            <param name="record">体检科室与人员的关系类</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新表
+            </summary>
+            <param name="record">体检科室与人员的关系类</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">体检科室与人员的关系类数组</param>
+            <param name="whereCondition">SQL语句Where条件</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptOper.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">体检科室与人员的关系类</param>
+        </member>
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.Query”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.ReaderToObject(FS.HISFC.Models.PhysicalExamination.Management.Query@)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.Insert(FS.FrameWork.Models.NeuObject)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.Update(FS.FrameWork.Models.NeuObject)”忽略有格式错误的 XML 注释 -->
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">检索码类数组</param>
+            <param name="whereCondition">SQL语句的Where条件</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">体检业务类</param>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.PhysicalExamination.Table.Query.ReturnArray(System.Collections.ArrayList@)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.Business”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.ReaderToObject(FS.HISFC.Models.PhysicalExamination.Management.Business@)">
+            <summary>
+            转换Reader为对象
+            </summary>
+            <param name="business">健康档案类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入表
+            </summary>
+            <param name="record">体检业务类</param>
+            <returns>1-成功、-1-失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新表
+            <param name="record">体检业务类</param>
+            <returns>1-成功、-1-失败</returns>
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">体检业务类数组</param>
+            <param name="whereCondition">SQL语句的Where条件</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">体检业务类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Business.ReturnArray(System.Collections.ArrayList@)">
+            <summary>
+            形成体检业务类数组
+            </summary>
+            <param name="recordList">体检业务类数组</param>
+        </member>
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.ReaderToObject(FS.HISFC.Models.PhysicalExamination.HealthArchieve.HealthArchieve@)">
+            <summary>
+            转换Reader为对象
+            </summary>
+            <param name="archieve">健康档案类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入表
+            </summary>
+            <param name="record">健康档案类</param>
+            <returns>1－成功、0－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新表
+            </summary>
+            <param name="record">健康档案类</param>
+            <returns>1－成功、0－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">返回的健康档案类数组</param>
+            <param name="whereCondition">SQL语句的Where条件</param>
+            <returns>1－成功、0－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">健康档案类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Archieve.ReturnArray(System.Collections.ArrayList@)">
+            <summary>
+            形成返回的健康档案类数组
+            </summary>
+            <param name="recordList">健康档案类数组</param>
+        </member>
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.ReaderToObject(FS.HISFC.Models.PhysicalExamination.Confirm.Confirm@)">
+            <summary>
+            转换Reader为对象
+            </summary>
+            <param name="confirm">体检执行类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入表
+            </summary>
+            <param name="record">体检执行类</param>
+            <returns>1－成功、0－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新表
+            </summary>
+            <param name="record">体检执行类</param>
+            <returns>1－成功、0－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">返回的体检执行类数组</param>
+            <param name="whereCondition">SQL语句的Where条件</param>
+            <returns>1－成功、0－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">体检执行类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Confirm.ReturnArray(System.Collections.ArrayList@)">
+            <summary>
+            形成返回的体检执行类数组
+            </summary>
+            <param name="recordList">体检执行类数组</param>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Base.EnumDML">
+            <summary>
+             DML枚举
+             </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Base.EnumDML.Insert">
+            <summary>
+            插入记录
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Base.EnumDML.Update">
+            <summary>
+            更新记录
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Group">
+            <summary>
+            Group<br></br>
+            [功能描述: 体检组套管理类]<br></br>
+            [创 建 者: 张俊义]<br></br>
+            [创建时间: 2007-03-2]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.GetGroupSql">
+            <summary>
+            获取主 SQL语句 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.GetParam(FS.HISFC.Models.PhysicalExamination.Group)">
+            <summary>
+            组套参数
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.QueryGroup(System.String)">
+            <summary>
+            根据ＳＱＬ查询数据
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.QueryAllGroups">
+            <summary>
+            获取所有组套
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.GetGroupByGroupID(System.String)">
+            <summary>
+            根据组套ID获取组套信息
+            </summary>
+            <param name="GroupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.InsertGroup(FS.HISFC.Models.PhysicalExamination.Group)">
+            <summary>
+            插入一条记录
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.UpdateGroup(FS.HISFC.Models.PhysicalExamination.Group)">
+            <summary>
+            修改一条记录
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.DeleteGroup(FS.HISFC.Models.PhysicalExamination.Group)">
+            <summary>
+            删除一条记录
+            </summary>
+            <param name="com"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.DelGroupDetails(System.String)">
+            <summary>
+            删除组套所有明细
+            </summary>
+            <param name="groupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.QueryValidGroupList(System.String)">
+            <summary>
+            按科室获取所有有效组套
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.QueryAllGroupListByDeptID(System.String)">
+            <summary>
+            按科室获取所有组套
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Group.GetGroupID">
+            <summary>
+            得到新的ID
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.ReaderToObject(FS.HISFC.Models.PhysicalExamination.Collective.Collective@)">
+            <summary>
+            转换Reader为对象
+            </summary>
+            <param name="collective">集体类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入表
+            </summary>
+            <param name="record">集体类</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新表
+            </summary>
+            <param name="record">集体类</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">集体类数组</param>
+            <param name="whereCondition">SQL语句的Where条件</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">集体类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.ReturnArray(System.Collections.ArrayList@)">
+            <summary>
+            形成集体类数组
+            </summary>
+            <param name="recordList">集体类数组</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Collective.LoadAllCollective(System.Data.DataSet@,System.String)">
+            <summary>
+            获取所有集体
+            </summary>
+            <param name="dsCollective">体检集体数据集</param>
+            <param name="whereCondition">补充的查询条件语句</param>
+            <returns>1－成功；－1－失败</returns>
+        </member>
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.ReaderToObject(FS.HISFC.Models.PhysicalExamination.Management.Department@)">
+            <summary>
+            转换Reader为对象
+            </summary>
+            <param name="dept">体检科室类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入表
+            </summary>
+            <param name="record">体检科室类</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新表
+            </summary>
+            <param name="record">体检科室类</param>
+            <returns>1－成功、大于等于0成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">体检科室类数组</param>
+            <param name="whereCondition">SQL语句的Where条件</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">体检科室类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.Dept.ReturnArray(System.Collections.ArrayList@)">
+            <summary>
+            形成返回的体检科室类数组
+            </summary>
+            <param name="recordList">体检科室类数组</param>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Enum.ExamType.COMPANY">
+            <summary>
+            按公司编码查询
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Enum.ExamType.NAME">
+            <summary>
+            按姓名查询
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Enum.ExamType.CHKID">
+            <summary>
+            按健康档案号
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Enum.ExamType.CARDNO">
+            <summary>
+            按卡号查询
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Enum.ExamType.CLINICNO">
+            <summary>
+            体检流水号
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.OperateResult">
+            <summary>
+            操作结果类型
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.OperateResult.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.OperateResult.NoneRecord">
+            <summary>
+            成功，但是返回空记录
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.OperateResult.Failing">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.SuggestionRule">
+            <summary>
+            SuggestionRule<br></br>
+            [功能描述: 体检建议规则操作类]<br></br>
+            [创 建 者: 张俊义]<br></br>
+            [创建时间: 2007-06-11]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.Company">
+            <summary>
+            Company<br></br>
+            [功能描述: 体检单位类]<br></br>
+            [创 建 者: 张俊义]<br></br>
+            [创建时间: 2007-03-2]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.QueryCompany">
+            <summary>
+            查询所有的体检单位信息 返回动态数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.GetCompanyByID(System.String)">
+            <summary>
+            查询某个ID的体检单位信息
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.AddOrUpdate(FS.HISFC.Models.Pharmacy.Company)">
+            <summary>
+            增加或删除一行数据
+            </summary>
+            <param name="company"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.DeleteInfo(FS.HISFC.Models.Pharmacy.Company)">
+            <summary>
+            删除一行数据
+            </summary>
+            <param name="company"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.IsExistCompany(System.String)">
+            <summary>
+            是否
+            </summary>
+            <param name="ComCode"></param>
+            <returns>-1 出错 ，1 没有用过 2 用过</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.InsertInfo(FS.HISFC.Models.Pharmacy.Company)">
+            <summary>
+            增加一行数据
+            </summary>
+            <param name="company"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.myGetItem(System.String)">
+            <summary>
+            取单位信息数据列表，可能是一条或者多条
+            私有方法，在其他方法中调用
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>单位信息对象数组</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.UpdateInfo(FS.HISFC.Models.Pharmacy.Company)">
+            <summary>
+            修改一行数据
+            </summary>
+            <param name="company"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Company.myGetParmItem(FS.HISFC.Models.Pharmacy.Company)">
+            <summary>
+            获得update或者insert单位项目信息表的传入参数数组
+            </summary>
+            <param name="Item">单位项目信息实体</param>
+            <returns>字符串数组</returns>
+        </member>
+        <!-- 对于成员“T:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem”忽略有格式错误的 XML 注释 -->
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.SQL">
+            <summary>
+            使用的SQL语句
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.fields">
+            <summary>
+            字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.ClearFields">
+            <summary>
+            清空字段数组
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.ReaderToObject(FS.HISFC.Models.PhysicalExamination.Management.Relation.DeptItemRelation@)">
+            <summary>
+            转换Reader为对象
+            </summary>
+            <param name="relation">体检科室与体检项目的关系类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入表
+            </summary>
+            <param name="record">体检科室与项目的关系类</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新表
+            </summary>
+            <param name="record">体检科室与项目的关系类</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.Select(System.Collections.ArrayList@,System.String)">
+            <summary>
+            基本查询
+            </summary>
+            <param name="recordList">体检科室与项目的关系类数组</param>
+            <param name="whereCondition">SQL语句Where条件</param>
+            <returns>1－成功、－1－失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.FillFields(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            填充字段数组
+            </summary>
+            <param name="record">体检科室与项目的关系类</param>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.Table.DeptItem.ReturnArray(System.Collections.ArrayList@)">
+            <summary>
+            形成体检科室与项目的关系类数组
+            </summary>
+            <param name="recordList">体检科室与项目的关系类数组</param>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail">
+            <summary>
+            GroupDetail<br></br>
+            [功能描述: 体检组套管理类]<br></br>
+            [创 建 者: 张俊义]<br></br>
+            [创建时间: 2007-03-2]<br></br>
+            <修改记录 
+            	修改人='' 
+            	修改时间='yyyy-mm-dd' 
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail.QueryGroupTailByDeptID(System.String)">
+            <summary>
+            根据科室编码获取所有项目信息
+            </summary>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail.GetGroupID">
+            <summary>
+            得到新的ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail.QueryGroupTailByGroupID(System.String)">
+            <summary>
+            根据组套号获取组套明细
+            </summary>
+            <param name="GroupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail.InsertGroupTail(FS.HISFC.Models.PhysicalExamination.GroupDetail)">
+            <summary>
+            插入一条明细
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail.UpdateGroupTail(FS.HISFC.Models.PhysicalExamination.GroupDetail)">
+            <summary>
+            修改一条明细
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail.DeleteGroupTail(FS.HISFC.Models.PhysicalExamination.GroupDetail)">
+            <summary>
+            删除一条明细
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail.GetParam(FS.HISFC.Models.PhysicalExamination.GroupDetail)">
+            <summary>
+            获取参数
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.PhysicalExamination.GroupDetail.QueryGroupDetail(System.String)">
+            <summary>
+            根据ＳＱＬ获取组套明细　
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

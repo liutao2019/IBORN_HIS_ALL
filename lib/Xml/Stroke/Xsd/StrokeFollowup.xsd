@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StrokeFollowup"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <!--既往病史和危险因素-->
+  <xs:element name="StrokeFollowup">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        
+        <!--脑卒中-->
+        <xs:element name="sfStroke"  type="HaveNotNullT"/>
+        <xs:element name="sfStrokeStyle">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ss" type="LackOutT" minOccurs="0" maxOccurs="2"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="ssID">
+            <xs:selector xpath=".//mstns:ss"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="sfIschemicTimes" type="TimesT"/>
+        <xs:element name="sfIschemicFirst" type="xs:gYear" default="1000"/>
+        <xs:element name="sfIschemicLast" type="xs:gYear" default="1000"/>
+        <xs:element name="sfHemorrhagicTimes" type="TimesT"/>
+        <xs:element name="sfHemorrhagicFir" type="xs:gYear" default="1000"/>
+        <xs:element name="sfHemorrhagicLast" type="xs:gYear" default="1000"/>
+        
+        <!--TIA-->
+        <xs:element name="sfTIA" type="HaveNotNullT"/>
+        <xs:element name="sfTIATimes" type="TIATimesT"/>
+        <xs:element name="sfTIAFir" type="xs:gYear" default="1000"/>
+        <xs:element name="sfTIALast" type="xs:gYear" default="1000"/>
+        
+        <!--心脏病-->
+        <xs:element name="sfHeart" type="HaveNotNullT"/>
+        <xs:element name="sfHeartStyle">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hs" type="HeartDisease1T" minOccurs="0" maxOccurs="6"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="hsID">
+            <xs:selector xpath=".//mstns:hs"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        
+        <!--糖尿病-->
+        <xs:element name="sfGlycuresis" type="HaveNotNullT"/>
+        <xs:element name="sfGlyMHistory" type="xs:integer"/>
+        <xs:element name="sfGlyMTreat" type="EatNoNullT"/>
+        
+        <!--高血压-->
+        <xs:element name="sfHypertension" type="HaveNotNullT"/>
+        <xs:element name="sfHypMHistory" type="xs:integer"/>
+        <xs:element name="sfHypMTreat" type="EatNoNullT"/>
+        
+        <!--血脂异常-->
+        <xs:element name="sfDyslipidemia" type="HaveNotNullT"/>
+        <xs:element name="sfDysMHistory" type="xs:integer"/>
+        <xs:element name="sfDysMStyle">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dm" type="BloodFatStyleT" minOccurs="0" maxOccurs="4"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="dmID">
+            <xs:selector xpath=".//mstns:dm"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="sfDysMTreat" type="EatNoNullT"/>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HaveNotNullT">
+    <xs:restriction base="xs:int">
+      <!--1是 2否 9不详-->
+      <xs:pattern value="1|2|9"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="LackOutT">
+    <xs:restriction base="xs:string">
+      <!--1缺血性 2出血性-->
+      <xs:pattern value="1|2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TimesT">
+    <xs:restriction base="xs:int">
+      <!--1一次 2两次 3大于等于3次 -1未填-->
+      <xs:pattern value="1|2|3|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TIATimesT">
+    <xs:restriction base="xs:int">
+      <!--1一次 2两次 3大于等于3次 9不详 -1未填-->
+      <xs:pattern value="1|2|3|9|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HeartDisease1T">
+    <xs:restriction base="xs:string">
+      <!--01房颤 02冠心病 03瓣膜性心脏病 05先天性心脏病 06其他类型心脏病 99不详-->
+      <xs:pattern value="01|02|03|05|06|99"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="EatNoNullT">
+    <xs:restriction base="xs:int">
+      <!--1服 2未服 9不详 -1未填-->
+      <xs:pattern value="1|2|9|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="BloodFatStyleT">
+    <xs:restriction base="xs:string">
+      <!--01总胆固醇高 02甘油三脂高 03低密度脂蛋白胆固醇高 04高密度脂蛋白胆固醇高 99类型不详-->
+      <xs:pattern value="01|02|03|04|99"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

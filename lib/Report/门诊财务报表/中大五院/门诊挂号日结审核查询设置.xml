@@ -1,0 +1,364 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>false</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>false</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInvoiceInfoAll</Name><Sql>select decode(min(a.print_invoiceno),
+              max(a.print_invoiceno),
+              max(a.print_invoiceno),
+              min(a.print_invoiceno) || '~' || max(a.print_invoiceno)) max_invoiceno,
+       count(distinct print_invoiceno) valid_num,
+       sum(reg_cost + dia_cost + note_cost + other_cost) total_cost,
+       sum(reg_cost) reg_cost,
+       sum(dia_cost) dia_cost,    
+       sum(note_cost) note_cost,
+       sum(card_cost) card_cost,
+       sum(other_cost) other_cost,
+       '正常' memo
+  from (
+        
+        select bb.print_invoiceno print_invoiceno,
+                bb.tot_cost total_cost,
+                decode(bb.fee_type, '3', bb.tot_cost, 0) reg_cost,
+                decode(bb.fee_type, '4', bb.tot_cost, 0) dia_cost,
+                decode(bb.fee_type, '1', bb.tot_cost, 0) card_cost,
+                decode(bb.fee_type, '2', bb.tot_cost, 0) note_cost,
+                decode(bb.fee_type, '5', bb.tot_cost, 0) +
+                decode(bb.fee_type, '6', bb.tot_cost, 0) other_cost
+          from fin_opb_accountcardfee bb
+         where bb.oper_code = '&amp;CurrentOperID'
+           and not exists
+               (select d.code from com_dictionary d where d.type = 'atmcode' and d.code=bb.fee_oper)
+           and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and bb.TRANS_TYPE = '1'
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or
+               bb.balance_no = '&amp;balanceNO')) a,
+       (select min(t.print_invoiceno) start_no,
+               max(t.print_invoiceno) end_no
+          from (select aa.*,
+                       fun_get_addnumber(aa.print_invoiceno, -rownum) kk
+                  from (
+                        
+                        select a.print_invoiceno, a.oper_code
+                          from fin_opb_accountcardfee a
+                         where nvl(a.print_invoiceno, ' ') &lt;&gt; ' '
+                           and a.oper_code = '&amp;CurrentOperID'
+                           and not exists
+                               (select d.code from com_dictionary d where d.type = 'atmcode' and d.code=a.fee_oper)
+                           and a.oper_date &gt;=
+                               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+                           and a.oper_date &lt;=
+                               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+                           and ((a.balance_flag = '0' or a.balance_flag is null) or
+                                a.balance_no = '&amp;balanceNO')
+                           and a.trans_type = '1'
+                           --and a.fee_type &lt;&gt; '1'
+                         group by a.print_invoiceno, a.oper_code
+                         order by print_invoiceno
+                        
+                        ) aa) t
+         group by t.oper_code, t.kk
+         order by min(t.print_invoiceno) ASC) b
+ where a.print_invoiceno &gt;= b.start_no
+   and a.print_invoiceno &lt;= b.end_no
+ group by b.start_no, b.end_no
+union all
+select
+--a.print_invoiceno,
+ '',
+ count(distinct print_invoiceno) valid_num,
+ sum(total_cost) total_cost,
+ sum(reg_cost) reg_cost,
+ sum(dia_cost) dia_cost,
+ sum(note_cost) note_cost,
+ sum(card_cost) card_cost,
+  sum(other_cost) other_cost,
+ memo
+  from (
+        
+        select bb.print_invoiceno print_invoiceno,
+                bb.tot_cost total_cost,
+                decode(bb.fee_type, '3', bb.tot_cost, 0) reg_cost,
+                decode(bb.fee_type, '4', bb.tot_cost, 0) dia_cost,
+                decode(bb.fee_type, '1', bb.tot_cost, 0) card_cost,
+                decode(bb.fee_type, '2', bb.tot_cost, 0) note_cost,
+                decode(bb.fee_type, '5', bb.tot_cost, 0) +
+                decode(bb.fee_type, '6', bb.tot_cost, 0) other_cost,
+                (case when bb.cancel_flag = '2' then '重打'
+                                  when bb.cancel_flag = '3' then '作废'
+                                  when bb.cancel_flag = '0' then '退费'
+                                    else '正常'
+                            end) memo
+          from fin_opb_accountcardfee bb
+         where bb.oper_code = '&amp;CurrentOperID'
+           and not exists
+               (select d.code from com_dictionary d where d.type = 'atmcode' and d.code=bb.fee_oper)
+           and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and bb.trans_type = '2'
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or
+               bb.balance_no = '&amp;balanceNO')) a
+ group by a.memo
+ 
+union all
+
+select '补卡工本费',
+       sum(valid_num) valid_num,
+       sum(reg_cost + dia_cost + note_cost + card_cost+other_cost) total_cost,
+       sum(reg_cost) reg_cost,
+       sum(dia_cost) dia_cost,
+       sum(note_cost) note_cost,
+       sum(card_cost) card_cost,
+       sum(other_cost) other_cost,
+       '正常' memo
+  from (
+        
+        select sum(decode(bb.trans_type, '1', 1, 0)) valid_num,
+                sum(bb.tot_cost) total_cost,
+                sum(decode(bb.fee_type, '3', bb.tot_cost, 0)) reg_cost,
+                sum(decode(bb.fee_type, '4', bb.tot_cost, 0)) dia_cost,
+                sum(decode(bb.fee_type, '1', bb.tot_cost, 0)) card_cost,
+                sum(decode(bb.fee_type, '2', bb.tot_cost, 0)) note_cost,
+                sum(decode(bb.fee_type, '5', bb.tot_cost, 0)) +
+                sum(decode(bb.fee_type, '6', bb.tot_cost, 0)) other_cost
+          from fin_opb_accountcardfee bb
+         where bb.oper_code = '&amp;CurrentOperID'
+           and not exists
+               (select d.code from com_dictionary d where d.type = 'atmcode' and d.code=bb.fee_oper)
+           and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or
+               bb.balance_no = '&amp;balanceNO')
+           --and nvl(bb.print_invoiceno, ' ') &lt;&gt; ' '
+           and bb.fee_type = '1'
+         
+         union all
+         select 0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+          from dual
+         ) a
+
+union all       
+
+select '合计',
+       sum(valid_num) valid_num,
+       sum(reg_cost + dia_cost + note_cost + card_cost+other_cost) total_cost,
+       sum(reg_cost) reg_cost,
+       sum(dia_cost) dia_cost,
+       sum(note_cost) note_cost,
+       sum(card_cost) card_cost,
+       sum(other_cost) other_cost,
+       '' memo
+  from (
+        
+        select decode(bb.trans_type, '1', 1, 0) valid_num,
+                sum(bb.tot_cost) total_cost,
+                sum(decode(bb.fee_type, '3', bb.tot_cost, 0)) reg_cost,
+                sum(decode(bb.fee_type, '4', bb.tot_cost, 0)) dia_cost,
+                sum(decode(bb.fee_type, '1', bb.tot_cost, 0)) card_cost,
+                sum(decode(bb.fee_type, '2', bb.tot_cost, 0)) note_cost,
+                sum(decode(bb.fee_type, '5', bb.tot_cost, 0)) +
+                sum(decode(bb.fee_type, '6', bb.tot_cost, 0)) other_cost
+          from fin_opb_accountcardfee bb
+         where bb.oper_code = '&amp;CurrentOperID'
+           and not exists
+               (select d.code from com_dictionary d where d.type = 'atmcode' and d.code=bb.fee_oper)
+           and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or
+               bb.balance_no = '&amp;balanceNO')
+           and nvl(bb.print_invoiceno, ' ') &lt;&gt; ' '
+           and bb.fee_type &lt;&gt; '1'
+         group by bb.print_invoiceno, bb.trans_type
+         
+         union all
+         
+         select sum(decode(bb.trans_type, '1', 1, 0)) valid_num,
+                sum(bb.tot_cost) total_cost,
+                sum(decode(bb.fee_type, '3', bb.tot_cost, 0)) reg_cost,
+                sum(decode(bb.fee_type, '4', bb.tot_cost, 0)) dia_cost,
+                sum(decode(bb.fee_type, '1', bb.tot_cost, 0)) card_cost,
+                sum(decode(bb.fee_type, '2', bb.tot_cost, 0)) note_cost,
+                sum(decode(bb.fee_type, '5', bb.tot_cost, 0)) +
+                sum(decode(bb.fee_type, '6', bb.tot_cost, 0)) other_cost
+          from fin_opb_accountcardfee bb
+         where bb.oper_code = '&amp;CurrentOperID'
+           and not exists
+               (select d.code from com_dictionary d where d.type = 'atmcode' and d.code=bb.fee_oper)
+           and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or
+               bb.balance_no = '&amp;balanceNO')
+           --and nvl(bb.print_invoiceno, ' ') &lt;&gt; ' '
+           and bb.fee_type = '1'
+         ) a</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInvoiceQuitTotal</Name><Sql>select count(distinct bb.invoice_no) valid_num
+    from 
+         fin_opb_accountcardfee bb
+         where bb.oper_code ='&amp;CurrentOperID'
+             and bb.TRANS_TYPE = '2'
+           and bb.cancel_flag = '0'
+           and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;=
+               to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or bb.balance_no='&amp;balanceNO')
+           and  nvl(bb.print_invoiceno,' ')&lt;&gt;' '</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInvoiceCancelTotal</Name><Sql>select count(distinct bb.invoice_no) valid_num
+    from 
+         fin_opb_accountcardfee bb
+         where bb.oper_code ='&amp;CurrentOperID'
+             and bb.TRANS_TYPE = '2'
+           and bb.cancel_flag in ('2','3')
+           and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;=
+               to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or bb.balance_no='&amp;balanceNO')
+            and nvl(bb.print_invoiceno,' ')&lt;&gt;' '</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtModelPay</Name><Sql>select F_upper_money(nvl(tot_cost, 0)), tot_cost
+  from (select sum(bb.tot_cost) as tot_cost
+          from fin_opb_accountcardfee bb
+         where bb.oper_code = '&amp;CurrentOperID'
+           --and (bb.fee_type = '3' or bb.fee_type = '4')
+           and not exists
+         (select d.code
+                  from com_dictionary d
+                 where d.type = 'atmcode'
+                   and d.code = bb.fee_oper)
+           and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or
+               bb.balance_no = '&amp;balanceNO'))</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSICost</Name><Sql>select sum(case when bb.pay_type = 'CA' then bb.tot_cost else 0 end) 现金,
+       sum(case when bb.pay_type = 'UP' then bb.tot_cost else 0 end) 银联,
+       sum(case when bb.pay_type = 'RC' then bb.tot_cost else 0 end) 优惠,
+       sum(case when bb.pay_type not in ('CA','UP','RC') then bb.tot_cost else 0 end) 现金,
+       sum(bb.tot_cost) 合计
+  from fin_opb_accountcardfee bb
+ where bb.oper_code = '&amp;CurrentOperID'
+   --and bb.clinic_no is not null
+   --and (bb.fee_type = '3' or bb.fee_type = '4')
+   and bb.oper_date &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   and bb.oper_date &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+   and not exists
+       (select d.code from com_dictionary d where d.type = 'atmcode' and d.code=bb.fee_oper)
+   and ((bb.balance_flag = '0' or bb.balance_flag is null) or
+       bb.balance_no = '&amp;balanceNO')</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtAccountInvoiceNO</Name><Sql>
+select wm_concat(decode(min(t.print_invoiceno),max(t.print_invoiceno),max(t.print_invoiceno), min(t.print_invoiceno)||'~'||max(t.print_invoiceno))) max_invoiceno
+from (
+select  aa.*,fun_get_addnumber(aa.print_invoiceno,-rownum) kk from  
+(
+
+       select  a.remark print_invoiceno, a.oper_code 
+       from fin_opb_accountrecord a 
+       where a.opertype='0'
+       and a.oper_code='&amp;CurrentOperID'
+       and a.oper_date &gt;=
+               to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and a.oper_date &lt;=
+               to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+       group by a.remark, a.oper_code 
+       order by remark 
+       
+) aa 
+) t
+group by t.oper_code,t.kk
+order by  min(t.print_invoiceno) ASC
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtAccountInvoiceCost</Name><Sql>
+select
+ sum(valid_cost),sum(unvalid_cost),sum(card_cost),sum(cash_cost+card_cost)
+from
+
+(select   sum(decode(a.opertype,'0',a.money,0)) valid_cost,
+               sum(decode(a.opertype,'10',a.money,'16',a.money,0)) unvalid_cost,
+               0 card_cost,
+               sum(decode(a.opertype,'0',a.money,'10',a.money,'16',a.money,0)) cash_cost
+       from fin_opb_accountrecord a 
+       where  a.oper_code='&amp;CurrentOperID'
+       and a.oper_date &gt;=
+               to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and a.oper_date &lt;=
+               to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+               union all
+select     
+           0,
+           0,          
+             sum(bb.tot_cost) ,
+             0
+    from 
+         fin_opb_accountcardfee bb
+         where 
+         bb.oper_code ='&amp;CurrentOperID'
+         and bb.clinic_no is null
+         and bb.fee_type='1'
+         and bb.oper_date &gt;=
+               to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and bb.oper_date &lt;=
+               to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+           and ((bb.balance_flag = '0' or bb.balance_flag is null) or bb.balance_no='&amp;balanceNO')  
+          )</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInvoiceQuitDetail</Name><Sql>select '          ' || wm_concat(print_invoiceno)
+  from (select *
+          from (select t.memo,
+                       t.print_invoiceno,
+                       ceil(row_number() over(partition by t.memo order by t.memo) / 5) groupnum
+                  from (select a.memo, a.print_invoiceno
+                          from (select distinct bb.print_invoiceno,
+                                                decode(bb.cancel_flag, '2', '重打', '3', '作废', '0', '退费') memo
+                                  from fin_opb_accountcardfee bb
+                                 where bb.oper_code = '&amp;CurrentOperID'
+                                   and not exists
+                                 (select d.code
+                                          from com_dictionary d
+                                         where d.type = 'atmcode'
+                                           and d.code = bb.fee_oper)
+                                   and bb.oper_date &gt;=
+                                       to_date('&amp;dtBeginTime',
+                                               'yyyy-mm-dd hh24:mi:ss')
+                                   and bb.oper_date &lt;=
+                                       to_date('&amp;dtEndTime',
+                                               'yyyy-mm-dd hh24:mi:ss')
+                                   and bb.trans_type = '2'
+                                   and ((bb.balance_flag = '0' or
+                                       bb.balance_flag is null) or
+                                       bb.balance_no = '&amp;balanceNO')
+                                 order by bb.print_invoiceno) a
+                         where a.memo is not null
+                         group by a.memo, a.print_invoiceno) t
+                union
+                select t.memo,
+                       t.memo || to_char(ceil(row_number() over(partition by t.memo order by t.memo) / 5)) print_invoiceno,
+                       ceil(row_number() over(partition by t.memo order by t.memo) / 5) groupnum
+                  from (select a.memo, a.print_invoiceno
+                          from (select distinct bb.print_invoiceno,
+                                                decode(bb.cancel_flag, '2', '重打', '3', '作废', '0', '退费') memo
+                                  from fin_opb_accountcardfee bb
+                                 where bb.oper_code = '&amp;CurrentOperID'
+                                   and not exists
+                                 (select d.code
+                                          from com_dictionary d
+                                         where d.type = 'atmcode'
+                                           and d.code = bb.fee_oper)
+                                   and bb.oper_date &gt;=
+                                       to_date('&amp;dtBeginTime',
+                                               'yyyy-mm-dd hh24:mi:ss')
+                                   and bb.oper_date &lt;=
+                                       to_date('&amp;dtEndTime',
+                                               'yyyy-mm-dd hh24:mi:ss')
+                                   and bb.trans_type = '2'
+                                   and ((bb.balance_flag = '0' or
+                                       bb.balance_flag is null) or
+                                       bb.balance_no = '&amp;balanceNO')
+                                 order by bb.print_invoiceno) a
+                         where a.memo is not null
+                         group by a.memo, a.print_invoiceno) t)
+         order by memo desc, groupnum, print_invoiceno desc)
+ group by groupnum, memo</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtBalanceOperName</Name><Sql>select  fun_get_employee_name( b.oper_code) name,
+       b.oper_date
+    from fin_opr_daybalance b
+ where b.balance_no = '&amp;balanceNO'</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\门诊财务报表\中大五院\门诊挂号日结审核查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

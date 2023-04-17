@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Setting 说明="根节点">
+  <nlbSpecialFlag>
+    <Text Value="是否高危" />
+  </nlbSpecialFlag>
+  <nlbSpecialFlag1>
+    <Text Value="廉价药" />
+  </nlbSpecialFlag1>
+  <nlbSpecialFlag2>
+    <Text Value="外用药" />
+  </nlbSpecialFlag2>
+  <nlbSpecialFlag3>
+    <Text Value="药品使用状态" />
+  </nlbSpecialFlag3>
+  <nlbSpecialFlag4>
+    <Text Value="药品分类" />
+  </nlbSpecialFlag4>
+  <ncmbSpecialFlag>
+    <DataType Value="Bool" />
+  </ncmbSpecialFlag>
+  <ncmbSpecialFlag1>
+    <DataType Value="Bool" />
+  </ncmbSpecialFlag1>
+  <ncmbSpecialFlag2>
+    <DataType Value="Bool" />
+  </ncmbSpecialFlag2>
+  <ncmbSpecialFlag3>
+    <DataType Value="Constant" />
+    <Items Value="SpecialMedicines" />
+  </ncmbSpecialFlag3>
+  <ncmbSpecialFlag4>
+     <DataType Value="Constant" />
+    <Items Value="PAYMENTLEVEL" />
+  </ncmbSpecialFlag4>
+  <ncmbExtend1>
+    <DataType Value="" />
+    <DropDownStyle Value="Simple" />
+  </ncmbExtend1>
+  <ncmbExtend2>
+    <DataType Value="Constant" />
+    <Items Value="BASEDRUGCODE" />
+  </ncmbExtend2>
+  <ncmbExtend3>
+    <DataType Value="Items" />
+    <Items Value="最小单位总量取整,包装单位总量取整,最小单位每次取整,包装单位每次取整,最小单位可拆分" />
+    <DropDownStyle Value="DropDownList" />
+    <Enabled Value="False" />
+  </ncmbExtend3>
+  <ncmbExtend4>
+    <DataType Value="Constant" />
+    <Items Value="ITEMPRICETYPE" />
+  </ncmbExtend4>
+  <nlbExtend1>
+    <Text Value="协定处方量" />
+  </nlbExtend1>
+  <nlbExtend2>
+    <Text Value="基药编码" />
+  </nlbExtend2>
+  <nlbExtend3>
+    <Text Value="长嘱拆分" />
+  </nlbExtend3>
+  <nlbExtend4>
+    <Text Value="病案分类" />
+  </nlbExtend4>
+  <nlbExtendNum1>
+    <Text Value="抗生素DDD值" />
+  </nlbExtendNum1>
+  <nlbExtendNum2>
+    <Text Value="数字扩展" />
+  </nlbExtendNum2>
+  <nlbRetailPrice2>
+    <Text Value="零 差 价" />
+  </nlbRetailPrice2>
+</Setting>

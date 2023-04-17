@@ -1,0 +1,41 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间(以羊穿的开单时间为查询条件)：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>400</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select b.patient_no 住院号,b.card_no 就诊卡号,b.name 姓名,fun_get_age_new1(b.birthday,b.in_date) 年龄,b.in_date 入院时间,b.out_date 出院时间,
+wm_concat(distinct f1.empl_name) 住院一助,wm_concat(distinct f2.empl_name) 住院二助,wm_concat(distinct f3.empl_name) 住院洗手护士,wm_concat(distinct f4.empl_name) 住院巡回护士 
+,wm_concat(distinct e1.empl_name) 住院主刀医生,wm_concat(distinct e2.empl_name) 住院麻醉医生,d.pre_date 住院手术开始时间,REPLACE(d.lasttime, '|', '') 住院拟持续时间 ,c.delivery_name 分娩方式,c.birthday 宝宝出生日期
+,wm_concat(distinct 一助) 门诊一助,wm_concat(distinct 二助) 门诊二助,wm_concat(distinct 洗手护士) 门诊洗手护士,wm_concat(distinct 巡回护士) 门诊巡回护士 
+,wm_concat(distinct 主刀医生) 门诊主刀医生,wm_concat(distinct 麻醉医生) 门诊麻醉医生,手术开始时间 门诊手术开始时间,REPLACE(拟持续时间, '|', '') 门诊拟持续时间
+from fin_ipr_inmaininfo b 
+inner join fin_ipr_babyinfo c on b.inpatient_no=c.mother_inpatient_no
+left join met_ops_apply d on b.inpatient_no=d.clinic_code
+left join met_ops_arrange f1 on d.operationno=f1.operationno and f1.role_code='Helper1'
+left join met_ops_arrange f2 on d.operationno=f2.operationno and f2.role_code='Helper2'
+left join met_ops_arrange f3 on d.operationno=f3.operationno and f3.role_code='WashingHandNurse1'
+left join met_ops_arrange f4 on d.operationno=f4.operationno and f4.role_code='ItinerantNurse1'
+left join com_employee e1 on e1.empl_code=d.ops_docd
+left join com_employee e2 on e2.empl_code=d.anes_docd
+left join (select a.card_no,e1.empl_name 主刀医生，e2.empl_name 麻醉医生
+,f1.empl_name 一助,f2.empl_name 二助,f3.empl_name 洗手护士,f4.empl_name 巡回护士
+,e.pre_date 手术开始时间,REPLACE(e.lasttime, '|', '') 拟持续时间
+from fin_opb_feedetail a 
+left join met_ops_apply e on a.clinic_code=e.clinic_code
+left join met_ops_arrange f1 on e.operationno=f1.operationno and f1.role_code='Helper1'
+left join met_ops_arrange f2 on e.operationno=f2.operationno and f2.role_code='Helper2'
+left join met_ops_arrange f3 on e.operationno=f3.operationno and f3.role_code='WashingHandNurse1'
+left join met_ops_arrange f4 on e.operationno=f4.operationno and f4.role_code='ItinerantNurse1'
+left join com_employee e1 on e1.empl_code=a.doct_code
+left join com_employee e2 on e2.empl_code=e.anes_docd
+where a.item_name like '%羊膜腔穿刺术%'
+and to_char(a.reg_date,'yyyy')='2018'
+and a.pay_flag=1 and a.cancel_flag=1
+and e.ynvalid=1) bb on b.card_no=bb.card_no
+where to_char(c.birthday,'yyyy')=to_char(to_date('&amp;dtEndTime','yyyy-mm-dd'),'yyyy')
+and b.baby_flag=1
+and c.cancel_flag=0
+and b.patient_no not like '%Y%'
+and b.card_no in (select a.card_no from fin_opb_feedetail a 
+where a.item_name like '%羊膜腔穿刺术%'
+and a.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+0.99
+and a.pay_flag=1 and a.cancel_flag=1)
+group by  b.patient_no ,b.card_no ,b.name ,b.in_date ,b.out_date ,
+d.pre_date ,REPLACE(d.lasttime, '|', '')  ,c.delivery_name ,c.birthday 
+,手术开始时间 ,REPLACE(拟持续时间, '|', '') ,fun_get_age_new1(b.birthday,b.in_date)
+order by b.in_date</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新医务报表\门诊羊穿病人资料信息查询设置.xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

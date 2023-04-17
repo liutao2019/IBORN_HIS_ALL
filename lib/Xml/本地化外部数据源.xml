@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LocalExternalData>
+	<Data>
+		<Name>姓名</Name>
+		<Value>PatientName</Value>
+		<Sql>select name from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>诊断</Name>
+		<Value>PatientDiag</Value>
+		<Sql>select diag_name from fin_ipr_inmaininfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>EMR主诊断</Name>
+		<Value>EMRPatientDiag</Value>
+		<Sql>select MAIN_DIAGNOSE from pt_inpatient_cure where INPATIENT_CODE= '{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>性别</Name>
+		<Value>PatientSex</Value>
+		<Sql>select sex_code from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第几次入院</Name>
+		<Value>PatientIntimes</Value>
+		<Sql>select IN_TIMES from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>籍贯</Name>
+		<Value>PatientDist</Value>
+		<Sql>select dist from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>出生地</Name>
+		<Value>PatientBIRTH_AREA</Value>
+		<Sql>select birth_area from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>户口地址邮编</Name>
+		<Value>PatientHOME_ZIP</Value>
+		<Sql>select HOME_ZIP from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>工作单位及地址邮编</Name>
+		<Value>PatientWORK_ZIP</Value>
+		<Sql>select WORK_ZIP from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>联系人关系</Name>
+		<Value>PatientRELA_CODE</Value>
+		<Sql>select RELA_CODE from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>付费方式</Name>
+		<Value>PatientPACK_CODE</Value>
+		<Sql>SELECT  decode(t.PACT_CODE,'1','7','5','1','7','3','9') as PACT_CODE from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>健康卡号</Name>
+		<Value>PatientKAHAO</Value>
+		<Sql>select CARD_NO from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>国籍</Name>
+		<Value>PatientGUOJI</Value>
+		<Sql>select nvl(t.COUN_CODE,'中国') AS COUN_CODE  from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>婚姻</Name>
+		<Value>PatientHUNYIN</Value>
+		<Sql>select nvl(decode(t.MARI,'W','3','S','1','2'),'1') AS MARI  from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>入院途径</Name>
+		<Value>PatientRUYUANTUJING</Value>
+		<Sql>select nvl(t.in_source,'2') as in_source  from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>病人来源</Name>
+		<Value>PatientLAIYUAN</Value>
+		<Sql>select nvl(t.in_avenue,'1') AS in_avenue  from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>是否手术</Name>
+		<Value>PatientISSHOUSHU</Value>
+		<Sql>SELECT decode(count(1),0,'2','1') AS ISShouShu FROM gghis.MET_OPS_RECORD WHERE YNVALID='1' AND CLINIC_CODE='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+        <Data>
+		<Name>手术类型</Name>
+		<Value>PatientLEIXING</Value>
+		<Sql>SELECT nvl(decode(ops_kind,'2','1','2'),'1') AS ops_kind FROM gghis.MET_OPS_RECORD WHERE  YNVALID='1' AND CLINIC_CODE='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>入院科室</Name>
+		<Value>PatientDEPT_INNM</Value>
+		<Sql>SELECT CASE WHEN (SELECT a.OLD_DATA_CODE FROM GGHIS.COM_SHIFTDATA a WHERE a.CLINIC_NO = '{0}' AND a.SHIFT_TYPE = 'B') IN ('3002')
+			THEN (SELECT * FROM (SELECT a.NEW_DATA_NAME FROM GGHIS.COM_SHIFTDATA a WHERE a.CLINIC_NO = '{0}'  AND a.SHIFT_TYPE = 'RI' ORDER BY a.OPER_DATE asc) WHERE  rownum = 1) 
+			ELSE (SELECT a.NEW_DATA_NAME FROM GGHIS.COM_SHIFTDATA a WHERE a.CLINIC_NO = '{0}'  AND a.SHIFT_TYPE = 'B') END DEPT FROM dual</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+
+	<Data>
+		<Name>出院科室</Name>
+		<Value>PatientDEPT_OUTNM</Value>
+		<Sql>SELECT a.OLD_DATA_NAME FROM GGHIS.COM_SHIFTDATA a WHERE a.CLINIC_NO = '{0}' AND a.SHIFT_TYPE = 'O' ORDER BY OPER_DATE DESC FETCH FIRST 1 ROWS only</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>联系人地址</Name>
+		<Value>PatientLINKMAN_ADD</Value>
+		<Sql>select LINKMAN_ADD from vhis_inpatientinfo t where t.INPATIENT_NO='{0}'</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>接诊时间</Name>
+		<Value>PatientOPERDATEe</Value>
+		<Sql>SELECT T.OPER_DATE AS OPERDATE FROM VHIS_SHIFTDATA t WHERE t.INPATIENT_NO = '{0}' AND t.SHIFT_TYPE = 'ADMISSION' FETCH FIRST 1 ROWS only</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>入院床号</Name>
+		<Value>PatientINBED_NO</Value>
+		<Sql>SELECT CASE WHEN (SELECT a.OLD_DATA_CODE FROM GGHIS.COM_SHIFTDATA a WHERE a.CLINIC_NO = '{0}' AND a.SHIFT_TYPE = 'K') IN ('9101')
+			THEN (SELECT * FROM (SELECT SUBSTR(a.NEW_DATA_CODE,5,length(a.NEW_DATA_CODE)-4) FROM GGHIS.COM_SHIFTDATA a WHERE a.CLINIC_NO = '{0}'  AND a.SHIFT_TYPE = 'RB' AND SUBSTR(a.NEW_DATA_CODE,1,4) !='9101'  ORDER BY a.OPER_DATE ASC) WHERE  rownum = 1) 
+			ELSE (SELECT  SUBSTR(a.NEW_DATA_CODE,5,length(a.NEW_DATA_CODE)-4) FROM GGHIS.COM_SHIFTDATA a WHERE a.CLINIC_NO = '{0}'  AND a.SHIFT_TYPE = 'K') END DEPT FROM dual</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>出院床号</Name>
+		<Value>PatientOUTBED_NO</Value>
+		<Sql>SELECT SUBSTR(a.BED_NO,5,length(a.BED_NO)-4) FROM GGHIS.FIN_IPR_INMAININFO a WHERE a.INPATIENT_NO = '{0}'
+             AND a.IN_STATE IN('B', 'O') ORDER BY OPER_DATE DESC FETCH FIRST 1 ROWS only</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第一次体温</Name>
+		<Value>PatientTEMPERATURE</Value>
+		<Sql>select * from 
+             (
+             SELECT  to_char(a.MEASURE_VALUE1) AS MEASURE_VALUE1 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='85'
+             ORDER BY a.MEASURE_TIME ASC
+             )
+             where rownum =1</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第一次脉搏</Name>
+		<Value>PatientMAIBO</Value>
+		<Sql>select * from 
+             (
+             SELECT to_char(a.MEASURE_VALUE1) AS MEASURE_VALUE1 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='86'
+             ORDER BY a.MEASURE_TIME ASC
+            )
+             where rownum =1</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第一次呼吸</Name>
+		<Value>PatientHUXI</Value>
+		<Sql>select * from 
+             (
+             SELECT to_char(a.MEASURE_VALUE1) AS MEASURE_VALUE1 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='87'
+             ORDER BY a.MEASURE_TIME ASC
+            )
+             where rownum =1</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第一次血压</Name>
+		<Value>PatientXUEYA</Value>
+		<Sql>select 
+(             select * from 
+             (
+             SELECT to_char(a.MEASURE_VALUE1) AS MEASURE_VALUE1 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='90'
+             ORDER BY a.MEASURE_TIME ASC
+            )
+             where rownum =1)
+||'/'||
+(             select * from 
+             (
+             SELECT to_char(a.measure_value2) AS MEASURE_VALUE2 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='90'
+             ORDER BY a.MEASURE_TIME ASC 
+            )
+             where rownum =1 ) as xueya
+ from dual</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第一次血压高</Name>
+		<Value>PatientXUEYAGAO</Value>
+		<Sql>SELECT to_char(a.MEASURE_VALUE1) AS MEASURE_VALUE1 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='90'
+             ORDER BY a.MEASURE_TIME ASC
+             FETCH FIRST 1 ROWS only</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第一次血压低</Name>
+		<Value>PatientXUEYADI</Value>
+		<Sql>SELECT to_char(a.MEASURE_VALUE2) AS MEASURE_VALUE2 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='90'
+             ORDER BY a.MEASURE_TIME ASC
+             FETCH FIRST 1 ROWS only</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第一次身高</Name>
+		<Value>PatientSHENGAO</Value>
+		<Sql>SELECT to_char(a.MEASURE_VALUE1) AS MEASURE_VALUE1 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='622'
+             ORDER BY a.MEASURE_TIME ASC
+             FETCH FIRST 1 ROWS only</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>第一次体重</Name>
+		<Value>PatientTIZHONG</Value>
+		<Sql>select * from 
+             (
+             SELECT to_char(a.MEASURE_VALUE1) AS MEASURE_VALUE1 FROM RCD_NURSE_RECORD_DATA a,PT_INPATIENT_CURE b
+             WHERE a.INPATIENT_ID = b.ID
+             AND b.INPATIENT_CODE = '{0}'
+             AND a.NURSE_ITEM_ID='1002'
+             ORDER BY a.MEASURE_TIME ASC
+            )
+             where rownum =1</Sql>
+		<Param>InpatientNo</Param>
+	</Data>
+	<Data>
+		<Name>门诊患者电话</Name>
+		<Value>PatientClinicTell</Value>
+		<Sql>select reg.RELA_PHONE
+  from emr.vhis_register reg
+  where reg.CLINIC_CODE = '{0}'</Sql>
+		<Param>ClinicCode</Param>
+	</Data>
+</LocalExternalData>

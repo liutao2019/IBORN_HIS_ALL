@@ -1,0 +1,59 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>txtname</Name><Text>卡号/姓名</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtcoupon</Name><Sql>select hh.card_no,hh.name,sum(hh.ss) ss,sum(hh.tc) tc,sum(hh.tcw) tcw
+from (
+select  ll.card_no,ll.name,
+case when ll.tc&lt;&gt;0 and ll.tcw&lt;&gt;0 then ll.tc+ll.tcw 
+        when ll.tc=0 and ll.tcw&lt;&gt;0 then ll.tcw
+          when ll.tc&lt;&gt;0 and ll.tcw=0 then ll.tc 
+            else 0 end ss
+,ll.tc,ll.tcw
+from (
+select 
+gg.card_no,gg.name,
+cast(sum(gg.tc) as number(38,2)) tc,
+cast(sum(case when gg.mzzsf&lt;&gt;0 and gg.tcss&lt;&gt;0 and gg.zytcw&lt;&gt;0 then gg.mzzsf-gg.tcss+gg.zytcw
+                      when gg.mzzsf&lt;&gt;0 and gg.tcss&lt;&gt;0 and gg.zytcw=0 then gg.mzzsf-gg.tcss
+                      when gg.mzzsf&lt;&gt;0 and gg.tcss=0 and gg.zytcw&lt;&gt;0 then gg.mzzsf+gg.zytcw  
+                      when gg.mzzsf&lt;&gt;0 and gg.tcss=0 and gg.zytcw=0 then gg.mzzsf
+                      when gg.mzzsf=0 and gg.tcss=0 and gg.zytcw&lt;&gt;0 then gg.zytcw
+                        else 0 end) as number(38,2)) tcw
+from (
+select dd.card_no,dd.name,dd.spell_code,dd.wb_code,dd.birthday,dd.home_tel,dd.idenno,
+sum(case when ((aa.unit_price/aa.pack_qty)*aa.qty) is null then 0 else  ((aa.unit_price/aa.pack_qty)*aa.qty) end) mzzsf,
+case when n is null then 0 else n end  tcss,
+case when m is null then 0 else m end  tc,
+case when o is null then 0 else o end  zytcw
+from com_patientinfo dd
+left join fin_opb_feedetail aa on aa.card_no=dd.card_no 
+left join (
+select b.card_no card_no,b.clinic_code clinic_code,sum(a.tot_cost) n from exp_packagecost a 
+inner join exp_packagedetail b on a.clinic_code=b.clinic_code and a.detailseq=b.sequence_no
+group by b.card_no,b.clinic_code )bb on aa.card_no=bb.card_no and aa.clinic_code=bb.clinic_code
+left join (select sum(c.real_cost) m,c.card_no from exp_package c  group by c.card_no)cc on dd.card_no=cc.card_no
+left join (select fi.card_no,sum(fb.own_cost) o
+from fin_ipr_inmaininfo fi
+inner join fin_ipb_balancehead fb on fi.inpatient_no=fb.inpatient_no
+where fb.package_flag=0  group by fi.card_no) ee on dd.card_no=ee.card_no
+group by dd.card_no,dd.name,dd.spell_code,dd.wb_code,dd.birthday,dd.home_tel,dd.idenno,case when n is null then 0 else n end ,case when m is null then 0 else m end,case when o is null then 0 else o end 
+)gg
+group by gg.card_no,gg.name,gg.birthday,gg.home_tel,gg.idenno
+)ll
+where (case when ll.tc&lt;&gt;0 and ll.tcw&lt;&gt;0 then ll.tc+ll.tcw 
+        when ll.tc=0 and ll.tcw&lt;&gt;0 then ll.tcw
+          when ll.tc&lt;&gt;0 and ll.tcw=0 then ll.tc 
+            else 0 end)&lt;&gt;0
+
+union all
+
+select  tl.card_no
+,tl.vaa05
+--,tl.vaa12,tl.vaa34,tl.vaa15
+,tl.ss,tl.tc,tl.tcw 
+from temp_oldcoupon tl
+where tl.ss&lt;&gt;0
+)hh
+where 
+hh.name like '%&amp;txtname%'  or hh.card_no like '%&amp;txtname%'  
+group by hh.card_no,hh.name
+order by ss
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\销售报表\新旧积分查询报表设置.xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!-- 操作日志 -->
+  <object id="OperationLogAdvice" type="FS.Dawn.Core.Aop.OperationLogAdvice, FS.Dawn.Core.Server" />
+  <object type="Spring.Aop.Framework.AutoProxy.ObjectNameAutoProxyCreator, Spring.Aop">
+    <property name="ProxyTargetType" value="true" />
+    <property name="ObjectNames">
+      <list>
+        <value>*Facade</value>
+        <value>*Service</value>
+        <value>*Dao</value>
+      </list>
+    </property>
+    <property name="InterceptorNames">
+      <list>
+        <value>OperationLogAdvice</value>
+      </list>
+    </property>
+  </object>
+  <!-- SQL输出 -->
+  <!--
+  <object id="SqlLogAdvice" type="FS.Dawn.Core.Aop.SqlLogAdvice, FS.Dawn.Core.Server">
+    <property name="KeyOutput" value="true" />
+    <property name="SqlOutput" value="true" />
+  </object>
+  <object type="Spring.Aop.Framework.AutoProxy.ObjectNameAutoProxyCreator, Spring.Aop">
+    <property name="ProxyTargetType" value="true" />
+    <property name="ObjectNames">
+      <list>
+        <value>*SqlMst</value>
+      </list>
+    </property>
+    <property name="InterceptorNames">
+      <list>
+        <value>SqlLogAdvice</value>
+      </list>
+    </property>
+  </object>
+  -->
+  <!-- 服务端缓存 -->
+  <object id="CacheAspect" type="Spring.Aspects.Cache.CacheAspect, Spring.Aop"/>
+  <object id="AspNetCache" type="Spring.Caching.AspNetCache, Spring.Web">
+    <property name="SlidingExpiration" value="true"/>
+    <property name="Priority" value="Low"/>
+    <property name="TimeToLive" value="00:20:00"/>
+  </object>
+  <object type="Spring.Aop.Framework.AutoProxy.ObjectNameAutoProxyCreator, Spring.Aop">
+    <property name="ProxyTargetType" value="true" />
+    <property name="ObjectNames">
+      <list>
+        <value>*Facade</value>
+      </list>
+    </property>
+    <property name="InterceptorNames">
+      <list>
+        <value>CacheAspect</value>
+      </list>
+    </property>
+  </object>
+  <!-- 异常处理 -->
+  <object id="BllExceptionAdvice" type="FS.Dawn.Core.Aop.BusinessExceptionAdvice, FS.Dawn.Core.Server" />
+  <object type="Spring.Aop.Framework.AutoProxy.ObjectNameAutoProxyCreator, Spring.Aop">
+    <property name="ProxyTargetType" value="true" />
+    <property name="ObjectNames">
+      <list>
+        <value>*Service</value>
+        <value>*Facade</value>
+      </list>
+    </property>
+    <property name="InterceptorNames">
+      <list>
+        <value>BllExceptionAdvice</value>
+      </list>
+    </property>
+  </object>
+</objects>

@@ -1,0 +1,104 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd HH:mm:ss</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd HH:mm:ss</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>250</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtDeptDetail</Name><Sql>select 执行科室名称,姓名,fun_get_short_patientno( 住院号) 住院号,床号,编号,开方科室,开方医生,项目编码, 项目名称,规格,数量,单价,金额,费用类别,收费日期
+from (
+select (select c.dept_name
+          from com_department c
+         where c.dept_code = i.execute_deptcode
+       ) 执行科室名称,
+       (select cd.dept_name
+          from com_department cd
+         where i.recipe_deptcode = cd.dept_code
+       ) 开方科室,
+       (select empl_name
+          from com_employee
+         where empl_code = i.recipe_doccode
+       ) 开方医生,
+       (select ii.patient_no from fin_ipr_inmaininfo ii where i.inpatient_no=ii.inpatient_no) 住院号,
+       (select ii.name from fin_ipr_inmaininfo ii where i.inpatient_no=ii.inpatient_no) 姓名,
+       (select replace(ii.bed_no,ii.nurse_cell_code,'') from fin_ipr_inmaininfo ii where i.inpatient_no=ii.inpatient_no) 床号,
+       (select    min(mt.exec_device)   from met_tec_inpatientconfirm mt where mt.inpatient_no = i.inpatient_no
+       and mt.exec_device is not null
+       and mt.confirm_department =  '&amp;CurrentDeptID'
+       and length(mt.exec_device)&gt;7
+       and rownum=1
+       group by mt.inpatient_no 
+       )编号,
+       to_char(i.fee_date,'yyyy-mm-dd hh24:mi:ss') 收费日期,
+       (select u.input_code from fin_com_undruginfo u where u.item_code = i.item_code)项目编码,
+       i.item_name 项目名称,
+       i.current_unit  规格,
+       i.unit_price 单价,
+       sum(i.qty)数量,
+       (select d.name
+          from fin_com_feecodestat c, com_dictionary d
+         where c.report_code = 'MZCW'
+           and d.type = 'MINFEE'
+           and c.fee_code = d.code
+           and c.valid_state = '1'
+           and decode(i.fee_code,'056','016','057','016','058','005',i.fee_code) = d.code
+       ) 费用类别,
+       sum(i.tot_cost) 金额 
+  from fin_ipb_itemlist i
+ where i.fee_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and i.fee_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   --and i.inpatient_no = '&amp;住院流水号' 
+   and (i.execute_deptcode = '&amp;CurrentDeptID'
+       or
+       i.execute_deptcode in (select ds.dept_code
+                         from com_deptstat ds
+                        where ds.pardep_code in (select d.dept_code from com_department d where (d.dept_type = 'T' or d.dept_type = 'OP'))
+                          and ds.pardep_code = '&amp;CurrentDeptID')
+       )
+ 
+ 
+ group by i.inpatient_no,i.execute_deptcode,i.recipe_deptcode,i.recipe_doccode,i.fee_code,i.item_code,i.item_name,i.current_unit,i.unit_price ,i.fee_date
+having sum(i.tot_cost)&lt;&gt;0
+ 
+union all
+
+select (select c.dept_name
+          from com_department c
+         where c.dept_code = m.feeoper_deptcode
+       ) 执行科室名称,
+       (select cd.dept_name
+          from com_department cd
+         where m.recipe_deptcode = cd.dept_code
+       ) 开方科室,
+       (select empl_name
+          from com_employee
+         where empl_code = m.recipe_doccode
+       ) 开方医生,
+       (select ii.patient_no from fin_ipr_inmaininfo ii where m.inpatient_no=ii.inpatient_no) 住院号,
+       (select ii.name from fin_ipr_inmaininfo ii where m.inpatient_no=ii.inpatient_no) 姓名,
+       (select replace(ii.bed_no,ii.nurse_cell_code,'') from fin_ipr_inmaininfo ii where m.inpatient_no=ii.inpatient_no) 床号,
+       '' 编号,
+       to_char(m.fee_date,'yyyy-mm-dd hh24:mi:ss') 收费日期,
+       (select b.custom_code from pha_com_baseinfo b where b.drug_code = m.drug_code)项目编码,
+       m.drug_name 项目名称,
+       m.specs 规格,
+       m.unit_price 单价,
+       sum(m.qty)数量,
+       (select d.name
+          from fin_com_feecodestat c, com_dictionary d
+         where c.report_code = 'MZCW'
+           and d.type = 'MINFEE'
+           and c.fee_code = d.code
+           and c.valid_state = '1'
+           and decode(m.fee_code,'056','016','057','016','058','005',m.fee_code) = d.code
+       ) 费用类别,
+       sum(m.tot_cost) 金额 
+  from fin_ipb_medicinelist m
+ where m.fee_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and m.fee_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   --and  m.inpatient_no = '&amp;住院流水号'
+   and (m.feeoper_deptcode = '&amp;CurrentDeptID'
+       or
+       m.feeoper_deptcode in (select ds.dept_code
+                         from com_deptstat ds
+                        where ds.pardep_code in (select d.dept_code from com_department d where (d.dept_type = 'T' or d.dept_type = 'OP'))
+                          and ds.pardep_code = '&amp;CurrentDeptID')
+       )
+ 
+ group by m.inpatient_no,m.feeoper_deptcode,m.recipe_deptcode,m.recipe_doccode,m.fee_code,m.drug_code,m.drug_name, m.specs ,m.unit_price,m.fee_date
+having sum(m.tot_cost)&lt;&gt;0
+ order by 执行科室名称,姓名,开方科室,开方医生,费用类别,收费日期
+)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院\住院医技\医技科室收入报表查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,43 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbHospital</Name><Text>院    区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select code,name,' ', spell_code,wb_code,mark from com_dictionary  where type = 'HOSPITALLIST'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dataSource</Name><Sql>--门诊患者处方点评表
+SELECT
+    RD.RECIPE_NO 处方号,
+    TO_CHAR(RD.OPER_DATE, 'YYYY-MM-DD') 处方日期,
+    PA.NAME 姓名,
+    CASE WHEN MONTHS_BETWEEN(SYSDATE, PA.BIRTHDAY) &lt; 12 
+        THEN
+            (CASE WHEN MONTHS_BETWEEN(SYSDATE, PA.BIRTHDAY) &lt; 1
+                THEN TO_CHAR(TRUNC(SYSDATE - PA.BIRTHDAY))||'天'
+                ELSE TO_CHAR(TRUNC(MONTHS_BETWEEN(SYSDATE, PA.BIRTHDAY)))||'个月' END)
+        ELSE TO_CHAR(TRUNC(MONTHS_BETWEEN(SYSDATE, PA.BIRTHDAY)/12))||'岁' END 年龄,
+    (SELECT DISTINCT wm_concat(DG.DIAG_NAME)
+        FROM MET_CAS_DIAGNOSE DG
+        WHERE DG.INPATIENT_NO = RD.CLINIC_CODE) 诊断,
+    RD.ITEM_NAME 使用药品,
+   rd.specs 规格,
+    RD.OWN_COST 金额,
+    (SELECT SUM(R.OWN_COST)
+        FROM MET_ORD_RECIPEDETAIL R
+        WHERE R.RECIPE_NO = RD.RECIPE_NO
+        GROUP BY R.RECIPE_NO) 处方总金额,
+    (SELECT DISTINCT DG.DOCT_NAME
+        FROM MET_CAS_DIAGNOSE DG
+        WHERE DG.INPATIENT_NO = RD.CLINIC_CODE AND ROWNUM = 1) 处方医师,
+    RD.USAGE_NAME 用法,
+    CASE RD.ONCE_DOSE WHEN 0
+        THEN ''
+        ELSE DECODE(SUBSTR(TO_CHAR(RD.ONCE_DOSE), 1, 1), '.', '0', '') || to_char(RD.ONCE_DOSE)|| TO_CHAR(RD.ONCE_UNIT) END 用量,
+    RD.FREQUENCY_NAME 频次
+FROM MET_ORD_RECIPEDETAIL RD       --门诊处方明细表
+        LEFT JOIN COM_PATIENTINFO PA ON PA.CARD_NO = RD.CARD_NO
+WHERE RD.OPER_DATE BETWEEN TO_DATE('&amp;dtBeginTime', 'yyyy-MM-dd HH24:mi:ss') AND TO_DATE('&amp;dtEndTime', 'yyyy-MM-dd HH24:mi:ss')+1  --RD.RECIPE_NO = '3106539'
+    AND RD.ITEM_CODE IN(SELECT BA.DRUG_CODE FROM PHA_COM_BASEINFO BA)
+    AND ((
+        SELECT a.hospital_id FROM com_department a
+        WHERE a.dept_code = (SELECT b.dept_code FROM fin_opr_register b WHERE b.clinic_code = RD.CLINIC_CODE
+    )) = '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+ORDER BY RD.OPER_DATE DESC
+
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\药房\门诊患者处方点评表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

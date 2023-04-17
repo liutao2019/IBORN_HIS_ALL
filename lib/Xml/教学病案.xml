@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!-- 报卡编码可以在编码维护中看到 -->
+<Root>
+	<BaseFormBackImage url="/image/教学病案.jpg"/>
+	<Discribe>
+		<Format>主诉: {0}; 现病史: {1}</Format>
+		<Item ElementId="357"/>
+		<Item ElementId="757"/>
+	</Discribe>
+	<NotUpdateSource>
+		<ExternelCode>inpatientHomeTel</ExternelCode>
+		<ExternelCode>inpatientPatientNo</ExternelCode>
+                <ExternelCode>inpatientAge</ExternelCode>
+                <ExternelCode>inpatientSex</ExternelCode>
+                <ExternelCode>inpatientName</ExternelCode>
+                <ExternelCode>inpatientDist</ExternelCode>
+                <ElementId>355</ElementId>
+                <ElementId>42</ElementId>
+                <ControlId>20120529090241</ControlId>
+                <ControlId>20120529090302</ControlId>
+                <ControlId>20120529090253</ControlId>
+                <ControlId>20120529090311</ControlId>
+                <ExternelCode>inpatientHome</ExternelCode>
+
+		<SectionId>InternSignSection</SectionId>
+		<SectionId>DireDoctorSign</SectionId>
+		<SectionId>CharDoctorSign</SectionId>
+		<SectionId>ResDoctorSign</SectionId>
+		<SectionId>InternSignSection</SectionId>
+		<SectionId>DeDireDoctorSign</SectionId>
+		<SectionId>AllDoctorSign</SectionId>
+		<SectionId>AllDoctorSignHorizontal</SectionId>
+		<SectionId>NurseSign</SectionId>
+
+	</NotUpdateSource>
+	<IpConfig logName="test" passWord="test">
+		<VideoPath>ftp://192.168.145.73/Video</VideoPath>
+		<AttachmentPath>ftp://192.168.145.73/Attachment</AttachmentPath>
+	</IpConfig>
+	<DbCon id="DbProvider" provider="OracleODP-2.0" DataSource="197.228" UserId="EMR_kfc" Password="emr"/>
+</Root>

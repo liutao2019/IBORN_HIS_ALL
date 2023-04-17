@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:wcf="http://www.springframework.net/wcf" default-lazy-init="true">
+  <object id="ProxyFactory" type="FS.Dawn.Core.Common.ClientChannelFactory, FS.Dawn.Core.Client">
+    <property name="BaseAddress" value="net.tcp://localhost:10023/" />
+    <property name="DnsIdentity" value="WCFServer" />
+    <property name="DefaultBinding" value="DawnNetTcpBinding" />
+    <property name="SecurityBinding" value="DawnSecurityNetTcpBinding" />
+    <property name="NonSecurityKey" value="CommonService;UserService;AutoUpdateService;UserCheckerService;UserSvcFacade;LicService;" />
+  </object>
+  <object type="FS.Dawn.AutoUpdate.IBll.Service.IAutoUpdateService, FS.Dawn.AutoUpdate.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.AutoUpdate.IBll.Service.IAutoUpdateService&gt;" />
+  <object type="FS.Dawn.CodeMng.Bll.Facade.ICodeMngSvcFacade, FS.Dawn.CodeMng.Bll.Facade" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.CodeMng.Bll.Facade.ICodeMngSvcFacade&gt;" />
+  <object type="FS.Dawn.CodeMng.IBll.Service.ICodeMngService, FS.Dawn.CodeMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.CodeMng.IBll.Service.ICodeMngService&gt;" />
+  <object type="FS.Dawn.ControlParamMng.Bll.Facade.IControlParamMngSvcFacade, FS.Dawn.ControlParamMng.Bll.Facade" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.ControlParamMng.Bll.Facade.IControlParamMngSvcFacade&gt;" />
+  <object type="FS.Dawn.ControlParamMng.IBll.Service.IControlParamMngService, FS.Dawn.ControlParamMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.ControlParamMng.IBll.Service.IControlParamMngService&gt;" />
+  <object type="FS.Dawn.I18N.IBll.Service.II18NService, FS.Dawn.I18N.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.I18N.IBll.Service.II18NService&gt;" />
+  <object type="FS.Dawn.License.IBll.Service.ILicService, FS.Dawn.License.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.License.IBll.Service.ILicService&gt;" />
+  <object type="FS.Dawn.NumGen.Bll.Facade.INumGenSvcFacade, FS.Dawn.NumGen.Bll.Facade" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.NumGen.Bll.Facade.INumGenSvcFacade&gt;" />
+  <object type="FS.Dawn.NumGen.IBll.Service.INumGenService, FS.Dawn.NumGen.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.NumGen.IBll.Service.INumGenService&gt;" />
+  <object type="FS.Dawn.OrganizationMng.IBll.Service.IOrganizationMngService, FS.Dawn.OrganizationMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.OrganizationMng.IBll.Service.IOrganizationMngService&gt;" />
+  <object type="FS.Dawn.PermissionMng.IBll.Service.IRoleService, FS.Dawn.PermissionMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.PermissionMng.IBll.Service.IRoleService&gt;" />
+  <object type="FS.Dawn.PermissionMng.IBll.Service.IPrivilegeService, FS.Dawn.PermissionMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.PermissionMng.IBll.Service.IPrivilegeService&gt;" />
+  <object type="FS.Dawn.PermissionMng.IBll.Service.IQueryService, FS.Dawn.PermissionMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.PermissionMng.IBll.Service.IQueryService&gt;" />
+  <object type="FS.Dawn.PermissionMng.IBll.Service.IPrivilegeCategoryService, FS.Dawn.PermissionMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.PermissionMng.IBll.Service.IPrivilegeCategoryService&gt;" />
+  <object type="FS.Dawn.PermissionMng.IBll.Service.IDeptStructService, FS.Dawn.PermissionMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.PermissionMng.IBll.Service.IDeptStructService&gt;" />
+  <object type="FS.Dawn.PermissionMng.IBll.Service.IUserService, FS.Dawn.PermissionMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.PermissionMng.IBll.Service.IUserService&gt;" />
+  <object type="FS.Dawn.PermissionMng.IBll.Service.IPrivilegeMeaningService, FS.Dawn.PermissionMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.PermissionMng.IBll.Service.IPrivilegeMeaningService&gt;" />
+  <object type="FS.Dawn.PermissionMng.IBll.Service.IResourceService, FS.Dawn.PermissionMng.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.PermissionMng.IBll.Service.IResourceService&gt;" />
+  <object type="FS.Dawn.Scheduling.Bll.Facade.ISchedulingSvcFacade, FS.Dawn.Scheduling.Bll.Facade" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.Scheduling.Bll.Facade.ISchedulingSvcFacade&gt;" />
+  <object type="FS.Dawn.Scheduling.IBll.Service.ISchedService, FS.Dawn.Scheduling.IBll" factory-object="ProxyFactory" factory-method="CreateChannel&lt;FS.Dawn.Scheduling.IBll.Service.ISchedService&gt;" />
+</objects>

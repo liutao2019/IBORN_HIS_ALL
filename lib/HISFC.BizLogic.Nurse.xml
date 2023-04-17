@@ -1,0 +1,1230 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.BizLogic.Nurse</name>
+    </assembly>
+    <members>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.Query(System.String)">
+            <summary>
+            根据诊室号码获取诊台
+            </summary>
+            <param name="roomNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.QueryValid(System.String)">
+            <summary>
+            根据诊室号码获取有效诊台
+            </summary>
+            <param name="roomNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.Insert(FS.HISFC.Models.Nurse.Seat)">
+            <summary>
+            插入一条新的诊台信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.Update(FS.HISFC.Models.Nurse.Seat)">
+            <summary>
+            更新
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.DeleteByConsole(System.String)">
+            <summary>
+            根据诊台号码删除
+            </summary>
+            <param name="strId"></param> 
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.DeleteByRoom(System.String)">
+            <summary>
+            根据诊室号码删除若干信息
+            </summary>
+            <param name="roomCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.QueryConsole(System.String,System.String)">
+            <summary>
+            查询要删除的诊台是否被队列维护
+            </summary>
+            <param name="roomID">诊台</param>
+            <param name="strDate">系统时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.QuerySeatByConsoleID(System.String)">
+            <summary>
+            查询met_nuo_assignrecord中是否有符合条件的诊台是否在用
+            </summary>
+            <param name="roomID">诊台代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.GetSqlInjectInfo">
+            <summary>
+            获取基本SQL语句
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Seat.myGetInfo(System.String)">
+            <summary>
+            根据SQL,获取实体数组
+            </summary>
+            <param name="SQLString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.Inject">
+            <summary>
+            门诊护士注射管理类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.Query(System.String,System.DateTime)">
+            <summary>
+            根据时间，病例号查询当天未注射信息
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.QueryAll(System.String,System.DateTime)">
+            <summary>
+            根据时间，病例号查询当天所有注射信息（未注射，已注射）
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.QueryByOrder(System.String,System.DateTime)">
+            <summary>
+            根据时间，病例号查询当天所有注射信息（未注射，已注射）
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.Query(System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            根据时间，病例号,处方号，处方顺序号查询当天已经登记信息
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.Insert(FS.HISFC.Models.Nurse.Inject)">
+            <summary>
+            生成注射分解信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.Delete(System.String)">
+            <summary>
+            根据流水号取消（删除）一次登记信息
+            </summary>
+            <param name="strId"></param> 
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.UpdateReg(FS.HISFC.Models.Nurse.Inject)">
+            <summary>
+            更新登记信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.UpdateMix(FS.HISFC.Models.Nurse.Inject)">
+            <summary>
+            更新配药信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.UpdateInject(FS.HISFC.Models.Nurse.Inject)">
+            <summary>
+            更新注射信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.UpdateStop(FS.HISFC.Models.Nurse.Inject)">
+            <summary>
+            更新拔针信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.QueryLast">
+            <summary>
+            查询最后一次注射信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.QueryInjectOrder(System.String)">
+            <summary>
+            查询当天该注射号的注射信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.QueryLast(System.String)">
+            <summary>
+            查询最后一次注射信息
+            </summary>
+            <param name="code">使用方法编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.QueryNeedDosageInjectRecord(System.DateTime)">
+            <summary>
+            查询需要配药的记录
+            {03E7916F-5AA8-4e95-BBE2-61EB6FDEB96C}
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.QueryLastByPatient(System.String)">
+            <summary>
+            查询该患者最后一次注射信息
+            {03E7916F-5AA8-4e95-BBE2-61EB6FDEB96C}
+            </summary>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.QueryRePrintInjectRecord(System.String)">
+            <summary>
+            查询注射登记记录，用于补打
+            {EB016FFE-0980-479c-879E-225462ECA6D0}
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.GetSqlInjectInfo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Inject.myGetInfo(System.String)">
+            <summary>
+            根据SQL,获取实体数组
+            </summary>
+            <param name="SQLString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.Work">
+            <summary>
+            排班管理类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Work.Insert(FS.HISFC.Models.Nurse.Work)">
+            <summary>
+            增加一条排班记录
+            </summary>
+            <param name="schema"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Work.Delete(System.String)">
+            <summary>
+            根据ID删除一条排班记录
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Work.Update(FS.HISFC.Models.Nurse.Work)">
+            <summary>
+            根据ID修改一条排班记录(已使用的)
+            </summary>
+            <param name="schema"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Work.Query(System.DateTime,System.String)">
+            <summary>
+            根据星期、科室查询排班模板
+            </summary>
+            <param name="schemaType"></param>
+            <param name="week"></param>
+            <param name="DeptID"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.Nurse.Work.objWork">
+            <summary>
+            排班信息实体
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Work.QueryBase(System.String)">
+            <summary>
+            查询数据库
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.Queue">
+            <summary>
+            队列信息管理类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.myGetParmInsertQueue(FS.HISFC.Models.Nurse.Queue)">
+            <summary>
+            获得插入参数列表
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.myGetParmUpdateQueue(FS.HISFC.Models.Nurse.Queue)">
+            <summary>
+            获得修改队列参数列表
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.GetQueueNo">
+            <summary>
+            获得处方号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.InsertQueue(FS.HISFC.Models.Nurse.Queue)">
+            <summary>
+            插入队列
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.InsertCallQueue(FS.HISFC.Models.Registration.Register,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入叫号队列
+            </summary>
+            <param name="reg"></param>
+            <param name="dept"></param>
+            <param name="room"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.UpdateQueue(FS.HISFC.Models.Nurse.Queue)">
+            <summary>
+            获得修改队列参数列表
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.UpdateQueueValid(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            根据排版信息更新护士站队列有效性
+            </summary>
+            <param name="validFlag"></param>
+            <param name="seeDate"></param>
+            <param name="noonCode"></param>
+            <param name="deptCode"></param>
+            <param name="doctCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.DelQueue(System.String)">
+            <summary>
+            删除队列
+            </summary>
+            <param name="queueNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.DelCallQueue(System.String)">
+            <summary>
+            删除叫号队列
+            </summary>
+            <param name="clinicCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.Query(System.String,System.DateTime,System.String)">
+            <summary>
+            按护士站/分诊日期/午别查询分诊队列信息
+            </summary>
+            <param name="nurseID"></param>
+            <param name="queueDate"></param>
+            <param name="noonID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.QueryBase(System.String)">
+            <summary>
+            根据where条件查询队列信息
+            </summary>
+            <param name="whereSQL"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.QueryBase(System.String,System.String[])">
+            <summary>
+            根据SQLID查询队列信息
+            </summary>
+            <param name="whereIndex"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.Query(System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            按护士站/分诊日期/午别/科室 查询分诊队列信息
+            </summary>
+            <param name="nurseID"></param>
+            <param name="queueDate"></param>
+            <param name="noonID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.QueryByQueueID(System.String)">
+            <summary>
+            根据序列号去序列信息
+            </summary>
+            <param name="queueID">序列号</param> 
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.QueryQueueByQueueID(System.String,System.String)">
+            <summary>
+            查询met_nuo_assignrecord中是否有符合条件的诊室是否在用
+            </summary>
+            <param name="roomID">诊室代码</param>
+            <param name="currentDateStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.Query(System.String,System.String)">
+            <summary>
+            查询分诊队列信息 queueDate格式为 2013-01-01
+            </summary>
+            <param name="nurseID"></param>
+            <param name="queueDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.Query(System.String)">
+            <summary>
+            根据sql查询队列信息
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.QueryMinCount(System.String,System.DateTime,System.String,System.String)">
+            <summary>
+             根据护理站，时间 获取一个最少待诊人数的队列实体
+            </summary>
+            <param name="nurseID"></param>
+            <param name="queueDate"></param>
+            <param name="noonID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.Query(System.String,FS.HISFC.Models.Nurse.EnuTriageStatus,System.DateTime,System.DateTime,System.String)">
+            <summary>
+            查询分诊表中队列诊台的 分诊,进诊信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.QueryUsed(System.String,System.String,System.String)">
+            <summary>
+            根据诊室诊台午别日期队列日期查询诊台是否已用
+            </summary>
+            <param name="consoleCode">诊台</param>
+            <param name="noonID">午别</param>
+            <param name="queueDate">队列时间</param>
+            <returns>false：取sql出错或该诊台已被使用 true ：没有被使用</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.QueryQueueID(System.String,System.String,System.String)">
+            <summary>
+            根据诊台午别日期队列日期查询队列ID
+            </summary>
+            <param name="consoleCode">诊台</param>
+            <param name="noonID">午别</param>
+            <param name="queueDate">队列时间</param>
+            <returns>false：取sql出错或该诊台已被使用 true ：没有被使用</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.ExistPatient(System.String,System.String,System.String,System.String)">
+            <summary>
+            判断是否有患者
+            </summary>
+            <param name="roomID">诊室编号</param>
+            <param name="seatID">诊台编号</param>
+            <param name="queueID">队列编号</param>
+            <param name="noonID">午别编号</param>
+            <returns>true,有患者</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.GetQueueByDoct(System.String,System.DateTime,System.String)">
+            <summary>
+            根据医生编码、队列日期、午别取分诊队列
+            </summary>
+            <param name="doctID">医生ID</param>
+            <param name="queDate">队列日期</param>
+            <param name="noonID">午别ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.IsRoomInUse(FS.HISFC.Models.Nurse.Queue)">
+            <summary>
+            检查当天同午别的诊台是否已被其他医生占用
+            </summary>
+            <param name="queue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.UpdateDoctQueue(FS.HISFC.Models.Nurse.Queue)">
+            <summary>
+            将当前登录的医生更新进门诊队列表，用于新分诊流程
+            </summary>
+            <returns>0 诊台被占用  1 队列被正常写入  -1 出错 </returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.InsertDoctQueue(FS.HISFC.Models.Nurse.Queue)">
+            <summary>
+            写入门诊医生队列表
+            </summary>
+            <param name="queue"></param>
+            <returns>1 写入正常  -1 写入出错</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Queue.DeleteDoctQueue(FS.HISFC.Models.Nurse.Queue)">
+            <summary>
+            医生退出医生站时自动清除该医生的队列信息
+            </summary>
+            <param name="queue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.Assign">
+            <summary>
+            分诊管理类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryAssignBase(System.String,System.Object[])">
+            <summary>
+            查询分诊信息
+            </summary>
+            <param name="whereSql"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Query(System.String)">
+            <summary>
+            分诊信息基本查询
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryLastAssignPatient(System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            根据状态查询最后一个进诊患者
+            </summary>
+            <param name="nuerseID">午别</param>
+            <param name="today"></param>
+            <param name="queueID">分诊队列ID</param>
+            <param name="status">分诊状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.UpdateByCalled(System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            叫号后更新叫号状态
+            </summary>
+            <param name="consoleCode">诊台号码</param>
+            <param name="clinicID">门诊号</param>
+            <param name="outDate">诊出日期</param>
+            <param name="doctID">医生代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Query(System.String,System.DateTime,System.String,FS.HISFC.Models.Nurse.EnuTriageStatus)">
+            <summary>
+            按时间、队列、分诊科室查询分诊信息(还要求是有效号)
+            </summary>
+            <param name="nurseID"></param>
+            <param name="today"></param>
+            <param name="queueID"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.BatchQuery(System.String,System.DateTime,System.String,FS.HISFC.Models.Nurse.EnuTriageStatus[])">
+            <summary>
+            批量查询 按时间、队列、分诊科室查询分诊信息(还要求是有效号)
+            </summary>
+            <param name="nurseID"></param>
+            <param name="today"></param>
+            <param name="queueID"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Query(System.String,System.DateTime,FS.HISFC.Models.Nurse.EnuTriageStatus)">
+            <summary>
+            按时间、诊室、分诊科室查询进诊信息
+            </summary>
+            <param name="nurseID"></param>
+            <param name="today"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryUnionRegister(System.String,System.DateTime,FS.HISFC.Models.Nurse.EnuTriageStatus)">
+            <summary>
+            按时间、诊室、分诊科室查询进诊信息
+            </summary>
+            <param name="nurseID"></param>
+            <param name="today"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Query(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            查询队列当前最大看诊数,队列只要赋值:ID
+            </summary>
+            <param name="queueID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Query(System.String,System.String)">
+            <summary>
+            按看诊诊室查询进诊患者
+            </summary>
+            <param name="deptID"></param>
+            <param name="roomID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryByConsole(System.String,System.String)">
+            <summary>
+            按看诊诊台查询进诊患者
+            </summary>
+            <param name="deptID"></param>
+            <param name="roomID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Query(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            查询已看诊患者
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="doctID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryByQueueCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="queueCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryUnInSee(System.String,System.String,System.String,System.String)">
+            <summary>
+            查找已经分诊但且已经过了午别的分诊记录
+            </summary>
+            <param name="strFromDate">起始时间</param>
+            <param name="strToDate">结束时间</param>
+            <param name="nurseID">队列代码</param>
+            <param name="noonID">午别代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Query(System.DateTime,System.String)">
+            <summary>
+            根据病历号查询该患者今天的最后一次分诊信息。
+            </summary>
+            <param name="dt"></param>
+            <param name="cardNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryNurseByDept(System.String)">
+            <summary>
+            根据科室获取所属护理站代码
+            </summary>
+            <param name="deptCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryByClinicID(System.String)">
+            <summary>
+            根据门诊流水号，分诊标志获取一个唯一分诊信息
+            </summary>
+            <param name="clinicCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryAssignPatientByState(System.DateTime,System.DateTime,System.String,System.String,System.String)">
+            <summary>
+            根据状态查询分诊患者
+            </summary>
+            <param name="beginTime">开始时间</param>
+            <param name="endTime">截至时间</param>
+            <param name="consoleID">诊台代码</param>
+            <param name="state">状态 1.进诊患者   2.已诊患者</param>
+            <returns>ArrayList (分诊实体数组)</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryPatient(System.DateTime,System.DateTime,System.String,System.String,System.String)">
+            <summary>
+            查询患者信息
+            </summary>
+            <param name="beginTime">开始时间</param>
+            <param name="endTime">截至时间</param>
+            <param name="consoleID">诊台代码</param>
+            <param name="state">状态 1.进诊患者   2.已诊患者</param>
+            <returns>ArrayList (分诊实体数组)</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryAssReg(System.String)">
+            <summary>
+            给门诊医生用的去挂号和分诊的集合
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.JudgeOut(System.String)">
+            <summary>
+            根据门诊号判断患者是否已经诊出
+            </summary>
+            <param name="clinicCode">门诊号</param>
+            <returns>0 诊出 1 未诊出 -1 查询出错</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.JudgeInQueue(System.String)">
+            <summary>
+            根据门诊号判断患者是否已经诊出
+            </summary>
+            <param name="clinicCode">门诊号</param>
+            <returns>大于等于1：分诊队列中有患者  0： 没有  -1:查询出错</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryCard(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            查询已看诊患者
+            </summary>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <param name="doctID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Update(FS.HISFC.Models.Nurse.Assign)">
+            <summary>
+            更新患者的分诊医生、诊台等信息
+            </summary>
+            <param name="assign"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Insert(FS.HISFC.Models.Nurse.Assign)">
+            <summary>
+            插入新的分诊记录
+            </summary>
+            <param name="assign"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Delete(FS.HISFC.Models.Nurse.Assign)">
+            <summary>
+            取消分诊
+            </summary>
+            <param name="assign"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Delete(System.String)">
+            <summary>
+            根据CLINIC_CODE删除分诊记录
+            </summary>
+            <param name="clinicCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Update(System.String,FS.FrameWork.Models.NeuObject,FS.FrameWork.Models.NeuObject,System.DateTime)">
+            <summary>
+            入诊室(更新标志，入室时间)
+            </summary>
+            <param name="room"></param>
+            <param name="inDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Update(System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            诊出(门诊医生直接点击诊出专用)
+            </summary>
+            <param name="consoleCode">诊台号码</param>
+            <param name="clinicID">门诊号</param>
+            <param name="outDate">诊出日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.UpdateArrive(System.String,System.DateTime,System.String)">
+            <summary>
+            到诊
+            </summary>
+            <param name="clinicCode"></param>
+            <param name="arriveDate"></param>
+            <param name="doctID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.UpdateSaved(System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            诊出(门诊医生保存医嘱后专用)
+            </summary>
+            <param name="consoleCode">诊台号码</param>
+            <param name="clinicID">门诊号</param>
+            <param name="outDate">诊出日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.CancelIn(System.String,System.String)">
+            <summary>
+            取消进诊（置回标志1）
+            </summary>
+            <param name="clinicID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.ExistPatient(System.String,System.String)">
+            <summary>
+            如果要停用诊台先判断诊台中是否有患者.
+            只判断要停用的诊台
+            </summary>
+            <param name="seatID">诊台编码</param>
+            <param name="dateTime">进诊时间</param>
+            <returns>true:有人；false:没人</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.UpdateAssignAfterCall(System.Object[])">
+            <summary>
+            更新分诊状态
+            </summary>
+            <param name="clinicCode"></param>
+            <param name="doctID"></param>
+            <param name="assign"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.UpdateAssignFlag(System.String,System.String,FS.HISFC.Models.Nurse.EnuTriageStatus)">
+            <summary>
+            更新分诊状态
+            </summary>
+            <param name="clinicCode"></param>
+            <param name="doctID"></param>
+            <param name="assign"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.UpdateAssignFlag(System.Int32,FS.FrameWork.Models.NeuObject,System.String,System.String,System.Int32)">
+            <summary>
+            统一更新患者标记
+            </summary>
+            <param name="dept"></param>
+            <param name="doctID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Update(System.String,System.String,System.Int32)">
+            <summary>
+             更改实际看诊顺序
+            </summary>
+            <param name="clinicCode"></param>
+            <param name="seq"></param>
+            <param name="strnum">改变的量。 如-1则表示减少一个</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.Update(System.String,System.DateTime,FS.FrameWork.Models.NeuObject,System.String)">
+            <summary>
+            更新看诊标志
+            </summary>
+            <param name="clinicID"></param>
+            <param name="seeDate"></param>
+            <param name="dept"></param>
+            <param name="doctID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.UpdateQueue(System.String,System.String)">
+            <summary>
+            更新队列中候诊数量
+            </summary>
+            <param name="queueCode"></param>
+            <param name="num">1 增加一个  －1 减少一个</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.UpdateConsole(System.String,System.String)">
+            <summary>
+            更新诊台中的正在看诊的数量
+            </summary>
+            <param name="consoleCode"></param>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryOrder(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            根据遗嘱表查询已诊患者的信息
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="DoctID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryOrder(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            根据卡号查询遗嘱表已诊患者的信息
+            </summary>
+            <param name="cardNo"></param>
+            <param name="fromtime"></param>
+            <param name="totime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryOrder(System.String)">
+            <summary>
+            实体
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryWait(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            查询当前时间,当前队列中的最先进诊的候诊信息
+            </summary>
+            <param name="queueCode"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryIn(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            查询队列中正在看诊的信息
+            </summary>
+            <param name="queueCode"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryConsoleNum(System.String,System.DateTime,System.DateTime,FS.HISFC.Models.Nurse.EnuTriageStatus)">
+            <summary>
+            查询某诊台看诊人数
+            </summary>
+            <param name="consoleCode"></param>
+            <param name="begin"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QuerySimpleRegInfo(System.String,System.String[])">
+            <summary>
+            查询挂号信息 精简查询
+            </summary>
+            <param name="whereIndex"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QuerySimpleAssignByAssignFlag(System.String,System.String,System.String)">
+            <summary>
+            按诊区、诊室、分诊状态查询进诊患者
+            </summary>
+            <param name="deptID"></param>
+            <param name="roomID"></param>
+            <param name="assignFlag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QuerySimpleAssignPatientByState(System.DateTime,System.DateTime,System.String,System.String,System.String,System.String)">
+            <summary>
+            根据状态查询分诊患者
+            </summary>
+            <param name="beginTime">开始时间</param>
+            <param name="endTime">截至时间</param>
+            <param name="consoleID">诊台代码</param>
+            <param name="state">状态 1.进诊患者   2.已诊患者</param>
+            <returns>ArrayList (分诊实体数组)</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QuerySimpleAssignPatientByDoctID(System.DateTime,System.DateTime,System.String,System.String,System.String)">
+            <summary>
+            按医生查询
+            </summary>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="state"></param>
+            <param name="doctID"></param>
+             <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QuerySimpleAssignPatientByDeptID(System.DateTime,System.DateTime,System.String,System.String)">
+            <summary>
+            按科室查询
+            </summary>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="state"></param>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Assign.QueryCalledList(System.String,System.String)">
+            <summary>
+            查询当天已经叫号未看诊患者
+            </summary>
+            <param name="doctCode"></param>
+            <param name="clinicCode">当前叫号的患者，单个患者可以重复叫号</param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.WorkTemplet">
+            <summary>
+            排班模版管理类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.WorkTemplet.Insert(FS.HISFC.Models.Nurse.WorkTemplet)">
+            <summary>
+            登记一条护士排班模板
+            </summary>
+            <param name="templet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.WorkTemplet.Delete(System.String)">
+            <summary>
+            根据ID删除一条护士模板记录
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.WorkTemplet.Query(System.DayOfWeek,System.String)">
+            <summary>
+            根据星期、科室查询排班模板
+            </summary>
+            <param name="schemaType"></param>
+            <param name="week"></param>
+            <param name="DeptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.WorkTemplet.Query(System.DayOfWeek,System.Boolean)">
+            <summary>
+            根据星期查询是否有效模板信息。
+            模板调用
+            </summary>
+            <param name="schemaType"></param>
+            <param name="week"></param>
+            <param name="IsValid"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.Nurse.WorkTemplet.workTemplet">
+            <summary>
+            模板实体
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.WorkTemplet.QueryBase(System.String)">
+            <summary>
+            查询
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.Dept">
+            <summary>
+            分诊台对应科室管理类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Dept.GetDeptInfoByNurseNo(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="NurseNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Dept.GetNurseByDeptID(System.String)">
+            <summary>
+            根据科室代码获得科室对应的病区代码
+            </summary>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Dept.GetDeptInfo(System.String)">
+            <summary>
+            ID:门诊护士站代码,Name:挂号科室,user01:显示顺序,02:操作员,03:时间
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Dept.DelDeptInfo(System.String)">
+            <summary>
+            删除诊室信息
+            </summary>
+            <param name="nurseNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.InjectManager.KickbackMgr">
+            <summary>
+            [功能描述: 不良反应]<br></br>
+            [创 建 者: 徐伟哲]<br></br>
+            [创建时间: 2007-08-20]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary> 
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.KickbackMgr.QueryKickback">
+            <summary>
+            获取所有不良反应信息         /// </summary>
+            <returns>null失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.KickbackMgr.GetKBSequence">
+            <summary>
+            获取不良反应流水号         /// </summary>
+            <returns>失败抛异常[ArgumentException]</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.KickbackMgr.InsertKBItem(FS.HISFC.Models.Nurse.Kickback)">
+            <summary>
+            插入新的不良反应
+            </summary>
+            <param name="kb">实体</param>
+            <returns>-1失败， 1成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.KickbackMgr.UpdateKBItem(FS.HISFC.Models.Nurse.Kickback)">
+            <summary>
+            更新不良反应项目
+            </summary>
+            <param name="kb">实体</param>
+            <returns>-1失败，1成功</returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.InjectManager.InjectRecordMgr">
+            <summary>
+            [功能描述: 注射过程记录]<br></br>
+            [创 建 者: 徐伟哲]<br></br>
+            [创建时间: 2007-08-81]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary> 
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.InjectRecordMgr.InsertOperEnv(FS.HISFC.Models.Nurse.InjectRecord)">
+            <summary>
+            保存注射记录
+            </summary>
+            <param name="injectRecord">注射记录实体</param>
+            <returns>-1失败，1成功</returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.Room">
+            <summary>
+            诊室管理类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.GetRoomInfoByNurseNo(System.String)">
+            <summary>
+            根据护理站代码获取诊室列表
+            </summary>
+            <param name="NurseNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.GetRoomInfoByNurseNoValid(System.String)">
+            <summary>
+            根据护理站代码获取有效诊室列表
+            </summary>
+            <param name="NurseNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.GetRoomsByDeptID(System.String)">
+            <summary>
+            根据科室获取诊室列表
+            </summary>
+            <param name="deptID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.InsertRoomInfo(FS.HISFC.Models.Nurse.Room)">
+            <summary>
+            插入一条
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.Update(FS.HISFC.Models.Nurse.Room)">
+            <summary>
+            更新登记信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.DelRoomInfo(System.String)">
+            <summary>
+            删除诊室信息(根据诊室代码)
+            </summary>
+            <param name="nurseNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.UpdateSeatByRoom(System.String,System.String)">
+            <summary>
+            更新诊室下的诊台状态
+            </summary>
+            <param name="roomID">诊室编号</param>
+            <param name="isVlid">是否有效(1，有效； 0，无效)</param>
+            <returns>-1,失败；</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.QueryRoom(System.String,System.String)">
+            <summary>
+            查询要删除的诊室是否被队列维护
+            </summary>
+            <param name="roomID">诊室</param>
+            <param name="strDate">系统时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.QueryRoomByNameAndDept(System.String,System.String,System.String)">
+             <summary>
+            根据科室，诊室名称判断诊室是否存在
+             </summary>
+             <param name="deptID">科室代码</param>
+             <param name="roomName">诊室名称</param>
+             <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.QueryRoomByRoomID(System.String,System.String)">
+            <summary>
+            查询met_nuo_assignrecord中是否有符合条件的诊室是否在用
+            </summary>
+            <param name="roomID">诊室代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.GetCommonSqlRoomInfo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.Room.GetRoomInfo(System.String)">
+            <summary>
+            转化为实体
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound">
+            <summary>
+            [功能描述: 注射项目分解]<br></br>
+            [创 建 者: 徐伟哲]<br></br>
+            [创建时间: 2007-08-20]<br></br>
+            <修改记录
+            	修改人=''
+            	修改时间='yyyy-mm-dd'
+            	修改目的=''
+            	修改描述=''
+             />
+            </summary> 
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.QueryItemListByCardNoAndClinicCode(System.String,System.String)">
+            <summary>
+            获取注射项目
+            </summary>
+            <param name="cardNo">病历号</param>
+            <param name="clinicCode">门诊号</param>
+            <returns>null失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.InsertPrecontractInejctItem(System.Collections.Generic.List{FS.HISFC.Models.Nurse.InjectInfo})">
+            <summary>
+            保存预约注射信息[注射登记窗口使用]
+            </summary>
+            <param name="itemList"></param>
+            <returns>1,成功；-1失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.QueryInjectItem(System.String,System.DateTime)">
+            <summary>
+            根据病历号，日期得到患者本次注射信息,状态为：0
+            注射状态  0预约,1配药,2注射,3取消,4报到,5巡视,6拔针
+            </summary>
+            <param name="cardNo">病历号</param>
+            <param name="date">注射日期</param>
+            <returns>null失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.UpdateInjectItemState(FS.HISFC.Models.Nurse.InjectInfo)">
+            <summary>
+            更新注射项目状态[配药窗口使用]
+            </summary>
+            <param name="recordID">表ID</param>
+            <returns>-1失败，1成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.QueryAlreadyDosageInjectItem(System.String,System.DateTime)">
+            <summary>
+            获取已经配药的注射项目，配药状态为：1
+            注射状态  0预约,1配药,2注射,3取消,4报到,5巡视,6拔针
+            </summary>
+            <param name="cardNo">病历号</param>
+            <param name="date">日期</param>
+            <returns>null失败</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.UpdateAlreadyDosageInjectItemState(FS.HISFC.Models.Nurse.InjectInfo)">
+            <summary>
+            更新已经配药的注射项目的状态，状态为：2[注射窗口使用]
+            注射状态  0预约,1配药,2注射,3取消,4报到,5巡视,6拔针
+            </summary>
+            <param name="inject">实体</param>
+            <returns>-1失败，1成功</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.QueryAlreadyPrecontractInjectItem(System.String,System.DateTime)">
+            <summary>
+            根据病历号，日期得到已经预约的患者的次注射信息,状态为：0
+            注射状态  0预约,1配药,2注射,3取消,4报到,5巡视,6拔针
+            </summary>
+            <param name="cardNo">病历号</param>
+            <param name="date">注射日期</param>
+            <returns>null失败</returns>
+        </member>
+        <!-- 对于成员“M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.UpdateAlreadyPrecontractInjectItem(FS.HISFC.Models.Nurse.InjectInfo)”忽略有格式错误的 XML 注释 -->
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.GetMainInjectSequenct">
+            <summary>
+            得到表流水号
+            </summary>
+            <returns>表流水号</returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.Nurse.InjectManager.Decompound.GetInjectCardID">
+            <summary>
+            得到注射单号
+            </summary>
+            <returns>注射单号</returns>
+        </member>
+    </members>
+</doc>

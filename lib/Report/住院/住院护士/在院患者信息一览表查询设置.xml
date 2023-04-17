@@ -1,0 +1,13 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List /><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtData</Name><Sql>select im.patient_no as 住院号,
+       im.name as 姓名,
+       substr(im.bed_no, 5) as 床号,
+       im.in_date as 入院时间,
+       im.in_times as 入院次数,
+       decode(im.baby_flag,'0','无','1','有') as 是否有小孩,
+       im.house_doc_name as 管床医生
+  from fin_ipr_inmaininfo im
+ where im.nurse_cell_code = '&amp;CurrentDeptID'
+   and im.in_state = 'I'
+   and im.patient_no not like 'B%'
+    order by (select sort_id from com_bedinfo where  bed_no = im.bed_no )
+--order by to_number(substr(im.bed_no, 5))</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院\住院护士\在院患者信息一览表查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

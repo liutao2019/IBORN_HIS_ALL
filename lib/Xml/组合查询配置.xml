@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <QueryType>
+    <item>
+      <!-- 普通-->
+      <value>0</value>
+      <sql/>
+    </item>
+    <!-- 日期-->
+    <item>
+      <value>1</value>
+      <sql/>
+    </item>
+    <!-- 科室 -->
+    <item>
+      <value>2</value>
+      <sql>select t.dept_code code,t.dept_name name,t.id id,t.spell_code spellCode,t.wb_code wbCode from org_department t where t.dept_type_code ='I' and t.valid_state ='1'</sql>
+    </item>
+    <!-- 人员 -->
+    <item>
+      <value>3</value>
+      <sql>select t.empl_code code,t.empl_name name,t.spell_code spellCode,t.wb_code wbCode,t.id id from org_employee t where t.empl_type_code='D'and t.valid_state='1'</sql>
+    </item>
+    <!-- 病历类型 -->
+    <item>
+      <value>4</value>
+      <sql>
+        select t.id id,t.value code,t.name name,t.wb_code wbCode,t.spell_code spellCode from dawn_code_code t where t.code_type_id = 9
+        and t.parent_id is not null
+      </sql>
+    </item>
+    <!-- 诊断类型 -->
+    <item>
+      <value>5</value>
+      <sql>
+        select t.id id,t.icd10_code code,t.name name,t.wb_code wbCode,t.spell_code spellCode from dxt_western_disease t where t.valid_state =1
+        and t.discriminator = 'WesternDiseaseICD10'
+      </sql>
+    </item>
+    <!-- 手术类型 -->
+    <item>
+      <value>6</value>
+      <sql>
+        select
+        t.sequence_no id,
+        t.icd_code code,
+        t.icd_name name,
+        t.spell_code spellCode,
+        t.wb_code wbCode
+        from his.met_com_icd9 t
+        where t.valid_state = 1
+      </sql>
+    </item>
+  </QueryType>
+  <QueryTypeForm QueryForm="ResearchQuery" Title="病历检索查询" IsUseAuth="false" IsViewSql="false">
+    <QuerySingleType>
+      <Item name="以患者为单位" columsType="patientSingle"/>
+      <!-- <Item name="以病历为单位" columsType="recordSingle"/>-->
+    </QuerySingleType>
+    <Situation>
+      <Items name="个人基本信息" type="Patient">
+        <Item name="出院科室" where="vhis_inpatientinfo.in_state in('B','P','O') and vhis_inpatientinfo.DEPT_CODE" conType="2" valueType="String" dataFormate="Code"/>
+        <Item name="出院日期" where="vhis_inpatientinfo.in_state in('B','P','O') and vhis_inpatientinfo.OUT_DATE" conType="1" valueType="Date" dataFormate="Text"/>
+        <Item name="主治医师" where="vhis_inpatientinfo.CHARGE_DOC_CODE" conType="3" valueType="String" dataFormate="Code"/>
+        <Item name="住院号"  where="vhis_inpatientinfo.PATIENT_NO" conType="0" valueType="String" dataFormate="Text"/>
+        <Item name="住院次数"  where="vhis_inpatientinfo.IN_TIMES" conType="0" valueType="Number" dataFormate="Text"/>
+      </Items>
+      <Items name="病历信息" type="Record">
+        <Item name="主诉" where="rcd_record_item.element_id=56 and rcd_record_item.value" conType="0" valueType="String" dataFormate="Text"/>
+        <Item name="现病史" where="rcd_record_item.element_id=916 and rcd_record_item.value" conType="0" valueType="String" dataFormate="Text"/>
+        <Item name="病历类型" where="rcd_inpatient_record.RECORD_CHILD_TYPE" conType="4" valueType="String" dataFormate="Code"/>
+        <Item name="任意元素" where="rcd_record_item.value" conType="0" valueType="String" dataFormate="Text"/>
+      </Items>
+      <Items name="诊断信息" type="Diagnose">
+        <Item name="出院主诊断" where="vhis_inpatientinfo.main_diagnose"
+              conType="5" valueType="String" dataFormate="Name"/>
+      </Items>
+      <Items name="手术信息" type="Ops">
+        <Item name="手术" where=" his.MET_OPS_OPERATIONITEM.ynvalid = 1
+      and his.MET_OPS_OPERATIONITEM.ITEM_NAME" conType="6" valueType="String" dataFormate="Name"/>
+      </Items>
+    </Situation>
+    <!--sql语句-->
+    <Sql>
+      from vhis_inpatientinfo,
+      rcd_inpatient_record_set,
+      rcd_inpatient_record,
+      rcd_record_item,
+      case_ops_record_sj,
+      diag_creation,
+      diag_diagnose,
+      diag_western_diagnose,
+      his.MET_OPS_OPERATIONITEM
+      where vhis_inpatientinfo.id = rcd_inpatient_record_set.inpatient_id
+      and rcd_inpatient_record_set.id = rcd_inpatient_record.inpatient_record_set_id
+      and rcd_inpatient_record.id = rcd_record_item.inpatient_record
+      and vhis_inpatientinfo.id = case_ops_record_sj.patient_id(+)
+      and vhis_inpatientinfo.id =diag_creation.visit_id(+)
+      and diag_creation.id = diag_diagnose.diag_creation_id(+)
+      and diag_western_diagnose.id(+) = diag_diagnose.id
+      and his.MET_OPS_OPERATIONITEM.clinic_code(+) = vhis_inpatientinfo.INPATIENT_NO
+      and
+    </Sql>
+    <Columns columsType="patientSingle">
+      <Column id="1" name="id" table="distinct(vhis_inpatientinfo.id)" IsVisable="false" width="100" IsAutoSort = "true" ColumnType="InpatientId"/>
+      <Column id="2" name="住院流水号" table="vhis_inpatientinfo.INPATIENT_NO" IsVisable="true" width="90" IsAutoSort = "true" ColumnType="Common"/>
+      <Column id="3" name="住院号" table="vhis_inpatientinfo.PATIENT_NO" IsVisable="true" width="100" IsAutoSort = "true" ColumnType="Common"/>
+      <Column id="4" name="患者姓名" table="vhis_inpatientinfo.name" IsVisable="true" width="80" IsAutoSort = "true" ColumnType="Date"/>
+      <Column id="5" name="入院日期" table="vhis_inpatientinfo.IN_DATE" IsVisable="true" width="130" IsAutoSort = "true" ColumnType="Common"/>
+      <Column id="6" name="住院科室" table="vhis_inpatientinfo.DEPT_NAME as deptName" IsVisable="true" width="100" IsAutoSort = "true" ColumnType="Common"/>
+      <Column id="7" name="主治医师" table="vhis_inpatientinfo.CHARGE_DOC_NAME as docName" IsVisable="true" width="80" IsAutoSort = "true" ColumnType="Common"/>
+    </Columns>
+    <!-- <Columns columsType="recordSingle">
+      <Column id="1" name="病历id" table="distinct(rcd_inpatient_record.id)" IsVisable="false" width="0" IsAutoSort = "true" ColumnType="RecordId"/>
+      <Column id="2" name="id" table="vhis_inpatientinfo.id" IsVisable="false" width="0" IsAutoSort = "true" ColumnType="InpatientId"/>
+      <Column id="3" name="患者姓名" table="vhis_inpatientinfo.name" IsVisable="true" width="100" IsAutoSort = "true" ColumnType="Common"/>
+      <Column id="4" name="病历名称" table="rcd_inpatient_record.NAME" IsVisable="true" width="100" IsAutoSort = "true" ColumnType="Common"/>
+      <Column id="5" name="住院流水号" table="vhis_inpatientinfo.INPATIENT_NO as inpatientNo" IsVisable="true" width="100" IsAutoSort = "true" ColumnType="Common"/>
+      <Column id="6" name="住院科室" table="vhis_inpatientinfo.DEPT_NAME as deptName" IsVisable="true" width="100" IsAutoSort = "true" ColumnType="Common"/>
+      <Column id="7" name="主治医师" table="vhis_inpatientinfo.CHARGE_DOC_NAME as docName" IsVisable="true" width="100" IsAutoSort = "true" ColumnType="Common"/>
+    </Columns>
+    -->
+  </QueryTypeForm>
+</Root>

@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.Registration", "Components.Registration.csproj", "{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISFC.BizProcess.Integrate", "..\..\HISFC.BizProcess\Integrate\HISFC.BizProcess.Integrate.csproj", "{86C60E4F-2374-4E03-9303-92BB6E1E6949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.BizProcess.CommonInterface", "..\..\..\..\SOC\Src\HISFC\SOC.HISFC.BizProcess.CommonInterface\SOC.HISFC.BizProcess.CommonInterface.csproj", "{A33AB849-250D-4829-9010-EFAF8B43A067}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameWork.WinForms", "..\..\..\..\FrameWork\Src\FrameWork.WinForms\FrameWork.WinForms.csproj", "{932BE9D7-0A6D-4231-9B3D-862968050197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.RADT.GuangZhou", "..\..\..\..\SOC\Src\Local\SOC.Local.RADT.GuangZhou\SOC.Local.RADT.GuangZhou.csproj", "{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration", "..\..\HISFC.BizLogic\Registration\Registration.csproj", "{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fee", "..\..\HISFC.BizLogic\Fee\Fee.csproj", "{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 8
+		SccProjectUniqueName0 = Components.Registration.csproj
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\..\\HISFC.BizProcess\\Integrate\\HISFC.BizProcess.Integrate.csproj
+		SccProjectName1 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizProcess/Integrate\u0022,\u0020RFDAAAAA
+		SccLocalPath1 = ..\\..\\HISFC.BizProcess\\Integrate
+		SccProjectUniqueName2 = ..\\..\\..\\..\\SOC\\Src\\HISFC\\SOC.HISFC.BizProcess.CommonInterface\\SOC.HISFC.BizProcess.CommonInterface.csproj
+		SccProjectName2 = \u0022$/HIS5.0/code/SOC/Src/HISFC/SOC.HISFC.BizProcess.CommonInterface\u0022,\u0020HTMBAAAA
+		SccLocalPath2 = ..\\..\\..\\..\\SOC\\Src\\HISFC\\SOC.HISFC.BizProcess.CommonInterface
+		SccProjectUniqueName3 = ..\\..\\..\\..\\FrameWork\\Src\\FrameWork.WinForms\\FrameWork.WinForms.csproj
+		SccProjectName3 = \u0022$/HIS5.0/code/FrameWork/Src/FrameWork.WinForms\u0022,\u0020NGAAAAAA
+		SccLocalPath3 = ..\\..\\..\\..\\FrameWork\\Src\\FrameWork.WinForms
+		SccProjectUniqueName4 = ..\\..\\..\\..\\SOC\\Src\\Local\\SOC.Local.RADT.GuangZhou\\SOC.Local.RADT.GuangZhou.csproj
+		SccProjectName4 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.RADT.GuangZhou\u0022,\u0020KNUBAAAA
+		SccLocalPath4 = ..\\..\\..\\..\\SOC\\Src\\Local\\SOC.Local.RADT.GuangZhou
+		SccProjectUniqueName5 = ..\\..\\HISFC.BizLogic\\Registration\\Registration.csproj
+		SccProjectName5 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Registration\u0022,\u0020ZADAAAAA
+		SccLocalPath5 = ..\\..\\HISFC.BizLogic\\Registration
+		SccProjectUniqueName6 = ..\\..\\HISFC.BizLogic\\Fee\\Fee.csproj
+		SccProjectName6 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Fee\u0022,\u0020CKCAAAAA
+		SccLocalPath6 = ..\\..\\HISFC.BizLogic\\Fee
+		SccLocalPath7 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A33AB849-250D-4829-9010-EFAF8B43A067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A33AB849-250D-4829-9010-EFAF8B43A067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A33AB849-250D-4829-9010-EFAF8B43A067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A33AB849-250D-4829-9010-EFAF8B43A067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{932BE9D7-0A6D-4231-9B3D-862968050197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932BE9D7-0A6D-4231-9B3D-862968050197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932BE9D7-0A6D-4231-9B3D-862968050197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932BE9D7-0A6D-4231-9B3D-862968050197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

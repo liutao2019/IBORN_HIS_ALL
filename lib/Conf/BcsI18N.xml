@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net" default-autowire="byType">
+  <!-- SvcFacade Config Start -->
+  <!-- SvcFacade Config End -->
+  <!-- Service Config Start -->
+  <object type="FS.Dawn.I18N.Bll.Service.I18NService, FS.Dawn.I18N.Bll" />
+  <!-- Service Config End -->
+  <!-- Logic Config Start -->
+  <!-- Logic Config End -->
+  <!-- Dao Config Start -->
+  <object type="FS.Dawn.I18N.Dal.Dao.LangDao, FS.Dawn.I18N.Dal" />
+  <object type="FS.Dawn.I18N.Dal.Dao.LangItemDao, FS.Dawn.I18N.Dal" />
+  <!-- Dao Config End -->
+</objects>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1403ED72-9230-4187-A322-339CF3ACB616}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoShanSI</RootNamespace>
+    <AssemblyName>FoShanSI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FSLocal.SI, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FSLocal.SI.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="IBM.Data.DB2, Version=9.0.0.2, Culture=neutral, PublicKeyToken=7c307b91aa13d208, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\ucConnectServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ucConnectServer.Designer.cs">
+      <DependentUpon>ucConnectServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Function.cs" />
+    <Compile Include="Function\LogManager.cs" />
+    <Compile Include="InPatient\frmInPatientBalanceHead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InPatient\frmInPatientBalanceHead.designer.cs">
+      <DependentUpon>frmInPatientBalanceHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InPatient\ucInPatientBalanceHead.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InPatient\ucInPatientBalanceHead.designer.cs">
+      <DependentUpon>ucInPatientBalanceHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\SIBizProcess.cs" />
+    <Compile Include="Management\SIDataBase.cs" />
+    <Compile Include="Models\InPatientBalanceDetail.cs" />
+    <Compile Include="Models\InPatientBalanceHead.cs" />
+    <Compile Include="Models\InPatientFeeItemDetail.cs" />
+    <Compile Include="Models\OutPatientBalanceHead.cs" />
+    <Compile Include="Models\OutPatientFeeItemDetail.cs" />
+    <Compile Include="MedicalProcess.cs" />
+    <Compile Include="OutPatient\frmOutPatientBalanceHead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutPatient\frmOutPatientBalanceHead.Designer.cs">
+      <DependentUpon>frmOutPatientBalanceHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatient\ucOutPatientBalanceHead.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OutPatient\ucOutPatientBalanceHead.Designer.cs">
+      <DependentUpon>ucOutPatientBalanceHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Management\SIDealLocalBusiness.cs" />
+    <Compile Include="Start.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Components\ucConnectServer.resx">
+      <DependentUpon>ucConnectServer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InPatient\frmInPatientBalanceHead.resx">
+      <DependentUpon>frmInPatientBalanceHead.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InPatient\ucInPatientBalanceHead.resx">
+      <DependentUpon>ucInPatientBalanceHead.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\frmOutPatientBalanceHead.resx">
+      <DependentUpon>frmOutPatientBalanceHead.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatient\ucOutPatientBalanceHead.resx">
+      <DependentUpon>ucOutPatientBalanceHead.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FoShanSIDataBase.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

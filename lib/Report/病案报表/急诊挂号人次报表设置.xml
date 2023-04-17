@@ -1,0 +1,1031 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Spread class="FarPoint.Win.Spread.FpSpread">
+  <!--Settings Section - This section contains the workbook properties, and the sheet objects, properties and selections.-->
+  <Settings>
+    <RootWorkbook>
+      <ActiveSheetIndex>0</ActiveSheetIndex>
+      <AllowDragDrop>False</AllowDragDrop>
+      <AllowDragFill>False</AllowDragFill>
+      <AllowCellOverflow>False</AllowCellOverflow>
+      <AllowColumnMove>False</AllowColumnMove>
+      <AllowEditOverflow>False</AllowEditOverflow>
+      <AllowUserFormulas>False</AllowUserFormulas>
+      <AllowRowMove>False</AllowRowMove>
+      <AllowSheetMove>False</AllowSheetMove>
+      <AllowUndo>True</AllowUndo>
+      <AllowUserZoom>True</AllowUserZoom>
+      <AutoClipboard>True</AutoClipboard>
+      <BackColor>White</BackColor>
+      <BackgroundImage></BackgroundImage>
+      <BorderCollapse>Separate</BorderCollapse>
+      <ScrollTipPolicy>Off</ScrollTipPolicy>
+      <ScrollBarTrackPolicy>Off</ScrollBarTrackPolicy>
+      <ScrollBarShowMax>True</ScrollBarShowMax>
+      <ScrollBarMaxAlign>True</ScrollBarMaxAlign>
+      <BorderStyle>Fixed3D</BorderStyle>
+      <ButtonDrawMode>Always</ButtonDrawMode>
+      <CellNoteIndicatorVisible>True</CellNoteIndicatorVisible>
+      <ClipboardOptions>AllHeaders</ClipboardOptions>
+      <ColumnSplitBoxAlignment>Leading</ColumnSplitBoxAlignment>
+      <ColumnSplitBoxPolicy>Always</ColumnSplitBoxPolicy>
+      <EditModePermanent>False</EditModePermanent>
+      <EditModeReplace>False</EditModeReplace>
+      <HorizontalScrollBarHeight>-1</HorizontalScrollBarHeight>
+      <HorizontalScrollBarPolicy>AsNeeded</HorizontalScrollBarPolicy>
+      <LeftTab>0</LeftTab>
+      <MoveActiveOnFocus>True</MoveActiveOnFocus>
+      <RetainSelectionBlock>True</RetainSelectionBlock>
+      <RightToLeft>No</RightToLeft>
+      <RowSplitBoxAlignment>Leading</RowSplitBoxAlignment>
+      <RowSplitBoxPolicy>Always</RowSplitBoxPolicy>
+      <SelectionBlockOptions>Cells, Rows, Columns, Sheet</SelectionBlockOptions>
+      <SheetCount>1</SheetCount>
+      <TabStrip>
+        <BackColor>Control</BackColor>
+        <Editable>False</Editable>
+        <ButtonPolicy>Always</ButtonPolicy>
+        <ActiveSheetTab />
+        <DefaultSheetTab />
+        <Items>
+          <SheetTab />
+        </Items>
+      </TabStrip>
+      <TabStripPlacement>WithHorizontalScrollBar</TabStripPlacement>
+      <TabStripPolicy>AsNeeded</TabStripPolicy>
+      <TabStripRatio>0.5</TabStripRatio>
+      <TextTipAppearance class="FarPoint.Win.Spread.TipAppearance">
+        <BackColor>Info</BackColor>
+        <ForeColor>InfoText</ForeColor>
+        <Font>
+          <Name>宋体</Name>
+          <Size>9</Size>
+          <Bold>False</Bold>
+          <CharSet>134</CharSet>
+          <Italic>False</Italic>
+          <Strikeout>False</Strikeout>
+          <Underline>False</Underline>
+          <Unit>Point</Unit>
+          <Vertical>False</Vertical>
+        </Font>
+      </TextTipAppearance>
+      <TextTipDelay>500</TextTipDelay>
+      <TextTipPolicy>Off</TextTipPolicy>
+      <VerticalScrollBarWidth>-1</VerticalScrollBarWidth>
+      <VerticalScrollBarPolicy>AsNeeded</VerticalScrollBarPolicy>
+      <VisualStyles>Auto</VisualStyles>
+      <SuspendAnimations>False</SuspendAnimations>
+    </RootWorkbook>
+    <Sheets>
+      <Sheet index="0" class="FarPoint.Win.Spread.SheetView">
+        <SheetName>急诊挂号人次报表</SheetName>
+        <Categories>
+          <Appearance>
+            <RowHeaderColumnCount>0</RowHeaderColumnCount>
+            <ColumnHeaderRowCount>0</ColumnHeaderRowCount>
+            <VisualStyles>Off</VisualStyles>
+          </Appearance>
+          <Behavior />
+          <Layout>
+            <ColumnCount>6</ColumnCount>
+            <RowCount>4</RowCount>
+            <ActiveColumnIndex>3</ActiveColumnIndex>
+            <ActiveRowIndex>1</ActiveRowIndex>
+          </Layout>
+        </Categories>
+        <SelectionModel class="FarPoint.Win.Spread.Model.DefaultSheetSelectionModel">
+          <CellRange Row="1" Column="3" RowCount="1" ColumnCount="1" />
+          <AnchorRow>1</AnchorRow>
+          <AnchorColumn>3</AnchorColumn>
+        </SelectionModel>
+      </Sheet>
+    </Sheets>
+  </Settings>
+  <!--Styles Section - This section contains the workbook and sheet named style collections.-->
+  <Styles>
+    <NamedStyles class="FarPoint.Win.Spread.NamedStyleCollection" />
+  </Styles>
+  <!--Presentation Section - This section contains the column and row properties, cell spans, and the sheet, column, row, and cell styles.-->
+  <Presentation>
+    <Font />
+    <Sheets>
+      <Sheet index="0">
+        <ViewportInfo>
+          <RowPaneCount>1</RowPaneCount>
+          <ColumnPaneCount>1</ColumnPaneCount>
+          <ActiveRowPane>0</ActiveRowPane>
+          <ActiveColumnPane>0</ActiveColumnPane>
+          <RowPanes>
+            <RowPane row="0">
+              <TopRow>0</TopRow>
+              <PreferredHeight>-1</PreferredHeight>
+            </RowPane>
+          </RowPanes>
+          <ColumnPanes>
+            <ColumnPane column="0">
+              <LeftColumn>0</LeftColumn>
+              <PreferredWidth>-1</PreferredWidth>
+            </ColumnPane>
+          </ColumnPanes>
+        </ViewportInfo>
+        <ActiveSkin class="FarPoint.Win.Spread.SheetSkin">
+          <Name>CustomSkin2</Name>
+          <BackColor>Empty</BackColor>
+          <CellBackColor>Empty</CellBackColor>
+          <CellForeColor>Empty</CellForeColor>
+          <GridLines>Both</GridLines>
+          <GridLineColor>LightGray</GridLineColor>
+          <HeaderBackColor>Gainsboro</HeaderBackColor>
+          <HeaderForeColor>Empty</HeaderForeColor>
+          <FlatColumnHeader>False</FlatColumnHeader>
+          <FlatRowHeader>False</FlatRowHeader>
+          <HeaderFontBold>False</HeaderFontBold>
+          <SelectionBackColor>Empty</SelectionBackColor>
+          <SelectionForeColor>Empty</SelectionForeColor>
+          <EvenRowBackColor>White</EvenRowBackColor>
+          <OddRowBackColor>Empty</OddRowBackColor>
+          <ShowColumnHeader>True</ShowColumnHeader>
+          <ShowRowHeader>True</ShowRowHeader>
+        </ActiveSkin>
+        <AxisModels>
+          <Row class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="4">
+            <Items>
+              <Item index="-1" />
+              <Item index="0">
+                <Size>25</Size>
+              </Item>
+              <Item index="2">
+                <Size>25</Size>
+              </Item>
+              <Item index="3">
+                <Size>25</Size>
+              </Item>
+            </Items>
+          </Row>
+          <Column class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Horizontal" count="6">
+            <Items>
+              <Item index="-1" />
+              <Item index="0">
+                <Size>53</Size>
+              </Item>
+              <Item index="1">
+                <Size>185</Size>
+              </Item>
+              <Item index="2">
+                <Size>129</Size>
+              </Item>
+              <Item index="3">
+                <Size>80</Size>
+              </Item>
+              <Item index="4">
+                <Size>78</Size>
+              </Item>
+              <Item index="5">
+                <Size>70</Size>
+              </Item>
+            </Items>
+          </Column>
+          <RowHeaderColumn class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" defaultSize="35" orientation="Horizontal" count="0">
+            <Items>
+              <Item index="-1">
+                <Resizable>False</Resizable>
+                <Size>35</Size>
+              </Item>
+            </Items>
+          </RowHeaderColumn>
+          <ColumnHeaderRow class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="0">
+            <Items>
+              <Item index="-1">
+                <Resizable>False</Resizable>
+              </Item>
+            </Items>
+          </ColumnHeaderRow>
+        </AxisModels>
+        <SpanModels>
+          <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetSpanModel">
+            <CellRange Row="1" Column="1" RowCount="1" ColumnCount="2" />
+            <CellRange Row="1" Column="3" RowCount="1" ColumnCount="3" />
+          </DataArea>
+        </SpanModels>
+        <StyleModels>
+          <RowHeader class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="4" Columns="0">
+            <AltRowCount>2</AltRowCount>
+            <DefaultStyle class="FarPoint.Win.Spread.StyleInfo" Parent="HeaderDefault">
+              <BackColor>Gainsboro</BackColor>
+            </DefaultStyle>
+            <ConditionalFormatCollections />
+          </RowHeader>
+          <ColumnHeader class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="0" Columns="6">
+            <AltRowCount>2</AltRowCount>
+            <DefaultStyle class="FarPoint.Win.Spread.StyleInfo" Parent="HeaderDefault">
+              <BackColor>Gainsboro</BackColor>
+            </DefaultStyle>
+            <ConditionalFormatCollections />
+          </ColumnHeader>
+          <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="4" Columns="6">
+            <AltRowCount>2</AltRowCount>
+            <AltRowStyles>
+              <AltRowStyle Index="0" class="FarPoint.Win.Spread.StyleInfo">
+                <BackColor>White</BackColor>
+              </AltRowStyle>
+            </AltRowStyles>
+            <RowStyles>
+              <RowStyle Index="2" class="FarPoint.Win.Spread.StyleInfo">
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>10.5</Size>
+                  <Bold>False</Bold>
+                  <CharSet>134</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </RowStyle>
+              <RowStyle Index="3" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </RowStyle>
+            </RowStyles>
+            <CellStyles>
+              <CellStyle Row="0" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="0" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="0" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="0" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="1" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="1" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="1" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+              </CellStyle>
+              <CellStyle Row="1" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="1" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Bottom>
+                    <Left>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Left>
+                    <Right>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Right>
+                    <Top>
+                      <Color>White</Color>
+                      <DashStyle>Solid</DashStyle>
+                      <Draw>True</Draw>
+                      <Width>1</Width>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="2" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="2" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="2" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="2" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="2" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="2" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+              </CellStyle>
+              <CellStyle Row="3" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>12</Size>
+                  <Bold>False</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>12</Size>
+                  <Bold>False</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>12</Size>
+                  <Bold>False</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>12</Size>
+                  <Bold>False</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>12</Size>
+                  <Bold>False</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+              </CellStyle>
+              <CellStyle Row="3" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <Border class="FarPoint.Win.ComplexBorder">
+                  <Sides>
+                    <Bottom>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Bottom>
+                    <Left>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Left>
+                    <Right>
+                      <Color>WindowFrame</Color>
+                      <Style>ThinLine</Style>
+                    </Right>
+                    <Top>
+                      <Color>WindowFrame</Color>
+                      <Style>None</Style>
+                    </Top>
+                  </Sides>
+                </Border>
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>12</Size>
+                  <Bold>False</Bold>
+                  <CharSet>1</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+            </CellStyles>
+            <ParseFormats>
+              <ParseFormat Row="1" Column="1">
+                <FormatString>G</FormatString>
+              </ParseFormat>
+              <ParseFormat Row="1" Column="3">
+                <FormatString>G</FormatString>
+              </ParseFormat>
+            </ParseFormats>
+            <ConditionalFormatCollections />
+          </DataArea>
+        </StyleModels>
+        <SheetCornerStyle class="FarPoint.Win.Spread.NamedStyle" Parent="CornerDefault">
+          <BackColor>Gainsboro</BackColor>
+        </SheetCornerStyle>
+        <Notes class="FarPoint.Win.Spread.DrawingSpace.SpreadNotesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>737</Height>
+          <Width>993</Width>
+          <Name>spreadNotesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+          <Gradient class="FarPoint.Win.Spread.DrawingSpace.PSGradient">
+            <GradientStyle>None</GradientStyle>
+            <GradientSections>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+            </GradientSections>
+          </Gradient>
+        </Notes>
+      </Sheet>
+    </Sheets>
+  </Presentation>
+  <!--Drawing Section - This section contains the drawing objects and their properties.-->
+  <Drawing>
+    <Sheets>
+      <Sheet index="0">
+        <DrawingContainer class="FarPoint.Win.Spread.DrawingSpace.SpreadShapesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>737</Height>
+          <Width>993</Width>
+          <Name>spreadShapesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+        </DrawingContainer>
+      </Sheet>
+    </Sheets>
+  </Drawing>
+  <!--Data Section - This section contains the sheet data.-->
+  <Data>
+    <EnableCrossSheetReference>True</EnableCrossSheetReference>
+    <Sheets>
+      <Sheet index="0">
+        <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="4" columns="6">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+          <SheetName>急诊挂号人次报表</SheetName>
+          <Cells>
+            <Cell row="1" column="0">
+              <Tag type="System.String" whitespace="" />
+            </Cell>
+            <Cell row="1" column="1">
+              <Data type="System.String">统计日期:</Data>
+              <Tag type="System.String">统计日期：&amp;dtBeginTime - &amp;dtEndTime</Tag>
+            </Cell>
+            <Cell row="1" column="2">
+              <Tag type="System.String">打印日期：&amp;CurrentSysTime</Tag>
+            </Cell>
+            <Cell row="1" column="3">
+              <Data type="System.String">打印日期：</Data>
+              <Tag type="System.String">打印日期：&amp;CurrentSysTime</Tag>
+            </Cell>
+            <Cell row="2" column="1">
+              <Data type="System.String">科室代码</Data>
+            </Cell>
+            <Cell row="2" column="2">
+              <Data type="System.String">科室名称</Data>
+            </Cell>
+            <Cell row="2" column="3">
+              <Data type="System.String">急诊</Data>
+            </Cell>
+            <Cell row="2" column="4">
+              <Data type="System.String">简易门诊</Data>
+            </Cell>
+            <Cell row="2" column="5">
+              <Data type="System.String">小计</Data>
+            </Cell>
+            <Cell row="3" column="0">
+              <Tag type="System.String" whitespace="" />
+            </Cell>
+            <Cell row="3" column="1">
+              <Tag type="System.String">dtData</Tag>
+            </Cell>
+          </Cells>
+        </DataArea>
+        <RowHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="4" columns="0">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+        </RowHeader>
+        <ColumnHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="0" columns="6">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+        </ColumnHeader>
+      </Sheet>
+    </Sheets>
+  </Data>
+</Spread>

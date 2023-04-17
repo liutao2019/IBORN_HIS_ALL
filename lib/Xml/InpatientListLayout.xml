@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--住院患者列表-->
+<InpatientList>
+	<!--医生患者列表-->
+	<List id="Doctor">
+			<!--科室患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->			
+			<PageItem id="Dept" name="科室患者" sortid="0" visible="true" depttype="" deptprotype="">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>				
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 此id为默认值不允许修改-->
+				<Fpsheet id="DeptPaList" name="科室">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="CellName" name="病区" length="120" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="InpatientNo" name="住院流水号" length="100" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="6"/>
+                                        <Colmun id="InTimes" name="住院次数" length="60" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="State" name="患者状态" length="80" visible="false" allowsort="true" sortid="7"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="8"/>
+					<Colmun id="NTLevel" name="护理级别" length="80" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="DutyDoc" name="经治医生" length="80" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="ChargeDoc" name="主治医生" length="80" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="false" allowsort="true" sortid="13"/>
+					<Colmun id="IsPath" name="是否临床路径患者" length="60" visible="true" allowsort="false" sortid="14"/>
+					<Colmun id="PathName" name="临床路径名" length="120" visible="true" allowsort="false" sortid="15"/>
+					<Colmun id="CrisisScore" name="危重评分" length="60" visible="true" allowsort="false" sortid="16"/>
+					<Colmun id="CrisisMaxScore" name="单项最高分" length="60" visible="true" allowsort="false" sortid="17"/>
+					<Colmun id="CrisisAverScore" name="单项平均分" length="60" visible="true" allowsort="false" sortid="18"/>
+					<Colmun id="PactName" name="合同单位" length="60" visible="true" allowsort="false" sortid="19"/>
+                                        <Colmun id="FreeCost" name="余额(元)" length="80" visible="true" allowsort="true" sortid="23"/>
+                                        <Colmun id="Prepaycost" name="预交金(元)" length="80" visible="true" allowsort="true" sortid="24"/>
+                                        <Colmun id="Totcost" name="总费用(元)" length="80" visible="true" allowsort="true" sortid="25"/>
+					<Colmun id="CriticalFlag" name="危重情况" length="60" visible="true" allowsort="false" sortid="22"/>
+                                        <Colmun id="TemPermCode" name="授权" length="100" visible="true" allowsort="false" sortid="23"/>
+				</Fpsheet>
+				<Fpsheet_Add id="DeptPaList" name="科室">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="OpsName" name="手术名称" length="120" visible="true" allowsort="true" sortid="26"/>
+					<Colmun id="OpsTime" name="手术时间" length="80" visible="true" allowsort="true" sortid="27"/>
+                                        <Colmun id="BalanceDate" name="结算时间" length="80" visible="true" allowsort="true" sortid="28"/>
+				        <Sql id="DeptPaList">
+select pt.id,
+       (select t.ops_mode_name
+          from CASE_OPS_RECORD_SJ t
+         where t.id =
+               (select max(id)
+                  from CASE_OPS_RECORD_SJ t
+                 where t.patient_id = (select cu.patient_id
+                                         from pt_inpatient_cure cu
+                                        where cu.id = pt.id))) as ops_name,
+       (select t.ops_time
+          from CASE_OPS_RECORD_SJ t
+         where t.id =
+               (select max(id)
+                  from CASE_OPS_RECORD_SJ t
+                 where t.patient_id = (select cu.patient_id
+                                         from pt_inpatient_cure cu
+                                        where cu.id = pt.id))) as ops_time,
+(select t.balance_date from his_kfc.FIN_IPR_INMAININFO t where t.inpatient_no = pt.inpatient_no) as balance_date
+  from vhis_inpatientinfo pt
+ where pt.id in ({0})
+				        </Sql>
+				</Fpsheet_Add>
+
+			</PageItem>
+			
+			<!--出院患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->
+			<PageItem id="DisCharge" name="出院患者"  sortid="1"  visible="true">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>	
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<Fpsheet id="DisChargePaList" name="出院">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="2"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="3"/>
+					<Colmun id="OutDate" name="出院时间" length="130" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="RcdSetState" name="病历状态" length="80" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="InDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="DutyDoc" name="三级医生" length="120" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="9"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="10"/>
+				</Fpsheet>
+			</PageItem>
+			
+			<!--转出患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->
+			<PageItem id="Radt" name="转出患者"  sortid="2"  visible="true">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>	
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<Fpsheet id="RadtPaList" name="转出">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="TransInDept" name="转入科室" length="130" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="TransInDate" name="转科时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="State" name="患者状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="DutyDoc" name="三级医生" length="120" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="PathName" name="临床路径名" length="120" visible="false" allowsort="false" sortid="13"/>
+				</Fpsheet>
+                       <!--转入患者列表-->	
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<Fpsheet id="AcceptPaList" name="转入">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="PreShiftDocDeptName" name="转出科室" length="130" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="TransInDate" name="转科时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="State" name="患者状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="DutyDoc" name="三级医生" length="120" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="PathName" name="临床路径名" length="120" visible="false" allowsort="false" sortid="13"/>
+				</Fpsheet>
+
+
+			</PageItem>
+			
+			<!--会诊患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->
+			<PageItem id="Consultation" name="会诊患者"  sortid="3"  visible="true">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>
+				<Department type="C" protype=""/>	
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<!--其他科室申请本科室的会诊-->
+				<Fpsheet id="OtherApplyList" name="其他科室申请本科室的会诊">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="BedNo" name="床号" length="50" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="ConApplyDept" name="申请科室" length="120" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="ConsulateDoc" name="会诊专家" length="80" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="ConsulateDate" name="会诊日期" length="130" visible="false" allowsort="true" sortid="5"/>
+					<Colmun id="ConApplyDoc" name="申请人" length="80" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="ConApplyDate" name="申请日期" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="ConState" name="会诊状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="ConReceiveDoc" name="接收人" length="80" visible="true" allowsort="true" sortid="9"/>
+					<Colmun id="ConReceiveDate" name="接收日期" length="120" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="ConRefuseDoc" name="拒绝人" length="80" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="ConRefuseDate" name="拒绝日期" length="130" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="ConRefuseReason" name="拒绝原因" length="150" visible="true" allowsort="false" sortid="13"/>	
+					<Colmun id="HisInpatientNo" name="住院流水号" length="100" visible="true" allowsort="flase" sortid="14"/>			
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="15"/>
+				</Fpsheet>
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<!--本人申请其他科室的会诊-->		
+				<Fpsheet id="MyApplyList" name="本人申请其他科室的会诊">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+				  <Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="ConsulateDept" name="会诊科室" length="60" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="ConsulateDoc" name="会诊专家" length="60" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="ConsulateDate" name="会诊日期" length="130" visible="true" allowsort="true" sortid="5"/>
+					<Colmun id="ConApplyDate" name="申请日期" length="130" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="ConState" name="会诊状态" length="80" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="ConReceiveDoc" name="接收人" length="150" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="ConReceiveDate" name="接收日期" length="120" visible="true" allowsort="true" sortid="9"/>
+					<Colmun id="ConRefuseDoc" name="拒绝人" length="80" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="ConRefuseDate" name="拒绝日期" length="80" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="ConRefuseReason" name="拒绝原因" length="120" visible="true" allowsort="false" sortid="12"/>
+					<Colmun id="HisInpatientNo" name="住院流水号" length="100" visible="true" allowsort="false" sortid="13"/>
+				</Fpsheet>
+			</PageItem>	
+			
+			<!--手术麻醉患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->
+			<PageItem id="Operation" name="手术麻醉患者" sortid="4"  visible="true">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="OP" protype=""/>
+				<Department type="T" protype="2"/>
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<Fpsheet id="OperatePaList" name="手术麻醉">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="PreDate" name="拟手术日期" length="130" visible="true" allowsort="false" sortid="0"/>
+					<Colmun id="DeptCode" name="患者科室编码" length="130" visible="false" allowsort="false" sortid="1"/>
+					<Colmun id="DeptName" name="患者科室" length="130" visible="true" allowsort="false" sortid="2"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="false" sortid="3"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Name" name="姓名" length="100" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="6"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="7"/>
+					<Colmun id="OpsDiag" name="手术诊断" length="100" visible="true" allowsort="false" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="100" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="OpsKind" name="手术分类" length="80" visible="true" allowsort="false" sortid="10"/>
+					<Colmun id="ApplyState" name="申请状态" length="80" visible="true" allowsort="false" sortid="11"/>
+					<Colmun id="Duration" name="拟手术持续时间" length="130" visible="true" allowsort="false" sortid="12"/>
+					<Colmun id="ApplyDocCode" name="申请医师编码" length="80" visible="true" allowsort="true" sortid="13"/>
+					<Colmun id="ApplyDoc" name="申请医师" length="80" visible="true" allowsort="true" sortid="14"/>
+					<Colmun id="ApplyDate" name="申请日期" length="120" visible="true" allowsort="false" sortid="15"/>	
+					<Colmun id="OpsDocCode" name="手术医师编码" length="80" visible="true" allowsort="true" sortid="16"/>
+					<Colmun id="OpsDocName" name="手术医师名称" length="120" visible="true" allowsort="false" sortid="17"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="18"/>		
+				</Fpsheet>
+			</PageItem>	
+		<!--病区患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->			
+			<PageItem id="Area" name="病区患者" sortid="6" visible="false" depttype="" deptprotype="">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>				
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+                                <!--是否通过人员对应病区  1是  0否-->
+                                <IsEmployRelate>1</IsEmployRelate>
+				<!--farpoint表格设置 此id为默认值不允许修改-->
+				<Fpsheet id="AreaPaList" name="病区">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="CellName" name="病区" length="120" visible="true" allowsort="true" sortid="0"/>
+                                        <Colmun id="DeptName" name="科室" length="120" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="6"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="State" name="患者状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="NTLevel" name="护理级别" length="80" visible="true" allowsort="false" sortid="10"/>
+					<Colmun id="DutyDoc" name="经治医生" length="80" visible="false" allowsort="true" sortid="11"/>
+					<Colmun id="DutyDoc" name="住院医生" length="80" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="ChargeDoc" name="主治医生" length="80" visible="true" allowsort="true" sortid="13"/>
+					<Colmun id="DutyDoc" name="主任医生" length="80" visible="true" allowsort="true" sortid="14"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="15"/>
+					<Colmun id="IsPath" name="是否临床路径患者" length="120" visible="true" allowsort="true" sortid="16"/>
+					<Colmun id="PathName" name="临床路径名" length="120" visible="true" allowsort="true" sortid="17"/>
+					<Colmun id="PactName" name="合同单位" length="80" visible="true" allowsort="true" sortid="18"/>
+                                        <Colmun id="CriticalFlag" name="危重情况" length="80" visible="true" allowsort="true" sortid="19"/>
+                                        <Colmun id="FreeCost" name="余额(元)" length="80" visible="true" allowsort="false" sortid="20"/>
+                                        <Colmun id="Prepaycost" name="预交金(元)" length="80" visible="true" allowsort="false" sortid="21"/>
+                                        <Colmun id="Totcost" name="总费用(元)" length="80" visible="true" allowsort="false" sortid="22"/>
+				</Fpsheet>
+
+
+			</PageItem>
+<!--血透患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->			
+			<PageItem id="Hemodialysis" name="血透患者" sortid="7" visible="false" depttype="" deptprotype="">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>				
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 此id为默认值不允许修改-->
+				<Fpsheet id="HemoPaList" name="血透">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="CellName" name="病区" length="120" visible="true" allowsort="true" sortid="0"/>
+                                        <Colmun id="DeptName" name="科室" length="120" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="6"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="State" name="患者状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="9"/>
+                                        <Colmun id="CriticalFlag" name="危重情况" length="80" visible="true" allowsort="true" sortid="10"/> 
+				</Fpsheet>
+			</PageItem>
+<!--介入患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->			
+			<PageItem id="Inter" name="医技患者" sortid="5" visible="true" depttype="" deptprotype="">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="T" protype=""/>				
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 此id为默认值不允许修改-->
+				<Fpsheet id="InterPaList" name="介入">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="CellName" name="病区" length="120" visible="true" allowsort="true" sortid="0"/>
+                                        <Colmun id="DeptName" name="科室" length="120" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="6"/>
+					<Colmun id="InDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="State" name="患者状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="9"/>
+                                        <Colmun id="CriticalFlag" name="危重情况" length="80" visible="true" allowsort="true" sortid="10"/> 
+				</Fpsheet>
+			</PageItem>
+
+      <!--婴儿患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->			
+			<PageItem id="Baby" name="婴儿患者" sortid="0" visible="true" depttype="" deptprotype="">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>				
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 此id为默认值不允许修改-->
+				<Fpsheet id="BabyPaList" name="婴儿患者">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="CellName" name="病区" length="120" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="1"/>					
+					<Colmun id="Name" name="姓名" length="100" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="MotherName" name="母亲姓名" length="100" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Sex" name="性别" length="80" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Age" name="年龄" length="80" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="InDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="6"/>					
+					<Colmun id="MainDiag" name="主诊断" length="200" visible="true" allowsort="false" sortid="7"/>					
+				</Fpsheet>
+			</PageItem>
+
+	<!--授权患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->			
+			<PageItem id="Permission" name="临时授权患者" sortid="8" visible="true" depttype="" deptprotype="">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>
+				<Department type="T" protype=""/>				
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 此id为默认值不允许修改-->
+				<Fpsheet id="PermPaList" name="授权患者">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="InpatientNo" name="住院号" length="120" visible="true" allowsort="true" sortid="0"/>
+                                        <Colmun id="DeptName" name="科室" length="120" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="InpatientName" name="患者姓名" length="120" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="ApplyTime" name="申请日期" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="EmplOperName" name="申请人" length="80" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="ApplyState" name="申请状态" length="80" visible="true" allowsort="true" sortid="5"/>
+					<Colmun id="BeginTime" name="开始日期" length="80" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="EndTime" name="结束日期" length="80" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="ReciveOperName" name="审批人" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="ReciveTime" name="审批时间" length="80" visible="true" allowsort="true" sortid="9"/>
+					<Colmun id="RejectReason" name="拒绝原因" length="150" visible="true" allowsort="true" sortid="10"/>
+                                        <Colmun id="RemainTime" name="剩余时间" length="80" visible="true" allowsort="true" sortid="11"/>
+				</Fpsheet>
+			</PageItem>
+
+
+	</List>
+		
+	<!--护士患者列表-->
+	<List id="Nurse">
+<!--科室患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->			
+			<PageItem id="Dept" name="科室患者" sortid="0" visible="true" depttype="" deptprotype="">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>
+				<Department type="N" protype=""/>				
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+
+<!--患者过滤设置-->
+        <PatientFilter>
+          <!--<Item getway="sql" name="压疮患者">
+            select v.id from rcd_inpatient_record rcd, rcd_inpatient_record_set rcdset, vhis_inpatientinfo v
+            where v.NURSE_CELL_CODE = '{0}' and v.in_state = 'I' and v.id = rcdset.inpatient_id
+            and rcdset.id = rcd.inpatient_record_set_id and rcd.name = 'Braden压疮风险护理单-中大五院'
+          </Item>
+          <Item getway="sql" name="压疮评分≤16分">
+            select v.id from  rcd_inpatient_record_set rcdset, vhis_inpatientinfo v,rcd_record_item item
+            where v.in_state = 'I' and v.id = rcdset.inpatient_id
+            and v.NURSE_CELL_CODE = '{0}' and item.inpatient_id = v.id 
+            and item.element_id in ('201738','201740','201741','201742','201743','201744','201745','201746','201747')  
+            and to_number(item.value)&lt;17
+            group by v.id
+          </Item>-->
+          <!--<Item getway="sql" name="一级护理患者">
+            select v.id from rcd_inpatient_record rcd, rcd_inpatient_record_set rcdset, vhis_inpatientinfo v
+            where v.NURSE_CELL_CODE = '{0}' and v.in_state = 'I' and v.id = rcdset.inpatient_id
+            and rcdset.id = rcd.inpatient_record_set_id and rcd.name = '一级护理治疗服务巡视单'
+          </Item>-->
+        </PatientFilter>
+
+				<!--farpoint表格设置 此id为默认值不允许修改-->
+				<Fpsheet id="DeptPaList" name="科室">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="DeptName" name="科室" length="120" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="State" name="患者状态" length="80" visible="false" allowsort="true" sortid="7"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="8"/>
+					<Colmun id="NTLevel" name="护理级别" length="80" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="DutyDoc" name="经治医生" length="80" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="ChargeDoc" name="主治医生" length="80" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="13"/>
+					<Colmun id="IsPath" name="是否临床路径患者" length="120" visible="false" allowsort="false" sortid="14"/>
+					<Colmun id="PathName" name="临床路径名" length="120" visible="false" allowsort="false" sortid="15"/>
+					<Colmun id="CrisisScore" name="危重评分" length="60" visible="true" allowsort="false" sortid="16"/>
+					<Colmun id="CrisisMaxScore" name="单项最高分" length="60" visible="true" allowsort="false" sortid="17"/>
+					<Colmun id="CrisisAverScore" name="单项平均分" length="60" visible="true" allowsort="false" sortid="18"/>
+					<Colmun id="PactName" name="合同单位" length="60" visible="true" allowsort="false" sortid="19"/>
+				</Fpsheet>
+			</PageItem>
+		<!--转出患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->
+                        <PageItem id="Radt" name="转出患者"  sortid="2"  visible="true">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>
+				<Department type="N" protype=""/>		
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<Fpsheet id="RadtPaList" name="转出">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="TransInDept" name="转入科室" length="130" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="TransInDate" name="转科时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="State" name="患者状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="DutyDoc" name="三级医生" length="120" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="PathName" name="临床路径名" length="120" visible="false" allowsort="false" sortid="13"/>
+				</Fpsheet>
+				<!--转入患者列表-->	
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<Fpsheet id="AcceptPaList" name="转入">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="PreShiftDocDeptName" name="转出科室" length="130" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="TransInDate" name="转科时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="State" name="患者状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="DutyDoc" name="三级医生" length="120" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="PathName" name="临床路径名" length="120" visible="false" allowsort="false" sortid="13"/>
+				</Fpsheet>
+			</PageItem>
+	<!--介入患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->			
+			<PageItem id="Inter" name="介入患者" sortid="8" visible="false" depttype="" deptprotype="">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>				
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 此id为默认值不允许修改-->
+				<Fpsheet id="InterPaList" name="介入">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 allowsort true允许排序false不允许 sortid 顺序号从0开始-->
+					<Colmun id="CellName" name="病区" length="120" visible="true" allowsort="true" sortid="0"/>
+                                        <Colmun id="DeptName" name="科室" length="120" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="3"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="6"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="7"/>
+					<Colmun id="State" name="患者状态" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="9"/>
+                                        <Colmun id="CriticalFlag" name="危重情况" length="80" visible="true" allowsort="true" sortid="10"/> 
+				</Fpsheet>
+			</PageItem>
+
+	<!--手术麻醉患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->
+			<PageItem id="Operation" name="手术麻醉患者" sortid="3"  visible="true">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="OP" protype="1"/>
+				<Department type="OP" protype="2"/>
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<Fpsheet id="OperatePaList" name="手术麻醉">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="PreDate" name="拟手术日期" length="130" visible="true" allowsort="false" sortid="0"/>
+					<Colmun id="DeptCode" name="患者科室编码" length="130" visible="true" allowsort="false" sortid="1"/>
+					<Colmun id="DeptName" name="患者科室" length="130" visible="true" allowsort="false" sortid="2"/>
+					<Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="false" sortid="3"/>
+					<Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="false" sortid="4"/>
+					<Colmun id="Name" name="姓名" length="100" visible="true" allowsort="false" sortid="5"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="6"/>
+					<Colmun id="Age" name="年龄" length="60" visible="true" allowsort="false" sortid="7"/>
+					<Colmun id="OpsDiag" name="手术诊断" length="100" visible="true" allowsort="false" sortid="8"/>
+					<Colmun id="MainDiag" name="主诊断" length="100" visible="true" allowsort="false" sortid="9"/>
+					<Colmun id="OpsKind" name="手术分类" length="80" visible="true" allowsort="false" sortid="10"/>
+					<Colmun id="ApplyState" name="申请状态" length="80" visible="true" allowsort="false" sortid="11"/>
+					<Colmun id="Duration" name="拟手术迟续时间" length="130" visible="true" allowsort="false" sortid="12"/>
+					<Colmun id="ApplyDocCode" name="申请医师编码" length="80" visible="true" allowsort="true" sortid="13"/>
+					<Colmun id="ApplyDoc" name="申请医师" length="80" visible="true" allowsort="true" sortid="14"/>
+					<Colmun id="ApplyDate" name="申请日期" length="120" visible="true" allowsort="false" sortid="15"/>	
+					<Colmun id="OpsDocCode" name="手术医师编码" length="80" visible="true" allowsort="true" sortid="16"/>
+					<Colmun id="OpsDocName" name="手术医师名称" length="120" visible="true" allowsort="false" sortid="17"/>
+					<Colmun id="Source" name="患者来源" length="80" visible="true" allowsort="true" sortid="18"/>		
+				</Fpsheet>
+			</PageItem>
+
+<!--终末评分驳回患者列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->
+			<PageItem id="FinalScoreReject" name="终末驳回患者"  sortid="11"  visible="false">
+				<!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+				<Department type="I" protype=""/>
+				<Department type="N" protype=""/>		
+				<!--工具栏按钮设置-->
+				<ToolBar>
+				</ToolBar>
+				<!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+				<Fpsheet id="RejectPaList" name="终末驳回">
+					<!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始-->
+					<Colmun id="ScoreState" name="评分状态" length="80" visible="true" allowsort="true" sortid="0"/>
+					<Colmun id="PatientNo" name="病案号" length="100" visible="true" allowsort="true" sortid="1"/>
+					<Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="2"/>
+					<Colmun id="Sex" name="性别" length="60" visible="true" allowsort="false" sortid="3"/>
+					<Colmun id="RegDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="4"/>
+					<Colmun id="OutDate" name="出院时间" length="130" visible="true" allowsort="true" sortid="5"/>
+					<Colmun id="DeptName" name="出院科室" length="130" visible="true" allowsort="true" sortid="6"/>
+					<Colmun id="MainDiag" name="主诊断" length="150" visible="true" allowsort="false" sortid="7"/>
+					<Colmun id="DutyDoc" name="经治医生" length="80" visible="true" allowsort="true" sortid="8"/>
+					<Colmun id="ChargeDoc" name="主治医生" length="80" visible="true" allowsort="true" sortid="9"/>
+					<Colmun id="DutyNurse" name="责任护士" length="80" visible="true" allowsort="true" sortid="10"/>
+					<Colmun id="RecordLevel" name="病历等级" length="80" visible="true" allowsort="true" sortid="11"/>
+					<Colmun id="RecordScore" name="病历得分" length="80" visible="true" allowsort="true" sortid="12"/>
+					<Colmun id="RejectDate" name="驳回日期" length="130" visible="true" allowsort="true" sortid="13"/>
+					<Colmun id="QcOper" name="质控员" length="80" visible="true" allowsort="true" sortid="14"/>
+<Colmun id="RcdSetRefuseReason" name="驳回原因" length="80" visible="true" allowsort="true" sortid="15"/>
+				</Fpsheet>
+			</PageItem>
+
+
+
+
+
+	</List>
+<!--出院患者查询列表-->
+  <List id="DisChargeQuery">
+    <!--出院患者查询列表 id为默认值不允许修改 name为tab页的标签值 visible true可见false不可见 sortid 顺序号从0开始-->
+    <PageItem id="DisCharge" name="出院患者查询"  sortid="1"  visible="true">
+      <!--指定什么类型的科室显示此列表 type科室类型(不允许为空) protype科室特殊属性(为空时只判断type)-->
+      <Department type="I" protype=""/>
+      <Department type="N" protype=""/>
+      <!--工具栏按钮设置-->
+      <ToolBar>
+      </ToolBar>
+      <!--farpoint表格设置 id Farpoint中的tag值，表示这个是sheet页中tag值与此相同的页的列设置，此id为默认值不允许修改-->
+      <Fpsheet id="DisChargeQueryList" name="出院">
+        <!--列设置 name 显示列表 length 列宽 visible true可见false不可见 sortid 顺序号从0开始 allowsort是否允许排序true可以排序false不可以排序 allowfilter是否允许过滤-->
+        <Colmun id="PatientNo" name="住院号" length="100" visible="true" allowsort="true" sortid="0"/>
+        <Colmun id="BedNo" name="床号" length="80" visible="true" allowsort="true" sortid="1"/>
+        <Colmun id="Name" name="姓名" length="80" visible="true" allowsort="true" sortid="2"/>        
+        <Colmun id="InDate" name="入院时间" length="130" visible="true" allowsort="true" sortid="3"/>        
+        <Colmun id="OutDate" name="出院时间" length="130" visible="true" allowsort="true" sortid="4"/>        
+        <Colmun id="ChargeDoc" name="主治医生" length="100" visible="true" allowsort="true" allowfilter="true" sortid="5"/>
+        <Colmun id="DutyDoc" name="经治医生" length="100" visible="true" allowsort="true" allowfilter="true" sortid="6"/>        
+        <Colmun id="DutyNurse" name="责任护士" length="100" visible="true" allowsort="true" allowfilter="true" sortid="7"/>
+        <Colmun id="FirstPageState" name="首页状态" length="80" visible="false" allowsort="true" allowfilter="true" sortid="8"/>
+        <Colmun id="CaseStatus" name="首页状态" length="80" visible="false" allowsort="true" allowfilter="true" sortid="8"/>
+        <Colmun id="FirstPageRefuseReason" name="驳回原因" length="80" visible="false" allowsort="false" sortid="9"/>
+        <Colmun id="RcdSetState" name="病历状态" length="80" visible="true" allowsort="true" sortid="10"/>        
+        <Colmun id="MainDiag" name="出院诊断" length="150" visible="true" allowsort="false" sortid="11"/>
+        <Colmun id="QcScoreState" name="评分状态" length="80" visible="true" allowsort="true" sortid="12"/>
+        <Colmun id="QcRcdSetGrade" name="病历等级" length="80" visible="true" allowsort="true" sortid="13"/>
+        <Colmun id="QcRcdSetScore" name="病历得分" length="80" visible="true" allowsort="true" sortid="14"/>
+        <Colmun id="QcOper" name="质控人" length="80" visible="true" allowsort="true" sortid="15"/>
+        <Colmun id="QcOperDate" name="质控时间" length="80" visible="true" allowsort="true" sortid="16"/>
+        <Colmun id="IsDocModify" name="当事人是否修改" length="80" visible="true" allowsort="true" sortid="17"/>
+        <Colmun id="ModifyDoctorName" name="修改人" length="80" visible="true" allowsort="true" sortid="18"/>   
+        <Colmun id="Sex" name="性别" length="60" visible="false" allowsort="false" sortid="19"/>
+        <Colmun id="Age" name="年龄" length="60" visible="false" allowsort="false" sortid="20"/>
+        <Colmun id="InpatientNo" name="住院流水号" length="100" visible="false" allowsort="false" sortid="21"/>
+        <Colmun id="DeptName" name="科室" length="100" visible="false" allowsort="true" sortid="22"/>
+        <Colmun id="CellName" name="病区" length="100" visible="false" allowsort="true" sortid="23"/>
+        <Colmun id="DirectorDoc" name="主治医生" length="80" visible="false" allowsort="true" allowfilter="true" sortid="24"/>
+      </Fpsheet>
+    </PageItem>
+  </List>
+	
+</InpatientList>

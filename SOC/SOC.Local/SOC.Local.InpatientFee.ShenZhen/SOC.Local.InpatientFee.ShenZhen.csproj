@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3372AC8B-8F02-4B2D-8A3B-82822A26D1C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SOC.Local.InpatientFee.ShenZhen</RootNamespace>
+    <AssemblyName>SOC.Local.InpatientFee.ShenZhen</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.RADT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.RADT.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.MessagePatternInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.InpatientFee.BizProcess, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.InpatientFee.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.InpatientFee.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.RADT.BizLogic, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.RADT.Components, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.RADT.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BinHai\BizLogic\Fee\BedFeeItem.cs" />
+    <Compile Include="BinHai\BizProcess\Integrate\Fee.cs" />
+    <Compile Include="BinHai\Components\ucBedFeeItemModify.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\Components\ucBedFeeItemModify.designer.cs">
+      <DependentUpon>ucBedFeeItemModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\Components\ucBedFeeMaintenance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\Components\ucBedFeeMaintenance.designer.cs">
+      <DependentUpon>ucBedFeeMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\HISTIMEJOB\FixedFee.cs" />
+    <Compile Include="BinHai\IBillPrint\AbstractBillPrint.cs" />
+    <Compile Include="BinHai\IBillPrint\Function.cs" />
+    <Compile Include="BinHai\IBillPrint\BlanceList.cs" />
+    <Compile Include="BinHai\IBillPrint\SiBlancelist.cs" />
+    <Compile Include="BinHai\IBillPrint\ucSZBlanceInvoice1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IBillPrint\ucSZBlanceInvoice1.Designer.cs">
+      <DependentUpon>ucSZBlanceInvoice1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\IInpatientChargePrint\ucInpatientChargePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IInpatientChargePrint\ucInpatientChargePrint.Designer.cs">
+      <DependentUpon>ucInpatientChargePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\Inpatient\Function.cs" />
+    <Compile Include="BinHai\Inpatient\ucModifyInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\Inpatient\ucModifyInfo.Designer.cs">
+      <DependentUpon>ucModifyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\Inpatient\ucRegisterInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\Inpatient\ucRegisterInfo.Designer.cs">
+      <DependentUpon>ucRegisterInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\IPrepayPrint\InpatientPrepay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IPrepayPrint\InpatientPrepay.Designer.cs">
+      <DependentUpon>InpatientPrepay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\IBalanceInvoicePrintmy\ucInInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IBalanceInvoicePrintmy\ucInInvoice.Designer.cs">
+      <DependentUpon>ucInInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\IPrepayPrint\ucPrepayPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IPrepayPrint\ucPrepayPrint.Designer.cs">
+      <DependentUpon>ucPrepayPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\IBillPrint\ucBlanceCostList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IBillPrint\ucBlanceCostList.Designer.cs">
+      <DependentUpon>ucBlanceCostList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\IBalanceInvoicePrintmy\ucSiBlancelist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IBalanceInvoicePrintmy\ucSiBlancelist.Designer.cs">
+      <DependentUpon>ucSiBlancelist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\IBalanceInvoicePrintmy\ucSiChildrenBlanceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IBalanceInvoicePrintmy\ucSiChildrenBlanceList.Designer.cs">
+      <DependentUpon>ucSiChildrenBlanceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\IBillPrint\ucBlanceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\IBillPrint\ucBlanceList.Designer.cs">
+      <DependentUpon>ucBlanceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinHai\Models\Fee\BedFeeItem.cs" />
+    <Compile Include="BinHai\Report\ucPatientFeeQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinHai\Report\ucPatientFeeQuery.Designer.cs">
+      <DependentUpon>ucPatientFeeQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BinHai\Components\ucBedFeeItemModify.resx">
+      <DependentUpon>ucBedFeeItemModify.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\Components\ucBedFeeMaintenance.resx">
+      <DependentUpon>ucBedFeeMaintenance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IBillPrint\ucSZBlanceInvoice1.resx">
+      <DependentUpon>ucSZBlanceInvoice1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IInpatientChargePrint\ucInpatientChargePrint.resx">
+      <DependentUpon>ucInpatientChargePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\Inpatient\ucModifyInfo.resx">
+      <DependentUpon>ucModifyInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\Inpatient\ucRegisterInfo.resx">
+      <DependentUpon>ucRegisterInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IPrepayPrint\InpatientPrepay.resx">
+      <DependentUpon>InpatientPrepay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IBalanceInvoicePrintmy\ucInInvoice.resx">
+      <DependentUpon>ucInInvoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IPrepayPrint\ucPrepayPrint.resx">
+      <DependentUpon>ucPrepayPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IBillPrint\ucBlanceCostList.resx">
+      <DependentUpon>ucBlanceCostList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IBalanceInvoicePrintmy\ucSiBlancelist.resx">
+      <DependentUpon>ucSiBlancelist.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IBalanceInvoicePrintmy\ucSiChildrenBlanceList.resx">
+      <DependentUpon>ucSiChildrenBlanceList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\IBillPrint\ucBlanceList.resx">
+      <DependentUpon>ucBlanceList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinHai\Report\ucPatientFeeQuery.resx">
+      <DependentUpon>ucPatientFeeQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicalFormulas>
+  <!-- 补钠计算 -->
+  <MedicalFormula type="NaCalculate" name="补钠计算">
+    <Group name="男性可使用公式">
+      <Item>
+        <Name>应补钠总量</Name>
+        <Factor>0.6</Factor>
+        <Code>NaTotal</Code>
+      </Item>
+      <Item>
+        <Name>应补氯化钠总量</Name>
+        <Factor>0.6</Factor>
+        <Code>NaLvTotal</Code>
+      </Item>
+      <Item>
+        <Name>应补生理盐水</Name>
+        <Factor>0.6</Factor>
+        <Code>NaSaline</Code>
+      </Item>
+      <Item>
+        <Name>应补3%氯化钠</Name>
+        <Factor>0.6</Factor>
+        <Code>Na3Per</Code>
+      </Item>
+      <Item>
+        <Name>应补5%氯化钠</Name>
+        <Factor>0.6</Factor>
+        <Code>Na5Per</Code>
+      </Item>
+    </Group>    
+  </MedicalFormula>
+</MedicalFormulas>

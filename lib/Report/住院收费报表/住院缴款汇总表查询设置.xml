@@ -1,0 +1,374 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>160</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>160</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>290</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPrepaySum</Name><Sql>SELECT FUN_GET_EMPLOYEE_NAME(AA.OPER_CODE) 操作员,
+       SUM(TOTNUM) 预收张数,
+       SUM(CASE
+             WHEN TOT_COST &gt;= 0 THEN
+              TOT_COST
+             ELSE
+              0
+           END) 预收金额,
+       SUM(QUITNUM) 退预收张数,
+       SUM(CASE
+             WHEN TOT_COST &lt; 0 THEN
+              TOT_COST
+             ELSE
+              0
+           END) 退预收金额,
+       0 注销预收张数,
+       0 注销预收金额,
+       SUM(TOT_COST) 应交预收合计,
+       SUM(CA) 现金,
+       SUM(UP) 银联卡,
+       SUM(MER) 招行,
+       SUM(ICBC) 工行,
+       SUM(CH) 支票
+  FROM (SELECT P.OPER_CODE,
+               DECODE(P.PAY_WAY, 'CA', SUM(P.PREPAY_COST)) CA,
+               DECODE(P.PAY_WAY, 'UP', SUM(P.PREPAY_COST)) UP,
+               DECODE(P.PAY_WAY, 'MER', SUM(P.PREPAY_COST)) MER,
+               DECODE(P.PAY_WAY, 'ICBC', SUM(P.PREPAY_COST)) ICBC,
+               DECODE(P.PAY_WAY, 'CH', SUM(P.PREPAY_COST)) CH,
+               SUM(P.PREPAY_COST) TOT_COST,
+               P.PREPAY_STATE,
+               P.BALANCE_STATE,
+               SUM(CASE
+                     WHEN P.PREPAY_COST &gt;= 0 THEN
+                      1
+                     ELSE
+                      0
+                   END) TOTNUM,
+               SUM(CASE
+                     WHEN P.PREPAY_COST &lt; 0 THEN
+                      1
+                     ELSE
+                      0
+                   END) QUITNUM
+          FROM FIN_IPB_INPREPAY P
+         WHERE P.DAYBALANCE_NO IN
+               (SELECT D.BALANCE_NO
+                  FROM FIN_IPB_DAYBALANCE D
+                 WHERE d.END_DATE &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss'))
+           AND P.EXT_FLAG = '1'
+           AND P.DAYBALANCE_FLAG = '1'
+         GROUP BY P.OPER_CODE, P.PREPAY_STATE, P.BALANCE_STATE, P.PAY_WAY) AA
+ GROUP BY AA.OPER_CODE
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>操作员</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInvoiceSum</Name><Sql>--dtInvoiceSum
+select 操作员,
+       sum(发票张数) 发票张数,
+       sum(发票合计) 发票合计,
+       sum(退费原单数) 退费原单数,
+       sum(退费原单) 退费原单,
+       sum(退费新单数) 退费新单数,
+       sum(退费新单) 退费新单,
+       sum(记账张数) 社保统筹张数,
+       sum(记账合计) 社保统筹合计,
+       sum(注销发票数) 注销发票数,
+       sum(注销发票金额) 注销发票金额,
+       sum(冲销预收款张数) 冲销预收款张数,
+       sum(冲销预收合计) 冲销预收合计,
+       sum(发票收入合计) 发票收入合计
+ from
+(
+--dtInvoiceSumPart1
+select (select e.empl_name from com_employee e where e.empl_code = balance_opercode) 操作员,
+       sum(case when trans_type = '1' then 1 else 0 end) 发票张数,
+       sum(case when trans_type = '1' then tot_cost else 0 end) 发票合计,
+       sum(case when trans_type = '2' then 1 else 0 end) 退费原单数,
+       sum(case when trans_type = '2' then tot_cost else 0 end) 退费原单,
+       0 退费新单数,--意义不明,暂不处理
+       0 退费新单,--意义不明,暂不处理
+       sum(case when trans_type = '1' and pub_cost != 0 then 1 else 0 end) 记账张数,
+       sum(case when pub_cost != 0 then pub_cost else 0 end) 记账合计,
+       0 注销发票数,--意义不明,暂不处理
+       0 注销发票金额,--意义不明,暂不处理
+       0 冲销预收款张数,--part1不统计
+       0 冲销预收合计,--part1不统计
+       sum(tot_cost) 发票收入合计
+  from 
+(
+select b.invoice_no,
+       b.print_invoiceno,
+       b.trans_type,
+       b.balance_opercode,
+       sum(b.tot_cost) tot_cost,
+       sum(b.pub_cost) pub_cost
+  from fin_ipb_balancehead b
+ where b.daybalance_no in
+(
+select d.balance_no
+  from fin_ipb_daybalance d
+ where d.END_DATE &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   --and d.check_flag = '1'
+)
+AND b.daybalance_flag = '1'
+ group by b.invoice_no,b.print_invoiceno, b.trans_type, b.balance_opercode
+) aa
+ group by aa.balance_opercode
+ 
+ union all
+ 
+--dtInvoiceSumPart2
+select (select e.empl_name from com_employee e where e.empl_code = p.balance_opercode) 操作员,
+       0 发票张数,    --part2不统计
+       0 发票合计,    --part2不统计
+       0 退费原单数,  --part2不统计
+       0 退费原单,    --part2不统计
+       0 退费新单数,  --part2不统计
+       0 退费新单,    --part2不统计
+       0 记账张数,    --part2不统计
+       0 记账合计,    --part2不统计
+       0 注销发票数,  --part2不统计
+       0 注销发票金额,--part2不统计
+       count(distinct p.receipt_no) 冲销预收款张数,
+       sum(p.prepay_cost) 冲销预收合计,
+       0 发票收入合计 --part2不统计
+  from fin_ipb_inprepay p
+ where (p.invoice_no, p.balance_opercode,p.BALANCE_NO) in
+(
+select b.invoice_no, b.balance_opercode,b.BALANCE_NO
+  from fin_ipb_balancehead b
+ where b.daybalance_no in
+(
+select d.balance_no
+  from fin_ipb_daybalance d
+ where d.END_DATE &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   --and d.check_flag = '1'
+)
+AND b.daybalance_flag = '1'
+)
+ group by p.balance_opercode
+)
+ group by 操作员</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>操作员</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPayWaySum</Name><Sql>--dtPayWaySum
+select (select e.empl_name from com_employee e where e.empl_code = aa.oper_code) 操作员,
+       decode(bb.name,'社会保障卡(珠海)','珠海社会保障卡','社会保障卡(中山)'，'中山社会保障卡'，'社会保障卡(广州)','广州社会保障卡',bb.name) 支付方式,
+       sum(case when trans_type in('1','2') then cost else 0 end) 发票金额,
+       sum(case when trans_type = '3' then cost else 0 end) 预收款金额,
+       sum(cost) 缴款合计
+  from
+(
+select p.balance_opercode oper_code,
+       p.pay_way,
+       p.trans_type,
+       (case when p.reutrnorsupply_flag = '2' and p.trans_kind = '1' then -p.cost 
+       else CASE WHEN p.reutrnorsupply_flag = '1' and p.trans_kind = '1' then p.cost ELSE 0 END END ) cost  
+from fin_ipb_balancepay p
+ where p.daybalance_no in
+(
+select d.balance_no
+  from fin_ipb_daybalance d
+ where d.END_DATE &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   --and d.check_flag = '1'
+)
+AND p.daybalance_flag = '1'
+
+ union all
+select r.daybalance_opcd oper_code,
+       r.pay_way,
+       '3' trans_type,
+       r.prepay_cost cost
+  from fin_ipb_inprepay r
+ where r.daybalance_no in
+(
+select d.balance_no
+  from fin_ipb_daybalance d
+ where d.END_DATE &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   --and d.check_flag = '1'
+)
+AND r.ext_flag = '1'
+AND r.daybalance_flag = '1'
+
+/*
+ union all
+--dtPayWaySumPart2
+select b.balance_opercode,
+       (case when p.dll_description like '珠海%' then 'PBZH' else case when p.dll_description like '中山%' then 'PBZS' end end) pay_way,
+       b.trans_type,
+       b.pub_cost cost
+  from fin_ipb_balancehead b, fin_com_pactunitinfo p
+ where b.pub_cost &gt; 0
+   and b.pact_code = p.pact_code
+   and b.daybalance_no in
+(
+select d.balance_no
+  from fin_ipb_daybalance d
+ where d.END_DATE &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   --and d.check_flag = '1'
+)
+*/
+
+) aa,
+(
+select d.code,
+       d.name,
+       d.sort_id
+  from com_dictionary d
+ where d.type = 'PAYMODES'
+) bb
+ where aa.pay_way = bb.code
+ group by aa.oper_code,bb.name, bb.sort_id
+ order by bb.sort_id</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>true</IsCross><SqlType>MainReportUsing</SqlType><CrossRows>操作员</CrossRows><CrossColumns>支付方式</CrossColumns><CrossValues>缴款合计</CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>操作员</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows>合计:现金,支票,珠海社会保障卡,中山社会保障卡,记账,珠海医保统筹,中山医保统筹,汇款,优惠,银联卡,广州社会保障卡,招行,工行,宰账</SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInvoiceDetail</Name><Sql>--dtInvoiceDetail
+select max(case when 分组 = 0 then 操作员 else null end) 操作员1,
+       max(case when 分组 = 0 then 起始发票号 else null end) 起始发票号1,
+       max(case when 分组 = 0 then 截止发票号 else null end) 截止发票号1,
+       max(case when 分组 = 0 then 发票张数 else null end) 发票张数1,
+       '',
+       max(case when 分组 = 1 then 操作员 else null end) 操作员2,
+       max(case when 分组 = 1 then 起始发票号 else null end) 起始发票号2,
+       max(case when 分组 = 1 then 截止发票号 else null end) 截止发票号2,
+       max(case when 分组 = 1 then 发票张数 else null end) 发票张数2,
+       '',
+       max(case when 分组 = 2 then 操作员 else null end) 操作员3,
+       max(case when 分组 = 2 then 起始发票号 else null end) 起始发票号3,
+       max(case when 分组 = 2 then 截止发票号 else null end) 截止发票号3,
+       max(case when 分组 = 2 then 发票张数 else null end) 发票张数3
+  from
+(
+select 操作员,
+       起始发票号,
+       截止发票号,
+       发票张数,
+       mod((rownum-1),3) 分组,
+       trunc((rownum-1)/3) 序号
+  from
+(
+select (select e.empl_name
+          from com_employee e
+         where e.empl_code = t.oper_code) 操作员,
+       min_invoiceno 起始发票号,
+       max_invoiceno 截止发票号,
+       count 发票张数
+  from (select a.oper_code,
+               min(a.print_invoiceno) min_invoiceno,
+               max(a.print_invoiceno) max_invoiceno,
+               count(distinct a.print_invoiceno) count
+          from (select a.print_invoiceno  print_invoiceno,
+                       a.balance_opercode oper_code
+                  from fin_ipb_balancehead a
+                 where a.daybalance_no in
+                       (select d.balance_no
+                          from fin_ipb_daybalance d
+                         where d.END_DATE &gt;=
+                               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+                           and d.END_DATE &lt;=
+                               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+                           --and d.check_flag = '1'
+                           )
+                   AND a.daybalance_flag = '1'
+                   and nvl(a.ext1_flag, '0') = '0') a,
+               (select t.start_no, t.end_no, t.get_person_code oper_code
+                  from fin_com_invoice t
+                 where t.invoice_kind = 'I') b
+         where a.print_invoiceno &gt;= b.start_no
+           and a.print_invoiceno &lt;= b.end_no
+           and a.oper_code = b.oper_code
+         group by b.start_no, b.end_no, a.oper_code) t
+ order by min_invoiceno
+)
+)
+ group by 序号
+ order by 序号</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtQuitInoviceDetail</Name><Sql>--dtQuitInoviceDetail
+select max(case when 分组 = 0 then 操作员 else null end) 操作员1,
+       max(case when 分组 = 0 then 发票号 else null end) 发票号1,
+       max(case when 分组 = 0 then 金额 else null end) 金额1,
+       max(case when 分组 = 0 then 退费日期 else null end) 退费日期1,
+       '',
+       max(case when 分组 = 1 then 操作员 else null end) 操作员1,
+       max(case when 分组 = 1 then 发票号 else null end) 发票号1,
+       max(case when 分组 = 1 then 金额 else null end) 金额1,
+       max(case when 分组 = 1 then 退费日期 else null end) 退费日期1,
+       '',
+       max(case when 分组 = 2 then 操作员 else null end) 操作员1,
+       max(case when 分组 = 2 then 发票号 else null end) 发票号1,
+       max(case when 分组 = 2 then 金额 else null end) 金额1,
+       max(case when 分组 = 2 then 退费日期 else null end) 退费日期1
+  from
+(
+select 操作员,
+       发票号,
+       金额,
+       trunc(退费日期) 退费日期,
+       mod((rownum-1),3) 分组,
+       trunc((rownum-1)/3) 序号
+  from
+(
+select (select e.empl_name
+          from com_employee e
+         where e.empl_code = a.balance_opercode) 操作员,
+       a.print_invoiceno 发票号,
+       a.tot_cost 金额,
+       a.balance_date 退费日期
+  from fin_ipb_balancehead a
+ where a.daybalance_no in
+       (select d.balance_no
+          from fin_ipb_daybalance d
+         where d.END_DATE &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and d.END_DATE &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           --and d.check_flag = '1'
+           )
+   and a.trans_type = '2'
+   and nvl(a.ext1_flag, '0') = '0'
+   AND a.daybalance_flag = '1'
+ order by a.balance_opercode,a.print_invoiceno
+)
+)
+ group by 序号
+ order by 序号</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPayWaySum1</Name><Sql>SELECT 操作员,
+       SUM(CA) 现金,
+       SUM(UP) 银联卡,
+       SUM(MER) 招行,
+       SUM(ICBC) 工行,
+       SUM(CH) 支票,
+       SUM(ZZ) 宰账,
+       SUM(RC) 优惠,
+       SUM(PB) 记账,
+       SUM(MCZS) 广州社会保障卡,
+       SUM(MCZH) 珠海社会保障卡,
+       SUM(缴款合计) 缴款合计
+  FROM (SELECT FUN_GET_EMPLOYEE_NAME(AA.OPER_CODE) 操作员,
+               DECODE(AA.PAY_WAY, 'CA', SUM(AA.COST)) CA,
+               DECODE(AA.PAY_WAY, 'UP', SUM(AA.COST)) UP,
+               DECODE(AA.PAY_WAY, 'MER', SUM(AA.COST)) MER,
+               DECODE(AA.PAY_WAY, 'ICBC', SUM(AA.COST)) ICBC,
+               DECODE(AA.PAY_WAY, 'CH', SUM(AA.COST)) CH,
+               DECODE(AA.PAY_WAY, 'ZZ', SUM(AA.COST)) ZZ,
+               DECODE(AA.PAY_WAY, 'RC', SUM(AA.COST)) RC,
+               DECODE(AA.PAY_WAY, 'PB', SUM(AA.COST)) PB,
+               (CASE
+                 WHEN AA.PAY_WAY = 'MCZS' OR AA.PAY_WAY = 'GZ' THEN
+                  SUM(AA.COST)
+                 ELSE
+                  0
+               END) MCZS,
+               DECODE(AA.PAY_WAY, 'MCZH', SUM(AA.COST)) MCZH,
+               SUM(COST) 缴款合计
+          FROM (SELECT P.BALANCE_OPERCODE OPER_CODE,
+                       P.PAY_WAY,
+                       (CASE
+                         WHEN P.REUTRNORSUPPLY_FLAG = '2' AND
+                              P.TRANS_KIND = '1' THEN
+                          -P.COST
+                         ELSE
+                          CASE
+                            WHEN P.REUTRNORSUPPLY_FLAG = '1' AND
+                                 P.TRANS_KIND = '1' THEN
+                             P.COST
+                            ELSE
+                             0
+                          END
+                       END) COST
+                  FROM FIN_IPB_BALANCEPAY P
+                 WHERE P.DAYBALANCE_NO IN
+                       (SELECT D.BALANCE_NO
+                          FROM FIN_IPB_DAYBALANCE D
+                         WHERE d.END_DATE &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and d.END_DATE &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss'))
+                   AND P.DAYBALANCE_FLAG = '1') AA
+         GROUP BY AA.OPER_CODE, AA.PAY_WAY)
+ GROUP BY 操作员</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>操作员</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院收费报表\住院缴款汇总表查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>850</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>1169</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

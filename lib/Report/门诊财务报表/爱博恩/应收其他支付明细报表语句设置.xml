@@ -1,0 +1,119 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>OperID</Name><Text>操作员：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>440</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select f.empl_code,f.empl_name,'',f.spell_code,f.wb_code,'' from com_employee f where f.empl_type = 'F' </DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>FeeType</Name><Text>收费类型：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>660</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select '门诊收费','门诊收费' from dual union all select '门诊挂号','门诊挂号' from dual union all select '套餐收费','套餐收费' from dual union all select '套餐押金','套餐押金' from dual union all select '账户充值','账户充值' from dual</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>4</Index><Name>name</Name><Text>姓名：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>880</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSQL</Name><Sql>select 收费类型,
+       姓名,
+       发票号,
+       金额,
+       备注,
+       操作员,
+       操作时间
+  from ( --门诊收费
+        select '门诊收费' 收费类型,
+                c.name 姓名,
+                a.invoice_no 发票号,
+                a.TOT_COST 金额,
+                a.MARK 备注,
+                fun_get_employee_name(a.oper_code) 操作员,
+                a.oper_date 操作时间 
+          from fin_opb_paymode a,fin_opb_invoiceinfo b,com_patientinfo c,com_dictionary d
+         where (a.oper_code = '&amp;OperID' or '&amp;OperID' = 'ALL')
+           and b.card_no = c.card_no
+           and b.invoice_no = a.invoice_no
+           and b.trans_type = a.trans_type
+           and a.mode_code = d.code
+           and d.type = 'PAYMODES'  
+           and (c.name like '%&amp;name%' or '&amp;name' is null)
+           and a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss') 
+           and a.mode_code = 'YE'
+        union all
+        --门诊挂号
+        select '门诊挂号' 收费类型,
+               s.name 姓名,
+                a.invoice_no 发票号,
+               a.TOT_COST 金额,
+               a.MEMO 备注,
+                fun_get_employee_name(a.oper_code) 操作员,
+                a.oper_date 操作时间
+          from exp_register_paymode a,com_dictionary d,
+          (select distinct l.invoice_no,l.card_no ,c.name
+             from exp_register_detail l,com_patientinfo c 
+            where l.card_no = c.card_no) s
+         where (a.oper_code = '&amp;OperID' or '&amp;OperID' = 'ALL')
+           and a.mode_code = d.code
+           and a.INVOICE_NO = s.invoice_no
+           and d.type = 'PAYMODES'
+           and (s.name like '%&amp;name%' or '&amp;name' is null)
+           and a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') 
+           and a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and a.mode_code = 'YE'           
+        
+        union all
+        --套餐收费
+        select '套餐收费' 收费类型,
+               s.name 姓名,
+                a.invoice_no 发票号,
+               a.TOT_COST 金额,
+               a.MEMO 备注,
+                fun_get_employee_name(a.oper_code) 操作员,
+                a.oper_date 操作时间
+          from exp_packagepaymode a,com_dictionary d,
+          (select distinct l.invoice_no,l.card_no ,c.name
+             from exp_packagedetail l,com_patientinfo c 
+            where l.card_no = c.card_no) s
+         where (a.oper_code = '&amp;OperID' or '&amp;OperID' = 'ALL')
+           and a.mode_code = d.code
+           and a.INVOICE_NO = s.invoice_no
+           and d.type = 'PAYMODES'
+           and (s.name like '%&amp;name%' or '&amp;name' is null)
+           and a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') 
+           and a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and a.mode_code = 'YE'  
+        
+        union all
+        --套餐押金        
+        select '套餐押金' 收费类型,               
+                c.name 姓名,
+                '' 发票号,
+                a.AMOUNT 金额,
+                a.MEMO 备注,
+                fun_get_employee_name(a.oper_code) 操作员,
+                a.oper_date 操作时间
+          from exp_packagedeposit a,com_dictionary d,com_patientinfo c 
+         where (a.oper_code = '&amp;OperID' or '&amp;OperID' = 'ALL')
+           and a.mode_code = d.code
+           and a.CARD_NO = c.CARD_NO
+           and d.type = 'PAYMODES'
+           and (c.name like '%&amp;name%' or '&amp;name' is null)
+           and a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') 
+           and a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and a.mode_code = 'YE'  
+    union all
+    --账户充值        
+        select '账户充值' 收费类型,               
+                c.name 姓名,
+                a.INVOICE_NO 发票号,
+                a.PREPAY_COST 金额,
+                '' 备注,
+                fun_get_employee_name(a.oper_code) 操作员,
+                a.oper_date 操作时间
+          from fin_opb_accountprepay a,com_dictionary d,com_patientinfo c 
+         where (a.oper_code = '&amp;OperID' or '&amp;OperID' = 'ALL')
+           and a.PREPAY_TYPE = d.code
+           and a.CARD_NO = c.CARD_NO
+           and d.type = 'PAYMODES'
+           and (c.name like '%&amp;name%' or '&amp;name' is null)
+           and a.oper_date &gt;=
+               to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss') 
+           and a.oper_date &lt;=
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and a.PREPAY_TYPE = 'YE'  
+        ) aa
+where aa.收费类型 = '&amp;FeeType' or '&amp;FeeType' = 'ALL'
+order by aa.收费类型,aa.发票号</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\应收其他支付明细报表语句设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

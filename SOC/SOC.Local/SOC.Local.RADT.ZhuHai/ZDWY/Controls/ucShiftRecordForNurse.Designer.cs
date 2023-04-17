@@ -1,0 +1,855 @@
+﻿namespace FS.SOC.Local.RADT.ZhuHai.ZDWY.Controls
+{
+    partial class ucShiftRecordForNurse
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            FarPoint.Win.Spread.TipAppearance tipAppearance1 = new FarPoint.Win.Spread.TipAppearance();
+            FarPoint.Win.ComplexBorder complexBorder1 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder2 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder3 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder4 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder5 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder6 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder7 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder8 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder9 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder10 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder11 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder12 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder13 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder14 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder15 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder16 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder17 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder18 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder19 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder20 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder21 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder22 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder23 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder24 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder25 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder26 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder27 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder28 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder29 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder30 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder31 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder32 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder33 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder34 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder35 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder36 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder37 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder38 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder39 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder40 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder41 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder42 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder43 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder44 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder45 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder46 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder47 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder48 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder49 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder50 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder51 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType1 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder52 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder53 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder54 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder55 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder56 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType2 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder57 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder58 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder59 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder60 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder61 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder62 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder63 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder64 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder65 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder66 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder67 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder68 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder69 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder70 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder71 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder72 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder73 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder74 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder75 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType3 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder76 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder77 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder78 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder79 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder80 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder81 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType4 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder82 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder83 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder84 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder85 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder86 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder87 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder88 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder89 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder90 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder91 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder92 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder93 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder94 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder95 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder96 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder97 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder98 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder99 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType5 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder100 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder101 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder102 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder103 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder104 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder105 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType6 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder106 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder107 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder108 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder109 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder110 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder111 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder112 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder113 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder114 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder115 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder116 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder117 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder118 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder119 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder120 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder121 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder122 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder123 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType7 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder124 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder125 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder126 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder127 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder128 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder129 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType8 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder130 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder131 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder132 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.None), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine), new FarPoint.Win.ComplexBorderSide(FarPoint.Win.ComplexBorderSideStyle.ThinLine));
+            FarPoint.Win.ComplexBorder complexBorder133 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType9 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder134 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType10 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder135 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType11 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder136 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType12 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder137 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType13 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder138 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType14 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder139 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType15 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder140 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType16 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder141 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType17 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder142 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType18 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder143 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType19 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder144 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType20 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.ComplexBorder complexBorder145 = new FarPoint.Win.ComplexBorder(new FarPoint.Win.ComplexBorderSide(System.Drawing.Color.White));
+            FarPoint.Win.Spread.CellType.TextCellType textCellType21 = new FarPoint.Win.Spread.CellType.TextCellType();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblDept = new System.Windows.Forms.Label();
+            this.cmbDept = new FS.FrameWork.WinForms.Controls.NeuComboBox(this.components);
+            this.lblBetween = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnMain = new System.Windows.Forms.Panel();
+            this.fpSpread1 = new FS.FrameWork.WinForms.Controls.NeuSpread();
+            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNurse = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.pnMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.lblDept);
+            this.groupBox1.Controls.Add(this.cmbDept);
+            this.groupBox1.Controls.Add(this.lblBetween);
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(576, 48);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // lblDept
+            // 
+            this.lblDept.AutoSize = true;
+            this.lblDept.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDept.Location = new System.Drawing.Point(380, 18);
+            this.lblDept.Name = "lblDept";
+            this.lblDept.Size = new System.Drawing.Size(49, 14);
+            this.lblDept.TabIndex = 18;
+            this.lblDept.Text = "病区：";
+            this.lblDept.Visible = false;
+            // 
+            // cmbDept
+            // 
+            this.cmbDept.ArrowBackColor = System.Drawing.SystemColors.Control;
+            this.cmbDept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDept.FormattingEnabled = true;
+            this.cmbDept.IsEnter2Tab = false;
+            this.cmbDept.IsFlat = false;
+            this.cmbDept.IsLike = true;
+            this.cmbDept.IsListOnly = true;
+            this.cmbDept.IsPopForm = false;
+            this.cmbDept.IsShowCustomerList = false;
+            this.cmbDept.IsShowID = false;
+            this.cmbDept.IsShowIDAndName = false;
+            this.cmbDept.Location = new System.Drawing.Point(431, 15);
+            this.cmbDept.Name = "cmbDept";
+            this.cmbDept.ShowCustomerList = false;
+            this.cmbDept.ShowID = false;
+            this.cmbDept.Size = new System.Drawing.Size(138, 22);
+            this.cmbDept.Style = FS.FrameWork.WinForms.Controls.StyleType.Flat;
+            this.cmbDept.TabIndex = 17;
+            this.cmbDept.Tag = "";
+            this.cmbDept.ToolBarUse = false;
+            this.cmbDept.Visible = false;
+            // 
+            // lblBetween
+            // 
+            this.lblBetween.AutoSize = true;
+            this.lblBetween.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblBetween.Location = new System.Drawing.Point(197, 18);
+            this.lblBetween.Name = "lblBetween";
+            this.lblBetween.Size = new System.Drawing.Size(21, 14);
+            this.lblBetween.TabIndex = 3;
+            this.lblBetween.Text = "至";
+            this.lblBetween.Visible = false;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(234, 14);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(127, 23);
+            this.dateTimePicker2.TabIndex = 1;
+            this.dateTimePicker2.Visible = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(54, 14);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(127, 23);
+            this.dateTimePicker1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(6, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 14);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "时间：";
+            // 
+            // pnMain
+            // 
+            this.pnMain.Controls.Add(this.fpSpread1);
+            this.pnMain.Controls.Add(this.panel1);
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.pnMain.Location = new System.Drawing.Point(0, 48);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(576, 502);
+            this.pnMain.TabIndex = 1;
+            // 
+            // fpSpread1
+            // 
+            this.fpSpread1.About = "3.0.2004.2005";
+            this.fpSpread1.AccessibleDescription = "fpSpread1, Sheet1, Row 0, Column 0, ";
+            this.fpSpread1.BackColor = System.Drawing.Color.White;
+            this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fpSpread1.FileName = "";
+            this.fpSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            this.fpSpread1.IsAutoSaveGridStatus = false;
+            this.fpSpread1.IsCanCustomConfigColumn = false;
+            this.fpSpread1.Location = new System.Drawing.Point(0, 75);
+            this.fpSpread1.Name = "fpSpread1";
+            this.fpSpread1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
+            this.fpSpread1_Sheet1});
+            this.fpSpread1.Size = new System.Drawing.Size(576, 427);
+            this.fpSpread1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.fpSpread1.TabIndex = 0;
+            tipAppearance1.BackColor = System.Drawing.SystemColors.Info;
+            tipAppearance1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            tipAppearance1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.fpSpread1.TextTipAppearance = tipAppearance1;
+            this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            // 
+            // fpSpread1_Sheet1
+            // 
+            this.fpSpread1_Sheet1.Reset();
+            this.fpSpread1_Sheet1.SheetName = "Sheet1";
+            // Formulas and custom names must be loaded with R1C1 reference style
+            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
+            this.fpSpread1_Sheet1.ColumnCount = 13;
+            this.fpSpread1_Sheet1.ColumnHeader.RowCount = 0;
+            this.fpSpread1_Sheet1.RowCount = 20;
+            this.fpSpread1_Sheet1.RowHeader.ColumnCount = 0;
+            this.fpSpread1_Sheet1.ActiveSkin = new FarPoint.Win.Spread.SheetSkin("CustomSkin2", System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.White, FarPoint.Win.Spread.GridLines.Both, System.Drawing.Color.White, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.White, System.Drawing.Color.Empty, false, false, false, true, true);
+            this.fpSpread1_Sheet1.Cells.Get(1, 1).Border = complexBorder1;
+            this.fpSpread1_Sheet1.Cells.Get(1, 1).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 1).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 1).Value = "原有人数";
+            this.fpSpread1_Sheet1.Cells.Get(1, 2).Border = complexBorder2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 2).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 2).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 2).Value = "入院人数";
+            this.fpSpread1_Sheet1.Cells.Get(1, 3).Border = complexBorder3;
+            this.fpSpread1_Sheet1.Cells.Get(1, 3).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 3).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 3).Value = "他科转入人数";
+            this.fpSpread1_Sheet1.Cells.Get(1, 4).Border = complexBorder4;
+            this.fpSpread1_Sheet1.Cells.Get(1, 4).ColumnSpan = 3;
+            this.fpSpread1_Sheet1.Cells.Get(1, 4).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 4).Value = "出院人数";
+            this.fpSpread1_Sheet1.Cells.Get(1, 5).Border = complexBorder5;
+            this.fpSpread1_Sheet1.Cells.Get(1, 5).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 6).Border = complexBorder6;
+            this.fpSpread1_Sheet1.Cells.Get(1, 6).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 7).Border = complexBorder7;
+            this.fpSpread1_Sheet1.Cells.Get(1, 7).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 7).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 7).Value = "转往他科人数";
+            this.fpSpread1_Sheet1.Cells.Get(1, 8).Border = complexBorder8;
+            this.fpSpread1_Sheet1.Cells.Get(1, 8).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 8).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 8).Value = "现有人数";
+            this.fpSpread1_Sheet1.Cells.Get(1, 9).Border = complexBorder9;
+            this.fpSpread1_Sheet1.Cells.Get(1, 9).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 9).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 9).Value = "陪人数";
+            this.fpSpread1_Sheet1.Cells.Get(1, 10).Border = complexBorder10;
+            this.fpSpread1_Sheet1.Cells.Get(1, 10).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 10).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 10).Value = "一级护理";
+            this.fpSpread1_Sheet1.Cells.Get(1, 11).Border = complexBorder11;
+            this.fpSpread1_Sheet1.Cells.Get(1, 11).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 11).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 11).Value = "危重病人数";
+            this.fpSpread1_Sheet1.Cells.Get(1, 12).Border = complexBorder12;
+            this.fpSpread1_Sheet1.Cells.Get(1, 12).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(1, 12).RowSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(1, 12).Value = "新生儿人数";
+            this.fpSpread1_Sheet1.Cells.Get(2, 1).Border = complexBorder13;
+            this.fpSpread1_Sheet1.Cells.Get(2, 1).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 2).Border = complexBorder14;
+            this.fpSpread1_Sheet1.Cells.Get(2, 2).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 3).Border = complexBorder15;
+            this.fpSpread1_Sheet1.Cells.Get(2, 3).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 4).Border = complexBorder16;
+            this.fpSpread1_Sheet1.Cells.Get(2, 4).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 4).Value = "出院";
+            this.fpSpread1_Sheet1.Cells.Get(2, 5).Border = complexBorder17;
+            this.fpSpread1_Sheet1.Cells.Get(2, 5).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 5).Value = "死亡";
+            this.fpSpread1_Sheet1.Cells.Get(2, 6).Border = complexBorder18;
+            this.fpSpread1_Sheet1.Cells.Get(2, 6).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 6).Value = "24H死亡";
+            this.fpSpread1_Sheet1.Cells.Get(2, 7).Border = complexBorder19;
+            this.fpSpread1_Sheet1.Cells.Get(2, 7).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 8).Border = complexBorder20;
+            this.fpSpread1_Sheet1.Cells.Get(2, 8).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 9).Border = complexBorder21;
+            this.fpSpread1_Sheet1.Cells.Get(2, 9).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 10).Border = complexBorder22;
+            this.fpSpread1_Sheet1.Cells.Get(2, 10).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 11).Border = complexBorder23;
+            this.fpSpread1_Sheet1.Cells.Get(2, 11).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(2, 12).Border = complexBorder24;
+            this.fpSpread1_Sheet1.Cells.Get(2, 12).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 1).Border = complexBorder25;
+            this.fpSpread1_Sheet1.Cells.Get(3, 1).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 2).Border = complexBorder26;
+            this.fpSpread1_Sheet1.Cells.Get(3, 2).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 3).Border = complexBorder27;
+            this.fpSpread1_Sheet1.Cells.Get(3, 3).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 4).Border = complexBorder28;
+            this.fpSpread1_Sheet1.Cells.Get(3, 4).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 5).Border = complexBorder29;
+            this.fpSpread1_Sheet1.Cells.Get(3, 5).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 6).Border = complexBorder30;
+            this.fpSpread1_Sheet1.Cells.Get(3, 6).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 7).Border = complexBorder31;
+            this.fpSpread1_Sheet1.Cells.Get(3, 7).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 8).Border = complexBorder32;
+            this.fpSpread1_Sheet1.Cells.Get(3, 8).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 9).Border = complexBorder33;
+            this.fpSpread1_Sheet1.Cells.Get(3, 9).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 10).Border = complexBorder34;
+            this.fpSpread1_Sheet1.Cells.Get(3, 10).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 11).Border = complexBorder35;
+            this.fpSpread1_Sheet1.Cells.Get(3, 11).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(3, 12).Border = complexBorder36;
+            this.fpSpread1_Sheet1.Cells.Get(3, 12).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Cells.Get(5, 1).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(5, 1).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(5, 1).Value = "入院表";
+            this.fpSpread1_Sheet1.Cells.Get(6, 1).Border = complexBorder37;
+            this.fpSpread1_Sheet1.Cells.Get(6, 1).Value = "床号";
+            this.fpSpread1_Sheet1.Cells.Get(6, 2).Border = complexBorder38;
+            this.fpSpread1_Sheet1.Cells.Get(6, 2).Value = "住院号";
+            this.fpSpread1_Sheet1.Cells.Get(6, 3).Border = complexBorder39;
+            this.fpSpread1_Sheet1.Cells.Get(6, 3).Value = "姓名";
+            this.fpSpread1_Sheet1.Cells.Get(6, 4).Border = complexBorder40;
+            this.fpSpread1_Sheet1.Cells.Get(6, 4).Value = "性别";
+            this.fpSpread1_Sheet1.Cells.Get(6, 5).Border = complexBorder41;
+            this.fpSpread1_Sheet1.Cells.Get(6, 5).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(6, 5).Value = "入院诊断";
+            this.fpSpread1_Sheet1.Cells.Get(6, 6).Border = complexBorder42;
+            this.fpSpread1_Sheet1.Cells.Get(6, 7).Border = complexBorder43;
+            this.fpSpread1_Sheet1.Cells.Get(6, 7).Value = "床号";
+            this.fpSpread1_Sheet1.Cells.Get(6, 8).Border = complexBorder44;
+            this.fpSpread1_Sheet1.Cells.Get(6, 8).Value = "住院号";
+            this.fpSpread1_Sheet1.Cells.Get(6, 9).Border = complexBorder45;
+            this.fpSpread1_Sheet1.Cells.Get(6, 9).Value = "姓名";
+            this.fpSpread1_Sheet1.Cells.Get(6, 10).Border = complexBorder46;
+            this.fpSpread1_Sheet1.Cells.Get(6, 10).Value = "性别";
+            this.fpSpread1_Sheet1.Cells.Get(6, 11).Border = complexBorder47;
+            this.fpSpread1_Sheet1.Cells.Get(6, 11).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(6, 11).Value = "入院诊断";
+            this.fpSpread1_Sheet1.Cells.Get(6, 12).Border = complexBorder48;
+            this.fpSpread1_Sheet1.Cells.Get(7, 1).Border = complexBorder49;
+            this.fpSpread1_Sheet1.Cells.Get(7, 2).Border = complexBorder50;
+            this.fpSpread1_Sheet1.Cells.Get(7, 2).Value = "01234567890";
+            this.fpSpread1_Sheet1.Cells.Get(7, 3).Border = complexBorder51;
+            this.fpSpread1_Sheet1.Cells.Get(7, 3).CellType = textCellType1;
+            this.fpSpread1_Sheet1.Cells.Get(7, 3).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(7, 3).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(7, 4).Border = complexBorder52;
+            this.fpSpread1_Sheet1.Cells.Get(7, 5).Border = complexBorder53;
+            this.fpSpread1_Sheet1.Cells.Get(7, 5).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(7, 6).Border = complexBorder54;
+            this.fpSpread1_Sheet1.Cells.Get(7, 7).Border = complexBorder55;
+            this.fpSpread1_Sheet1.Cells.Get(7, 8).Border = complexBorder56;
+            this.fpSpread1_Sheet1.Cells.Get(7, 8).CellType = textCellType2;
+            this.fpSpread1_Sheet1.Cells.Get(7, 9).Border = complexBorder57;
+            this.fpSpread1_Sheet1.Cells.Get(7, 9).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(7, 9).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(7, 10).Border = complexBorder58;
+            this.fpSpread1_Sheet1.Cells.Get(7, 11).Border = complexBorder59;
+            this.fpSpread1_Sheet1.Cells.Get(7, 11).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(7, 12).Border = complexBorder60;
+            this.fpSpread1_Sheet1.Cells.Get(9, 1).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(9, 1).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(9, 1).Value = "出院表";
+            this.fpSpread1_Sheet1.Cells.Get(10, 1).Border = complexBorder61;
+            this.fpSpread1_Sheet1.Cells.Get(10, 1).Value = "床号";
+            this.fpSpread1_Sheet1.Cells.Get(10, 2).Border = complexBorder62;
+            this.fpSpread1_Sheet1.Cells.Get(10, 2).Value = "住院号";
+            this.fpSpread1_Sheet1.Cells.Get(10, 3).Border = complexBorder63;
+            this.fpSpread1_Sheet1.Cells.Get(10, 3).Value = "姓名";
+            this.fpSpread1_Sheet1.Cells.Get(10, 4).Border = complexBorder64;
+            this.fpSpread1_Sheet1.Cells.Get(10, 4).Value = "性别";
+            this.fpSpread1_Sheet1.Cells.Get(10, 5).Border = complexBorder65;
+            this.fpSpread1_Sheet1.Cells.Get(10, 5).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 5).Value = "出院诊断";
+            this.fpSpread1_Sheet1.Cells.Get(10, 5).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 6).Border = complexBorder66;
+            this.fpSpread1_Sheet1.Cells.Get(10, 6).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 6).Value = "情况";
+            this.fpSpread1_Sheet1.Cells.Get(10, 6).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 7).Border = complexBorder67;
+            this.fpSpread1_Sheet1.Cells.Get(10, 7).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 7).Value = "床号";
+            this.fpSpread1_Sheet1.Cells.Get(10, 7).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 8).Border = complexBorder68;
+            this.fpSpread1_Sheet1.Cells.Get(10, 8).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 8).Value = "住院号";
+            this.fpSpread1_Sheet1.Cells.Get(10, 8).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 9).Border = complexBorder69;
+            this.fpSpread1_Sheet1.Cells.Get(10, 9).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 9).Value = "姓名";
+            this.fpSpread1_Sheet1.Cells.Get(10, 9).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 10).Border = complexBorder70;
+            this.fpSpread1_Sheet1.Cells.Get(10, 10).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 10).Value = "性别";
+            this.fpSpread1_Sheet1.Cells.Get(10, 10).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 11).Border = complexBorder71;
+            this.fpSpread1_Sheet1.Cells.Get(10, 11).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 11).Value = "出院诊断";
+            this.fpSpread1_Sheet1.Cells.Get(10, 11).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 12).Border = complexBorder72;
+            this.fpSpread1_Sheet1.Cells.Get(10, 12).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(10, 12).Value = "情况";
+            this.fpSpread1_Sheet1.Cells.Get(10, 12).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(11, 1).Border = complexBorder73;
+            this.fpSpread1_Sheet1.Cells.Get(11, 2).Border = complexBorder74;
+            this.fpSpread1_Sheet1.Cells.Get(11, 3).Border = complexBorder75;
+            this.fpSpread1_Sheet1.Cells.Get(11, 3).CellType = textCellType3;
+            this.fpSpread1_Sheet1.Cells.Get(11, 3).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(11, 3).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(11, 4).Border = complexBorder76;
+            this.fpSpread1_Sheet1.Cells.Get(11, 5).Border = complexBorder77;
+            this.fpSpread1_Sheet1.Cells.Get(11, 6).Border = complexBorder78;
+            this.fpSpread1_Sheet1.Cells.Get(11, 7).Border = complexBorder79;
+            this.fpSpread1_Sheet1.Cells.Get(11, 8).Border = complexBorder80;
+            this.fpSpread1_Sheet1.Cells.Get(11, 9).Border = complexBorder81;
+            this.fpSpread1_Sheet1.Cells.Get(11, 9).CellType = textCellType4;
+            this.fpSpread1_Sheet1.Cells.Get(11, 9).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(11, 9).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(11, 10).Border = complexBorder82;
+            this.fpSpread1_Sheet1.Cells.Get(11, 11).Border = complexBorder83;
+            this.fpSpread1_Sheet1.Cells.Get(11, 12).Border = complexBorder84;
+            this.fpSpread1_Sheet1.Cells.Get(13, 1).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(13, 1).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(13, 1).Value = "转入表";
+            this.fpSpread1_Sheet1.Cells.Get(14, 1).Border = complexBorder85;
+            this.fpSpread1_Sheet1.Cells.Get(14, 1).Value = "床号";
+            this.fpSpread1_Sheet1.Cells.Get(14, 2).Border = complexBorder86;
+            this.fpSpread1_Sheet1.Cells.Get(14, 2).Value = "住院号";
+            this.fpSpread1_Sheet1.Cells.Get(14, 3).Border = complexBorder87;
+            this.fpSpread1_Sheet1.Cells.Get(14, 3).Value = "姓名";
+            this.fpSpread1_Sheet1.Cells.Get(14, 4).Border = complexBorder88;
+            this.fpSpread1_Sheet1.Cells.Get(14, 4).Value = "性别";
+            this.fpSpread1_Sheet1.Cells.Get(14, 5).Border = complexBorder89;
+            this.fpSpread1_Sheet1.Cells.Get(14, 5).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(14, 5).Value = "转入前原病区";
+            this.fpSpread1_Sheet1.Cells.Get(14, 6).Border = complexBorder90;
+            this.fpSpread1_Sheet1.Cells.Get(14, 7).Border = complexBorder91;
+            this.fpSpread1_Sheet1.Cells.Get(14, 7).Value = "床号";
+            this.fpSpread1_Sheet1.Cells.Get(14, 8).Border = complexBorder92;
+            this.fpSpread1_Sheet1.Cells.Get(14, 8).Value = "住院号";
+            this.fpSpread1_Sheet1.Cells.Get(14, 9).Border = complexBorder93;
+            this.fpSpread1_Sheet1.Cells.Get(14, 9).Value = "姓名";
+            this.fpSpread1_Sheet1.Cells.Get(14, 10).Border = complexBorder94;
+            this.fpSpread1_Sheet1.Cells.Get(14, 10).Value = "性别";
+            this.fpSpread1_Sheet1.Cells.Get(14, 11).Border = complexBorder95;
+            this.fpSpread1_Sheet1.Cells.Get(14, 11).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(14, 11).Value = "转入前原病区";
+            this.fpSpread1_Sheet1.Cells.Get(14, 12).Border = complexBorder96;
+            this.fpSpread1_Sheet1.Cells.Get(15, 1).Border = complexBorder97;
+            this.fpSpread1_Sheet1.Cells.Get(15, 2).Border = complexBorder98;
+            this.fpSpread1_Sheet1.Cells.Get(15, 3).Border = complexBorder99;
+            this.fpSpread1_Sheet1.Cells.Get(15, 3).CellType = textCellType5;
+            this.fpSpread1_Sheet1.Cells.Get(15, 3).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(15, 3).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(15, 4).Border = complexBorder100;
+            this.fpSpread1_Sheet1.Cells.Get(15, 5).Border = complexBorder101;
+            this.fpSpread1_Sheet1.Cells.Get(15, 5).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(15, 6).Border = complexBorder102;
+            this.fpSpread1_Sheet1.Cells.Get(15, 7).Border = complexBorder103;
+            this.fpSpread1_Sheet1.Cells.Get(15, 8).Border = complexBorder104;
+            this.fpSpread1_Sheet1.Cells.Get(15, 9).Border = complexBorder105;
+            this.fpSpread1_Sheet1.Cells.Get(15, 9).CellType = textCellType6;
+            this.fpSpread1_Sheet1.Cells.Get(15, 9).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(15, 9).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(15, 10).Border = complexBorder106;
+            this.fpSpread1_Sheet1.Cells.Get(15, 11).Border = complexBorder107;
+            this.fpSpread1_Sheet1.Cells.Get(15, 11).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(15, 12).Border = complexBorder108;
+            this.fpSpread1_Sheet1.Cells.Get(17, 1).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(17, 1).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(17, 1).Value = "转出表";
+            this.fpSpread1_Sheet1.Cells.Get(18, 1).Border = complexBorder109;
+            this.fpSpread1_Sheet1.Cells.Get(18, 1).Value = "床号";
+            this.fpSpread1_Sheet1.Cells.Get(18, 2).Border = complexBorder110;
+            this.fpSpread1_Sheet1.Cells.Get(18, 2).Value = "住院号";
+            this.fpSpread1_Sheet1.Cells.Get(18, 3).Border = complexBorder111;
+            this.fpSpread1_Sheet1.Cells.Get(18, 3).Value = "姓名";
+            this.fpSpread1_Sheet1.Cells.Get(18, 4).Border = complexBorder112;
+            this.fpSpread1_Sheet1.Cells.Get(18, 4).Value = "性别";
+            this.fpSpread1_Sheet1.Cells.Get(18, 5).Border = complexBorder113;
+            this.fpSpread1_Sheet1.Cells.Get(18, 5).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(18, 5).Value = "转往病区";
+            this.fpSpread1_Sheet1.Cells.Get(18, 6).Border = complexBorder114;
+            this.fpSpread1_Sheet1.Cells.Get(18, 7).Border = complexBorder115;
+            this.fpSpread1_Sheet1.Cells.Get(18, 7).Value = "床号";
+            this.fpSpread1_Sheet1.Cells.Get(18, 8).Border = complexBorder116;
+            this.fpSpread1_Sheet1.Cells.Get(18, 8).Value = "住院号";
+            this.fpSpread1_Sheet1.Cells.Get(18, 9).Border = complexBorder117;
+            this.fpSpread1_Sheet1.Cells.Get(18, 9).Value = "姓名";
+            this.fpSpread1_Sheet1.Cells.Get(18, 10).Border = complexBorder118;
+            this.fpSpread1_Sheet1.Cells.Get(18, 10).Value = "性别";
+            this.fpSpread1_Sheet1.Cells.Get(18, 11).Border = complexBorder119;
+            this.fpSpread1_Sheet1.Cells.Get(18, 11).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(18, 11).Value = "转往病区";
+            this.fpSpread1_Sheet1.Cells.Get(18, 12).Border = complexBorder120;
+            this.fpSpread1_Sheet1.Cells.Get(19, 1).Border = complexBorder121;
+            this.fpSpread1_Sheet1.Cells.Get(19, 2).Border = complexBorder122;
+            this.fpSpread1_Sheet1.Cells.Get(19, 3).Border = complexBorder123;
+            this.fpSpread1_Sheet1.Cells.Get(19, 3).CellType = textCellType7;
+            this.fpSpread1_Sheet1.Cells.Get(19, 3).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(19, 3).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(19, 4).Border = complexBorder124;
+            this.fpSpread1_Sheet1.Cells.Get(19, 5).Border = complexBorder125;
+            this.fpSpread1_Sheet1.Cells.Get(19, 5).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(19, 6).Border = complexBorder126;
+            this.fpSpread1_Sheet1.Cells.Get(19, 7).Border = complexBorder127;
+            this.fpSpread1_Sheet1.Cells.Get(19, 8).Border = complexBorder128;
+            this.fpSpread1_Sheet1.Cells.Get(19, 9).Border = complexBorder129;
+            this.fpSpread1_Sheet1.Cells.Get(19, 9).CellType = textCellType8;
+            this.fpSpread1_Sheet1.Cells.Get(19, 9).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.fpSpread1_Sheet1.Cells.Get(19, 9).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Cells.Get(19, 10).Border = complexBorder130;
+            this.fpSpread1_Sheet1.Cells.Get(19, 11).Border = complexBorder131;
+            this.fpSpread1_Sheet1.Cells.Get(19, 11).ColumnSpan = 2;
+            this.fpSpread1_Sheet1.Cells.Get(19, 12).Border = complexBorder132;
+            this.fpSpread1_Sheet1.ColumnHeader.DefaultStyle.BackColor = System.Drawing.Color.White;
+            this.fpSpread1_Sheet1.ColumnHeader.DefaultStyle.Parent = "HeaderDefault";
+            this.fpSpread1_Sheet1.Columns.Get(0).Border = complexBorder133;
+            textCellType9.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(0).CellType = textCellType9;
+            this.fpSpread1_Sheet1.Columns.Get(0).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(0).Width = 3F;
+            this.fpSpread1_Sheet1.Columns.Get(1).Border = complexBorder134;
+            textCellType10.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(1).CellType = textCellType10;
+            this.fpSpread1_Sheet1.Columns.Get(1).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(1).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(1).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(1).Width = 27F;
+            this.fpSpread1_Sheet1.Columns.Get(2).Border = complexBorder135;
+            textCellType11.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(2).CellType = textCellType11;
+            this.fpSpread1_Sheet1.Columns.Get(2).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(2).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(2).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(2).Width = 62F;
+            this.fpSpread1_Sheet1.Columns.Get(3).Border = complexBorder136;
+            textCellType12.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(3).CellType = textCellType12;
+            this.fpSpread1_Sheet1.Columns.Get(3).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(3).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(3).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(3).Width = 46F;
+            this.fpSpread1_Sheet1.Columns.Get(4).Border = complexBorder137;
+            textCellType13.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(4).CellType = textCellType13;
+            this.fpSpread1_Sheet1.Columns.Get(4).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(4).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(4).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(4).Width = 30F;
+            this.fpSpread1_Sheet1.Columns.Get(5).Border = complexBorder138;
+            textCellType14.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(5).CellType = textCellType14;
+            this.fpSpread1_Sheet1.Columns.Get(5).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(5).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(5).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(5).Width = 65F;
+            this.fpSpread1_Sheet1.Columns.Get(6).Border = complexBorder139;
+            textCellType15.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(6).CellType = textCellType15;
+            this.fpSpread1_Sheet1.Columns.Get(6).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(6).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(6).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(6).Width = 30F;
+            this.fpSpread1_Sheet1.Columns.Get(7).Border = complexBorder140;
+            textCellType16.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(7).CellType = textCellType16;
+            this.fpSpread1_Sheet1.Columns.Get(7).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(7).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(7).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(7).Width = 44F;
+            this.fpSpread1_Sheet1.Columns.Get(8).Border = complexBorder141;
+            textCellType17.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(8).CellType = textCellType17;
+            this.fpSpread1_Sheet1.Columns.Get(8).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(8).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(8).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(8).Width = 62F;
+            this.fpSpread1_Sheet1.Columns.Get(9).Border = complexBorder142;
+            textCellType18.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(9).CellType = textCellType18;
+            this.fpSpread1_Sheet1.Columns.Get(9).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(9).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(9).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(9).Width = 46F;
+            this.fpSpread1_Sheet1.Columns.Get(10).Border = complexBorder143;
+            textCellType19.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(10).CellType = textCellType19;
+            this.fpSpread1_Sheet1.Columns.Get(10).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(10).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(10).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(10).Width = 30F;
+            this.fpSpread1_Sheet1.Columns.Get(11).Border = complexBorder144;
+            textCellType20.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(11).CellType = textCellType20;
+            this.fpSpread1_Sheet1.Columns.Get(11).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(11).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(11).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(11).Width = 65F;
+            this.fpSpread1_Sheet1.Columns.Get(12).Border = complexBorder145;
+            textCellType21.WordWrap = true;
+            this.fpSpread1_Sheet1.Columns.Get(12).CellType = textCellType21;
+            this.fpSpread1_Sheet1.Columns.Get(12).Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fpSpread1_Sheet1.Columns.Get(12).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(12).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
+            this.fpSpread1_Sheet1.Columns.Get(12).Width = 30F;
+            this.fpSpread1_Sheet1.RowHeader.Columns.Default.Resizable = false;
+            this.fpSpread1_Sheet1.RowHeader.DefaultStyle.BackColor = System.Drawing.Color.White;
+            this.fpSpread1_Sheet1.RowHeader.DefaultStyle.Parent = "HeaderDefault";
+            this.fpSpread1_Sheet1.Rows.Default.Height = 25F;
+            this.fpSpread1_Sheet1.Rows.Get(0).Height = 14F;
+            this.fpSpread1_Sheet1.Rows.Get(1).Tag = "汇总表";
+            this.fpSpread1_Sheet1.Rows.Get(2).Tag = "";
+            this.fpSpread1_Sheet1.Rows.Get(3).Tag = "";
+            this.fpSpread1_Sheet1.Rows.Get(4).Tag = "明细表";
+            this.fpSpread1_Sheet1.Rows.Get(5).Tag = "入院表";
+            this.fpSpread1_Sheet1.Rows.Get(7).Tag = "";
+            this.fpSpread1_Sheet1.Rows.Get(9).Tag = "出院表";
+            this.fpSpread1_Sheet1.Rows.Get(13).Tag = "转入表";
+            this.fpSpread1_Sheet1.Rows.Get(17).Tag = "转出表";
+            this.fpSpread1_Sheet1.SheetCornerStyle.BackColor = System.Drawing.Color.White;
+            this.fpSpread1_Sheet1.SheetCornerStyle.Parent = "CornerDefault";
+            this.fpSpread1_Sheet1.VisualStyles = FarPoint.Win.VisualStyles.Off;
+            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.lblNurse);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(576, 75);
+            this.panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(3, 71);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1000, 1);
+            this.panel2.TabIndex = 6;
+            // 
+            // lblNurse
+            // 
+            this.lblNurse.AutoSize = true;
+            this.lblNurse.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblNurse.Location = new System.Drawing.Point(6, 51);
+            this.lblNurse.Name = "lblNurse";
+            this.lblNurse.Size = new System.Drawing.Size(112, 14);
+            this.lblNurse.TabIndex = 4;
+            this.lblNurse.Text = "呼吸内科护士站";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDate.Location = new System.Drawing.Point(355, 51);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(100, 14);
+            this.lblDate.TabIndex = 5;
+            this.lblDate.Text = "2014年9月2日";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(3, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(570, 24);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "病房工作日志";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ucShiftRecord
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.pnMain);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "ucShiftRecord";
+            this.Size = new System.Drawing.Size(576, 550);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.pnMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel pnMain;
+        private System.Windows.Forms.Label lblBetween;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label1;
+        //private FS.SOC.Windows.Forms.FpSpread fpSpread1;
+        private FS.FrameWork.WinForms.Controls.NeuSpread fpSpread1;
+        private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblNurse;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDept;
+        private FS.FrameWork.WinForms.Controls.NeuComboBox cmbDept;
+    }
+}

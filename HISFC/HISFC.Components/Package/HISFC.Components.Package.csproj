@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{738049D3-C089-4863-9FA0-FCF78F5F31F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.HISFC.Components.Package</RootNamespace>
+    <AssemblyName>HISFC.Components.Package</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.EPRControl, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\FrameWork.EPRControl.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GZ.BizLogic.Delivery, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\GZ.BizLogic.Delivery.dll</HintPath>
+    </Reference>
+    <Reference Include="GZ.Components.Bespeak, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\GZ.Components.Bespeak.dll</HintPath>
+    </Reference>
+    <Reference Include="GZ.Components.Delivery, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\lib\GZ.Components.Delivery.dll</HintPath>
+    </Reference>
+    <Reference Include="GZ.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\GZ.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.MedicalPackage, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.MedicalPackage.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Registration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Registration.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Account, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Components.Account.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Order, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Components.Order.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.OutpatientFee, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Components.OutpatientFee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Registration, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Components.Registration.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.BizProcess.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.BizProcess.CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.Local.Order.ZhuHai, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.Local.Order.ZhuHai.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Enum.cs" />
+    <Compile Include="Components\FsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\FsPanel.Designer.cs">
+      <DependentUpon>FsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\NativeInterop.cs" />
+    <Compile Include="Components\Win32API.cs" />
+    <Compile Include="Components\WTreeListWinEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackageTransfer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackageTransfer.Designer.cs">
+      <DependentUpon>ucPackageTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPackageTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackageTree.Designer.cs">
+      <DependentUpon>ucPackageTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucInvoiceTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucInvoiceTree.Designer.cs">
+      <DependentUpon>ucInvoiceTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPackageItemSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackageItemSelect.Designer.cs">
+      <DependentUpon>ucPackageItemSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPackageManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackageManage.Designer.cs">
+      <DependentUpon>ucPackageManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPackgeDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackgeDetail.Designer.cs">
+      <DependentUpon>ucPackgeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPackageInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackageInfo.Designer.cs">
+      <DependentUpon>ucPackageInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPackageInfoEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackageInfoEdit.Designer.cs">
+      <DependentUpon>ucPackageInfoEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPackgeEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackgeEdit.Designer.cs">
+      <DependentUpon>ucPackgeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucCharge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucCharge.Designer.cs">
+      <DependentUpon>ucCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucChargeInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucChargeInfo.Designer.cs">
+      <DependentUpon>ucChargeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucDeposit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucDeposit.Designer.cs">
+      <DependentUpon>ucDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucPackageSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucPackageSelector.Designer.cs">
+      <DependentUpon>ucPackageSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPackageShift.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPackageShift.Designer.cs">
+      <DependentUpon>ucPackageShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucPackgeOperate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucPackgeOperate.Designer.cs">
+      <DependentUpon>ucPackgeOperate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucPatientInfo.designer.cs">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucPayInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucPayInfo.Designer.cs">
+      <DependentUpon>ucPayInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Controls\ucUncharge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\Controls\ucUncharge.Designer.cs">
+      <DependentUpon>ucUncharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmAccountCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmAccountCost.Designer.cs">
+      <DependentUpon>frmAccountCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmAccountCostDE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmAccountCostDE.designer.cs">
+      <DependentUpon>frmAccountCostDE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmAgreementChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmAgreementChoose.Designer.cs">
+      <DependentUpon>frmAgreementChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmChooseBalancePay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmChooseBalancePay.designer.cs">
+      <DependentUpon>frmChooseBalancePay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmChoosePackageItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmChoosePackageItem.Designer.cs">
+      <DependentUpon>frmChoosePackageItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmCouponCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmCouponCost.Designer.cs">
+      <DependentUpon>frmCouponCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmDeposit.Designer.cs">
+      <DependentUpon>frmDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmDiscount.Designer.cs">
+      <DependentUpon>frmDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmDiscountCardCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmDiscountCardCost.Designer.cs">
+      <DependentUpon>frmDiscountCardCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmPayModeChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmPayModeChoose.Designer.cs">
+      <DependentUpon>frmPayModeChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmPayModeForRefee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmPayModeForRefee.Designer.cs">
+      <DependentUpon>frmPayModeForRefee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\Forms\frmQueryPatientByConditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fee\Forms\frmQueryPatientByConditions.designer.cs">
+      <DependentUpon>frmQueryPatientByConditions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPackage.Designer.cs">
+      <DependentUpon>frmPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\WTreeListWinEx.resx">
+      <DependentUpon>WTreeListWinEx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackageShift.resx">
+      <DependentUpon>ucPackageShift.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackageTransfer.resx">
+      <DependentUpon>ucPackageTransfer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackageTree.resx">
+      <DependentUpon>ucPackageTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucInvoiceTree.resx">
+      <DependentUpon>ucInvoiceTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackageInfoEdit.resx">
+      <DependentUpon>ucPackageInfoEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackageItemSelect.resx">
+      <DependentUpon>ucPackageItemSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackageManage.resx">
+      <DependentUpon>ucPackageManage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackgeDetail.resx">
+      <DependentUpon>ucPackgeDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackageInfo.resx">
+      <DependentUpon>ucPackageInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPackgeEdit.resx">
+      <DependentUpon>ucPackgeEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucCharge.resx">
+      <DependentUpon>ucCharge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucChargeInfo.resx">
+      <DependentUpon>ucChargeInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucDeposit.resx">
+      <DependentUpon>ucDeposit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucPackageSelector.resx">
+      <DependentUpon>ucPackageSelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucPackgeOperate.resx">
+      <DependentUpon>ucPackgeOperate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucPatientInfo.resx">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucPayInfo.resx">
+      <DependentUpon>ucPayInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Controls\ucUncharge.resx">
+      <DependentUpon>ucUncharge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmAccountCost.resx">
+      <DependentUpon>frmAccountCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmAccountCostDE.resx">
+      <DependentUpon>frmAccountCostDE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmAgreementChoose.resx">
+      <DependentUpon>frmAgreementChoose.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmChooseBalancePay.resx">
+      <DependentUpon>frmChooseBalancePay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmChoosePackageItem.resx">
+      <DependentUpon>frmChoosePackageItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmCouponCost.resx">
+      <DependentUpon>frmCouponCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmDeposit.resx">
+      <DependentUpon>frmDeposit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmDiscount.resx">
+      <DependentUpon>frmDiscount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmDiscountCardCost.resx">
+      <DependentUpon>frmDiscountCardCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmPayModeChoose.resx">
+      <DependentUpon>frmPayModeChoose.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmPayModeForRefee.resx">
+      <DependentUpon>frmPayModeForRefee.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\Forms\frmQueryPatientByConditions.resx">
+      <DependentUpon>frmQueryPatientByConditions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPackage.resx">
+      <DependentUpon>frmPackage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

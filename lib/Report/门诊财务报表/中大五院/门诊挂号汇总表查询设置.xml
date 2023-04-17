@@ -1,0 +1,79 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>160</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>160</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>260</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtRegDetail</Name><Sql>--dtRegDetail
+select NVL((select l.reglevl_name from fin_opr_reglevel l where l.reglevl_code = reglevel),reglevel) 挂号类别,
+       SUM(DECODE(reglevel,'其他费',0,1)) 挂号量,
+       sum(decode(cancel_flag, '1', cost, 0))   挂号金额,
+       sum(decode(cancel_flag, '2',(DECODE(reglevel,'其他费',0,-1)), 0)) 退号量,
+       sum(decode(cancel_flag, '2', cost, 0)) 退号金额,
+       sum(decode(cancel_flag, '1',(DECODE(reglevel,'其他费',0,1)), 0)) 有效号量,
+       sum(cost) 应缴金额
+  from
+(
+select sum(f.tot_cost) cost,
+     NVL((select r.reglevl_code from fin_opr_register r where r.clinic_code = f.clinic_no AND ROWNUM =1 ),'其他费') reglevel,
+       f.trans_type cancel_flag
+  from fin_opb_accountcardfee f, fin_opr_daybalance d
+ where f.balance_no = d.balance_no
+   and d.invoice_check_flag = '1'
+   and d.invoice_check_opcd = '&amp;CurrentOperID'
+   and d.invoice_check_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date&gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+  -- and d.invoice_check_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date&lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+  -- and f.trans_type = '1'
+  -- and f.clinic_no is not null
+ group by f.clinic_no, f.trans_type
+)
+ group by reglevel
+ order by reglevel</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>挂号类别</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtFeeDetail</Name><Sql>--dtFeeDetail
+select decode(f.fee_type,'1','补卡工本费','2','病历本费','3','挂号费','4','诊金','5','婴儿体检费') 费用分类,
+       sum(case when f.pay_type = 'CA' then f.tot_cost else 0 end) 现金,
+       sum(case when f.pay_type = 'UP' then f.tot_cost else 0 end) 银联,
+       sum(case when f.pay_type = 'RC' then f.tot_cost else 0 end) 优惠,
+       sum(case when f.pay_type not in('CA','UP','RC') then f.tot_cost else 0 end) 其他,
+       sum(f.tot_cost) 合计
+  from fin_opb_accountcardfee f, fin_opr_daybalance d
+ where f.balance_no = d.balance_no
+   and d.invoice_check_flag = '1'
+   and d.invoice_check_opcd = '&amp;CurrentOperID'
+  -- and d.invoice_check_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+  -- and d.invoice_check_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date&gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date&lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+
+ group by f.fee_type
+ order by decode(f.fee_type, '3', 1, '4', 2, '2', 3, '1', 4,'5',5)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>费用分类</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtQuitFeeDetail</Name><Sql>--dtQuitFeeDetail
+select decode(f.fee_type,'1','补卡工本费','2','病历本费','3','挂号费','4','诊金') 费用分类,
+       sum(case when f.pay_type = 'CA' then f.tot_cost else 0 end) 现金,
+       sum(case when f.pay_type = 'UP' then f.tot_cost else 0 end) 银联,
+       sum(case when f.pay_type = 'RC' then f.tot_cost else 0 end) 优惠,
+       sum(case when f.pay_type not in('CA','UP','RC') then f.tot_cost else 0 end) 其他,
+       sum(f.tot_cost) 合计
+  from fin_opb_accountcardfee f, fin_opr_daybalance d
+ where f.balance_no = d.balance_no
+   and d.invoice_check_flag = '1'
+   and d.invoice_check_opcd = '&amp;CurrentOperID'
+  -- and d.invoice_check_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+  -- and d.invoice_check_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date&gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date&lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+
+   and f.trans_type = '2'
+ group by f.fee_type
+ order by decode(f.fee_type, '3', 1, '4', 2, '2', 3, '1', 4)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>费用分类</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtFeeDetailByOper</Name><Sql>select fun_get_employee_name(d.oper_code) 收费员,
+       sum(case when f.pay_type = 'CA' then f.tot_cost else 0 end) 现金,
+       sum(case when f.pay_type = 'UP' then f.tot_cost else 0 end) 银联,
+       sum(case when f.pay_type = 'RC' then f.tot_cost else 0 end) 优惠,
+       sum(case when f.pay_type not in('CA','UP','RC') then f.tot_cost else 0 end) 其他,
+       sum(f.tot_cost) 合计,
+       d.oper_date as 日结时间
+  from fin_opb_accountcardfee f, fin_opr_daybalance d
+ where f.balance_no = d.balance_no
+   and d.invoice_check_flag = '1'
+   and d.invoice_check_opcd = '&amp;CurrentOperID'
+  -- and d.invoice_check_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+  -- and d.invoice_check_date &lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date&gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+   and d.oper_date&lt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+
+ group by d.oper_code, d.oper_date
+  order by d.oper_code</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>收费员</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\门诊财务报表\中大五院\门诊挂号汇总表查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

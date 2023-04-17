@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinalStrokeInfro"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="FinalStrokeInfro">
+    <xs:complexType>
+      <xs:sequence>
+        
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="fsiLastStrokeTime" type="xs:date"/>
+        <xs:element name="fsiMainSuit">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        
+        <xs:element name="fsiInDiagnosis">
+          <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id" type="fsiInDiagnosisT" minOccurs="0" maxOccurs="6"/>
+              </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="idID">
+            <xs:selector xpath=".//mstns:id"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        
+        <xs:element name="fsiInDiagnosisElse" type="sMaxLen600T"/>
+        <xs:element name="fsiOutDiagnosis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="od" type="fsiOutDiagnosisT" minOccurs="0" maxOccurs="5"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="odID">
+            <xs:selector xpath=".//mstns:od"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        
+        <xs:element name="fsiOutDiagnosisElse" type="sMaxLen600T"/>
+        <xs:element name="fsiAssessment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="a" type="fsiAssessmentT" minOccurs="0" maxOccurs="6"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="aID">
+            <xs:selector xpath=".//mstns:a"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        
+        <xs:element name="fsiOtherAss" type="sMaxLen600T"/>
+        <xs:element name="fsiDiagnoseUnit" type="DiagnoseUnitT"/>
+        <xs:element name="fsiInPath" type="InPathT"/>
+        <xs:element name="fsiOtherPath" type="sMaxLen600T"/>
+        <xs:element name="fsiHospital" type="sMaxLen500T"/>
+        <xs:element name="fsiHDep" type="sMaxLen200T"/>
+        <xs:element name="fsiHDoctor" type="sMaxLen100T"/>
+        <xs:element name="fsiInTime" type="xs:date"/>
+        <xs:element name="fsiOutTime" type="xs:date" default="1970-01-01"/>
+        <xs:element name="fsiOutcome" type="OutHospitalT"/>
+        <xs:element name="fsiOutcomeDes" type="sMaxLen1000T"/>
+        <xs:element name="fsiNIHSS" type="xs:int" default="-1"/>
+        <xs:element name="fsiNIHSSTime" type="xs:date" default="1970-01-01"/>
+        <xs:element name="fsiGlasgow" type="xs:int" default="-1"/>
+        <xs:element name="fsiGlasgowTime" type="xs:date" default="1970-01-01"/>
+        <xs:element name="fsiMMSE" type="xs:int" default="-1"/>
+        <xs:element name="fsiMMSETime" type="xs:date" default="1970-01-01"/>
+        <xs:element name="fsiMOCA" type="xs:int" default="-1"/>
+        <xs:element name="fsiMOCATime" type="xs:date" default="1970-01-01"/>
+        <xs:element name="fsiSymptom">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="s" type="SymptomT"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="sID">
+            <xs:selector xpath=".//mstns:s"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="fsiSymptomDesc" type="sMaxLen200T"/>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fsiInDiagnosisT">
+    <xs:restriction base="xs:string">
+      <!--01蛛网膜下腔出血 02脑出血 03脑梗死 04中风，未特指出血或梗死 05TIA （短暂性脑缺血发作） 99其它-->
+      <xs:pattern value="01|02|03|04|05|99"/>
+    </xs:restriction>
+  </xs:simpleType>
+ 
+  <xs:simpleType name="fsiOutDiagnosisT">
+    <xs:restriction base="xs:string">
+      <!--01死亡 02医嘱离院 03医嘱转院 04医嘱转社区卫生服务机构/乡镇卫生院 05非医嘱离院-->
+      <xs:pattern value="01|02|03|04|05"/>
+    </xs:restriction>
+  </xs:simpleType>
+ 
+  <xs:simpleType name="fsiAssessmentT">
+    <xs:restriction base="xs:string">
+      <!--01心电图 02血管造影 03CT 04磁共振 05神经科医生检查 99其他-->
+      <xs:pattern value="01|02|03|04|05|99"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="DiagnoseUnitT">
+    <xs:restriction base="xs:string">
+      <!--01省级医院 02市级医院 03县级医院 04乡镇级医院 -->
+      <xs:pattern value="01|02|03|04"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="InPathT">
+    <xs:restriction base="xs:string">
+      <!--01急诊 02门诊 03其他医疗机构转入 99其他 -->
+      <xs:pattern value="01|02|03|99"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SymptomT">
+    <xs:restriction base="xs:string">
+      <!--
+      1突然言语不清，理解或表达困难
+      2突然出现一侧肢体无力、麻木
+      3突然出现视物不清或视野缺失
+      4突然出现平衡障碍、眩晕、走路不稳
+      5突然出现剧烈头痛或原来头痛性质突然改变
+      99其他
+      -->
+      <xs:pattern value="1|2|3|4|5|99|"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="OutHospitalT">
+    <xs:restriction base="xs:string">
+      <!--01死亡 02医嘱离院 03医嘱转院 04医嘱转社区卫生服务机构/乡镇卫生院 05非医嘱离院 -1未填 -->
+      <xs:pattern value="01|02|03|04|05|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+    
+  <xs:simpleType name ="sMaxLen600T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="600"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name ="sMaxLen500T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="600"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name ="sMaxLen200T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="600"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name ="sMaxLen100T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="600"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name ="sMaxLen50T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="600"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name ="sMaxLen1000T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="600"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

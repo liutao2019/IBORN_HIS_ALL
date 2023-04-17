@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database" xmlns:tx="http://www.springframework.net/tx">
+
+  <db:provider id="DbProvider" provider=" OracleClient-2.0" connectionString="Data Source=zwhis;User Id=emr;Password=&quot;emrzdwy102&quot;" />
+  <!-- <db:provider id="DbProvider" provider="OracleODP-2.0" connectionString="Data Source=192.168.197.230/orcl;User Id=his_plat_cs1;Password=his" /> -->
+
+  <object id="adoTemplate" type="Spring.Data.Generic.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="DataReaderWrapperType" value="Spring.Data.Support.NullMappingDataReader, Spring.Data"/>
+  </object>
+  <object id="sqlMstExecutor" type="FS.Dawn.Core.Dal.SqlMstExecutor, FS.Dawn.Core.Server">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+    <property name="SqlMst" ref="oracleSqlMst"/>
+  </object>
+
+  <object id="oracleSqlMst" type="FS.Dawn.Core.Dal.OracleSqlMst, FS.Dawn.Core.Server">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+    <property name="Table" value="MP_SQL" />
+    <property name="IdColumn" value="SQL_ID" />
+    <property name="SqlColumn" value="SQL_VALUE" />
+  </object>
+
+  <object id="transactionManager" type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate21">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+  </object>
+
+<!--
+  <object id="transactionManager" type="Spring.Data.Core.AdoPlatformTransactionManager, Spring.Data">
+    <property name="DbProvider" ref="DbProvider"/>
+  </object>
+-->
+
+  <tx:attribute-driven proxy-target-type="true" />
+</objects>

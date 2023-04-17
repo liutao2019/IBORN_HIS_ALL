@@ -1,0 +1,128 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbHospital</Name><Text>院区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>140</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select distinct cd.hospital_id,cd.hospital_name from com_department cd where cd.hospital_id is not null</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>
+select  tt.科室名称 科室名称,
+          sum(tt.初诊+tt.复诊_有套餐+tt.复诊_无套餐) 门诊合计,
+          sum(tt.院级初诊) 院级初诊,
+          sum(tt.初诊) 大科级初诊量,
+          sum(tt.复诊_有套餐) 大科级复诊_有套餐,
+          sum(tt.复诊_无套餐) 大科级复诊_无套餐,
+          sum(门诊总金额) 门诊总金额
+from (
+       select --t.dept_code 科室编码,
+                case when cd.dept_name like '门诊%' then cd.dept_name else cdt.pardep_name end 科室名称,
+                nvl(decode(t.hospital_first_visit,'1',1),0) 院级初诊,
+                nvl(decode((case when cd.dept_name like '门诊%' then t.ynfr else t.rootdept_first_visit end),'1',1),0) 初诊,
+                case when bb.zhi='1' and (case when cd.dept_name like '门诊%' then t.ynfr else t.rootdept_first_visit end)='0' then 1 else 0 end 复诊_有套餐,
+                case when bb.zhi is null and (case when cd.dept_name like '门诊%' then t.ynfr else t.rootdept_first_visit end)='0' then 1 else 0end 复诊_无套餐,
+                nvl((select sum(a.tot_cost) from exp_register_detail a where a.clinic_code = t.clinic_code and a.cancel_flag = '1'),0) 挂号总金额,
+                nvl((select sum(a.real_cost) from exp_register_detail a where a.clinic_code = t.clinic_code and a.cancel_flag = '1'),0) 挂号实收,
+                nvl((select sum(a.etc_cost) from exp_register_detail a where a.clinic_code = t.clinic_code and a.cancel_flag = '1'),0) 挂号优惠,
+                nvl((select sum(a.gift_cost) from exp_register_detail a where a.clinic_code = t.clinic_code and a.cancel_flag = '1'),0) 挂号赠送,
+                0 门诊总金额,
+                0 门诊实收,
+                0 门诊优惠,
+                0 门诊赠送
+                ,case when cdt.pardep_name='妇产科' then 1
+                      when cdt.pardep_name='儿科' then 2  
+                      when cdt.pardep_name='妇科' then 3
+                      when cdt.pardep_name='医学美容科' then 4 
+                      --when cdt.pardep_name='综合门诊科室' then 5 
+                       else 5 end line
+        from fin_opr_register t
+        left join (select distinct b.card_no,'1' zhi from exp_package b  where b.pay_flag=1 and b.cancel_flag=0)bb on t.card_no=bb.card_no 
+        left join com_department cd on t.dept_code=cd.dept_code
+        left join com_deptstat cdt on cd.dept_code=cdt.dept_code and cdt.stat_code='00'
+       where ((select a.hospital_id from com_department a where a.dept_code = t.dept_code) =  '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+         and t.valid_flag = '1'
+         and t.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+       union all
+      select    --t2.doct_dept 科室编码,
+                case when cd.dept_name like '门诊%' then cd.dept_name else cdt.pardep_name end pardep_name,
+                0 院级初诊，
+                0 初诊,
+                0 复诊_有套餐,
+                0 复诊_无套餐,
+                0 挂号总金额,
+                0 挂号实收,
+                0 挂号优惠,
+                0 挂号赠送,
+                nvl(t5.real_cost,0) 门诊总金额,
+                0,
+                0,
+                0
+                --nvl(t2.own_cost,0) 门诊总金额,
+                --nvl(t2.own_cost - t2.eco_cost - t2.donate_cost,0) 门诊实收,
+                --nvl(t2.eco_cost,0) 门诊优惠,
+                --nvl(t2.donate_cost,0) 门诊赠送
+                 ,case when cdt.pardep_name='妇产科' then 1
+                      when cdt.pardep_name='儿科' then 2  
+                      when cdt.pardep_name='妇科' then 3
+                      when cdt.pardep_name='医学美容科' then 4 
+                      --when cdt.pardep_name='综合门诊科室' then 5 
+                       else 5 end line
+       from fin_opb_invoiceinfo t4
+       left join fin_opb_paymode t5 on t5.invoice_no=t4.invoice_no and t4.trans_type=t5.trans_type
+       left join fin_opr_register t6 on t4.clinic_code=t6.clinic_code 
+       left join com_department cd on cd.dept_code=t6.dept_code
+       left join com_deptstat cdt on cd.dept_code=cdt.dept_code and cdt.stat_code='00'
+      where t4.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+        and t5.mode_code  in ( 'CA','UP','ZB','WP','PO','CD')
+        and t6.doct_name&lt;&gt;'信息科'
+        and ((select a.hospital_id from com_department a where a.dept_code = t6.dept_code) =  '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+ --合计部分
+      union all
+     select --'9999',
+                '合计：',
+                sum(nvl(decode(t3.hospital_first_visit,'1',1),0)),
+                sum(nvl(decode((case when t3.dept_name like '门诊%' then t3.ynfr else t3.rootdept_first_visit end),'1',1),0)),
+                sum(case when bb3.zhi='1' and (case when t3.dept_name like '门诊%' then t3.ynfr else t3.rootdept_first_visit end)='0' then 1 else 0 end) ,
+                sum(case when bb3.zhi is null and (case when t3.dept_name like '门诊%' then t3.ynfr else t3.rootdept_first_visit end)='0' then 1 else 0 end) ,
+                sum((select sum(nvl(a.tot_cost,0)) from exp_register_detail a where a.clinic_code = t3.clinic_code and a.cancel_flag = '1')) 挂号总金额,
+                sum((select sum(nvl(a.real_cost,0)) from exp_register_detail a where a.clinic_code = t3.clinic_code and a.cancel_flag = '1')) 挂号总金额,
+                sum((select sum(nvl(a.etc_cost,0)) from exp_register_detail a where a.clinic_code = t3.clinic_code and a.cancel_flag = '1')) 挂号总金额,
+                sum((select sum(nvl(a.gift_cost,0)) from exp_register_detail a where a.clinic_code = t3.clinic_code and a.cancel_flag = '1')) 挂号总金额,
+                0,
+                0,
+                0,
+                0
+                , 10 line
+      from fin_opr_register t3 
+      left join (select distinct b.card_no,'1' zhi from exp_package b where b.pay_flag=1 and b.cancel_flag=0)bb3 on t3.card_no=bb3.card_no 
+     where ((select a.hospital_id from com_department a where a.dept_code = t3.dept_code) =  '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+       and t3.valid_flag = '1'
+       and t3.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+     union all
+    select --'9999',
+               '合计：',
+              0 ,
+              0 ,
+              0 ,
+              0 ,
+              0 ,
+              0 ,
+              0 ,
+              0 ,
+              sum(nvl(t5.real_cost,0)) ,
+              0,
+              0,
+              0
+              --sum(nvl(t4.own_cost,0)) 门诊总金额,
+              --sum(nvl(t4.own_cost - t4.eco_cost - t4.donate_cost,0)) 门诊实收,
+             -- sum(nvl(t4.eco_cost,0)) 门诊优惠,
+              --sum(nvl(t4.donate_cost,0)) 门诊赠送
+               ,10 line
+      from fin_opb_invoiceinfo t4
+      left join fin_opb_paymode t5 on t5.invoice_no=t4.invoice_no and t4.trans_type=t5.trans_type
+      left join fin_opr_register t6 on t4.clinic_code=t6.clinic_code 
+      left join com_department cd on cd.dept_code=t6.dept_code
+      left join com_deptstat cdt on cd.dept_code=cdt.dept_code and cdt.stat_code='00'
+     where t4.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss') and to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')+1
+       and t5.mode_code  in ( 'CA','UP','ZB','WP','PO','CD')
+       and t6.doct_name&lt;&gt;'信息科'
+       and ((select a.hospital_id from com_department a where a.dept_code = t6.dept_code) =  '&amp;cmbHospital' or '&amp;cmbHospital' = 'ALL')
+      ) tt
+      group by tt.科室名称,tt.line
+      order by tt.line
+      
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\数据分析\新经营日报设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

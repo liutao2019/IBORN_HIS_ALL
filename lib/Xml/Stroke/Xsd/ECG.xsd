@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ECG"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="ECG" >
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="ecgCheckTime" type="xs:dateTime"/>
+        <xs:element name="ecgCheckUnit" type="sMaxLen200T"/>
+        <xs:element name="ecgResult" type="ecgResultT"/>
+        <xs:element name="ecgResultDesc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="rd" type="ECGT" minOccurs="0" maxOccurs="4"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="rdID">
+            <xs:selector xpath=".//mstns:rd"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="ecgOtherJudge" type="xs:string"/>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ecgResultT">
+    <xs:restriction base="xs:int">
+      <!--1正常 2任一部位有异常-->
+      <xs:pattern value="1|2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ECGT">
+    <xs:restriction base="xs:string">
+      <!--01房颤 02缺血性改变 03左心室肥厚 04其他诊断-->
+      <xs:pattern value ="01|02|03|04"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sMaxLen200T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

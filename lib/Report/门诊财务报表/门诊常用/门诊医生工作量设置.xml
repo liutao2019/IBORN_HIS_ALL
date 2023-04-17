@@ -1,0 +1,43 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>420</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbDept</Name><Text>科室：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select dept_code,dept_name,DEPT_ENAME,SPELL_CODE,WB_CODE from com_department where regdept_flag = '1' ORDER BY dept_code</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtDocWorkInfo</Name><Sql>select decode(grouping_id(ttt.doct_code,ttt.doct_name,ttt.firstSee),'0',ttt.doct_name,'1','小计:','7','合计:') doct_name,
+         firstSee,
+         sum(clinic_Num) clinic_Num,
+         sum(xyf) xyf,sum(zyf) zyf,sum(ghf) ghf,
+         sum(zcf) zcf,sum(jcf) jcf,sum(jyf) ghf,
+         sum(zlf) zlf,sum(ssf) ssf,sum(mzf) mzf,
+         sum(hlf) hlf,sum(clf) clf,sum(qtf) qtf,sum(zj) zj
+  from (
+     select tt.doct_code,
+          tt.doct_name,
+          tt.dept_code,          
+          decode(tt.ynfr,'1','初诊','复诊') firstSee,
+          count(distinct tt.clinic_code) clinic_Num, 
+          sum(case tt.fee_stat_cate  when '01' then tt.real_cost else 0 end)  xyf,
+          sum(case tt.fee_stat_cate  when '02' then tt.real_cost else 0 end)  zyf,
+          sum(case tt.fee_stat_cate  when '03' then tt.real_cost else 0 end) ghf,
+          sum(case tt.fee_stat_cate  when '04' then tt.real_cost else 0 end) zcf,
+          sum(case tt.fee_stat_cate  when '05' then tt.real_cost else 0 end)  jcf, 
+          sum(case tt.fee_stat_cate  when '06' then tt.real_cost else 0 end)  jyf,
+          sum(case tt.fee_stat_cate  when '07' then tt.real_cost else 0 end)  zlf,
+          sum(case tt.fee_stat_cate  when '08' then tt.real_cost else 0 end)  ssf,
+          sum(case tt.fee_stat_cate  when '09' then tt.real_cost else 0 end)  mzf,
+          sum(case tt.fee_stat_cate  when '10' then tt.real_cost else 0 end)  hlf,
+          sum(case tt.fee_stat_cate  when '11' then tt.real_cost else 0 end)  clf,
+          sum(case tt.fee_stat_cate  when '12' then tt.real_cost else 0 end)  qtf,
+          sum(real_cost) zj
+          from (
+          select t.clinic_code,t.ynfr,t.dept_code,nvl(t.doct_code,t.see_docd)  doct_code, fun_get_employee_name(nvl(t.doct_code,t.see_docd)) doct_name,t3.fee_stat_cate,t3.fee_stat_name,
+          sum(nvl(t2.own_cost,0) - nvl(t2.eco_cost,0))  real_cost
+          from fin_opr_register t
+          left join fin_opb_feedetail t2 on t.clinic_code =t2.clinic_code and t2.pay_flag = '1' and t2.cancel_flag = '1'             
+          left join fin_com_feecodestat t3 on t2.fee_code = t3.fee_code and t3.report_code = 'MZ01'             
+          where t.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd')  and to_date('&amp;dtEndTime','yyyy-mm-dd') + 1
+          ----and  (t.dept_code = '&amp;cmbDept' or 'ALL' = '&amp;cmbDept') 
+          and  (t.dept_code = ( case '&amp;cmbDept' when '5081' then  '5011' when '5082' then  '5011' else  '&amp;cmbDept' end ) or 'ALL' = '&amp;cmbDept')
+          and   nvl(t.class1desease,'0') =( case '&amp;cmbDept' when '5081'  then  '2' when '5082' then '3' else nvl(t.class1desease,'0') end)
+          and   t.valid_flag='1'
+          and   t.see_docd not in ('sd9999','00T002')
+          group by t.clinic_code,t.ynfr,t.dept_code,t.doct_code,t.see_docd,t3.fee_stat_cate,t3.fee_stat_name 
+          ) tt 
+      group by tt.dept_code,tt.doct_code,tt.doct_name,tt.ynfr
+      ) ttt
+  group by rollup((ttt.doct_code,ttt.doct_name),ttt.firstSee)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>开单医生</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\门诊常用\门诊医生工作量设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!-- 根据护理评估单的总分过滤患者
+ 1.Item为每一个过滤条件
+ 2.Id为显示顺序
+ 3.Name为显示的名称
+ 4.绑定护理记录表格总分列的元素ID
+ 5.过滤的分值 
+ -->
+ <Root>
+<NurseRecord>
+<Item Id = "1" Name = "压疮评估大于等于45" ElementId = "202565" Score = "45"/>
+<Item Id = "2" Name = "压疮评估大于等于60" ElementId = "202565" Score = "60"/>
+<Item Id = "3" Name = "跌倒坠床评估大于等于45" ElementId = "202566" Score = "45"/>
+<Item Id = "4" Name = "跌倒坠床评估大于等于60" ElementId = "202566" Score = "60"/>
+</NurseRecord>
+</Root>

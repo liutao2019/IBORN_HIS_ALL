@@ -1,0 +1,50 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select fun_get_employee_name(ttt.doctcode) doctname,
+          ttt.itemname,
+          ttt.specs,
+          sum(qty) qty,
+          case when substr(itemcode,1,1) = 'F' then ttt.priceunit else ttt2.min_unit end unit,
+          sum(owncost) owncost,
+          sum(ecocost) ecocost,
+          sum(donatecost) donatecost
+       from 
+(select tt.regdept,
+         tt.doctcode,
+         tt.moorder,
+         tt.transtype,
+         tt.itemcode,
+         tt.itemname,
+         tt.specs,
+         sum(nvl(tt.unitprice,0)),
+         tt.priceunit,
+         tt.qty,
+         sum(nvl(tt.own_cost,0)) owncost,
+         sum(nvl(tt.eco_cost,0)) ecocost,
+         sum(nvl(tt.donate_cost,0)) donatecost,
+         tt.invoice_seq,
+         tt.unitflag,
+         tt.cancelflag
+ from 
+(select t.reg_dpcd regdept,
+       t.doct_code doctcode,
+       t.mo_order moorder,
+       t.trans_type transtype,
+       case when length(t.package_code) &gt; 0 then t.package_code else t.item_code end itemcode,
+       case when length(t.package_code) &gt; 0 then t.package_name else t.item_name end itemname,
+       t.specs specs,
+       t.unit_price unitprice,
+       case when length(t.package_code) &gt; 0 then '项' else t.price_unit end priceunit,
+       case when length(t.package_code) &gt; 0 then t.package_qty  when t.drug_flag = '1' then t2.out_num else  t.qty end qty,
+       t.own_cost,
+       t.eco_cost,
+       t.donate_cost,
+       t.invoice_seq,
+       t.pact_unit_flag unitflag,
+       t.cancel_flag cancelflag
+  from fin_opb_feedetail t left join pha_com_output t2 on t.recipe_no = t2.recipe_no and t.sequence_no = t2.sequence_no 
+where  t.reg_dpcd in ('5021','5062') 
+    and t.fee_date between to_date('&amp;dtBeginTime','YYYY--MM-DD') and to_date('&amp;dtEndTime','YYYY--MM-DD')
+    and t.pay_flag = '1') tt
+ group by  tt.regdept,tt.doctcode, tt.moorder,tt.transtype, tt.itemcode, tt.itemname, tt.specs, tt.priceunit, tt.qty,tt.invoice_seq,tt.unitflag, tt.cancelflag) ttt
+ left join pha_com_baseinfo ttt2 on ttt.itemcode = ttt2.drug_code
+ group by ttt.doctcode,ttt.itemcode,ttt.itemname,ttt.specs,ttt.priceunit,ttt.unitflag,ttt2.min_unit
+ order by ttt.doctcode,ttt.itemcode</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\医生开单项目统计设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

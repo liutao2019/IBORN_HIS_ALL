@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net">
+  <object type="FS.Dawn.Core.Context.ObjectContainer, FS.Dawn.Core.Common" factory-method="GetInstance" />
+  <object type="FS.Dawn.Core.Security.DefaultUserCheckerService, FS.Dawn.Core.Server" singleton="false" autowire="byType" />
+  <object name="messageSource" type="Spring.Context.Support.ResourceSetMessageSource, Spring.Core">
+    <property name="resourceManagers">
+      <list>
+        <value>FS.Dawn.AutoUpdate.Dal.Sql.AutoUpdate, FS.Dawn.AutoUpdate.Dal</value>
+        <value>FS.Dawn.I18N.Dal.Sql.I18N, FS.Dawn.I18N.Dal</value>
+        <value>FS.Dawn.License.Dal.Sql.License, FS.Dawn.License.Dal</value>
+        <value>FS.Dawn.NumGen.Dal.Sql.RuleMng, FS.Dawn.NumGen.Dal</value>
+        <value>FS.Dawn.Scheduling.Dal.Sql.Scheduling, FS.Dawn.Scheduling.Dal</value>
+        <value>FS.Dawn.Core.Server.ServerMsg, FS.Dawn.Core.Server </value>
+      </list>
+    </property>
+  </object>
+  <object type="FS.Dawn.Core.Services.CommonService, FS.Dawn.Core.Server" autowire="byType" />
+  <object type="FS.Dawn.Core.Dal.OracleUtilsDao, FS.Dawn.Core.Server" autowire="byType" />
+
+  <import resource="Repository.xml" />
+  <import resource="Aop.xml" />
+  <import resource="SvcFacadeProxy.xml" />
+  <import resource="BcsAutoUpdate.xml" />
+  <import resource="BcsCodeMng.xml" />
+  <import resource="BcsControlParamMng.xml" />
+  <import resource="BcsI18N.xml" />
+  <import resource="BcsLicense.xml" />
+  <import resource="BcsNumGen.xml" />
+  <import resource="BcsOrganizationMng.xml" />
+  <import resource="BcsPermissionMng.xml" />
+  <import resource="BcsScheduling.xml" />
+  <import resource="UIFacadeProxy.xml" />
+  <import resource="BccPermissionMng.xml" />
+  <import resource="BccOrganizationMng.xml" />
+  <import resource="BccControlParamMng.xml" />
+  <import resource="BccCodeMng.xml" />
+  <import resource="Compatible.xml" />
+  <import resource="BccAutoUpdate.xml" />
+  <import resource="BccScheduling.xml" />
+  <import resource="BccI18N.xml" />
+  <import resource="BccLicense.xml" />
+  <import resource="BccRuleMng.xml" />
+
+  <!-- EMR 病历 -->
+  <import resource="ServerContext.xml" />
+
+  <!-- EMR 医嘱 -->
+  <import resource="OrderServerContext.xml"/>
+
+  <!-- 护理 -->
+  <!-- 路径 -->
+
+</objects>

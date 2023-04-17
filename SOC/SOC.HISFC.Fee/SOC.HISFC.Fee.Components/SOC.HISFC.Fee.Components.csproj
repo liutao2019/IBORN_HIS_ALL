@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A7DF692B-16A0-4869-B1CC-E35926BF11D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.HISFC.Fee.Components</RootNamespace>
+    <AssemblyName>SOC.HISFC.Fee.Components</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.MessagePatternInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\lib\SOC.HISFC.Fee.BizLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Fee.BizProcess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.Models, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.TreeListView, Version=1.0.3037.31124, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Function.cs" />
+    <Compile Include="Helper\CustomProperty.cs" />
+    <Compile Include="Helper\CustomPropertyCollection.cs" />
+    <Compile Include="Helper\CustomPropertyDescriptor.cs" />
+    <Compile Include="InterfaceManager.cs" />
+    <Compile Include="Interface\SaveAllItem.cs" />
+    <Compile Include="Interface\SaveItem.cs" />
+    <Compile Include="Interface\SaveItemGroupDetail.cs" />
+    <Compile Include="Interface\SavePactInfo.cs" />
+    <Compile Include="Maintenance\CompareItem\ucCenterCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCenterCompare.Designer.cs">
+      <DependentUpon>ucCenterCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCenterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCenterControl.Designer.cs">
+      <DependentUpon>ucCenterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCenterPact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCenterPact.Designer.cs">
+      <DependentUpon>ucCenterPact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucComparedItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucComparedItem.Designer.cs">
+      <DependentUpon>ucComparedItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCompareForCenterType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCompareForCenterType.Designer.cs">
+      <DependentUpon>ucCompareForCenterType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCompareForPact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCompareForPact.Designer.cs">
+      <DependentUpon>ucCompareForPact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCompareManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucCompareManager.Designer.cs">
+      <DependentUpon>ucCompareManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucFeeItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucFeeItem.Designer.cs">
+      <DependentUpon>ucFeeItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucPactCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\CompareItem\ucPactCompare.Designer.cs">
+      <DependentUpon>ucPactCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucChooseItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucChooseItem.Designer.cs">
+      <DependentUpon>ucChooseItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucItemGroupDetailNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucItemGroupDetailNew.designer.cs">
+      <DependentUpon>ucItemGroupDetailNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Item\FrmSetDeptForItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Item\FrmSetDeptForItem.Designer.cs">
+      <DependentUpon>FrmSetDeptForItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\ItemCompare\ucExecDeptManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ItemCompare\ucExecDeptManager.Designer.cs">
+      <DependentUpon>ucExecDeptManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucItemGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucItemGroup.Designer.cs">
+      <DependentUpon>ucItemGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucItemGroupDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucItemGroupDetail.Designer.cs">
+      <DependentUpon>ucItemGroupDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucItemGroupManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ItemGroup\ucItemGroupManager.Designer.cs">
+      <DependentUpon>ucItemGroupManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItem.Designer.cs">
+      <DependentUpon>ucItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItemManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItemManager.Designer.cs">
+      <DependentUpon>ucItemManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucComItemExtendInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucComItemExtendInfo.Designer.cs">
+      <DependentUpon>ucComItemExtendInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItemNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Item\ucItemNew.Designer.cs">
+      <DependentUpon>ucItemNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Pact\PactInfoClass.cs" />
+    <Compile Include="Maintenance\Pact\PactItemRateClass.cs" />
+    <Compile Include="Maintenance\Pact\ucBlackListManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucBlackListManager.Designer.cs">
+      <DependentUpon>ucBlackListManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucBlackListUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucBlackListUpdate.Designer.cs">
+      <DependentUpon>ucBlackListUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucFeeCodeRateDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucFeeCodeRateDetail.Designer.cs">
+      <DependentUpon>ucFeeCodeRateDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucPact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucPact.Designer.cs">
+      <DependentUpon>ucPact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucPactInfoManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucPactInfoManager.Designer.cs">
+      <DependentUpon>ucPactInfoManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucPactManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucPactManager.Designer.cs">
+      <DependentUpon>ucPactManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucPropertyGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Pact\ucPropertyGrid.Designer.cs">
+      <DependentUpon>ucPropertyGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCenterCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCenterCompare.Designer.cs">
+      <DependentUpon>ucCenterCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCenterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCenterControl.Designer.cs">
+      <DependentUpon>ucCenterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCenterPact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCenterPact.Designer.cs">
+      <DependentUpon>ucCenterPact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucComparedItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucComparedItem.Designer.cs">
+      <DependentUpon>ucComparedItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCompareForCenterType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCompareForCenterType.Designer.cs">
+      <DependentUpon>ucCompareForCenterType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCompareForPact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCompareForPact.Designer.cs">
+      <DependentUpon>ucCompareForPact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCompareManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucCompareManager.Designer.cs">
+      <DependentUpon>ucCompareManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucFeeItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucFeeItem.Designer.cs">
+      <DependentUpon>ucFeeItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucPactCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\PYCompareItem\ucPactCompare.Designer.cs">
+      <DependentUpon>ucPactCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCenterCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCenterCompare.Designer.cs">
+      <DependentUpon>ucCenterCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCenterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCenterControl.Designer.cs">
+      <DependentUpon>ucCenterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCenterPact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCenterPact.Designer.cs">
+      <DependentUpon>ucCenterPact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucComparedItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucComparedItem.Designer.cs">
+      <DependentUpon>ucComparedItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCompareForCenterType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCompareForCenterType.Designer.cs">
+      <DependentUpon>ucCompareForCenterType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCompareForPact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCompareForPact.Designer.cs">
+      <DependentUpon>ucCompareForPact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCompareManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCompareManager.Designer.cs">
+      <DependentUpon>ucCompareManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucLocalFeeItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucLocalFeeItem.Designer.cs">
+      <DependentUpon>ucLocalFeeItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucPactCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucPactCompare.Designer.cs">
+      <DependentUpon>ucPactCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCenterFeeItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\SiCompareItem\ucCenterFeeItem.Designer.cs">
+      <DependentUpon>ucCenterFeeItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucCenterCompare.resx">
+      <DependentUpon>ucCenterCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucCenterControl.resx">
+      <DependentUpon>ucCenterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucCenterPact.resx">
+      <DependentUpon>ucCenterPact.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucComparedItem.resx">
+      <DependentUpon>ucComparedItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucCompareForCenterType.resx">
+      <DependentUpon>ucCompareForCenterType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucCompareForPact.resx">
+      <DependentUpon>ucCompareForPact.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucCompareManager.resx">
+      <DependentUpon>ucCompareManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucFeeItem.resx">
+      <DependentUpon>ucFeeItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\CompareItem\ucPactCompare.resx">
+      <DependentUpon>ucPactCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\ItemGroup\ucChooseItem.resx">
+      <DependentUpon>ucChooseItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\ItemGroup\ucItemGroupDetailNew.resx">
+      <DependentUpon>ucItemGroupDetailNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Item\FrmSetDeptForItem.resx">
+      <DependentUpon>FrmSetDeptForItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\ItemCompare\ucExecDeptManager.resx">
+      <DependentUpon>ucExecDeptManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\ItemGroup\ucItemGroup.resx">
+      <DependentUpon>ucItemGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\ItemGroup\ucItemGroupDetail.resx">
+      <DependentUpon>ucItemGroupDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\ItemGroup\ucItemGroupManager.resx">
+      <DependentUpon>ucItemGroupManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Item\ucItem.resx">
+      <DependentUpon>ucItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Item\ucItemManager.resx">
+      <DependentUpon>ucItemManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Item\ucComItemExtendInfo.resx">
+      <DependentUpon>ucComItemExtendInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Item\ucItemNew.resx">
+      <DependentUpon>ucItemNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Pact\ucBlackListManager.resx">
+      <DependentUpon>ucBlackListManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Pact\ucBlackListUpdate.resx">
+      <DependentUpon>ucBlackListUpdate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Pact\ucFeeCodeRateDetail.resx">
+      <DependentUpon>ucFeeCodeRateDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Pact\ucPact.resx">
+      <DependentUpon>ucPact.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Pact\ucPactInfoManager.resx">
+      <DependentUpon>ucPactInfoManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Pact\ucPactManager.resx">
+      <DependentUpon>ucPactManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Pact\ucPropertyGrid.resx">
+      <DependentUpon>ucPropertyGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucCenterCompare.resx">
+      <DependentUpon>ucCenterCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucCenterControl.resx">
+      <DependentUpon>ucCenterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucCenterPact.resx">
+      <DependentUpon>ucCenterPact.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucComparedItem.resx">
+      <DependentUpon>ucComparedItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucCompareForCenterType.resx">
+      <DependentUpon>ucCompareForCenterType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucCompareForPact.resx">
+      <DependentUpon>ucCompareForPact.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucCompareManager.resx">
+      <DependentUpon>ucCompareManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucFeeItem.resx">
+      <DependentUpon>ucFeeItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\PYCompareItem\ucPactCompare.resx">
+      <DependentUpon>ucPactCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucCenterCompare.resx">
+      <DependentUpon>ucCenterCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucCenterControl.resx">
+      <DependentUpon>ucCenterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucCenterPact.resx">
+      <DependentUpon>ucCenterPact.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucComparedItem.resx">
+      <DependentUpon>ucComparedItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucCompareForCenterType.resx">
+      <DependentUpon>ucCompareForCenterType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucCompareForPact.resx">
+      <DependentUpon>ucCompareForPact.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucCompareManager.resx">
+      <DependentUpon>ucCompareManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucLocalFeeItem.resx">
+      <DependentUpon>ucLocalFeeItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucPactCompare.resx">
+      <DependentUpon>ucPactCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\SiCompareItem\ucCenterFeeItem.resx">
+      <DependentUpon>ucCenterFeeItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,31 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select distinct 
+       nvl(nvl(nvl(nvl(nvl(fi.card_no,fa.card_no),fio.card_no),ep.card_no),epd.card_no),fio1.card_no) 就诊卡,
+       nvl(nvl(nvl(nvl(nvl(fi.name,fa.name),fio.name),ep.patient_name),cp.name),fio1.name) 姓名,
+       case when fi.name is not null then '门诊收费'
+            when fa.name is not null then '账户充值'
+            when fio.name is not null then '住院收费'
+            when ep.patient_name is not null then '套餐收费'
+            when cp.name is not null then '套餐押金'
+            when fio1.name is not null then '住院押金' end 类型,
+       csp.invoice_no 发票流水号,
+       cd1.name 修改前支付方式,
+       cd2.name 修改后支付方式,
+       fun_get_employee_name(csp.oper_code) 操作人,
+       csp.oper_date 操作时间
+  from com_shiftdata_payway csp 
+  left join com_dictionary cd1 on cd1.type = 'PAYMODES' and csp.old_payway=cd1.code
+  left join com_dictionary cd2 on cd2.type = 'PAYMODES' and csp.new_payway=cd2.code
+  left join fin_opb_paymode fe on csp.invoice_no=fe.invoice_no and csp.tran_type=fe.trans_type and csp.old_happenno=fe.sequence_no and fe.mode_code=csp.new_payway
+  left join fin_opb_invoiceinfo fi on fe.invoice_no=fe.invoice_no and fi.trans_type=fe.trans_type and fi.invoice_seq=fe.invoice_seq
+  left join fin_opb_accountprepay fa on csp.invoice_no=fa.invoice_no and csp.old_happenno=fa.happen_no and fa.prepay_type=csp.new_payway
+  left join fin_ipb_balancepay fb on csp.invoice_no=fb.invoice_no and csp.tran_type=fb.trans_type and csp.tran_kind=fb.trans_kind and csp.new_payway=fb.pay_way
+  left join fin_ipb_balancehead bh on fb.invoice_no=bh.inpatient_no and fb.trans_type=bh.trans_type
+  left join fin_ipr_inmaininfo fio on bh.inpatient_no=fio.inpatient_no
+  left join exp_packagepaymode epp on csp.invoice_no=epp.invoice_no and csp.tran_type=epp.trans_type and csp.old_happenno=epp.sequence_no and epp.mode_code=csp.new_payway
+  left join exp_package ep on epp.invoice_no=ep.invoice_no and epp.trans_type=ep.trans_type
+  left join exp_packagedeposit epd on csp.invoice_no=epd.deposit_no and csp.tran_type=epd.trans_type and epd.mode_code=csp.new_payway
+  left join com_patientinfo cp on epd.card_no=cp.card_no
+  left join fin_ipb_inprepay fip on csp.invoice_no=fip.receipt_no and csp.tran_type=epd.trans_type and fip.happen_no=csp.happen_no and fip.pay_way=csp.new_payway
+  left join fin_ipr_inmaininfo fio1 on fip.inpatient_no=fio.inpatient_no
+ where csp.oper_date between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 
+ order by csp.oper_date asc</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新财务报表\支付方式修改明细查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

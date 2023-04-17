@@ -1,0 +1,25 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dataSource</Name><Sql>SELECT T2.NAME 姓名
+	  ,CASE T2.SEX_CODE WHEN 'F' THEN '女' ELSE '男' END 性别
+	  ,T2.HOME_TEL 手机
+	  ,T.CARD_NO 卡号
+	  ,T.ITEM_NAME 项目
+	  ,T.INVOICE_NO 发票号
+	  ,T.OWN_COST 总价
+	  ,T.OWN_COST - T.ECO_COST - T.DONATE_COST 实收
+	  ,T.DONATE_COST 赠送
+	  ,T.ECO_COST 优惠
+	  ,T.FEE_DATE 结算时间
+FROM FIN_OPB_FEEDETAIL T
+    LEFT JOIN COM_PATIENTINFO T2 ON T.CARD_NO = T2.CARD_NO
+WHERE T.FEE_DATE BETWEEN TO_DATE('&amp;dtBeginTime', 'yyyy-MM-dd HH24:mi:ss') AND TO_DATE('&amp;dtEndTime', 'yyyy-MM-dd HH24:mi:ss') + 1
+AND T.EXEC_DPCD = '6003'  --执行科室
+AND T.CANCEL_FLAG = '1'  --正常状态
+AND NOT EXISTS (SELECT *
+	   FROM EXP_PACKAGECOST A  --套餐消费记录表
+		   ,EXP_PACKAGEDETAIL B  --套餐购买明细表
+	   WHERE A.INVOICE_NO = T.INVOICE_NO
+	   AND A.CANCEL_FLAG = '0'
+	   AND B.CLINIC_CODE = A.CLINIC_CODE
+	   AND A.DETAILSEQ = B.SEQUENCE_NO
+	   AND B.ITEM_CODE = T.ITEM_CODE)
+ORDER BY T.FEE_DATE DESC</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\市场拓展报表\爱博恩\(套餐外)超声实收设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

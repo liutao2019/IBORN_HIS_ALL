@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2DA1B60-17A3-4B4B-8BD7-25AF386DDE1D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.HISFC.Components.Report</RootNamespace>
+    <AssemblyName>SOC.HISFC.Components.Report</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataWindow, Version=2.5.0.0, Culture=neutral, PublicKeyToken=cc0f66dd9541b3da, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\DataWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.81.0.1407, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Function.cs" />
+    <Compile Include="Base\ReportView.cs" />
+    <Compile Include="Base\ucReportView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\ucReportView.Designer.cs">
+      <DependentUpon>ucReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ucCustomReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\ucCustomReport.Designer.cs">
+      <DependentUpon>ucCustomReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataWindow\DataSetHelper.cs" />
+    <Compile Include="DataWindow\frmQueryInfoSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataWindow\frmQueryInfoSetting.Designer.cs">
+      <DependentUpon>frmQueryInfoSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataWindow\ICommonReportController.cs" />
+    <Compile Include="DataWindow\NeuDataWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataWindow\TemplateValueReplacer.cs" />
+    <Compile Include="DataWindow\ucCommonDataWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataWindow\ucCommonDataWindow.Designer.cs">
+      <DependentUpon>ucCommonDataWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataWindow\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataWindow\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataWindow\ucMainFpReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataWindow\ucMainFpReport.Designer.cs">
+      <DependentUpon>ucMainFpReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataWindow\ucMainReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataWindow\ucMainReportForm.Designer.cs">
+      <DependentUpon>ucMainReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataWindow\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataWindow\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Example\dsDeptStatic.cs">
+      <DependentUpon>dsDeptStatic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Example\dsDeptStatic.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDeptStatic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Example\ucRVDeptStatic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Example\ucRVDeptStatic.Designer.cs">
+      <DependentUpon>ucRVDeptStatic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\IQueryContdition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IReportControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ucItemQueryManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ucItemQueryManager.designer.cs">
+      <DependentUpon>ucItemQueryManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Example\dsDeptStatic.xsc">
+      <DependentUpon>dsDeptStatic.xsd</DependentUpon>
+    </None>
+    <None Include="Example\dsDeptStatic.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDeptStatic.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Example\dsDeptStatic.xss">
+      <DependentUpon>dsDeptStatic.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base\ucReportView.resx">
+      <DependentUpon>ucReportView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\ucCustomReport.resx">
+      <DependentUpon>ucCustomReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataWindow\frmQueryInfoSetting.resx">
+      <DependentUpon>frmQueryInfoSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataWindow\ucMainFpReport.resx">
+      <DependentUpon>ucMainFpReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\DeptStaticReport1.rdlc">
+      <CustomToolNamespace> Neusoft.SOC.HISFC.Components.Report.Example</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example\DeptStaticReport2.rdlc" />
+    <EmbeddedResource Include="Example\DeptStaticReport3.rdlc" />
+    <EmbeddedResource Include="Example\ucRVDeptStatic.resx">
+      <DependentUpon>ucRVDeptStatic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\ucItemQueryManager.resx">
+      <DependentUpon>ucItemQueryManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

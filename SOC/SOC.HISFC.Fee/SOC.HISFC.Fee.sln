@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.Components", "SOC.HISFC.Fee.Components\SOC.HISFC.Fee.Components.csproj", "{A7DF692B-16A0-4869-B1CC-E35926BF11D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.Interface", "SOC.HISFC.Fee.Interface\SOC.HISFC.Fee.Interface.csproj", "{BFC9A40C-1EB0-4EF3-84DA-30D8EEBEB757}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.Models", "SOC.HISFC.Fee.Models\SOC.HISFC.Fee.Models.csproj", "{C10F5793-FE12-40FD-8C56-28349F138C99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.BizProcess", "SOC.HISFC.Fee.BizProcess\SOC.HISFC.Fee.BizProcess\SOC.HISFC.Fee.BizProcess.csproj", "{4CD6A3BF-74D2-4BE9-8D93-BFBCE31161C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.BizLogic", "SOC.HISFC.Fee.BizLogic\SOC.HISFC.Fee.BizLogic.csproj", "{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.Data", "SOC.HISFC.Fee.Data\SOC.HISFC.Fee.Data.csproj", "{F0D7D61A-299F-455C-8595-852CEC26B79F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7DF692B-16A0-4869-B1CC-E35926BF11D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DF692B-16A0-4869-B1CC-E35926BF11D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DF692B-16A0-4869-B1CC-E35926BF11D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DF692B-16A0-4869-B1CC-E35926BF11D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC9A40C-1EB0-4EF3-84DA-30D8EEBEB757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC9A40C-1EB0-4EF3-84DA-30D8EEBEB757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC9A40C-1EB0-4EF3-84DA-30D8EEBEB757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC9A40C-1EB0-4EF3-84DA-30D8EEBEB757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C10F5793-FE12-40FD-8C56-28349F138C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C10F5793-FE12-40FD-8C56-28349F138C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C10F5793-FE12-40FD-8C56-28349F138C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C10F5793-FE12-40FD-8C56-28349F138C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CD6A3BF-74D2-4BE9-8D93-BFBCE31161C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CD6A3BF-74D2-4BE9-8D93-BFBCE31161C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CD6A3BF-74D2-4BE9-8D93-BFBCE31161C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CD6A3BF-74D2-4BE9-8D93-BFBCE31161C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0D7D61A-299F-455C-8595-852CEC26B79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0D7D61A-299F-455C-8595-852CEC26B79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0D7D61A-299F-455C-8595-852CEC26B79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0D7D61A-299F-455C-8595-852CEC26B79F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

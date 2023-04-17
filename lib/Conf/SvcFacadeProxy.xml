@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net" default-autowire="byType">
+  <object type="FS.Dawn.CodeMng.Bll.Proxy.SvcFacadeProxy, FS.Dawn.CodeMng.Bll" />
+  <object type="FS.Dawn.ControlParamMng.Bll.Proxy.SvcFacadeProxy, FS.Dawn.ControlParamMng.Bll" />
+  <object type="FS.Dawn.License.Bll.Proxy.SvcFacadeProxy, FS.Dawn.License.Bll" />
+  <object type="FS.Dawn.OrganizationMng.Bll.Proxy.SvcFacadeProxy, FS.Dawn.OrganizationMng.Bll" />
+  <object type="FS.Dawn.PermissionMng.Bll.Proxy.SvcFacadeProxy, FS.Dawn.PermissionMng.Bll" />
+</objects>

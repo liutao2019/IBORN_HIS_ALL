@@ -1,0 +1,63 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>txtname</Name><Text>姓名/卡号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>type</Name><Text>类型：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select '0','已核销' from dual union all select '1','待核销' from dual union all select '2','未核销' from dual </DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>
+      select decode(grouping_id(card_no,patient_name,fathername,packagename,oper_code,oper_date,operdate),0,card_no,'合计：') 就诊卡号, 
+             decode(grouping_id(card_no,patient_name,fathername,packagename,oper_code,oper_date,operdate),0,patient_name,'/') 姓名,
+             decode(grouping_id(card_no,patient_name,fathername,packagename,oper_code,oper_date,operdate),0,fathername,'/') 一级套餐名称, 
+             decode(grouping_id(card_no,patient_name,fathername,packagename,oper_code,oper_date,operdate),0,packagename,'/') 二级套餐名称, 
+             sum(all_cost) 套餐金额, 
+             sum(real_cost) 剩余金额, 
+             sum(money) 财务核销金额, 
+             decode(grouping_id(card_no,patient_name,fathername,packagename,oper_code,oper_date,operdate),0,oper_code,'/') 收费员, 
+             oper_date 套餐购买时间, 
+             operdate 套餐首次匹配时间, 
+             sum(rtn_qty) 套餐剩余数量,
+             case when real_cost=0 and rtn_qty=0 then '已核销'
+                  when trunc(sysdate-operdate)&gt;180 then '待核销' else '未核销' end 类型,
+             trunc(sysdate-operdate) 距首次匹配时间的时间间隔
+       from (
+          select t3.package_name packagename,
+                 t5.package_name fathername,
+                 sum(epd.real_cost) all_cost,
+                 round(sum(case when t2.cost_flag=1 then 0 else epd.rtn_qty*epd.real_cost/epd.qty end),2) real_cost,
+                 nvl(epc1.money,0) money,
+                 fun_get_employee_name(t2.oper_code) oper_code,
+                 t2.oper_date oper_date,
+                 t2.card_no,
+                 t2.patient_name,
+                 epc.oper_date operdate,
+                 case when t.print_invoiceno like '%BL%' or t.print_invoiceno like '%SZ%' then 'BELLAIRE' else 'IBORN' end hospital_id,
+                 sum(case when t2.cost_flag=1 then 0 else epd.rtn_qty end) rtn_qty
+            from exp_packageinvoice t
+            left join exp_package t2 on t.invoice_no = t2.invoice_no
+            left join exp_packagedetail epd on t2.clinic_code=epd.clinic_code and t2.trans_type=epd.trans_type
+            left join bd_com_package t3 on t2.package_id = t3.package_id
+            left join bd_com_package t5 on t3.parent_code = t5.package_id
+            left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+            left join (select epc.clinic_code,min(epc.oper_date) oper_date
+                         from exp_packagecost epc 
+                        group by epc.clinic_code) epc on epc.clinic_code=epd.clinic_code and epd.trans_type=1
+            left join (select round(sum(case when epd.real_cost=0 then 0 else nvl(epc.amount,0)*epd.real_cost/epd.qty end),2) money,epc.clinic_code
+                         from exp_packagecost epc 
+                         left join fin_opb_paymode fe on epc.invoice_no=fe.invoice_no and epc.trans_type=fe.trans_type and fe.mode_code='PR'
+                         left join exp_packagedetail epd on epc.clinic_code=epd.clinic_code and epc.detailseq=epd.sequence_no
+                        where fe.mark like '%财务套餐核销%' and epc.cancel_flag=0 --and epc.clinic_code='10019316'
+                        group by epc.clinic_code)epc1 on epc1.clinic_code=epd.clinic_code and epd.trans_type=1
+           where t4.code='26'
+             and t.trans_type = t2.trans_type
+             and t2.pay_flag=1 
+             and t2.cancel_flag=0
+             and (t2.card_no='&amp;txtname' or t2.package_name like '%&amp;txtname%' or '&amp;txtname' is null)
+           group by t3.package_name ,
+                    t5.package_name ,
+                    t2.oper_code ,
+                    t2.oper_date ,
+                    t2.card_no,
+                    t2.patient_name,
+                    epc.oper_date ,
+                    case when t.print_invoiceno like '%BL%' or t.print_invoiceno like '%SZ%' then 'BELLAIRE' else 'IBORN' end,
+                    nvl(epc1.money,0)
+        ) tt 
+      where (( case when real_cost=0 and rtn_qty=0 then '0'
+                  when trunc(sysdate-operdate)&gt;180 then '1' else '2' end)='&amp;type' or '&amp;type'='ALL')
+      group by rollup((card_no,patient_name,fathername,packagename,oper_code,oper_date,operdate,
+                       case when real_cost=0 and rtn_qty=0 then '已核销'
+                            when trunc(sysdate-operdate)&gt;180 then '待核销' else '未核销' end ,trunc(sysdate-operdate)))</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新财务报表\产康套餐需要核销数据设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

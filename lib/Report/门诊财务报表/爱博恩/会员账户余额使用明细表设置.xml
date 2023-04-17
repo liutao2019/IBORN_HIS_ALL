@@ -1,0 +1,121 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>startDate</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>endDate</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dt</Name><Sql>  
+  select t.类型,t.科室名称,t.账户支付,t.月份  from (
+  
+  select --d.hospital_name 院区,
+       '门诊' 类型,
+       '0' lab,
+       d.dept_name 科室名称,
+       sum(ys) 账户支付,
+       substr(to_char(t.BALANCE_DATE,'yyyy-mm-dd'),0, 7) 月份
+  from (select r.clinic_code,
+               r.card_no,
+               r.dept_code,
+               r.dept_name,
+               p.invoice_no,
+               (select nvl(sum(a.tot_cost), 0)
+                  from fin_opb_paymode a
+                 where a.invoice_no = p.invoice_no
+                   and a.trans_type = p.trans_type
+                   and a.mode_code = 'YS') ys,
+              p.BALANCE_DATE
+              
+          from FIN_OPR_REGISTER r
+         inner join FIN_OPB_INVOICEINFO p on r.clinic_code = p.clinic_code
+         where p.BALANCE_DATE between to_date('&amp;startDate', 'yyyy-MM-dd') and
+               to_date('&amp;endDate', 'yyyy-MM-dd') + 1) t
+  left join com_department d on d.dept_code = t.dept_code
+-- where d.hospital_id = '&amp;cmbHospital'
+   -- or '&amp;cmbHospital' = 'ALL'
+ group by d.hospital_name, t.dept_code, d.dept_name,substr(to_char(t.BALANCE_DATE,'yyyy-mm-dd'),0, 7)
+
+ 
+ union all
+ 
+select '住院','1' lab, f.ZYBQ,sum(YS) 账户支付,f.moth from (
+ 
+select (case when t.waste_flag = '1' and t.trans_type = '1' then t.invoice_no
+               when t.waste_flag = '0' and t.trans_type = '1' then '[退费]'||t.invoice_no
+               when t.waste_flag = '0' and t.trans_type = '2' then '[退费]'||t.invoice_no
+               else '[未知]'||t.invoice_no  end) invoice_no,
+       t.name,
+       fm.card_no,
+       fm.patient_no,
+       --to_char(t.balance_date,'yyyy-mm-dd'),
+       substr(to_char(t.balance_date,'yyyy-mm-dd'),0, 7) moth,
+      (select nvl(sum(case when a.reutrnorsupply_flag = '2' and a.trans_kind = '1' then -a.cost else a.cost end),0) from fin_ipb_balancepay a where a.invoice_no = t.invoice_no and a.trans_type = t.trans_type and a.pay_way = 'YS') ys,
+       (select a.dept_name from com_department a where a.dept_code = (select b.nurse_cell_code from fin_ipr_inmaininfo b where b.inpatient_no = t.inpatient_no)) zybq,
+       t.balance_date operdate,cd.name
+  from fin_ipb_balancehead t inner join fin_ipr_inmaininfo fm on t.inpatient_no=fm.inpatient_no left join com_dictionary cd on cd.type='PatientType'
+   and cd.code=fm.patient_type
+ where t.balance_date between to_date('&amp;startDate','yyyy-mm-dd') and to_date('&amp;endDate','yyyy-mm-dd')+1
+   
+   ) f group by f.ZYBQ,f.moth
+   
+   union all
+   
+   select s.packageTypeName,'2' lab,s.deptname 部门,sum (yy) 账户支付 ,substr(to_char(s.DATES,'yyyy-mm-dd'),0, 7) 月份 from (
+
+select g.CARD_NO,g.PATIENT_NAME,g.age,g.INVOICE_NO,sum(distinct g.ys) yy,min(deptname) deptname,min(packageTypeName) packageTypeName,max(g.oper_date) dates from (
+
+
+select 
+         t.card_no,
+         patient_name,
+         fun_get_Age_new1(ct.birthday,sysdate) age,
+         fun_get_dept_name(t.package_dept) deptname,
+         (case when t.cancel_flag = '0' and t.trans_type = '1' then t.invoice_no
+               when t.cancel_flag = '1' and t.trans_type = '1' then '[退费]'||t.invoice_no
+               when t.cancel_flag = '1' and t.trans_type = '2' then '[退费]'||t.invoice_no
+               else '[未知]'||t.invoice_no  end) invoice_no,
+         ( select y.name from bd_com_package a,com_dictionary y 
+            where a.package_id = t.package_id
+              and a.PACKAGE_KIND = y.code
+              and y.type ='PACKAGETYPE') packageTypeName,
+         cp.package_name packagename,
+         ep.item_name,
+         t.package_cost PACKAGE_COST,         
+         ep.all_qty,
+         case when cp.package_name like '%自选包%'  then ep.real_cost else t.real_cost end REAL_COST, 
+         case when cp.package_name like '%自选包%'  then ep.gift_cost else t.gift_cost end GIFT_COST, 
+         case when cp.package_name like '%自选包%'  then ep.etc_cost else t.etc_cost end ETC_COST, 
+         (select  '发票号:' || t.invoice_no || ':' || t.patient_name || ':' || wm_concat(y.name || ':' || b.tot_cost)  from exp_packagepaymode b, com_dictionary y 
+           where t.invoice_no = b.invoice_no
+             and t.trans_type = b.trans_type
+             and b.mode_code = y.code
+             and y.type = 'PAYMODES'
+           group by b.trans_type
+                ) 支付明细,--避免支付方式和金额一样会被合并，加上名字
+         ( select sum(b.real_cost) from exp_packagepaymode b
+            inner join fin_opb_account fa on b.account=fa.account_no  
+            inner join com_patientinfo cp on fa.card_no=cp.card_no
+            where t.invoice_no = b.invoice_no and t.trans_type = b.trans_type
+              and  b.mode_code='YS' ) ys,
+          ( select wm_concat(cp.name||':'||b.real_cost) from exp_packagepaymode b
+             inner join fin_opb_account fa on b.account=fa.account_no  
+             inner join com_patientinfo cp on fa.card_no=cp.card_no
+             where t.invoice_no = b.invoice_no and t.trans_type = b.trans_type
+               and  b.mode_code='YS')zhm,
+          t.oper_date
+  from exp_package t  inner join bd_com_package cp on t.package_id=cp.package_id 
+  inner join com_patientinfo ct on ct.card_no=t.card_no
+  left join (select nvl(decode(ep.trans_type,1,1,2,-1)*fu.qty,ep.qty) all_qty,ep.* from exp_packagedetail ep
+              inner join  exp_package t  on t.clinic_code=ep.clinic_code and t.card_no=ep.card_no and  ep.trans_type=t.trans_type 
+              inner join bd_com_package cp on t.package_id=cp.package_id 
+               left join fin_com_undrugztinfo fu on ep.item_code=fu.package_code and (fu.package_name like '%增潜能%' or fu.package_name like '%浮潜%')
+              where (cp.package_name like '%自选包%' or cp.package_name like '%泳疗%' or cp.package_name like '%浮潜%' or cp.package_name like '%增潜能%')
+                ) ep 
+         on t.clinic_code=ep.clinic_code and t.card_no=ep.card_no and t.invoice_no=ep.invoice_no  and ep.trans_type=t.trans_type
+ where t.pay_flag = '1' 
+   and t.oper_date between to_date('&amp;startDate','YYYY-MM-DD HH24:MI') and to_date('&amp;endDate','YYYY-MM-DD HH24:MI')
+   and t.oper_code in (select empl_code from com_employee where empl_type = 'F')
+  
+ ) g where g.ys is not null
+ 
+ group by g.CARD_NO,g.PATIENT_NAME,g.age,g.INVOICE_NO  ) s group by s.deptname,s.packageTypeName,substr(to_char(s.DATES,'yyyy-mm-dd'),0, 7)
+ 
+ ) t order by  t.月份,t.lab
+ --order by substr(to_char(s.DATES,'yyyy-mm-dd'),0, 7)
+   
+   
+ 
+ </Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\门诊财务报表\爱博恩\会员账户余额使用明细表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

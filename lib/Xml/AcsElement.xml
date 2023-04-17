@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Element>
+	<PhysicalNursingRecord>
+		<Node name="Temperature" idValue="1045"></Node>
+		<Node name="HeartRate" idValue="85"></Node>
+		<Node name="BloodPressure" idValue="90"></Node>
+	</PhysicalNursingRecord>
+	<ContraAssessment>
+		<Node name="02302A001" idValue="123"></Node>
+		<Node name="02302L001" idValue="元素ID"></Node>
+	</ContraAssessment>
+	<DischargeRecord>
+		<Node name="1" idValue="123"></Node>
+		<Node name="2" idValue="元素ID"></Node>
+		<Node name="3" idValue="234"></Node>
+		<Node name="4" idValue="元素ID"></Node>
+		<Node name="5" idValue="345"></Node>
+		<Node name="6" idValue="元素ID"></Node>
+		<Node name="1" idValue="456"></Node>
+		<Node name="2" idValue="789"></Node>
+		<Node name="3" idValue="678"></Node>
+		<Node name="4" idValue="901"></Node>
+		<Node name="5" idValue="911"></Node>
+	</DischargeRecord>
+	<BloodBiochemistry>
+		<Node name="703" idValue="Cr"></Node>
+		<Node name="108" idValue="HCT"></Node>
+	</BloodBiochemistry>
+	<BloodFat>
+		<Node name="TG" idValue="TG"></Node>
+		<Node name="TC" idValue="CHOL"></Node>
+		<Node name="GLU" idValue="GLU"></Node>
+	</BloodFat>
+	<MyocardialEnzymeSpectrum>
+		<Node name="CK-MB" idValue="CKMB"></Node>
+		<Node name="cTNI" idValue="aTnI"></Node>
+		<Node name="cTNT" idValue="HSTNT"></Node>
+	</MyocardialEnzymeSpectrum>
+	<Electrocardio>
+		<Node name="0" idValue="CKMB"></Node>
+		<Node name="1" idValue="aTnI"></Node>
+		<Node name="2" idValue="HSTNT"></Node>
+	</Electrocardio>
+</Element>

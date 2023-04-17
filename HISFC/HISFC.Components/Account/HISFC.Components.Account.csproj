@@ -1,0 +1,700 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8790FFAA-068F-46AE-9B4E-60F473A1B0B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.HISFC.Components.Account</RootNamespace>
+    <AssemblyName>HISFC.Components.Account</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\..\HIS_ALL\lib\HISFC.Components.Account.xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthCard, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.RADT, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Registration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System">
+      <HintPath>C:\Windows\Microsoft.NET\Framework64\v2.0.50727\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TemplateDesignerHost, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\Code39.cs" />
+    <Compile Include="Class\Function.cs" />
+    <Compile Include="Controls\IBorn\ucAccountMedicalInsurance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucAccountMedicalInsurance.Designer.cs">
+      <DependentUpon>ucAccountMedicalInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucAccountMedicalPackage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucAccountMedicalPackage.Designer.cs">
+      <DependentUpon>ucAccountMedicalPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucCardManagerIBorn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucCardManagerIBorn.Designer.cs">
+      <DependentUpon>ucCardManagerIBorn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucItemMedicalSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucItemMedicalSelector.Designer.cs">
+      <DependentUpon>ucItemMedicalSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucPatientMedicalInsurance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucPatientMedicalInsurance.Designer.cs">
+      <DependentUpon>ucPatientMedicalInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucPatientPayItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucPatientPayItems.Designer.cs">
+      <DependentUpon>ucPatientPayItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucPrePayPrintIBorn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucPrePayPrintIBorn.Designer.cs">
+      <DependentUpon>ucPrePayPrintIBorn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucRegPatientInfoIBorn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucRegPatientInfoIBorn.Designer.cs">
+      <DependentUpon>ucRegPatientInfoIBorn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucCardVolume.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucCardVolume.Designer.cs">
+      <DependentUpon>ucCardVolume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucAccountFamilyInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucAccountFamilyInfo.Designer.cs">
+      <DependentUpon>ucAccountFamilyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucCoupon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucCoupon.Designer.cs">
+      <DependentUpon>ucCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucParkingTicket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucParkingTicket.Designer.cs">
+      <DependentUpon>ucParkingTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucAccount.Designer.cs">
+      <DependentUpon>ucAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucAccountManagerQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucAccountManagerQuery.Designer.cs">
+      <DependentUpon>ucAccountManagerQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucAccountQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucAccountQuery.Designer.cs">
+      <DependentUpon>ucAccountQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucCancelMark.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucCancelMark.Designer.cs">
+      <DependentUpon>ucCancelMark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucCardCertificateReprint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucCardCertificateReprint.Designer.cs">
+      <DependentUpon>ucCardCertificateReprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucCardLoss.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucCardLoss.Designer.cs">
+      <DependentUpon>ucCardLoss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucCardManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucCardManager.Designer.cs">
+      <DependentUpon>ucCardManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucCardManagerGyzl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucCardManagerGyzl.Designer.cs">
+      <DependentUpon>ucCardManagerGyzl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucEditPassWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucEditPassWord.Designer.cs">
+      <DependentUpon>ucEditPassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucEditPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucEditPatientInfo.Designer.cs">
+      <DependentUpon>ucEditPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucEmpower.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucEmpower.Designer.cs">
+      <DependentUpon>ucEmpower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucEmpowerInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucEmpowerInfo.Designer.cs">
+      <DependentUpon>ucEmpowerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucHealthCardEditPassWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucHealthCardEditPassWord.Designer.cs">
+      <DependentUpon>ucHealthCardEditPassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucHealthCardManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucHealthCardManager.Designer.cs">
+      <DependentUpon>ucHealthCardManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucLogon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucLogon.Designer.cs">
+      <DependentUpon>ucLogon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPactSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPactSelect.Designer.cs">
+      <DependentUpon>ucPactSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPassWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPassWord.Designer.cs">
+      <DependentUpon>ucPassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucQueryPrepayByOpenInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucQueryPrepayByOpenInfo.Designer.cs">
+      <DependentUpon>ucQueryPrepayByOpenInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucRegPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucRegPatientInfo.Designer.cs">
+      <DependentUpon>ucRegPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucRePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucRePrint.Designer.cs">
+      <DependentUpon>ucRePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucSetting.Designer.cs">
+      <DependentUpon>ucSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucRegPatientInfoGJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucRegPatientInfoGJ.Designer.cs">
+      <DependentUpon>ucRegPatientInfoGJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucCardManagerGJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucCardManagerGJ.Designer.cs">
+      <DependentUpon>ucCardManagerGJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucHealthCardManagerGJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucHealthCardManagerGJ.Designer.cs">
+      <DependentUpon>ucHealthCardManagerGJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucEditPatientInfoGJ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucEditPatientInfoGJ.Designer.cs">
+      <DependentUpon>ucEditPatientInfoGJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPrePayPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPrePayPrint.Designer.cs">
+      <DependentUpon>ucPrePayPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucAccountIBorn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IBorn\ucAccountIBorn.Designer.cs">
+      <DependentUpon>ucAccountIBorn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAccountTaken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccountTaken.Designer.cs">
+      <DependentUpon>frmAccountTaken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFinPassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFinPassWord.Designer.cs">
+      <DependentUpon>frmFinPassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMedicalPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMedicalPackage.Designer.cs">
+      <DependentUpon>frmMedicalPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMedicalPackageDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMedicalPackageDetail.Designer.cs">
+      <DependentUpon>frmMedicalPackageDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMiltScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMiltScreen.Designer.cs">
+      <DependentUpon>frmMiltScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmQueryPatientByIdenno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQueryPatientByIdenno.Designer.cs">
+      <DependentUpon>frmQueryPatientByIdenno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSelectAccountType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSelectAccountType.Designer.cs">
+      <DependentUpon>frmSelectAccountType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCouponRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCouponRule.Designer.cs">
+      <DependentUpon>frmCouponRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function.cs" />
+    <Compile Include="InterfaceManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucFindAccountPassWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucFindAccountPassWord.Designer.cs">
+      <DependentUpon>ucFindAccountPassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucPrintAccountPrePay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucPrintAccountPrePay.Designer.cs">
+      <DependentUpon>ucPrintAccountPrePay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RHINCardServiceImplService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\IBorn\ucAccountMedicalInsurance.resx">
+      <DependentUpon>ucAccountMedicalInsurance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucAccountMedicalPackage.resx">
+      <DependentUpon>ucAccountMedicalPackage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucCardManagerIBorn.resx">
+      <DependentUpon>ucCardManagerIBorn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucCardVolume.resx">
+      <DependentUpon>ucCardVolume.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucItemMedicalSelector.resx">
+      <DependentUpon>ucItemMedicalSelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucPatientMedicalInsurance.resx">
+      <DependentUpon>ucPatientMedicalInsurance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucPatientPayItems.resx">
+      <DependentUpon>ucPatientPayItems.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucPrePayPrintIBorn.resx">
+      <DependentUpon>ucPrePayPrintIBorn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucRegPatientInfoIBorn.resx">
+      <DependentUpon>ucRegPatientInfoIBorn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucAccountFamilyInfo.resx">
+      <DependentUpon>ucAccountFamilyInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucCoupon.resx">
+      <DependentUpon>ucCoupon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucParkingTicket.resx">
+      <DependentUpon>ucParkingTicket.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucAccount.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ucAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucAccountManagerQuery.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ucAccountManagerQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucAccountQuery.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ucAccountQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucCancelMark.resx">
+      <DependentUpon>ucCancelMark.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucCardCertificateReprint.resx">
+      <DependentUpon>ucCardCertificateReprint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucCardLoss.resx">
+      <DependentUpon>ucCardLoss.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucCardManager.resx">
+      <DependentUpon>ucCardManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucCardManagerGyzl.resx">
+      <DependentUpon>ucCardManagerGyzl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucEditPassWord.resx">
+      <DependentUpon>ucEditPassWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucEditPatientInfo.resx">
+      <DependentUpon>ucEditPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucEmpower.resx">
+      <DependentUpon>ucEmpower.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucEmpowerInfo.resx">
+      <DependentUpon>ucEmpowerInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucHealthCardEditPassWord.resx">
+      <DependentUpon>ucHealthCardEditPassWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucHealthCardManager.resx">
+      <DependentUpon>ucHealthCardManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucLogon.resx">
+      <DependentUpon>ucLogon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPactSelect.resx">
+      <DependentUpon>ucPactSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPassWord.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ucPassWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucQueryPrepayByOpenInfo.resx">
+      <DependentUpon>ucQueryPrepayByOpenInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucRegPatientInfo.resx">
+      <DependentUpon>ucRegPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucRePrint.resx">
+      <DependentUpon>ucRePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucSetting.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ucSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucRegPatientInfoGJ.resx">
+      <DependentUpon>ucRegPatientInfoGJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucCardManagerGJ.resx">
+      <DependentUpon>ucCardManagerGJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucHealthCardManagerGJ.resx">
+      <DependentUpon>ucHealthCardManagerGJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucEditPatientInfoGJ.resx">
+      <DependentUpon>ucEditPatientInfoGJ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPrePayPrint.resx">
+      <DependentUpon>ucPrePayPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IBorn\ucAccountIBorn.resx">
+      <DependentUpon>ucAccountIBorn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAccountTaken.resx">
+      <DependentUpon>frmAccountTaken.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFinPassWord.resx">
+      <DependentUpon>frmFinPassWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMedicalPackage.resx">
+      <DependentUpon>frmMedicalPackage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMedicalPackageDetail.resx">
+      <DependentUpon>frmMedicalPackageDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMiltScreen.resx">
+      <DependentUpon>frmMiltScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQueryPatientByIdenno.resx">
+      <DependentUpon>frmQueryPatientByIdenno.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSelectAccountType.resx">
+      <DependentUpon>frmSelectAccountType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCouponRule.resx">
+      <DependentUpon>frmCouponRule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucFindAccountPassWord.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ucFindAccountPassWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucPrintAccountPrePay.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ucPrintAccountPrePay.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\修改.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\查询.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\清空.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\FREE3OF9.TTF" />
+    <None Include="Resources\退出.ico" />
+    <None Include="Web References\RHINCardServiceImplService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\RHINCardServiceImplService\RHINCardServiceImplService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://166.166.166.151:8901/rhin_card/ws/CardService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RHINCardServiceImplService\</RelPath>
+      <UpdateFromURL>http://166.166.166.151:8901/rhin_card/ws/CardService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HISFC_Components_Account_RHINCardServiceImplService_RHINCardServiceImplService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+    <None Include="Web References\RHINCardServiceImplService\CardStatusQuestResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RHINCardServiceImplService\GeneralResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RHINCardServiceImplService\QuestPersonResponseType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

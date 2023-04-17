@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GB2312"?>
+<setting>
+  <!--此分诊屏幕可分诊的诊室维护-->
+  <默认护士站 NurseStation= "9912" />
+  <分诊屏显示诊台 currentSet= "|325|326" />
+  <是否按科室分诊 isByDept ="false"  />
+  <是否隐藏姓名  isDisplayName ="true"/>
+  <医生姓名字体  doctFontSize ="35"/>
+  <患者姓名字体  patientFontSize ="35"/>
+  <列头字体  countFontSize ="80"/>
+  <候诊人数字体  countFontSize ="40"/>
+  <每页显示候诊队列个数  pageRowCount ="5"/>
+  <候诊显示人数  Count ="8"/>
+  <自动分诊刷新  RefreshTime = "5"/>
+   <广告设置  Height= "170" Title="请各位患者按照呼叫顺序到诊室就诊，注意保持安静。"  Font="36" />
+  <!--er-->
+</setting>

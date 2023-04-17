@@ -1,0 +1,163 @@
+﻿namespace FS.HISFC.Components.Registration
+{
+    partial class frmSelectInvoice
+    {
+        /// <summary>
+        /// 必需的设计器变量。
+
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 清理所有正在使用的资源。
+
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows 窗体设计器生成的代码
+
+        /// <summary>
+        /// 设计器支持所需的方法 - 不要
+        /// 使用代码编辑器修改此方法的内容。
+
+        /// </summary>
+        private void InitializeComponent()
+        {
+            FarPoint.Win.Spread.TipAppearance tipAppearance1 = new FarPoint.Win.Spread.TipAppearance();
+            this.panel1 = new FS.FrameWork.WinForms.Controls.NeuPanel();
+            this.bnExit = new FS.FrameWork.WinForms.Controls.NeuButton();
+            this.bnOK = new FS.FrameWork.WinForms.Controls.NeuButton();
+            this.panel2 = new FS.FrameWork.WinForms.Controls.NeuPanel();
+            this.fpSpread1 = new FS.FrameWork.WinForms.Controls.NeuSpread();
+            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.bnExit);
+            this.panel1.Controls.Add(this.bnOK);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 190);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(384, 56);
+            this.panel1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.panel1.TabIndex = 1;
+            // 
+            // bnExit
+            // 
+            this.bnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bnExit.Location = new System.Drawing.Point(280, 16);
+            this.bnExit.Name = "bnExit";
+            this.bnExit.Size = new System.Drawing.Size(75, 23);
+            this.bnExit.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.bnExit.TabIndex = 1;
+            this.bnExit.Text = "取消(&X)";
+            this.bnExit.Type = FS.FrameWork.WinForms.Controls.General.ButtonType.None;
+            // 
+            // bnOK
+            // 
+            this.bnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bnOK.Location = new System.Drawing.Point(160, 16);
+            this.bnOK.Name = "bnOK";
+            this.bnOK.Size = new System.Drawing.Size(75, 23);
+            this.bnOK.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.bnOK.TabIndex = 0;
+            this.bnOK.Text = "确定(&O)";
+            this.bnOK.Type = FS.FrameWork.WinForms.Controls.General.ButtonType.None;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.fpSpread1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(384, 190);
+            this.panel2.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.panel2.TabIndex = 0;
+            // 
+            // fpSpread1
+            // 
+            this.fpSpread1.About = "3.0.2004.2005";
+            this.fpSpread1.AccessibleDescription = "fpSpread1, Sheet1, Row 0, Column 0, ";
+            this.fpSpread1.BackColor = System.Drawing.Color.White;
+            this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fpSpread1.FileName = "";
+            this.fpSpread1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            this.fpSpread1.IsAutoSaveGridStatus = false;
+            this.fpSpread1.IsCanCustomConfigColumn = false;
+            this.fpSpread1.Location = new System.Drawing.Point(0, 0);
+            this.fpSpread1.Name = "fpSpread1";
+            this.fpSpread1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
+            this.fpSpread1_Sheet1});
+            this.fpSpread1.Size = new System.Drawing.Size(384, 190);
+            this.fpSpread1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.fpSpread1.TabIndex = 0;
+            tipAppearance1.BackColor = System.Drawing.SystemColors.Info;
+            tipAppearance1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            tipAppearance1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.fpSpread1.TextTipAppearance = tipAppearance1;
+            this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            // 
+            // fpSpread1_Sheet1
+            // 
+            this.fpSpread1_Sheet1.Reset();
+            this.fpSpread1_Sheet1.SheetName = "Sheet1";
+            // Formulas and custom names must be loaded with R1C1 reference style
+            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
+            this.fpSpread1_Sheet1.ColumnCount = 7;
+            this.fpSpread1_Sheet1.RowCount = 2;
+            this.fpSpread1_Sheet1.Columns.Get(0).Width = 63F;
+            this.fpSpread1_Sheet1.Columns.Get(1).Width = 67F;
+            this.fpSpread1_Sheet1.Columns.Get(2).Width = 61F;
+            this.fpSpread1_Sheet1.Columns.Get(3).Width = 151F;
+            this.fpSpread1_Sheet1.GrayAreaBackColor = System.Drawing.SystemColors.Window;
+            this.fpSpread1_Sheet1.OperationMode = FarPoint.Win.Spread.OperationMode.SingleSelect;
+            this.fpSpread1_Sheet1.RowHeader.Columns.Default.Resizable = true;
+            this.fpSpread1_Sheet1.SelectionPolicy = FarPoint.Win.Spread.Model.SelectionPolicy.Single;
+            this.fpSpread1_Sheet1.SelectionUnit = FarPoint.Win.Spread.Model.SelectionUnit.Row;
+            this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
+            // 
+            // frmSelectInvoice
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(6, 14);
+            this.CancelButton = this.bnExit;
+            this.ClientSize = new System.Drawing.Size(384, 246);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmSelectInvoice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "选择发票信息";
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private FS.FrameWork.WinForms.Controls.NeuPanel panel1;
+        private FS.FrameWork.WinForms.Controls.NeuPanel panel2;
+        private FS.FrameWork.WinForms.Controls.NeuSpread fpSpread1;
+        private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
+        private FS.FrameWork.WinForms.Controls.NeuButton bnOK;
+        private FS.FrameWork.WinForms.Controls.NeuButton bnExit;
+    }
+}

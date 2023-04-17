@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log4net debug="false">
+
+  <appender name="ExceptionRollingFileAppender" type="log4net.Appender.RollingFileAppender">
+    <file value="Logs/Exception.txt" />
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="10" />
+    <maximumFileSize value="1024KB" />
+    <staticLogFileName value="true" />
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %15logger %appdomain %location -- %message %exception %newline" />
+    </layout>
+  </appender>
+  <appender name="DebugRollingFileAppender" type="log4net.Appender.RollingFileAppender">
+    <file value="Logs/Debug.txt" />
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="10" />
+    <maximumFileSize value="1024KB" />
+    <staticLogFileName value="true" />
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %15logger %appdomain %location -- %message %exception %newline" />
+    </layout>
+  </appender>
+  <appender name="OperationRollingFileAppender" type="log4net.Appender.RollingFileAppender">
+    <file value="Logs/Operation.txt" />
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="10" />
+    <maximumFileSize value="1024KB" />
+    <staticLogFileName value="true" />
+    <layout type="FS.Dawn.Core.Util.Log.WcfLayout, FS.Dawn.Core.Common">
+      <conversionPattern value="%date [%thread] %SessionId %message %newline" />
+    </layout>
+  </appender>
+  <appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender">
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %logger - %message%newline" />
+    </layout>
+  </appender>
+  <appender name="SqlRollingFileAppender" type="log4net.Appender.RollingFileAppender">
+    <file value="Logs/Sql.txt" />
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="10" />
+    <maximumFileSize value="1024KB" />
+    <staticLogFileName value="true" />
+    <layout type="FS.Dawn.Core.Util.Log.WcfLayout, FS.Dawn.Core.Common">
+      <conversionPattern value="%date [%thread] %SessionId -- %message %newline" />
+    </layout>
+  </appender>
+  <appender name="CapabilityRollingFileAppender" type="log4net.Appender.RollingFileAppender">
+    <file value="Logs/Capability.txt" />
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="10" />
+    <maximumFileSize value="1024KB" />
+    <staticLogFileName value="true" />
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %appdomain %location -- %message %exception %newline" />
+    </layout>
+  </appender>
+  <appender name="SecurityRollingFileAppender" type="log4net.Appender.RollingFileAppender">
+    <file value="Logs/Security.txt" />
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="10" />
+    <maximumFileSize value="1024KB" />
+    <staticLogFileName value="true" />
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %appdomain %location -- %message %exception %newline" />
+    </layout>
+  </appender>
+
+  <root>
+    <level value="INFO"/>
+  </root>
+  <logger name="Exception">
+    <appender-ref ref="ExceptionRollingFileAppender" />
+  </logger>
+  <logger name="Operation">
+    <appender-ref ref="OperationRollingFileAppender"/>
+  </logger>
+  <logger name="Debug">
+    <appender-ref ref="DebugRollingFileAppender" />
+  </logger>
+  <logger name="SqlLog">
+    <appender-ref ref="SqlRollingFileAppender" />
+  </logger>
+  <logger name="Capability">
+    <appender-ref ref="CapabilityRollingFileAppender"/>
+  </logger>
+  <logger name="Security">
+    <appender-ref ref="SecurityRollingFileAppender"/>
+  </logger>
+</log4net>
+

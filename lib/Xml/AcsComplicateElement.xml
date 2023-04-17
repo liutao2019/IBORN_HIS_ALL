@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompElement>
+	<StatusList belong="BaseBodyStatus"> 
+		<StatusItem> 
+			<RecordTime>123</RecordTime> 
+			<Code></Code> 
+			<Value>123</Value> 
+		</StatusItem> 
+		<StatusItem> 
+			<RecordTime>123</RecordTime> 
+			<Code></Code> 
+			<Value>456</Value> 
+		</StatusItem> 
+	</StatusList>
+	<StatusList belong="inDepBodyStatus"> 
+		<StatusItem> 
+			<Code></Code> 
+			<Result></Result> 
+			<ResultValue></ResultValue> 
+		</StatusItem> 
+		<StatusItem> 
+			<Code></Code> 
+			<Result></Result> 
+			<ResultValue></ResultValue> 
+		</StatusItem> 
+		<StatusItem> 
+			<Code></Code> 
+			<Result></Result> 
+			<ResultValue></ResultValue> 
+		</StatusItem> 
+		<StatusItem> 
+			<Code></Code> 
+			<Result></Result> 
+			<ResultValue></ResultValue> 
+		</StatusItem> 
+		<StatusItem> 
+			<Code></Code> 
+			<Result></Result> 
+			<ResultValue></ResultValue> 
+		</StatusItem> 
+	</StatusList>
+	<IllnessList belong="previousIllnessRecord"> 
+		<IllnessItem> 
+			<Code></Code> 
+			<Value></Value> 
+		</IllnessItem> 	
+		<IllnessItem>
+			<Code></Code> 
+			<Value></Value> 
+		</IllnessItem> 
+		<IllnessItem> 
+			<Code></Code> 
+			<Value></Value> 
+		</IllnessItem>
+		<IllnessItem> 
+			<Code></Code> 
+			<Value></Value> 
+		</IllnessItem>
+	</IllnessList> 
+	<IllnessList belong="GeneticDiseasesRecord"> 
+		<IllnessItem> 
+			<Code></Code> 
+			<Value></Value> 
+		</IllnessItem> 	
+		<IllnessItem>
+			<Code></Code> 
+			<Value></Value> 
+		</IllnessItem> 
+	</IllnessList>
+	<ContraList belong="ContraAssessment"> 
+		<ContraItem> 
+			<TabooDrugId>123_Config</TabooDrugId> 
+			<TabooValue></TabooValue> 
+			<TabooTime></TabooTime> 
+			<DeptCode></DeptCode> 
+			<DoctorId></DoctorId> 
+		</ContraItem> 
+		<ContraItem> 
+			<TabooDrugId></TabooDrugId> 
+			<TabooValue></TabooValue> 
+			<TabooTime></TabooTime> 
+			<DeptCode></DeptCode> 
+			<DoctorId></DoctorId> 
+		</ContraItem> 
+    </ContraList>
+	<EventList belong="CourseEventsNote"> 
+		<EventItem> 
+			<CourseEventId>病程事件代码</CourseEventId> 
+			<EventTime>病程事件发生时间</EventTime> 
+			<EventBodyPlace>事件发生的身体部位</EventBodyPlace>  
+		</EventItem> 
+	</EventList> 
+</CompElement>

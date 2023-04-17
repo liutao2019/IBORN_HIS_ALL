@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LifeStyle"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="LifeStyle">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="lsSmoke" type="HaveNotNullT"/>
+        <xs:element name="lsSmokeStyle" type="SmokeT"/>
+        <xs:element name="lsSmokeTime" type="xs:int" default="00" />
+        <xs:element name="lsSamount" type="xs:int" default="00"/>
+        <xs:element name="lsQuitYears" type="xs:int" default="00"/>
+        <xs:element name="lsDrink" type="HaveNotNullT"/>
+        <xs:element name="lsDrinkTime" type="xs:int" default="00"/>
+        <xs:element name="lsDrinkFreqence" type="DrinkT"/>
+        <xs:element name="lsSport" type="HaveNotNullT"/>
+        <xs:element name="lsSportFrequence" type="SportT"/>
+        <xs:element name="lsDiet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="d" type="DietT" minOccurs="0" maxOccurs="8"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="dID">
+            <xs:selector xpath=".//mstns:d"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        
+        
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HaveNotNullT">
+    <xs:restriction base="xs:int">
+      <!--1是 2否 9不详 -1未填-->
+      <xs:pattern value="1|2|9|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SmokeT">
+    <xs:restriction base="xs:int">
+      <!--1现在吸 2过去吸  -1未填-->
+      <xs:pattern value="1|2|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DrinkT">
+    <xs:restriction base="xs:int">
+      <!--1经常大量饮酒（≥3次/周、高度白酒＞50度，≥2两/次 ) 2偶尔饮 -1未填-->
+      <xs:pattern value="1|2|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SportT">
+    <xs:restriction base="xs:int">
+      <!--1经常(≥3次/周且≥30分钟/次) 2偶尔 3不规律 -1未填-->
+      <xs:pattern value="1|2|3|-1"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DietT">
+    <xs:restriction base="xs:string">
+      <!--01口味偏咸 02口味偏油 03常吃蔬菜（≥1次/天） 04很少吃蔬菜 05常吃水果（≥3次/周) 06很少吃水果 07牛奶或酸奶（≥250ml/天） 08不喝或很少喝奶 99不详-->
+      <xs:pattern value="01|02|03|04|05|06|07|08|99"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

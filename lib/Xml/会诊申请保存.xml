@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Apply>
+	<SqlItems>
+		<Item>
+			<excuteType>Insert</excuteType>
+			<sql>insert into cons_apply ({0})VALUES({1})</sql>
+		</Item>
+		<Item>
+			<excuteType>Update</excuteType>
+			<sql>update cons_apply set {0} where {1} = {2}</sql>
+		</Item>
+		<Item>
+			<excuteType>Delete</excuteType>
+			<sql>delete from cons_apply where ID = '{0}'</sql>
+		</Item>
+		<Item>
+			<excuteType>Query</excuteType>
+			<sql>SELECT ID FROM cons_apply  WHERE ID='{0}'</sql>
+		</Item>
+	</SqlItems>
+	<ApplyItems>
+		<Item>
+			<!-- 主键列,取Seq，写死的规则 -->
+			<GetDataType>Primary</GetDataType>
+			<ColumnName>ID</ColumnName>
+			<ColumnValue>{0}</ColumnValue>
+			<ExcutePriSql>select SEQ_EMR_USER_DATA.Nextval from dual</ExcutePriSql>   
+			<Code/>
+			<Value/>
+		</Item>		
+		<!-- 住院流水号 -->
+		<Item>
+			<GetDataType>Info</GetDataType>
+			<ColumnName>INPATIENT_NO</ColumnName>
+			<ColumnValue>'{1}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>inpatientHISNo</Code>             
+			<Value/>
+		</Item>
+        <!--申请科室-->
+		<Item>
+			<GetDataType>Info</GetDataType>
+			<ColumnName>APPLY_DEPT_CODE</ColumnName>          
+			<ColumnValue>'{2}'</ColumnValue>           
+			<ExcutePriSql/>
+			<Code>currentDeptCode</Code>                       
+			<Value/>                      
+		</Item>
+		<!-- 申请医生 -->
+		<Item>
+			<GetDataType>Info</GetDataType>
+			<ColumnName>APPLY_DOC_CODE</ColumnName>
+			<ColumnValue>'{3}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>currentEmplCode</Code>             
+			<Value/>
+		</Item>
+        <!--申请时间-->
+		<Item>
+			<GetDataType>Element</GetDataType>
+			<ColumnName>APPLY_TIME</ColumnName>          
+			<ColumnValue>TO_DATE('{4}','YYYY-MM-DD HH24:MI:SS')</ColumnValue>           
+			<ExcutePriSql/>
+			<Code>ConsultApplyDate</Code>                       
+			<Value>Data</Value>
+        </Item>           
+		<!--会诊科室-->
+		<Item>
+			<GetDataType>Element</GetDataType>
+			<ColumnName>CONSULT_DEPT_CODE</ColumnName>
+			<ColumnValue>'{5}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>ConsultDept</Code>
+			<Value>Data</Value>
+		</Item>
+
+		<!--会诊专家-->
+		<Item>
+			<GetDataType>Element</GetDataType>
+			<ColumnName>CONSULT_DOC_CODE</ColumnName>
+			<ColumnValue>'{6}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>ConsultDoc</Code>
+			<Value>Data</Value>
+		</Item>
+
+		<!--会诊时间-->
+		<Item>
+			<GetDataType>Element</GetDataType>
+			<ColumnName>CONSULT_TIME</ColumnName>
+			<ColumnValue>TO_DATE('{7}','YYYY-MM-DD HH24:MI:SS')</ColumnValue>
+			<ExcutePriSql/>
+			<Code>ConsultDate</Code>
+			<Value>Data</Value>
+		</Item>
+
+		<!--会诊目的-->
+		<Item>
+			<GetDataType>Element</GetDataType>
+			<ColumnName>CONSULT_PURPOSE</ColumnName>
+			<ColumnValue>'{8}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>ConsultPurpose</Code>
+			<Value>Data</Value>
+		</Item>
+
+		<!--会诊授权天数-->
+		<Item>
+			<GetDataType>Element</GetDataType>
+			<ColumnName>CONSULT_PERMISSION_DAYS</ColumnName>
+			<ColumnValue>'{9}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>ConsultPermDays</Code>
+			<Value>Data</Value>
+		</Item>
+
+		<!--会诊类型-->
+		<Item>
+			<GetDataType>Element</GetDataType>
+			<ColumnName>CONSULT_TYPE</ColumnName>
+			<ColumnValue>'{10}'</ColumnValue>
+			<ExcutePriSql/>
+			<Code>ConsultType</Code>
+			<Value>Data</Value>
+		</Item>
+	</ApplyItems>
+</Apply>

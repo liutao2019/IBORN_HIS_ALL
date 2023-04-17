@@ -1,0 +1,366 @@
+﻿namespace FS.SOC.Local.Pharmacy.Print.NanZhuang
+{
+    partial class ucPhaOutputSpcBill
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要
+        /// 使用代码编辑器修改此方法的内容。
+
+        /// </summary>
+        private void InitializeComponent()
+        {
+            FarPoint.Win.Spread.TipAppearance tipAppearance1 = new FarPoint.Win.Spread.TipAppearance();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType1 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.TextCellType textCellType2 = new FarPoint.Win.Spread.CellType.TextCellType();
+            FarPoint.Win.Spread.CellType.NumberCellType numberCellType1 = new FarPoint.Win.Spread.CellType.NumberCellType();
+            FarPoint.Win.Spread.CellType.NumberCellType numberCellType2 = new FarPoint.Win.Spread.CellType.NumberCellType();
+            this.neuPanel1 = new FS.FrameWork.WinForms.Controls.NeuPanel();
+            this.neuPanel4 = new FS.FrameWork.WinForms.Controls.NeuPanel();
+            this.neuLabel2 = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.neuLabel1 = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.neuLabel10 = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.lblCurPur = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.lblCurDif = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.lblCurRet = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.lblOper = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.neuLabel9 = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.neuFpEnter1 = new FS.FrameWork.WinForms.Controls.NeuFpEnter();
+            this.neuFpEnter1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            this.neuPanel3 = new FS.FrameWork.WinForms.Controls.NeuPanel();
+            this.lblPage = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.lblBillID = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.lblTitle = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.lblInputDate = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.neuPanel1.SuspendLayout();
+            this.neuPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.neuFpEnter1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neuFpEnter1_Sheet1)).BeginInit();
+            this.neuPanel3.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // neuPanel1
+            // 
+            this.neuPanel1.BackColor = System.Drawing.Color.White;
+            this.neuPanel1.Controls.Add(this.neuPanel4);
+            this.neuPanel1.Controls.Add(this.neuFpEnter1);
+            this.neuPanel1.Controls.Add(this.neuPanel3);
+            this.neuPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.neuPanel1.Location = new System.Drawing.Point(0, 0);
+            this.neuPanel1.Name = "neuPanel1";
+            this.neuPanel1.Size = new System.Drawing.Size(806, 170);
+            this.neuPanel1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuPanel1.TabIndex = 7;
+            // 
+            // neuPanel4
+            // 
+            this.neuPanel4.Controls.Add(this.neuLabel2);
+            this.neuPanel4.Controls.Add(this.neuLabel1);
+            this.neuPanel4.Controls.Add(this.neuLabel10);
+            this.neuPanel4.Controls.Add(this.lblCurPur);
+            this.neuPanel4.Controls.Add(this.lblCurDif);
+            this.neuPanel4.Controls.Add(this.lblCurRet);
+            this.neuPanel4.Controls.Add(this.lblOper);
+            this.neuPanel4.Controls.Add(this.neuLabel9);
+            this.neuPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.neuPanel4.Location = new System.Drawing.Point(0, 91);
+            this.neuPanel4.Name = "neuPanel4";
+            this.neuPanel4.Size = new System.Drawing.Size(806, 100);
+            this.neuPanel4.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuPanel4.TabIndex = 18;
+            // 
+            // neuLabel2
+            // 
+            this.neuLabel2.Location = new System.Drawing.Point(311, 56);
+            this.neuLabel2.Name = "neuLabel2";
+            this.neuLabel2.Size = new System.Drawing.Size(292, 23);
+            this.neuLabel2.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuLabel2.TabIndex = 24;
+            this.neuLabel2.Text = "主管院长意见：";
+            this.neuLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // neuLabel1
+            // 
+            this.neuLabel1.Location = new System.Drawing.Point(4, 53);
+            this.neuLabel1.Name = "neuLabel1";
+            this.neuLabel1.Size = new System.Drawing.Size(292, 23);
+            this.neuLabel1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuLabel1.TabIndex = 23;
+            this.neuLabel1.Text = "科主任意见：";
+            this.neuLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // neuLabel10
+            // 
+            this.neuLabel10.Location = new System.Drawing.Point(311, 30);
+            this.neuLabel10.Name = "neuLabel10";
+            this.neuLabel10.Size = new System.Drawing.Size(178, 23);
+            this.neuLabel10.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuLabel10.TabIndex = 22;
+            this.neuLabel10.Text = "仓管员：";
+            this.neuLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCurPur
+            // 
+            this.lblCurPur.Location = new System.Drawing.Point(3, 7);
+            this.lblCurPur.Name = "lblCurPur";
+            this.lblCurPur.Size = new System.Drawing.Size(179, 23);
+            this.lblCurPur.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblCurPur.TabIndex = 19;
+            this.lblCurPur.Text = "买入金额合计：";
+            this.lblCurPur.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCurDif
+            // 
+            this.lblCurDif.Location = new System.Drawing.Point(583, 7);
+            this.lblCurDif.Name = "lblCurDif";
+            this.lblCurDif.Size = new System.Drawing.Size(218, 23);
+            this.lblCurDif.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblCurDif.TabIndex = 20;
+            this.lblCurDif.Text = "购零差合计：";
+            this.lblCurDif.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCurRet
+            // 
+            this.lblCurRet.Location = new System.Drawing.Point(311, 7);
+            this.lblCurRet.Name = "lblCurRet";
+            this.lblCurRet.Size = new System.Drawing.Size(178, 23);
+            this.lblCurRet.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblCurRet.TabIndex = 21;
+            this.lblCurRet.Text = "零售金额合计：";
+            this.lblCurRet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblOper
+            // 
+            this.lblOper.Location = new System.Drawing.Point(3, 30);
+            this.lblOper.Name = "lblOper";
+            this.lblOper.Size = new System.Drawing.Size(179, 23);
+            this.lblOper.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblOper.TabIndex = 17;
+            this.lblOper.Text = "制单人：";
+            this.lblOper.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // neuLabel9
+            // 
+            this.neuLabel9.Location = new System.Drawing.Point(583, 30);
+            this.neuLabel9.Name = "neuLabel9";
+            this.neuLabel9.Size = new System.Drawing.Size(218, 23);
+            this.neuLabel9.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuLabel9.TabIndex = 18;
+            this.neuLabel9.Text = "采购员：";
+            this.neuLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // neuFpEnter1
+            // 
+            this.neuFpEnter1.About = "3.0.2004.2005";
+            this.neuFpEnter1.AccessibleDescription = "neuFpEnter1, Sheet1, Row 0, Column 0, ";
+            this.neuFpEnter1.BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.neuFpEnter1.EditModePermanent = true;
+            this.neuFpEnter1.EditModeReplace = true;
+            this.neuFpEnter1.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            this.neuFpEnter1.Location = new System.Drawing.Point(0, 66);
+            this.neuFpEnter1.Name = "neuFpEnter1";
+            this.neuFpEnter1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.neuFpEnter1.SelectNone = false;
+            this.neuFpEnter1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
+            this.neuFpEnter1_Sheet1});
+            this.neuFpEnter1.ShowListWhenOfFocus = false;
+            this.neuFpEnter1.Size = new System.Drawing.Size(806, 25);
+            this.neuFpEnter1.TabIndex = 7;
+            tipAppearance1.BackColor = System.Drawing.SystemColors.Info;
+            tipAppearance1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            tipAppearance1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.neuFpEnter1.TextTipAppearance = tipAppearance1;
+            this.neuFpEnter1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
+            // 
+            // neuFpEnter1_Sheet1
+            // 
+            this.neuFpEnter1_Sheet1.Reset();
+            this.neuFpEnter1_Sheet1.SheetName = "Sheet1";
+            // Formulas and custom names must be loaded with R1C1 reference style
+            this.neuFpEnter1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
+            this.neuFpEnter1_Sheet1.ColumnCount = 12;
+            this.neuFpEnter1_Sheet1.RowCount = 6;
+            this.neuFpEnter1_Sheet1.RowHeader.ColumnCount = 0;
+            this.neuFpEnter1_Sheet1.ActiveSkin = new FarPoint.Win.Spread.SheetSkin("CustomSkin1", System.Drawing.Color.White, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Black, FarPoint.Win.Spread.GridLines.Both, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, false, false, false, true, true);
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 0).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 0).Value = "编号";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 1).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 1).Value = "名称";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 2).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 2).Value = "规格";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 3).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 3).Value = "生产厂家";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 4).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 4).Value = "批号";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 5).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 5).Value = "单位";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 6).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 6).Value = "数量";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 7).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 7).Value = "购入单价";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 8).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 8).Value = "购入金额";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 9).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 9).Value = "零售单价";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 10).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 10).Value = "零售金额";
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 11).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.ColumnHeader.Cells.Get(0, 11).Value = "报废原因";
+            this.neuFpEnter1_Sheet1.ColumnHeader.HorizontalGridLine = new FarPoint.Win.Spread.GridLine(FarPoint.Win.Spread.GridLineType.Raised, System.Drawing.Color.Black, System.Drawing.SystemColors.ControlLightLight, System.Drawing.Color.Black);
+            this.neuFpEnter1_Sheet1.ColumnHeader.VerticalGridLine = new FarPoint.Win.Spread.GridLine(FarPoint.Win.Spread.GridLineType.Raised, System.Drawing.Color.Black, System.Drawing.SystemColors.ControlLightLight, System.Drawing.Color.Black);
+            this.neuFpEnter1_Sheet1.Columns.Get(0).BackColor = System.Drawing.Color.White;
+            this.neuFpEnter1_Sheet1.Columns.Get(0).CellType = textCellType1;
+            this.neuFpEnter1_Sheet1.Columns.Get(0).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.neuFpEnter1_Sheet1.Columns.Get(0).Label = "编号";
+            this.neuFpEnter1_Sheet1.Columns.Get(0).Width = 51F;
+            this.neuFpEnter1_Sheet1.Columns.Get(1).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.neuFpEnter1_Sheet1.Columns.Get(1).Label = "名称";
+            this.neuFpEnter1_Sheet1.Columns.Get(1).Width = 127F;
+            this.neuFpEnter1_Sheet1.Columns.Get(2).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.neuFpEnter1_Sheet1.Columns.Get(2).Label = "规格";
+            this.neuFpEnter1_Sheet1.Columns.Get(2).Width = 81F;
+            this.neuFpEnter1_Sheet1.Columns.Get(3).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.General;
+            this.neuFpEnter1_Sheet1.Columns.Get(3).Label = "生产厂家";
+            this.neuFpEnter1_Sheet1.Columns.Get(3).Width = 87F;
+            this.neuFpEnter1_Sheet1.Columns.Get(4).CellType = textCellType2;
+            this.neuFpEnter1_Sheet1.Columns.Get(4).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.neuFpEnter1_Sheet1.Columns.Get(4).Label = "批号";
+            this.neuFpEnter1_Sheet1.Columns.Get(4).Width = 62F;
+            this.neuFpEnter1_Sheet1.Columns.Get(5).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.neuFpEnter1_Sheet1.Columns.Get(5).Label = "单位";
+            this.neuFpEnter1_Sheet1.Columns.Get(5).Width = 32F;
+            this.neuFpEnter1_Sheet1.Columns.Get(6).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
+            this.neuFpEnter1_Sheet1.Columns.Get(6).Label = "数量";
+            this.neuFpEnter1_Sheet1.Columns.Get(6).Width = 47F;
+            this.neuFpEnter1_Sheet1.Columns.Get(9).CellType = numberCellType1;
+            this.neuFpEnter1_Sheet1.Columns.Get(9).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
+            this.neuFpEnter1_Sheet1.Columns.Get(9).Label = "零售单价";
+            this.neuFpEnter1_Sheet1.Columns.Get(9).Width = 59F;
+            this.neuFpEnter1_Sheet1.Columns.Get(10).CellType = numberCellType2;
+            this.neuFpEnter1_Sheet1.Columns.Get(10).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
+            this.neuFpEnter1_Sheet1.Columns.Get(10).Label = "零售金额";
+            this.neuFpEnter1_Sheet1.Columns.Get(10).Width = 63F;
+            this.neuFpEnter1_Sheet1.Columns.Get(11).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+            this.neuFpEnter1_Sheet1.Columns.Get(11).Label = "报废原因";
+            this.neuFpEnter1_Sheet1.Columns.Get(11).Width = 69F;
+            this.neuFpEnter1_Sheet1.RowHeader.Columns.Default.Resizable = true;
+            this.neuFpEnter1_Sheet1.RowHeader.DefaultStyle.Parent = "HeaderDefault";
+            this.neuFpEnter1_Sheet1.VisualStyles = FarPoint.Win.VisualStyles.Off;
+            this.neuFpEnter1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
+            // 
+            // neuPanel3
+            // 
+            this.neuPanel3.Controls.Add(this.lblPage);
+            this.neuPanel3.Controls.Add(this.lblBillID);
+            this.neuPanel3.Controls.Add(this.lblTitle);
+            this.neuPanel3.Controls.Add(this.lblInputDate);
+            this.neuPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.neuPanel3.Location = new System.Drawing.Point(0, 0);
+            this.neuPanel3.Name = "neuPanel3";
+            this.neuPanel3.Size = new System.Drawing.Size(806, 66);
+            this.neuPanel3.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuPanel3.TabIndex = 15;
+            // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Location = new System.Drawing.Point(645, 49);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(11, 12);
+            this.lblPage.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblPage.TabIndex = 25;
+            this.lblPage.Text = "/";
+            this.lblPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblBillID
+            // 
+            this.lblBillID.Location = new System.Drawing.Point(3, 41);
+            this.lblBillID.Name = "lblBillID";
+            this.lblBillID.Size = new System.Drawing.Size(170, 19);
+            this.lblBillID.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblBillID.TabIndex = 24;
+            this.lblBillID.Text = "单号：";
+            this.lblBillID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTitle.Location = new System.Drawing.Point(292, 10);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(171, 16);
+            this.lblTitle.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblTitle.TabIndex = 18;
+            this.lblTitle.Text = "医院{0}药品报废清单";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblInputDate
+            // 
+            this.lblInputDate.Location = new System.Drawing.Point(311, 45);
+            this.lblInputDate.Name = "lblInputDate";
+            this.lblInputDate.Size = new System.Drawing.Size(141, 19);
+            this.lblInputDate.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.lblInputDate.TabIndex = 21;
+            this.lblInputDate.Text = "日期：";
+            this.lblInputDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ucPhaOutputSpcBill
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.neuPanel1);
+            this.Name = "ucPhaOutputSpcBill";
+            this.Size = new System.Drawing.Size(806, 170);
+            this.neuPanel1.ResumeLayout(false);
+            this.neuPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.neuFpEnter1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neuFpEnter1_Sheet1)).EndInit();
+            this.neuPanel3.ResumeLayout(false);
+            this.neuPanel3.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private FS.FrameWork.WinForms.Controls.NeuPanel neuPanel1;
+        private FS.FrameWork.WinForms.Controls.NeuFpEnter neuFpEnter1;
+        private FarPoint.Win.Spread.SheetView neuFpEnter1_Sheet1;
+        private FS.FrameWork.WinForms.Controls.NeuPanel neuPanel3;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblPage;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblBillID;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblTitle;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblInputDate;
+        private FS.FrameWork.WinForms.Controls.NeuPanel neuPanel4;
+        private FS.FrameWork.WinForms.Controls.NeuLabel neuLabel2;
+        private FS.FrameWork.WinForms.Controls.NeuLabel neuLabel1;
+        private FS.FrameWork.WinForms.Controls.NeuLabel neuLabel10;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblCurPur;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblCurDif;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblCurRet;
+        private FS.FrameWork.WinForms.Controls.NeuLabel lblOper;
+        private FS.FrameWork.WinForms.Controls.NeuLabel neuLabel9;
+    }
+}

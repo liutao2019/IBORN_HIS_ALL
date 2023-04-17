@@ -1,0 +1,191 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql> ------门急诊和在院流感病例监测接口标准 （附件2）
+ 
+ SELECT distinct 
+        'PDY97822944010613A5182'               AS P900, --1 医疗机构代码
+        '广州爱博恩妇产医院'                    AS P6891,--2 机构名称
+        ''                             AS P686 ,--3 医疗保险手册（卡）号
+        ''                                     AS P800,--4 健康卡号
+        (select d.lgcode from database d where d.code='CT01.00.001' and r.dept_code=d.hiscode ) AS P7501,--5 就诊类型
+        p.card_no                              AS P7502,--6 就诊卡号
+        p.name                                 AS P4,--7 姓名
+        decode(p.sex_code,'F','2','M','1','9') AS P5,--8 性别
+        to_char(p.birthday,'yyyy-mm-dd')                             AS P6,--9 出生日期
+        trunc((sysdate-p.birthday)/365,0)      AS P7,--10 年龄 
+        nvl((select d.lgcode from database d where d.code='CV02.01.101' and p.idcardtype=d.hiscode ),'99')  AS P7503, --11证件类型
+        nvl(replace(p.idenno,'-',''),'NA')                               AS P13,   --12证件号码
+        (select d.lgcode from database d where d.code='RC023' and r.dept_code=d.hiscode )  AS P7504, --13就诊科室代码
+        --r.in_times                             AS P7505, --14就诊次数
+        (select count(1) from fin_opr_register fr where fr.valid_flag=1 and fr.card_no=r.card_no and fr.reg_date&lt;=r.reg_date)  AS P7505, --14就诊次数
+        r.reg_date                             AS P7506, --15就诊日期                                 
+        nvl(h.casemain,'无')                             AS P7507, --16主述        
+        cd.icd_code                            AS P321,  --17主要疾病诊断代码
+        cd.diag_name                           AS P322,  --18主要疾病诊断描述
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 2) AS P324, --19其他疾病诊断代码1
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 2) AS P325, --20其他疾病诊断描述1
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 3) AS P327, --21其他疾病诊断代码2
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 3) AS P328, --22其他疾病诊断描述2
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 4) AS P3291, --23其他疾病诊断代码3
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 4) AS P3292, --24其他疾病诊断描述3
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 5) AS P3294, --25其他疾病诊断代码4
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 5) AS P3295, --26其他疾病诊断描述4
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 6) AS P3297, --27其他疾病诊断代码5
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 6) AS P3298, --28其他疾病诊断描述5
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 7) AS P3281, --29其他疾病诊断代码6
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 7) AS P3282, --30其他疾病诊断描述6
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 8) AS P3284, --31其他疾病诊断代码7
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 8) AS P3285, --32其他疾病诊断描述7
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 9) AS P3287, --33其他疾病诊断代码8
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 9) AS P3288, --34其他疾病诊断描述8
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 10)AS P3271, --35其他疾病诊断代码9
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 10)AS P3272, --36其他疾病诊断描述9
+        (select m2.icd_code  from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 11)AS P3274, --37其他疾病诊断代码10
+        (select m2.diag_name from met_cas_diagnose m2 where m2.inpatient_no = cd.inpatient_no and m2.valid_flag = '1'  and m2.happen_no = 11)AS P3275, --38其他疾病诊断描述10
+        ''                                     AS P6911, --39重症监护室名称1
+        ''                                     AS P6912, --40进入时间1
+        ''                                     AS P6913, --41退出时间1
+        ''                                     AS P6914, --42重症监护室名称2
+        ''                                     AS P6915, --43进入时间2
+        ''                                     AS P6916, --44退出时间2
+        ''                                     AS P6917, --45重症监护室名称3
+        ''                                     AS P6918, --46进入时间3
+        ''                                     AS P6919, --47退出时间3
+        ''                                     AS P6920, --48重症监护室名称4
+        ''                                     AS P6921, --49进入时间4
+        ''                                     AS P6922, --50退出时间4
+        ''                                     AS P6923, --51重症监护室名称5
+        ''                                     AS P6924, --52进入时间5
+        ''                                     AS P6925, --53退出时间5
+        ''                                     AS P8001, --54检验1
+        ''                                     AS P8002, --55送检时间1
+        ''                                     AS P8003, --56检验结果描述1
+        ''                                     AS P8004, --57检验结果是否阳性1
+        ''                                     AS P8005, --58检验结果阳性类别1
+        ''                                     AS P8006, --59检验2
+        ''                                     AS P8007, --60送检时间2
+        ''                                     AS P8008, --61检验结果描述2
+        ''                                     AS P8009, --62检验结果是否阳性2
+        ''                                     AS P8010, --63检验结果阳性类别2
+        ''                                     AS P8011, --64检验3
+        ''                                     AS P8012, --65送检时间3
+        ''                                     AS P8013, --66检验结果描述3
+        ''                                     AS P8014, --67检验结果是否阳性3
+        ''                                     AS P8015, --68检验结果阳性类别3
+        case when d.id=1 then d.item_name end  AS P8016, --69药品名称1
+        case when d.id=1 then d.input_code end AS P8017, --70药物使用频率1 
+        case when d.id=1 then d.tot_qty end    AS P8018, --71药物使用总剂量1
+        case when d.id=1 then d.qty end        AS P8019, --72药物使用次剂量1
+        case when d.id=1 then d.dose_unit end  AS P8020, --73药物使用剂量单位1
+        case when d.id=1 then d.oper_date end  AS P8021, --74药物使用开始时间1
+        ''                                     AS P8022, --75药物使用结束时间1 
+        case when d.id=2 then d.item_name end  AS P8023, --76药品名称2
+        case when d.id=2 then d.input_code end AS P8024, --77药物使用频率2 
+        case when d.id=2 then d.tot_qty end    AS P8025, --78药物使用总剂量2
+        case when d.id=2 then d.qty end        AS P8026, --79药物使用次剂量2
+        case when d.id=2 then d.dose_unit end  AS P8027, --80药物使用剂量单位2
+        case when d.id=2 then d.oper_date end  AS P8028, --81药物使用开始时间2
+        ''                                     AS P8029, --82药物使用结束时间2 
+        case when d.id=3 then d.item_name end  AS P8030, --83药品名称3
+        case when d.id=3 then d.input_code end AS P8031, --84药物使用频率3 
+        case when d.id=3 then d.tot_qty end    AS P8032, --85药物使用总剂量3
+        case when d.id=3 then d.qty end        AS P8033, --86药物使用次剂量3
+        case when d.id=3 then d.dose_unit end  AS P8034, --87药物使用剂量单位3
+        case when d.id=3 then d.oper_date end  AS P8035, --88药物使用开始时间3
+        ''                                     AS P8036, --89药物使用结束时间3 
+        case when d.id=4 then d.item_name end  AS P8037, --90药品名称4
+        case when d.id=4 then d.input_code end AS P8038, --91药物使用频率4
+        case when d.id=4 then d.tot_qty end    AS P8039, --92药物使用总剂量4
+        case when d.id=4 then d.qty end        AS P8040, --93药物使用次剂量4
+        case when d.id=4 then d.dose_unit end  AS P8041, --94药物使用剂量单位4
+        case when d.id=4 then d.oper_date end  AS P8042, --95药物使用开始时间4
+        ''                                     AS P8043, --96药物使用结束时间4 
+        case when d.id=5 then d.item_name end  AS P8044, --97药品名称5
+        case when d.id=5 then d.input_code end AS P8045, --98药物使用频率5
+        case when d.id=5 then d.tot_qty end    AS P8046, --99药物使用总剂量5
+        case when d.id=5 then d.qty end        AS P8047, --100药物使用次剂量5
+        case when d.id=5 then d.dose_unit end  AS P8048, --101药物使用剂量单位5
+        case when d.id=5 then d.oper_date end  AS P8049, --102药物使用开始时间5
+        ''                                     AS P8050, --103药物使用结束时间5 
+        case when d.id=6 then d.item_name end  AS P8051, --104药品名称6
+        case when d.id=6 then d.input_code end AS P8052, --105药物使用频率6
+        case when d.id=6 then d.tot_qty end    AS P8053, --106药物使用总剂量6
+        case when d.id=6 then d.qty end        AS P8054, --107药物使用次剂量6
+        case when d.id=6 then d.dose_unit end  AS P8055, --108药物使用剂量单位6
+        case when d.id=6 then d.oper_date end  AS P8056, --109药物使用开始时间6
+        ''                                     AS P8057, --110药物使用结束时间6
+        case when d.id=7 then d.item_name end  AS P8058, --111药品名称7
+        case when d.id=7 then d.input_code end AS P8059, --112药物使用频率7
+        case when d.id=7 then d.tot_qty end    AS P8060, --113药物使用总剂量7
+        case when d.id=7 then d.qty end        AS P8061, --114药物使用次剂量7
+        case when d.id=7 then d.dose_unit end  AS P8062, --115药物使用剂量单位7
+        case when d.id=7 then d.oper_date end  AS P8063, --116药物使用开始时间7
+        ''                                     AS P8064, --117药物使用结束时间7
+        case when d.id=8 then d.item_name end  AS P8065, --118药品名称8
+        case when d.id=8 then d.input_code end AS P8066, --119药物使用频率8 
+        case when d.id=8 then d.tot_qty end    AS P8067, --120药物使用总剂量8
+        case when d.id=8 then d.qty end        AS P8068, --121药物使用次剂量8
+        case when d.id=8 then d.dose_unit end  AS P8069, --122药物使用剂量单位8
+        case when d.id=8 then d.oper_date end  AS P8070, --123药物使用开始时间8
+        ''                                     AS P8071, --124药物使用结束时间8
+        case when d.id=9 then d.item_name end  AS P8072, --125药品名称9
+        case when d.id=9 then d.input_code end AS P8073, --126药物使用频率9
+        case when d.id=9 then d.tot_qty end    AS P8074, --127药物使用总剂量9
+        case when d.id=9 then d.qty end        AS P8075, --128药物使用次剂量9
+        case when d.id=9 then d.dose_unit end  AS P8076, --129药物使用剂量单位9
+        case when d.id=9 then d.oper_date end  AS P8077, --130药物使用开始时间9
+        ''                                     AS P8078, --131药物使用结束时间9
+        case when d.id=10 then d.item_name end  AS P8079, --132药品名称10
+        case when d.id=10 then d.input_code end AS P8080, --133药物使用频率10
+        case when d.id=10 then d.tot_qty end    AS P8081, --134药物使用总剂量10
+        case when d.id=10 then d.qty end        AS P8082, --135药物使用次剂量10
+        case when d.id=10 then d.dose_unit end  AS P8083, --136药物使用剂量单位10
+        case when d.id=10 then d.oper_date end  AS P8084, --137药物使用开始时间10
+        ''                                     AS P8085, --138药物使用结束时间10
+        decode(r.pact_code,'1','7','2','5','3','7','5','7','4','1')    AS P1,    --139医疗费用支付方式代码
+        (select round(nvl(sum(i.own_cost),0),2) from fin_opb_invoiceinfo i 
+          where i.clinic_code=r.clinic_code) AS P7508, --140总费用 
+        (select round(nvl(sum(idt.own_cost),0),2) from fin_opb_invoicedetail idt,fin_opb_invoiceinfo i 
+          where idt.invoice_no=i.invoice_no and idt.trans_type=i.trans_type
+            and i.clinic_code=r.clinic_code and idt.invo_code='03') AS P7509, --141挂号费 
+        (select round(nvl(sum(idt.own_cost),0),2) from fin_opb_invoicedetail idt,fin_opb_invoiceinfo i 
+          where idt.invoice_no=i.invoice_no and idt.trans_type=i.trans_type
+            and i.clinic_code=r.clinic_code and idt.invo_code in ('01','02')) AS P7510, --142药品费
+        (select round(nvl(sum(idt.own_cost),0),2) from fin_opb_invoicedetail idt,fin_opb_invoiceinfo i 
+          where idt.invoice_no=i.invoice_no and idt.trans_type=i.trans_type
+            and i.clinic_code=r.clinic_code and idt.invo_code in ('05')) AS P7511, --143检查费 
+        (select round(nvl(sum(m.real_cost),0),2) from fin_opb_paymode m,fin_opb_invoiceinfo i 
+          where m.invoice_no=i.invoice_no and m.trans_type=i.trans_type
+            and i.clinic_code=r.clinic_code
+            and m.mode_code in ('CA','UP','ZB','WP','PO','CD','YS','CI')) AS P7512, --144自付费用 
+        '2'                                     AS P8508, --145是否死亡
+        ''                                     AS P8509  --146死亡时间
+        
+ from  com_patientinfo p
+ inner join fin_opr_register  r  on p.card_no = r.card_no
+ left  join met_cas_history  h  on r.clinic_code = h.clinic_code  ---主述
+ left  join met_cas_diagnose cd on r.clinic_code = cd.inpatient_no
+inner  join com_department dp on r.dept_code=dp.dept_code and dp.hospital_id='IBORN'
+ left join ( select row_number() over(partition by f.clinic_code order by r.reg_date) id,
+                    f.clinic_code,f.item_name,cd.input_code,f.base_dose*qty tot_qty,f.dose_once qty,f.dose_unit,f.oper_date
+               from fin_opb_feedetail f
+               left join fin_opr_register r on  f.clinic_code=r.clinic_code
+               left join com_dictionary cd on cd.type='frequency' and f.frequency_code=cd.code
+              where regexp_like(f.item_name,'奥司他韦|达菲|可威|扎那米韦|依乐韦|也青|帕拉米韦|力纬|阿比多尔
+             |阿比朵尔|壮彤|恩尔欣|玛诺苏|莲花清瘟|金花清感颗粒|金刚烷胺|迪龙|金刚乙胺|仁和|立安|金迪纳|津彤|太之奥|
+             利巴韦林|锐迪|均达坦|奇力威林|利迈欣|柯萨|南元|利力宁|达畅|威乐星|奥得清|奥佳') 
+                and f.pay_flag=1 
+                and f.cancel_flag=1) d on r.clinic_code=d.clinic_code
+ where 1 =1 and r.valid_flag=1 
+   and cd.valid_flag = '1' and cd.persson_type = '0' and cd.happen_no = 1  --门诊有效患者   
+   and r.reg_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+   and (((h.casemain like '%甲%流%' or h.casemain like '%乙%流%'or h.casemain like '%流%感%')and (h.casemain like '%流感嗜血%' or h.casemain like '%副流感%' or h.casemain like '%血流感染%'))
+   or h.casemain like '%H%N%'
+   or ((h.casemain like '%发热%' or h.casemain like '%发烧%'or h.casemain like '%高热%') and (h.casemain like '%咳嗽%' or h.casemain like '%咳痰%'))
+   or cd.icd_code like 'J%'
+   or ((cd.diag_name like '%发热%' or cd.diag_name like '%发烧%'or cd.diag_name like '%高热%') and (cd.diag_name like '%咳嗽%' or cd.diag_name like '%咳痰%'))
+   or cd.diag_name like '%H%N%'
+   or ((cd.diag_name like '%甲%流%' or cd.diag_name like '%乙%流%'or cd.diag_name like '%流%感%') and (cd.diag_name like '%流感嗜血%' or cd.diag_name like '%副流感%' or cd.diag_name like '%血流感染%'))
+   or d.clinic_code is not null) 
+  
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新医务报表\门急诊和在院流感病例监测接口标准(附件2)设置xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

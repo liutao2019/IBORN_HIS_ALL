@@ -1,0 +1,155 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>inpatientNo</Name><Text></Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.CustomControl,SOC.HISFC.OutpatientFee.Components"><DllName>HISFC.Components.Common</DllName><TypeName>FS.HISFC.Components.Common.Controls.ucQueryInpatientNo</TypeName><ValueProperty>InpatientNo</ValueProperty><EventProperty>myEvent</EventProperty><DelegateDllName>HISFC.Components.Common</DelegateDllName><DelegateTypeName>FS.HISFC.Components.Common.Controls.myEventDelegate</DelegateTypeName><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>180</Width><Height>30</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>20</X><Y>-2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>invoiceNo</Name><Text>发票号</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>250</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtFeeDetail</Name><Sql>select 费用名称,
+       to_char(rownum) as 序号,
+       项目编号,
+       项目名称,
+       项目规格,
+       --公费类别,
+       --医保类别,
+       单价,
+       数量,
+       单位,
+       --自负比例,
+       金额,
+       医保等级
+from (
+select (select g.fee_stat_name
+          from fin_com_feecodestat g
+         where g.report_code = 'ZY01'
+           and g.fee_code = e.fee_code) as  费用名称,
+       (select nvl(t.gb_code, t.custom_code)
+          from pha_com_baseinfo t
+         where t.drug_code = e.drug_code) as 项目编号,
+       e.drug_name  项目名称,
+       e.specs as 项目规格,
+       decode(b.paykind_code,'03','公费','') as 公费类别,
+       decode(b.paykind_code,'02',(select decode(fc.center_item_grade,'1','甲类','2','乙类','自费')
+                                     from fin_com_compare fc
+                                    where fc.pact_code=e.pact_code
+                                      and fc.his_code=e.drug_code ),'') as 医保类别,
+       (case when round(e.unit_price / e.pack_qty, 4)&lt;1 then '0'||to_char(round(e.unit_price / e.pack_qty, 4)) else to_char(round(e.unit_price / e.pack_qty, 4)) end) 单价,
+       (case when round(sum(e.qty), 2)&lt;1 then  '0'||to_char(round(sum(e.qty), 2)) else to_char(round(sum(e.qty), 2)) end)  as 数量,
+       e.current_unit as 单位,
+       decode(b.paykind_code,'03',(select round(fp.pay_ratio,2)*100||'%' from fin_com_pactunitinfo fp where fp.pact_code=b.pact_code),'') as 自负比例,
+       round(sum(e.tot_cost), 2) as 金额,
+       NVL((SELECT CASE C.CENTER_ITEM_GRADE
+                    WHEN '1' THEN
+                     '基本类'
+                    WHEN '2' THEN
+                     '控制类'
+                    WHEN '3' THEN
+                     '自费类'
+                    ELSE
+                     '未维护级别'
+                  END GRADE_LEVEL
+             FROM FIN_COM_COMPARE C
+            WHERE C.PACT_CODE = '14'
+              AND C.HIS_CODE= e.drug_code
+              AND ROWNUM = 1),
+           '未对照') AS 医保等级
+       from fin_ipb_medicinelist e, fin_ipr_inmaininfo b
+ where e.inpatient_no = b.inpatient_no
+   and (e.inpatient_no = '&amp;inpatientNo'
+	 or (e.inpatient_no in (select ib.inpatient_no from fin_ipb_balancehead ib where ib.invoice_no ='&amp;invoiceNo' and ib.trans_type='1' and ib.waste_flag='1')
+	 and e.invoice_no = nvl('&amp;invoiceNo' ,e.invoice_no )))
+
+ group by e.fee_code,
+          e.drug_name,
+          e.current_unit,
+          e.drug_code,
+          e.specs,
+          e.unit_price,
+          b.pact_code,
+          e.pack_qty,
+          b.paykind_code,
+          e.execute_deptcode,
+          e.pact_code
+having round(sum(e.tot_cost), 2) &lt;&gt; 0
+union all
+select (select c.fee_stat_name
+          from fin_com_feecodestat c
+         where c.report_code = 'ZY01'
+           and c.fee_code = a.fee_code) as 费用名称,
+       (select nvl(t.gb_code, t.input_code)
+          from fin_com_undruginfo t
+         where t.item_code = a.item_code) as 项目编号,
+       a.item_name 项目名称,
+       (select t.specs
+          from fin_com_undruginfo t
+         where t.item_code = a.item_code) as 项目规格,
+       decode(b.paykind_code,'03','公费',null) as 公费类别,
+       decode(b.paykind_code,'02',(select decode(fc.center_item_grade,'1','甲类','2','乙类','自费')
+                                     from fin_com_compare fc
+                                    where fc.pact_code=a.pact_code and fc.his_code=a.item_code),'') as 医保类别,
+       (case when a.unit_price&lt;1 then '0'||to_char(a.unit_price) else to_char(a.unit_price) end) as 单价,
+       (case when round(sum(a.qty), 2)&lt;1 then  '0'||to_char(round(sum(a.qty), 2)) else to_char(round(sum(a.qty), 2)) end) as 数量,
+       a.current_unit as 单位,
+       decode(b.paykind_code,'03',(select round(fp.pay_ratio,2)*100||'%' from fin_com_pactunitinfo fp where fp.pact_code=b.pact_code),'') as 自负比例,
+       round(sum(a.tot_cost), 2) as 金额,
+        NVL((SELECT CASE C.CENTER_ITEM_GRADE
+                    WHEN '1' THEN
+                     '基本类'
+                    WHEN '2' THEN
+                     '控制类'
+                    WHEN '3' THEN
+                     '自费类'
+                    ELSE
+                     '未维护级别'
+                  END GRADE_LEVEL
+             FROM FIN_COM_COMPARE C
+            WHERE C.PACT_CODE = '14'
+              AND C.HIS_CODE= a.item_code
+              AND ROWNUM = 1),
+           '未对照') AS 医保等级
+  from fin_ipb_itemlist a, fin_ipr_inmaininfo b
+ where a.inpatient_no = b.inpatient_no
+   and (a.inpatient_no = '&amp;inpatientNo'
+	 or (a.inpatient_no in (select ib.inpatient_no from fin_ipb_balancehead ib where ib.invoice_no  ='&amp;invoiceNo' and ib.trans_type='1' and ib.waste_flag='1')
+	 and a.invoice_no=nvl('&amp;invoiceNo',a.invoice_no)))
+ group by a.fee_code,
+          a.item_name,
+          a.current_unit,
+          a.unit_price,
+          a.fee_code,
+          a.item_code,
+          a.package_name,
+          b.pact_code,
+          b.paykind_code,
+          a.execute_deptcode,
+          a.pact_code
+having round(sum(a.tot_cost), 2) &lt;&gt; 0
+order by  费用名称,项目名称)
+order by  费用名称,项目名称
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtLine1</Name><Sql>select '住院号：'||fo.patient_no,
+       '床位：'||substr(fo.bed_no,5),
+       '姓名：'||FO.NAME,
+       '性别：'||decode(fo.sex_code,'F','女','M','男','未知'),
+       '年龄：'||FUN_GET_AGE_NEW(fo.birthday,fo.in_date)
+from fin_ipr_inmaininfo fo
+where (fo.inpatient_no = '&amp;inpatientNo'
+	      or fo.inpatient_no in (select ib.inpatient_no from fin_ipb_balancehead ib where ib.invoice_no  = '&amp;invoiceNo' and ib.trans_type='1' and ib.waste_flag='1'))</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtLine2</Name><Sql>select '结算方式：'|| fo.pact_name,
+       '科室：'||fo.dept_name,
+       '统计日期：'||to_char(fo.in_date,'yyyy-mm-dd')||' 至 '||to_char(fo.out_date,'yyyy-mm-dd'),
+       '天数：'|| case when out_date&gt;to_date('2000-1-1','yyyy-mm-dd')  
+               then to_char(ceil(fo.out_date-fo.in_date)) 
+                 else '未出院' end
+  from fin_ipr_inmaininfo fo
+ where (fo.inpatient_no = '&amp;inpatientNo'
+	      or fo.inpatient_no in (select ib.inpatient_no from fin_ipb_balancehead ib where ib.invoice_no =  
+'&amp;invoiceNo' and ib.trans_type='1' and ib.waste_flag='1'))</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtLine3</Name><Sql>select  '总额：'||(select sum(金额) 
+         from (
+               select round(sum(e.tot_cost), 2) as 金额
+                 from fin_ipb_medicinelist e
+                 where (e.inpatient_no =  '&amp;inpatientNo'
+	      or (e.inpatient_no in (select ib.inpatient_no from fin_ipb_balancehead ib where ib.invoice_no  = 
+'&amp;invoiceNo' and ib.trans_type='1' and ib.waste_flag='1')
+                and e.invoice_no = '&amp;invoiceNo'))
+
+               union all
+               select round(sum(a.tot_cost), 2) as 金额
+                 from fin_ipb_itemlist a
+                 where (a.inpatient_no = '&amp;inpatientNo'
+	      or (a.inpatient_no in (select ib.inpatient_no from fin_ipb_balancehead ib where ib.invoice_no = 
+'&amp;invoiceNo' and ib.trans_type='1' and ib.waste_flag='1')
+                and a.invoice_no = '&amp;invoiceNo'))
+                )) from dual </Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院\住院收费\住院明细项目汇总清单查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1100</Height><PaperName>Letter</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

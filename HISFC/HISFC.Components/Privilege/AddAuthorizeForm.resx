@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="neuLabel3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="neuLabel3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="neuLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 293</value>
+  </data>
+  <data name="neuLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="neuLabel3.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="neuLabel3.Text" xml:space="preserve">
+    <value>条件2显示</value>
+  </data>
+  <data name="&gt;&gt;neuLabel3.Name" xml:space="preserve">
+    <value>neuLabel3</value>
+  </data>
+  <data name="&gt;&gt;neuLabel3.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel3.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;neuLabel3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtName2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 290</value>
+  </data>
+  <data name="txtName2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 21</value>
+  </data>
+  <data name="txtName2.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;txtName2.Name" xml:space="preserve">
+    <value>txtName2</value>
+  </data>
+  <data name="&gt;&gt;txtName2.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtName2.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;txtName2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="neuLabel4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="neuLabel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 264</value>
+  </data>
+  <data name="neuLabel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="neuLabel4.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="neuLabel4.Text" xml:space="preserve">
+    <value>条件1显示</value>
+  </data>
+  <data name="&gt;&gt;neuLabel4.Name" xml:space="preserve">
+    <value>neuLabel4</value>
+  </data>
+  <data name="&gt;&gt;neuLabel4.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel4.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;neuLabel4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtName1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 261</value>
+  </data>
+  <data name="txtName1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 21</value>
+  </data>
+  <data name="txtName1.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;txtName1.Name" xml:space="preserve">
+    <value>txtName1</value>
+  </data>
+  <data name="&gt;&gt;txtName1.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtName1.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;txtName1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="neuLabel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="neuLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 293</value>
+  </data>
+  <data name="neuLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
+  <data name="neuLabel2.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="neuLabel2.Text" xml:space="preserve">
+    <value>条件2SQL</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Name" xml:space="preserve">
+    <value>neuLabel2</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;neuLabel2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtDeptSql.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 290</value>
+  </data>
+  <data name="txtDeptSql.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 21</value>
+  </data>
+  <data name="txtDeptSql.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;txtDeptSql.Name" xml:space="preserve">
+    <value>txtDeptSql</value>
+  </data>
+  <data name="&gt;&gt;txtDeptSql.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDeptSql.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;txtDeptSql.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="neuLabel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="neuLabel1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="neuLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 264</value>
+  </data>
+  <data name="neuLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
+  <data name="neuLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="neuLabel1.Text" xml:space="preserve">
+    <value>条件1SQL</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Name" xml:space="preserve">
+    <value>neuLabel1</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;neuLabel1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtEmpSql.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 261</value>
+  </data>
+  <data name="txtEmpSql.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 21</value>
+  </data>
+  <data name="txtEmpSql.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;txtEmpSql.Name" xml:space="preserve">
+    <value>txtEmpSql</value>
+  </data>
+  <data name="&gt;&gt;txtEmpSql.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtEmpSql.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;txtEmpSql.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tbReportItem.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="tbReportItem.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="tbReportItem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 317</value>
+  </data>
+  <data name="tbReportItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 28</value>
+  </data>
+  <data name="tbReportItem.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="tbReportItem.Text" xml:space="preserve">
+    <value>报表项目及权限维护</value>
+  </data>
+  <data name="&gt;&gt;tbReportItem.Name" xml:space="preserve">
+    <value>tbReportItem</value>
+  </data>
+  <data name="&gt;&gt;tbReportItem.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tbReportItem.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;tbReportItem.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="cmbType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cmbType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 61</value>
+  </data>
+  <data name="cmbType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 20</value>
+  </data>
+  <data name="cmbType.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;cmbType.Name" xml:space="preserve">
+    <value>cmbType</value>
+  </data>
+  <data name="&gt;&gt;cmbType.Type" xml:space="preserve">
+    <value>FS.WinForms.Controls.NComboBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cmbType.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;cmbType.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 232</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 64</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>资源分类</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="pbImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 223</value>
+  </data>
+  <data name="pbImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 36</value>
+  </data>
+  <data name="pbImage.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;pbImage.Name" xml:space="preserve">
+    <value>pbImage</value>
+  </data>
+  <data name="&gt;&gt;pbImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbImage.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;pbImage.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="cmbImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 229</value>
+  </data>
+  <data name="cmbImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="cmbImage.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;cmbImage.Name" xml:space="preserve">
+    <value>cmbImage</value>
+  </data>
+  <data name="&gt;&gt;cmbImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbImage.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;cmbImage.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="nrbWrong.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nrbWrong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>146, 14</value>
+  </data>
+  <data name="nrbWrong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 16</value>
+  </data>
+  <data name="nrbWrong.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="nrbWrong.Text" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="&gt;&gt;nrbWrong.Name" xml:space="preserve">
+    <value>nrbWrong</value>
+  </data>
+  <data name="&gt;&gt;nrbWrong.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuRadioButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nrbWrong.Parent" xml:space="preserve">
+    <value>nGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;nrbWrong.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="nrbRight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nrbRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 14</value>
+  </data>
+  <data name="nrbRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 16</value>
+  </data>
+  <data name="nrbRight.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="nrbRight.Text" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="&gt;&gt;nrbRight.Name" xml:space="preserve">
+    <value>nrbRight</value>
+  </data>
+  <data name="&gt;&gt;nrbRight.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuRadioButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nrbRight.Parent" xml:space="preserve">
+    <value>nGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;nrbRight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="nGroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>326, 219</value>
+  </data>
+  <data name="nGroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 36</value>
+  </data>
+  <data name="nGroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="nGroupBox1.Text" xml:space="preserve">
+    <value>是否开启</value>
+  </data>
+  <data name="&gt;&gt;nGroupBox1.Name" xml:space="preserve">
+    <value>nGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;nGroupBox1.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuGroupBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nGroupBox1.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;nGroupBox1.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="cbResource.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cbResource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 89</value>
+  </data>
+  <data name="cbResource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 20</value>
+  </data>
+  <data name="cbResource.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;cbResource.Name" xml:space="preserve">
+    <value>cbResource</value>
+  </data>
+  <data name="&gt;&gt;cbResource.Type" xml:space="preserve">
+    <value>FS.WinForms.Controls.NComboBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cbResource.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;cbResource.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="nLabel6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nLabel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 196</value>
+  </data>
+  <data name="nLabel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="nLabel6.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="nLabel6.Text" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="&gt;&gt;nLabel6.Name" xml:space="preserve">
+    <value>nLabel6</value>
+  </data>
+  <data name="&gt;&gt;nLabel6.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nLabel6.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;nLabel6.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="nLabel5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nLabel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 161</value>
+  </data>
+  <data name="nLabel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 12</value>
+  </data>
+  <data name="nLabel5.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="nLabel5.Text" xml:space="preserve">
+    <value>资源控件Dll</value>
+  </data>
+  <data name="&gt;&gt;nLabel5.Name" xml:space="preserve">
+    <value>nLabel5</value>
+  </data>
+  <data name="&gt;&gt;nLabel5.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nLabel5.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;nLabel5.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="nLabel4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nLabel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 127</value>
+  </data>
+  <data name="nLabel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
+  <data name="nLabel4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="nLabel4.Text" xml:space="preserve">
+    <value>资源控件</value>
+  </data>
+  <data name="&gt;&gt;nLabel4.Name" xml:space="preserve">
+    <value>nLabel4</value>
+  </data>
+  <data name="&gt;&gt;nLabel4.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nLabel4.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;nLabel4.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="nLabel3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 93</value>
+  </data>
+  <data name="nLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
+  <data name="nLabel3.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="nLabel3.Text" xml:space="preserve">
+    <value>资源名称</value>
+  </data>
+  <data name="&gt;&gt;nLabel3.Name" xml:space="preserve">
+    <value>nLabel3</value>
+  </data>
+  <data name="&gt;&gt;nLabel3.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nLabel3.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;nLabel3.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="typename.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="typename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 34</value>
+  </data>
+  <data name="typename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
+  <data name="typename.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="typename.Text" xml:space="preserve">
+    <value>对照名称</value>
+  </data>
+  <data name="&gt;&gt;typename.Name" xml:space="preserve">
+    <value>typename</value>
+  </data>
+  <data name="&gt;&gt;typename.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuLabel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;typename.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;typename.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="tbparameter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbparameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 193</value>
+  </data>
+  <data name="tbparameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 21</value>
+  </data>
+  <data name="tbparameter.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;tbparameter.Name" xml:space="preserve">
+    <value>tbparameter</value>
+  </data>
+  <data name="&gt;&gt;tbparameter.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tbparameter.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;tbparameter.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="tbControlDll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbControlDll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 158</value>
+  </data>
+  <data name="tbControlDll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 21</value>
+  </data>
+  <data name="tbControlDll.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tbControlDll.Name" xml:space="preserve">
+    <value>tbControlDll</value>
+  </data>
+  <data name="&gt;&gt;tbControlDll.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tbControlDll.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;tbControlDll.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="tbControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 123</value>
+  </data>
+  <data name="tbControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 21</value>
+  </data>
+  <data name="tbControl.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tbControl.Name" xml:space="preserve">
+    <value>tbControl</value>
+  </data>
+  <data name="&gt;&gt;tbControl.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tbControl.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;tbControl.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="tbTypeName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbTypeName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 29</value>
+  </data>
+  <data name="tbTypeName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 21</value>
+  </data>
+  <data name="tbTypeName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tbTypeName.Name" xml:space="preserve">
+    <value>tbTypeName</value>
+  </data>
+  <data name="&gt;&gt;tbTypeName.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuTextBox, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tbTypeName.Parent" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;tbTypeName.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="ContentPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 10</value>
+  </data>
+  <data name="ContentPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>583, 351</value>
+  </data>
+  <data name="&gt;&gt;ContentPanel.Name" xml:space="preserve">
+    <value>ContentPanel</value>
+  </data>
+  <data name="&gt;&gt;ContentPanel.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ContentPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ContentPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TitlePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>583, 10</value>
+  </data>
+  <data name="&gt;&gt;TitlePanel.Name" xml:space="preserve">
+    <value>TitlePanel</value>
+  </data>
+  <data name="&gt;&gt;TitlePanel.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;TitlePanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TitlePanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnCanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnCanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>472, 15</value>
+  </data>
+  <data name="btnCanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnCanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnCanel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="&gt;&gt;btnCanel.Name" xml:space="preserve">
+    <value>btnCanel</value>
+  </data>
+  <data name="&gt;&gt;btnCanel.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnCanel.Parent" xml:space="preserve">
+    <value>BottomPanel</value>
+  </data>
+  <data name="&gt;&gt;btnCanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 15</value>
+  </data>
+  <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnOK.Text" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="&gt;&gt;btnOK.Name" xml:space="preserve">
+    <value>btnOK</value>
+  </data>
+  <data name="&gt;&gt;btnOK.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuButton, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnOK.Parent" xml:space="preserve">
+    <value>BottomPanel</value>
+  </data>
+  <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BottomPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 361</value>
+  </data>
+  <data name="BottomPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>583, 56</value>
+  </data>
+  <data name="&gt;&gt;BottomPanel.Name" xml:space="preserve">
+    <value>BottomPanel</value>
+  </data>
+  <data name="&gt;&gt;BottomPanel.Type" xml:space="preserve">
+    <value>FS.FrameWork.WinForms.Controls.NeuPanel, FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BottomPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BottomPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="statusBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 417</value>
+  </data>
+  <data name="statusBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>583, 24</value>
+  </data>
+  <data name="&gt;&gt;statusBar1.Name" xml:space="preserve">
+    <value>statusBar1</value>
+  </data>
+  <data name="&gt;&gt;statusBar1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusBar1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusBar1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>583, 441</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>授权信息</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AddAuthorizeForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>FS.HISFC.Components.Privilege.InputBaseForm, HISFC.Components.Privilege, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>

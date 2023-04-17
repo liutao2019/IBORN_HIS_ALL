@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<objects xmlns="http://www.springframework.net" default-autowire="byType">
+  <!-- SvcFacade Config Start -->
+  <!-- SvcFacade Config End -->
+  <!-- Service Config Start -->
+  <object type="FS.Dawn.AutoUpdate.Bll.Service.AutoUpdateService, FS.Dawn.AutoUpdate.Bll" />
+  <!-- Service Config End -->
+  <!-- Logic Config Start -->
+  <!-- Logic Config End -->
+  <!-- Dao Config Start -->
+  <object type="FS.Dawn.AutoUpdate.Dal.Dao.UpdateParamDao, FS.Dawn.AutoUpdate.Dal" />
+  <object type="FS.Dawn.AutoUpdate.Dal.Dao.UpdateResourceDao, FS.Dawn.AutoUpdate.Dal" />
+  <!-- Dao Config End -->
+</objects>

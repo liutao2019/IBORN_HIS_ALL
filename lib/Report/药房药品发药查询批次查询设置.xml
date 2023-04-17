@@ -1,0 +1,162 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dept_code</Name><Text>库房：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>false</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>450</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select d.dept_code,d.dept_name,d.hospital_name,d.spell_code,d.wb_code from com_department d where d.dept_type in ('P') and (d.dept_code in (select c.dept_code from com_priv_user c where  fun_get_employee_name(c.user_code) ='&amp;CurrentOperName') or ('财务部' = '&amp;CurrentDeptName'))</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>drug_code</Name><Text>药品：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>650</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select b.drug_code,b.trade_name,b.specs,b.spell_code,b.wb_code from pha_com_baseinfo b </DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>4</Index><Name>cmbcompany</Name><Text>供应商：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>850</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select t.fac_code,t.fac_name,t.spell_code,t.wb_code,t.mark from pha_com_company  t</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>5</Index><Name>department</Name><Text>部门名称</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>1100</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select t.dept_code,t.dept_name,t.spell_code,t.wb_code from com_department t where t.valid_state=1 and dept_type in ('C','I','N','OP')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>6</Index><Name>mz</Name><Text>门诊/住院</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>1350</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select t.code,t.name from com_dictionary t where t.type='DeptCategory'  and t.code in ('C','I')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>7</Index><Name>code</Name><Text>药品等级：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>1560</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select cd.code,cd.name,'',cd.spell_code,cd.wb_code from com_dictionary cd where cd.type='DRUGGRADE'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>8</Index><Name>drugQuality</Name><Text>药品性质：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>50</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select cd.code,cd.name from com_dictionary cd where cd.type = 'DRUGQUALITY'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>data</Name><Sql>select 
+OUT_DATE, 
+CUSTOM_CODE, 
+TRADE_NAME, 
+SPECS, 
+BATCH_NO, 
+DEPT, 
+OUT_NUM, 
+MIN_UNIT, 
+PURCHASEPRICE, 
+SALE_COST, 
+PRODUCTION, 
+COMPANYNAME, 
+DOSAGE_FORM, 
+FEENAME, 
+FEENAME2, 
+APPROVE_INFO, 
+VALID_STATE, 
+GROUP_CODE, 
+EXAM_OPERCODE, 
+DRUGED_BILL, 
+PATIENT_NAME,
+CO,
+MZ 
+from ( 
+select distinct tt.OUT_DATE, 
+tt.CUSTOM_CODE, 
+tt.TRADE_NAME, 
+tt.SPECS, 
+tt.BATCH_NO, 
+tt.DEPT, 
+SUM(tt.OUT_NUM) OUT_NUM, 
+tt.MIN_UNIT, 
+SUM(tt.PURCHASEPRICE) PURCHASEPRICE, 
+SUM(tt.SALE_COST) SALE_COST, 
+tt.PRODUCTION, 
+tt.COMPANYNAME, 
+tt.DOSAGE_FORM, 
+tt.FEENAME, 
+tt.FEENAME2, 
+tt.APPROVE_INFO, 
+tt.VALID_STATE, 
+tt.GROUP_CODE, 
+tt.EXAM_OPERCODE, 
+tt.DRUGED_BILL, 
+tt.PATIENT_NAME,
+tt.CO,
+tt.MZ
+from (
+select distinct t1.out_date out_date,
+         t2.custom_code custom_code,
+         t1.trade_name trade_name,
+         t1.specs specs,
+         t1.batch_no batch_no,
+         decode(t1.out_type ,'M1', fun_get_dept_name((select a.doct_dpcd from met_ord_recipedetail a where a.recipe_no = t1.recipe_no and a.recipe_seq = t1.sequence_no)),
+                                        'M2', fun_get_dept_name((select a.doct_dpcd from met_ord_recipedetail a where a.recipe_no = t1.recipe_no and a.recipe_seq = t1.sequence_no)),
+                                        fun_get_dept_name(t1.drug_storage_code)) dept,
+         t1.out_num out_num,
+         t1.min_unit min_unit,
+         round(t1.out_num*t1.purchase_price/t1.pack_qty,2) purchaseprice,
+         t1.sale_cost sale_cost,
+         fun_get_company_name(t3.producer_code) production,
+         --取发药供应商规则优先规则
+         --1、获取当前库存科室，group_code(批次号) 相同，供应商不为空的公司
+         --2、获取上级科室（西药房的药品从西药库来，中药房的药品从中药库来），group_code(批次号) 相同，供应商不为空的公司
+         --3、获取当前科室，batch_no(批号)相同，最近一次供应商不为空的公司
+         --4、获取上级科室（西药房的药品从西药库来，中药房的药品从中药库来），batch_no(批号)相同，最近一次供应商不为空的公司    
+         nvl( nvl(fun_get_company_name((select a.company_code 
+                                                            from pha_com_input a 
+                                                          where a.drug_dept_code = t1.drug_dept_code
+                                                              and a.group_code = t1.group_code
+                                                              and a.drug_code = t1.drug_code 
+                                                              and length(fun_get_company_name(a.company_code)) &gt; 0
+                                                              and rownum = 1)),
+                     fun_get_company_name((select a.company_code 
+                                                            from pha_com_input a 
+                                                          where a.drug_dept_code = decode('4001','4001','4003','4002','4004','4001')
+                                                              and a.group_code = t1.group_code
+                                                              and a.drug_code = t1.drug_code 
+                                                              and length(fun_get_company_name(a.company_code)) &gt; 0
+                                                              and rownum = 1))),
+              nvl(fun_get_company_name((select b.company_code 
+                                                      from pha_com_input b 
+                                                    where b.in_date  = (select max(a.in_date) from pha_com_input a 
+                                                                                  where a.drug_dept_code = t1.drug_dept_code
+                                                                                     and a.batch_no = t1.batch_no 
+                                                                                     and a.drug_code = t1.drug_code
+                                                                                     and length(fun_get_company_name(a.company_code)) &gt; 0) 
+                                                      and b.drug_dept_code = t1.drug_dept_code
+                                                      and b.batch_no = t1.batch_no 
+                                                      and b.drug_code = t1.drug_code
+                                                      and length(fun_get_company_name(b.company_code)) &gt; 0
+                                                      and rownum = 1 )),
+                  fun_get_company_name((select b.company_code 
+                                                      from pha_com_input b 
+                                                    where b.in_date  = (select max(a.in_date) from pha_com_input a 
+                                                                                  where a.drug_dept_code = decode('&amp;dept_code','4001','4003','4002','4004','&amp;dept_code') 
+                                                                                     and a.batch_no = t1.batch_no 
+                                                                                     and a.drug_code = t1.drug_code
+                                                                                     and length(fun_get_company_name(a.company_code)) &gt; 0) 
+                                                      and b.drug_dept_code = decode('&amp;dept_code','4001','4003','4002','4004','&amp;dept_code')
+                                                      and b.batch_no = t1.batch_no 
+                                                      and b.drug_code = t1.drug_code
+                                                      and length(fun_get_company_name(b.company_code)) &gt; 0
+                                                      and rownum = 1 )))
+            ) companyname,
+         fun_get_dictionary_name('DOSAGEFORM',t2.dose_model_code) dosage_form,
+         (select a.name from com_dictionary a where a.type='MINFEE' and a.code = t2.fee_code) feename,
+         (select a.name from com_dictionary a where a.type='MINFEE' and a.code = t2.fee_code) feename2,
+         case when t4.REGISTER_NO is not null then t4.REGISTER_NO else t2.Approve_Info end APPROVE_INFO,
+      --t2.Approve_Info, 
+         to_char(t3.valid_date,'yyyy-MM-dd') valid_state,
+         t3.group_code group_code,
+         fun_get_employee_name(t1.EXAM_OPERCODE) EXAM_OPERCODE,
+         decode(t1.out_type , 'M1',t1.recipe_no,'M2',t1.recipe_no,t1.druged_bill) druged_bill,
+         decode(t1.out_type,  'M1',(select a.name from fin_opr_register a where a.clinic_code=t1.get_person),
+                                         'M2',(select a.name from fin_opr_register a where a.clinic_code=t1.get_person),
+                                                (select a.name from fin_ipr_inmaininfo a where a.inpatient_no = t1.get_person)) patient_name,
+         '' CO,         
+         decode(t1.out_type ,'M1','门诊','M2','门诊','住院') mz
+ from pha_com_output t1
+ inner join  pha_com_baseinfo t2 on t1.drug_code = t2.drug_code
+ inner join pha_com_storage t3 on t2.drug_code = t3.drug_code
+ left join com_dictionary cd on cd.type='DRUGGRADE' and cd.code=t2.item_grade
+ left join pha_com_input t4 on t4.drug_code = t1.drug_code and t4.drug_dept_code = t1.drug_dept_code and t4.trade_name = t1.trade_name
+where t1.out_type in ('M1','M2','Z1','Z2')
+    /*and t1.drug_code = t2.drug_code
+    and t2.drug_code = t3.drug_code*/
+    and t1.group_code = t3.group_code
+    and t1.drug_dept_code = t3.drug_dept_code
+    and (t1.drug_code='&amp;drug_code' or '&amp;drug_code'='ALL')
+    and t1.out_date &gt;=to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+    and t1.out_date&lt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+    and t1.drug_dept_code  ='&amp;dept_code'
+    and (cd.code ='&amp;code' or '&amp;code'='ALL')) tt
+  where (tt.companyname = '&amp;cmbcompany' or  '&amp;cmbcompany' = 'ALL')
+  and (tt.dept = (select t.dept_name from com_department t where t.valid_state=1 and t.dept_type in ('C','I','N','OP') and t.dept_code='&amp;department') or '&amp;department'='ALL')
+  and (tt.mz=(select t.name from com_dictionary t where t.type='DeptCategory'  and t.code in ('C','I') and t.code='&amp;mz') or '&amp;mz'='ALL')
+    --and tt.patient_name='王轩' and tt.custom_code='10102004'
+group by rollup((tt.OUT_DATE, 
+tt.CUSTOM_CODE, 
+tt.TRADE_NAME, 
+tt.SPECS, 
+tt.BATCH_NO, 
+tt.DEPT, 
+tt.MIN_UNIT, 
+tt.PRODUCTION, 
+tt.COMPANYNAME, 
+tt.DOSAGE_FORM, 
+tt.FEENAME, 
+tt.FEENAME2, 
+tt.APPROVE_INFO, 
+tt.VALID_STATE, 
+tt.GROUP_CODE, 
+tt.EXAM_OPERCODE, 
+tt.DRUGED_BILL, 
+tt.PATIENT_NAME,
+tt.CO,
+tt.MZ))
+ order by tt.out_date
+ )aa
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\药房药品发药查询批次查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

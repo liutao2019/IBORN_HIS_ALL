@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SkullCT"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="SkullCT">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="scCheckTime" type="xs:dateTime"/>
+        <xs:element name="scCheckUnit" type="sMaxL200T"/>
+        <xs:element name="scResult" type="NormalFNT"/>
+        
+        <!--新发脑梗死-->
+        <xs:element name="cb1" type="cbT"/>
+        <xs:element name="lHemisphereD" type="haveNotT"/>
+        <xs:element name="lCRD" type="haveNotT"/>
+        <xs:element name="lBottomD" type="haveNotT"/>
+        <xs:element name="lBrainstemD" type="haveNotT"/>
+        <xs:element name="lCerebellum" type="haveNotT"/>
+        <xs:element name="rHemisphereD" type="haveNotT"/>
+        <xs:element name="rCRD" type="haveNotT"/>
+        <xs:element name="rBottomD" type="haveNotT"/>
+        <xs:element name="rBrainstemD" type="haveNotT"/>
+        <xs:element name="rCerebellumD" type="haveNotT"/>
+        
+        <!--新发脑出血-->
+        <xs:element name="cb2" type="cbT"/>
+        <xs:element name="lHemisphereB" type="haveNotT"/>
+        <xs:element name="lCRB" type="haveNotT"/>
+        <xs:element name="lBottomB" type="haveNotT"/>
+        <xs:element name="lBrainstemB" type="haveNotT"/>
+        <xs:element name="lCerebellumB" type="haveNotT"/>
+        <xs:element name="VentricleB" type="haveNotT"/>
+        <xs:element name="CavumB" type="haveNotT"/>
+        <xs:element name="rHemisphereB" type="haveNotT"/>
+        <xs:element name="rCRB" type="haveNotT"/>
+        <xs:element name="rBottomB" type="haveNotT"/>
+        <xs:element name="rBrainstemB" type="haveNotT"/>
+        <xs:element name="rCerebellumB" type="haveNotT"/>
+        
+        <xs:element name="IsFollow" type="haveNotT"/>
+        <xs:element name="WIDL" type="HeadFocusT"/>
+        <xs:element name="WICI" type="haveNotT"/>
+        <xs:element name="WIFCH" type="haveNotT"/>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NormalFNT">
+    <xs:restriction base="xs:int">
+      <!--1正常 2异常-->
+      <xs:pattern value="1|2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cbT">
+    <xs:restriction base="xs:int">
+      <!--1存在 0不存在-->
+      <xs:pattern value="1|0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="haveNotT">
+    <xs:restriction base="xs:int">
+      <!--1有 2无 空未填-->
+      <xs:pattern value="1|2|"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HeadFocusT">
+    <xs:restriction base="xs:int">
+      <!--1无 2点状 3块状 4片状 空未填-->
+      <xs:pattern value="1|2|3|4|"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="sMaxL200T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

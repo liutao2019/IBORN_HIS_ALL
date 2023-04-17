@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<设置>
+	<!--his连接数据库 连接串-->
+	<HIS数据库设置 ConncetionString="Data Source=fs3data;Password=neuhis2012;Persist Security Info=True;User ID=his"/>
+	<!--前置机连接数据库 连接串-->
+	<医保前置机地址 ConncetionString="DSN=yyjhk;uid=fssi;pwd=fssi"/>
+	<Pacs数据库设置 ConncetionString="Data Source=paxdbsrv;Password=image2002fpax;Persist Security Info=True;User ID=paxdb"/>
+	<B超数据库设置 ConncetionString="Data Source=paxdbsrv;Password=upedb;Persist Security Info=True;User ID=upedb"/>
+	<LIS数据库设置 ConncetionString="Data Source=192.168.60.164;Initial Catalog=clabsdbc;User ID=lis;Password=slis"/>
+	<医院设置 HospitalId="44061157" HospitalName="顺德爱博恩妇产医院"/>
+    <参数设置 OrgCode ="YGFS00000000001281359180" UserID = "YGFS00000000001281359181"  UserCode="gdfs_fssdabefcyyyxgs" Token="KUSE00K6W3A42GKL" />
+	<设置 sql开关="0"/>
+	<MaxCount设置 MaxCount="20"/>
+	<!--前置机webservice地址-->
+                <!-- <WebServies>http://200.10.20.34:8000/fshrssHisApi/openApi/sendReveForHospital</WebServies> -->
+	<WebServies>http://10.20.10.218:8090/SiService.asmx</WebServies>
+
+</设置> 

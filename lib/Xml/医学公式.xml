@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicalFormulas>
+	<Formulas>
+		<Formula name="补钠计算">
+			<Item id="1" name="应补钠总量(mmol)"/>
+			<Item id="2" name="应补氯化钠总量(g)"/>
+			<Item id="3" name="应补生理盐水(ml)"/>
+			<Item id="4" name="应补3%氯化钠(ml)"/>
+			<Item id="5" name="应补5%氯化钠(ml)"/>
+		</Formula>
+		<Formula name="补液计算">
+			<Item id="6" name="输液量"/>
+			<Item id="7" name="补液量"/>
+		</Formula>
+		<Formula name="补铁计算">
+			<Item id="8" name="总缺铁量(mg)"/>
+			<Item id="9" name="需补充铁量(mg)"/>
+		</Formula>
+		<Formula name="电解质补充计算">
+			<Item id="10" name="电解质缺少总量(mmol/L)"/>
+			<Item id="11" name="克数"/>
+		</Formula>
+		<Formula name="静息能量消耗计算">
+			<Item id="12" name="Harris-Benedict计算公式"/>
+		</Formula>
+		<Formula name="药物输液速度计算">
+			<Item id="13" name="每小时输入量(ml)"/>
+			<Item id="14" name="每分钟滴数(gtt/min)"/>
+			<Item id="15" name="输液所需时间(h)"/>
+			<Item id="16" name="已知每小时输入量，每分钟滴数(gtt/min)"/>
+			<Item id="17" name="已知每分钟滴数，每小时输入量(ml)"/>
+		</Formula>
+		<Formula name="体表面积">
+			<Item id="18" name="体表面积"/>
+		</Formula>
+	</Formulas>
+	<!-- 补钠计算 -->
+	<MedicalFormula name="补钠计算" level="2">
+		<Group name="男性可使用公式">
+			<Item>
+				<id>1</id>
+				<Type>NaCalculate</Type>
+				<Name>应补钠总量</Name>
+				<Factor>0.6</Factor>
+			</Item>
+			<Item>
+				<id>2</id>
+				<Type>NaCalculate</Type>
+				<Name>应补氯化钠总量</Name>
+				<Factor>0.035</Factor>
+			</Item>
+			<Item>
+				<id>3</id>
+				<Type>NaCalculate</Type>
+				<Name>应补生理盐水</Name>
+				<Factor>3.888</Factor>
+			</Item>
+			<Item>
+				<id>4</id>
+				<Type>NaCalculate</Type>
+				<Name>应补3%氯化钠</Name>
+				<Factor>1.1666</Factor>
+			</Item>
+			<Item>
+				<id>5</id>
+				<Type>NaCalculate</Type>
+				<Name>应补5%氯化钠</Name>
+				<Factor>0.7</Factor>
+			</Item>
+		</Group>
+		<Group name="女性可使用公式">
+			<Item>
+				<id>1</id>
+				<Type>NaCalculate</Type>
+				<Name>应补钠总量</Name>
+				<Factor>0.5</Factor>
+			</Item>
+			<Item>
+				<id>2</id>
+				<Type>NaCalculate</Type>
+				<Name>应补氯化钠总量</Name>
+				<Factor>0.03</Factor>
+			</Item>
+			<Item>
+				<id>3</id>
+				<Type>NaCalculate</Type>
+				<Name>应补生理盐水</Name>
+				<Factor>3.311</Factor>
+			</Item>
+			<Item>
+				<id>4</id>
+				<Type>NaCalculate</Type>
+				<Name>应补3%氯化钠</Name>
+				<Factor>3.311</Factor>
+			</Item>
+			<Item>
+				<id>5</id>
+				<Type>NaCalculate</Type>
+				<Name>应补5%氯化钠</Name>
+				<Factor>0.596</Factor>
+			</Item>
+		</Group>
+	</MedicalFormula>
+	<!-- 补液计算 -->
+	<MedicalFormula name="补液计算" level="1">
+		<Item>
+			<id>6</id>
+			<Type>FluidInfusionCalculate</Type>
+			<Name>输液量</Name>
+			<Factor/>
+		</Item>
+		<Item>
+			<id>7</id>
+			<Type>InfusionVolumeCalculate</Type>
+			<Name>补液量</Name>
+			<Factor/>
+		</Item>
+	</MedicalFormula>
+	<!-- 补铁计算 -->
+	<MedicalFormula name="补铁计算" level="1">
+		<Item>
+			<id>8</id>
+			<Type>IronDeficiency</Type>
+			<Name>总缺铁量</Name>
+			<Factor/>
+		</Item>
+		<Item>
+			<id>9</id>
+			<Type>IronVolume</Type>
+			<Name>需补充铁量</Name>
+			<Factor/>
+		</Item>
+	</MedicalFormula>
+	<!-- 电解质补充计算 -->
+	<MedicalFormula name="电解质补充计算" level="1">
+		<Item>
+			<id>10</id>
+			<Type>ElectrolyteVolume</Type>
+			<Name>电解质缺少总量</Name>
+			<Factor/>
+		</Item>
+		<Item>
+			<id>11</id>
+			<Type>Grams</Type>
+			<Name>克数</Name>
+			<Factor/>
+		</Item>
+	</MedicalFormula>
+	<!-- 静息能量消耗计算 -->
+	<MedicalFormula name="静息能量消耗计算" level="2">
+		<Group name="男性可使用公式">
+			<Item>
+				<id>12</id>
+				<Type>RestingEnergyMen</Type>
+				<Name>Harris-Benedict计算公式</Name>
+				<Factor/>
+			</Item>
+		</Group>
+		<Group name="女性可使用公式">
+			<Item>
+				<id>12</id>
+				<Type>RestingEnergyWomen</Type>
+				<Name>Harris-Benedict计算公式</Name>
+				<Factor/>
+			</Item>
+		</Group>
+	</MedicalFormula>
+	<!-- 药物输液速度计算 -->
+	<MedicalFormula name="药物输液速度计算" level="2">
+		<Group name="输液速度判定">
+			<Item>
+				<id>13</id>
+				<Type>InputVolumeHour</Type>
+				<Name>每小时输入量(ml)</Name>
+				<Factor/>
+			</Item>
+			<Item>
+				<id>14</id>
+				<Type>DropsMin</Type>
+				<Name>每分钟滴数(gtt/min)</Name>
+				<Factor/>
+			</Item>
+			<Item>
+				<id>15</id>
+				<Type>InputTime</Type>
+				<Name>输液所需时间(h)</Name>
+				<Factor/>
+			</Item>
+		</Group>
+		<Group name="静脉输液滴进数计算法">
+			<Item>
+				<id>16</id>
+				<Type>DropsMinForDrops</Type>
+				<Name>每分钟滴数(gtt/min)</Name>
+				<Factor/>
+			</Item>
+			<Item>
+				<id>17</id>
+				<Type>InputVolumeHourForDrops</Type>
+				<Name>每小时输入量(ml)</Name>
+				<Factor/>
+			</Item>
+		</Group>
+	</MedicalFormula>
+	<!-- 体表面积 -->
+	<MedicalFormula name="体表面积" level="2">
+		<Group name="成年男性">
+			<Item>
+				<id>18</id>
+				<Type>SurfaceAreaForMen</Type>
+				<Name>体表面积</Name>
+				<Factor/>
+			</Item>
+		</Group>
+		<Group name="成年女性">
+			<Item>
+				<id>18</id>
+				<Type>SurfaceAreaForWomen</Type>
+				<Name>体表面积</Name>
+				<Factor/>
+			</Item>
+		</Group>
+		<Group name="小儿">
+			<Item>
+				<id>18</id>
+				<Type>SurfaceAreaForChild</Type>
+				<Name>体表面积</Name>
+				<Factor/>
+			</Item>
+		</Group>
+	</MedicalFormula>
+</MedicalFormulas>

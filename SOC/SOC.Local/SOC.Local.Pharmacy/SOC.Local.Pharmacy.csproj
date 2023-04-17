@@ -1,0 +1,1631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EEB606CD-F2CC-4108-968C-3647EC2FCBFD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.Pharmacy</RootNamespace>
+    <AssemblyName>SOC.Local.Pharmacy</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.PharmacyInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Models.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\BaseReport.Designer.cs">
+      <DependentUpon>BaseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\IPharmacyBillPrint.cs" />
+    <Compile Include="Base\PrintBill.cs" />
+    <Compile Include="Base\ucPrivePowerReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\ucPrivePowerReport.Designer.cs">
+      <DependentUpon>ucPrivePowerReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\BeiJiao\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\BeiJiao\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\BeiJiao\frmSetPlan.designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\BeiJiao\SetPlan.cs" />
+    <Compile Include="Extend\BeiJiao\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\BeiJiao\ucCommonInput.designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\FuYou\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\FuYou\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\FuYou\frmSetPlan.designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\FuYou\SetPlan.cs" />
+    <Compile Include="Extend\GYSY\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\GYSY\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\GYSY\frmSetPlan.Designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\GYSY\SetPlan.cs" />
+    <Compile Include="Extend\GYSY\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\GYSY\ucCommonInput.Designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\GYSY\ucItemExtend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\GYSY\ucItemExtend.Designer.cs">
+      <DependentUpon>ucItemExtend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\GYZL\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\GYZL\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\GYZL\frmSetPlan.Designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\GYZL\SetPlan.cs" />
+    <Compile Include="Extend\GYZL\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\GYZL\ucCommonInput.designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\GYZL\ucItemExtend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\GYZL\ucItemExtend.Designer.cs">
+      <DependentUpon>ucItemExtend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\HuanShi\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\HuanShi\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\HuanShi\frmSetPlan.Designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\HuanShi\SetPlan.cs" />
+    <Compile Include="Extend\HuanShi\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\HuanShi\ucCommonInput.designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\NanZhuang\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\NanZhuang\frmSetPlan.Designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\NanZhuang\SetPlan.cs" />
+    <Compile Include="Extend\NanZhuang\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\NanZhuang\ucCommonInput.designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\ZDLY\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\ZDLY\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\ZDLY\frmSetPlan.Designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\ZDLY\SetPlan.cs" />
+    <Compile Include="Extend\ZDLY\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\ZDLY\ucCommonInput.Designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\ZhangC\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\ZhangC\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\ZhangC\frmSetPlan.Designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\ZhangC\SetPlan.cs" />
+    <Compile Include="Extend\ZhangC\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\ZhangC\ucCommonInput.designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\LSYY\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Extend\LSYY\frmSetPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\LSYY\frmSetPlan.Designer.cs">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\LSYY\SetPlan.cs" />
+    <Compile Include="Extend\LSYY\ucCommonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\LSYY\ucCommonInput.designer.cs">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function.cs" />
+    <Compile Include="Print\BeiJiao\BillPrintInterfaceImplement.cs" />
+    <Compile Include="Print\BeiJiao\frmSelectPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\BeiJiao\frmSelectPages.Designer.cs">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucCheckBill.Designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaInputBill.designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\BeiJiao\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\BillPrintInterfaceImplement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Print\Example\BizExtendInterfaceImplement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Example\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\NanZhuang\BizExtendInterfaceImplement.cs" />
+    <Compile Include="Print\Fosan\frmSelectPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\Fosan\frmSelectPages.Designer.cs">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Fosan\Function.cs" />
+    <Compile Include="Print\Fosan\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Fosan\ucCheckBill.Designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Fosan\ucCheckEmptyBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Fosan\ucCheckEmptyBill.Designer.cs">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Fosan\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Fosan\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Fosan\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\Fosan\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FoSi\Function.cs" />
+    <Compile Include="Print\FoSi\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FoSi\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FuYou\BillPrintInterfaceImplement.cs" />
+    <Compile Include="Print\FuYou\ucEmptyCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FuYou\ucEmptyCheckBill.Designer.cs">
+      <DependentUpon>ucEmptyCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\FuYou\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\frmSelectPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\frmSelectPages.Designer.cs">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\Function.cs" />
+    <Compile Include="Print\GYSY\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucCheckBill.Designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\ucCheckEmptyBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucCheckEmptyBill.Designer.cs">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPlanBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYSY\ucPlanBill.Designer.cs">
+      <DependentUpon>ucPlanBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYZL\BillPrintInterfaceImplement.cs" />
+    <Compile Include="Print\GYZL\ucAdjustPriceBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYZL\ucAdjustPriceBill.Designer.cs">
+      <DependentUpon>ucAdjustPriceBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYZL\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYZL\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\GYZL\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\GYZL\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\frmSelectPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\frmSelectPages.Designer.cs">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\Function.cs" />
+    <Compile Include="Print\HuanShi\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucCheckBill.Designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucCheckEmptyBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucCheckEmptyBill.Designer.cs">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucZCChangePriceOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\HuanShi\ucZCChangePriceOutputBill.Designer.cs">
+      <DependentUpon>ucZCChangePriceOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\frmSelectPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\frmSelectPages.Designer.cs">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\Function.cs" />
+    <Compile Include="Print\LSHIS\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucCheckBill.Designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucCheckEmptyBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucCheckEmptyBill.Designer.cs">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucZCChangePriceOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucZCChangePriceOutputBill.Designer.cs">
+      <DependentUpon>ucZCChangePriceOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaInputBackBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaInputBackBill.Designer.cs">
+      <DependentUpon>ucPhaInputBackBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaOutputBackBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaOutputBackBill.designer.cs">
+      <DependentUpon>ucPhaOutputBackBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaInputBillCY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaInputBillCY.Designer.cs">
+      <DependentUpon>ucPhaInputBillCY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaOutputBillCY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\LSHIS\ucPhaOutputBillCY.designer.cs">
+      <DependentUpon>ucPhaOutputBillCY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\NanZhuang\Function.cs" />
+    <Compile Include="Print\NanZhuang\ucChangePriceOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucChangePriceOutputBill.Designer.cs">
+      <DependentUpon>ucChangePriceOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucCheckEmptyBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucCheckEmptyBill.Designer.cs">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\NanZhuang\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ucBillPrintSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ucBillPrintSetting.designer.cs">
+      <DependentUpon>ucBillPrintSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\frmSelectPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\frmSelectPages.Designer.cs">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\Function.cs" />
+    <Compile Include="Print\ZDLY\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucCheckBill.Designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucCheckEmptyBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucCheckEmptyBill.Designer.cs">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPlanBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZDLY\ucPlanBill.Designer.cs">
+      <DependentUpon>ucPlanBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\frmSelectPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\frmSelectPages.Designer.cs">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\Function.cs" />
+    <Compile Include="Print\ZhangC\ucCheckBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucCheckBill.Designer.cs">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucZCChangePriceOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucZCChangePriceOutputBill.Designer.cs">
+      <DependentUpon>ucZCChangePriceOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucCheckEmptyBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucCheckEmptyBill.Designer.cs">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaBackInBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaBackInBill.designer.cs">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaBackOutBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaBackOutBill.designer.cs">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaInputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaInputBill.Designer.cs">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaOutputBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaOutputBill.designer.cs">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaOutputSpcBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPhaOutputSpcBill.designer.cs">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPlanBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print\ZhangC\ucPlanBill.Designer.cs">
+      <DependentUpon>ucPlanBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Base\BaseReport.resx">
+      <DependentUpon>BaseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\ucPrivePowerReport.resx">
+      <DependentUpon>ucPrivePowerReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\BeiJiao\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\BeiJiao\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\FuYou\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\GYSY\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\GYSY\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\GYSY\ucItemExtend.resx">
+      <DependentUpon>ucItemExtend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\GYZL\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\GYZL\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\GYZL\ucItemExtend.resx">
+      <DependentUpon>ucItemExtend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\HuanShi\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\HuanShi\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\NanZhuang\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\NanZhuang\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\ZDLY\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\ZDLY\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\ZhangC\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\ZhangC\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\LSYY\frmSetPlan.resx">
+      <DependentUpon>frmSetPlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\LSYY\ucCommonInput.resx">
+      <DependentUpon>ucCommonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BeiJiao\frmSelectPages.resx">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BeiJiao\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BeiJiao\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BeiJiao\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BeiJiao\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BeiJiao\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\BeiJiao\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Example\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Example\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Example\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Example\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Example\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Fosan\frmSelectPages.resx">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Fosan\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Fosan\ucCheckEmptyBill.resx">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Fosan\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Fosan\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FoSi\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FoSi\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FoSi\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FoSi\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FoSi\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FuYou\ucEmptyCheckBill.resx">
+      <DependentUpon>ucEmptyCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FuYou\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FuYou\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FuYou\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FuYou\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FuYou\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\frmSelectPages.resx">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucCheckEmptyBill.resx">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYSY\ucPlanBill.resx">
+      <DependentUpon>ucPlanBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYZL\ucAdjustPriceBill.resx">
+      <DependentUpon>ucAdjustPriceBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYZL\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\GYZL\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\frmSelectPages.resx">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\ucCheckEmptyBill.resx">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\HuanShi\ucZCChangePriceOutputBill.resx">
+      <DependentUpon>ucZCChangePriceOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\frmSelectPages.resx">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucCheckEmptyBill.resx">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucZCChangePriceOutputBill.resx">
+      <DependentUpon>ucZCChangePriceOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaInputBackBill.resx">
+      <DependentUpon>ucPhaInputBackBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaOutputBackBill.resx">
+      <DependentUpon>ucPhaOutputBackBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaInputBillCY.resx">
+      <DependentUpon>ucPhaInputBillCY.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\LSHIS\ucPhaOutputBillCY.resx">
+      <DependentUpon>ucPhaOutputBillCY.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\NanZhuang\ucChangePriceOutputBill.resx">
+      <DependentUpon>ucChangePriceOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\NanZhuang\ucCheckEmptyBill.resx">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\NanZhuang\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\NanZhuang\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\NanZhuang\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\NanZhuang\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\NanZhuang\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ucBillPrintSetting.resx">
+      <DependentUpon>ucBillPrintSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\frmSelectPages.resx">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\ucCheckEmptyBill.resx">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZDLY\ucPlanBill.resx">
+      <DependentUpon>ucPlanBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\frmSelectPages.resx">
+      <DependentUpon>frmSelectPages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucCheckBill.resx">
+      <DependentUpon>ucCheckBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucZCChangePriceOutputBill.resx">
+      <DependentUpon>ucZCChangePriceOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucCheckEmptyBill.resx">
+      <DependentUpon>ucCheckEmptyBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucPhaBackInBill.resx">
+      <DependentUpon>ucPhaBackInBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucPhaBackOutBill.resx">
+      <DependentUpon>ucPhaBackOutBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucPhaInputBill.resx">
+      <DependentUpon>ucPhaInputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucPhaOutputBill.resx">
+      <DependentUpon>ucPhaOutputBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucPhaOutputSpcBill.resx">
+      <DependentUpon>ucPhaOutputSpcBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\ZhangC\ucPlanBill.resx">
+      <DependentUpon>ucPlanBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NanZhuang\BeiJiao\ucOutPutStaticByType.resx">
+      <DependentUpon>ucOutPutStaticByType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\FuYou\FuYou\ucPharmacyRecord.resx">
+      <DependentUpon>ucPharmacyRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NanZhuang\ucFeeDetailQuery.resx">
+      <DependentUpon>ucFeeDetailQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NanZhuang\ucFeeDetailQueryNew.resx">
+      <DependentUpon>ucFeeDetailQueryNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\NanZhuang\ucRecipeAppraise.resx">
+      <DependentUpon>ucRecipeAppraise.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SunnyDrug\ucCountryDrugs.resx">
+      <DependentUpon>ucCountryDrugs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SunnyDrug\ucTopTenRecipes.resx">
+      <DependentUpon>ucTopTenRecipes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SunnyDrug\ucRates.resx">
+      <DependentUpon>ucRates.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SunnyDrug\ucDeptDrugPercentage.resx">
+      <DependentUpon>ucDeptDrugPercentage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SunnyDrug\ucSendDrugSortByCost.resx">
+      <DependentUpon>ucSendDrugSortByCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucAdjustPriceQuery.resx">
+      <DependentUpon>ucAdjustPriceQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucAnestheticsSendReport.resx">
+      <DependentUpon>ucAnestheticsSendReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucCheckReportDetail.resx">
+      <DependentUpon>ucCheckReportDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucCheckReportTot.resx">
+      <DependentUpon>ucCheckReportTot.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucCStoreQuery.resx">
+      <DependentUpon>ucCStoreQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInputReportDetail.resx">
+      <DependentUpon>ucInputReportDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInputReportDetailByDiliverTime.resx">
+      <DependentUpon>ucInputReportDetailByDiliverTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInputReportTot.resx">
+      <DependentUpon>ucInputReportTot.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInputReportTotByDiliverTime.resx">
+      <DependentUpon>ucInputReportTotByDiliverTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInputStaticByCompany.resx">
+      <DependentUpon>ucInputStaticByCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucMonthQuery.resx">
+      <DependentUpon>ucMonthQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucOutputReportDetail.resx">
+      <DependentUpon>ucOutputReportDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucOutputStaticByTarget.resx">
+      <DependentUpon>ucOutputStaticByTarget.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucPriceQuery.resx">
+      <DependentUpon>ucPriceQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucRecipeAppraise.resx">
+      <DependentUpon>ucRecipeAppraise.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucSampleRecord.resx">
+      <DependentUpon>ucSampleRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucSendDrugReportDetail.resx">
+      <DependentUpon>ucSendDrugReportDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucSendDrugReportTot.resx">
+      <DependentUpon>ucSendDrugReportTot.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucWorkLoadReportMZ.resx">
+      <DependentUpon>ucWorkLoadReportMZ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInputStaticByInvoice.resx">
+      <DependentUpon>ucInputStaticByInvoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucSendDrugReportTotZdly.resx">
+      <DependentUpon>ucSendDrugReportTotZdly.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ucInputReportDetailSpecial.resx">
+      <DependentUpon>ucInputReportDetailSpecial.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Report\NanZhuang\BeiJiao\ucOutPutStaticByType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\NanZhuang\BeiJiao\ucOutPutStaticByType.Designer.cs">
+      <DependentUpon>ucOutPutStaticByType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\FuYou\FuYou\ucPharmacyRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\FuYou\FuYou\ucPharmacyRecord.Designer.cs">
+      <DependentUpon>ucPharmacyRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucAnestheticsSendReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucAnestheticsSendReport.Designer.cs">
+      <DependentUpon>ucAnestheticsSendReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputReportSumaryByDiliverTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputReportSumaryByDiliverTime.Designer.cs">
+      <DependentUpon>ucInputReportSumaryByDiliverTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputReportTotByDiliverTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputReportTotByDiliverTime.Designer.cs">
+      <DependentUpon>ucInputReportTotByDiliverTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NanZhuang\ucFeeDetailQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\NanZhuang\ucFeeDetailQuery.Designer.cs">
+      <DependentUpon>ucFeeDetailQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NanZhuang\ucFeeDetailQueryNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\NanZhuang\ucFeeDetailQueryNew.Designer.cs">
+      <DependentUpon>ucFeeDetailQueryNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\NanZhuang\ucRecipeAppraise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\NanZhuang\ucRecipeAppraise.Designer.cs">
+      <DependentUpon>ucRecipeAppraise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucAntibacterialCostPercentage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucAntibacterialCostPercentage.Designer.cs">
+      <DependentUpon>ucAntibacterialCostPercentage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucAntibacterialDrugSortByNum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucAntibacterialDrugSortByNum.Designer.cs">
+      <DependentUpon>ucAntibacterialDrugSortByNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucCountryDrugs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucCountryDrugs.Designer.cs">
+      <DependentUpon>ucCountryDrugs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucTopTenRecipes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucTopTenRecipes.Designer.cs">
+      <DependentUpon>ucTopTenRecipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucRates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucRates.Designer.cs">
+      <DependentUpon>ucRates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucDeptDrugPercentage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucDeptDrugPercentage.Designer.cs">
+      <DependentUpon>ucDeptDrugPercentage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucSendDrugSortByCost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\SunnyDrug\ucSendDrugSortByCost.Designer.cs">
+      <DependentUpon>ucSendDrugSortByCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucAdjustPriceQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucAdjustPriceQuery.Designer.cs">
+      <DependentUpon>ucAdjustPriceQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucCheckReportDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucCheckReportDetail.Designer.cs">
+      <DependentUpon>ucCheckReportDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucCheckReportTot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucCheckReportTot.Designer.cs">
+      <DependentUpon>ucCheckReportTot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucCStoreQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucCStoreQuery.Designer.cs">
+      <DependentUpon>ucCStoreQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputReportDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputReportDetail.Designer.cs">
+      <DependentUpon>ucInputReportDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputReportDetailByDiliverTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputReportDetailByDiliverTime.Designer.cs">
+      <DependentUpon>ucInputReportDetailByDiliverTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputReportTot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputReportTot.Designer.cs">
+      <DependentUpon>ucInputReportTot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputStaticByCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputStaticByCompany.Designer.cs">
+      <DependentUpon>ucInputStaticByCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucMonthQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucMonthQuery.Designer.cs">
+      <DependentUpon>ucMonthQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucOutputReportDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucOutputReportDetail.Designer.cs">
+      <DependentUpon>ucOutputReportDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucOutputStaticByTarget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucOutputStaticByTarget.Designer.cs">
+      <DependentUpon>ucOutputStaticByTarget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucPriceQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucPriceQuery.Designer.cs">
+      <DependentUpon>ucPriceQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucRecipeAppraise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucRecipeAppraise.Designer.cs">
+      <DependentUpon>ucRecipeAppraise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucSampleRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucSampleRecord.Designer.cs">
+      <DependentUpon>ucSampleRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucSaveDrugReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucSaveDrugReport.Designer.cs">
+      <DependentUpon>ucSaveDrugReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucSendDrugReportDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucSendDrugReportDetail.Designer.cs">
+      <DependentUpon>ucSendDrugReportDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucSendDrugReportDetailByFee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucSendDrugReportDetailByFee.Designer.cs">
+      <DependentUpon>ucSendDrugReportDetailByFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucSendDrugReportTot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucSendDrugReportTot.Designer.cs">
+      <DependentUpon>ucSendDrugReportTot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucWorkLoadReportMZ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucWorkLoadReportMZ.Designer.cs">
+      <DependentUpon>ucWorkLoadReportMZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputStaticByInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputStaticByInvoice.Designer.cs">
+      <DependentUpon>ucInputStaticByInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucSendDrugReportTotZdly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucSendDrugReportTotZdly.Designer.cs">
+      <DependentUpon>ucSendDrugReportTotZdly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ucInputReportDetailSpecial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ucInputReportDetailSpecial.Designer.cs">
+      <DependentUpon>ucInputReportDetailSpecial.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

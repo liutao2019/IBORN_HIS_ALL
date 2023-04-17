@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.BizLogic.AdminQuery</name>
+    </assembly>
+    <members>
+        <member name="T:FS.HISFC.BizLogic.AdminQuery.AdminQuery">
+            <summary>
+            院长查询
+            继承于DataBase类
+            [修改记录]
+            2006-11-7
+            添加院长查询人员表信息类
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.#ctor">
+            <summary>
+            构着函数
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.GetListItems(System.String,System.String,System.String[])">
+            <summary>
+            ArrayList 
+            获得所有
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.myGetListItems(System.String)">
+            <summary>
+            根据sql语句取科室列表
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.GetSQL">
+            <summary>
+            获得相关SQL
+            返回NeuObject
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.GetParams(System.String)">
+            <summary>
+            获得sql里面的参数信息参数
+            [参数名]
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.GetFields(System.String)">
+            <summary>
+            获得查询的字段
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.ExecQuery(System.String,System.String@,System.String,System.String)">
+            <summary>
+            执行sql
+            </summary>
+            <param name="strSql"></param>
+            <param name="strDataSet"></param>
+            <param name="strXSLFileName"></param>
+            <param name="SettingXml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.PatientQueryByState(FS.HISFC.Models.RADT.InStateEnumService)">
+            <summary>
+            患者查询-根据输入在院状态参数查询全院所有患者
+            </summary>
+            <param name="State">住院状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.PatientQueryByID(System.String)">
+            <summary>
+            患者查询-根据输入患者住院号参数查询全院所有患者
+            </summary>
+            <param name="ID">住院号</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.PatientQueryByName(System.String)">
+            <summary>
+            患者查询-根据输入患者姓名参数查询全院所有患者
+            </summary>
+            <param name="Name">患者姓名</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.PatientQueryByInDate(System.String,System.String)">
+            <summary>
+            患者查询-根据输入入院时间参数查询全院所有患者
+            </summary>
+            <param name="BeginDate">查询开始时间</param>
+            <param name="EndDate">查询结束时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.PatientQueryByDept(System.String)">
+            <summary>
+            患者查询-根据输入科室参数查询全院所有患者
+            </summary>
+            <param name="Dept">科室编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.PatientQuerySelect">
+            查询患者信息的select语句（无where条件）
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.GetUserTreeList(System.String)">
+            <summary>
+            获得用户TreeList
+            </summary>
+            <param name="userID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.DeleteAQOperator(System.String)">
+            <summary>
+            删除院长查询人员信息
+            </summary>
+            <param name="Empl_Code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.InsertAQPermission(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入院长查询人员信息
+            </summary>
+            <param name="info">患者实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.GetAQOperator">
+            <summary>
+            获得查询人员列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.GetAQOperatorPermission(System.String)">
+            <summary>
+            获得单个查询人员权限列表
+            </summary>
+            <param name="Operator_ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.myOperatorQuery(System.String)">
+            <summary>
+            私有函数，所有院长查询人员基本信息
+            </summary>
+            <param name="SqlOperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.AdminQuery.AdminQuery.myOperatorPermissionQuery(System.String)">
+            <summary>
+            私有函数，单个查询人员权限信息
+            </summary>
+            <param name="SqlOperatorPermission"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

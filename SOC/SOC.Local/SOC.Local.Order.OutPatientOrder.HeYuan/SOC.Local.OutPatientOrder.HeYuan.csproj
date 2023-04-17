@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{97CD8C15-2C76-4DF2-B334-B571503DD999}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Neusoft.SOC.Local.OutPatientOrder.HeYuan</RootNamespace>
+    <AssemblyName>SOC.Local.OutPatientOrder.HeYuan</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.HealthRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Order, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Order.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Pharmacy.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.RADT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.RADT.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.OrderInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.OrderInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.Fee.BizLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.Fee.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.HISFC.Fee.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HPRM\Common\frmPreviewControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HPRM\Common\frmPreviewControl.Designer.cs">
+      <DependentUpon>frmPreviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\RecipePrint\frmRecipePrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HPRM\RecipePrint\frmRecipePrint.Designer.cs">
+      <DependentUpon>frmRecipePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HPRM\ClinicsBillPrint\ucClinicsBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\ClinicsBillPrint\ucClinicsBillPrint.Designer.cs">
+      <DependentUpon>ucClinicsBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\Common\Function.cs" />
+    <Compile Include="HPRM\Common\ItemExtendInfoAchieve.cs" />
+    <Compile Include="HPRM\InjectBillPrint\ucOrderInjectBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\InjectBillPrint\ucOrderInjectBill.designer.cs">
+      <DependentUpon>ucOrderInjectBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\IOutPateintTree\IOutPateintTree.cs" />
+    <Compile Include="HPRM\LisBillPrint\ucLisBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\LisBillPrint\ucLisBillPrint.Designer.cs">
+      <DependentUpon>ucLisBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\OutPatientGuide\ucOutPatientGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\OutPatientGuide\ucOutPatientGuide.Designer.cs">
+      <DependentUpon>ucOutPatientGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\PacsBillPrint\ucPacsBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\PacsBillPrint\ucPacsBillPrint.Designer.cs">
+      <DependentUpon>ucPacsBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\PrePayIn\ucOutPatientNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\PrePayIn\ucOutPatientNotice.designer.cs">
+      <DependentUpon>ucOutPatientNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\PrePayIn\ucPrepayIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\PrePayIn\ucPrepayIn.designer.cs">
+      <DependentUpon>ucPrepayIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\PrePayIn\ucPrepayInQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\PrePayIn\ucPrepayInQuery.designer.cs">
+      <DependentUpon>ucPrepayInQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\SaveRecipeFactory.cs" />
+    <Compile Include="HPRM\SplitRecipe\ISplitRecipe.cs" />
+    <Compile Include="HPRM\TreatmentBillPrint\ucTreatmentBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\TreatmentBillPrint\ucTreatmentBill.designer.cs">
+      <DependentUpon>ucTreatmentBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPRM\RecipePrint\ucRecipePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HPRM\RecipePrint\ucRecipePrint.Designer.cs">
+      <DependentUpon>ucRecipePrint.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HPRM\ClinicsBillPrint\ucClinicsBillPrint.resx">
+      <DependentUpon>ucClinicsBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\Common\frmPreviewControl.resx">
+      <DependentUpon>frmPreviewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\InjectBillPrint\ucOrderInjectBill.resx">
+      <DependentUpon>ucOrderInjectBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\LisBillPrint\ucLisBillPrint.resx">
+      <DependentUpon>ucLisBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\OutPatientGuide\ucOutPatientGuide.resx">
+      <DependentUpon>ucOutPatientGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\PacsBillPrint\ucPacsBillPrint.resx">
+      <DependentUpon>ucPacsBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\PrePayIn\ucOutPatientNotice.resx">
+      <DependentUpon>ucOutPatientNotice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\PrePayIn\ucPrepayIn.resx">
+      <DependentUpon>ucPrepayIn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\PrePayIn\ucPrepayInQuery.resx">
+      <DependentUpon>ucPrepayInQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\RecipePrint\frmRecipePrint.resx">
+      <DependentUpon>frmRecipePrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HPRM\TreatmentBillPrint\ucTreatmentBill.resx">
+      <DependentUpon>ucTreatmentBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

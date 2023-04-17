@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--质控ʿ-->
+<QC>
+	<!--会诊质控-->
+	<ConsultationLateRule>
+		<!--院内大会诊-->
+		<ConsultationType Type="0" Minutes="2880"/>
+		<!--普通会诊-->
+		<ConsultationType Type="1" Minutes="2880"/>
+		<!--院外会诊-->
+		<ConsultationType Type="2" Minutes="2880"/>
+		<!--急诊会诊-->
+		<ConsultationType Type="3" Minutes="30"/>
+		<!--默认类型-->
+		<ConsultationNoType>2880</ConsultationNoType>
+
+		<!--减去希望会诊时间计算延迟-->
+		<ConsultationTimeKind>ConsultTime</ConsultationTimeKind>
+	</ConsultationLateRule>
+</QC>

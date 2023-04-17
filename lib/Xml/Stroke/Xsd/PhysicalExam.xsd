@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XSDPhysicalExam"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="PhysicalExam">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="peHeight" type="xs:float"/>
+        <xs:element name="peWeight" type="xs:float"/>
+        <xs:element name="peWaistline" type="xs:float" default="-1"/>
+        
+        <!--根据身高和体重生成-->
+        <xs:element name="peBMI" type="xs:float"/>
+
+        <xs:element name="peLsystolic" type="xs:int" default="-1"/>
+        <xs:element name="peLdiastolic" type="xs:int" default="-1"/>
+        <xs:element name="peRsystolic" type="xs:int" default="-1"/>
+        <xs:element name="peRdiastolic" type="xs:int" default="-1"/>
+        <xs:element name="pePulse" type="xs:int" default="-1"/>
+
+        <xs:element name="pepulseRate" type="HeartRateT"/>
+        <xs:element name="peCardiacMurmur" type="HaveNotNullT"/>
+        <xs:element name="peCR" type="HeartRateT"/>
+        <xs:element name="peVesselsBlood" type="HaveNotNullT"/>
+
+        <xs:element name="peVesselsBloodPart">
+          
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vbp" type="PartsT" minOccurs="0" maxOccurs="3"/>
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:unique name="vbpID">
+            <xs:selector xpath=".//mstns:vbp"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+          
+        </xs:element>
+
+        <!--
+          
+
+        <xs:element name="peRemark" type="xs:string" default=""/> <xs:element name="peType" type="TypeT"/>直接赋值-1
+              <xs:element name="uuid" type="sMaxL20T"/>
+              <xs:element name="uNickName" type="sMaxL20T"/>
+              <xs:element name="peSurveyTime" type="xs:dateTime"/>-->
+
+      </xs:sequence>
+    </xs:complexType>
+
+
+  </xs:element>
+  
+  
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HeartRateT">
+    <xs:restriction base="xs:integer">
+      <!--1整齐 2不齐 -1未填-->
+      <xs:pattern value="1|2|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HaveNotNullT">
+    <xs:restriction base="xs:integer">
+      <!--1有 2无 9不详 -1未填-->
+      <xs:pattern value="1|2|9|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PartsT">
+    <xs:restriction base="xs:integer">
+      <!--1左侧颈动脉 2右侧颈动脉 3其他部位 未填时为空-->
+      <xs:pattern value="1|2|3|"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

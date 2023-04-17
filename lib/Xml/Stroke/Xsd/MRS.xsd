@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MRS"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="MRS">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="mrsResult" type="MRST"/>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MRST">
+    <xs:restriction base="xs:int">
+      <!--
+      0完全无症状
+      1有症状，但无明显功能障碍，能完成所有日常职责和活动
+      2轻度残疾，不能完成病前所有活动，但不需帮助能照顾自己的日常事务
+      3中度残疾，要求一些帮助，但行走不需帮助
+      4重度残疾，不能独立行走，无他人帮助不能满足自身需求
+      5严重残疾，卧床、失禁，要求持续护理和关注
+      -1未填
+      -->
+      <xs:pattern value="0|1|2|3|4|5|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

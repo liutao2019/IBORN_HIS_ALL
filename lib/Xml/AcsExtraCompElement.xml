@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompElement>
+	<StatusList belong="PhysicalNursingRecord"> 
+		<StatusItem> 
+			<RecordTime></RecordTime> 
+			<Code></Code> 
+			<Value></Value> 
+		</StatusItem> 
+		<StatusItem> 
+			<RecordTime></RecordTime> 
+			<Code></Code> 
+			<Value></Value> 
+		</StatusItem> 
+		<StatusItem> 
+			<RecordTime></RecordTime> 
+			<Code></Code> 
+			<Value></Value> 
+		</StatusItem>
+	</StatusList> 
+	<RecordList belong="DiagnosisRecord"> 
+		 <RecordItem> 
+			<DiagnosisType>DiagnoseTypeCode</DiagnosisType> 
+			<DiagnosisCode>Id</DiagnosisCode> 
+			<DiagnosisName>DiagnoseName</DiagnosisName> 
+			<DiagnosisDesc>DiagnoseTypeName</DiagnosisDesc> 
+			<DiagnosisTime>DiagnoseTime</DiagnosisTime> 
+			<DepartmentCode>DiagnoseDeptId</DepartmentCode> 
+			<DoctorId>UserId</DoctorId> 
+		</RecordItem> 
+	</RecordList>
+	<SurgeryList belong="OperationRecord"> 
+		<Surgery> 
+			<OrderNo>OrderId</OrderNo> 
+			<SurgeryId>SurgeryID</SurgeryId> 
+			<BalloonDiatationTime>OrderTime</BalloonDiatationTime> 
+			<SurgeryStartTime>StartTime</SurgeryStartTime> 
+			<SurgeryEndTime>EndTime</SurgeryEndTime> 
+			<SurgeryTimeLenth>TimeLength</SurgeryTimeLenth> 
+			<DoctorId>DoctorID</DoctorId>  
+		</Surgery>
+	</SurgeryList> 
+	<OrderList belong="SecondOrderRecord"> 
+		<OrderItem> 
+			<OrderNo></OrderNo> 
+			<SoStartTime></SoStartTime>
+			<SoEndTime></SoEndTime> 
+			<SoImeLenth></SoImeLenth> 
+			<CareLevel></CareLevel> 
+		</OrderItem> 
+	</OrderList>
+	<OrderList belong="PharmacyRecord"> 
+		<Order> 
+			<OrderNo>Id</OrderNo> 
+			<OrderStartTime>MoOperTime</OrderStartTime> 
+			<OrderClass></OrderClass> 
+			<OrderType>Decmps</OrderType> 
+			<OrderStyle>DoseCode</OrderStyle> 
+			<OrderCommonName>ItemName</OrderCommonName> 
+			<Dosage>DoseOnce</Dosage> 
+			<DosageUnit>DoseOneUnit</DosageUnit> 
+			<Administration>UsageCode</Administration> 
+			<ExecuteTime>ExecTimes</ExecuteTime> 
+			<DischangeMedication>TypeId</DischangeMedication> 
+			<OrderEndTime>DcOperTime</OrderEndTime> 
+			<OrderEndReason>DcReason</OrderEndReason> 
+			<OrderId>MoDoctorId</OrderId> 
+		</Order> 
+	</OrderList>
+	<ResultList belong="Electrocardio"> 
+		<ResulItem> 
+		  <ExamResultMarkId>0</ExamResultMarkId> 
+		  <ExamResultDesc></ExamResultDesc> 
+		</ResulItem>
+		<ResulItem> 
+		  <ExamResultMarkId>1</ExamResultMarkId> 
+		  <ExamResultDesc></ExamResultDesc> 
+		</ResulItem>
+		<ResulItem> 
+		  <ExamResultMarkId>2</ExamResultMarkId> 
+		  <ExamResultDesc></ExamResultDesc> 
+		</ResulItem>
+	</ResultList>
+	<ResultList belong="BloodBiochemistry"> 
+		<ResultItem> 
+		  <LabResultId></LabResultId> 
+		  <LabResultValue></LabResultValue> 
+		</ResultItem> 
+		<ResultItem> 
+		  <LabResultId></LabResultId> 
+		  <LabResultValue></LabResultValue> 
+		</ResultItem>
+	</ResultList> 
+	<ResultList belong="BloodFat"> 
+		<ResultItem> 
+		  <LabResultId></LabResultId> 
+		  <LabResultValue></LabResultValue> 
+		</ResultItem> 
+		<ResultItem> 
+		  <LabResultId></LabResultId> 
+		  <LabResultValue></LabResultValue> 
+		</ResultItem>
+	</ResultList> 
+	<ResultList belong="UltrasonicHeartbeat"> 
+		<ResulItem> 
+		  <ExamResultValue></ExamResultValue> 
+		  <ExamResultDesc></ExamResultDesc> 
+		</ResulItem>
+	</ResultList>
+	<ResultList belong="CoronaryAngiography"> 
+		<ResulItem> 
+		  <ExamResultValue></ExamResultValue> 
+		  <ExamResultDesc></ExamResultDesc> 
+		</ResulItem>
+	</ResultList>
+	<ResultList belong="MyocardialEnzymeSpectrum"> 
+		<ResultItem> 
+		  <LabResultId></LabResultId> 
+		  <LabResultValue></LabResultValue> 
+		</ResultItem> 
+		<ResultItem> 
+		  <LabResultId></LabResultId> 
+		  <LabResultValue></LabResultValue> 
+		</ResultItem>
+		<ResultItem> 
+		  <LabResultId></LabResultId> 
+		  <LabResultValue></LabResultValue> 
+		</ResultItem>
+	</ResultList> 
+</CompElement>

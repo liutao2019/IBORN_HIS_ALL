@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e1a4db7c-5e9a-4aa3-baca-e7dbc262d0fe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9014/Design_Time_Addresses/ConnectHIS/ConnectHISService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="9b735c43-8f83-4edb-9b0e-3099488e4958" SourceId="1" SourceUrl="http://localhost:9014/Design_Time_Addresses/ConnectHIS/ConnectHISService/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="5dd0423d-63b1-4dd6-a86b-3298fed61309" SourceId="1" SourceUrl="http://localhost:9014/Design_Time_Addresses/ConnectHIS/ConnectHISService/?disco" />
+    <MetadataFile FileName="ConnectHISService.wsdl" MetadataType="Wsdl" ID="a0645e3a-5c07-4325-81fe-1305a544ac9b" SourceId="1" SourceUrl="http://localhost:9014/Design_Time_Addresses/ConnectHIS/ConnectHISService/?wsdl" />
+    <MetadataFile FileName="item.wsdl" MetadataType="Wsdl" ID="9007886d-98c4-48d0-99f7-0e9eb826b6ff" SourceId="1" SourceUrl="http://localhost:9014/Design_Time_Addresses/ConnectHIS/ConnectHISService/?wsdl=wsdl0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="66988787-f549-45a2-9859-2643f5d8c5ac" SourceId="1" SourceUrl="http://localhost:9014/Design_Time_Addresses/ConnectHIS/ConnectHISService/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

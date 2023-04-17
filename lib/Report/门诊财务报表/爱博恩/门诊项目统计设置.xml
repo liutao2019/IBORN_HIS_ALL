@@ -1,0 +1,105 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-6</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbHospital</Name><Text>院    区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select code,name,' ', spell_code,wb_code,mark from com_dictionary  where type = 'HOSPITALLIST'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtItemsData</Name><Sql>
+select tt.日期,
+       tt.胎心监测,
+       tt.静脉采血,
+       tt.OGTT,
+       tt.无创,
+       tt.免疫,
+       tt.盆底,
+       tt. 心电,
+       tt.穿刺,
+       tt.注射
+  from (select to_char(t.oper_date, 'YYYY-MM-DD') 日期,
+               sum(decode(t.item_code, 'F00000000378', t.qty, 0)) 胎心监测,
+               sum(decode(t.item_code, 'F00000001377', t.qty, 0)) 静脉采血,
+               sum(decode(t.item_code, 'F00000000400', t.qty, 0)) OGTT,
+               sum(decode(t.item_code,
+                          'F00000000714',
+                          t.qty,
+                          'F00000000713',
+                          t.qty,
+                          0)) 无创,
+               sum(decode(t.item_code, 'F00000000608', t.qty, 0)) 免疫,
+               sum(decode(t.item_code,
+                          'F00000023802',
+                          t.qty,
+                          'F00000001306',
+                          t.qty,
+                          'F00000000262',
+                          t.qty,
+                          0)) 盆底,
+               sum(decode(t.item_code,
+                          'F00000000381',
+                          t.qty,
+                          'F00000000340',
+                          t.qty,
+                          'F00000000355',
+                          t.qty,
+                          'F00000000356',
+                          t.qty,
+                          0)) 心电,
+               sum(decode(t.item_code, 'F00000001107', t.qty, 0)) 穿刺,
+               sum(case
+                     when t.inject_number &gt; 0 then
+                      1
+                     else
+                      0
+                   end) 注射,
+               '0' sortid
+          from fin_opb_feedetail t
+         where t.cancel_flag = '1'
+           and ((select a.hospital_id
+                   from com_department a
+                  where a.dept_code = t.reg_dpcd) = '&amp;cmbHospital' or
+               '&amp;cmbHospital' = 'ALL')
+           and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and
+               to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+         group by to_char(t.oper_date, 'YYYY-MM-DD')
+        union all
+        select '合计：' 日期,
+               sum(decode(t.item_code, 'F00000000378', t.qty, 0)) 胎心监测,
+               sum(decode(t.item_code, 'F00000001377', t.qty, 0)) 静脉采血,
+               sum(decode(t.item_code, 'F00000000400', t.qty, 0)) OGTT,
+               sum(decode(t.item_code,
+                          'F00000000714',
+                          t.qty,
+                          'F00000000713',
+                          t.qty,
+                          0)) 无创,
+               sum(decode(t.item_code, 'F00000000608', t.qty, 0)) 免疫,
+               sum(decode(t.item_code,
+                          'F00000023802',
+                          t.qty,
+                          'F00000001306',
+                          t.qty,
+                          'F00000000262',
+                          t.qty,
+                          0)) 盆底,
+               sum(decode(t.item_code,
+                          'F00000000381',
+                          t.qty,
+                          'F00000000340',
+                          t.qty,
+                          'F00000000355',
+                          t.qty,
+                          'F00000000356',
+                          t.qty,
+                          0)) 心电,
+               sum(decode(t.item_code, 'F00000001107', t.qty, 0)) 穿刺,
+               sum(case
+                     when t.inject_number &gt; 0 then
+                      1
+                     else
+                      0
+                   end) 注射,
+               '1' sortid
+          from fin_opb_feedetail t
+         where t.cancel_flag = '1'
+           and ((select a.hospital_id
+                   from com_department a
+                  where a.dept_code = t.reg_dpcd) = '&amp;cmbHospital' or
+               '&amp;cmbHospital' = 'ALL')
+           and t.oper_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and
+               to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1) tt
+ order by tt.sortid, tt.日期
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\门诊项目统计设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

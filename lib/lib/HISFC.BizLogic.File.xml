@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HISFC.BizLogic.File</name>
+    </assembly>
+    <members>
+        <member name="T:FS.HISFC.BizLogic.File.DataFile">
+            <summary>
+            GetFile 的摘要说明。
+            获得文件
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.File.DataFile.alFiles">
+            <summary>
+            当前文件列表
+            </summary>
+        </member>
+        <member name="F:FS.HISFC.BizLogic.File.DataFile.alModuals">
+            <summary>
+            当前模板列表
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.SetType(System.String)">
+            <summary>
+            先设置显示类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.GetModuals(System.Boolean)">
+            <summary>
+            获得摸板
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.GetFiles(System.String[])">
+            <summary>
+            获得数据
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FS.HISFC.BizLogic.File.DataFile.DataFileParam">
+            <summary>
+            获得参数
+            </summary>
+        </member>
+        <member name="P:FS.HISFC.BizLogic.File.DataFile.DataFileInfo">
+            <summary>
+            获得文件信息
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.SaveNodeToDataStore(System.String,FS.HISFC.Models.File.DataFileInfo,System.String,System.String,System.String)">
+            <summary>
+            保存结点到数据库
+            </summary>
+            <param name="Table"></param>
+            <param name="dt"></param>
+            <param name="ParentText"></param>
+            <param name="NodeText"></param>
+            <param name="NodeValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.DeleteAllNodeFromDataStore(System.String,FS.HISFC.Models.File.DataFileInfo)">
+            <summary>
+            删除结点　
+            </summary>
+            <param name="Table"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.GetNodeValueFormDataStore(System.String,System.String,System.String)">
+            <summary>
+            获得节点内容
+            </summary>
+            <param name="Table"></param>
+            <param name="inpatientNo"></param>
+            <param name="nodeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.GetDateNodeValueFormDataStoreByTime(System.String,System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            获得节点内容
+            </summary>
+            <param name="Table"></param>
+            <param name="inpatientNo"></param>
+            <param name="nodeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.DelDataStoreVitalSignByIndex1OneTime(System.String,FS.HISFC.Models.File.DataFileInfo,System.DateTime)">
+            <summary>
+            删除此病人这个时间点的护理记录相关的所有数据
+            </summary>
+            <param name="Table"></param>
+            <param name="dt"></param>
+            <param name="recordtime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.DelDataStoreVitalSignByIndex(System.String,FS.HISFC.Models.File.DataFileInfo)">
+            <summary>
+            删除此病人的体温单相关的所有数据
+            </summary>
+            <param name="Table"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.SaveNodeToDateDataStoreByInsertIndex(System.String,FS.HISFC.Models.File.DataFileInfo,System.String,System.String,System.DateTime,System.String,System.String,System.String)">
+            <summary>
+            保存结点到数据库
+            </summary>
+            <param name="Table"></param>
+            <param name="dt"></param>
+            <param name="Name">病历名称</param>
+            <param name="nodeName">节点</param>
+            <param name="date">日期</param>
+            <param name="index">节点索引</param>
+            <param name="NodeValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.QueryDataStoreVitalSignByIndex1(System.String,System.String,System.String)">
+            <summary>
+            取出此病人的所有体温单数据
+            </summary>
+            <param name="Table"></param>
+            <param name="datatype"></param>
+            <param name="inpatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.QueryDataStoreVitalSignByIndex1OneTime(System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            数据库中取出此病人的一条护理记录
+            </summary>
+            <param name="Table"></param>
+            <param name="datatype"></param>
+            <param name="inpatientNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.QueryDataStoreVitalSignByRecordDate(System.String,System.String,System.String,System.String)">
+            <summary>
+            数据库中取出病人集合的所有记录时间记录
+            </summary>
+            <param name="Table"></param>
+            <param name="datatype"></param>
+            <param name="nodename"></param>
+            <param name="patientids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.QueryDataStoreVitalSignByAllIndex1Data(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            取出一个时间点下相关病人集合的所有体温单相关节点记录
+            </summary>
+            <param name="Table"></param>
+            <param name="datatype"></param>
+            <param name="nodename"></param>
+            <param name="patientids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.SaveNodeToDateDataStoreByIndex(System.String,FS.HISFC.Models.File.DataFileInfo,System.String,System.String,System.DateTime,System.String,System.String,System.String)">
+            <summary>
+            保存结点到数据库
+            </summary>
+            <param name="Table"></param>
+            <param name="dt"></param>
+            <param name="Name">病历名称</param>
+            <param name="nodeName">节点</param>
+            <param name="date">日期</param>
+            <param name="index">节点索引</param>
+            <param name="NodeValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.SaveNodeToDateDataStoreByTime(System.String,FS.HISFC.Models.File.DataFileInfo,System.String,System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            保存结点到数据库
+            </summary>
+            <param name="Table"></param>
+            <param name="dt"></param>
+            <param name="Name">病历名称</param>
+            <param name="nodeName">节点</param>
+            <param name="date">日期</param>
+            <param name="index">节点索引</param>
+            <param name="NodeValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.ImportToDatabase(FS.HISFC.Models.File.DataFileInfo,System.Byte[])">
+            <summary>
+            将文件导入到数据库中
+            </summary>
+            <param name="dt"></param>
+            <param name="fileData">输入的文件数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.ExportFromDatabase(FS.HISFC.Models.File.DataFileInfo,System.Byte[]@)">
+            <summary>
+            输出文件 
+            </summary>
+            <param name="dt"></param>
+            <param name="fileData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.ImportToDatabase(FS.HISFC.Models.File.DataFileInfo,System.String)">
+            <summary>
+            将文件导入到数据库中
+            </summary>
+            <param name="dt"></param>
+            <param name="fileData">输入的文件数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFile.ExportFromDatabase(FS.HISFC.Models.File.DataFileInfo,System.String@)">
+            <summary>
+            输出文件 
+            </summary>
+            <param name="dt"></param>
+            <param name="fileData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.File.DataFileInfo">
+            <summary>
+            DataFileInfo 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.GetList(FS.HISFC.Models.File.DataFileParam)">
+            <summary>
+            默认显示数据文件
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.GetModualList(FS.HISFC.Models.File.DataFileParam,System.Boolean)">
+            <summary>
+            获得模板列表
+            </summary>
+            <param name="param"></param>
+            <param name="isAll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.GetList(FS.HISFC.Models.File.DataFileParam,System.Int32,System.Boolean)">
+            <summary>
+            显示类型文件 0 数据文件 ,1 模板文件
+            </summary>
+            <param name="param"></param>
+            <param name="iType"></param>
+            <param name="isAll">是否全院 只对模板文件有效</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.Del(System.Object,System.Int32)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="strID"></param>
+            <param name="iType"> 0 数据文件 1 模板文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.Del(System.Object)">
+            <summary>
+            删除数据文件
+            </summary>
+            <param name="strID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.SetList(System.Collections.ArrayList)">
+            <summary>
+            设置
+            </summary>
+            <param name="al"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.Get(System.Object)">
+            <summary>
+            数据文件
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.Get(System.Object,System.Int32)">
+            <summary>
+            获得datafileinfo
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.SetInValid(FS.FrameWork.Models.NeuObject,System.Int32)">
+            <summary>
+            设置
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.SetValid(FS.FrameWork.Models.NeuObject,System.Int32)">
+            <summary>
+            设置为可用
+            </summary>
+            <param name="obj"></param>
+            <param name="iType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.Set(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileInfo.Set(FS.FrameWork.Models.NeuObject,System.Int32)">
+            <summary>
+            设置
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.File.DataFileParam">
+            <summary>
+            Class1 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileParam.GetList">
+            <summary>
+            获得列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileParam.Set(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            设置参数
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileParam.Update(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            更新
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.DataFileParam.Insert(FS.FrameWork.Models.NeuObject)">
+            <summary>
+            插入
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.File.FtpFile">
+            <summary>
+            FtpFile 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:FS.HISFC.BizLogic.File.FtpFile.SetUpdateTime">
+            <summary>
+            统一设定更新的时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FS.HISFC.BizLogic.File.FtpIni">
+            <summary>
+            FtpIni 的摘要说明。
+            </summary>
+        </member>
+    </members>
+</doc>

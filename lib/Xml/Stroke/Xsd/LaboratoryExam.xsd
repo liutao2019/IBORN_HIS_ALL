@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XSDLaboratoryExam"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="LaboratoryExam">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="leCheckTime" type="xs:date"/>
+        <xs:element name="leCheckUnit" type="sMaxL200T"/><!--检查机构若为本单位请写本单位名称-->
+        
+        <!--00表示此项未填-->
+        <xs:element name="GLU" type ="xs:float" default="00"/>
+        <xs:element name="hPG" type="xs:float" default="00"/>
+        <xs:element name="TG" type="xs:float" default="00"/>
+        <xs:element name="TCHO" type="xs:float" default="00"/>
+        <xs:element name="LDLC" type="xs:float" default="00"/>
+        <xs:element name="HDLC" type="xs:float" default="00"/>
+        <xs:element name="ALT" type="xs:float" default="00"/>
+        <xs:element name="AST" type="xs:float" default="00"/>
+        <xs:element name="CREA" type="xs:float" default="00"/>
+        <xs:element name="BUN" type="xs:float" default="00"/>
+        <xs:element name="UA" type="xs:float" default="00"/>
+        <xs:element name="CRP" type="xs:float" default="00"/>
+        <xs:element name="HsCRP" type="xs:float" default="00"/>
+        <xs:element name="HbA1c" type="xs:float" default="00"/>
+        <xs:element name="INR" type="xs:float" default="00"/>
+        <xs:element name="PT" type="xs:float" default="00"/>
+        <xs:element name="APTT" type="xs:float" default="00"/>
+        <xs:element name="TT" type="xs:float" default="00"/>
+        <xs:element name="WBC" type="xs:float" default="00"/>
+        <xs:element name="HGB" type="xs:float" default="00"/>
+        <xs:element name="Na" type="xs:float" default="00"/>
+        <xs:element name="K" type="xs:float" default="00"/>
+        <xs:element name="Cl" type="xs:float" default="00"/>
+        <xs:element name="CO2" type="xs:float" default="00"/>
+        <xs:element name="HCY" type="xs:float" default="00"/>
+
+        <!-- 
+        
+        <xs:element name="leCheckUnit" type="sMaxL200T"/>
+        <xs:element name="leType" type="TypeT"/>
+              <xs:element name="uuid" type="sMaxL20T"/>
+              <xs:element name="uNickName" type="sMaxL20T"/>
+              <xs:element name="leSurveyTime" type="xs:dateTime"/>-->
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sMaxL200T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

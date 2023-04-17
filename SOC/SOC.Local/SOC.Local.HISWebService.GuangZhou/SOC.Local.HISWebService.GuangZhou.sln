@@ -1,0 +1,305 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.HISWebService.GuangZhou", "SOC.Local.HISWebService.GuangZhou.csproj", "{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.HISWebServicePivas", "..\SOC.Local.HISWebServicePivas\SOC.Local.HISWebServicePivas.csproj", "{44178394-7995-4BB9-ABB5-D8EF43525FA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.InpatientFee", "..\..\..\..\HISFC\Src\HISFC.Components\InpatientFee\Components.InpatientFee.csproj", "{C27E3762-0820-4D6B-9DA9-1627C20C905C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.Common", "..\..\..\..\HISFC\Src\HISFC.Components\Common\Components.Common.csproj", "{D5A194BC-F0D7-43AC-A455-CC7D69FDABAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neusoft.HISFC.Models", "..\..\..\..\HISFC\Src\HISFC.Models\Neusoft.HISFC.Models.csproj", "{F113CF20-6AC6-4016-A4A2-A4C96A62FCAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISFC.BizProcess.Integrate", "..\..\..\..\HISFC\Src\HISFC.BizProcess\Integrate\HISFC.BizProcess.Integrate.csproj", "{86C60E4F-2374-4E03-9303-92BB6E1E6949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fee", "..\..\..\..\HISFC\Src\HISFC.BizLogic\Fee\Fee.csproj", "{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.Order", "..\..\..\..\HISFC\Src\HISFC.Components\Order\Components.Order.csproj", "{D880A330-5AAE-42EA-9E4F-FA59F864ED12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order", "..\..\..\..\HISFC\Src\HISFC.BizLogic\Order\Order.csproj", "{6C5F58FB-0D9B-4936-A53C-472D18A557DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.Order", "..\SOC.Local.Order\SOC.Local.Order.csproj", "{A353A05D-748D-45EE-BE89-1F022F5BCD09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manager", "..\..\..\..\HISFC\Src\HISFC.BizLogic\Manager\Manager.csproj", "{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.RADT.GuangZhou", "..\SOC.Local.RADT.GuangZhou\SOC.Local.RADT.GuangZhou.csproj", "{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.RADT", "..\..\..\..\HISFC\Src\HISFC.Components\RADT\Components.RADT.csproj", "{6B72EDEA-CE15-4F96-B4D1-C3763D5F41A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy", "..\..\..\..\HISFC\Src\HISFC.BizLogic\Pharmacy\Pharmacy.csproj", "{D420FA40-9E4A-458F-B3FD-41EA0A4FDA71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RADT", "..\..\..\..\HISFC\Src\HISFC.BizLogic\RADT\RADT.csproj", "{4C43E0D2-7818-44C2-9682-2A6AEF326867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.Registration", "..\..\..\..\HISFC\Src\HISFC.Components\Registration\Components.Registration.csproj", "{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration", "..\..\..\..\HISFC\Src\HISFC.BizLogic\Registration\Registration.csproj", "{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISFC.BizProcess.Interface", "..\..\..\..\HISFC\Src\HISFC.BizProcess\Interface\HISFC.BizProcess.Interface.csproj", "{5B40826A-10E4-4667-ACD6-49AC52F5FA79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.Order.OutPatientOrder", "..\SOC.Local.Order.OutPatientOrder\SOC.Local.Order.OutPatientOrder.csproj", "{ECED7C23-31EC-4E60-B159-6C62513DB2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.Manager", "..\..\..\..\HISFC\Src\HISFC.Components\Manager\Components.Manager.csproj", "{DF926CB8-C509-4E68-A21B-7FCCF3F55209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.Components", "..\..\HISFC\Fee\SOC.HISFC.Fee.Components\SOC.HISFC.Fee.Components.csproj", "{A7DF692B-16A0-4869-B1CC-E35926BF11D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.BizLogic", "..\..\HISFC\Fee\SOC.HISFC.Fee.BizLogic\SOC.HISFC.Fee.BizLogic.csproj", "{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Fee.Models", "..\..\HISFC\Fee\SOC.HISFC.Fee.Models\SOC.HISFC.Fee.Models.csproj", "{C10F5793-FE12-40FD-8C56-28349F138C99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.Order.GuangZhou", "..\SOC.Local.Order.GuangZhou\SOC.Local.Order.GuangZhou.csproj", "{39DF705D-BAD3-47B9-AA90-AA30BBF925D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthRecord", "..\..\..\..\HISFC\Src\HISFC.BizLogic\HealthRecord\HealthRecord.csproj", "{EE2A8497-B192-4EF7-A06B-5A544ABAE1DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.HealthRecord", "..\..\..\..\HISFC\Src\HISFC.Components\HealthRecord\Components.HealthRecord.csproj", "{416614EF-6F1B-4671-A82F-6A33C4DA5B62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.BizProcess.Cache", "..\..\HISFC\SOC.HISFC.BizProcess.Cache\SOC.HISFC.BizProcess.Cache.csproj", "{438D6369-4118-4DAC-A7E4-3B94F57994C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components.OutpatientFee", "..\..\..\..\HISFC\Src\HISFC.Components\OutpatientFee\Components.OutpatientFee.csproj", "{34EAF954-5CC6-411A-A2D9-7B867A9FC955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terminal", "..\..\..\..\HISFC\Src\HISFC.BizLogic\Terminal\Terminal.csproj", "{2143710F-EAEB-4CF1-A5A6-BAB3CD3D3130}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.Components.DrugStore", "..\..\Components\SOC.HISFC.Components.DrugStore\SOC.HISFC.Components.DrugStore.csproj", "{E2B76DAF-6620-497C-BFB1-EB56EF7CE7AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.DrugStore.GuangZhou", "..\SOC.Local.DrugStore.GuangZhou\SOC.Local.DrugStore.GuangZhou.csproj", "{057A6419-8C11-42F3-B522-371BD9B837A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.Local.DrugStore", "..\SOC.Local.DrugStore\SOC.Local.DrugStore.csproj", "{369ED7F9-AE40-4D25-A0EA-D9DBE98C6E2B}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 33
+		SccProjectUniqueName0 = SOC.Local.HISWebService.GuangZhou.csproj
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\SOC.Local.HISWebServicePivas\\SOC.Local.HISWebServicePivas.csproj
+		SccProjectName1 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.HISWebServicePivas\u0022,\u0020EXWBAAAA
+		SccLocalPath1 = ..\\SOC.Local.HISWebServicePivas
+		SccProjectUniqueName2 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\Common\\Components.Common.csproj
+		SccProjectName2 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Components/Common\u0022,\u0020VXDAAAAA
+		SccLocalPath2 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\Common
+		SccProjectUniqueName3 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Models\\Neusoft.HISFC.Models.csproj
+		SccProjectName3 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Models\u0022,\u0020XJLAAAAA
+		SccLocalPath3 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Models
+		SccProjectUniqueName4 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizProcess\\Integrate\\HISFC.BizProcess.Integrate.csproj
+		SccProjectName4 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizProcess/Integrate\u0022,\u0020RFDAAAAA
+		SccLocalPath4 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizProcess\\Integrate
+		SccProjectUniqueName5 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Fee\\Fee.csproj
+		SccProjectName5 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Fee\u0022,\u0020CKCAAAAA
+		SccLocalPath5 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Fee
+		SccProjectUniqueName6 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\Order\\Components.Order.csproj
+		SccProjectName6 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Components/Order\u0022,\u0020ECIAAAAA
+		SccLocalPath6 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\Order
+		SccProjectUniqueName7 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Order\\Order.csproj
+		SccProjectName7 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Order\u0022,\u0020SUCAAAAA
+		SccLocalPath7 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Order
+		SccProjectUniqueName8 = ..\\SOC.Local.Order\\SOC.Local.Order.csproj
+		SccProjectName8 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.Order\u0022,\u0020GRQBAAAA
+		SccLocalPath8 = ..\\SOC.Local.Order
+		SccProjectUniqueName9 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Manager\\Manager.csproj
+		SccProjectName9 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Manager\u0022,\u0020JQCAAAAA
+		SccLocalPath9 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Manager
+		SccProjectUniqueName10 = ..\\SOC.Local.RADT.GuangZhou\\SOC.Local.RADT.GuangZhou.csproj
+		SccProjectName10 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.RADT.GuangZhou\u0022,\u0020KNUBAAAA
+		SccLocalPath10 = ..\\SOC.Local.RADT.GuangZhou
+		SccProjectUniqueName11 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\RADT\\Components.RADT.csproj
+		SccProjectName11 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Components/RADT\u0022,\u0020AAKAAAAA
+		SccLocalPath11 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\RADT
+		SccProjectUniqueName12 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Pharmacy\\Pharmacy.csproj
+		SccProjectName12 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Pharmacy\u0022,\u0020XVCAAAAA
+		SccLocalPath12 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Pharmacy
+		SccProjectUniqueName13 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\RADT\\RADT.csproj
+		SccProjectName13 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/RADT\u0022,\u0020LADAAAAA
+		SccLocalPath13 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\RADT
+		SccProjectUniqueName14 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\Registration\\Components.Registration.csproj
+		SccProjectName14 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Components/Registration\u0022,\u0020QDKAAAAA
+		SccLocalPath14 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\Registration
+		SccProjectUniqueName15 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Registration\\Registration.csproj
+		SccProjectName15 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Registration\u0022,\u0020ZADAAAAA
+		SccLocalPath15 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Registration
+		SccProjectUniqueName16 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizProcess\\Interface\\HISFC.BizProcess.Interface.csproj
+		SccProjectName16 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizProcess/Interface\u0022,\u0020MKDAAAAA
+		SccLocalPath16 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizProcess\\Interface
+		SccProjectUniqueName17 = ..\\SOC.Local.Order.OutPatientOrder\\SOC.Local.Order.OutPatientOrder.csproj
+		SccProjectName17 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.Order.OutPatientOrder\u0022,\u0020WNRBAAAA
+		SccLocalPath17 = ..\\SOC.Local.Order.OutPatientOrder
+		SccProjectUniqueName18 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\Manager\\Components.Manager.csproj
+		SccProjectName18 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Components/Manager\u0022,\u0020VLGAAAAA
+		SccLocalPath18 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\Manager
+		SccProjectUniqueName19 = ..\\..\\HISFC\\Fee\\SOC.HISFC.Fee.Components\\SOC.HISFC.Fee.Components.csproj
+		SccProjectName19 = \u0022$/HIS5.0/code/SOC/Src/HISFC/Fee/SOC.HISFC.Fee.Components\u0022,\u0020RTLBAAAA
+		SccLocalPath19 = ..\\..\\HISFC\\Fee\\SOC.HISFC.Fee.Components
+		SccProjectUniqueName20 = ..\\..\\HISFC\\Fee\\SOC.HISFC.Fee.BizLogic\\SOC.HISFC.Fee.BizLogic.csproj
+		SccProjectName20 = \u0022$/HIS5.0/code/SOC/Src/HISFC/Fee/SOC.HISFC.Fee.BizLogic\u0022,\u0020LSLBAAAA
+		SccLocalPath20 = ..\\..\\HISFC\\Fee\\SOC.HISFC.Fee.BizLogic
+		SccProjectUniqueName21 = ..\\..\\HISFC\\Fee\\SOC.HISFC.Fee.Models\\SOC.HISFC.Fee.Models.csproj
+		SccProjectName21 = \u0022$/HIS5.0/code/SOC/Src/HISFC/Fee/SOC.HISFC.Fee.Models\u0022,\u0020XBMBAAAA
+		SccLocalPath21 = ..\\..\\HISFC\\Fee\\SOC.HISFC.Fee.Models
+		SccProjectUniqueName22 = ..\\SOC.Local.Order.GuangZhou\\SOC.Local.Order.GuangZhou.csproj
+		SccProjectName22 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.Order.GuangZhou\u0022,\u0020AFRBAAAA
+		SccLocalPath22 = ..\\SOC.Local.Order.GuangZhou
+		SccProjectUniqueName23 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\HealthRecord\\HealthRecord.csproj
+		SccProjectName23 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/HealthRecord\u0022,\u0020UNCAAAAA
+		SccLocalPath23 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\HealthRecord
+		SccProjectUniqueName24 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\HealthRecord\\Components.HealthRecord.csproj
+		SccProjectName24 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Components/HealthRecord\u0022,\u0020TKFAAAAA
+		SccLocalPath24 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\HealthRecord
+		SccProjectUniqueName25 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\InpatientFee\\Components.InpatientFee.csproj
+		SccProjectName25 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Components/InpatientFee\u0022,\u0020PAGAAAAA
+		SccLocalPath25 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\InpatientFee
+		SccProjectUniqueName26 = ..\\..\\HISFC\\SOC.HISFC.BizProcess.Cache\\SOC.HISFC.BizProcess.Cache.csproj
+		SccProjectName26 = \u0022$/HIS5.0/code/SOC/Src/HISFC/SOC.HISFC.BizProcess.Cache\u0022,\u0020ZSMBAAAA
+		SccLocalPath26 = ..\\..\\HISFC\\SOC.HISFC.BizProcess.Cache
+		SccProjectUniqueName27 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\OutpatientFee\\Components.OutpatientFee.csproj
+		SccProjectName27 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.Components/OutpatientFee\u0022,\u0020QOIAAAAA
+		SccLocalPath27 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.Components\\OutpatientFee
+		SccProjectUniqueName28 = ..\\..\\Components\\SOC.HISFC.Components.DrugStore\\SOC.HISFC.Components.DrugStore.csproj
+		SccProjectName28 = \u0022$/HIS5.0/code/SOC/Src/Components/SOC.HISFC.Components.DrugStore\u0022,\u0020EKJBAAAA
+		SccLocalPath28 = ..\\..\\Components\\SOC.HISFC.Components.DrugStore
+		SccProjectUniqueName29 = ..\\SOC.Local.DrugStore.GuangZhou\\SOC.Local.DrugStore.GuangZhou.csproj
+		SccProjectName29 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.DrugStore.GuangZhou\u0022,\u0020NLOBAAAA
+		SccLocalPath29 = ..\\SOC.Local.DrugStore.GuangZhou
+		SccProjectUniqueName30 = ..\\SOC.Local.DrugStore\\SOC.Local.DrugStore.csproj
+		SccProjectName30 = \u0022$/HIS5.0/code/SOC/Src/Local/SOC.Local.DrugStore\u0022,\u0020UPNBAAAA
+		SccLocalPath30 = ..\\SOC.Local.DrugStore
+		SccProjectUniqueName31 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Terminal\\Terminal.csproj
+		SccProjectName31 = \u0022$/HIS5.0/code/HISFC/Src/HISFC.BizLogic/Terminal\u0022,\u0020RDDAAAAA
+		SccLocalPath31 = ..\\..\\..\\..\\HISFC\\Src\\HISFC.BizLogic\\Terminal
+		SccLocalPath32 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9F98465-9DF2-44F9-B862-B6E99A79B0F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44178394-7995-4BB9-ABB5-D8EF43525FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C27E3762-0820-4D6B-9DA9-1627C20C905C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C27E3762-0820-4D6B-9DA9-1627C20C905C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C27E3762-0820-4D6B-9DA9-1627C20C905C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C27E3762-0820-4D6B-9DA9-1627C20C905C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A194BC-F0D7-43AC-A455-CC7D69FDABAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A194BC-F0D7-43AC-A455-CC7D69FDABAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A194BC-F0D7-43AC-A455-CC7D69FDABAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A194BC-F0D7-43AC-A455-CC7D69FDABAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F113CF20-6AC6-4016-A4A2-A4C96A62FCAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F113CF20-6AC6-4016-A4A2-A4C96A62FCAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F113CF20-6AC6-4016-A4A2-A4C96A62FCAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F113CF20-6AC6-4016-A4A2-A4C96A62FCAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C60E4F-2374-4E03-9303-92BB6E1E6949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724ABF87-EC3E-454F-BA5C-6620AC3FF2B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D880A330-5AAE-42EA-9E4F-FA59F864ED12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D880A330-5AAE-42EA-9E4F-FA59F864ED12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D880A330-5AAE-42EA-9E4F-FA59F864ED12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D880A330-5AAE-42EA-9E4F-FA59F864ED12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5F58FB-0D9B-4936-A53C-472D18A557DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5F58FB-0D9B-4936-A53C-472D18A557DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5F58FB-0D9B-4936-A53C-472D18A557DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5F58FB-0D9B-4936-A53C-472D18A557DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A353A05D-748D-45EE-BE89-1F022F5BCD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A353A05D-748D-45EE-BE89-1F022F5BCD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A353A05D-748D-45EE-BE89-1F022F5BCD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A353A05D-748D-45EE-BE89-1F022F5BCD09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF0BAC93-5FF3-40C3-A537-F3260FCAD40C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93875ADC-AF3A-4C5D-B7C6-A6C7E8AF661B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B72EDEA-CE15-4F96-B4D1-C3763D5F41A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B72EDEA-CE15-4F96-B4D1-C3763D5F41A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B72EDEA-CE15-4F96-B4D1-C3763D5F41A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B72EDEA-CE15-4F96-B4D1-C3763D5F41A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D420FA40-9E4A-458F-B3FD-41EA0A4FDA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D420FA40-9E4A-458F-B3FD-41EA0A4FDA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D420FA40-9E4A-458F-B3FD-41EA0A4FDA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D420FA40-9E4A-458F-B3FD-41EA0A4FDA71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C43E0D2-7818-44C2-9682-2A6AEF326867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C43E0D2-7818-44C2-9682-2A6AEF326867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C43E0D2-7818-44C2-9682-2A6AEF326867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C43E0D2-7818-44C2-9682-2A6AEF326867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A65E90A-FD04-4E5E-B052-DC4C8DF3B3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C180C1-9239-4ED8-AB22-0165F0CCA8F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B40826A-10E4-4667-ACD6-49AC52F5FA79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B40826A-10E4-4667-ACD6-49AC52F5FA79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B40826A-10E4-4667-ACD6-49AC52F5FA79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B40826A-10E4-4667-ACD6-49AC52F5FA79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECED7C23-31EC-4E60-B159-6C62513DB2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECED7C23-31EC-4E60-B159-6C62513DB2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECED7C23-31EC-4E60-B159-6C62513DB2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECED7C23-31EC-4E60-B159-6C62513DB2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF926CB8-C509-4E68-A21B-7FCCF3F55209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF926CB8-C509-4E68-A21B-7FCCF3F55209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF926CB8-C509-4E68-A21B-7FCCF3F55209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF926CB8-C509-4E68-A21B-7FCCF3F55209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DF692B-16A0-4869-B1CC-E35926BF11D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DF692B-16A0-4869-B1CC-E35926BF11D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DF692B-16A0-4869-B1CC-E35926BF11D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DF692B-16A0-4869-B1CC-E35926BF11D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B9FF08-6EA4-4CE2-AC4E-9B9ADBC2A8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C10F5793-FE12-40FD-8C56-28349F138C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C10F5793-FE12-40FD-8C56-28349F138C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C10F5793-FE12-40FD-8C56-28349F138C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C10F5793-FE12-40FD-8C56-28349F138C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39DF705D-BAD3-47B9-AA90-AA30BBF925D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39DF705D-BAD3-47B9-AA90-AA30BBF925D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39DF705D-BAD3-47B9-AA90-AA30BBF925D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39DF705D-BAD3-47B9-AA90-AA30BBF925D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE2A8497-B192-4EF7-A06B-5A544ABAE1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2A8497-B192-4EF7-A06B-5A544ABAE1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2A8497-B192-4EF7-A06B-5A544ABAE1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2A8497-B192-4EF7-A06B-5A544ABAE1DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416614EF-6F1B-4671-A82F-6A33C4DA5B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416614EF-6F1B-4671-A82F-6A33C4DA5B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416614EF-6F1B-4671-A82F-6A33C4DA5B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416614EF-6F1B-4671-A82F-6A33C4DA5B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438D6369-4118-4DAC-A7E4-3B94F57994C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438D6369-4118-4DAC-A7E4-3B94F57994C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438D6369-4118-4DAC-A7E4-3B94F57994C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438D6369-4118-4DAC-A7E4-3B94F57994C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34EAF954-5CC6-411A-A2D9-7B867A9FC955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34EAF954-5CC6-411A-A2D9-7B867A9FC955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34EAF954-5CC6-411A-A2D9-7B867A9FC955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34EAF954-5CC6-411A-A2D9-7B867A9FC955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2143710F-EAEB-4CF1-A5A6-BAB3CD3D3130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2143710F-EAEB-4CF1-A5A6-BAB3CD3D3130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2143710F-EAEB-4CF1-A5A6-BAB3CD3D3130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2143710F-EAEB-4CF1-A5A6-BAB3CD3D3130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2B76DAF-6620-497C-BFB1-EB56EF7CE7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2B76DAF-6620-497C-BFB1-EB56EF7CE7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2B76DAF-6620-497C-BFB1-EB56EF7CE7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2B76DAF-6620-497C-BFB1-EB56EF7CE7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057A6419-8C11-42F3-B522-371BD9B837A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057A6419-8C11-42F3-B522-371BD9B837A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057A6419-8C11-42F3-B522-371BD9B837A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057A6419-8C11-42F3-B522-371BD9B837A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369ED7F9-AE40-4D25-A0EA-D9DBE98C6E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369ED7F9-AE40-4D25-A0EA-D9DBE98C6E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369ED7F9-AE40-4D25-A0EA-D9DBE98C6E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369ED7F9-AE40-4D25-A0EA-D9DBE98C6E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Setting 说明="根节点">
+  <InoutDataChooseFilter>
+    <CommonOutput Value = "trade_name like '%{0}%' or custom_code like '%{0}%' or spell_code like '%{0}%' or wb_code like '%{0}%' or regular_spell like '%{0}%' or regular_wb like '%{0}%'"/>
+ <CommonInput Value = "trade_name like '%{0}%' or custom_code like '%{0}%' or spell_code like '%{0}%' or wb_code like '%{0}%' or regular_spell like '%{0}%' or regular_wb like '%{0}%'"/>
+  </InoutDataChooseFilter>
+</Setting>

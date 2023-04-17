@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D57EC7F-E78F-4DAC-8AF8-DCA30A93B830}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Fee.Report.OutpatientReport</RootNamespace>
+    <AssemblyName>SOC.Fee.OutpatientReport</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\HIS_ALL\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.Fee.ReportBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\SOC.Fee.ReportBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.Fee, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\SOC.HISFC.BizProcess.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChaoYang\ucOutPatientIncomeSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChaoYang\ucOutPatientIncomeSummary.Designer.cs">
+      <DependentUpon>ucOutPatientIncomeSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\Functions\OutPatientDayBalance.cs" />
+    <Compile Include="GYZL\ucQueryBalanceIncomeByOper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQueryBalanceIncomeByOper.designer.cs">
+      <DependentUpon>ucQueryBalanceIncomeByOper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\ucQueryPatientFeePubDetailReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQueryPatientFeePubDetailReport.designer.cs">
+      <DependentUpon>ucQueryPatientFeePubDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\ucQueryBalanceIncomeByDept.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQueryBalanceIncomeByDept.designer.cs">
+      <DependentUpon>ucQueryBalanceIncomeByDept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\ucQueryInvoiceInfoByStartEnd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQueryInvoiceInfoByStartEnd.designer.cs">
+      <DependentUpon>ucQueryInvoiceInfoByStartEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\ucQueryDeptIncome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQueryDeptIncome.designer.cs">
+      <DependentUpon>ucQueryDeptIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\ucQueryPubJZDReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQueryPubJZDReport.designer.cs">
+      <DependentUpon>ucQueryPubJZDReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\ucQueryRegInvoiceInfoByStartEnd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQueryRegInvoiceInfoByStartEnd.Designer.cs">
+      <DependentUpon>ucQueryRegInvoiceInfoByStartEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GYZL\ucQueryPubReimbursementReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GYZL\ucQueryPubReimbursementReport.designer.cs">
+      <DependentUpon>ucQueryPubReimbursementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChaoYang\ucOutPatientIncomeSummary.resx">
+      <DependentUpon>ucOutPatientIncomeSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQueryBalanceIncomeByOper.resx">
+      <DependentUpon>ucQueryBalanceIncomeByOper.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQueryPatientFeePubDetailReport.resx">
+      <DependentUpon>ucQueryPatientFeePubDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQueryBalanceIncomeByDept.resx">
+      <DependentUpon>ucQueryBalanceIncomeByDept.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQueryInvoiceInfoByStartEnd.resx">
+      <DependentUpon>ucQueryInvoiceInfoByStartEnd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQueryDeptIncome.resx">
+      <DependentUpon>ucQueryDeptIncome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQueryPubJZDReport.resx">
+      <DependentUpon>ucQueryPubJZDReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQueryRegInvoiceInfoByStartEnd.resx">
+      <DependentUpon>ucQueryRegInvoiceInfoByStartEnd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GYZL\ucQueryPubReimbursementReport.resx">
+      <DependentUpon>ucQueryPubReimbursementReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucOutPatientIncomeSummary.resx">
+      <DependentUpon>ucOutPatientIncomeSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ucMedicalReimburseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMedicalReimburseReport.Designer.cs">
+      <DependentUpon>ucMedicalReimburseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucOutPatientIncomeSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucOutPatientIncomeSummary.Designer.cs">
+      <DependentUpon>ucOutPatientIncomeSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPactUnitEcoCostReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPactUnitEcoCostReport.Designer.cs">
+      <DependentUpon>ucPactUnitEcoCostReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRealPubCostReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRealPubCostReport.Designer.cs">
+      <DependentUpon>ucRealPubCostReport.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

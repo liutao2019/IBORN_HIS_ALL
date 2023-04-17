@@ -1,0 +1,73 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select decode(grouping_id(yq,card_no,patient_name,home_tel,packageTypeName,packagename,item_name,oper_date),0,yq,'合计：') 院区,
+       decode(grouping_id(yq,card_no,patient_name,home_tel,packageTypeName,packagename,item_name,oper_date),0,card_no,'/') 卡号,
+       decode(grouping_id(yq,card_no,patient_name,home_tel,packageTypeName,packagename,item_name,oper_date),0,patient_name,'/') 姓名,
+       decode(grouping_id(yq,card_no,patient_name,home_tel,packageTypeName,packagename,item_name,oper_date),0,home_tel,'/') 联系方式,
+       decode(grouping_id(yq,card_no,patient_name,home_tel,packageTypeName,packagename,item_name,oper_date),0,packageTypeName,'/') 套餐类型,
+       decode(grouping_id(yq,card_no,patient_name,home_tel,packageTypeName,packagename,item_name,oper_date),0,packagename,'/') 套餐内容,
+       decode(grouping_id(yq,card_no,patient_name,home_tel,packageTypeName,packagename,item_name,oper_date),0,item_name,'/') 自选包内容,
+       sum(amount) 套餐量,
+       sum(cashCost) 实收金额,
+       decode(grouping_id(yq,card_no,patient_name,home_tel,packageTypeName,packagename,item_name,oper_date),0,oper_date,'/') 收费时间
+  from (      select yq,
+                     card_no,
+                     patient_name,
+                     home_tel,
+                     packageTypeName,
+                     packagename packagename,
+                     item_name item_name,
+                     trans_type  amount,
+                     round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2) cashCost, 
+                     to_char(oper_date,'yyyy-mm-dd') oper_date
+               from (
+              select
+                        ( select case when a.print_invoiceno like 'B%' then '爱博恩医疗门诊部' when a.print_invoiceno like 'I%' then  '广州爱博恩妇产医院' else '' end 
+                            from exp_packageinvoice a where a.invoice_no=t.invoice_no and a.trans_type=t.trans_type) yq,
+                         t.card_no,
+                         patient_name,
+                        (select p.home_tel from com_patientinfo p where p.card_no=t.card_no) home_tel,
+                        ( select y.name from bd_com_package a,com_dictionary y 
+                           where a.package_id = t.package_id
+                             and a.PACKAGE_KIND = y.code
+                             and y.type ='PACKAGETYPE') packageTypeName,
+                        cp.package_name packagename,
+                        ep.item_name,
+                           nvl((select sum(a.real_cost)
+                                  from exp_packagepaymode a,exp_packageinvoice tp
+                                 where a.invoice_no = tp.invoice_no
+                                   and a.trans_type = tp.trans_type 
+                                   and tp.trans_type=t.trans_type
+                                   and tp.invoice_no=t.invoice_no
+                                   and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD')
+                                    or a.mode_code='DE' and a.realated_code in ( 'CA','UP','ZB','WP','PO','CD')) ),0) cashCost, 
+                        (select a.empl_name from com_employee a where a.empl_code = t.oper_code) opercode,
+                        t.real_cost,
+                        (select tp.real_cost from exp_packageinvoice tp where tp.trans_type=t.trans_type and tp.invoice_no=t.invoice_no) invoice_real,
+                        t.oper_date,
+                        decode(t.trans_type,1,1,2,-1) trans_type
+               from exp_package t  
+              inner join bd_com_package cp on t.package_id=cp.package_id 
+              inner join com_dictionary cd on cd.type='PACKAGETYPE' and cp.package_kind=cd.code and cd.code='26'
+              inner join com_patientinfo ct on ct.card_no=t.card_no
+               left join (select ep.* from exp_packagedetail ep
+                           inner join  exp_package t  on t.clinic_code=ep.clinic_code and t.card_no=ep.card_no and t.invoice_no=ep.invoice_no and  ep.trans_type=t.trans_type 
+                           inner join bd_com_package cp on t.package_id=cp.package_id 
+                           where cp.package_name like '%自选包%') ep 
+                 on t.clinic_code=ep.clinic_code and t.card_no=ep.card_no and t.invoice_no=ep.invoice_no  and ep.trans_type=t.trans_type
+               where t.pay_flag = '1' 
+                 and t.oper_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and to_date('&amp;dtEndTime','yyyy-mm-dd')+1 
+                 and t.oper_code in (select empl_code from com_employee where empl_type = 'F'))a
+                 group by yq,
+                          card_no,
+                          patient_name,
+                          home_tel,
+                          packageTypeName,
+                          packagename,
+                          item_name,
+                          trans_type ,
+                          to_char(oper_date,'yyyy-mm-dd') 
+                          )b group by rollup(packageTypeName,(yq,card_no,patient_name,home_tel,packagename,item_name,oper_date))
+                 
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\终端确认\产康套餐查询统计表单设置.xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

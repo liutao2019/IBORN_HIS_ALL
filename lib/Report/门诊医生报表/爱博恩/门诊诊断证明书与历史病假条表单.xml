@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Spread class="FarPoint.Win.Spread.FpSpread">
+  <!--Settings Section - This section contains the workbook properties, and the sheet objects, properties and selections.-->
+  <Settings>
+    <RootWorkbook>
+      <ActiveSheetIndex>0</ActiveSheetIndex>
+      <AllowDragDrop>False</AllowDragDrop>
+      <AllowDragFill>False</AllowDragFill>
+      <AllowCellOverflow>False</AllowCellOverflow>
+      <AllowColumnMove>False</AllowColumnMove>
+      <AllowEditOverflow>False</AllowEditOverflow>
+      <AllowUserFormulas>False</AllowUserFormulas>
+      <AllowRowMove>False</AllowRowMove>
+      <AllowSheetMove>True</AllowSheetMove>
+      <AllowUndo>True</AllowUndo>
+      <AllowUserZoom>True</AllowUserZoom>
+      <AutoClipboard>True</AutoClipboard>
+      <BackColor>Control</BackColor>
+      <BackgroundImage></BackgroundImage>
+      <BorderCollapse>Separate</BorderCollapse>
+      <ScrollTipPolicy>Off</ScrollTipPolicy>
+      <ScrollBarTrackPolicy>Off</ScrollBarTrackPolicy>
+      <ScrollBarShowMax>True</ScrollBarShowMax>
+      <ScrollBarMaxAlign>True</ScrollBarMaxAlign>
+      <BorderStyle>Fixed3D</BorderStyle>
+      <ButtonDrawMode>Always</ButtonDrawMode>
+      <CellNoteIndicatorVisible>True</CellNoteIndicatorVisible>
+      <ClipboardOptions>AllHeaders</ClipboardOptions>
+      <ColumnSplitBoxAlignment>Leading</ColumnSplitBoxAlignment>
+      <ColumnSplitBoxPolicy>Always</ColumnSplitBoxPolicy>
+      <EditModePermanent>False</EditModePermanent>
+      <EditModeReplace>False</EditModeReplace>
+      <HorizontalScrollBarHeight>-1</HorizontalScrollBarHeight>
+      <HorizontalScrollBarPolicy>Always</HorizontalScrollBarPolicy>
+      <LeftTab>0</LeftTab>
+      <MoveActiveOnFocus>True</MoveActiveOnFocus>
+      <RetainSelectionBlock>True</RetainSelectionBlock>
+      <RightToLeft>No</RightToLeft>
+      <RowSplitBoxAlignment>Leading</RowSplitBoxAlignment>
+      <RowSplitBoxPolicy>Always</RowSplitBoxPolicy>
+      <SelectionBlockOptions>Cells, Rows, Columns, Sheet</SelectionBlockOptions>
+      <SheetCount>1</SheetCount>
+      <TabStrip>
+        <BackColor>Control</BackColor>
+        <Editable>False</Editable>
+        <ButtonPolicy>Always</ButtonPolicy>
+        <ActiveSheetTab />
+        <DefaultSheetTab />
+        <Items>
+          <SheetTab />
+        </Items>
+      </TabStrip>
+      <TabStripPlacement>WithHorizontalScrollBar</TabStripPlacement>
+      <TabStripPolicy>AsNeeded</TabStripPolicy>
+      <TabStripRatio>0.5</TabStripRatio>
+      <TextTipAppearance class="FarPoint.Win.Spread.TipAppearance">
+        <BackColor>Info</BackColor>
+        <ForeColor>InfoText</ForeColor>
+        <Font>
+          <Name>宋体</Name>
+          <Size>9</Size>
+          <Bold>False</Bold>
+          <CharSet>134</CharSet>
+          <Italic>False</Italic>
+          <Strikeout>False</Strikeout>
+          <Underline>False</Underline>
+          <Unit>Point</Unit>
+          <Vertical>False</Vertical>
+        </Font>
+      </TextTipAppearance>
+      <TextTipDelay>500</TextTipDelay>
+      <TextTipPolicy>Off</TextTipPolicy>
+      <VerticalScrollBarWidth>-1</VerticalScrollBarWidth>
+      <VerticalScrollBarPolicy>Always</VerticalScrollBarPolicy>
+      <VisualStyles>Auto</VisualStyles>
+      <SuspendAnimations>False</SuspendAnimations>
+    </RootWorkbook>
+    <Sheets>
+      <Sheet index="0" class="FarPoint.Win.Spread.SheetView">
+        <SheetName>Sheet1</SheetName>
+        <Categories>
+          <Appearance />
+          <Behavior />
+          <Layout>
+            <ColumnCount>16</ColumnCount>
+            <RowCount>1</RowCount>
+            <ActiveColumnIndex>10</ActiveColumnIndex>
+          </Layout>
+        </Categories>
+        <SelectionModel class="FarPoint.Win.Spread.Model.DefaultSheetSelectionModel">
+          <CellRange Row="0" Column="10" RowCount="1" ColumnCount="6" />
+          <AnchorColumn>10</AnchorColumn>
+        </SelectionModel>
+      </Sheet>
+    </Sheets>
+  </Settings>
+  <!--Styles Section - This section contains the workbook and sheet named style collections.-->
+  <Styles>
+    <NamedStyles class="FarPoint.Win.Spread.NamedStyleCollection" />
+  </Styles>
+  <!--Presentation Section - This section contains the column and row properties, cell spans, and the sheet, column, row, and cell styles.-->
+  <Presentation>
+    <Font />
+    <Sheets>
+      <Sheet index="0">
+        <ViewportInfo>
+          <RowPaneCount>1</RowPaneCount>
+          <ColumnPaneCount>1</ColumnPaneCount>
+          <ActiveRowPane>0</ActiveRowPane>
+          <ActiveColumnPane>0</ActiveColumnPane>
+          <RowPanes>
+            <RowPane row="0">
+              <TopRow>0</TopRow>
+              <PreferredHeight>-1</PreferredHeight>
+            </RowPane>
+          </RowPanes>
+          <ColumnPanes>
+            <ColumnPane column="0">
+              <LeftColumn>0</LeftColumn>
+              <PreferredWidth>-1</PreferredWidth>
+            </ColumnPane>
+          </ColumnPanes>
+        </ViewportInfo>
+        <AxisModels>
+          <Row class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="1">
+            <Items>
+              <Item index="-1" />
+            </Items>
+          </Row>
+          <Column class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Horizontal" count="16">
+            <Items>
+              <Item index="-1" />
+              <Item index="0">
+                <Size>120</Size>
+              </Item>
+              <Item index="1">
+                <Size>100</Size>
+              </Item>
+              <Item index="4">
+                <Size>140</Size>
+              </Item>
+              <Item index="5">
+                <Size>100</Size>
+              </Item>
+              <Item index="6">
+                <Size>100</Size>
+              </Item>
+              <Item index="7">
+                <Size>100</Size>
+              </Item>
+              <Item index="8">
+                <Size>220</Size>
+              </Item>
+              <Item index="9">
+                <Size>180</Size>
+              </Item>
+              <Item index="10">
+                <Size>140</Size>
+              </Item>
+              <Item index="11">
+                <Size>100</Size>
+              </Item>
+              <Item index="12">
+                <Size>100</Size>
+              </Item>
+              <Item index="13">
+                <Size>120</Size>
+              </Item>
+              <Item index="14">
+                <Size>120</Size>
+              </Item>
+              <Item index="15">
+                <Size>120</Size>
+              </Item>
+            </Items>
+          </Column>
+          <RowHeaderColumn class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" defaultSize="35" orientation="Horizontal" count="1">
+            <Items>
+              <Item index="-1">
+                <Resizable>True</Resizable>
+                <Size>35</Size>
+              </Item>
+            </Items>
+          </RowHeaderColumn>
+          <ColumnHeaderRow class="FarPoint.Win.Spread.Model.DefaultSheetAxisModel" orientation="Vertical" count="1">
+            <Items>
+              <Item index="-1">
+                <Resizable>True</Resizable>
+              </Item>
+            </Items>
+          </ColumnHeaderRow>
+        </AxisModels>
+        <StyleModels>
+          <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetStyleModel" Rows="1" Columns="16">
+            <AltRowCount>2</AltRowCount>
+            <DefaultStyle class="FarPoint.Win.Spread.StyleInfo" Parent="DataAreaDefault" />
+            <ColumnStyles>
+              <ColumnStyle Index="0" class="FarPoint.Win.Spread.StyleInfo">
+                <Font>
+                  <Name>宋体</Name>
+                  <Size>9</Size>
+                  <Bold>False</Bold>
+                  <CharSet>0</CharSet>
+                  <Italic>False</Italic>
+                  <Strikeout>False</Strikeout>
+                  <Underline>False</Underline>
+                  <Unit>Point</Unit>
+                  <Vertical>False</Vertical>
+                </Font>
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="3" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="5" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="7" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="8" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Left</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="9" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Left</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="10" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="11" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="12" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="13" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="14" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+              <ColumnStyle Index="15" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </ColumnStyle>
+            </ColumnStyles>
+            <CellStyles>
+              <CellStyle Row="0" Column="0" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="1" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="2" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="3" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="4" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="5" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="6" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="7" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="10" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="11" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="12" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="13" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="14" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+              <CellStyle Row="0" Column="15" class="FarPoint.Win.Spread.StyleInfo">
+                <HorizontalAlignment>Center</HorizontalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+              </CellStyle>
+            </CellStyles>
+            <ConditionalFormatCollections />
+          </DataArea>
+        </StyleModels>
+        <Notes class="FarPoint.Win.Spread.DrawingSpace.SpreadNotesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>509</Height>
+          <Width>1124</Width>
+          <Name>spreadNotesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+          <Gradient class="FarPoint.Win.Spread.DrawingSpace.PSGradient">
+            <GradientStyle>None</GradientStyle>
+            <GradientSections>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+              <GradientSection class="FarPoint.Win.Spread.DrawingSpace.GradientSection">
+                <Amount>0</Amount>
+                <Color>#ffffffff</Color>
+              </GradientSection>
+            </GradientSections>
+          </Gradient>
+        </Notes>
+      </Sheet>
+    </Sheets>
+  </Presentation>
+  <!--Drawing Section - This section contains the drawing objects and their properties.-->
+  <Drawing>
+    <Sheets>
+      <Sheet index="0">
+        <DrawingContainer class="FarPoint.Win.Spread.DrawingSpace.SpreadShapesContainer">
+          <Top>0</Top>
+          <Left>0</Left>
+          <Height>509</Height>
+          <Width>1124</Width>
+          <Name>spreadShapesContainer</Name>
+          <Text />
+          <ForeColor>ControlText</ForeColor>
+          <BackColor>Transparent</BackColor>
+          <AlignHorz>Center</AlignHorz>
+          <AlignVert>Center</AlignVert>
+          <AlphaBlendBackColor>255</AlphaBlendBackColor>
+          <Font />
+          <PictureTransparencyColor>Empty</PictureTransparencyColor>
+          <PictureTransparencyTolerance>0</PictureTransparencyTolerance>
+          <ShapeOutlineColor>Black</ShapeOutlineColor>
+          <ShapeOutlineThickness>1</ShapeOutlineThickness>
+          <ShapeOutlineStyle>Solid</ShapeOutlineStyle>
+          <RotationAngle>0</RotationAngle>
+          <PictureRotationAngle>0</PictureRotationAngle>
+          <TextRotationAngle>0</TextRotationAngle>
+          <Anchor>0</Anchor>
+          <Locked>False</Locked>
+          <CanRotate>True</CanRotate>
+          <CanPrint>True</CanPrint>
+          <SizeProportional>False</SizeProportional>
+          <CanMove>None</CanMove>
+          <CanSize>None</CanSize>
+        </DrawingContainer>
+      </Sheet>
+    </Sheets>
+  </Drawing>
+  <!--Data Section - This section contains the sheet data.-->
+  <Data>
+    <EnableCrossSheetReference>True</EnableCrossSheetReference>
+    <Sheets>
+      <Sheet index="0">
+        <DataArea class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="16">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+          <SheetName>Sheet1</SheetName>
+          <Cells>
+            <Cell row="0" column="0">
+              <Tag type="System.String">dtInfo</Tag>
+            </Cell>
+          </Cells>
+        </DataArea>
+        <RowHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="1">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+        </RowHeader>
+        <ColumnHeader class="FarPoint.Win.Spread.Model.DefaultSheetDataModel" rows="1" columns="16">
+          <AutoCalculation>True</AutoCalculation>
+          <AutoGenerateColumns>True</AutoGenerateColumns>
+          <ReferenceStyle>A1</ReferenceStyle>
+          <Iteration>False</Iteration>
+          <MaximumIterations>1</MaximumIterations>
+          <MaximumChange>0.001</MaximumChange>
+          <Cells>
+            <Cell row="0" column="0">
+              <Data type="System.String">门诊号</Data>
+            </Cell>
+            <Cell row="0" column="1">
+              <Data type="System.String">患者姓名</Data>
+            </Cell>
+            <Cell row="0" column="2">
+              <Data type="System.String">性别</Data>
+            </Cell>
+            <Cell row="0" column="3">
+              <Data type="System.String">年龄</Data>
+            </Cell>
+            <Cell row="0" column="4">
+              <Data type="System.String">就诊日期</Data>
+            </Cell>
+            <Cell row="0" column="5">
+              <Data type="System.String">就诊科室</Data>
+            </Cell>
+            <Cell row="0" column="6">
+              <Data type="System.String">看诊医生</Data>
+            </Cell>
+            <Cell row="0" column="7">
+              <Data type="System.String">诊断证明书序号</Data>
+            </Cell>
+            <Cell row="0" column="8">
+              <Data type="System.String">诊断</Data>
+            </Cell>
+            <Cell row="0" column="9">
+              <Data type="System.String">治疗意见</Data>
+            </Cell>
+            <Cell row="0" column="10">
+              <Data type="System.String">诊断证明书打印时间</Data>
+            </Cell>
+            <Cell row="0" column="11">
+              <Data type="System.String">病假建议书序号</Data>
+            </Cell>
+            <Cell row="0" column="12">
+              <Data type="System.String">病假天数</Data>
+            </Cell>
+            <Cell row="0" column="13">
+              <Data type="System.String">病假开始时间</Data>
+            </Cell>
+            <Cell row="0" column="14">
+              <Data type="System.String">病假结束时间</Data>
+            </Cell>
+            <Cell row="0" column="15">
+              <Data type="System.String">病假建议书打印时间</Data>
+            </Cell>
+          </Cells>
+        </ColumnHeader>
+      </Sheet>
+    </Sheets>
+  </Data>
+</Spread>

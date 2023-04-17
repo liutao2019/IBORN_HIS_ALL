@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Spread 说明="根节点">
+  <Sheet1 Locked="True" HorizontalAlignment="General" VerticalAlignment="Center" ZoomFactor="1">
+    <RowHeader Visible="False" />
+    <RowsDefault Height="24" VerticalAlignment="Center" HorizontalAlignment="General" />
+    <ColumnHeaderRows Count="1" Height="20" />
+    <ColumnHeaderDefault VerticalAlignment="General" HorizontalAlignment="General" FontName="宋体" FontSize="9" FontStyle="Regular" />
+    <Column Count="17">
+      <Column0 Index="0" Width="0" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="True" AllowAutoSort="False" />
+      <Column1 Index="1" Width="0" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="True" AllowAutoSort="False" />
+      <Column2 Index="2" Width="132" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="True" AllowAutoSort="False" />
+      <Column3 Index="3" Width="100" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="True" AllowAutoSort="False" />
+      <Column4 Index="4" Width="60" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="True" AllowAutoSort="False" />
+      <Column5 Index="5" Width="15" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="True" AllowAutoSort="False" />
+      <Column6 Index="6" Width="40" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="NumberCellType" DecimalPlaces="4" ReadOnly="True" AllowAutoSort="False" />
+      <Column7 Index="7" Width="40" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="NumberCellType" DecimalPlaces="2" ReadOnly="True" AllowAutoSort="False" />
+      <Column8 Index="8" Width="40" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="NumberCellType" DecimalPlaces="4" ReadOnly="True" AllowAutoSort="False" />
+      <Column9 Index="9" Width="40" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="NumberCellType" DecimalPlaces="2" ReadOnly="True" AllowAutoSort="False" />
+      <Column10 Index="10" Width="60" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" ReadOnly="True" AllowAutoSort="False" />
+      <Column11 Index="11" Width="120" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column12 Index="12" Width="0" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column13 Index="13" Width="0" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column14 Index="14" Width="0" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column15 Index="15" Width="0" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+      <Column16 Index="16" Width="0" Visible="True" HorizontalAlignment="General" VerticalAlignment="General" CellType="TextCellType" WordWrap="False" ReadOnly="False" AllowAutoSort="False" />
+    </Column>
+    <ColumnHeaderCell>
+      <Row0Col0 Text="IN_BILL_CODE" TextAS="入库流水号" RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1" />
+      <Row0Col1 Text="DRUG_CODE" TextAS="药品编码" RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1" />
+      <Row0Col2 Text="TRADE_NAME" TextAS="名称" RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1" />
+      <Row0Col3 Text="SPECS" TextAS="规格" RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1" />
+      <Row0Col4 Text="IN_NUM" TextAS="入库数量" RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1" />
+      <Row0Col5 Text="PACK_UNIT" TextAS="单位" RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1" />
+      <Row0Col6 Text="PURCHASE_PRICE" TextAS="购入价" RowIndex="0" ColumnIndex="6" RowSpan="1" ColumnSpan="1" />
+      <Row0Col7 Text="PURCHASE_COST" TextAS="购入金额" RowIndex="0" ColumnIndex="7" RowSpan="1" ColumnSpan="1" />
+      <Row0Col8 Text="RETAIL_PRICE" TextAS="零售价" RowIndex="0" ColumnIndex="8" RowSpan="1" ColumnSpan="1" />
+      <Row0Col9 Text="RETAIL_COST" TextAS="零售金额" RowIndex="0" ColumnIndex="9" RowSpan="1" ColumnSpan="1" />
+      <Row0Col10 Text="IN_DATE" TextAS="入库时间" RowIndex="0" ColumnIndex="10" RowSpan="1" ColumnSpan="1" />
+      <Row0Col11 Text="FAC_NAME" TextAS="供货单位" RowIndex="0" ColumnIndex="11" RowSpan="1" ColumnSpan="1" />
+      <Row0Col12 Text="CUSTOM_CODE" TextAS="自定义码" RowIndex="0" ColumnIndex="12" RowSpan="1" ColumnSpan="1" />
+      <Row0Col13 Text="SPELL_CODE" TextAS="拼音码" RowIndex="0" ColumnIndex="13" RowSpan="1" ColumnSpan="1" />
+      <Row0Col14 Text="WB_CODE" TextAS="五笔码" RowIndex="0" ColumnIndex="14" RowSpan="1" ColumnSpan="1" />
+      <Row0Col15 Text="REGULAR_SPELL" TextAS="通用名拼音码" RowIndex="0" ColumnIndex="15" RowSpan="1" ColumnSpan="1" />
+      <Row0Col16 Text="REGULAR_WB" TextAS="通用名五笔码" RowIndex="0" ColumnIndex="16" RowSpan="1" ColumnSpan="1" />
+    </ColumnHeaderCell>
+  </Sheet1>
+</Spread>

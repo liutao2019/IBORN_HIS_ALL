@@ -1,0 +1,81 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>期初时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd HH:mm:ss</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>期末时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd HH:mm:ss</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>240</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dtDept</Name><Text>仓库：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="Neusoft.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>475</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select d.dept_code,d.dept_name,'',d.hospital_name,d.spell_code,d.wb_code from com_department d where d.dept_type in ('P')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>itemCode</Name><Text>药品：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="Neusoft.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>680</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select p.drug_code,p.trade_name,'',p.spell_code,p.wb_code from pha_com_baseinfo p where p.valid_state=1</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>
+select  
+     nvl(b.custom_code,b.drug_code) 药品编号,
+       --b.drug_code,
+       b.trade_name 商品名,
+       b.specs 药品规格,
+       b.min_unit 单位,
+       nvl(sum(store_num_mo),0) 库存数量,'',
+      nvl(sum(st.store_sum-nvl(i.in_num,0)+nvl(o.out_num,0)),0) 期初,nvl(sum(store_num_mo),0) 期末,nvl(sum(ta.out_num),0) 期间
+      ,case when nvl(sum(ta.out_num),0)=0 then 0 else
+      nvl(cast(((sum(st.store_sum-nvl(i.in_num,0)+nvl(o.out_num,0))+sum(store_num_mo))/2)/(sum(ta.out_num)/to_char(last_day(TO_DATE('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')),'dd')) as number(18,5)),0) end 周转天数
+      ,case when nvl(sum(store_num_mo),0)&lt;&gt;0 and nvl(sum(ta.out_num),0)=0 then '无使用的库存品种'
+              when nvl(sum(store_num_mo),0)=0 and nvl(sum(ta.out_num),0)=0 then '全月无库存' 
+               else '' end 类型
+from pha_com_baseinfo b  ,pha_com_stockinfo st  
+left join (select sum(in_num) in_num,sum(purchase_cost) purchase_cost,sum(retail_cost) retail_cost,drug_dept_code drug_dept_code,drug_code  drug_code
+                  from pha_com_input 
+                  where in_date&gt;to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+                  and drug_dept_code='&amp;dtDept'
+                  group by drug_dept_code,drug_code ) i 
+          on i.drug_dept_code=st.drug_dept_code and i.drug_code=st.drug_code 
+left join (select sum(out_num) out_num,sum(purchase_price) purchase_cost,sum(retail_price) retail_cost, drug_dept_code drug_dept_code,drug_code drug_code 
+                  from pha_com_output 
+                  where out_date &gt;to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+                  and drug_dept_code='&amp;dtDept'
+                  group by drug_dept_code,drug_code) o 
+          on o.drug_dept_code=st.drug_dept_code  and o.drug_code=st.drug_code
+left join (select  
+     nvl(b.custom_code,b.drug_code) custom_code,
+     b.drug_code,
+       b.trade_name,
+       b.specs,
+       b.min_unit,
+      sum(st.store_sum-nvl(i.in_num,0)+nvl(o.out_num,0)) store_num_mo
+from pha_com_baseinfo b ,pha_com_stockinfo st  
+left join (select sum(in_num) in_num,sum(purchase_cost) purchase_cost,sum(retail_cost) retail_cost,drug_dept_code drug_dept_code,drug_code  drug_code
+                  from pha_com_input 
+                  where in_date&gt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+                  and drug_dept_code='&amp;dtDept'
+                  group by drug_dept_code,drug_code ) i 
+          on i.drug_dept_code=st.drug_dept_code and i.drug_code=st.drug_code 
+left join (select sum(out_num) out_num,sum(purchase_price) purchase_cost,sum(retail_price) retail_cost, drug_dept_code drug_dept_code,drug_code drug_code 
+                  from pha_com_output 
+                  where out_date &gt;to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')
+                  and drug_dept_code='&amp;dtDept'
+                  group by drug_dept_code,drug_code) o 
+          on o.drug_dept_code=st.drug_dept_code  and o.drug_code=st.drug_code
+where b.drug_code=st.drug_code
+and st.drug_dept_code ='&amp;dtDept'
+and (b.drug_code like '&amp;itemCode' or '&amp;itemCode' ='ALL')
+--and st.in_date&lt;to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+group by 
+      b.custom_code,
+      b.drug_code, 
+      b.trade_name,
+       b.specs,
+       b.min_unit) tt  on st.drug_code=tt.drug_code
+left join (   select drug_code drug_code ,sum(out_num) out_num
+                  from pha_com_output 
+                  where to_char(out_date,'yyyy-mm')=to_char(to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss'),'yyyy-mm')
+                  and drug_dept_code='&amp;dtDept'
+                  and out_type in ('M1','M2','Z1','Z2')
+                  --and drug_code='Y00000000197'
+                  group by drug_dept_code,drug_code)ta on st.drug_code=ta.drug_code
+where b.drug_code=st.drug_code
+and st.drug_dept_code ='&amp;dtDept'
+and (b.drug_code like '&amp;itemCode' or '&amp;itemCode' ='ALL')
+and b.valid_state=1 and st.valid_state=1
+--and st.in_date&lt;to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss')
+group by 
+      b.custom_code,
+      b.drug_code, 
+      b.trade_name,
+       b.specs,
+       b.min_unit
+       --having nvl(sum(ta.out_num),0)&lt;&gt;0
+       order by b.custom_code
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\药房\药品周转率查询设置.xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

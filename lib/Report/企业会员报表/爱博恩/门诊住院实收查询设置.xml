@@ -1,0 +1,90 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dataSource</Name><Sql>--患者门诊住院（非套餐）实收明细表
+SELECT *
+FROM(
+    --查询门诊患者费用
+    SELECT
+        PA.NAME 姓名,
+        CASE PA.SEX_CODE WHEN 'F' THEN '女' WHEN 'M' THEN '男' END 性别,
+        
+        PA.HOME_TEL 手机号,
+        FD.CARD_NO 卡号,
+        FD.FEE_DATE 结算时间,
+        (SELECT FC.FEE_STAT_NAME FROM FIN_COM_FEECODESTAT FC
+            WHERE FC.REPORT_CODE = 'ZY01' AND FC.FEE_CODE = FD.FEE_CODE) 费用名称,
+        FD.ITEM_CODE 项目编码,
+        FD.ITEM_NAME 项目名称,
+        FD.SPECS 项目规格,
+        FD.UNIT_PRICE 原价,
+        FD.OWN_COST- FD.ECO_COST- FD.DONATE_COST 实收,
+        TO_CHAR(FD.QTY) 数量,
+        FD.PRICE_UNIT 单位,
+        '门诊费用' 费用类型
+    FROM FIN_OPB_FEEDETAIL FD
+        LEFT JOIN COM_PATIENTINFO PA ON FD.CARD_NO = PA.CARD_NO
+    WHERE FD.FEE_DATE between to_date('&amp;dtBeginTime','yyyy-MM-dd HH24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd HH24:mi:ss')+1
+    UNION ALL
+    --查询住院患者实收费用（非套餐）
+    SELECT
+        PAT.NAME 姓名,
+        CASE PAT.SEX_CODE WHEN 'F' THEN '女' WHEN 'M' THEN '男' END 性别,
+        PAT.HOME_TEL 手机号,
+        T.CARD_NO 卡号,
+        T.结算时间, T.费用名称, T.项目编号, T.项目名称, T.项目规格,
+        T.金额 原价, T.实收金额 实收, T.数量, T.单位,
+        '住院费用' 费用类型--, T.住院号, T.就诊卡号
+    FROM COM_PATIENTINFO PAT,
+        (SELECT
+                (select g.fee_stat_name from fin_com_feecodestat g where g.report_code = 'ZY01' and g.fee_code = e.fee_code) as  费用名称,
+                (select nvl(t.gb_code, t.custom_code) from pha_com_baseinfo t where t.drug_code = e.drug_code) as 项目编号,
+                e.drug_name 项目名称,
+                e.specs as 项目规格,
+                (case when round(e.unit_price / e.pack_qty, 4)&lt;1 then '0'||to_char(round(e.unit_price / e.pack_qty, 4)) else to_char(round(e.unit_price / e.pack_qty, 4)) end) 单价,
+                (case when round(sum(e.qty), 2)&lt;1 then  ''||to_char(round(sum(e.qty), 2)) else to_char(round(sum(e.qty), 2)) end)  as 数量,
+                e.current_unit as 单位,
+                round(sum(e.tot_cost), 2) as 金额,
+                B.CARD_NO,
+                E.FEE_DATE 结算时间,
+                round(sum(e.tot_cost -e.eco_cost -NVL(e.donate_cost, 0)), 2) 实收金额
+                --B.INPATIENT_NO 住院号,
+                --B.CARD_NO 就诊卡号
+            from fin_ipb_medicinelist e, fin_ipr_inmaininfo b
+            where e.inpatient_no = b.inpatient_no
+            and ((e.inpatient_no IN
+                (select ib.inpatient_no from fin_ipb_balancehead ib WHERE ib.trans_type='1' and ib.waste_flag='1')
+            ))
+            AND E.PACKAGE_FLAG = '0'    --非套餐
+            group by e.fee_code, e.drug_code, e.drug_name, e.specs, e.unit_price, e.pack_qty, e.current_unit, B.CARD_NO, E.FEE_DATE
+            having round(sum(e.tot_cost), 2) &lt;&gt; 0
+        union all
+        SELECT
+                (select c.fee_stat_name from fin_com_feecodestat c where c.report_code = 'ZY01' and c.fee_code = a.fee_code) as 费用名称,
+                (select nvl(t.gb_code, t.input_code) from fin_com_undruginfo t where t.item_code = a.item_code) as 项目编号,
+                a.item_name 项目名称,
+                (select t.specs from fin_com_undruginfo t where t.item_code = a.item_code) as 项目规格,
+                (case when a.unit_price&lt;1 then '0'||to_char(a.unit_price) else to_char(a.unit_price) end) as 单价,
+                (case when round(sum(a.qty), 2)&lt;1 THEN ''||to_char(round(sum(a.qty), 2)) else to_char(round(sum(a.qty), 2)) end) as 数量,
+                a.current_unit as 单位,
+                round(sum(a.tot_cost), 2) as 金额,
+                B.CARD_NO, A.FEE_DATE 结算时间,
+                round(sum(a.tot_cost -a.eco_cost -NVL(a.donate_cost, 0)), 2) 实收金额
+                --B.INPATIENT_NO 住院号,
+                --B.CARD_NO 就诊卡号
+            from fin_ipb_itemlist a, fin_ipr_inmaininfo b
+            where a.inpatient_no = b.inpatient_no
+            and ((a.inpatient_no IN
+                (select ib.inpatient_no from fin_ipb_balancehead ib WHERE ib.trans_type='1' and ib.waste_flag='1')
+            ))
+            AND A.PACKAGE_FLAG = '0'    --非套餐
+            group by a.fee_code, a.item_code, a.item_name, a.unit_price, a.current_unit, B.CARD_NO, A.FEE_DATE
+            having round(sum(a.tot_cost), 2) &lt;&gt; 0
+            order by  费用名称,项目名称
+        ) T
+    WHERE PAT.CARD_NO = T.CARD_NO
+    AND PAT.HOME_TEL IN
+        (SELECT CU.CUSPHONE FROM DOOD_CUS_MESS CU )
+    AND T.结算时间 between to_date('&amp;dtBeginTime','yyyy-MM-dd HH24:mi:ss') and to_date('&amp;dtEndTime','yyyy-MM-dd HH24:mi:ss')
+)TMP
+ORDER BY TMP.结算时间 DESC
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\企业会员报表\爱博恩\门诊住院实收查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

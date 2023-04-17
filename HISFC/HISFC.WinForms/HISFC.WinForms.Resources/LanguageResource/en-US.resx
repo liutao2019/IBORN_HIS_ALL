@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="S收费" xml:space="preserve">
+    <value>Charge</value>
+  </data>
+  <data name="个人组套" xml:space="preserve">
+    <value>Personal Combination</value>
+  </data>
+  <data name="中成药" xml:space="preserve">
+    <value>Chinese Patent Drug</value>
+  </data>
+  <data name="中草药" xml:space="preserve">
+    <value>Chinese Herbal Medicine</value>
+  </data>
+  <data name="会诊" xml:space="preserve">
+    <value>Consultation</value>
+  </data>
+  <data name="使用方法" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="保存" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="保存成功" xml:space="preserve">
+    <value>Save Succesed</value>
+  </data>
+  <data name="修改" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="修改用户" xml:space="preserve">
+    <value>Modify User</value>
+  </data>
+  <data name="全部药品信息" xml:space="preserve">
+    <value>Drug Classification</value>
+  </data>
+  <data name="全院组套" xml:space="preserve">
+    <value>Hospital Combination</value>
+  </data>
+  <data name="其它" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="删除" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="删除常数" xml:space="preserve">
+    <value>Delete Constants</value>
+  </data>
+  <data name="删除成功" xml:space="preserve">
+    <value>Delete Succesed</value>
+  </data>
+  <data name="删除报表" xml:space="preserve">
+    <value>Delete Reports</value>
+  </data>
+  <data name="删除菜单" xml:space="preserve">
+    <value>Delete Menu</value>
+  </data>
+  <data name="删除角色" xml:space="preserve">
+    <value>Delete Role</value>
+  </data>
+  <data name="刷新" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="医嘱" xml:space="preserve">
+    <value>Recommendation</value>
+  </data>
+  <data name="医嘱颜色信息提示" xml:space="preserve">
+    <value>Green:New Blue:Exec Red:Cancel</value>
+  </data>
+  <data name="历史医嘱" xml:space="preserve">
+    <value>History Recommendation</value>
+  </data>
+  <data name="原料" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="发票号" xml:space="preserve">
+    <value>Invoice NO</value>
+  </data>
+  <data name="名称" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="否" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="增加" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="增加常数" xml:space="preserve">
+    <value>Add Constants</value>
+  </data>
+  <data name="增加报表" xml:space="preserve">
+    <value>Add Reports</value>
+  </data>
+  <data name="增加用户" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="增加菜单" xml:space="preserve">
+    <value>Add Menu</value>
+  </data>
+  <data name="增加角色" xml:space="preserve">
+    <value>Add Role</value>
+  </data>
+  <data name="处方号" xml:space="preserve">
+    <value>RecipeNO</value>
+  </data>
+  <data name="复制" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="导入" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="导出" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="导出成功" xml:space="preserve">
+    <value>Export Succesed</value>
+  </data>
+  <data name="常数名称" xml:space="preserve">
+    <value>Constant Name</value>
+  </data>
+  <data name="弹出维护" xml:space="preserve">
+    <value>Detail Maintenance</value>
+  </data>
+  <data name="手动打印" xml:space="preserve">
+    <value>Manual Print</value>
+  </data>
+  <data name="手工打印" xml:space="preserve">
+    <value>Manual Print</value>
+  </data>
+  <data name="手术" xml:space="preserve">
+    <value>Operation</value>
+  </data>
+  <data name="打印" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="护理级别" xml:space="preserve">
+    <value>Tend Level</value>
+  </data>
+  <data name="报表名称" xml:space="preserve">
+    <value>Report Name</value>
+  </data>
+  <data name="拼音码" xml:space="preserve">
+    <value>Chinese Code</value>
+  </data>
+  <data name="描述医嘱" xml:space="preserve">
+    <value>Describe Recommendation</value>
+  </data>
+  <data name="操作员" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="是" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="查找用户" xml:space="preserve">
+    <value>Find User</value>
+  </data>
+  <data name="查询" xml:space="preserve">
+    <value>Query</value>
+  </data>
+  <data name="检查" xml:space="preserve">
+    <value>Exam</value>
+  </data>
+  <data name="检验" xml:space="preserve">
+    <value>Checkup</value>
+  </data>
+  <data name="每次剂量" xml:space="preserve">
+    <value>Dose</value>
+  </data>
+  <data name="治疗" xml:space="preserve">
+    <value>Treatment</value>
+  </data>
+  <data name="用户授权" xml:space="preserve">
+    <value>User Authorization</value>
+  </data>
+  <data name="病例卡号" xml:space="preserve">
+    <value>Case No</value>
+  </data>
+  <data name="病历" xml:space="preserve">
+    <value>Outpatient Record</value>
+  </data>
+  <data name="病情" xml:space="preserve">
+    <value>Disease Condition</value>
+  </data>
+  <data name="直接维护" xml:space="preserve">
+    <value>Simple Maintenance</value>
+  </data>
+  <data name="直接维护列设置" xml:space="preserve">
+    <value>Simple Maintenance Setting</value>
+  </data>
+  <data name="科室" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="科室组套" xml:space="preserve">
+    <value>Department Combination</value>
+  </data>
+  <data name="系统时间" xml:space="preserve">
+    <value>DateTime</value>
+  </data>
+  <data name="组套" xml:space="preserve">
+    <value>Combination</value>
+  </data>
+  <data name="编码" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="膳食" xml:space="preserve">
+    <value>Diet</value>
+  </data>
+  <data name="自动打印" xml:space="preserve">
+    <value>Auto Print</value>
+  </data>
+  <data name="自定义码" xml:space="preserve">
+    <value>Input Code</value>
+  </data>
+  <data name="药品列表" xml:space="preserve">
+    <value>Query Drug</value>
+  </data>
+  <data name="药品名称" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="药品性质" xml:space="preserve">
+    <value>Nature Of The Drug</value>
+  </data>
+  <data name="药理作用查询" xml:space="preserve">
+    <value>Query Pharmacological Effect</value>
+  </data>
+  <data name="菜单名称" xml:space="preserve">
+    <value>Menu Name</value>
+  </data>
+  <data name="菜单授权" xml:space="preserve">
+    <value>Menu Authorization</value>
+  </data>
+  <data name="西药" xml:space="preserve">
+    <value>West Medicine</value>
+  </data>
+  <data name="规格" xml:space="preserve">
+    <value>Specs</value>
+  </data>
+  <data name="计量" xml:space="preserve">
+    <value>Measure</value>
+  </data>
+  <data name="设置" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="诊断" xml:space="preserve">
+    <value>Diagnosis</value>
+  </data>
+  <data name="资源名称" xml:space="preserve">
+    <value>Resource Name</value>
+  </data>
+  <data name="转床" xml:space="preserve">
+    <value>Transfer Bed</value>
+  </data>
+  <data name="转科" xml:space="preserve">
+    <value>Transfer Department</value>
+  </data>
+  <data name="退出" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="选择医嘱" xml:space="preserve">
+    <value>Select Recommendation</value>
+  </data>
+  <data name="门诊医生" xml:space="preserve">
+    <value>Out-Patient Medical WorkStation</value>
+  </data>
+  <data name="门诊医生站" xml:space="preserve">
+    <value>Out-Patient Medical WorkStation</value>
+  </data>
+  <data name="门诊病历" xml:space="preserve">
+    <value>Outpatient Record</value>
+  </data>
+  <data name="间隔时间" xml:space="preserve">
+    <value>Interval</value>
+  </data>
+  <data name="非药品" xml:space="preserve">
+    <value>Non-Drug</value>
+  </data>
+  <data name="非药品列表" xml:space="preserve">
+    <value>Query Non-Drug</value>
+  </data>
+  <data name="顺序号" xml:space="preserve">
+    <value>Serial No.</value>
+  </data>
+  <data name="预约出院" xml:space="preserve">
+    <value>Leave Hospital</value>
+  </data>
+  <data name="预览" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+</root>

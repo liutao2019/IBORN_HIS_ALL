@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!-- 报卡编码可以在编码维护中看到 -->
+<Setting>
+	<Module>
+		<Name>通用查询测试2</Name> <!--菜单名-->
+		<Code>Infectious_Disease_Card</Code><!--报卡编码，多个用逗号隔开-->
+		<CodeName>传染病报卡</CodeName><!--报卡名称，与编码要一一对应，多个用逗号隔开-->
+	</Module>
+	<Module>
+		<Name>通用查询测试</Name>
+		<Code>Infectious_Disease_Card,Tumor_Card</Code>
+		<CodeName>传染病报卡,肿瘤报卡</CodeName>
+	</Module>
+</Setting>

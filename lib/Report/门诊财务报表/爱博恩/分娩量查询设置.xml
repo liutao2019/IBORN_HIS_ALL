@@ -1,0 +1,23 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>DataSorce</Name><Sql>SELECT
+    (SELECT II.PATIENT_NO FROM FIN_IPR_INMAININFO II WHERE II.Inpatient_No = BB.INPATIENT_NO) BB住院号,
+    (SELECT II.CARD_NO FROM FIN_IPR_INMAININFO II WHERE II.Inpatient_No = BB.INPATIENT_NO) BB就诊卡号,
+    BB.NAME BB姓名,
+    CASE BB.SEX_CODE WHEN 'M' THEN '男' WHEN 'F' THEN '女' END AS BB性别,
+    BB.BIRTHDAY BB出生日期,
+    BB.WEIGHT BB体重,
+    BB.HEIGHT BB身长,
+    BB.DELIVERY_NAME 分娩方式,
+    (SELECT II.PATIENT_NO FROM FIN_IPR_INMAININFO II WHERE II.Inpatient_No = BB.Mother_Inpatient_No) 母亲住院号,
+    (SELECT II.CARD_NO FROM FIN_IPR_INMAININFO II WHERE II.Inpatient_No = BB.Mother_Inpatient_No) 母亲就诊卡号,
+    (SELECT II.NAME FROM FIN_IPR_INMAININFO II WHERE II.Inpatient_No = BB.Mother_Inpatient_No) 母亲姓名,
+    (SELECT TO_CHAR(II.BIRTHDAY, 'yyyy-mm-dd') FROM FIN_IPR_INMAININFO II WHERE II.INPATIENT_NO = BB.Mother_Inpatient_No) 母亲出生日期,
+    (SELECT II.IDENNO FROM FIN_IPR_INMAININFO II WHERE II.INPATIENT_NO = BB.Mother_Inpatient_No) 母亲证件号,
+    (SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = BB.OPER_CODE) 登记人姓名,
+    BB.OPER_DATE 登记时间
+FROM FIN_IPR_BABYINFO BB        --婴儿住院主表
+WHERE BB.BIRTHDAY BETWEEN TO_DATE('&amp;dtBeginTime', 'yyyy-MM-dd HH24:mi:ss') AND TO_DATE('&amp;dtEndTime', 'yyyy-MM-dd HH24:mi:ss')+1
+AND BB.CANCEL_FLAG = '0'        --取消标志
+AND (SELECT II.PATIENT_NO FROM FIN_IPR_INMAININFO II WHERE II.Inpatient_No = BB.Mother_Inpatient_No) NOT LIKE '%Y%'     --月子
+AND (SELECT II.PATIENT_NO FROM FIN_IPR_INMAININFO II WHERE II.Inpatient_No = BB.Mother_Inpatient_No) NOT LIKE '%L%'     --临时
+ORDER BY BB.BIRTHDAY DESC
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\分娩量查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

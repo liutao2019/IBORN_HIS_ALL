@@ -1,0 +1,71 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>txtname</Name><Text>姓名/住院号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select fi.patient_no 住院号 , 
+       a.name 姓名, 
+       a.item_code 项目编码,
+       a.input_code 自定义码, 
+       a.item_name 项目名称,
+       a.specs 规格, 
+       a.current_unit 单位, 
+       a.unit_price 单价, 
+       a.qty 数量, 
+       a.tot_cost 总价, 
+       a.zh_cost 折后价, 
+       a.jm_cost 减免价,
+       charge_date 费用发生日期
+  from (
+    select l.inpatient_no,
+           l.name,  
+           l.item_code,
+           l.item_name,
+           fu.specs,
+           (case when l.unit_price&lt;1 then '0'||to_char(l.unit_price) else to_char(l.unit_price) end) as unit_price,
+           (case when round(sum(l.qty), 2)&lt;1 then  to_char(round(sum(l.qty), 2)) else to_char(round(sum(l.qty), 2)) end) as qty,
+           l.current_unit as current_unit,
+           round(sum(l.tot_cost), 2) as tot_cost,
+           round(sum(l.tot_cost), 2)- round(sum(nvl(l.donate_cost,0)),2)- round(sum(nvl(l.eco_cost,0)),2) zh_cost,
+           round(sum(nvl(l.donate_cost,0)),2)+ round(sum(nvl(l.eco_cost,0)),2) jm_cost,
+           fu.input_code,
+           to_char(l.charge_date,'yyyy-mm-dd') charge_date
+      from fin_ipb_itemlist l 
+      left join fin_com_undruginfo fu on l.item_code=fu.item_code
+     group by l.inpatient_no,
+              l.name,  
+              l.item_code,
+              l.item_name,
+              fu.specs,
+              (case when l.unit_price&lt;1 then '0'||to_char(l.unit_price) else to_char(l.unit_price) end) ,
+              l.current_unit ,
+              fu.input_code,
+              to_char(l.charge_date,'yyyy-mm-dd')
+     union all
+    select m.inpatient_no,
+           m.name,
+           m.drug_code,
+           m.drug_name,
+           m.specs,
+           (case when round(m.unit_price / m.pack_qty, 4)&lt;1 then '0'||to_char(round(m.unit_price / m.pack_qty, 4)) else to_char(round(m.unit_price / m.pack_qty, 4)) end) unit_price,
+           (case when round(sum(m.qty), 2)&lt;1 then  to_char(round(sum(m.qty), 2)) else to_char(round(sum(m.qty), 2)) end)  as qty,
+           m.current_unit as current_unit,
+           round(sum(m.tot_cost), 2) as tot_cost,
+           round(sum(m.tot_cost), 2)- round(sum(nvl(m.donate_cost,0)),2)- round(sum(nvl(m.eco_cost,0)),2) zh_cost,
+           round(sum(nvl(m.donate_cost,0)),2)+ round(sum(nvl(m.eco_cost,0)),2) jm_cost,
+           pb.custom_code,
+           to_char(m.charge_date,'yyyy-mm-dd') charge_date
+      from fin_ipb_medicinelist m
+      left join pha_com_baseinfo pb on m.drug_code=pb.drug_code
+     group by m.inpatient_no,
+              m.name,
+              m.drug_code,
+              m.drug_name,
+              m.specs,
+              (case when round(m.unit_price / m.pack_qty, 4)&lt;1 then '0'||to_char(round(m.unit_price / m.pack_qty, 4)) else to_char(round(m.unit_price / m.pack_qty, 4)) end) ,
+              m.current_unit,
+              pb.custom_code,
+              to_char(m.charge_date,'yyyy-mm-dd'))a
+ inner join gzsi_his_fyjs b on a.inpatient_no=b.inpatient_no
+  left join gzsi_his_cfxm c on b.jsid=c.jsid and b.jydjh=c.jydjh and a.input_code=c.xmbh and a.charge_date=to_char(c.fyrq,'yyyy-mm-dd')
+  left join fin_ipr_inmaininfo fi on a.inpatient_no=fi.inpatient_no
+ where c.jsid is null
+   and fi.balance_date between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1
+   and (fi.patient_no='&amp;txtname' or fi.name='&amp;txtname' or '&amp;txtname' is null)
+ order by fi.patient_no
+  </Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\住院医保患者未上传费用明细设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,359 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtType</Name><Text>类型</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TreeViewType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsCheckBox>true</IsCheckBox><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>DataSource</QueryDataSource><DataSourceTypeName>dtType</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtBeginTime</Name><Text>时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>160</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dtEndTime</Name><Text>至</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>160</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>250</X><Y>0</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtData</Name><Sql>select rtrim(f.dept_name,'住院') 科室名称,
+       /*(select nvl(y.mark,0) from com_dictionary y
+       where y.type='DEPTBED'
+       and y.code=f.dept_code
+       and y.valid_state='1')*/nvl(y.mark,0) 床位数,
+       (select nvl(sum(decode(g.clinic_no, 'N', 0, 1)),0)
+          from com_bedinfo_log g
+         where g.dept_code = f.dept_code
+           and g.bed_state != 'W'
+           and g.log_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')-1
+       and g.log_date&lt;to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')) 原有人数,
+       (select nvl(sum(case
+                         when s.shift_type = 'K' then
+                          count((s.clinic_no))
+                         when s.shift_type = 'C' then
+                          count((s.clinic_no))
+                           when s.shift_type = 'CK' then
+                          -count((s.clinic_no))
+                         else
+                          0
+                       end),
+                   0) 入院人数
+          from com_shiftdata s, fin_ipr_inmaininfo i
+         where s.clinic_no = i.inpatient_no
+           and ((s.shift_type='K' /*'接诊'*/
+           and s.old_data_code=(select g.pardep_code from com_deptstat g
+                                where g.stat_code='01'
+                                and g.dept_code=f.dept_code)
+            and exists(select 1 from com_shiftdata a
+                              where a.clinic_no=s.clinic_no
+                              and a.shift_type in ('B'/*登记*/,'CD'/*修改科室*/)
+                              and a.new_data_code=f.dept_code))
+            or (s.shift_type='C' /*召回*/
+         and exists(select 1 from com_shiftdata a
+                              where a.clinic_no=s.clinic_no
+                              and a.shift_type in ('EO'/*出院登记取消*/)
+                              and a.old_data_code=f.dept_code))
+                              or  (s.shift_type='CK' /*'取消接诊'*/
+           and s.new_data_code=(select g.pardep_code from com_deptstat g
+                                where g.stat_code='01'
+                                and g.dept_code=f.dept_code)
+            and exists(select 1 from com_shiftdata a
+                              where a.clinic_no=s.clinic_no
+                              and a.shift_type in ('B'/*登记*/,'CD'/*修改科室*/)
+                              and a.new_data_code=f.dept_code)))
+           and i.patient_no not like 'B%'
+           and not exists(select 1 from com_shiftdata a
+           where a.clinic_no=s.clinic_no
+           and a.shift_type='OF')
+           and s.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and s.oper_date &lt; to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+         group by s.shift_type) 入院人数,/**********************************/
+       (select nvl(sum(case
+                         when s.shift_type = 'RI' then
+                          count(distinct(s.clinic_no))
+                         else
+                          0
+                       end),
+                   0) 转入病人数
+          from com_shiftdata s, fin_ipr_inmaininfo i
+         where s.clinic_no = i.inpatient_no
+           and s.shift_type = 'RI' /*转入*/
+           and s.new_data_code = f.dept_code
+           and s.shift_cause not in ('修改科室', '修改病区')
+           and i.patient_no not like 'B%'
+           and not exists(select 1 from com_shiftdata a
+           where a.clinic_no=s.clinic_no
+           and a.shift_type='OF')
+           and s.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and s.oper_date &lt; to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+         group by s.shift_type) 他科转入,
+       
+       (select nvl(sum(case
+                         when s.shift_type = 'O' then
+                          count((s.clinic_no))
+                         else
+                          0
+                       end),
+                   0) 出院病人数
+          from com_shiftdata s, fin_ipr_inmaininfo i
+         where s.clinic_no = i.inpatient_no
+           and s.shift_type = 'O' /*出院等级*/
+           and s.old_data_code = f.dept_code
+           and s.shift_cause not in ('修改科室', '修改病区')
+           and i.patient_no not like 'B%'
+           and not exists(select 1 from com_shiftdata a
+           where a.clinic_no=s.clinic_no
+           and a.shift_type='OF')
+           and s.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and s.oper_date &lt; to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+         group by s.shift_type) 出院人数,
+       
+       (select nvl(sum(case
+                         when s.shift_type = 'O' then
+                          count((s.clinic_no))
+                         else
+                          0
+                       end),
+                   0) 出院病人数
+          from com_shiftdata s, fin_ipr_inmaininfo i
+         where s.clinic_no = i.inpatient_no
+           and s.shift_type = 'O' /*出院等级*/
+           and s.old_data_code = f.dept_code
+           and s.shift_cause not in ('修改科室', '修改病区')
+           and i.patient_no not like 'B%'
+           and not exists(select 1 from com_shiftdata a
+           where a.clinic_no=s.clinic_no
+           and a.shift_type='OF')
+           and i.zg = (select y.code
+                         from com_dictionary y
+                        where y.type = 'ZG'
+                          and y.valid_state = '1'
+                          and y.name like '%死亡%')
+           and s.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and s.oper_date &lt; to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+         group by s.shift_type) 死亡,
+       (select nvl(sum(case
+                         when s.shift_type = 'O' then
+                          count((s.clinic_no))
+                         else
+                          0
+                       end),
+                   0) 出院病人数
+          from com_shiftdata s, fin_ipr_inmaininfo i
+         where s.clinic_no = i.inpatient_no
+           and s.shift_type = 'O' /*出院等级*/
+           and s.old_data_code = f.dept_code
+           and s.shift_cause not in ('修改科室', '修改病区')
+           and i.patient_no not like 'B%'
+           and not exists(select 1 from com_shiftdata a
+           where a.clinic_no=s.clinic_no
+           and a.shift_type='OF')
+           and i.out_date &lt; i.in_date + 1
+           and i.zg = (select y.code
+                         from com_dictionary y
+                        where y.type = 'ZG'
+                          and y.valid_state = '1'
+                          and y.name like '%死亡%')
+           and s.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and s.oper_date &lt; to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+         group by s.shift_type) 二十四,       
+       (select nvl(sum(case
+                         when s.shift_type = 'RO' then
+                          count(distinct(s.clinic_no))
+                         else
+                          0
+                       end),
+                   0) 转出病人数
+          from com_shiftdata s, fin_ipr_inmaininfo i
+         where s.clinic_no = i.inpatient_no
+           and s.shift_type = 'RO' /*转出*/
+           and s.old_data_code = f.dept_code
+           and s.shift_cause not in ('修改科室', '修改病区')
+           and i.patient_no not like 'B%'
+           and not exists(select 1 from com_shiftdata a
+           where a.clinic_no=s.clinic_no
+           and a.shift_type='OF')
+           and s.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and s.oper_date &lt; to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+         group by s.shift_type) 转往他科,
+       
+       case when  to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')-1=trunc(sysdate)
+         then (select count(*)  from fin_ipr_inmaininfo g
+       where f.dept_code=g.dept_code
+           and g.patient_no not like 'B%'
+       and g.in_state='I')
+           else (select nvl(sum(decode(g.clinic_no, 'N', 0, 1)),0)  from com_bedinfo_log g
+       where f.dept_code=g.dept_code
+       and g.bed_state!='W'
+       and g.log_date &gt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')-1
+       and g.log_date&lt;to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss'))
+       end 现有人数,
+       (select (select count(distinct r.inpatient_no)
+          from met_ipm_order r
+         where r.item_name like '%陪%人%'
+           and r.mo_stat not in ('3','4')
+           and r.execute_flag='0'
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.date_bgn &lt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and r.date_end &lt;
+               to_date('0003-01-01 00:00:01', 'yyyy-mm-dd hh24:mi:ss'))+ 
+               (select count(distinct (r.inpatient_no))
+          from met_ipm_order r
+         where r.item_name like '%陪%人%'
+           and r.mo_stat not in ('3','4')
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.execute_flag='1'
+           and r.date_bgn &gt; to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and r.date_bgn &lt;
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')) +     
+       (select count(distinct r.inpatient_no)
+          from met_ipm_order r
+         where r.item_name like '%陪%人%'
+           and r.mo_stat in ('3','4')
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.date_bgn &lt;to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+           and r.date_end &gt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss'))
+  from dual
+          ) 陪人数,
+       (select (select count(distinct (r.inpatient_no))
+          from met_ipm_order r
+         where r.item_name like '%一级护理%'
+           and r.mo_stat not in ('3','4')
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.execute_flag='0'
+           and r.date_bgn &lt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and r.date_end &lt;
+               to_date('0003-01-01 00:00:01', 'yyyy-mm-dd hh24:mi:ss')) + 
+               (select count(distinct (r.inpatient_no))
+          from met_ipm_order r
+         where r.item_name like '%一级护理%'
+           and r.mo_stat not in ('3','4')
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.execute_flag='1'
+           and r.date_bgn &gt; to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and r.date_bgn &lt;
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss'))+   
+       (select count(distinct (r.inpatient_no))
+          from met_ipm_order r
+         where r.item_name like '%一级护理%'
+           and r.mo_stat in ('3','4')
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.date_bgn &lt;to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+           and r.date_end &gt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss'))
+  from dual
+           ) 一级护理,
+       (select (select count(distinct r.inpatient_no)
+          from met_ipm_order r
+         where (r.item_name like '%病危%' or r.item_name like '%病重%')
+           and r.mo_stat not in ('3','4')
+           and r.execute_flag='0'
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.date_bgn &lt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+           and r.date_end &lt;
+               to_date('0003-01-01 00:00:01', 'yyyy-mm-dd hh24:mi:ss')) + 
+               (select count(distinct (r.inpatient_no))
+          from met_ipm_order r
+         where (r.item_name like '%病危%' or r.item_name like '%病重%')
+           and r.mo_stat not in ('3','4')
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.execute_flag='1'
+           and r.date_bgn &gt; to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+           and r.date_bgn &lt;
+               to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss'))+     
+       (select count(distinct r.inpatient_no)
+          from met_ipm_order r
+         where (r.item_name like '%病危%' or r.item_name like '%病重%')
+           and r.mo_stat in ('3','4')
+           and not exists
+         (select 1
+                  from com_shiftdata a
+                 where a.clinic_no = r.inpatient_no
+                   and a.shift_type in ('OF'))
+           and r.dept_code = f.dept_code
+           and r.date_bgn &lt;to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+           and r.date_end &gt; to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss'))
+  from dual
+          ) 病危病重,
+       (select nvl(sum(case
+                         when s.shift_type = 'C' then
+                          count(distinct(s.clinic_no))
+                         else
+                          0
+                       end),
+                   0) 出院召回
+          from com_shiftdata s, fin_ipr_inmaininfo i
+         where s.clinic_no = i.inpatient_no
+           and s.shift_type = 'C' /*出院召回*/
+         and exists(select 1 from com_shiftdata a
+                              where a.clinic_no=s.clinic_no
+                              and a.shift_type in ('EO'/*出院登记取消*/)
+                              and s.old_data_code=f.dept_code)
+           and i.patient_no not like 'B%'
+           and not exists(select 1 from com_shiftdata a
+           where a.clinic_no=s.clinic_no
+           and a.shift_type='OF')
+           and s.oper_date &gt;= to_date('&amp;dtBeginTime','yyyy-mm-dd hh24:mi:ss')
+           and s.oper_date &lt; to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')
+         group by s.shift_type) 出院返入,  /**********************************/
+         case when  to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')-1=trunc(sysdate)
+         then (select count(*)  from fin_ipr_inmaininfo g
+       where f.dept_code=g.dept_code
+           and g.patient_no not like 'B%'
+       and g.in_state='I')
+           else (select nvl(sum(decode(g.clinic_no, 'N', 0, 1)),0)  from com_bedinfo_log g
+       where f.dept_code=g.dept_code
+       and g.bed_state!='W'
+       and g.log_date &gt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')-1
+       and g.log_date&lt;to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss'))
+       end  人数,
+       (select nvl(y.mark,0) from com_dictionary y
+       where y.type='DEPTBED'
+       and y.code=f.dept_code
+       and y.valid_state='1')  床位数,       
+       to_char(case when  to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')-1 =trunc(sysdate)
+         then (select count(*)  from fin_ipr_inmaininfo g
+       where f.dept_code=g.dept_code
+           and g.patient_no not like 'B%'
+       and g.in_state='I')
+           else (select sum(decode(g.clinic_no, 'N', 0, 1)) from com_bedinfo_log g
+       where f.dept_code=g.dept_code
+       and g.bed_state!='W'
+       and g.log_date &gt;= to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss')-1
+       and g.log_date&lt;to_date('&amp;dtEndTime','yyyy-mm-dd hh24:mi:ss'))
+       end /
+       (select decode(nvl(y.mark,1),0,1,nvl(y.mark,1)) from com_dictionary y
+       where y.type='DEPTBED'
+       and y.code=f.dept_code
+       and y.valid_state='1')*100
+         ,'FM9999999.99')||'%' 
+         床位占用率
+  from com_department f, com_dictionary y
+       where y.type='DEPTBED'
+       and y.code=f.dept_code
+       and y.valid_state='1'
+  and f.dept_type='I'
+ --group by f.dept_code,f.dept_Name
+ order by y.sort_id,f.dept_name
+ </Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>科室名称</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\病案报表\病房工作日志查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

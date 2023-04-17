@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A353A05D-748D-45EE-BE89-1F022F5BCD09}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.Order</RootNamespace>
+    <AssemblyName>SOC.Local.Order</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataWindow, Version=2.5.0.0, Culture=neutral, PublicKeyToken=cc0f66dd9541b3da, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\DataWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FSDataWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.HealthRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Order, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Order.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Pharmacy, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Pharmacy.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.RADT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.RADT.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Order, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Components.Order.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizLogic.Pharmacy, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.OrderInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.Models, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.Public.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.Windows.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SOC.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WinForms.Report, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\WinForms.Report.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CircuitControl\GYSY\ucCircuitCardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CircuitControl\GYSY\ucCircuitCardControl.Designer.cs">
+      <DependentUpon>ucCircuitCardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CircuitControl\GYSY\ucCircuitCardFP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CircuitControl\GYSY\ucCircuitCardFP.Designer.cs">
+      <DependentUpon>ucCircuitCardFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CircuitControl\GYSY\ucCircuitCardPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CircuitControl\GYSY\ucCircuitCardPrint.Designer.cs">
+      <DependentUpon>ucCircuitCardPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ExecBillCols.cs" />
+    <Compile Include="Classes\Function.cs" />
+    <Compile Include="DrugCard\GYSY\ucDrugTransfusionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\GYSY\ucDrugTransfusionControl.designer.cs">
+      <DependentUpon>ucDrugTransfusionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\GYSY\ucDrugTransfusionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\GYSY\ucDrugTransfusionPanel.designer.cs">
+      <DependentUpon>ucDrugTransfusionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\GYSY\ucInfusionLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\GYSY\ucInfusionLabel.designer.cs">
+      <DependentUpon>ucInfusionLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel.Designer.cs">
+      <DependentUpon>ucInfusionLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel3.Designer.cs">
+      <DependentUpon>ucInfusionLabel3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel4.Designer.cs">
+      <DependentUpon>ucInfusionLabel4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel5.Designer.cs">
+      <DependentUpon>ucInfusionLabel5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel6.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel6.Designer.cs">
+      <DependentUpon>ucInfusionLabel6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel7.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel7.Designer.cs">
+      <DependentUpon>ucInfusionLabel7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel8.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel8.Designer.cs">
+      <DependentUpon>ucInfusionLabel8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel99.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel99.Designer.cs">
+      <DependentUpon>ucInfusionLabel99.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\ucDrugTransfusionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\ucDrugTransfusionControl.Designer.cs">
+      <DependentUpon>ucDrugTransfusionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\ucDrugTransfusionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrugCard\SDFY\ucDrugTransfusionPanel.Designer.cs">
+      <DependentUpon>ucDrugTransfusionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecBill\GYSY\ucExecBillFP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExecBill\GYSY\ucExecBillFP.Designer.cs">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecBill\GYSY\ucExecBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExecBill\GYSY\ucExecBillPrint.Designer.cs">
+      <DependentUpon>ucExecBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecBill\SDFY\ucExecBillFP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExecBill\SDFY\ucExecBillFP.Designer.cs">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecBill\SDFY\ucExecBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExecBill\SDFY\ucExecBillPrint.Designer.cs">
+      <DependentUpon>ucExecBillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecBill\ucExecBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExecBill\ucExecBill.Designer.cs">
+      <DependentUpon>ucExecBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecBill\NanZhuang\ucExecBillFP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExecBill\NanZhuang\ucExecBillFP.Designer.cs">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecBill\ucExecBillFP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExecBill\ucExecBillFP.Designer.cs">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IAfterQueryRegList\GYSY\AfterQueryRegListInterface.cs" />
+    <Compile Include="IAfterQueryRegList\SDFY\AfterQueryRegListInterface.cs" />
+    <Compile Include="IAfterQueryRegList\ZDLY\AfterQueryRegListInterface.cs" />
+    <Compile Include="IBeforeAddItem\GYZL\ucOrderAddPrompt.cs" />
+    <Compile Include="IBeforeAddItem\HuanShi\BeforeAddItemInterface.cs" />
+    <Compile Include="IBeforeAddItem\ZDLY\BeforeAddItemInterface.cs" />
+    <Compile Include="IBeforeAddOrder\ZDLY\BeforeAddOrderInterface.cs" />
+    <Compile Include="IBeforeAddOrder\ZhangCha\BeforeAddOrderInterface.cs" />
+    <Compile Include="IBeforeSaveOrder\NanZhuang\BeforeSaveOrderInterface.cs" />
+    <Compile Include="IBeforeSaveOrder\BeforeSaveOrderInterface.cs" />
+    <Compile Include="IBeforeSaveOrder\ZhangCha\BeforeSaveOrderInterface.cs" />
+    <Compile Include="IItemExtendInfo\FoSan\ItemExtendInfoAchieve.cs" />
+    <Compile Include="IItemExtendInfo\GYSY\ItemExtendInfoAchieve.cs" />
+    <Compile Include="IOrderSplit\OrderSplitZDLY.cs" />
+    <Compile Include="IOrderSplit\OrderSplitZDWY.cs" />
+    <Compile Include="OrderPrint\ChaoYang\frmOrderPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\ChaoYang\frmOrderPrint.Designer.cs">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\ChaoYang\ucOrderBillHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\GYSY\frmOrderPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\GYSY\frmOrderPrint.Designer.cs">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\GYSY\ucOrderBillHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\GYSY\ucOrderBillHeader.Designer.cs">
+      <DependentUpon>ucOrderBillHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\HuanShi\frmOrderPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\HuanShi\frmOrderPrint.Designer.cs">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\HuanShi\ucOrderBillHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\Iboren\ucQueryOrderST.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\Iboren\ucQueryOrderST.Designer.cs">
+      <DependentUpon>ucQueryOrderST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\Iboren\ucRecipePrintST.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\Iboren\ucRecipePrintST.Designer.cs">
+      <DependentUpon>ucRecipePrintST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\OrderPrintNew\frmOrderPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\OrderPrintNew\frmOrderPrint.Designer.cs">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\OrderPrintNew\frmSetOrderPrintTopAndLeft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\OrderPrintNew\frmSetOrderPrintTopAndLeft.Designer.cs">
+      <DependentUpon>frmSetOrderPrintTopAndLeft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintOrderBillFactory\GYSY\PrintOrderBillFactory.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\frmNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\frmOrderPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\frmOrderPrint.Designer.cs">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\Function.cs" />
+    <Compile Include="OrderPrint\SDFY\frmOrderPrintSDFY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPrint\SDFY\frmOrderPrintSDFY.Designer.cs">
+      <DependentUpon>frmOrderPrintSDFY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPrint\ucOrderBillHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeQuery\SDFY\ucQuitApplyNum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecipeQuery\SDFY\ucQuitApplyNum.designer.cs">
+      <DependentUpon>ucQuitApplyNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Register\IRegisterTimeaSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Register\IRegisterTimeaSet.Designer.cs">
+      <DependentUpon>IRegisterTimeaSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LISService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SubFeeSet\GYSY\LISSubManager.cs" />
+    <Compile Include="SubFeeSet\frmChoseSublItem.cs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFeeSet\frmChoseSublItem.cs.Designer.cs">
+      <DependentUpon>frmChoseSublItem.cs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFeeSet\Function.cs" />
+    <Compile Include="SubFeeSet\GYSY\SubFeeSetGYSY.cs" />
+    <Compile Include="SubFeeSet\GYZL\EasiLab.cs" />
+    <Compile Include="SubFeeSet\GYZL\LisSubFeeGYZL.cs" />
+    <Compile Include="SubFeeSet\GYZL\SubFeeSetGYZL.cs" />
+    <Compile Include="SubFeeSet\QiaoTou\SubFeeSetQiaoTou.cs" />
+    <Compile Include="SubFeeSet\SDFY\SubFeeSet.cs" />
+    <Compile Include="SubFeeSet\SubFeeLog.cs" />
+    <Compile Include="SubFeeSet\SubFeeManager.cs" />
+    <Compile Include="SubFeeSet\FoSi\SubFeeSetFoSi.cs" />
+    <Compile Include="SubFeeSet\SubFeeSetNormal.cs" />
+    <Compile Include="SubFeeSet\SubFee\SubJob.cs" />
+    <Compile Include="SubFeeSet\ucPhaDoseOnce.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubFeeSet\ucPhaDoseOnce.Designer.cs">
+      <DependentUpon>ucPhaDoseOnce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFeeSet\ZDLY\LISSubManager.cs" />
+    <Compile Include="SubFeeSet\ZDLY\SubFeeSetZDLY.cs" />
+    <Compile Include="SubFeeSet\ZDWY\SubFeeSetZDWY.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CircuitControl\GYSY\ucCircuitCardControl.resx">
+      <DependentUpon>ucCircuitCardControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CircuitControl\GYSY\ucCircuitCardFP.resx">
+      <DependentUpon>ucCircuitCardFP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CircuitControl\GYSY\ucCircuitCardPrint.resx">
+      <DependentUpon>ucCircuitCardPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\GYSY\ucDrugTransfusionControl.resx">
+      <DependentUpon>ucDrugTransfusionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\GYSY\ucDrugTransfusionPanel.resx">
+      <DependentUpon>ucDrugTransfusionPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\GYSY\ucInfusionLabel.resx">
+      <DependentUpon>ucInfusionLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel.resx">
+      <DependentUpon>ucInfusionLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel3.resx">
+      <DependentUpon>ucInfusionLabel3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel4.resx">
+      <DependentUpon>ucInfusionLabel4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel5.resx">
+      <DependentUpon>ucInfusionLabel5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel6.resx">
+      <DependentUpon>ucInfusionLabel6.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel7.resx">
+      <DependentUpon>ucInfusionLabel7.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel8.resx">
+      <DependentUpon>ucInfusionLabel8.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\InfusionLabel\ucInfusionLabel99.resx">
+      <DependentUpon>ucInfusionLabel99.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\ucDrugTransfusionControl.resx">
+      <DependentUpon>ucDrugTransfusionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugCard\SDFY\ucDrugTransfusionPanel.resx">
+      <DependentUpon>ucDrugTransfusionPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecBill\GYSY\ucExecBillFP.resx">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecBill\GYSY\ucExecBillPrint.resx">
+      <DependentUpon>ucExecBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecBill\SDFY\ucExecBillFP.resx">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecBill\SDFY\ucExecBillPrint.resx">
+      <DependentUpon>ucExecBillPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecBill\ucExecBill.resx">
+      <DependentUpon>ucExecBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecBill\NanZhuang\ucExecBillFP.resx">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecBill\ucExecBillFP.resx">
+      <DependentUpon>ucExecBillFP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\ChaoYang\frmOrderPrint.resx">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\ChaoYang\ucOrderBillHeader.resx">
+      <DependentUpon>ucOrderBillHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\GYSY\frmOrderPrint.resx">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\GYSY\ucOrderBillHeader.resx">
+      <DependentUpon>ucOrderBillHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\HuanShi\frmOrderPrint.resx">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\HuanShi\ucOrderBillHeader.resx">
+      <DependentUpon>ucOrderBillHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\Iboren\ucQueryOrderST.resx">
+      <DependentUpon>ucQueryOrderST.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\Iboren\ucRecipePrintST.resx">
+      <DependentUpon>ucRecipePrintST.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\OrderPrintNew\frmOrderPrint.resx">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\OrderPrintNew\frmSetOrderPrintTopAndLeft.resx">
+      <DependentUpon>frmSetOrderPrintTopAndLeft.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\frmNotice.resx">
+      <DependentUpon>frmNotice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\frmOrderPrint.resx">
+      <DependentUpon>frmOrderPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\SDFY\frmOrderPrintSDFY.resx">
+      <DependentUpon>frmOrderPrintSDFY.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPrint\ucOrderBillHeader.resx">
+      <DependentUpon>ucOrderBillHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeQuery\SDFY\ucQuitApplyNum.resx">
+      <DependentUpon>ucQuitApplyNum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register\IRegisterTimeaSet.resx">
+      <DependentUpon>IRegisterTimeaSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFeeSet\frmChoseSublItem.cs.resx">
+      <DependentUpon>frmChoseSublItem.cs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFeeSet\ucPhaDoseOnce.resx">
+      <DependentUpon>ucPhaDoseOnce.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FREE3OF9.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\MEDICAL.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CircuitControl\贴瓶单.txt" />
+    <Content Include="DrugCard\输液卡.txt" />
+    <Content Include="ExecBill\执行单.txt" />
+    <Content Include="IBeforeAddOrder\开立之前接口.txt" />
+    <Content Include="IBeforeSaveOrder\保存医嘱前接口.txt" />
+    <Content Include="ISaveOrder\保存医嘱后接口.txt" />
+    <Content Include="OrderPrint\医嘱单.txt" />
+    <Content Include="RecipeQuery\SDFY\妇幼历史医嘱.txt" />
+    <Content Include="RecipeQuery\处方查询.txt" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\LISService\Service.wsdl" />
+    <None Include="Service References\LISService\Service.disco" />
+    <None Include="Service References\LISService\configuration91.svcinfo" />
+    <None Include="Service References\LISService\configuration.svcinfo" />
+    <None Include="Service References\LISService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SubFeeSet\附材接口.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\LISService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IBeforeAddItem\SDFY\NanZhuang\" />
+    <Folder Include="RecipeQuery\NanZhuang\" />
+    <Folder Include="RecipeQuery\ZhangCha\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

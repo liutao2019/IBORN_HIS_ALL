@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TCD"
+    targetNamespace="http://www.cnstroke.com"
+    elementFormDefault="qualified"
+    xmlns="http://www.cnstroke.com"
+    xmlns:mstns="http://www.cnstroke.com"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="TCD">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="aCard" type="aCardT"/>
+        <xs:element name="tcdCheckTime" type="xs:dateTime"/>
+        <xs:element name="tcdCheckUnit" type="sMaxLen200T"/>
+        <xs:element name="tcdResult" type="tcdResultT"/>
+        <xs:element name="lICA" type="Narrow1T"/>
+        <xs:element name="lMCA" type="Narrow1T"/>
+        <xs:element name="lACA" type="Narrow1T"/>
+        <xs:element name="lPCA" type="Narrow1T"/>
+        <xs:element name="lVA" type="Narrow1T"/>
+        <xs:element name="rICA" type="Narrow1T"/>
+        <xs:element name="rMCA" type="Narrow1T"/>
+        <xs:element name="rACA" type="Narrow1T"/>
+        <xs:element name="rPCA" type="Narrow1T"/>
+        <xs:element name="rVA" type="Narrow1T"/>
+        <xs:element name="BA" type="Narrow1T"/>
+        <xs:element name="CCVS" type="HaveNullT"/>
+        <xs:element name="CCVSType">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ccvs" type="CCVSTypeT" minOccurs="0" maxOccurs="5"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="ccvsID">
+            <xs:selector xpath=".//mstns:ccvs"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="otherJudge" type="xs:string"/>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="aCardT">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{18}|[0-9]{17}X|[0-9]{17}x|[0-9]{17}|[0-9]{15}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tcdResultT"> 
+    <xs:restriction base="xs:int">
+      <!--1正常 2任一部位异常-->
+      <xs:pattern value="1|2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Narrow1T">
+    <xs:restriction base="xs:int">
+      <!--1无狭窄 2轻度狭窄 3中度狭窄 4重度狭窄 5闭塞-->
+      <xs:pattern value="1|2|3|4|5"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HaveNullT">
+    <xs:restriction base="xs:int">
+      <!--1有 2未作 -1未填-->
+      <xs:pattern value="1|2|-1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CCVSTypeT">
+    <xs:restriction base="xs:string">
+      <!--0前交通支开放 1后交通支开放 2颈内外侧支开放 3其他诊断 4软脑膜支代偿征-->
+      <xs:pattern value ="0|1|2|3|4"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sMaxLen200T">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

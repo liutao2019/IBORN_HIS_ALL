@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BB69CE15-7C45-4F2E-B805-ED903279F28B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Fee.DayBalance</RootNamespace>
+    <AssemblyName>SOC.Fee.DayBalance</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="policy.3.0.FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="policy.3.0.FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\SOC.HISFC.BizProcess.CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlterPayMode\ucAlterPayMode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlterPayMode\ucAlterPayMode.Designer.cs">
+      <DependentUpon>ucAlterPayMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientDayBalance\GYSY\ucDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientDayBalance\GYSY\ucDayBalance.Designer.cs">
+      <DependentUpon>ucDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientDayBalance\HPHIS\ucDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientDayBalance\HPHIS\ucDayBalance.Designer.cs">
+      <DependentUpon>ucDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientDayBalance\ucDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientDayBalance\ucDayBalance.Designer.cs">
+      <DependentUpon>ucDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientPrepay\GYSY\ucPrepayDayQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\GYSY\frmPreviewForDataSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\GYSY\Function.cs" />
+    <Compile Include="InpatientPrepay\GYSY\ucPopPrePay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\GYSY\ucPrepayDayByOP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\QiaoTou\ucPrepayDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\QiaoTou\ucPrepayDayBalance.designer.cs">
+      <DependentUpon>ucPrepayDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayCheck.Designer.cs">
+      <DependentUpon>ucPrepayCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayCompare.Designer.cs">
+      <DependentUpon>ucPrepayCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayDayBalance.designer.cs">
+      <DependentUpon>ucPrepayDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ucChooseTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ucChooseTime.designer.cs">
+      <DependentUpon>ucChooseTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ucDayReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ucDayReport.designer.cs">
+      <DependentUpon>ucDayReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ucDayReportNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ucDayReportNew.designer.cs">
+      <DependentUpon>ucDayReportNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ucPopDayReportQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ucPopDayReportQuery.designer.cs">
+      <DependentUpon>ucPopDayReportQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ucPopDayReportQueryNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ucPopDayReportQueryNew.designer.cs">
+      <DependentUpon>ucPopDayReportQueryNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayHistory.Designer.cs">
+      <DependentUpon>ucPrepayHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayIncomeAndQuitList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InpatientPrepay\ucPrepayIncomeAndQuitList.Designer.cs">
+      <DependentUpon>ucPrepayIncomeAndQuitList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient\frmConfirmBalanceRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inpatient\frmConfirmBalanceRecord.Designer.cs">
+      <DependentUpon>frmConfirmBalanceRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient\QiaoTou\ucInpatientDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inpatient\QiaoTou\ucInpatientDayBalance.Designer.cs">
+      <DependentUpon>ucInpatientDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient\QiaoTou\ucInpatientDayBalanceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inpatient\QiaoTou\ucInpatientDayBalanceReport.Designer.cs">
+      <DependentUpon>ucInpatientDayBalanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient\ucInpatientDayBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inpatient\ucInpatientDayBalance.Designer.cs">
+      <DependentUpon>ucInpatientDayBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient\ucInpatientDayBalanceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inpatient\ucInpatientDayBalanceReport.Designer.cs">
+      <DependentUpon>ucInpatientDayBalanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient\ucInpatientDayBalanceDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inpatient\ucInpatientDayBalanceDateControl.Designer.cs">
+      <DependentUpon>ucInpatientDayBalanceDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient\ucDayBalanceCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inpatient\ucDayBalanceCheck.Designer.cs">
+      <DependentUpon>ucDayBalanceCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient\ucReprintDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inpatient\ucReprintDateControl.Designer.cs">
+      <DependentUpon>ucReprintDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inpatient_ZC\ucDayBalance_ZC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inpatient_ZC\ucDayBalance_ZC.Designer.cs">
+      <DependentUpon>ucDayBalance_ZC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\AlterPayMode.cs" />
+    <Compile Include="Manager\BalanceDayReport.cs" />
+    <Compile Include="Manager\Function.cs" />
+    <Compile Include="Manager\InpatientDayBalanceManage.cs">
+    </Compile>
+    <Compile Include="Manager\InpatientDayBalanceManage_ZC.cs" />
+    <Compile Include="Manager\InpatientDayReport.cs" />
+    <Compile Include="Manager\OutPatientDayBalance.cs" />
+    <Compile Include="Manager\PrepayDayBalance.cs" />
+    <Compile Include="Object\BalanceDayReport.cs" />
+    <Compile Include="Object\DayReport.cs">
+    </Compile>
+    <Compile Include="Object\InpatientDayBalance.cs" />
+    <Compile Include="Object\PrepayDayBalance.cs" />
+    <Compile Include="Outpatient\FoSi\ucBalanceByMath.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Outpatient\FoSi\ucBalanceByMath.Designer.cs">
+      <DependentUpon>ucBalanceByMath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outpatient\FoSi\ucBalanceDetialByBank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Outpatient\FoSi\ucBalanceDetialByBank.Designer.cs">
+      <DependentUpon>ucBalanceDetialByBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outpatient\FoSi\ucBalanceDetialByBankByDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Outpatient\FoSi\ucBalanceDetialByBankByDay.Designer.cs">
+      <DependentUpon>ucBalanceDetialByBankByDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outpatient\ucDayBalanceSumary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Outpatient\ucDayBalanceSumary.Designer.cs">
+      <DependentUpon>ucDayBalanceSumary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Control\ucDayReportDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ucDayReportDetail.designer.cs">
+      <DependentUpon>ucDayReportDetail.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AlterPayMode\ucAlterPayMode.resx">
+      <DependentUpon>ucAlterPayMode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientDayBalance\GYSY\ucDayBalance.resx">
+      <DependentUpon>ucDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientDayBalance\HPHIS\ucDayBalance.resx">
+      <DependentUpon>ucDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\GYSY\ucPrepayDayQuery.resx">
+      <DependentUpon>ucPrepayDayQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\GYSY\frmPreviewForDataSet.resx">
+      <DependentUpon>frmPreviewForDataSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\GYSY\ucPopPrePay.resx">
+      <DependentUpon>ucPopPrePay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\GYSY\ucPrepayDayByOP.resx">
+      <DependentUpon>ucPrepayDayByOP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\QiaoTou\ucPrepayDayBalance.resx">
+      <DependentUpon>ucPrepayDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\ucPrepayCheck.resx">
+      <DependentUpon>ucPrepayCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\ucPrepayCompare.resx">
+      <DependentUpon>ucPrepayCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\ucPrepayDayBalance.resx">
+      <DependentUpon>ucPrepayDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ucChooseTime.resx">
+      <DependentUpon>ucChooseTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ucDayReport.resx">
+      <DependentUpon>ucDayReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ucDayReportNew.resx">
+      <DependentUpon>ucDayReportNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ucPopDayReportQuery.resx">
+      <DependentUpon>ucPopDayReportQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ucDayReportDetail.resx">
+      <DependentUpon>ucDayReportDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ucPopDayReportQueryNew.resx">
+      <DependentUpon>ucPopDayReportQueryNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\ucPrepayHistory.resx">
+      <DependentUpon>ucPrepayHistory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientPrepay\ucPrepayIncomeAndQuitList.resx">
+      <DependentUpon>ucPrepayIncomeAndQuitList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient\frmConfirmBalanceRecord.resx">
+      <DependentUpon>frmConfirmBalanceRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient\QiaoTou\ucInpatientDayBalance.resx">
+      <DependentUpon>ucInpatientDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient\QiaoTou\ucInpatientDayBalanceReport.resx">
+      <DependentUpon>ucInpatientDayBalanceReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient\ucInpatientDayBalance.resx">
+      <DependentUpon>ucInpatientDayBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient\ucInpatientDayBalanceReport.resx">
+      <DependentUpon>ucInpatientDayBalanceReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient\ucInpatientDayBalanceDateControl.resx">
+      <DependentUpon>ucInpatientDayBalanceDateControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient\ucDayBalanceCheck.resx">
+      <DependentUpon>ucDayBalanceCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient\ucReprintDateControl.resx">
+      <DependentUpon>ucReprintDateControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient_ZC\ucDayBalance_ZC.resx">
+      <DependentUpon>ucDayBalance_ZC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outpatient\FoSi\ucBalanceByMath.resx">
+      <DependentUpon>ucBalanceByMath.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outpatient\FoSi\ucBalanceDetialByBank.resx">
+      <DependentUpon>ucBalanceDetialByBank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outpatient\FoSi\ucBalanceDetialByBankByDay.resx">
+      <DependentUpon>ucBalanceDetialByBankByDay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outpatient\ucDayBalanceSumary.resx">
+      <DependentUpon>ucDayBalanceSumary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

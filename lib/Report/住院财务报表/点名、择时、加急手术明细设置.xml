@@ -1,0 +1,64 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dataSource</Name><Sql>select * from (
+SELECT '住院手术' 手术类型 ,IT.NAME 姓名,
+    (SELECT IM.PATIENT_NO FROM FIN_IPR_INMAININFO IM WHERE IM.INPATIENT_NO = IT.INPATIENT_NO) 住院号或门诊号,
+    UN.NAME 项目,
+    NVL(NVL(IT.OWN_COST,0) -NVL(IT.ECO_COST,0) -NVL(IT.DONATE_COST,0),0) 实收金额,
+    IT.FEE_DATE 收费时间,
+    (SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = OP.OPS_DOCD) 主刀医生,
+    (SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = OP.ANES_DOCD) 麻醉医师,
+    --(SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'Helper1')一助,
+   --(SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'Helper2')二助,
+   HL1.EMPL_NAME 一助,
+   HL2.EMPL_NAME 二助,
+   WN.EMPL_NAME  洗手护士,
+   IN1.EMPL_NAME  巡回护士,
+    --(SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'ItinerantNurse1') 巡回护士,
+    '' 器械护士,
+    OP.PRE_DATE 手术开始时间,
+    REPLACE(OP.LASTTIME, '|', '') 拟持续时间
+FROM FIN_IPB_ITEMLIST IT 
+LEFT JOIN MET_OPS_APPLY OP ON OP.CLINIC_CODE = IT.INPATIENT_NO and IT.operationno=op.operationno
+LEFT JOIN(SELECT A.OPERATIONNO,wm_concat(A.EMPL_NAME) EMPL_NAME  FROM MET_OPS_ARRANGE A 
+WHERE  A.ROLE_CODE = 'WashingHandNurse1' GROUP BY A.OPERATIONNO ) WN ON WN.OPERATIONNO = OP.OPERATIONNO 
+LEFT JOIN (SELECT B.OPERATIONNO,wm_concat(B.EMPL_NAME) EMPL_NAME  FROM  MET_OPS_ARRANGE B
+WHERE  B.ROLE_CODE = 'Helper1' GROUP BY B.OPERATIONNO )HL1 ON HL1.OPERATIONNO = OP.OPERATIONNO 
+LEFT JOIN (SELECT C.OPERATIONNO,wm_concat(C.EMPL_NAME) EMPL_NAME  FROM  MET_OPS_ARRANGE C
+WHERE  C.ROLE_CODE = 'Helper2' GROUP BY C.OPERATIONNO )HL2 ON HL2.OPERATIONNO = OP.OPERATIONNO 
+LEFT JOIN (SELECT D.OPERATIONNO,wm_concat(D.EMPL_NAME) EMPL_NAME  FROM  MET_OPS_ARRANGE D
+WHERE  D.ROLE_CODE = 'ItinerantNurse1' GROUP BY D.OPERATIONNO )IN1 ON IN1.OPERATIONNO = OP.OPERATIONNO 
+INNER JOIN COM_DICTIONARY UN ON IT.ITEM_CODE=UN.CODE and UN.TYPE='OPS'
+group by IT.NAME
+,IT.INPATIENT_NO
+,UN.NAME
+, NVL(NVL(IT.OWN_COST,0) -NVL(IT.ECO_COST,0) -NVL(IT.DONATE_COST,0),0) 
+,IT.FEE_DATE
+,OP.OPS_DOCD
+,OP.ANES_DOCD
+,OP.OPERATIONNO
+, OP.PRE_DATE
+,REPLACE(OP.LASTTIME, '|', '') 
+, HL1.EMPL_NAME ,
+   HL2.EMPL_NAME ,
+   WN.EMPL_NAME  ,
+   IN1.EMPL_NAME 
+
+union all
+select '门诊手术' operType ,
+ (select name from com_patientinfo where card_no=fpf.card_no)  name,
+fpf.clinic_code,un.name,
+  NVL(NVL(fpf.OWN_COST,0) -NVL(fpf.ECO_COST,0) -NVL(fpf.DONATE_COST,0),0) 实收金额,
+fpf.fee_date,  
+(SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = fpf.doct_code) 主刀医生,
+    (SELECT EE.EMPL_NAME FROM COM_EMPLOYEE EE WHERE EE.EMPL_CODE = OP.ANES_DOCD) 麻醉医师,
+        (SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'Helper1')一助,
+    (SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'Helper2')二助,
+    (SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'WashingHandNurse1') 洗手护士,
+    (SELECT AG.EMPL_NAME FROM MET_OPS_ARRANGE AG WHERE AG.OPERATIONNO = OP.OPERATIONNO AND AG.ROLE_CODE = 'ItinerantNurse1') 巡回护士,
+        '' 器械护士,
+    OP.PRE_DATE 手术开始时间,
+    REPLACE(OP.LASTTIME, '|', '') 拟持续时间
+ from fin_opb_feedetail  fpf LEFT JOIN MET_OPS_APPLY OP ON OP.CLINIC_CODE =fpf.clinic_code
+ inner join com_dictionary un on fpf.item_code=un.code and un.type='OPS'
+    ) ITT where ITT.收费时间 BETWEEN TO_DATE('&amp;dtBeginTime', 'yyyy-MM-dd HH24:mi:ss') AND TO_DATE('&amp;dtEndTime', 'yyyy-MM-dd HH24:mi:ss')+1
+ORDER BY itt.手术类型,ITT.收费时间 DESC  
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\住院财务报表\点名、择时、加急手术明细设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

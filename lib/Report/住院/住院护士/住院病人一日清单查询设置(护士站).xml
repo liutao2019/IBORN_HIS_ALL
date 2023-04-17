@@ -1,0 +1,160 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>inaptientNo</Name><Text></Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.CustomControl,SOC.HISFC.OutpatientFee.Components"><DllName>HISFC.Components.Common</DllName><TypeName>FS.HISFC.Components.Common.Controls.ucQueryInpatientNo</TypeName><ValueProperty>InpatientNo</ValueProperty><EventProperty>myEvent</EventProperty><DelegateDllName>HISFC.Components.Common</DelegateDllName><DelegateTypeName>FS.HISFC.Components.Common.Controls.myEventDelegate</DelegateTypeName><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>200</Width><Height>30</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>0</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtFeeDate</Name><Text>费用日期：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>260</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>tvPatientInfo</Name><Text>本院患者</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TreeViewType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsCheckBox>true</IsCheckBox><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>0</X><Y>0</Y></Location><QueryDataSource>DataSource</QueryDataSource><DataSourceTypeName>dtPatientInfo</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>Caution</Name><Text>注意事项：当天入院病人不显示出来，并且不打印一日清单</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>0</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>480</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtFeeDetail</Name><Sql>select (select fc.fee_stat_name
+          from fin_com_feecodestat fc
+         where fc.report_code = 'ZY01'
+           and fc.fee_code = 费用名称) 费用名称,
+        项目编码,
+        项目名称,
+        单价,
+        数量,
+        单位,
+        金额,
+        标志,
+        inpatient_no
+  from
+(
+select *
+  from
+(
+select m.fee_code 费用名称,
+       (select p.custom_code
+          from pha_com_baseinfo p
+         where p.drug_code = m.drug_code) 项目编码,
+       m.drug_name||decode(m.specs,'','','['||m.specs||']') 项目名称,
+        m.unit_price 单价,
+        sum(m.qty)  数量,
+       m.current_unit 单位,
+       round(sum(m.tot_cost), 2) 金额,
+       (case 
+             when r.paykind_code = '02'
+             then (select decode(c.center_item_grade,'1','甲类','2','乙类','自费') from fin_com_compare c where c.pact_code = '02' and c.his_code = m.drug_code)
+             else ''
+         end) 标志,
+       m.inpatient_no
+  from fin_ipb_medicinelist m, fin_ipr_inmaininfo r
+ where m.inpatient_no = r.inpatient_no
+   and m.fee_date &gt;= to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')-1
+   and m.fee_date &lt; to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')
+ group by m.fee_code, m.drug_code, m.drug_name, m.specs, m.unit_price, m.pack_qty, r.paykind_code, r.pact_code, m.inpatient_no, m.current_unit
+having sum(m.tot_cost) &lt;&gt; 0
+
+ union all
+ 
+select  i.fee_code 费用名称,
+        (select bb.input_code
+          from fin_com_undruginfo bb
+         where bb.item_code = i.item_code) 项目编码,
+       i.item_name 项目名称,
+       i.unit_price 单价,
+       sum(i.qty) 数量,
+       i.current_unit 单位,
+       sum(i.tot_cost) 金额,
+       (case 
+             when r.paykind_code = '02'
+             then (select decode(c.center_item_grade,'1','甲类','2','乙类','自费') from fin_com_compare c where c.pact_code = '02' and c.his_code = i.item_code)
+             else ''
+         end) 标志,
+       i.inpatient_no
+  from fin_ipb_itemlist i, fin_ipr_inmaininfo r
+ where i.inpatient_no = r.inpatient_no
+   and i.fee_date &gt;= to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')-1
+   and i.fee_date &lt; to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')
+group by r.paykind_code, i.inpatient_no, i.unit_price,i.item_code,i.item_name,i.fee_code,i.current_unit
+)
+)
+ order by 费用名称, 项目编码
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns>项目编码</SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtInpatientInfo</Name><Sql>select 
+       b.name  姓名,
+       decode( b.sex_code,'M','男','F','女','') 性别,
+      nvl((select old_data_name from  
+      (select a.old_data_name,a.clinic_no from com_shiftdata a 
+      where a.shift_type='RI' 
+        and a.oper_date&gt;to_date('&amp;dtFeeDate','YYYY-MM-DD HH24:MI:SS')  order by a.oper_date)
+         where  clinic_no=b.inpatient_no and rownum=1),
+         b.dept_name)  病区,
+       to_char(b.in_date,'yyyy-MM-dd')  入院日期,
+       (case when b.out_date &lt;= to_date('1900-1-1', 'yyyy-mm-dd') then null
+         else to_char(b.out_date,'yyyy-MM-dd') end)   出院日期,
+       b.patient_no  住院号,
+       replace(b.bed_no,b.nurse_cell_code,'') 床号,
+       t.pact_name 患者类型,
+       b.PREPAY_COST,
+       b.tot_cost,
+       b.free_cost,
+       0 a,
+       0 b,
+       0 c,
+       b.inpatient_no
+       from fin_ipr_inmaininfo b,fin_com_pactunitinfo t
+       where b.pact_code=t.pact_code
+       and ((nvl('&amp;inaptientNo',' ')=' ' and b.inpatient_no in ('&amp;tvPatientInfo.Values'))
+   or b.inpatient_no='&amp;inaptientNo' )
+       and b.in_date&lt;trunc(sysdate)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPatientInfo</Name><Sql>SELECT inpatient_no, --0 住院流水号
+    '【'||replace(bed_no,NURSE_CELL_CODE,'') ||'】'||name
+   FROM  FIN_IPR_INMAININFO  d 
+   WHERE  
+   (NURSE_CELL_CODE ='&amp;CurrentDeptID' or D.DEPT_CODE='&amp;CurrentDeptID' or '&amp;CurrentDeptID' = '8001')
+   AND IN_STATE = 'I' 
+    and in_date&lt;trunc(sysdate)
+   ORDER BY 
+   (SELECT COM_BEDINFO.SORT_ID FROM COM_BEDINFO WHERE COM_BEDINFO.BED_NO = d.BED_NO),
+   d.BED_NO,d.patient_no</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>ConditionUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPatientInfoForGroup</Name><Sql>      
+      SELECT inpatient_no
+   FROM  FIN_IPR_INMAININFO  d 
+   WHERE  ((nvl('&amp;inaptientNo',' ')=' ' and inpatient_no in ('&amp;tvPatientInfo.Values'))
+   or inpatient_no='&amp;inaptientNo' )
+    and in_date&lt;trunc(sysdate)
+   ORDER BY 
+   (SELECT COM_BEDINFO.SORT_ID FROM COM_BEDINFO WHERE COM_BEDINFO.BED_NO = d.BED_NO),
+   d.BED_NO,d.patient_no</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>TableGroupUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtRest</Name><Sql>select '  截至  '||'&amp;dtFeeDate'||'  累计未结金额:'||nvl(sum(decode(f.balance_state,'0',tot_cost)),0)||'  累计结算金额:'||nvl(sum(decode(f.balance_state,'1',tot_cost)),0),
+       inpatient_no
+  from fin_ipb_feeinfo f
+ where f.fee_date &lt; to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')
+   and ((nvl('&amp;inaptientNo',' ')=' ' and f.inpatient_no in ('&amp;tvPatientInfo.Values'))
+   or f.inpatient_no='&amp;inaptientNo' )
+ group by f.inpatient_no, f.balance_state</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtTime</Name><Sql>select to_char(to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss'),'yyyy-mm-dd'),
+       inpatient_no
+   FROM  FIN_IPR_INMAININFO  d 
+   WHERE  ((nvl('&amp;inaptientNo',' ')=' ' and inpatient_no in ('&amp;tvPatientInfo.Values'))
+   or inpatient_no='&amp;inaptientNo' )
+    and in_date&lt;trunc(sysdate)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtRest2</Name><Sql>select '                                 押金余额:'||sum(i.prepay_cost),
+       i.inpatient_no
+  from fin_ipb_inprepay i
+ where i.oper_date &lt; to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')
+   and (i.balance_state = '0' or (i.balance_state = '1' and i.balance_date &gt;= to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')))
+   and ((nvl('&amp;inaptientNo',' ')=' ' and i.inpatient_no in ('&amp;tvPatientInfo.Values'))
+   or i.inpatient_no='&amp;inaptientNo' )
+ group by i.inpatient_no</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtRest3</Name><Sql>select '                                 自费金额:'||-sum(自费)||'  记账:'||sum(记账)||'  余额:'||sum(自费+押金余额),
+       inpatient_no
+  from
+(
+select -sum(f.own_cost+f.pay_cost) 自费,
+       sum(f.pub_cost) 记账,
+       0 押金余额,
+       f.inpatient_no
+  from fin_ipb_feeinfo f
+ where f.fee_date &lt; to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')
+   and ((nvl('&amp;inaptientNo',' ')=' ' and f.inpatient_no in ('&amp;tvPatientInfo.Values'))
+   or f.inpatient_no='&amp;inaptientNo' )
+   and f.balance_state = '0'
+ group by f.inpatient_no
+ union all
+select 0 自费,
+       0 记账,
+       sum(i.prepay_cost) 押金余额,
+       i.inpatient_no
+  from fin_ipb_inprepay i
+ where i.oper_date &lt; to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')
+   and (i.balance_state = '0' or (i.balance_state = '1' and i.balance_date &gt;= to_date('&amp;dtFeeDate','yyyy-mm-dd hh24:mi:ss')))
+   and ((nvl('&amp;inaptientNo',' ')=' ' and i.inpatient_no in ('&amp;tvPatientInfo.Values'))
+   or i.inpatient_no='&amp;inaptientNo' )
+ group by i.inpatient_no
+)
+ group by inpatient_no</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>\Report\住院\住院护士\住院病人一日清单查询设置(护士站).xml</QueryFilePath><TableGroup Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.TableGroupInfo,SOC.HISFC.OutpatientFee.Components"><GroupCondition>inpatient_no='{0}'</GroupCondition><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtPatientInfoForGroup</Name><Sql>      
+      SELECT inpatient_no
+   FROM  FIN_IPR_INMAININFO  d 
+   WHERE  ((nvl('&amp;inaptientNo',' ')=' ' and inpatient_no in ('&amp;tvPatientInfo.Values'))
+   or inpatient_no='&amp;inaptientNo' )
+    and in_date&lt;trunc(sysdate)
+   ORDER BY 
+   (SELECT COM_BEDINFO.SORT_ID FROM COM_BEDINFO WHERE COM_BEDINFO.BED_NO = d.BED_NO),
+   d.BED_NO,d.patient_no</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>TableGroupUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><GroupByPage>false</GroupByPage></TableGroup><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1100</Height><PaperName>Letter</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

@@ -1,0 +1,2549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportCard>
+	<SqlItems>
+		<item>
+			<excuteType>Insert</excuteType>
+			<sql>
+				insert into {0} 
+				(	
+					{1}
+				) 
+				VALUES 
+				(
+					{2}
+				)
+			</sql>
+		</item>
+		<item>
+			<excuteType>Update</excuteType>
+			<sql>
+				update {0} 
+				set {1} 
+				where {2} = {3}
+			</sql>
+		</item>
+    <item>
+      <excuteType>Delete</excuteType>
+      <sql>
+        delete from {0} where {1} = {2}
+      </sql>
+    </item>
+  </SqlItems>	
+  <!-- 新生儿缺陷报告卡 -->
+  <Card type="1Birth_Defects_Card" tableName="RCDC_BIRTH_DEFECTS_CARD">
+    <Elements>
+      <elemnt>
+        <!-- 主键列,取Seq，写死的规则 -->
+        <GetDataType>Primary</GetDataType>
+        <ColumnName>ID</ColumnName>
+        <ColumnValue>{0}</ColumnValue>
+        <ExcutePriSql>select SEQ_RCDC_BIRTH_DEFECTS_CARD.Nextval from dual</ExcutePriSql>
+        <elementId/>
+        <Value/>
+      </elemnt>
+      <!-- 住院号 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INPATIENT_NO</ColumnName>
+        <ColumnValue>'{1}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1436</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 是否监测点 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MONITORING_POINT</ColumnName>
+        <ColumnValue>'{2}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1441</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 监测点编号 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MONITORING_POINT_NUMBER</ColumnName>
+        <ColumnValue>'{3}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1442</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 监测医院 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MONITORING_HOSPITAL</ColumnName>
+        <ColumnValue>'{4}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1443</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡单位 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>REPORT_DEPT</ColumnName>
+        <ColumnValue>'{5}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1444</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡人 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>REPORT_PEOPLE</ColumnName>
+        <ColumnValue>'{6}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1446</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡日期 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>REPORT_DATE</ColumnName>
+        <ColumnValue>to_date('{7}','yyyy-mm-dd hh24:mi:ss')</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1447</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地城乡属性 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OFTEN_ADDRESS_PROPERY</ColumnName>
+        <ColumnValue>'{8}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1448</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常驻地址市 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OFTEN_ADDRESS_CITY</ColumnName>
+        <ColumnValue>'{9}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1449</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常驻地址区 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OFTEN_ADDRESS_DISTRICT</ColumnName>
+        <ColumnValue>'{10}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1451</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常驻地址街道 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OFTEN_ADDRESS_STREET</ColumnName>
+        <ColumnValue>'{11}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1453</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常驻地址委 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OFTEN_ADDRESS_VILLAGE</ColumnName>
+        <ColumnValue>'{12}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1454</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常驻地址号 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OFTEN_ADDRESS_NUMBER</ColumnName>
+        <ColumnValue>'{13}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1455</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常驻地址区划代码 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OFTEN_ADDRESS_CODE</ColumnName>
+        <ColumnValue>'{14}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1456</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址市 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PRESENT_ADDRESS_CITY</ColumnName>
+        <ColumnValue>'{15}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1457</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址区 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PRESENT_ADDRESS_DISTRICT</ColumnName>
+        <ColumnValue>'{16}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1458</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址街道 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PRESENT_ADDRESS_STREET</ColumnName>
+        <ColumnValue>'{17}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1459</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址委 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PRESENT_ADDRESS_VILLAGE</ColumnName>
+        <ColumnValue>'{18}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1460</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址号 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PRESENT_ADDRESS_NUMBER</ColumnName>
+        <ColumnValue>'{19}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1461</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址区划代码 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PRESENT_ADDRESS_CODE</ColumnName>
+        <ColumnValue>'{20}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1462</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 母亲姓名 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_NAME</ColumnName>
+        <ColumnValue>'{21}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1463</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 母亲民族 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_NATION</ColumnName>
+        <ColumnValue>'{22}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1464</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 母亲实足年龄 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_AGE</ColumnName>
+        <ColumnValue>'{23}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1465</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 母亲孕次 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>GRAVIDITY_TIME</ColumnName>
+        <ColumnValue>'{24}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1466</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 母亲产次 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_TIME</ColumnName>
+        <ColumnValue>'{25}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1467</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 家庭年人均收入 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FAMILY_AVERAGE_INCOME</ColumnName>
+        <ColumnValue>'{26}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1468</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 文化程度 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CULTURAL_LEVEL</ColumnName>
+        <ColumnValue>'{27}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1469</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 儿童姓名 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILDREN_NAME</ColumnName>
+        <ColumnValue>'{28}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1470</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 联系电话 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TELEPHONE_NUMBER</ColumnName>
+        <ColumnValue>'{29}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1471</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 联系地址 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CONTACT_ADDRESS</ColumnName>
+        <ColumnValue>'{30}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1472</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生日期 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_DATE</ColumnName>
+        <ColumnValue>to_date('{31}','yyyy-mm-dd hh24:mi:ss')</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1473</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 性别 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>SEX</ColumnName>
+        <ColumnValue>'{32}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1474</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 胎龄 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>GESTATIONAL_AGE</ColumnName>
+        <ColumnValue>'{33}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1475</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生体重 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_WEIGHT</ColumnName>
+        <ColumnValue>'{34}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1476</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 胎数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>EMBRYO_NUMBER</ColumnName>
+        <ColumnValue>'{35}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1477</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 卵状 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>EGG_STATE</ColumnName>
+        <ColumnValue>'{36}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1478</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 转归 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PROGNOSIS</ColumnName>
+        <ColumnValue>'{37}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1479</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 诊断依据 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DIAGNOSIS_EVIDENCE</ColumnName>
+        <ColumnValue>'{38}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1480</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 诊断依据描述内容 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DIAGNOSIS_EVIDENCE_DESCRIPTION</ColumnName>
+        <ColumnValue>'{39}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1481</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 确诊时间 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DIAGNOSIS_TIME</ColumnName>
+        <ColumnValue>'{40}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1482</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生缺陷分类1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEFECTS_CLASSIFICATION1</ColumnName>
+        <ColumnValue>'{41}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1483</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生缺陷分类2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEFECTS_CLASSIFICATION2</ColumnName>
+        <ColumnValue>'{42}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1484</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生缺陷分类3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEFECTS_CLASSIFICATION3</ColumnName>
+        <ColumnValue>'{43}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1485</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生缺陷分类4 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEFECTS_CLASSIFICATION4</ColumnName>
+        <ColumnValue>'{44}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1486</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生缺陷分类5 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEFECTS_CLASSIFICATION5</ColumnName>
+        <ColumnValue>'{45}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1530</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 发烧（>38℃） -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FEVER</ColumnName>
+        <ColumnValue>'{46}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1487</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 病毒感染 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>VIRAL_INFECTION</ColumnName>
+        <ColumnValue>'{47}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1488</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 病毒感染类型 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>VIRUS_TYPE</ColumnName>
+        <ColumnValue>'{48}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1489</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 糖尿病 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DIABETES_MELLITUS</ColumnName>
+        <ColumnValue>'{49}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1490</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 患病其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OTHER_ILL</ColumnName>
+        <ColumnValue>'{50}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1491</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 患病其他名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OTHER_ILL_NAME</ColumnName>
+        <ColumnValue>'{51}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1492</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 磺胺类 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>SULFA</ColumnName>
+        <ColumnValue>'{52}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1493</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 磺胺类名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>SULFA_NAME</ColumnName>
+        <ColumnValue>'{53}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1494</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 抗生素 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>ANTIBIOTICS</ColumnName>
+        <ColumnValue>'{54}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1495</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 抗生素名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>ANTIBIOTICS_NAME</ColumnName>
+        <ColumnValue>'{55}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1496</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 避孕药 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CONTRACEPTIVE_PILL</ColumnName>
+        <ColumnValue>'{56}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1497</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 避孕药名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CONTRACEPTIVE_PILL_NAME</ColumnName>
+        <ColumnValue>'{57}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1498</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 镇静药 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>SEDATIVE_PILL</ColumnName>
+        <ColumnValue>'{58}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1499</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 镇静药名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>SEDATIVE_PILL_NAME</ColumnName>
+        <ColumnValue>'{59}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1500</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 药物其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OTHER_PILL</ColumnName>
+        <ColumnValue>'{60}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1501</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 药物其他名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OTHER_PILL_NAME</ColumnName>
+        <ColumnValue>'{61}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1502</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 饮酒 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DRINK_WINE</ColumnName>
+        <ColumnValue>'{62}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1503</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 饮酒剂量 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DRINK_WINE_VOLUME</ColumnName>
+        <ColumnValue>'{63}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1504</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 农药 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PESTICIDES</ColumnName>
+        <ColumnValue>'{64}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1505</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 农药名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PESTICIDES_NAME</ColumnName>
+        <ColumnValue>'{65}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1506</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 射线 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RAY</ColumnName>
+        <ColumnValue>'{66}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1507</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 射线名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RAY_NAME</ColumnName>
+        <ColumnValue>'{67}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1508</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 化学制剂 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHEMICAL_AGENTS</ColumnName>
+        <ColumnValue>'{68}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1509</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 化学制剂名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHEMICAL_AGENTS_NAME</ColumnName>
+        <ColumnValue>'{69}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1510</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 接触其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OTHER_HARMFUL_SUBSTANCES</ColumnName>
+        <ColumnValue>'{70}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1511</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 接触其他名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>OTHER_HARMFUL_SUBSTANCES_NAME</ColumnName>
+        <ColumnValue>'{71}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1512</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死胎 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>STILLBIRTH</ColumnName>
+        <ColumnValue>'{72}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1513</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 自然流产 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>SPONTANEOUS_ABORTION</ColumnName>
+        <ColumnValue>'{73}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1514</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 缺陷儿 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEFECTS_INFANTS</ColumnName>
+        <ColumnValue>'{74}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1515</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产母缺陷1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_DEFECT_CODE1</ColumnName>
+        <ColumnValue>'{75}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1516</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产母缺陷2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_DEFECT_CODE2</ColumnName>
+        <ColumnValue>'{76}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1517</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产母缺陷3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_DEFECT_CODE3</ColumnName>
+        <ColumnValue>'{77}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1518</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 家族遗传史缺陷名1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>GENETIC_HISTORY_DEFECT_CODE1</ColumnName>
+        <ColumnValue>'{78}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1519</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 与缺陷儿亲缘关系1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>GENETIC_HISTORY_RELATIONSHIP1</ColumnName>
+        <ColumnValue>'{79}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1522</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 家族遗传史缺陷名2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>GENETIC_HISTORY_DEFECT_CODE2</ColumnName>
+        <ColumnValue>'{80}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1520</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 与缺陷儿亲缘关系2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>GENETIC_HISTORY_RELATIONSHIP2</ColumnName>
+        <ColumnValue>'{81}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1523</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 家族遗传史缺陷名3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>GENETIC_HISTORY_DEFECT_CODE3</ColumnName>
+        <ColumnValue>'{82}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1521</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 与缺陷儿亲缘关系3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>GENETIC_HISTORY_RELATIONSHIP3</ColumnName>
+        <ColumnValue>'{83}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1524</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 近亲婚配史 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>KIN_WEDDING</ColumnName>
+        <ColumnValue>'{84}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1525</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 近亲婚配史 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>KIN_RELATIONSHIP</ColumnName>
+        <ColumnValue>'{85}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1526</elementId>
+        <Value>Data</Value>
+      </elemnt>
+    </Elements>    
+  </Card>
+  <!-- 药品不良反应报告卡 -->
+  <Card type="1Drug_Reactions_Card" tableName="RCDC_DRUG_REACTIONS_CARD">
+    <Elements>
+      <elemnt>
+        <!-- 主键列,取Seq，写死的规则 -->
+        <GetDataType>Primary</GetDataType>
+        <ColumnName>ID</ColumnName>
+        <ColumnValue>{0}</ColumnValue>
+        <ExcutePriSql>select SEQ_RCDC_DRUG_REACTIONS_CARD.Nextval from dual</ExcutePriSql>
+        <elementId/>
+        <Value/>
+      </elemnt>
+      <!-- 怀疑药-批准文号1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_APPROVAL_NUMBER1</ColumnName>
+        <ColumnValue>'{1}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1809</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-商品名称1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_COMMODITY_NAME1</ColumnName>
+        <ColumnValue>'{2}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1810</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-通用名称（含剂型）1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_GENERAL_NAME1</ColumnName>
+        <ColumnValue>'{3}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1811</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-生产厂家1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_MANUFACTURER1</ColumnName>
+        <ColumnValue>'{4}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1812</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-生产批号1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_BATCH_PRODUCTION1</ColumnName>
+        <ColumnValue>'{5}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1813</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用法用量（次剂量、途径、日次数）1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_USAGE_DOSAGE1</ColumnName>
+        <ColumnValue>'{6}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1814</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用药起止时间1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_START_TIME1</ColumnName>
+        <ColumnValue>'{7}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1815</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用药原因1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_MEDICATION_CAUSES1</ColumnName>
+        <ColumnValue>'{8}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1816</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-批准文号2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_APPROVAL_NUMBER2</ColumnName>
+        <ColumnValue>'{9}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1817</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-商品名称2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_COMMODITY_NAME2</ColumnName>
+        <ColumnValue>'{10}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1818</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-通用名称（含剂型）2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_GENERAL_NAME2</ColumnName>
+        <ColumnValue>'{11}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1819</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-生产厂家2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_MANUFACTURER2</ColumnName>
+        <ColumnValue>'{12}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1820</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-生产批号2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_BATCH_PRODUCTION2</ColumnName>
+        <ColumnValue>'{13}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1821</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用法用量（次剂量、途径、日次数）2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_USAGE_DOSAGE2</ColumnName>
+        <ColumnValue>'{14}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1822</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用药起止时间2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_START_TIME2</ColumnName>
+        <ColumnValue>'{15}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1823</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用药原因2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_MEDICATION_CAUSES2</ColumnName>
+        <ColumnValue>'{16}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1824</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-批准文号3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_APPROVAL_NUMBER3</ColumnName>
+        <ColumnValue>'{17}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1825</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-商品名称3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_COMMODITY_NAME3</ColumnName>
+        <ColumnValue>'{18}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1826</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-通用名称（含剂型）3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_GENERAL_NAME3</ColumnName>
+        <ColumnValue>'{19}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1827</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-生产厂家3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_MANUFACTURER3</ColumnName>
+        <ColumnValue>'{20}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1828</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-生产批号3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_BATCH_PRODUCTION3</ColumnName>
+        <ColumnValue>'{21}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1829</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用法用量（次剂量、途径、日次数）3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_USAGE_DOSAGE3</ColumnName>
+        <ColumnValue>'{22}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1830</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用药起止时间3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_START_TIME3</ColumnName>
+        <ColumnValue>'{23}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1831</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀疑药-用药原因3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DOUBT_MEDICATION_CAUSES3</ColumnName>
+        <ColumnValue>'{24}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1832</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-批准文号1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_APPROVAL_NUMBER1</ColumnName>
+        <ColumnValue>'{25}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1833</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-商品名称1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_COMMODITY_NAME1</ColumnName>
+        <ColumnValue>'{26}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1834</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-通用名称（含剂型）1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_GENERAL_NAME1</ColumnName>
+        <ColumnValue>'{27}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1835</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-生产厂家1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_MANUFACTURER1</ColumnName>
+        <ColumnValue>'{28}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1836</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-生产批号1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_BATCH_PRODUCTION1</ColumnName>
+        <ColumnValue>'{29}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1837</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用法用量（次剂量、途径、日次数）1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_USAGE_DOSAGE1</ColumnName>
+        <ColumnValue>'{30}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1838</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用药起止时间1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_START_TIME1</ColumnName>
+        <ColumnValue>'{31}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1839</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用药原因1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_MEDICATION_CAUSES1</ColumnName>
+        <ColumnValue>'{32}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1840</elementId>
+        <Value>Data</Value>
+      </elemnt>      
+      <!-- 并用药-批准文号2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_APPROVAL_NUMBER2</ColumnName>
+        <ColumnValue>'{33}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1841</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-商品名称2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_COMMODITY_NAME2</ColumnName>
+        <ColumnValue>'{34}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1842</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-通用名称（含剂型）2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_GENERAL_NAME2</ColumnName>
+        <ColumnValue>'{35}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1843</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-生产厂家2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_MANUFACTURER2</ColumnName>
+        <ColumnValue>'{36}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1844</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-生产批号2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_BATCH_PRODUCTION2</ColumnName>
+        <ColumnValue>'{37}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1845</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用法用量（次剂量、途径、日次数）2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_USAGE_DOSAGE2</ColumnName>
+        <ColumnValue>'{38}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1846</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用药起止时间2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_START_TIME2</ColumnName>
+        <ColumnValue>'{39}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1847</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用药原因2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_MEDICATION_CAUSES2</ColumnName>
+        <ColumnValue>'{40}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1848</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-批准文号3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_APPROVAL_NUMBER3</ColumnName>
+        <ColumnValue>'{41}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1849</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-商品名称3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_COMMODITY_NAME3</ColumnName>
+        <ColumnValue>'{42}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1850</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-通用名称（含剂型）3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_GENERAL_NAME3</ColumnName>
+        <ColumnValue>'{43}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1851</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-生产厂家3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_MANUFACTURER3</ColumnName>
+        <ColumnValue>'{44}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1852</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-生产批号3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_BATCH_PRODUCTION3</ColumnName>
+        <ColumnValue>'{45}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1853</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用法用量（次剂量、途径、日次数）3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_USAGE_DOSAGE3</ColumnName>
+        <ColumnValue>'{46}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1854</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用药起止时间3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_START_TIME3</ColumnName>
+        <ColumnValue>'{47}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1855</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 并用药-用药原因3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>TOGETHER_MEDICATION_CAUSES3</ColumnName>
+        <ColumnValue>'{48}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1856</elementId>
+        <Value>Data</Value>
+      </elemnt>
+    </Elements>
+  </Card>
+
+  <!-- 医院感染病例报告表 -->
+  <Card type="1Infections_Card" tableName="RCDC_INFECTIONS_CARD">
+    <Elements>
+      <elemnt>
+        <!-- 主键列,取Seq，写死的规则 -->
+        <GetDataType>Primary</GetDataType>
+        <ColumnName>ID</ColumnName>
+        <ColumnValue>{0}</ColumnValue>
+        <ExcutePriSql>select SEQ_RCDC_INFECTIONS_CARD.Nextval from dual</ExcutePriSql>
+        <elementId/>
+        <Value/>
+      </elemnt>
+      <!-- 感染部位1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE1</ColumnName>
+        <ColumnValue>'{1}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2037</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE2</ColumnName>
+        <ColumnValue>'{2}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2039</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE3</ColumnName>
+        <ColumnValue>'{3}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2041</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位4 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE4</ColumnName>
+        <ColumnValue>'{4}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2043</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位选项1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE_OPTION1</ColumnName>
+        <ColumnValue>'{5}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2109</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位选项2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE_OPTION2</ColumnName>
+        <ColumnValue>'{6}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2110</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位选项3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE_OPTION3</ColumnName>
+        <ColumnValue>'{7}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2111</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位选项4 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE_OPTION4</ColumnName>
+        <ColumnValue>'{8}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2112</elementId>
+        <Value>Data</Value>
+      </elemnt>
+    </Elements>
+  </Card>
+  <!--孕产妇死亡报告卡-->
+  <Card type="1PREGNET_DEAD_Card" tableName="RCDC_PREGNANT_DEAD_RECORDCARD">
+    <Elements>
+      <elemnt>
+        <!-- 主键列,取Seq，写死的规则 -->
+        <GetDataType>Primary</GetDataType>
+        <ColumnName>ID</ColumnName>
+        <ColumnValue>{0}</ColumnValue>
+        <ExcutePriSql>select SEQ_RCDC_PREGNANT_DEAD_CARD.Nextval from dual</ExcutePriSql>
+        <elementId/>
+        <Value/>
+      </elemnt>
+      <!-- 住院流水号 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INPATIENT_NO</ColumnName>
+        <ColumnValue>'{1}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>358</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 孕产妇姓名 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NAME</ColumnName>
+        <ColumnValue>'{2}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1289</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 年龄 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>AGE</ColumnName>
+        <ColumnValue>'{3}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1349</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 孕周 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PREGNANT_MONTHS</ColumnName>
+        <ColumnValue>'{4}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>0</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 末次月经时间 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>LASTMENSES_DATE</ColumnName>
+        <ColumnValue>to_date('{5}','yyyy-mm-dd hh24:mi:ss' )</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1357</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡时间 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_DATE</ColumnName>
+        <ColumnValue>to_date('{6}','yyyy-mm-dd hh24:mi:ss' )</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1370</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 家属联系电话 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RELATIVE_PHONE</ColumnName>
+        <ColumnValue>'{7}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1290</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地址 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>HOME</ColumnName>
+        <ColumnValue>'{8}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1310</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡科室名称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FILL_CARD_DEPT_NAME</ColumnName>
+        <ColumnValue>'{9}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1411</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡科室CODE -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FILL_CARD_DEPT_CODE</ColumnName>
+        <ColumnValue>'{10}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>612</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡人姓名 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FILL_CARD_PERSON_NAME</ColumnName>
+        <ColumnValue>'{11}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1412</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡日期 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FILL_CARD_DATE</ColumnName>
+        <ColumnValue>to_date('{12}','yyyy-mm-dd hh24:mi:ss')</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1413</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地址代码 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>HOME_CODE</ColumnName>
+        <ColumnValue>'{13}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1329</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 户口 1本地 2非本地 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RESIDENT</ColumnName>
+        <ColumnValue>'{14}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1309</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 民族 1汉族 2少数民族 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NATION</ColumnName>
+        <ColumnValue>'{15}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1350</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 分娩时间 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_DATE</ColumnName>
+        <ColumnValue>to_date('{16}','yyyy-mm-dd hh24:mi:ss')</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1369</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 在家分娩后是否转诊 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>IS_HOME_CHILDBIRTH_DIAG</ColumnName>
+        <ColumnValue>'{17}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1399</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 在基层医院分娩或处置后转诊 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>IS_BASE_HOS_BIRTH_DIAG</ColumnName>
+        <ColumnValue>'{18}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1400</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 分娩方式 1.未娩 2.自然产 3.阴道手术 4 刨宫产 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_MODE</ColumnName>
+        <ColumnValue>'{19}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1401</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 非法接生 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>IS_UNLAWFUL</ColumnName>
+        <ColumnValue>'{20}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1402</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死因诊断依据 1.尸检 2.病理 3.临床 4.死后推断 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_REASON_DIAG</ColumnName>
+        <ColumnValue>'{21}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1409</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NOW_HOME</ColumnName>
+        <ColumnValue>'{22}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1330</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 居住地区 1.平原 2.山区 3.其他地区 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>AREA</ColumnName>
+        <ColumnValue>'{23}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1353</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀孕次P数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PREGNENT_COUNT</ColumnName>
+        <ColumnValue>'{24}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1354</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_COUNT</ColumnName>
+        <ColumnValue>'{25}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>612</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 流产次数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>ABORT_COUNT</ColumnName>
+        <ColumnValue>'{26}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1356</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 人工流产次数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>LABOR_INDUCTION_COUNT</ColumnName>
+        <ColumnValue>'{27}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1450</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 自然引产次数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NATURAL_INDUCTION_COUNT</ColumnName>
+        <ColumnValue>'{28}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1452</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 分娩地点 1省医院 2.县(区)级医院 3.乡,镇,街道医院 4.村接生室 5.产妇家中 6.途中 7.其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_ADRESS</ColumnName>
+        <ColumnValue>'{29}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1389</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡地点 1省医院 2.县(区)级医院 3.乡,镇,街道医院 4.村接生室 5.产妇家中 6.途中 7.其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_ADRESS</ColumnName>
+        <ColumnValue>'{30}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1390</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 分娩地点 省医院 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_PROVINCE_HOS</ColumnName>
+        <ColumnValue>'{31}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1391</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 分娩地点 县(区)级医院 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_COUNTTY_HOS</ColumnName>
+        <ColumnValue>'{32}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1392</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- '分娩地点 乡,镇,街道医院 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_STREET_HOS</ColumnName>
+        <ColumnValue>'{33}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1393</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- '分娩地点 其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_OTHER</ColumnName>
+        <ColumnValue>'{34}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1394</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡地点 省医院 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_ADRESS_PROVINCE_HOS</ColumnName>
+        <ColumnValue>'{35}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1395</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡地点 县(区)级医院 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_ADRESS_COUNTTY_HOS</ColumnName>
+        <ColumnValue>'{36}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1396</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡地点 乡,镇,街道医院 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_ADRESS_STREET_HOS</ColumnName>
+        <ColumnValue>'{37}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1397</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡地点其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_ADRESS_OTHER</ColumnName>
+        <ColumnValue>'{38}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1398</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 是否国家监测点 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>IS_COUNTRY_MONITOR</ColumnName>
+        <ColumnValue>'{39}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1410</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 家庭年人均收入 1<1000 2>1000 3>2000 4>4000 5>=8000 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FAMILY_ANNUAL_INCOME</ColumnName>
+        <ColumnValue>'{40}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1352</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!--接生者 1.医务人员 2.产前检查 3.接生员 4.其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BABY_PER</ColumnName>
+        <ColumnValue>'{41}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1403</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!--初检孕周 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INIT_INSP_WEEK_COUNT</ColumnName>
+        <ColumnValue>'{42}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1407</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产检次数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PRO_INSPECTION_COUNT</ColumnName>
+        <ColumnValue>'{43}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1408</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址编码 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NOW_HOME_CODE</ColumnName>
+        <ColumnValue>'{44}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1331</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 计划内外 1计划内  2计划外 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PLAN</ColumnName>
+        <ColumnValue>'{45}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1332</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 催产 引产方法不当 1.是 2.否 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_UNFIT_METHOD</ColumnName>
+        <ColumnValue>'{46}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1404</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 是否建册 1.是 2.否 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>IS_BUILD</ColumnName>
+        <ColumnValue>'{47}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1405</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产前检查 1.是 2.否 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>IS_INSP_BEFORE_BIRTH</ColumnName>
+        <ColumnValue>'{48}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1406</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 1.文盲 2.小学 3.初中 4高中，中专 5大专及以上 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>EDUCATE_LEVEL</ColumnName>
+        <ColumnValue>'{49}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1351</elementId>
+        <Value>Data</Value>
+      </elemnt>
+    </Elements>
+  </Card>
+  <!-- 围产儿及5岁以下儿童死亡报告卡 -->
+  <Card type="1Perinatal_Dead_Card" tableName="RCDC_PERINATAL_DEAD_RECORD">
+    <Elements>
+      <elemnt>
+        <!-- 主键列,取Seq，写死的规则 -->
+        <GetDataType>Primary</GetDataType>
+        <ColumnName>ID</ColumnName>
+        <ColumnValue>{0}</ColumnValue>
+        <ExcutePriSql>select SEQ_RCDC_PERINATAL_DEAD_CARD.Nextval from dual</ExcutePriSql>
+        <elementId/>
+        <Value/>
+      </elemnt>
+      <!-- 住院流水号 -->
+      <elemnt>
+        <!-- 取元素值 -->
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INPATIENT_NO</ColumnName>
+        <ColumnValue>'{1}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1549</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡类型 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_TYPE</ColumnName>
+        <ColumnValue>'{2}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1569</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地址 市 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PERMANENT_ADRESS_CITY</ColumnName>
+        <ColumnValue>'{3}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1310</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地址 区 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PERMANENT_ADRESS_AREA</ColumnName>
+        <ColumnValue>'{4}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1590</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地址 街道 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PERMANENT_ADRESS_STREET</ColumnName>
+        <ColumnValue>'{5}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1591</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地址 村 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PERMANENT_ADRESS_VILLAGE</ColumnName>
+        <ColumnValue>'{6}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1592</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地址 号 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PERMANENT_ADRESS_MARK</ColumnName>
+        <ColumnValue>'{7}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1593</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址 市 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NOW_HOME_CITY</ColumnName>
+        <ColumnValue>'{8}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1330</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址 区 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NOW_HOME_AREA</ColumnName>
+        <ColumnValue>'{9}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1595</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址 街道 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NOW_HOME_STREET</ColumnName>
+        <ColumnValue>'{10}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1596</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址 村 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NOW_HOME_VILLAGE</ColumnName>
+        <ColumnValue>'{11}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1460</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址 号 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NOW_HOME_MARK</ColumnName>
+        <ColumnValue>'{12}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1598</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 常住地址代码 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PERMANENT_ADRESS_CODE</ColumnName>
+        <ColumnValue>'{13}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1649</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 现住地址代码 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NOW_HOME_CODE</ColumnName>
+        <ColumnValue>'{14}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1650</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 父亲姓名 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FATHER_NAME</ColumnName>
+        <ColumnValue>'{15}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1599</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 母亲姓名 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_NAME</ColumnName>
+        <ColumnValue>'{16}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1600</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 儿童姓名 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_NAME</ColumnName>
+        <ColumnValue>'{17}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1601</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 联系电话 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PHONE</ColumnName>
+        <ColumnValue>'{18}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1602</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 流动情况 1.本地户口 2.非本地户口 3.非本地户口居住一年以上 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FLOW_CONDITION</ColumnName>
+        <ColumnValue>'{19}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1603</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 性别 1.男 2.女 3.不明 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>SEX</ColumnName>
+        <ColumnValue>'{20}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1604</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生日期 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_DATE</ColumnName>
+        <ColumnValue>to_date('{21}','yyyy-mm-dd hh24:mi:ss')</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1605</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生体重 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_WEIGHT</ColumnName>
+        <ColumnValue>'{22}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1606</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生体重测量方式 1.测量 2.估计 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_WEIGHT_MODE</ColumnName>
+        <ColumnValue>'{23}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1607</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 孕周 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PREGNANT_MONTHS</ColumnName>
+        <ColumnValue>'{24}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1608</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 出生地点 1.省(市)医院 2.县(区)医院 3.乡(街道)卫生院 4.途中 5.家中 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_ADRESS</ColumnName>
+        <ColumnValue>'{25}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1609</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 医院全称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BIRTH_HOS_ALL_NAME</ColumnName>
+        <ColumnValue>'{26}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1610</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡日期 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_DATE</ColumnName>
+        <ColumnValue>to_date('{27}','yyyy-mm-dd hh24:mi:ss')</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1611</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死因分类 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_REASON</ColumnName>
+        <ColumnValue>'{28}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1612</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡地点 1.医院 2.途中 3.家 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_ADRESS</ColumnName>
+        <ColumnValue>'{29}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1613</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死亡医院全称 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_HOS_ALL_NAME</ColumnName>
+        <ColumnValue>'{30}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1614</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死前治疗 1.住院 2.门诊 3.未治疗 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>BEFORE_DEAD_CURE</ColumnName>
+        <ColumnValue>'{31}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1615</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死前诊断级别 1.省(市) 2.县(区) 3.乡(街道) 4.村(诊所) 5.未就医 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_DIAG_LEVEL</ColumnName>
+        <ColumnValue>'{32}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1616</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 未治疗或未就医主要原因 1.经济困难 2.交通不便 3.来不及送医院 4.家长认为病情不重 5.风俗习惯 6其他(请注明) -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>UN_DOC_MAIN_REASON</ColumnName>
+        <ColumnValue>'{33}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1617</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 其他(请注明) -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>UN_DOC_MAIN_REASON_OTHER</ColumnName>
+        <ColumnValue>'{34}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1618</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死因诊断依据 1.病理尸检 2.临床 3.死后推断 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_DIAG_BASIS</ColumnName>
+        <ColumnValue>'{35}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1619</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 死后推断依据 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEAD_DEDUCE</ColumnName>
+        <ColumnValue>'{36}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1620</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 胎数 1.单胎 2.双胎 3.多胎 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOLE_NUM</ColumnName>
+        <ColumnValue>'{37}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1621</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 阿氏评分 1分钟 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>APGAR_SCORE_ONE_MIN</ColumnName>
+        <ColumnValue>'{38}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1622</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 阿氏评分 5分钟 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>APGAR_SCORE_FIVE_MIN</ColumnName>
+        <ColumnValue>'{39}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1623</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产妇年龄 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_AGE</ColumnName>
+        <ColumnValue>'{40}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1624</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 怀孕次数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>PREGNENT_COUNT</ColumnName>
+        <ColumnValue>'{41}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1625</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产次 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_COUNT</ColumnName>
+        <ColumnValue>'{42}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1626</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 流产次数 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>ABORT_COUNT</ColumnName>
+        <ColumnValue>'{43}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1627</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 系统管理 1.是 2.否  -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>IS_SYS_MANAGE</ColumnName>
+        <ColumnValue>'{44}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1628</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 产妇文化程度 1.文盲 2.小学 3.初中 4高中 5大专 6大专以上 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MOTHER_DEGREE</ColumnName>
+        <ColumnValue>'{45}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1629</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 分娩方式 1.顺产 2.胎头吸引 3.产钳 4.剖宫产 5.臀位助产 6.其他 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CHILD_BIRTH_MODE</ColumnName>
+        <ColumnValue>'{46}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1630</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 家庭年人均收入 1<1000 2>1000 3>2000 4>4000 5>=8000 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FAMILY_ANNUAL_INCOME</ColumnName>
+        <ColumnValue>'{47}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1631</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 是否监测点 1.否 2.市级点 3.省级点 4.国家点 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>COUNTRY_MONITOR</ColumnName>
+        <ColumnValue>'{48}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1632</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡单位 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FILL_CARD_DEPT_NAME</ColumnName>
+        <ColumnValue>'{49}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1633</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡人 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FILL_CARD_PER</ColumnName>
+        <ColumnValue>'{50}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1634</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 填卡日期 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>FILL_CARD_DATE</ColumnName>
+        <ColumnValue>to_date('{51}','yyyy-mm-dd hh24:mi:ss')</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1635</elementId>
+        <Value>Data</Value>
+      </elemnt>
+    </Elements>
+  </Card>
+  <!-- 抢救报告卡 -->
+  <Card type="1Rescue_Card" tableName="RCDC_RESCUE_CARD">
+    <Elements>
+      <elemnt>
+        <!-- 主键列,取Seq，写死的规则 -->
+        <GetDataType>Primary</GetDataType>
+        <ColumnName>ID</ColumnName>
+        <ColumnValue>{0}</ColumnValue>
+        <ExcutePriSql>select SEQ_RCDC_RESCUE_CARD.Nextval from dual</ExcutePriSql>
+        <elementId/>
+        <Value/>
+      </elemnt>
+	  <!-- 姓名 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NAME</ColumnName>
+        <ColumnValue>'{1}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>355</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 年龄 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>AGE</ColumnName>
+        <ColumnValue>'{2}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>359</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 护理级别 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>NURSE_GRADE</ColumnName>
+        <ColumnValue>'{3}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1689</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 危重评分 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CRITICAL_SCORE</ColumnName>
+        <ColumnValue>'{4}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1710</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 抢救日期 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RESCUE_DATE</ColumnName>
+        <ColumnValue>to_date('{5}','yyyy-mm-dd hh24:mi:ss')</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>763</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 抢救记录 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RESCUE_RECORD</ColumnName>
+        <ColumnValue>'{6}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>764</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 抢救结果 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RESCUE_RESULT</ColumnName>
+        <ColumnValue>'{7}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1772</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 重症讨论是否完成 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INTENSIVE_END</ColumnName>
+        <ColumnValue>'{8}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1779</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 抢救期主任查房 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RESCUE_MANAGER_WARD</ColumnName>
+        <ColumnValue>'{9}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1773</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 病危通知书 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>CRITICAL_NOTICE</ColumnName>
+        <ColumnValue>'{10}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1774</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 抢救期交接班 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>RESCUE_SHIFT</ColumnName>
+        <ColumnValue>'{11}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1775</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 科主任 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>DEPT_MANAGER</ColumnName>
+        <ColumnValue>'{12}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>448</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 报告人 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>REPOTER</ColumnName>
+        <ColumnValue>'{13}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1709</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!-- 医务部意见 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>MED_ADMIN_SUG</ColumnName>
+        <ColumnValue>'{14}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>1730</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	</Elements>
+  </Card>
+  <!-- 医院感染病例报告表 -->
+  <Card type="1Out_Infections_Card" tableName="RCDC_INFECTIONS_CARD">
+    <Elements>
+      <elemnt>
+        <!-- 主键列,取Seq，写死的规则 -->
+        <GetDataType>Primary</GetDataType>
+        <ColumnName>ID</ColumnName>
+        <ColumnValue>{0}</ColumnValue>
+        <ExcutePriSql>select SEQ_RCDC_INFECTIONS_CARD.Nextval from dual</ExcutePriSql>
+        <elementId/>
+        <Value/>
+      </elemnt>
+      <!-- 感染部位1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE1</ColumnName>
+        <ColumnValue>'{1}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2037</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE2</ColumnName>
+        <ColumnValue>'{2}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2039</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE3</ColumnName>
+        <ColumnValue>'{3}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2041</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位4 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE4</ColumnName>
+        <ColumnValue>'{4}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2043</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位选项1 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE_OPTION1</ColumnName>
+        <ColumnValue>'{5}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2109</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位选项2 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE_OPTION2</ColumnName>
+        <ColumnValue>'{6}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2110</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位选项3 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE_OPTION3</ColumnName>
+        <ColumnValue>'{7}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2111</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 感染部位选项4 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>INFECTIONS_SITE_OPTION4</ColumnName>
+        <ColumnValue>'{8}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>2112</elementId>
+        <Value>Data</Value>
+      </elemnt>
+    </Elements>
+  </Card>
+   <!-- 中心静脉导管相关血流感染（CRBSI）报表 -->
+  <Card type="1Venous_Catheter_Card" tableName="RCDC_VENOUS_CATHETER">
+    <Elements>
+      <elemnt>
+        <!-- 主键列,取Seq，写死的规则 -->
+        <GetDataType>Primary</GetDataType>
+        <ColumnName>ID</ColumnName>
+        <ColumnValue>{0}</ColumnValue>
+        <ExcutePriSql>select SEQ_RCDC_VENOUS_CATHETER.Nextval from dual</ExcutePriSql>
+        <elementId/>
+        <Value/>
+      </elemnt>
+      <!-- 呼吸机 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>ISBREATH</ColumnName>
+        <ColumnValue>'{1}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>3573</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 泌尿道置管 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>ISURINARY</ColumnName>
+        <ColumnValue>'{2}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>3589</elementId>
+        <Value>Data</Value>
+      </elemnt>
+      <!-- 中心静脉 -->
+      <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>ISVEIN</ColumnName>
+        <ColumnValue>'{3}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>3609</elementId>
+        <Value>Data</Value>
+      </elemnt>
+	  <!--年龄-->
+	  <elemnt>
+        <GetDataType>Element</GetDataType>
+        <ColumnName>AGE</ColumnName>
+        <ColumnValue>'{4}'</ColumnValue>
+        <ExcutePriSql/>
+        <elementId>3532</elementId>
+        <Value>Data</Value>
+      </elemnt>
+    </Elements>
+  </Card>
+</ReportCard>

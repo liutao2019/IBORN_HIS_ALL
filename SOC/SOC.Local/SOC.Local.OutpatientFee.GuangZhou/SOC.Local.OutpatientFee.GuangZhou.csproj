@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87F4A865-7AE1-434B-A5DA-3CA9DF9F6EC3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.SOC.Local.OutpatientFee.GuangZhou</RootNamespace>
+    <AssemblyName>SOC.Local.OutpatientFee.GuangZhou</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizLogic.Registration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.Cache, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.BizProcess.MessagePatternInterface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Fee.Models, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gysy\Function.cs" />
+    <Compile Include="Gysy\ILisCalculateTube\LisCalculateTubeManager.cs" />
+    <Compile Include="Gysy\IOutpatientGuide\OutpatientGuide.cs" />
+    <Compile Include="Gysy\IOutpatientGuide\ucFeeDetailGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gysy\IOutpatientGuide\ucFeeDetailGuide.Designer.cs">
+      <DependentUpon>ucFeeDetailGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gysy\ILisCalculateTube\LisCalculateTube.cs" />
+    <Compile Include="Gyzl\Charge\tvPatientTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gyzl\Charge\tvPatientTree.Designer.cs">
+      <DependentUpon>tvPatientTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IBankTrans\BankTrans.cs" />
+    <Compile Include="Gyzl\IChooseItemForOutpatient\ucChooseItemForOutPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IChooseItemForOutpatient\ucChooseItemForOutPatient.Designer.cs">
+      <DependentUpon>ucChooseItemForOutPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IGetItemPrice\ItemPrice.cs" />
+    <Compile Include="Gyzl\IInvoicePrint\ucInvoicePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IInvoicePrint\ucInvoicePrint.designer.cs">
+      <DependentUpon>ucInvoicePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\ILisCalculateTube\AddFeeItem.cs" />
+    <Compile Include="Gyzl\IMultiScreen\frmMiltScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IMultiScreen\frmMiltScreen.Designer.cs">
+      <DependentUpon>frmMiltScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\InterfaceManager.cs" />
+    <Compile Include="Gyzl\IOrder\Function.cs" />
+    <Compile Include="Gyzl\IOrder\MakeGFReportData.cs" />
+    <Compile Include="Gyzl\IOrder\Manager.cs" />
+    <Compile Include="Gyzl\IOrder\PubReport.cs" />
+    <Compile Include="Gyzl\IOutPatientFeeRoundOff\RoundOffFee.cs" />
+    <Compile Include="Gyzl\Function.cs" />
+    <Compile Include="Gyzl\IOutpatientGuide\frmPopPubCostBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientGuide\frmPopPubCostBill.Designer.cs">
+      <DependentUpon>frmPopPubCostBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientGuide\OutpatientGuide.cs" />
+    <Compile Include="Gyzl\IOutpatientGuide\ucFeeDetailGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientGuide\ucFeeDetailGuide.Designer.cs">
+      <DependentUpon>ucFeeDetailGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientGuide\ucPubCostBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientGuide\ucPubCostBill.Designer.cs">
+      <DependentUpon>ucPubCostBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\ILisCalculateTube\DiagPubFee.cs" />
+    <Compile Include="Gyzl\IOutpatientInfomation\ucPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientInfomation\ucPatientInfo.Designer.cs">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\frmChoosePatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucDisplay.Designer.cs">
+      <DependentUpon>ucDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucInjec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucInjec.Designer.cs">
+      <DependentUpon>ucInjec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucInputDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucInputDays.Designer.cs">
+      <DependentUpon>ucInputDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucInputTimes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucInputTimes.Designer.cs">
+      <DependentUpon>ucInputTimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucInvoiceSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucInvoiceSelect.Designer.cs">
+      <DependentUpon>ucInvoiceSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucPopSelected.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucPopSelected.Designer.cs">
+      <DependentUpon>ucPopSelected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucRecipeSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientItemInputAndDisplay\ucRecipeSelect.designer.cs">
+      <DependentUpon>ucRecipeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientPopupFee\frmDealBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientPopupFee\frmDealBalance.Designer.cs">
+      <DependentUpon>frmDealBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientPopupFee\ucInvoicePreviewSplit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientPopupFee\ucInvoicePreviewSplit.Designer.cs">
+      <DependentUpon>ucInvoicePreviewSplit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientPopupFee\ucSplitInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientPopupFee\ucSplitInvoice.Designer.cs">
+      <DependentUpon>ucSplitInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientPopupFee\ucSplitUnit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gyzl\IOutpatientPopupFee\ucSplitUnit.Designer.cs">
+      <DependentUpon>ucSplitUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gyzl\ISplitInvoice\SplitInvoiceClass.cs" />
+    <Compile Include="Gyzl\PreCharge\tvPatientTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gyzl\PreCharge\tvPatientTree.Designer.cs">
+      <DependentUpon>tvPatientTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Zdly\Function.cs" />
+    <Compile Include="Zdly\IChooseItemForOutpatient\ucChooseItemForOutPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IChooseItemForOutpatient\ucChooseItemForOutPatient.Designer.cs">
+      <DependentUpon>ucChooseItemForOutPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IGetItemPrice\ItemPrice.cs" />
+    <Compile Include="Zdly\IInvoicePrint\ChooseDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zdly\IInvoicePrint\ChooseDate.Designer.cs">
+      <DependentUpon>ChooseDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IInvoicePrint\ucInvoicePrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IInvoicePrint\ucInvoicePrint.designer.cs">
+      <DependentUpon>ucInvoicePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IInvoicePrint\ucInvoicePrintold.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IInvoicePrint\ucInvoicePrintold.designer.cs">
+      <DependentUpon>ucInvoicePrintold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\ILisCalculateTube\AddFeeItem.cs" />
+    <Compile Include="Zdly\IOrder\FeeConfirm.cs" />
+    <Compile Include="Zdly\IOutpatientGuide\frmPopPubCostBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientGuide\frmPopPubCostBill.Designer.cs">
+      <DependentUpon>frmPopPubCostBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientGuide\OutpatientGuide.cs" />
+    <Compile Include="Zdly\IOutpatientGuide\ucFeeDetailGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientGuide\ucFeeDetailGuide.Designer.cs">
+      <DependentUpon>ucFeeDetailGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientGuide\ucPubCostBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientGuide\ucPubCostBill.Designer.cs">
+      <DependentUpon>ucPubCostBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientInfomation\ucPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientInfomation\ucPatientInfo.Designer.cs">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\ILisCalculateTube\YkHighChargeFee.cs" />
+    <Compile Include="Zdly\ILisCalculateTube\DiagPubFee.cs" />
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\frmChoosePatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\frmFeeItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\frmFeeItems.Designer.cs">
+      <DependentUpon>frmFeeItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucDisplay.Designer.cs">
+      <DependentUpon>ucDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucInjec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucInjec.Designer.cs">
+      <DependentUpon>ucInjec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucInputDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucInputDays.Designer.cs">
+      <DependentUpon>ucInputDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucInputTimes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucInputTimes.Designer.cs">
+      <DependentUpon>ucInputTimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucInvoiceSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucInvoiceSelect.designer.cs">
+      <DependentUpon>ucInvoiceSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucModifyRate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucModifyRate.Designer.cs">
+      <DependentUpon>ucModifyRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucPopSelected.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucPopSelected.Designer.cs">
+      <DependentUpon>ucPopSelected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucRecipeSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientItemInputAndDisplay\ucRecipeSelect.designer.cs">
+      <DependentUpon>ucRecipeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientPopupFee\frmDealBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientPopupFee\frmDealBalance.Designer.cs">
+      <DependentUpon>frmDealBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientPopupFee\ucInvoicePreviewSplit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientPopupFee\ucInvoicePreviewSplit.Designer.cs">
+      <DependentUpon>ucInvoicePreviewSplit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientPopupFee\ucSplitInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientPopupFee\ucSplitInvoice.Designer.cs">
+      <DependentUpon>ucSplitInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientPopupFee\ucSplitUnit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zdly\IOutpatientPopupFee\ucSplitUnit.Designer.cs">
+      <DependentUpon>ucSplitUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zdly\ISplitInvoice\SplitInvoiceClass.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gysy\IOutpatientGuide\ucFeeDetailGuide.resx">
+      <DependentUpon>ucFeeDetailGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IChooseItemForOutpatient\ucChooseItemForOutPatient.resx">
+      <DependentUpon>ucChooseItemForOutPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IInvoicePrint\ucInvoicePrint.resx">
+      <DependentUpon>ucInvoicePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IMultiScreen\frmMiltScreen.resx">
+      <DependentUpon>frmMiltScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientGuide\frmPopPubCostBill.resx">
+      <DependentUpon>frmPopPubCostBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientGuide\ucFeeDetailGuide.resx">
+      <DependentUpon>ucFeeDetailGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientGuide\ucPubCostBill.resx">
+      <DependentUpon>ucPubCostBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientInfomation\ucPatientInfo.resx">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientItemInputAndDisplay\frmChoosePatientInfo.resx">
+      <DependentUpon>frmChoosePatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientItemInputAndDisplay\ucDisplay.resx">
+      <DependentUpon>ucDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientItemInputAndDisplay\ucInjec.resx">
+      <DependentUpon>ucInjec.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientItemInputAndDisplay\ucInputDays.resx">
+      <DependentUpon>ucInputDays.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientItemInputAndDisplay\ucInputTimes.resx">
+      <DependentUpon>ucInputTimes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientItemInputAndDisplay\ucInvoiceSelect.resx">
+      <DependentUpon>ucInvoiceSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientItemInputAndDisplay\ucPopSelected.resx">
+      <DependentUpon>ucPopSelected.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientItemInputAndDisplay\ucRecipeSelect.resx">
+      <DependentUpon>ucRecipeSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientPopupFee\frmDealBalance.resx">
+      <DependentUpon>frmDealBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientPopupFee\ucInvoicePreviewSplit.resx">
+      <DependentUpon>ucInvoicePreviewSplit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientPopupFee\ucSplitInvoice.resx">
+      <DependentUpon>ucSplitInvoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gyzl\IOutpatientPopupFee\ucSplitUnit.resx">
+      <DependentUpon>ucSplitUnit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IChooseItemForOutpatient\ucChooseItemForOutPatient.resx">
+      <DependentUpon>ucChooseItemForOutPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IInvoicePrint\ChooseDate.resx">
+      <DependentUpon>ChooseDate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IInvoicePrint\ucInvoicePrint.resx">
+      <DependentUpon>ucInvoicePrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IInvoicePrint\ucInvoicePrintold.resx">
+      <DependentUpon>ucInvoicePrintold.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientGuide\frmPopPubCostBill.resx">
+      <DependentUpon>frmPopPubCostBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientGuide\ucFeeDetailGuide.resx">
+      <DependentUpon>ucFeeDetailGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientGuide\ucPubCostBill.resx">
+      <DependentUpon>ucPubCostBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientInfomation\ucPatientInfo.resx">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\frmChoosePatientInfo.resx">
+      <DependentUpon>frmChoosePatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\frmFeeItems.resx">
+      <DependentUpon>frmFeeItems.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\ucDisplay.resx">
+      <DependentUpon>ucDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\ucInjec.resx">
+      <DependentUpon>ucInjec.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\ucInputDays.resx">
+      <DependentUpon>ucInputDays.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\ucInputTimes.resx">
+      <DependentUpon>ucInputTimes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\ucInvoiceSelect.resx">
+      <DependentUpon>ucInvoiceSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\ucModifyRate.resx">
+      <DependentUpon>ucModifyRate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\ucPopSelected.resx">
+      <DependentUpon>ucPopSelected.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientItemInputAndDisplay\ucRecipeSelect.resx">
+      <DependentUpon>ucRecipeSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientPopupFee\frmDealBalance.resx">
+      <DependentUpon>frmDealBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientPopupFee\ucInvoicePreviewSplit.resx">
+      <DependentUpon>ucInvoicePreviewSplit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientPopupFee\ucSplitInvoice.resx">
+      <DependentUpon>ucSplitInvoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zdly\IOutpatientPopupFee\ucSplitUnit.resx">
+      <DependentUpon>ucSplitUnit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,99 @@
+<ReportQueryInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>cmbIndept</Name><Text>科室：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="Neusoft.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>450</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select dept_code, dept_name, spell_code, wb_code, '' mark,dept_type from com_department t where (dept_type = 'I') </DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>cmbNurse</Name><Text>病区：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="Neusoft.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>660</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select dept_code, dept_name, spell_code, wb_code, '' mark from com_department t where (dept_type = 'N' and dept_code not in ('3031','3030','3101')) or dept_code = '1008'</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>4</Index><Name>cmbCode</Name><Text>项目：</Text><IsAddText>true</IsAddText><ControlType Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="Neusoft.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>870</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select f.item_code,f.item_name,f.specs,f.spell_code,f.wb_code from fin_com_undruginfo f where f.valid_state=1 union all  select p.drug_code,p.trade_name,'',p.spell_code,p.wb_code from pha_com_baseinfo p where p.valid_state=1</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select tt.patientType,
+       /*tt.card_no,
+       tt.name,*/
+       tt.in_dept,
+       tt.item_name,
+       tt.exec_dept_name,
+       sum(tt.tot_cost) own_cost,
+       sum(tt.tot_cost - tt.eco_cost - tt.donate_cost) real_cost,
+       sum(tt.eco_cost) eco_cost,
+       sum(tt.donate_cost) donate_cost
+  from (select '住院' patientType,
+               t2.card_no ,
+               t.name,
+               t.item_code,
+               t.item_name,
+               fun_get_dept_name(inhos_deptcode) in_dept,
+               fun_get_dept_name(t.execute_deptcode) exec_dept,
+               fun_get_dept_name(t.nurse_cell_code) nurse_cell,
+               case fun_get_dept_name(inhos_deptcode)
+                 when fun_get_dept_name(t.execute_deptcode) then
+                  fun_get_dept_name(t.nurse_cell_code)
+                 else
+                  fun_get_dept_name(t.execute_deptcode)
+               end exec_dept_name,
+               (select fee_stat_name
+                  from fin_com_feecodestat a
+                 where a.report_code = 'ZY01'
+                   and a.fee_code = t.fee_code) fee_type,
+               t.qty,
+               t.current_unit,
+               nvl(t.tot_cost,0) tot_cost,
+               nvl(t.own_cost,0) own_cost,
+               nvl(t.eco_cost,0) eco_cost,
+               nvl(t.donate_cost,0) donate_cost
+          from fin_ipb_itemlist t left join fin_ipr_inmaininfo t2 on t.inpatient_no = t2.inpatient_no
+         where  t2.out_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+              and t2.in_state = 'O'
+        union all
+        select '住院' patientType,
+               t2.card_no,
+               t.name,
+               t.drug_code,
+               t.drug_name,
+               fun_get_dept_name(inhos_deptcode) in_dept,
+               fun_get_dept_name(t.execute_deptcode) exec_dept,
+               fun_get_dept_name(t.nurse_cell_code),
+               case fun_get_dept_name(inhos_deptcode)
+                 when fun_get_dept_name(t.execute_deptcode) then
+                  fun_get_dept_name(t.nurse_cell_code)
+                 else
+                  fun_get_dept_name(t.execute_deptcode)
+               end exec_dept_name,
+               (select fee_stat_name
+                  from fin_com_feecodestat a
+                 where a.report_code = 'ZY01'
+                   and a.fee_code = t.fee_code) fee_type,
+               t.qty,
+               t.current_unit,
+               nvl(t.tot_cost,0) tot_cost,
+               nvl(t.own_cost,0) own_cost,
+               nvl(t.eco_cost,0) eco_cost,
+               nvl(t.donate_cost,0) donate_cost
+          from fin_ipb_medicinelist t left join fin_ipr_inmaininfo t2 on t.inpatient_no = t2.inpatient_no
+          where  t2.out_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and  to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+           and t2.in_state = ' O'
+          union all
+          select '门诊' patientType,
+                    t3.card_no,
+                    (select a.name from com_patientinfo a where a.card_no= t3.card_no),
+                    t3.item_code,
+                    t3.item_name,
+                    fun_get_dept_name(t3.reg_dpcd) in_dept,
+                    fun_get_dept_name(t3.exec_dpcd) exec_dept,
+                    fun_get_dept_name(t3.reg_dpcd),
+                    fun_get_dept_name(t3.reg_dpcd),
+                    (select fee_stat_name
+                      from fin_com_feecodestat a
+                    where a.report_code = 'MZ01'
+                       and a.fee_code = t3.fee_code) end,
+                    t3.qty/t3.pack_qty,
+                    t3.unit_price,
+                   nvl(t3.own_cost,0) own_cost,
+                   nvl(t3.own_cost,0) - nvl(t3.eco_cost,0) - nvl(t3.donate_cost,0),
+                   nvl(t3.eco_cost,0) eco_cost,
+                   nvl(t3.donate_cost,0) donate_cost
+           from fin_opb_feedetail t3 
+           where t3.fee_date between to_date('&amp;dtBeginTime', 'YYYY-MM-DD') and  to_date('&amp;dtEndTime', 'YYYY-MM-DD') + 1
+               and t3.cancel_flag in ('1','3')
+                     ) tt
+ where (tt.exec_dept_name = '&amp;cmbNurse.Text' or '全部' = '&amp;cmbNurse.Text')
+   and (tt.item_code='&amp;cmbCode' or '&amp;cmbCode'='ALL')
+   and (tt.in_dept = '&amp;cmbIndept.Text' or '全部' = '&amp;cmbIndept.Text')
+ group by tt.patientType,/*tt.card_no, tt.name,*/ tt.exec_dept_name,tt.item_name,tt.in_dept
+  having sum(tt.own_cost) &gt; 0
+ order by tt.in_dept
+
+ 
+ 
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\住院护士长\住院项目收入查询设置xml</QueryFilePath><PrintInfo Type="Neusoft.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

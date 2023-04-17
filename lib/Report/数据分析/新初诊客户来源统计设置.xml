@@ -1,0 +1,289 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>hospitalid</Name><Text>院区：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>140</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>430</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>    select distinct cd.hospital_id,cd.hospital_name from com_department cd where cd.hospital_id is not null</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>select decode(grouping_id(科室),0,科室,'合计:') 科室,
+       nvl(sum(中山三院),0) 中山三院,
+       nvl(sum(外院),0) 外院,
+       nvl(sum(企业会员),0) 企业会员,
+       nvl(sum(商业保险),0) 商业保险,
+       nvl(sum(异业联盟),0) 异业联盟,
+       nvl(sum(企业),0) 企业,
+       nvl(sum(渠道转诊其他),0) 渠道转诊其他,
+       nvl(sum(个人),0) 个人,
+       nvl(sum(口碑),0) 口碑,
+       nvl(sum(活动),0) 活动,
+       nvl(sum(户外),0) 户外,
+       nvl(sum(其他广告),0) 其他广告,
+       nvl(sum(纸媒),0) 纸媒,
+       nvl(sum(官网),0) 官网,
+       nvl(sum(官微),0) 官微,
+       nvl(sum(挂号网),0) 挂号网,
+       nvl(sum(社群),0) 社群,
+       nvl(sum(商城),0) 商城,
+       nvl(sum(其它网络),0) 其它网络,
+       nvl(sum(老带新),0) 老带新,
+       nvl(sum(员工推介),0) 员工推介,
+       nvl(sum(本院员工),0) 本院员工,
+       nvl(sum(其它),0) 其它,
+       nvl(sum(公海渠道),0) 公海渠道,
+       nvl(sum(其他),0) 其他，
+       nvl(sum(合计),0) 合计
+  from (
+  select * from 
+          (select channel2 来源,nvl(count(channel2),0) 人次 , dept_name 科室
+                  ,case when dept_name='B超' then 1
+                        when dept_name='产科' then 2
+                        when dept_name='儿科' then 3  
+                        when dept_name='妇科' then 4
+                        when dept_name='医学美容科' then 5 
+                        else 6 end line
+             from(  select  r.name,
+                            r.card_no,
+                            nvl2(p.channel2,p.channel1||'-'||p.channel2,'其他') channel2 ,
+                            case when cdt.pardep_name='妇产科' and fr.card_no is not null and ep.card_no is null and ep.oper_date is null and r.rootdept_first_visit=1 then 'B超'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is not null and ep.card_no is not null and ep.oper_date&gt;r.reg_date and r.rootdept_first_visit=1 then 'B超'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is null and ep.card_no is null and ep.oper_date is null and r.rootdept_first_visit=1 then '产科'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is null and ep.card_no is not null and ep.oper_date&gt;r.reg_date and r.rootdept_first_visit=1 then '产科'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is null and ep.card_no is not null and ep.oper_date&lt;=r.reg_date and r.rootdept_first_visit=1 then '产科'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is not null and ep.card_no is not null and ep.oper_date&lt;=r.reg_date and r.rootdept_first_visit=1 then '产科'
+                                 when cd.dept_name like '门诊%' and r.ynfr=1 then cd.dept_name 
+                                 when cd.dept_name not like '门诊%' and r.rootdept_first_visit=1 then cdt.pardep_name end dept_name
+                                 ,ep.oper_date,r.reg_date,fr.card_no
+                      from  FIN_OPR_REGISTER R 
+                      left join com_patientinfo P on p.card_no = r.card_no
+                      left join com_department cd on cd.dept_code=r.dept_code
+                      left join com_deptstat cdt on  cd.dept_code=cdt.dept_code and cdt.stat_code='00'
+                      left join（select  distinct fr.card_no,fr.clinic_code  --B超名单
+                                   from fin_opr_register fr ,fin_opb_feedetail f ,com_dictionary cd，com_department cd,com_deptstat cdt
+                                  where fr.clinic_code=f.clinic_code 
+                                    and fr.valid_flag=1 
+                                    and fr.rootdept_first_visit=1 
+                                    and f.item_code=cd.code
+                                    and f.pay_flag=1 and f.cancel_flag=1
+                                    and cd.type='B-mode'
+                                    and cd.dept_code=fr.dept_code and cd.dept_code=cdt.dept_code and cdt.stat_code='00' and cdt.pardep_name='妇产科'
+                                    and fr.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd')  and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+                               ） fr on fr.card_no=r.card_no and fr.clinic_code=r.clinic_code
+                      left join (select t1.card_no ,min(t1.oper_date) oper_date
+                                  from (
+                                     select ep.card_no,sum(trans_type) amount,min(ep.oper_date) oper_date
+                                       from (
+                                     select distinct ep.card_no,min(ep.oper_date) oper_date,ep.invoice_no, decode(ep.trans_type,1,1,2,-1) trans_type
+                                       from exp_package ep,bd_com_package bp,com_dictionary cd --购买套餐名单
+                                      where ep.oper_date &lt;=to_date('&amp;dtBeginTime','yyyy-mm-dd') 
+                                        and ep.pay_flag=1 
+                                        and ep.package_id=bp.package_id 
+                                        and bp.package_kind=cd.code
+                                        and cd.type='PACKAGETYPE'
+                                        and cd.code in ('1','3','4')
+                                        and bp.package_name not like '%自选包%' and bp.package_name not like '%无痛%' and bp.package_name not like '%赠送%'
+                                        and bp.package_name not like '%42天母亲%' and bp.package_name not like '%30天宝宝%'
+                                      group by ep.card_no,ep.invoice_no, ep.trans_type
+                                      )ep group by ep.card_no having sum(trans_type)&lt;&gt;0
+                                    union all
+                                    select  
+                                            card_no card_no,
+                                            round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2) cashCost,
+                                            min(oper_date) oper_date
+                                     from (       
+                                          select 
+                                                 t3.package_name packagename, --儿保 广州
+                                                  t.invoice_no invoice_no,
+                                                  t.real_cost invoice_real,
+                                                  t2.real_cost,
+                                                 cp.name,
+                                                  t2.oper_date oper_date,
+                                                  nvl((select sum(a.real_cost)
+                                                         from exp_packagepaymode a
+                                                        where a.invoice_no = t.invoice_no
+                                                              and a.trans_type = t.trans_type 
+                                                              and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD')) ),0) cashCost
+                                                  ,case when t3.package_name like '%自选包%' then  0 
+                                                        when t3.package_name not like '%自选包%' and t2.trans_type=1 then 1 
+                                                        when t3.package_name not like '%自选包%' and t2.trans_type=1 then -1 end amount
+                                                  ,t7.package_name secondname
+                                                  ,t2.card_no 
+                                                  ,case when t3.package_name like '%自选包%' then  '自选包' else '套餐' end type
+                                             from exp_packageinvoice t
+                                             left join exp_package t2 on t.invoice_no = t2.invoice_no and t.trans_type=t2.trans_type
+                                             left join bd_com_package t3 on t2.package_id = t3.package_id
+                                             left join bd_com_package t7 on t3.parent_code=t7.package_id
+                                             left join com_patientinfo cp on t2.card_no=cp.card_no
+                                             left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+                                            where t.oper_date &lt;=to_date('&amp;dtBeginTime','yyyy-mm-dd') 
+                                                  and t4.code!='21'
+                                                  and t4.code='2'
+                                                  and t.trans_type = t2.trans_type
+                                                  and t.oper_code!='000203'
+                                                  and t.print_invoiceno like 'IB%'
+                                            union all
+                                            select 
+                                                 t3.package_name packagename,  --儿保 综合门诊
+                                                  t.invoice_no invoice_no,
+                                                  t.real_cost invoice_real,
+                                                  t2.real_cost,
+                                                 cp.name,
+                                                  t2.oper_date oper_date,
+                                                  nvl((select sum(a.real_cost)
+                                                         from exp_packagepaymode a
+                                                        where a.invoice_no = t.invoice_no
+                                                              and a.trans_type = t.trans_type 
+                                                              and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD')) ),0) cashCost
+                                                  ,case when t3.package_name like '%自选包%' then  0 
+                                                        when t3.package_name not like '%自选包%' and t2.trans_type=1 then 1 
+                                                        when t3.package_name not like '%自选包%' and t2.trans_type=1 then -1 end amount
+                                                  ,t7.package_name secondname
+                                                  ,t2.card_no 
+                                                  ,case when t3.package_name like '%自选包%' then  '自选包' else '套餐' end type
+                                             from exp_packageinvoice t
+                                             left join exp_package t2 on t.invoice_no = t2.invoice_no and t.trans_type=t2.trans_type
+                                             left join bd_com_package t3 on t2.package_id = t3.package_id
+                                             left join bd_com_package t7 on t3.parent_code=t7.package_id
+                                             left join com_patientinfo cp on t2.card_no=cp.card_no
+                                             left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+                                            where t.oper_date &lt;=to_date('&amp;dtBeginTime','yyyy-mm-dd') 
+                                                  and t4.code!='21'
+                                                  and t4.code='2'
+                                                  and t.trans_type = t2.trans_type
+                                                  and t.oper_code!='000230'
+                                                  and t.print_invoiceno like 'BL%'
+                                       )tt 
+                                      group by card_no
+                                      having round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2)&gt;=1000
+                                      )t1 group by t1.card_no) ep on r.card_no=ep.card_no
+                     where  1 = 1   and r.valid_flag = '1' --and r.ynregchrg = '1'
+                            and  r.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd')  and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+                            and (cd.hospital_id='&amp;hospitalid' or '&amp;hospitalid'='ALL'))
+                            where dept_name is not null
+                            group by  channel2 ,dept_name
+           union all
+           select '合计',nvl(count(channel2),0) 人次 , dept_name 科室
+                  ,case when dept_name='B超' then 1
+                        when dept_name='产科' then 2
+                        when dept_name='儿科' then 3  
+                        when dept_name='妇科' then 4
+                        when dept_name='医学美容科' then 5 
+                        else 6 end line
+             from(  select  r.name,
+                            r.card_no,
+                            nvl2(p.channel2,p.channel1||'-'||p.channel2,'其他') channel2 ,
+                            case when cdt.pardep_name='妇产科' and fr.card_no is not null and ep.card_no is null and ep.oper_date is null and r.rootdept_first_visit=1 then 'B超'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is not null and ep.card_no is not null and ep.oper_date&gt;r.reg_date and r.rootdept_first_visit=1 then 'B超'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is null and ep.card_no is null and ep.oper_date is null and r.rootdept_first_visit=1 then '产科'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is null and ep.card_no is not null and ep.oper_date&gt;r.reg_date and r.rootdept_first_visit=1 then '产科'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is null and ep.card_no is not null and ep.oper_date&lt;=r.reg_date and r.rootdept_first_visit=1 then '产科'
+                                 when cdt.pardep_name='妇产科' and fr.card_no is not null and ep.card_no is not null and ep.oper_date&lt;=r.reg_date and r.rootdept_first_visit=1 then '产科'
+                                 when cd.dept_name like '门诊%' and r.ynfr=1 then cd.dept_name 
+                                 when cd.dept_name not like '门诊%' and r.rootdept_first_visit=1 then cdt.pardep_name end dept_name
+                      from  FIN_OPR_REGISTER R 
+                      left join com_patientinfo P on p.card_no = r.card_no
+                      left join com_department cd on cd.dept_code=r.dept_code
+                      left join com_deptstat cdt on  cd.dept_code=cdt.dept_code and cdt.stat_code='00'
+                      left join（select  distinct fr.card_no,fr.clinic_code,fr.reg_date  --B超名单
+                                   from fin_opr_register fr ,fin_opb_feedetail f ,com_dictionary cd，com_department cd,com_deptstat cdt
+                                  where fr.clinic_code=f.clinic_code 
+                                    and fr.valid_flag=1 
+                                    and fr.rootdept_first_visit=1 
+                                    and f.item_code=cd.code
+                                    and f.pay_flag=1 and f.cancel_flag=1
+                                    and cd.type='B-mode'
+                                    and cd.dept_code=fr.dept_code and cd.dept_code=cdt.dept_code and cdt.stat_code='00' and cdt.pardep_name='妇产科'
+                                    and fr.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd')  and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+                               ） fr on fr.card_no=r.card_no and fr.clinic_code=R.clinic_code
+                      left join ( select ep.card_no,sum(trans_type) amount,min(ep.oper_date) oper_date
+                                   from (
+                                 select distinct ep.card_no,min(ep.oper_date) oper_date,ep.invoice_no, decode(ep.trans_type,1,1,2,-1) trans_type
+                                   from exp_package ep,bd_com_package bp,com_dictionary cd --购买套餐名单
+                                  where ep.oper_date &lt;=to_date('&amp;dtBeginTime','yyyy-mm-dd') 
+                                    and ep.pay_flag=1 
+                                    and ep.package_id=bp.package_id 
+                                    and bp.package_kind=cd.code
+                                    and cd.type='PACKAGETYPE'
+                                    and cd.code in ('1','3','4')
+                                    and bp.package_name not like '%自选包%' and bp.package_name not like '%无痛%' and bp.package_name not like '%赠送%'
+                                    and bp.package_name not like '%42天母亲%' and bp.package_name not like '%30天宝宝%'
+                                  group by ep.card_no,ep.invoice_no, ep.trans_type
+                                  )ep group by ep.card_no having sum(trans_type)&lt;&gt;0
+                                  union all
+                                  select  
+                                          card_no card_no,
+                                          round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2) cashCost,
+                                          min(oper_date) oper_date
+                                   from (       
+                                        select 
+                                               t3.package_name packagename, --儿保 广州
+                                                t.invoice_no invoice_no,
+                                                t.real_cost invoice_real,
+                                                t2.real_cost,
+                                               cp.name,
+                                                t2.oper_date oper_date,
+                                                nvl((select sum(a.real_cost)
+                                                       from exp_packagepaymode a
+                                                      where a.invoice_no = t.invoice_no
+                                                            and a.trans_type = t.trans_type 
+                                                            and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD')) ),0) cashCost
+                                                ,case when t3.package_name like '%自选包%' then  0 
+                                                      when t3.package_name not like '%自选包%' and t2.trans_type=1 then 1 
+                                                      when t3.package_name not like '%自选包%' and t2.trans_type=1 then -1 end amount
+                                                ,t7.package_name secondname
+                                                ,t2.card_no 
+                                                ,case when t3.package_name like '%自选包%' then  '自选包' else '套餐' end type
+                                           from exp_packageinvoice t
+                                           left join exp_package t2 on t.invoice_no = t2.invoice_no and t.trans_type=t2.trans_type
+                                           left join bd_com_package t3 on t2.package_id = t3.package_id
+                                           left join bd_com_package t7 on t3.parent_code=t7.package_id
+                                           left join com_patientinfo cp on t2.card_no=cp.card_no
+                                           left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+                                          where t.oper_date &lt;=to_date('&amp;dtBeginTime','yyyy-mm-dd') 
+                                                and t4.code!='21'
+                                                and t4.code='2'
+                                                and t.trans_type = t2.trans_type
+                                                and t.oper_code!='000203'
+                                                and t.print_invoiceno like 'IB%'
+                                          union all
+                                          select 
+                                               t3.package_name packagename, --儿保 综合门诊
+                                                t.invoice_no invoice_no,
+                                                t.real_cost invoice_real,
+                                                t2.real_cost,
+                                               cp.name,
+                                                t2.oper_date oper_date,
+                                                nvl((select sum(a.real_cost)
+                                                       from exp_packagepaymode a
+                                                      where a.invoice_no = t.invoice_no
+                                                            and a.trans_type = t.trans_type 
+                                                            and (a.mode_code in  ( 'CA','UP','ZB','WP','PO','CD')) ),0) cashCost
+                                                ,case when t3.package_name like '%自选包%' then  0 
+                                                      when t3.package_name not like '%自选包%' and t2.trans_type=1 then 1 
+                                                      when t3.package_name not like '%自选包%' and t2.trans_type=1 then -1 end amount
+                                                ,t7.package_name secondname
+                                                ,t2.card_no 
+                                                ,case when t3.package_name like '%自选包%' then  '自选包' else '套餐' end type
+                                           from exp_packageinvoice t
+                                           left join exp_package t2 on t.invoice_no = t2.invoice_no and t.trans_type=t2.trans_type
+                                           left join bd_com_package t3 on t2.package_id = t3.package_id
+                                           left join bd_com_package t7 on t3.parent_code=t7.package_id
+                                           left join com_patientinfo cp on t2.card_no=cp.card_no
+                                           left join (select * from com_dictionary where type = 'PACKAGETYPE') t4 on t3.package_kind =  t4.code
+                                          where t.oper_date &lt;=to_date('&amp;dtBeginTime','yyyy-mm-dd') 
+                                                and t4.code!='21'
+                                                and t4.code='2'
+                                                and t.trans_type = t2.trans_type
+                                                and t.oper_code!='000230'
+                                                and t.print_invoiceno like 'BL%' 
+                                     )tt 
+                                    group by card_no
+                                    having round(sum(case when invoice_real = 0 then 0 else round(cashCost*real_cost/invoice_real,4) end),2)&gt;=1000) ep 
+                                    on r.card_no=ep.card_no
+                     where  1 = 1  and r.valid_flag = '1' --and r.ynregchrg = '1'
+                            and  r.reg_date between to_date('&amp;dtBeginTime','yyyy-mm-dd')  and to_date('&amp;dtEndTime','yyyy-mm-dd')+1
+                            and (cd.hospital_id='&amp;hospitalid' or '&amp;hospitalid'='ALL'))
+                            where dept_name is not null
+                            group by  dept_name    
+                            )      
+   pivot (sum（人次） for 来源 in('市场转诊-中山三院' 中山三院,'市场转诊-外院' 外院，'市场转诊-企业会员' 企业会员,'市场转诊-商业保险' 商业保险,'市场转诊-异业联盟'异业联盟
+                               ,'渠道转诊-企业' 企业 ,'渠道转诊-其他' 渠道转诊其他,'渠道转诊-个人'个人
+                               ,'品牌效应-口碑' 口碑 ,'品牌效应-活动' 活动,'品牌效应-户外'户外,'品牌效应-其他广告' 其他广告,'品牌效应-纸媒'纸媒
+                               ,'网络媒体-官网'官网,'网络媒体-微信'官微,'网络媒体-挂号网' 挂号网,'网络媒体-社群'社群,'网络媒体-商城'商城,'网络媒体-其它网络'其它网络
+                               ,'介绍-老带新'老带新,'介绍-员工推介'员工推介,'介绍-员工本人'本院员工,'介绍-其它' 其它,'公海渠道-公海渠道' 公海渠道,'其他' 其他,'合计' 合计))
+          )
+          group by rollup((科室,line))
+          order by line
+  </Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>true</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\数据分析\新初诊客户来源统计设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

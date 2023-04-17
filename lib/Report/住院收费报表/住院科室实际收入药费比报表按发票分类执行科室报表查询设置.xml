@@ -1,0 +1,102 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>150</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>260</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtGetSysdate</Name><Sql>select '  打印日期: ' || to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss')
+  from dual</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows>科室名称\核算分类</SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtDetail</Name><Sql>select fun_get_dept_name(ggg.inhos_deptcode) 科室,
+       ggg.总计,
+       ggg.床位费,
+       ggg.检查费,
+       ggg.治疗费,
+       ggg.护理费,
+       ggg.检验费,
+       ggg.手术费,
+       ggg.输血费,
+       ggg.诊疗费,
+       ggg.其他,
+       ggg.西药费,
+       ggg.中成药,
+       ggg.中草药,
+       ggg.医材收入,
+       ggg.药费,
+       decode(ggg.总计,0,'0%',round(ggg.药费/ggg.总计,4)*100||'%') 药费比例
+ from 
+(
+select gg.execute_deptcode inhos_deptcode,
+       sum(gg.tot_cost) 总计,
+       SUM(DECODE(GG.fee_stat_cate,'12',gg.tot_cost,0)) 床位费,
+       SUM(DECODE(GG.fee_stat_cate,'05',gg.tot_cost,0)) 检查费,
+       (SUM(DECODE(GG.fee_stat_cate,'07',gg.tot_cost,0)) - SUM(DECODE(GG.fee_stat_cate,'13',gg.tot_cost,0))) 治疗费,
+       SUM(DECODE(GG.fee_stat_cate,'09',gg.tot_cost,0)) 护理费,
+       SUM(DECODE(GG.fee_stat_cate,'06',gg.tot_cost,0)) 检验费,
+       SUM(DECODE(GG.fee_stat_cate,'08',gg.tot_cost,0)) 手术费,
+       SUM(DECODE(GG.fee_stat_cate,'13',gg.tot_cost,0)) 输血费,
+       SUM(DECODE(GG.fee_stat_cate,'04',gg.tot_cost,0)) 诊疗费,
+       SUM(DECODE(GG.fee_stat_cate,'10',gg.tot_cost,0)) 其他,
+       SUM(DECODE(GG.fee_stat_cate,'01',gg.tot_cost,0)) 西药费,
+       SUM(DECODE(GG.fee_stat_cate,'02',gg.tot_cost,0)) 中成药,
+       SUM(DECODE(GG.fee_stat_cate,'03',gg.tot_cost,0)) 中草药,
+       SUM(DECODE(GG.fee_stat_cate,'11',gg.tot_cost,0)) 医材收入,
+       SUM(DECODE(GG.fee_stat_cate,'01',gg.tot_cost,'02',gg.tot_cost,'03',gg.tot_cost,0)) 药费
+ from
+(
+select ee.execute_deptcode,
+       DECODE(EE.FEE_CODE,'108','13',ff.fee_stat_cate) fee_stat_cate,
+       ee.tot_cost tot_cost
+  from fin_ipb_feeinfo ee, fin_com_feecodestat ff,FIN_IPB_DAYBALANCE aa
+ where ee.fee_code = ff.fee_code
+   and ff.report_code = 'ZY01'
+   AND ee.BALANCE_OPERCODE = aa.OPER_CODE 
+   AND ee.BALANCE_DATE &gt; aa.BEGIN_DATE 
+   AND ee.BALANCE_DATE &lt;= aa.END_DATE 
+   AND aa.END_DATE &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   AND aa.END_DATE &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+   ) gg group by gg.execute_deptcode
+) ggg order by fun_get_dept_sort(ggg.inhos_deptcode)</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtGetDate</Name><Sql>                    
+select '  统计日期: ' || to_char(to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss'),
+                            'yyyy-mm-dd hh24:mi:ss') || ' 至 ' ||
+       to_char(to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss'),'yyyy-mm-dd hh24:mi:ss')
+  from dual
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSum</Name><Sql>select '总计',
+       ggg.总计,
+       ggg.床位费,
+       ggg.检查费,
+       ggg.治疗费,
+       ggg.护理费,
+       ggg.检验费,
+       ggg.手术费,
+       ggg.输血费,
+       ggg.诊疗费,
+       ggg.其他,
+       ggg.西药费,
+       ggg.中成药,
+       ggg.中草药,
+       ggg.医材收入,
+       ggg.药费,
+       decode(ggg.总计,0,'0%',round(ggg.药费/ggg.总计,4)*100||'%') 药费比例
+ from 
+(
+select sum(gg.tot_cost) 总计,
+       SUM(DECODE(GG.fee_stat_cate,'12',gg.tot_cost,0)) 床位费,
+       SUM(DECODE(GG.fee_stat_cate,'05',gg.tot_cost,0)) 检查费,
+       (SUM(DECODE(GG.fee_stat_cate,'07',gg.tot_cost,0)) - SUM(DECODE(GG.fee_stat_cate,'13',gg.tot_cost,0))) 治疗费,
+       SUM(DECODE(GG.fee_stat_cate,'09',gg.tot_cost,0)) 护理费,
+       SUM(DECODE(GG.fee_stat_cate,'06',gg.tot_cost,0)) 检验费,
+       SUM(DECODE(GG.fee_stat_cate,'08',gg.tot_cost,0)) 手术费,
+       SUM(DECODE(GG.fee_stat_cate,'13',gg.tot_cost,0)) 输血费,
+       SUM(DECODE(GG.fee_stat_cate,'04',gg.tot_cost,0)) 诊疗费,
+       SUM(DECODE(GG.fee_stat_cate,'10',gg.tot_cost,0)) 其他,
+       SUM(DECODE(GG.fee_stat_cate,'01',gg.tot_cost,0)) 西药费,
+       SUM(DECODE(GG.fee_stat_cate,'02',gg.tot_cost,0)) 中成药,
+       SUM(DECODE(GG.fee_stat_cate,'03',gg.tot_cost,0)) 中草药,
+       SUM(DECODE(GG.fee_stat_cate,'11',gg.tot_cost,0)) 医材收入,
+       SUM(DECODE(GG.fee_stat_cate,'01',gg.tot_cost,'02',gg.tot_cost,'03',gg.tot_cost,0)) 药费
+ from
+(
+select  DECODE(EE.FEE_CODE,'108','13',ff.fee_stat_cate) fee_stat_cate,
+       ee.tot_cost tot_cost
+  from fin_ipb_feeinfo ee, fin_com_feecodestat ff,FIN_IPB_DAYBALANCE aa
+ where ee.fee_code = ff.fee_code
+   and ff.report_code = 'ZY01'
+   AND ee.BALANCE_OPERCODE = aa.OPER_CODE 
+   AND ee.BALANCE_DATE &gt; aa.BEGIN_DATE 
+   AND ee.BALANCE_DATE &lt;= aa.END_DATE 
+   AND aa.END_DATE &gt;= to_date('&amp;dtBeginTime', 'yyyy-mm-dd hh24:mi:ss')
+   AND aa.END_DATE &lt;= to_date('&amp;dtEndTime', 'yyyy-mm-dd hh24:mi:ss')
+   ) gg ) ggg </Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\住院收费报表\住院科室实际收入药费比报表按发票分类执行科室报表查询设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

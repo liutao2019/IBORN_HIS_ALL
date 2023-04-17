@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ControlConfig>
+  <lblPayMode ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="支付方式:" />
+  <lblPrepay ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="预交金额:" />
+  <lblMCardNO ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="医疗证号:" />
+  <lblInTime ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="入院日期:" />
+  <lblPact ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="结算方式:" />
+  <lblComputerNO ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="电 脑 号:" />
+  <lblNation ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="民族:" />
+  <lblBedNO ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="病床号:" />
+  <lblWorkAddress ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="工作单位:" />
+  <lblMarry ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="婚姻状况:" />
+  <lblBirthArea ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="籍贯:" />
+  <lblCountry ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="国籍:" />
+  <lblProfession ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="职业:" />
+  <lblWorkPhone ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="单位电话:" />
+  <lblHomeAddress ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="户口地址:" />
+  <lblLinkMan ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="联系人:" />
+  <lblRelation ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="关系:" />
+  <lblLinkAddress ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="联系人地址:" />
+  <lblLinkPhone ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="联系人电话:" />
+  <lblInSource ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="入院途径:" />
+  <lblApproach ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="病人来源:" />
+  <lblCircs ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="入院情况:" />
+  <lblDoctor ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="收住医师:" />
+  <lblDiagnose ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="门诊诊断:" />
+  <lblBloodFee ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="血滞纳金:" />
+  <lblInTimes ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="住院次数:" />
+  <lblDept ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="科室:" />
+  <lblBedCount ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="0 张" />
+  <neuLabel6 ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="出生地:" />
+  <lbAddressNow ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="现住址:" />
+  <lblOldDept ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="原科室:" />
+  <cmbOldDept IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="147" />
+  <neuLabel1 ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="家庭电话:" />
+  <neuLabel2 ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="病区:" />
+  <txtInpatientNO IsTagInput="false" IsTextInput="true" InputMsg="住院号不能为空" Enabled="true" IsDefaultCHInput="false" TabIndex="191" />
+  <cmbPayMode IsTagInput="false" IsTextInput="false" InputMsg="请选择支付方式" Enabled="false" IsDefaultCHInput="false" TabIndex="163" />
+  <txtComputerNO IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="false" IsDefaultCHInput="false" TabIndex="157" />
+  <txtMCardNO IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="155" />
+  <cmbPact IsTagInput="true" IsTextInput="true" InputMsg="结算方式不能为空！" Enabled="true" IsDefaultCHInput="false" TabIndex="153" />
+  <cmbDoctor IsTagInput="false" IsTextInput="false" InputMsg="收住医师不能为空！" Enabled="false" IsDefaultCHInput="false" TabIndex="152" />
+  <cmbBedNO IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="false" IsDefaultCHInput="false" TabIndex="151" />
+  <cmbNurseCell IsTagInput="true" IsTextInput="true" InputMsg="入院病区不能为空！" Enabled="true" IsDefaultCHInput="false" TabIndex="149" />
+  <cmbDept IsTagInput="true" IsTextInput="true" InputMsg="入院科室不能为空！" Enabled="true" IsDefaultCHInput="false" TabIndex="148" />
+  <cmbApproach IsTagInput="true" IsTextInput="false" InputMsg="入院途径不能为空！" Enabled="true" IsDefaultCHInput="false" TabIndex="146" />
+  <cmbCircs IsTagInput="true" IsTextInput="false" InputMsg="入院情况不能为空！" Enabled="true" IsDefaultCHInput="false" TabIndex="145" />
+  <cmbInSource IsTagInput="true" IsTextInput="false" InputMsg="病人来源不能为空！" Enabled="true" IsDefaultCHInput="false" TabIndex="144" />
+  <txtDiagnose IsTagInput="false" IsTextInput="false" InputMsg="请填写门诊诊断" Enabled="true" IsDefaultCHInput="true" TabIndex="142" />
+  <txtLinkAddr IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="true" TabIndex="141" />
+  <txtLinkPhone IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="140" />
+  <cmbRelation IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="139" />
+  <txtLinkMan IsTagInput="false" IsTextInput="false" InputMsg="请填写联系人" Enabled="true" IsDefaultCHInput="false" TabIndex="138" />
+  <txtHomeAddress IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="136" />
+  <txtAddressNow IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="135" />
+  <txtHomePhone IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="134" />
+  <txtWorkPhone IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="133" />
+  <txtWorkAddress IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="true" TabIndex="132" />
+  <cmbNation IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="130" />
+  <txtBirthArea IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="true" TabIndex="128" />
+  <cmbProfession IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="127" />
+  <cmbMarry IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="126" />
+  <cmbCountry IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="124" />
+  <cmbBirthArea IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="122" />
+  <lblSex ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="性别:" />
+  <lblBirthday ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="出生日期:" />
+  <lblIDNO ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="身份证号:" />
+  <lblDoctDept ForeColorRed="153" ForeColorGreen="180" ForeColorBlue="209" Text="----" />
+  <txtIDNO IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="4" />
+  <txtAge IsTagInput="false" IsTextInput="true" InputMsg="年龄不允许为空！" Enabled="false" IsDefaultCHInput="false" TabIndex="3" />
+  <dtpBirthDay Mask="0000-00-00" IsTextInput="true" InputMsg="出生日期格式不正确!" TabIndex="3" />
+  <cmbSex IsTagInput="true" IsTextInput="true" InputMsg="性别不能为空！" Enabled="true" IsDefaultCHInput="false" TabIndex="2" />
+  <lblName ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="姓名:" />
+  <txtClinicNO IsTagInput="false" IsTextInput="true" InputMsg="门诊号不能为空" Enabled="false" IsDefaultCHInput="false" TabIndex="0" />
+  <neuInputLabel1 ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="门诊号:" />
+  <txtName IsTagInput="false" IsTextInput="true" InputMsg="姓名不能为空！" Enabled="true" IsDefaultCHInput="false" TabIndex="1" />
+  <neuInputLabel2 ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="邮编:" />
+  <txtHomeZip IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="true" IsDefaultCHInput="false" TabIndex="137" />
+  <lblDayLimit ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="公费日限:" />
+  <lblBedLimit ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="普通标准:" />
+  <lblAirLimit ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="监 护 床:" />
+  <lblBedOverDeal ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="超标处理:" />
+  <lblOverLop ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="255" Text="日限处理:" />
+  <neuInputLabel101 ForeColorRed="0" ForeColorGreen="0" ForeColorBlue="0" Text="患者类型:" />
+  <cmbPatientType IsTagInput="false" IsTextInput="false" InputMsg="" Enabled="false" IsDefaultCHInput="false" TabIndex="213" />
+</ControlConfig>

@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.OutpatientFee.Components", "SOC.HISFC.OutpatientFee.Components\SOC.HISFC.OutpatientFee.Components.csproj", "{57B9A7A6-5FED-433D-9F38-BD63E3D4F580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.OutpatientFee.BizLogic", "SOC.HISFC.OutpatientFee.BizLogic\SOC.HISFC.OutpatientFee.BizLogic.csproj", "{3C5B9A9B-A9A1-4D4F-B10F-4FCA32D446F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.OutpatientFee.BizProcess", "SOC.HISFC.OutpatientFee.BizProcess\SOC.HISFC.OutpatientFee.BizProcess.csproj", "{A6DAB1E3-0A2A-44D1-8F9B-12F75C37B458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.OutpatientFee.Data", "SOC.HISFC.OutpatientFee.Data\SOC.HISFC.OutpatientFee.Data.csproj", "{8B149CE7-85B3-4B7A-AAC1-92632E40E4B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOC.HISFC.OutpatientFee.Interface", "SOC.HISFC.OutpatientFee.Interface\SOC.HISFC.OutpatientFee.Interface.csproj", "{9DFD09F8-3960-4E4B-A96B-D5D0CBDC6D68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57B9A7A6-5FED-433D-9F38-BD63E3D4F580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B9A7A6-5FED-433D-9F38-BD63E3D4F580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B9A7A6-5FED-433D-9F38-BD63E3D4F580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B9A7A6-5FED-433D-9F38-BD63E3D4F580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C5B9A9B-A9A1-4D4F-B10F-4FCA32D446F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C5B9A9B-A9A1-4D4F-B10F-4FCA32D446F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C5B9A9B-A9A1-4D4F-B10F-4FCA32D446F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C5B9A9B-A9A1-4D4F-B10F-4FCA32D446F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6DAB1E3-0A2A-44D1-8F9B-12F75C37B458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6DAB1E3-0A2A-44D1-8F9B-12F75C37B458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6DAB1E3-0A2A-44D1-8F9B-12F75C37B458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6DAB1E3-0A2A-44D1-8F9B-12F75C37B458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B149CE7-85B3-4B7A-AAC1-92632E40E4B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B149CE7-85B3-4B7A-AAC1-92632E40E4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B149CE7-85B3-4B7A-AAC1-92632E40E4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B149CE7-85B3-4B7A-AAC1-92632E40E4B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFD09F8-3960-4E4B-A96B-D5D0CBDC6D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFD09F8-3960-4E4B-A96B-D5D0CBDC6D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFD09F8-3960-4E4B-A96B-D5D0CBDC6D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFD09F8-3960-4E4B-A96B-D5D0CBDC6D68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

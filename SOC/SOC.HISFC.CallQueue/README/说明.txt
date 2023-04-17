@@ -1,0 +1,7 @@
+在分诊屏调用：Neusoft.SOC.HISFC.CallQueue.Interface.INurseAssign.Call进行叫号
+
+进诊时需要调用Neusoft.SOC.HISFC.CallQueue.Interface.INurseAssign.Insert方法插入叫号记录
+
+
+如果在叫号方面有本地化需求，例如叫患者姓名或叫两次等。可以将接口Neusoft.SOC.HISFC.CallQueue.Interface.INurseAssign指向本地化的实现
+Neusoft.SOC.HISFC.CallQueue.InterfaceImplement.NurseAssign只是简单的一个例子,请自行配置com_maintenance_report_print

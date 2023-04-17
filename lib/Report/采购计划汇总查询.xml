@@ -1,0 +1,99 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 00:00:00</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd 23:59:59</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dtDept</Name><Text>仓库：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>false</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>450</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select d.dept_code,d.dept_name,d.hospital_name,d.spell_code,d.wb_code from com_department d where d.dept_type in ('L') and d.dept_code in (select c.dept_code from com_priv_user c where  fun_get_employee_name(c.user_code) ='&amp;CurrentOperName')</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>dtState</Name><Text>出库状态</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>650</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName>select 2,'审批过' from dual union  select 3,'已出库' from dual</DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>data</Name><Sql>SELECT 
+       (select max(exam_date) from mat_com_applyforoutput where item_code = tb1.物品编码 and approve_date &lt; to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss') group  by item_code) 审批时间,
+       物品编码,
+       nvl(物品类别自定义码,物品类别) as 自定义码,
+       物品名称,
+       ---物品类别, 
+       规格, 
+       生产厂家,
+       供货公司,
+       最小单位审批数量,
+       CASE WHEN 最小单位库存数量 IS NULL THEN   0  ELSE 最小单位库存数量  END AS 最小单位库存数量,
+       应采最小单位数量,
+       最小单位,       
+       case when 应采最小单位数量 = 0  then 0  when 最小单位 = 大包装单位 then 应采最小单位数量 else CEIL(应采最小单位数量 /大包装包装数量 ) end  应采大包装数量 ,
+       大包装单位,
+       大包装单价,
+       申请备注汇总
+  FROM (select t.item_name as 物品名称,
+               d.kind_name as 物品类别,
+               d.spell_code as 物品类别拼音码,
+               d.wb_code as 物品类别五笔码,
+               a.custom_code as 物品类别自定义码,
+               sum(t.apply_num) as 申请数量,
+               sum(t.exam_num) as 最小单位审批数量,
+               (SELECT SUM(C.STORE_NUM)   FROM MAT_COM_STOCKDETAIL C
+                 WHERE C.ITEM_CODE = T.ITEM_CODE  and  C.STORAGE_CODE='&amp;dtDept') 最小单位库存数量,
+               i.buy_num 应采最小单位数量,
+               a.specs as 规格,
+               round(a.in_price,4)  as 大包装单价,
+               round(a.in_price/a.pack_qty,4)  as 最新入库单价,
+               round(a.sale_price/a.pack_qty,4)  as 零售单价,
+               a.min_unit as 最小单位,
+               a.pack_unit as 大包装单位,
+               a.pack_qty as 大包装包装数量,
+               sum(t.out_num) 已出库数量,
+               t.item_code as 物品编码,
+               a.spell_code as 拼音码,
+               a.wb_code as 五笔码,
+               a.other_name as 别名,
+               a.other_spell as 别名拼音码,
+               a.other_wb as 别名五笔码,
+               a.other_custom as 别名自定义码,
+               a.factory_code as 生产厂家编码,
+               (select b.company_name  from mat_com_company b
+                 where b.company_code = a.factory_code   and b.company_type = '0') as 生产厂家,
+               a.company_code as 供货公司编码,
+               (select b.company_name  from mat_com_company b
+                 where b.company_code = a.company_code   and b.company_type = '1') as 供货公司,
+               (select b.tel_code      from mat_com_company b
+                 where b.company_code = a.company_code   and b.company_type = '1') as 联系电话,
+                -----t.exam_date 审批时间,
+                -----t.out_list_code
+                t.target_dept                
+          from mat_com_baseinfo       a,
+               mat_com_kindinfo       d,
+               mat_com_inplan  i,
+               mat_com_applyforoutput t
+         where a.item_code = t.item_code
+           and a.kind_code = d.kind_code
+           and i.buy_list_code||i.item_code = t.out_list_code||t.item_code
+           and t.apply_state in ('2','3') 
+           and (t.apply_state = '&amp;dtState' or '&amp;dtState'= 'ALL')
+           and t.approve_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') 
+           and t.approve_date &lt; to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss') 
+           and t.target_dept='&amp;dtDept'
+         group by t.item_name,
+                  d.kind_name,
+                  d.spell_code,
+                  d.wb_code,
+                  a.custom_code,
+                  t.item_code,
+                  a.specs,
+                  a.in_price,
+                  a.sale_price,
+                  a.min_unit,
+                  a.pack_unit,
+                  a.pack_qty,
+                  a.spell_code,
+                  a.wb_code,
+                  a.other_name,
+                  a.other_spell,
+                  a.other_wb,
+                  a.other_custom,
+                  a.factory_code,
+                  t.factory_name,
+                  a.company_code,
+                  ------t.out_list_code
+                  ------t.exam_date
+                 i.buy_num,
+                 t.target_dept
+                  order by t.item_name )  tb1
+----mat_com_inplan  i
+left join  (select ap.item_code,wm_concat(nvl2(ap.memo,(dp.dept_name||':'||ap.memo),'')) 申请备注汇总   from  mat_com_apply ap, com_department dp
+           where 1 = 1 and dp.dept_code = ap.storage_code and ap.apply_state = '1' and ap.apply_state = '1'  and ap.valid_state = '1'
+           and   ap.exam_date &gt;= to_date('&amp;dtBeginTime','yyyy-MM-dd hh24:mi:ss') - 1
+           and   ap.exam_date &lt; to_date('&amp;dtEndTime','yyyy-MM-dd hh24:mi:ss')   
+           group by ap.item_code)  bz on bz.item_code = tb1.物品编码
+where 1 = 1
+ORDER BY 物品名称</Sql><AddMapRow>false</AddMapRow><AddMapColumn>true</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\采购计划汇总查询.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

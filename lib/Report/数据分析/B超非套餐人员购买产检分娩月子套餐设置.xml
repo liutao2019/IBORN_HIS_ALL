@@ -1,0 +1,27 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dsdata</Name><Sql>select 
+cp.card_no,
+cp.name,
+cp.home_tel,
+--fop.fee_date,
+ (select    acp.name from   ag_com_package acp,agreement ag  where acp.id =ag.packagecontext and ag.packagetype = '3'
+ and  fop.card_no= ag.patientid   and to_date(ag.orderdate,'yyyy-mm-dd hh24:mi:ss')&gt; fop.fee_date 
+ and ag.AGREEMENTSTATUS = 2 and  rownum = 1  ) 产检套餐,
+  (select   acp.name  from   ag_com_package acp,agreement ag  where acp.id =ag.packagecontext  and ag.packagetype = '1'
+ and   fop.card_no= ag.patientid and to_date(ag.orderdate,'yyyy-mm-dd hh24:mi:ss')&gt; fop.fee_date  
+ and ag.AGREEMENTSTATUS = 2 and  rownum = 1  ) 分娩套餐,
+  (select   acp.name from   ag_com_package acp,agreement ag  where acp.id =ag.packagecontext and ag.packagetype = '2'
+ and   fop.card_no= ag.patientid   and  to_date(ag.orderdate,'yyyy-mm-dd hh24:mi:ss')&gt; fop.fee_date  
+ and ag.AGREEMENTSTATUS = 2 and  rownum = 1   ) 月子套餐
+ from (select  t.card_no,min(t.fee_date) fee_date from  fin_opb_feedetail t  where t.mo_order not in
+( select  mo_order   from  fin_opb_feedetail where  fin_opb_feedetail.trans_type = '2')and t.fee_code = '015' and t.package_flag = '0'
+ and t.PAY_FLAG =1 and t.CANCEL_FLAG =1  group by t.card_no )    fop 
+left join  com_patientinfo  cp  on fop.card_no = cp.card_no  
+where  fop.fee_date between to_date('&amp;dtBeginTime','yyyy-mm-dd') and  to_date('&amp;dtEndTime','yyyy-mm-dd')
+order by 
+cp.card_no,
+cp.name,
+cp.home_tel
+
+
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\数据分析\B超非套餐人员购买产检分娩月子套餐设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

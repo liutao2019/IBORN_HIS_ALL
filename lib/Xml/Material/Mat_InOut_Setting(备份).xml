@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<setting>
+  
+  <Control ID ="FS.UFC.Material.Controls.ucApplySelectDeptList">
+    <!-- <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucApplySelectDeptListCollect.xml"><![CDATA[]]></XmlName>
+    </sheet> -->
+	<sheet ID="SpreadSelectList_Sheet1">
+	  <XmlName index="\Profile\MAT\LucApplySelectDeptListDept.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="单据号" ><![CDATA[]]></FPKeyName>
+	  </FPKey>	  
+	</sheet>
+	<sheet ID="SpreadSelectList_Sheet2">
+	  <XmlName index="\Profile\MAT\LucApplySelectDeptListDeptTotal.xml"><![CDATA[]]></XmlName>
+	  
+	</sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Controls.ucApplySelectList">
+	<sheet ID ="SpreadSelectList_Sheet2">
+      <XmlName index="\Profile\MAT\LucApplySelectListCollect.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="ID" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+	<sheet ID="SpreadSelectList_Sheet1">
+	  <XmlName index="\Profile\MAT\LucApplySelectListDept.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="主键列" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Controls.ucApproveInputSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucApproveInputSelectList.xml"><![CDATA[]]></XmlName>
+      <FPKey>
+		<FPKeyName index="主键" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+ 
+  <Control ID ="FS.UFC.Material.Controls.ucBackOutSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucBackOutSelectListBills.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="单据号" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+	<sheet ID="SpreadSelectList_Sheet2">
+	  <XmlName index="\Profile\MAT\LucBackOutSelectListItems.xml"><![CDATA[]]></XmlName>
+      <FPKey>
+		<FPKeyName index="物品编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+  </Control>
+ 
+  <Control ID ="FS.UFC.Material.Controls.ucBaseSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucBaseSelectList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Controls.ucBaseSelectListBuyPlan">
+	<sheet ID="SpreadSelectList_Sheet1">
+	  <XmlName index="\Profile\MAT\LucBaseSelectListBuyPlanBaseData.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+    <sheet ID ="SpreadSelectList_Sheet2">
+      <XmlName index="\Profile\MAT\LucBaseSelectListBuyPlanPlan.xml"><![CDATA[]]></XmlName>
+    </sheet>
+
+	<sheet ID="SpreadSelectList_Sheet3">
+	  <XmlName index="\Profile\MAT\LucBaseSelectListBuyPlanVirtualMat.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+  </Control>
+ 
+  <Control ID ="FS.UFC.Material.Controls.ucBaseSelectListByTarget">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucBaseSelectListByTarget.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+ 
+  <Control ID ="FS.UFC.Material.Controls.ucBaseSelectListWithPlan">
+	<sheet ID="SpreadSelectList_Sheet1">
+	  <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanBaseData.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+	<sheet ID ="SpreadSelectList_Sheet2">
+      <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanPlan.xml"><![CDATA[]]></XmlName>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Controls.ucBaseSelectListWithPlanAndVirtual">
+	<sheet ID="SpreadSelectList_Sheet1">
+	  <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanAndVirtualBaseData.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+    <sheet ID ="SpreadSelectList_Sheet2">
+      <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanAndVirtualPlan.xml"><![CDATA[]]></XmlName>
+    </sheet>
+	<sheet ID="SpreadSelectList_Sheet3">
+	  <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanAndVirtualVirtualMat.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+  </Control>
+
+  <Control ID ="FS.UFC.Material.Controls.ucBaseSelectListWithPlanAndVirtualAndBuyPlanCollect">
+    <sheet ID="SpreadSelectList_Sheet1">
+	  <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanAndVirtualAndBuyPlanCollectBaseData.xml">
+<![CDATA[]]></XmlName>
+      <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+	<sheet ID ="SpreadSelectList_Sheet4">
+      <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanAndVirtualAndBuyPlanCollectPlane.xml"><![CDATA[]]></XmlName>
+    </sheet>
+	<sheet ID="SpreadSelectList_Sheet5">
+	  <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanAndVirtualAndBuyPlanCollectVirtualMat.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+	<sheet ID="SpreadSelectList_sheetView1">
+	  <XmlName index="\Profile\MAT\LucBaseSelectListWithPlanAndVirtualAndBuyPlanCollectPlaneSummary.xml"><![CDATA[]]></XmlName>
+	</sheet>
+  </Control>
+
+  <Control ID ="FS.UFC.Material.Controls.ucDiffCollectStockSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucDiffCollectStockSelectList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Controls.ucInputInfoSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucInputInfoSelectList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+ 
+  <Control ID ="FS.UFC.Material.Controls.ucInputListSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucInputListSelectListStockDetall.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="主键" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+	<sheet ID="SpreadSelectList_Sheet2">
+	  <XmlName index="\Profile\MAT\LucInputListSelectListStockList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="入库单号" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+	</sheet>
+  </Control>
+
+  <Control ID ="FS.UFC.Material.Controls.ucOutputSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucOutputSelectList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="单据号" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+
+  <Control ID ="FS.UFC.Material.Controls.ucOverDateVirtualSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucOverDateVirtualSelectList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Controls.ucStockSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucStockSelectList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control> 
+
+  <Control ID ="FS.UFC.Material.Controls.ucStockSelectListWithUnApprove">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucStockSelectListWithUnApprove.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+	<sheet ID ="SpreadSelectList_Sheet2">
+      <XmlName index="\Profile\MAT\LucStockSelectListWithUnApprove.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+ 
+   <Control ID ="FS.UFC.Material.Controls.ucVirtualInfoSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucVirtualInfoSelectList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+
+  <Control ID ="FS.UFC.Material.Controls.ucVirtualStockSelectList">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\LucVirtualStockSelectList.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+ 
+  <Control ID ="FS.UFC.Material.In.ucApplyIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucApplyIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+ 
+  <Control ID ="FS.UFC.Material.In.ucApproveIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucApproveIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="主键" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.In.ucCommonIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucCommonIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.In.ucDeptApplyCheck">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucDeptApplyCheck.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.In.ucDeptPlanIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucDeptPlanIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.In.ucInnerApproveIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucInnerApproveIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.In.ucInvoiceIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucInvoiceIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="主键" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.In.ucReturnIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucReturnIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+
+  <Control ID ="FS.UFC.Material.In.ucReturnVirtualIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucReturnVirtualIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.In.ucSpecialIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucSpecialIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+
+  <Control ID ="FS.UFC.Material.In.ucVirtualChange">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucVirtualChange.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.In.ucVirtualIn">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucVirtualIn.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Out.ucBackOut">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucBackOut.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Out.ucCommonOut">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucCommonOut.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Out.ucDeptOut">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucDeptOut.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="申请单编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Out.ucExamOut">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucExamOut.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Out.ucSpecialOut">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucSpecialOut.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+  
+  <Control ID ="FS.UFC.Material.Out.ucVirtualOut">
+    <sheet ID ="SpreadSelectList_Sheet1">
+      <XmlName index="\Profile\MAT\RucVirtualOut.xml"><![CDATA[]]></XmlName>
+	  <FPKey>
+		<FPKeyName index="编码" ><![CDATA[]]></FPKeyName>
+	  </FPKey>
+    </sheet>
+  </Control>
+</setting>

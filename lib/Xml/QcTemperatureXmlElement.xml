@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--体温单-->
+<Temperature>
+  <!--基础数据设置-->
+  <BaseDataSet>
+    <!--体温-->
+    <Item Code="Temp" Value="85" Valid="1" Name="体温">
+        <MinValue>35</MinValue>
+        <MaxValue>42</MaxValue>
+    </Item>
+    <!--脉搏-->
+    <Item Code="Pulse" Value="86" Valid="1" Name="脉搏">
+    </Item>
+    <!--呼吸-->
+    <Item Code="Breath" Value="87" Valid="1" Name="呼吸">
+    </Item>
+    <!--血压-->
+    <Item Code="Blood" Value="90" Valid="1" Name="血压">
+    </Item>
+    <!--心搏-->
+    <Item Code="Cardiac" Value="1045" Valid="0" Name="心搏">
+    </Item>
+    <!--入量-->
+    <Item Code="Intake" Value="" Valid="0" Name="入量">
+    </Item>
+    <!--出量-->
+    <Item Code="Outtake" Value="" Valid="0" Name="出量">
+    </Item>
+    <!--小便-->
+    <Item Code="Piss" Value="1046" Valid="0" Name="小便">
+    </Item>
+    <!--大便-->
+    <Item Code="Defecate" Value="237" Valid="1" Name="大便">
+    </Item>
+    <!--身高-->
+    <Item Code="Heigth" Value="" Valid="0" Name="身高">
+    </Item>
+    <!--体重-->
+    <Item Code="Weight" Value="622" Valid="1" Name="体重">
+    </Item>
+  </BaseDataSet>
+  
+  <!--体温单录入规则-->
+  <InputRules>
+    <!--时间点-->
+    <Times>
+      <!--通用-->
+      <!--新入院-->
+      <Normal RuleCode="Normal" Level="4" Id="1" MinTemp="36" MaxTemp="37.4" IsMoreEq="1" IsLessEq="1" MeasureType="PerDay" Valid="1">
+        <!--每天测量两次，连续测量三天,每天测量6时14时-->
+        <Measure MeasureNum="2" FreNum="3">6,14</Measure>
+        <!--测量体温、脉搏-->
+        <ItemCode>Temp</ItemCode>
+        <ItemCode>Pulse</ItemCode>
+      </Normal>
+
+      <!--大于等于39小于等于42 每小时计算 同时计算脉搏-->
+      <Normal RuleCode="Normal" Level="1" Id="2" MinTemp="39" MaxTemp="42" IsMoreEq="1" IsLessEq="1" MeasureType="PerHour" Valid="1">
+        <!--共测量6次，每4小时测量一次-->
+        <Measure MeasureNum="6" FreNum="4"/>
+        <ItemCode>Temp</ItemCode>
+        <ItemCode>Pulse</ItemCode>
+      </Normal>
+
+      <!--大于等于38小于等于38.9 每小时计算 同时计算脉搏-->
+      <Normal RuleCode="Normal" Level="2" Id="3" MinTemp="38" MaxTemp="38.9" IsMoreEq="1" IsLessEq="1" MeasureType="PerHour" Valid="1">
+        <!--共测量4次，每6小时测量一次-->
+        <Measure MeasureNum="4" FreNum="6"/>
+        <ItemCode>Temp</ItemCode>
+        <ItemCode>Pulse</ItemCode>
+      </Normal>
+
+      <!--大于等于37.5小于等于37.9 每天计算 同时计算脉搏-->
+      <Normal RuleCode="Normal" Level="3" Id="4" MinTemp="37.5" MaxTemp="37.9" IsMoreEq="1" IsLessEq="1" MeasureType="PerDay" Valid="1">
+        <!--每天测量三次，连续测量三天,每天测量6时14时18时-->
+        <Measure MeasureNum="3" FreNum="3">6,14,18</Measure>
+        <ItemCode>Temp</ItemCode>
+        <ItemCode>Pulse</ItemCode>
+      </Normal>
+
+      <!--大于等于36小于等于37.4 每天计算 同时计算脉搏-->
+      <Normal RuleCode="Normal" Level="4" Id="5" MinTemp="36" MaxTemp="37.4" IsMoreEq="1" IsLessEq="1" MeasureType="PerDay" Valid="1">
+        <!--每天测量一次，连续测量至异常停止,每天测量14时-->
+        <Measure MeasureNum="1" FreNum="0">14</Measure>
+        <ItemCode>Temp</ItemCode>
+        <ItemCode>Pulse</ItemCode>
+      </Normal>
+      <!--体温复测-->
+      <!--大于等于38.5-->
+      <ReTest RuleCode="ReTest" Level="1" MinTemp="38.5" MaxTemp="42" IsMoreEq="1" IsLessEq="1" Valid="1">
+        <ItemCode>Temp</ItemCode>
+      </ReTest>
+      <!--手术-->
+      <Surgery RuleCode="Surgery" Level="1" MeasureType="PerDay" Valid="1">
+        <!--每天测量一次，连续测量一天,每天测量6时-->
+        <Measure MeasureNum="1" FreNum="1">6</Measure>
+        <ItemCode>Temp</ItemCode>
+      </Surgery>
+
+    </Times>
+
+    <!--日操作-->
+    <Days>
+      <!--入院日-->
+        <AdmissDay RuleCode="AdmissDay" Level="1" Valid="1">
+          <ItemCode>Temp</ItemCode>
+          <ItemCode>Pulse</ItemCode>
+          <ItemCode>Blood</ItemCode>
+          <ItemCode>Weight</ItemCode>
+          <ItemCode>Defecate</ItemCode>
+        </AdmissDay>
+      <!--出入量-->
+        <!--大便次数-->
+        <InAndOutTake RuleCode="Defecate" Level="1" MeasureNum="1" StartTime="14" Valid="1">
+          <ItemCode>Defecate</ItemCode>
+        </InAndOutTake>
+    </Days>
+  </InputRules>
+</Temperature>

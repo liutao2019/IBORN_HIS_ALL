@@ -1,0 +1,154 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>type</Name><Text>类型：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>false</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select 0,'按开单时间检索数据' from dual union all select 1,'按执行时间检索数据' from dual</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>2</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>440</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>3</Index><Name>execute_deptcode</Name><Text>执行科室：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>660</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select distinct m.execute_deptcode,fun_get_dept_name(m.execute_deptcode) dept_name  from met_tec_terminalapply m order by m.execute_deptcode</DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>4</Index><Name>package_id</Name><Text>套餐名称：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>false</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>880</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select bp.package_id,bp.package_name from bd_com_package bp </DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>5</Index><Name>confirm_employee</Name><Text>操作人：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>1100</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select ce.empl_code,ce.empl_name from com_employee ce </DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>6</Index><Name>exec_oper</Name><Text>配台人：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.ComboBoxType,SOC.HISFC.OutpatientFee.Components"><IsAddAll>true</IsAddAll><AllValue Type="FS.FrameWork.Models.NeuObject,FrameWork"><ID>ALL</ID><Name>全部</Name><Memo></Memo></AllValue><DataSource /><DefaultDataSource /><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>1320</X><Y>2</Y></Location><QueryDataSource>Sql</QueryDataSource><DataSourceTypeName> select ce.empl_code,ce.empl_name from com_employee ce </DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>7</Index><Name>txtname</Name><Text>姓名/卡号：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.TextBoxType,SOC.HISFC.OutpatientFee.Components"><IsPadLeft>false</IsPadLeft><Length>10</Length><PadLeftName>0</PadLeftName><DefaultDataSource></DefaultDataSource><IsEnterFilter>true</IsEnterFilter><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>1540</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>
+
+
+select * from (
+
+select decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,epc.package_name,'合计：') 匹配套餐,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.card_no,'/') 卡号,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.name,'/') 姓名,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.oper_date,to_date('0001-01-01','yyyy-mm-dd')) 开单时间,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.item_name,'/') 项目,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,to_char(a.qty),'/') 项目总数,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.current_unit,'/') 单位,
+       sum(nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0)) 项目折后金额,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,fun_get_dept_name(a.execute_deptcode),'/') 执行科室,
+       
+       avg(md.confirm_number)  执行量,
+      
+       sum(round((nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0))/(case when a.qty=0 and a.confirm_num&gt;0 then a.confirm_num when a.qty&gt;0 then a.qty end),2)*md.confirm_number) 折后执行金额,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,fun_get_employee_name(md.confirm_employee),'/') 执行人,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,fun_get_employee_name(md.exec_oper),'/') 配台人,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,md.confirm_date,to_date('0001-01-01','yyyy-mm-dd')) 执行时间,
+       round(nvl(sum(case when fs.fee_stat_cate='01' and vr.xyf=0 then 0 
+                          when fs.fee_stat_cate='01' and vr.xyf!=0 then vr.sxyf/vr.xyf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='02' and vr.zyf=0 then 0
+                          when fs.fee_stat_cate='02' and vr.zyf!=0 then vr.szyf/vr.zyf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='03' and vr.ghf=0 then 0
+                          when fs.fee_stat_cate='03' and vr.ghf!=0 then vr.sghf/vr.ghf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='04' and vr.zcf=0 then 0
+                          when fs.fee_stat_cate='04' and vr.zcf!=0 then vr.szcf/vr.zcf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='05' and vr.jcf=0 then 0
+                          when fs.fee_stat_cate='05' and vr.jcf!=0 then vr.sjcf/vr.jcf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='06' and vr.jyf=0 then 0
+                          when fs.fee_stat_cate='06' and vr.jyf!=0 then vr.sjyf/vr.jyf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='07' and vr.zlf=0 then 0
+                          when fs.fee_stat_cate='07' and vr.zlf!=0 then vr.szlf/vr.zlf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='08' and vr.ssf=0 then 0
+                          when fs.fee_stat_cate='08' and vr.ssf!=0 then vr.sssf/vr.ssf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='09' and vr.mzf=0 then 0
+                          when fs.fee_stat_cate='09' and vr.mzf!=0 then vr.smzf/vr.mzf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='10' and vr.hlf=0 then 0
+                          when fs.fee_stat_cate='10' and vr.hlf!=0 then vr.shlf/vr.hlf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='11' and vr.clf=0 then 0
+                          when fs.fee_stat_cate='11' and vr.clf!=0 then vr.sclf/vr.clf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='12' and vr.qtf=0 then 0
+                          when fs.fee_stat_cate='12' and vr.qtf!=0 then vr.sqtf/vr.qtf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0)) end /(case when a.qty=0 and a.confirm_num&gt;0 then a.confirm_num when a.qty&gt;0 then a.qty end)*md.confirm_number),0),2) 门诊实收金额
+       --nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0) ,round((nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0))/a.qty,2)*md.confirm_number,a.current_unit,a.*
+    /*  ,p_view_mzsr_ss.set_type('&amp;type')
+      ,p_view_mzsr_ss.set_btime(to_date('&amp;dtBeginTime' ,'yyyy-MM-dd'))
+      ,p_view_mzsr_ss.set_etime(to_date( '&amp;dtEndTime','yyyy-MM-dd'))*/
+  from met_tec_terminalapply a ---where a.name='黄晓桦'
+  left join fin_opb_feedetail fe on a.clinic_no=fe.clinic_code and a.card_no=fe.card_no and a.mo_order=fe.mo_order
+  left join fin_com_feecodestat fs on fe.fee_code=fs.fee_code and fs.report_code='MZ01'
+  left join view_mzsr_received vr on fe.card_no=vr.card_no and fe.invoice_no=vr.invoice_no and fe.trans_type=vr.trans_type
+  left join (select epc.invoice_no,epc.trans_type,wm_concat(distinct bp.package_name) package_name,wm_concat(distinct bp.package_id) package_id
+               from exp_packagecost epc 
+               left join exp_packagedetail epd on epc.clinic_code=epd.clinic_code and epd.trans_type=1 and epd.sequence_no=epc.detailseq
+               left join exp_package ep on epd.clinic_code=ep.clinic_code and epd.trans_type=ep.trans_type
+               left join bd_com_package bp on bp.package_id=ep.package_id
+              group by epc.invoice_no,epc.trans_type) epc on fe.invoice_no=epc.invoice_no and epc.trans_type=fe.trans_type
+  left join met_tec_ta_detail md on a.apply_number=md.apply_code and md.status=0 and fe.mo_order=md.extend_field1
+ where (case when p_view_mzsr_ss.set_type('&amp;type')=0 then a.oper_date else md.confirm_date end) 
+          between p_view_mzsr_ss.set_btime(to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')) and p_view_mzsr_ss.set_etime(to_date( '&amp;dtEndTime','yyyy-MM-dd')) +1 
+   and (a.execute_deptcode='&amp;execute_deptcode' or '&amp;execute_deptcode'='ALL')
+   and (md.confirm_employee='&amp;confirm_employee' or '&amp;confirm_employee'='ALL')
+   and (md.exec_oper='&amp;exec_oper' or '&amp;exec_oper'='ALL')
+   and (epc.package_id like '%&amp;package_id%' or '&amp;package_id' is null)
+   and (a.card_no='&amp;txtname' or a.name like '%&amp;txtname%' or '&amp;txtname' is null)
+   and a.ext_flag1=1
+   --and vr.oper_date between p_view_mzsr_ss.set_btime(to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')) and  p_view_mzsr_ss.set_etime(to_date( '&amp;dtEndTime','yyyy-MM-dd'))+1 
+   --and p_view_mzsr_ss.set_type('&amp;type')='&amp;type'
+   --and a.card_no='0000002644'
+ group by rollup((epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit))
+ order by a.card_no,a.oper_date,epc.package_name,a.item_name,md.confirm_date
+ 
+ --p_view_mzsr_ss.set_type('&amp;type')=0 and vmr.oper_date between p_view_mzsr_ss.set_btime(to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')) and  p_view_mzsr_ss.set_etime(to_date( '&amp;dtEndTime','yyyy-MM-dd'))+1 
+ 
+) ttt where ttt.匹配套餐 !='合计：' 
+
+union all 
+
+select '合计：','/','/',to_date('0001-01-01','yyyy-mm-dd'),'/','/','/',sum(sss.项目折后金额),'/',sum(sss.执行量),sum(sss.折后执行金额),'/','/',to_date('0001-01-01','yyyy-mm-dd'),sum(sss.门诊实收金额) from (
+
+select decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,epc.package_name,'合计：') 匹配套餐,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.card_no,'/') 卡号,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.name,'/') 姓名,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.oper_date,to_date('0001-01-01','yyyy-mm-dd')) 开单时间,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.item_name,'/') 项目,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,to_char(a.qty),'/') 项目总数,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,a.current_unit,'/') 单位,
+       sum(nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0)) 项目折后金额,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,fun_get_dept_name(a.execute_deptcode),'/') 执行科室,
+       
+       avg(md.confirm_number)  执行量,
+      
+       sum(round((nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0))/(case when a.qty=0 and a.confirm_num&gt;0 then a.confirm_num when a.qty&gt;0 then a.qty end),2)*md.confirm_number) 折后执行金额,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,fun_get_employee_name(md.confirm_employee),'/') 执行人,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,fun_get_employee_name(md.exec_oper),'/') 配台人,
+       decode(grouping_id(epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit),0,md.confirm_date,to_date('0001-01-01','yyyy-mm-dd')) 执行时间,
+       round(nvl(sum(case when fs.fee_stat_cate='01' and vr.xyf=0 then 0 
+                          when fs.fee_stat_cate='01' and vr.xyf!=0 then vr.sxyf/vr.xyf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='02' and vr.zyf=0 then 0
+                          when fs.fee_stat_cate='02' and vr.zyf!=0 then vr.szyf/vr.zyf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='03' and vr.ghf=0 then 0
+                          when fs.fee_stat_cate='03' and vr.ghf!=0 then vr.sghf/vr.ghf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='04' and vr.zcf=0 then 0
+                          when fs.fee_stat_cate='04' and vr.zcf!=0 then vr.szcf/vr.zcf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='05' and vr.jcf=0 then 0
+                          when fs.fee_stat_cate='05' and vr.jcf!=0 then vr.sjcf/vr.jcf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='06' and vr.jyf=0 then 0
+                          when fs.fee_stat_cate='06' and vr.jyf!=0 then vr.sjyf/vr.jyf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='07' and vr.zlf=0 then 0
+                          when fs.fee_stat_cate='07' and vr.zlf!=0 then vr.szlf/vr.zlf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='08' and vr.ssf=0 then 0
+                          when fs.fee_stat_cate='08' and vr.ssf!=0 then vr.sssf/vr.ssf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='09' and vr.mzf=0 then 0
+                          when fs.fee_stat_cate='09' and vr.mzf!=0 then vr.smzf/vr.mzf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='10' and vr.hlf=0 then 0
+                          when fs.fee_stat_cate='10' and vr.hlf!=0 then vr.shlf/vr.hlf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='11' and vr.clf=0 then 0
+                          when fs.fee_stat_cate='11' and vr.clf!=0 then vr.sclf/vr.clf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0))
+                          when fs.fee_stat_cate='12' and vr.qtf=0 then 0
+                          when fs.fee_stat_cate='12' and vr.qtf!=0 then vr.sqtf/vr.qtf*(nvl(fe.pub_cost,0)+ nvl(fe.own_cost,0) + nvl(fe.pay_cost , 0) - nvl(fe.eco_cost,0) - nvl(fe.donate_cost,0)) end /(case when a.qty=0 and a.confirm_num&gt;0 then a.confirm_num when a.qty&gt;0 then a.qty end)*md.confirm_number),0),2) 门诊实收金额
+       --nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0) ,round((nvl(fe.own_cost,0)-nvl(fe.eco_cost,0)-nvl(fe.donate_cost,0))/a.qty,2)*md.confirm_number,a.current_unit,a.*
+    /*  ,p_view_mzsr_ss.set_type('&amp;type')
+      ,p_view_mzsr_ss.set_btime(to_date('&amp;dtBeginTime' ,'yyyy-MM-dd'))
+      ,p_view_mzsr_ss.set_etime(to_date( '&amp;dtEndTime','yyyy-MM-dd'))*/
+  from met_tec_terminalapply a ---where a.name='黄晓桦'
+  left join fin_opb_feedetail fe on a.clinic_no=fe.clinic_code and a.card_no=fe.card_no and a.mo_order=fe.mo_order
+  left join fin_com_feecodestat fs on fe.fee_code=fs.fee_code and fs.report_code='MZ01'
+  left join view_mzsr_received vr on fe.card_no=vr.card_no and fe.invoice_no=vr.invoice_no and fe.trans_type=vr.trans_type
+  left join (select epc.invoice_no,epc.trans_type,wm_concat(distinct bp.package_name) package_name,wm_concat(distinct bp.package_id) package_id
+               from exp_packagecost epc 
+               left join exp_packagedetail epd on epc.clinic_code=epd.clinic_code and epd.trans_type=1 and epd.sequence_no=epc.detailseq
+               left join exp_package ep on epd.clinic_code=ep.clinic_code and epd.trans_type=ep.trans_type
+               left join bd_com_package bp on bp.package_id=ep.package_id
+              group by epc.invoice_no,epc.trans_type) epc on fe.invoice_no=epc.invoice_no and epc.trans_type=fe.trans_type
+  left join met_tec_ta_detail md on a.apply_number=md.apply_code and md.status=0 and fe.mo_order=md.extend_field1
+ where (case when p_view_mzsr_ss.set_type('&amp;type')=0 then a.oper_date else md.confirm_date end) 
+          between p_view_mzsr_ss.set_btime(to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')) and p_view_mzsr_ss.set_etime(to_date( '&amp;dtEndTime','yyyy-MM-dd')) +1 
+   and (a.execute_deptcode='&amp;execute_deptcode' or '&amp;execute_deptcode'='ALL')
+   and (md.confirm_employee='&amp;confirm_employee' or '&amp;confirm_employee'='ALL')
+   and (md.exec_oper='&amp;exec_oper' or '&amp;exec_oper'='ALL')
+   and (epc.package_id like '%&amp;package_id%' or '&amp;package_id' is null)
+   and (a.card_no='&amp;txtname' or a.name like '%&amp;txtname%' or '&amp;txtname' is null)
+   and a.ext_flag1=1
+   --and vr.oper_date between p_view_mzsr_ss.set_btime(to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')) and  p_view_mzsr_ss.set_etime(to_date( '&amp;dtEndTime','yyyy-MM-dd'))+1 
+   --and p_view_mzsr_ss.set_type('&amp;type')='&amp;type'
+   --and a.card_no='0000002644'
+ group by rollup((epc.package_name,a.card_no,a.name,a.oper_date,a.item_name,a.qty,a.execute_deptcode,md.confirm_employee,md.exec_oper,md.confirm_date,a.current_unit))
+ order by a.card_no,a.oper_date,epc.package_name,a.item_name,md.confirm_date
+ 
+ --p_view_mzsr_ss.set_type('&amp;type')=0 and vmr.oper_date between p_view_mzsr_ss.set_btime(to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')) and  p_view_mzsr_ss.set_etime(to_date( '&amp;dtEndTime','yyyy-MM-dd'))+1 
+ 
+) sss where sss.匹配套餐 !='合计：'</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\门诊财务报表\爱博恩\终端执行统计报表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

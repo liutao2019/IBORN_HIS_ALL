@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>²âÊÔÍøÒ³</TITLE>
+</HEAD>
+<BODY>
+<OBJECT ID="Device" CLASSID="CLSID:59D84D6C-B787-458A-A3A0-3778DD8FA19B"></OBJECT>
+
+<script language=javascript>
+function on_button1()
+{
+	var result;
+	var handle;
+	
+	result = Device.icc_reader_open("USB");
+	if(result < 0)
+	{
+		alert("icc_reader_open error!");
+		return;
+	}
+	alert("icc_reader_open ok!");
+	handle = result;
+	
+	result = Device.icc_reader_get_card_user_info(handle, "");
+	if(result < 0)
+	{
+		alert("icc_reader_get_card_user_info error!");
+		Device.icc_reader_close(handle);
+		return;
+	}
+	alert("icc_reader_get_card_user_info ok!");
+	alert(Device.card_id);
+	alert(Device.card_no);
+	alert(Device.card_issue_date);
+	alert(Device.user_id);
+	alert(Device.user_name);
+	alert(Device.user_sex);
+	alert(Device.user_phone_number);
+
+	result = Device.icc_reader_close(handle);
+	if(result < 0)
+	{
+		alert("icc_reader_close error!");
+		Device.icc_reader_close(handle);
+		return;
+	}
+	alert("icc_reader_close ok!");
+	
+	alert("All ok!");
+}
+</script>
+
+<INPUT id=button1 type=button value=²âÊÔ onclick=on_button1()></BODY>
+</BODY>
+</HTML>

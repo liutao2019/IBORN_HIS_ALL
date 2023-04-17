@@ -1,0 +1,26 @@
+<ReportQueryInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.ReportQueryInfo,SOC.HISFC.OutpatientFee.Components"><List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>0</Index><Name>dtBeginTime</Name><Text>开始时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>-1</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>10</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List><List Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryControl,SOC.HISFC.OutpatientFee.Components"><Index>1</Index><Name>dtEndTime</Name><Text>结束时间：</Text><IsAddText>true</IsAddText><ControlType Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.ControlType.DateTimeType,SOC.HISFC.OutpatientFee.Components"><AddDays>0</AddDays><AddMonths>0</AddMonths><CustomFormat>yyyy-MM-dd</CustomFormat><DefaultDataSource></DefaultDataSource><Format>Custom</Format><IsLike>false</IsLike><LikeStr>%{0}%</LikeStr><Size Type="System.Drawing.Size,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Width>120</Width><Height>20</Height></Size><Location Type="System.Drawing.Point,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><X>220</X><Y>2</Y></Location><QueryDataSource>Dictionary</QueryDataSource><DataSourceTypeName></DataSourceTypeName><Enabled>true</Enabled></ControlType></List></List><QueryDataSource><QueryDataSource Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.QueryDataSource,SOC.HISFC.OutpatientFee.Components"><Name>dtSource</Name><Sql>   select rank() over (order by bc.bc_occ_date asc)  id,
+           p."pat_in_no" card_no,
+           p."pat_name" name,
+           p."pat_dep_name" dept_name,
+           do."ori_name" origin,
+           bc.bc_occ_date oper_date,
+           p."pat_doc_name" doct,
+           re."res_itm_id"  itm_id,
+           --re."res_itm_ecd",
+           nvl(re."res_itm_rep_ecd",dc."com_name") itm_name,
+           re."res_chr" result
+      from (select "res_itm_id","res_itm_ecd","res_itm_rep_ecd","res_chr","res_id","res_com_id" 
+              from resulto@lisdblink 
+             where "res_ref_flag" not in ('0','-1') --and (case when "res_itm_rep_ecd" like '%抗体%' then 0 else 1 end)=1
+               and "res_date" between to_date('&amp;dtBeginTime' ,'yyyy-MM-dd')  and to_date( '&amp;dtEndTime','yyyy-MM-dd') +1 ) re
+      left join (select "pat_in_no","pat_name","pat_dep_name","pat_doc_name","pat_id","pat_bar_code","pat_ori_id","pat_flag"
+                   from patients@lisdblink where "pat_flag" in ('2','4')) p on re."res_id"=p."pat_id" 
+      left join com_dictionary cd on cd.type='crbsb' and cd.code=re."res_com_id"
+      left join com_dictionary cd1 on cd1.type='crbsb' and cd1.code=re."res_itm_id"
+      left join (select "bc_bar_code",min("bc_occ_date") bc_occ_date from bc_cname@lisdblink where "bc_flag"=1 group by "bc_bar_code") bc on bc."bc_bar_code"=p."pat_bar_code" 
+      left join (select "ori_id","ori_name" from dict_origin@lisdblink) do on p."pat_ori_id"=do."ori_id"
+      left join (select dc."com_id",dc."com_name" from dict_combine@lisdblink dc) dc on dc."com_id"=re."res_itm_id"
+     where (re."res_itm_rep_ecd" not like '%抗体%' or re."res_itm_rep_ecd" is null)
+       and cd.code||cd1.code is not null
+
+</Sql><AddMapRow>false</AddMapRow><AddMapColumn>false</AddMapColumn><AddMapData>false</AddMapData><AddMapSourceData>false</AddMapSourceData><IsCross>false</IsCross><SqlType>MainReportUsing</SqlType><CrossRows></CrossRows><CrossColumns></CrossColumns><CrossValues></CrossValues><CrossCombinColumns></CrossCombinColumns><SumColumns></SumColumns><CrossGroupColumns></CrossGroupColumns><IsSumRow>true</IsSumRow><SumRows></SumRows><RowGroup /></QueryDataSource></QueryDataSource><QueryFilePath>Report\新医务报表\传染病实验室检测情况核查表设置.xml</QueryFilePath><PrintInfo Type="FS.SOC.HISFC.OutpatientFee.Components.Report.Common.Setting.PrintInfo,SOC.HISFC.OutpatientFee.Components"><PaperSize Type="System.Drawing.Printing.PaperSize,System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"><Height>1169</Height><PaperName>A4</PaperName><RawKind>0</RawKind><Width>850</Width></PaperSize><SelectPage>false</SelectPage></PrintInfo></ReportQueryInfo>

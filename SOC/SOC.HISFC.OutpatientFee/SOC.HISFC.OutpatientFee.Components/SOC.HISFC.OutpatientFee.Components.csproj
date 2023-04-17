@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{57B9A7A6-5FED-433D-9F38-BD63E3D4F580}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Neusoft.SOC.HISFC.OutpatientFee.Components</RootNamespace>
+    <AssemblyName>SOC.HISFC.OutpatientFee.Components</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.BizProcess.CommonInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\SOC.HISFC.BizProcess.CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.HISFC.OutpatientFee.BizLogic, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.OutpatientFee.BizProcess, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.OutpatientFee.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Controls\txtCardNO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\Controls\txtCardNO.Designer.cs">
+      <DependentUpon>txtCardNO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Confirm\Outpatient\ucPatientConfirmTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Confirm\Outpatient\ucPatientConfirmTree.Designer.cs">
+      <DependentUpon>ucPatientConfirmTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Confirm\Outpatient\ucPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Confirm\Outpatient\ucPatientInfo.Designer.cs">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\Common\ControlType\BaseControlType.cs" />
+    <Compile Include="Report\Common\ControlType\CheckBoxType.cs" />
+    <Compile Include="Report\Common\ControlType\ComboBoxType.cs" />
+    <Compile Include="Report\Common\ControlType\CustomControl.cs" />
+    <Compile Include="Report\Common\ControlType\DateTimeType.cs" />
+    <Compile Include="Report\Common\ControlType\FilterComboBox.cs" />
+    <Compile Include="Report\Common\ControlType\FilterTextBox.cs" />
+    <Compile Include="Report\Common\ControlType\FilterTreeView.cs" />
+    <Compile Include="Report\Common\ControlType\GroupTreeViewType.cs" />
+    <Compile Include="Report\Common\ControlType\TextBoxType.cs" />
+    <Compile Include="Report\Common\ControlType\TreeViewType.cs" />
+    <Compile Include="Report\Common\Enum\EnumDataSourceType.cs" />
+    <Compile Include="Report\Common\Enum\EnumDetailCondition.cs" />
+    <Compile Include="Report\Common\Enum\EnumDetailQueryMode.cs" />
+    <Compile Include="Report\Common\Enum\EnumDetailQueryType.cs" />
+    <Compile Include="Report\Common\Enum\EnumDetailShowType.cs" />
+    <Compile Include="Report\Common\Enum\EnumGroupShowInfoType.cs" />
+    <Compile Include="Report\Common\Enum\EnumGroupShowLocation.cs" />
+    <Compile Include="Report\Common\Enum\EnumReportType.cs" />
+    <Compile Include="Report\Common\Enum\EnumSqlType.cs" />
+    <Compile Include="Report\Common\Helper\DataSetHelper.cs" />
+    <Compile Include="Report\Common\Implement\Forms\frmShowInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Common\Implement\Forms\frmShowInfo.Designer.cs">
+      <DependentUpon>frmShowInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Common\Implement\PrintPageSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Common\Implement\PrintPageSelectDialog.designer.cs">
+      <DependentUpon>PrintPageSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucCommonWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucCommonWindow.Designer.cs">
+      <DependentUpon>ucCommonWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucDataSourceSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucDataSourceSetting.Designer.cs">
+      <DependentUpon>ucDataSourceSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Common\Interface\ICommonReportController.cs" />
+    <Compile Include="Report\Common\Interface\ILeftQueryCondition.cs" />
+    <Compile Include="Report\Common\Interface\IMainReportForm.cs" />
+    <Compile Include="Report\Common\Interface\ISettingReportForm.cs" />
+    <Compile Include="Report\Common\Interface\ITopQueryCondition.cs" />
+    <Compile Include="Report\Common\Setting\PrintInfo.cs" />
+    <Compile Include="Report\Common\Setting\RowGroupInfo.cs" />
+    <Compile Include="Report\Common\Setting\QueryDataSource.cs" />
+    <Compile Include="Report\Common\Setting\QueryCondition.cs" />
+    <Compile Include="Report\Common\Setting\QueryControl.cs" />
+    <Compile Include="Report\Common\Setting\TableGroupInfo.cs" />
+    <Compile Include="Report\Common\UITypeEditor\ControlUITypeEditor.cs" />
+    <Compile Include="Report\Common\UITypeEditor\FarPointUITypeEditor.cs" />
+    <Compile Include="Report\Common\Implement\frmQueryInfoSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Common\Implement\frmQueryInfoSetting.Designer.cs">
+      <DependentUpon>frmQueryInfoSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Common\TypeConterter\ListTypeConverter.cs" />
+    <Compile Include="Report\Common\Setting\ReportQueryInfo.cs" />
+    <Compile Include="Report\Common\UITypeEditor\SetInfoUITypeEditor.cs" />
+    <Compile Include="Report\Common\TypeConterter\ControlTypeConverter.cs" />
+    <Compile Include="Report\DayBalanceCheck\ucClinicFeeBalanceCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucClinicFeeBalanceCheck.Designer.cs">
+      <DependentUpon>ucClinicFeeBalanceCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalanceCheck\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucClinicFeeBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucClinicFeeBalance.Designer.cs">
+      <DependentUpon>ucClinicFeeBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucMainFpReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Common\Implement\ucMainFpReport.Designer.cs">
+      <DependentUpon>ucMainFpReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\DayBalance\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\InpatientDayBalance\ucInpatientBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\InpatientDayBalance\ucInpatientBalance.Designer.cs">
+      <DependentUpon>ucInpatientBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\InpatientDayBalance\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\InpatientDayBalance\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\InpatientDayBalance\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\InpatientDayBalance\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RegDayBalanceCheck\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RegDayBalanceCheck\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RegDayBalanceCheck\ucRegsiterBalanceCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RegDayBalanceCheck\ucRegsiterBalanceCheck.Designer.cs">
+      <DependentUpon>ucRegsiterBalanceCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RegDayBalanceCheck\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RegDayBalanceCheck\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RegDayBalance\ucLeftQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RegDayBalance\ucLeftQueryCondition.Designer.cs">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RegDayBalance\ucRegsiterBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RegDayBalance\ucRegsiterBalance.Designer.cs">
+      <DependentUpon>ucRegsiterBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RegDayBalance\ucTopQueryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RegDayBalance\ucTopQueryCondition.Designer.cs">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Confirm\Outpatient\ucPatientConfirmTree.resx">
+      <DependentUpon>ucPatientConfirmTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Confirm\Outpatient\ucPatientInfo.resx">
+      <DependentUpon>ucPatientInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Common\Implement\Forms\frmShowInfo.resx">
+      <DependentUpon>frmShowInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Common\Implement\frmQueryInfoSetting.resx">
+      <DependentUpon>frmQueryInfoSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Common\Implement\PrintPageSelectDialog.resx">
+      <DependentUpon>PrintPageSelectDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Common\Implement\ucCommonWindow.resx">
+      <DependentUpon>ucCommonWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Common\Implement\ucDataSourceSetting.resx">
+      <DependentUpon>ucDataSourceSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalanceCheck\ucClinicFeeBalanceCheck.resx">
+      <DependentUpon>ucClinicFeeBalanceCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalanceCheck\ucLeftQueryCondition.resx">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalanceCheck\ucTopQueryCondition.resx">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalance\ucClinicFeeBalance.resx">
+      <DependentUpon>ucClinicFeeBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalance\ucLeftQueryCondition.resx">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DayBalance\ucTopQueryCondition.resx">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\InpatientDayBalance\ucInpatientBalance.resx">
+      <DependentUpon>ucInpatientBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\InpatientDayBalance\ucLeftQueryCondition.resx">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\InpatientDayBalance\ucTopQueryCondition.resx">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RegDayBalanceCheck\ucLeftQueryCondition.resx">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RegDayBalanceCheck\ucRegsiterBalanceCheck.resx">
+      <DependentUpon>ucRegsiterBalanceCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RegDayBalanceCheck\ucTopQueryCondition.resx">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RegDayBalance\ucLeftQueryCondition.resx">
+      <DependentUpon>ucLeftQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RegDayBalance\ucTopQueryCondition.resx">
+      <DependentUpon>ucTopQueryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
