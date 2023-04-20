@@ -105,9 +105,6 @@
     <Reference Include="GZ.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\lib\GZ.Model.dll</HintPath>
     </Reference>
-    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\lib\HISFC.BizLogic.Fee.dll</HintPath>
-    </Reference>
     <Reference Include="HISFC.BizLogic.HealthRecord, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\lib\HISFC.BizLogic.HealthRecord.dll</HintPath>
     </Reference>
@@ -1344,6 +1341,10 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\HISFC.BizLogic\Fee\HISFC.BizLogic.Fee.csproj">
+      <Project>{724abf87-ec3e-454f-ba5c-6620ac3ff2b0}</Project>
+      <Name>HISFC.BizLogic.Fee</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\HISFC.BizLogic\MedicalPackage\HISFC.BizLogic.MedicalPackage.csproj">
       <Project>{394AF1FF-B4EA-4A61-92CA-811FF8C1AEBD}</Project>
       <Name>HISFC.BizLogic.MedicalPackage</Name>

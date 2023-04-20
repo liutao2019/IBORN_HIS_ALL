@@ -1295,14 +1295,14 @@ namespace FS.SOC.HISFC.Components.InPateintOrder.Classes
 
             if (p != null)
             {
-                memo = p.Patient.Memo;
+                memo = p.Memo;
                 //判断下 转科的情况，
                 dept = p.PVisit.PatientLocation.Dept.ID;
             }
 
             p = pManager.GetPatientInfomation(patientID);
 
-            p.Patient.Memo = memo;
+            p.Memo = memo;
 
             if (p == null)
             {
@@ -1437,15 +1437,15 @@ namespace FS.SOC.HISFC.Components.InPateintOrder.Classes
 
             if (order.SpeOrderType.Length <= 0)
             {
-                if (info.Patient.Memo == "会诊")
+                if (info.Memo == "会诊")
                 {
                     speDrugType = "CONS";
                 }
-                else if (info.Patient.Memo == "科室")
+                else if (info.Memo == "科室")
                 {
                     speDrugType = "DEPT" + order.ExeDept.ID;
                 }
-                else if (info.Patient.Memo == "医技")
+                else if (info.Memo == "医技")
                 {
                     speDrugType = "TERM" + order.ReciptDept.ID;
                 }

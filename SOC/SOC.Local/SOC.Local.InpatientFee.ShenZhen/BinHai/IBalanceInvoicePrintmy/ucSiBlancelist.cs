@@ -160,7 +160,7 @@ namespace FS.SOC.Local.InpatientFee.ShenZhen.BinHai.IBillPrint
                     this.lbllxdh.Visible = true;
                     this.lbllxdh.Text = patientInfo.PhoneHome;
                 }//电话
-                    if (patientInfo.Patient.Pact.PayKind.ID != "01")//非自费患者
+                    if (patientInfo.Pact.PayKind.ID != "01")//非自费患者
                 //if (patientInfo.Pact.PayKind.ID != "01")//非自费患者 {2F3ACEBA-EFD5-4587-BCE2-603127FD0461}
                 {
                     this.lblMINo.Visible = true;

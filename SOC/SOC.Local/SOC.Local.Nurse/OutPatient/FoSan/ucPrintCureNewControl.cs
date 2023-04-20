@@ -134,7 +134,7 @@ namespace FS.SOC.Local.Nurse.FoSan
             }
             this.lblOrderNo.Text = strOrderNo;
             //开方医生
-            this.lblDoctor.Text = inject.Item.Order.Doctor.Name;
+            this.lblDoctor.Text = inject.Item.Order.ReciptDoctor.Name;
             if (isReprint || inject.User03 == "true")
             {
                 this.lblReprint.Visible = true;

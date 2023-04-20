@@ -121,7 +121,7 @@ namespace FS.SOC.Local.Nurse.GuangZhou.Gyzl.IInjectCurePrint
             }
             this.lblOrderNo.Text = strOrderNo;
             //开方医生
-            this.lblDoctor.Text = inject.Item.Order.Doctor.Name;
+            this.lblDoctor.Text = inject.Item.Order.ReciptDoctor.Name;
         }
 
         /// <summary>

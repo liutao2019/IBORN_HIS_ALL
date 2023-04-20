@@ -835,6 +835,14 @@ namespace FS.SOC.Local.RADT.ZhuHai.ZDWY.Register
                 return -1;
             }
 
+            //更新患者入院时间
+            if (this.radtIntegrate.UpdatePatientInTime(this.patientInfo) <= 0)
+            {
+                FS.FrameWork.Management.PublicTrans.RollBack();
+                this.myMessageBox("更新患者入院时间失败!" + this.radtIntegrate.Err, MessageBoxIcon.Warning);
+                return -1;
+            }
+
             //添加变转病区更记录表
             if (this.radtIntegrate.InsertShiftData(this.patientInfo.ID, FS.HISFC.Models.Base.EnumShiftType.CN, "修改病区", oldNurseCell, this.patientInfo.PVisit.PatientLocation.NurseCell) < 0)
             {

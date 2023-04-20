@@ -249,7 +249,7 @@ namespace FS.SOC.Local.DrugStore.ZhuHai.ZDWY.Outpatient
         /// <returns>-1Ê§°Ü</returns>
         public int ShowDataAfterSelect(List<FS.HISFC.Models.Pharmacy.DrugRecipe> listDrugRecipe, FS.HISFC.Models.Pharmacy.DrugRecipe selectedDrugRecipe)
         {
-            if (string.IsNullOrEmpty(selectedDrugRecipe.RecipeNO) || string.IsNullOrEmpty(selectedDrugRecipe.DrugDept.ID))
+            if (string.IsNullOrEmpty(selectedDrugRecipe.RecipeNO) || string.IsNullOrEmpty(selectedDrugRecipe.StockDept.ID))
             {
                 return -1;
             }

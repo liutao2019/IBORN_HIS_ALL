@@ -119,7 +119,7 @@ namespace FS.SOC.Local.Nurse.ZhuHai.ZDWY.IInjectBottleLabel
             }
             this.lblOrderNo.Text = strOrderNo;
             //开方医生
-            this.lblDoctor.Text = inject.Item.Order.Doctor.Name;
+            this.lblDoctor.Text = inject.Item.Order.ReciptDoctor.Name;
         }
 
         private void Clear()

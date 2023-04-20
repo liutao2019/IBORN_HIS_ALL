@@ -1111,7 +1111,7 @@ namespace FS.SOC.HISFC.Components.DCP.CancerReport
 				{
 					id = info.ID.Remove(0,4);
 				}
-				patientnode.Text = info.Patient.Name+"["+info.PVisit.InTime.ToShortDateString()+"]"+info.PVisit.PatientLocation.Dept.Name;
+				patientnode.Text = info.Name+"["+info.PVisit.InTime.ToShortDateString()+"]"+info.PVisit.PatientLocation.Dept.Name;
 				patientnode.ImageIndex = 4;
 				node.SelectedImageIndex = 4;
 				this.tvPatientInfo.Nodes[0].Nodes.Add(patientnode);

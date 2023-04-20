@@ -441,8 +441,8 @@ namespace FS.SOC.HISFC.Components.Nurse.Controls.ZDLY
                 this.neuSpread1_Sheet1.Cells[row, 3].Tag = info.Patient.PID.CardNO.ToString();
                 this.neuSpread1_Sheet1.SetValue(row, 4, info.Patient.Name.ToString());//病人名称
                 this.neuSpread1_Sheet1.Cells[row, 4].Tag = info.Patient.Name.ToString();
-                this.neuSpread1_Sheet1.SetValue(row, 5, info.Item.Order.Doctor.Name.ToString());//开单医生
-                this.neuSpread1_Sheet1.Cells[row, 5].Tag = info.Item.Order.Doctor.ID.ToString();
+                this.neuSpread1_Sheet1.SetValue(row, 5, info.Item.Order.ReciptDoctor.Name.ToString());//开单医生
+                this.neuSpread1_Sheet1.Cells[row, 5].Tag = info.Item.Order.ReciptDoctor.ID.ToString();
                 this.neuSpread1_Sheet1.SetValue(row, 6, info.Item.Order.DoctorDept.Name.ToString());//开单科室
                 this.neuSpread1_Sheet1.Cells[row, 6].Tag = info.Item.Order.DoctorDept.ID.ToString();
                 this.neuSpread1_Sheet1.SetValue(row, 7, info.Item.Name.ToString());//项目名称
@@ -1006,15 +1006,15 @@ namespace FS.SOC.HISFC.Components.Nurse.Controls.ZDLY
                     continue;
                 }
 
-                if (!hsInfos.ContainsKey(info.Item.Order.Doctor.ID))
+                if (!hsInfos.ContainsKey(info.Item.Order.ReciptDoctor.ID))
                 {
                     ArrayList al = new ArrayList();
                     al.Add(info);
-                    hsInfos.Add(info.Item.Order.Doctor.ID, al);
+                    hsInfos.Add(info.Item.Order.ReciptDoctor.ID, al);
                 }
                 else
                 {
-                    ((ArrayList)hsInfos[info.Item.Order.Doctor.ID]).Add(info);
+                    ((ArrayList)hsInfos[info.Item.Order.ReciptDoctor.ID]).Add(info);
                 }
             }
             return 1;

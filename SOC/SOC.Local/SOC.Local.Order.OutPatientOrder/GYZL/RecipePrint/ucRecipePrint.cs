@@ -250,9 +250,9 @@ namespace FS.SOC.Local.Order.OutPatientOrder.GYZL.RecipePrint
                         ot.DoctorDept = itemlist.RecipeOper.Dept;
                         ot.MOTime = itemlist.ChargeOper.OperTime;
                         ot.StockDept = itemlist.ExecOper.Dept;
-                        ot.Patient.Patient.PID.ID = itemlist.Patient.ID;
-                        ot.Frequency.ID = itemlist.FreqInfo.ID;
-                        ot.Frequency.Name = itemlist.FreqInfo.Name;
+                        ot.Patient.PID.ID = itemlist.Patient.ID;
+                        ot.Frequency.ID = itemlist.Order.Frequency.ID;
+                        ot.Frequency.Name = itemlist.Order.Frequency.Name;
                         ot.Usage = itemlist.Order.Usage;
                         ot.Item.Name = itemlist.Name;
                         ot.HerbalQty = itemlist.Days;

@@ -52,7 +52,7 @@ namespace FS.SOC.Local.DrugStore.ShenZhen.BinHai.Outpatient
 
         public int ShowDataAfterSave(List<FS.HISFC.Models.Pharmacy.DrugRecipe> listDrugRecipe, FS.HISFC.Models.Pharmacy.DrugRecipe savedDrugRecipe)
         {
-            if (string.IsNullOrEmpty(savedDrugRecipe.RecipeNO) || string.IsNullOrEmpty(savedDrugRecipe.DrugDept.ID))
+            if (string.IsNullOrEmpty(savedDrugRecipe.RecipeNO) || string.IsNullOrEmpty(savedDrugRecipe.StockDept.ID))
             {
                 return -1;
             }
@@ -81,7 +81,7 @@ namespace FS.SOC.Local.DrugStore.ShenZhen.BinHai.Outpatient
             {
                 return -1;
             }
-            if (string.IsNullOrEmpty(selectedDrugRecipe.RecipeNO) || string.IsNullOrEmpty(selectedDrugRecipe.DrugDept.ID))
+            if (string.IsNullOrEmpty(selectedDrugRecipe.RecipeNO) || string.IsNullOrEmpty(selectedDrugRecipe.StockDept.ID))
             {
                 return -1;
             }

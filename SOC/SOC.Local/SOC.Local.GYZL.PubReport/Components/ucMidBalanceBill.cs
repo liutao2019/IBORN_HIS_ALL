@@ -453,7 +453,7 @@ namespace FS.SOC.Local.GYZL.PubReport.Components
             //设置入院时间和结算时间
 
             //公费患者，应该减去一天日限额			
-            if (info.PayKind.ID == "03")
+            if (info.Pact.PayKind.ID == "03")
             {
                 string strRep = "";
                 DateTime RepDate;
@@ -487,7 +487,7 @@ namespace FS.SOC.Local.GYZL.PubReport.Components
                 return -1;
             }
             //医保患者
-            if (this.pInfo.PayKind.ID == "02")
+            if (this.pInfo.Pact.PayKind.ID == "02")
             {
                 //				decimal UploadCost = 0m;
                 //				if(this.feeMgr.GetUploadTotCost(pInfo.ID,ref UploadCost)==-1)
@@ -505,7 +505,7 @@ namespace FS.SOC.Local.GYZL.PubReport.Components
             FS.FrameWork.Public.ObjectHelper minfee = new FS.FrameWork.Public.ObjectHelper();
             FS.HISFC.BizLogic.Manager.Constant con = new FS.HISFC.BizLogic.Manager.Constant();
             minfee.ArrayObject = con.GetList(FS.HISFC.Models.Base.EnumConstant.MINFEE);
-            if (this.pInfo.PayKind.ID == "03")//生育保险除外
+            if (this.pInfo.Pact.PayKind.ID == "03")//生育保险除外
             {
                 #region 公费
 

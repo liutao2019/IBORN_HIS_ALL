@@ -437,7 +437,7 @@ namespace FS.SOC.Local.RADT.GuangZhou.GYZL.Base.Inpatient
             patient.AddressHome = this.txtHomeAddress.Text;//家庭地址
             patient.HomeZip = this.txtHomeZip.Text;//家庭地址邮编
             patient.AddressBusiness = this.txtAddressNow.Text; //现住地址
-            patient.Patient.AddressBusiness = this.txtAddressNow.Text; //现住地址 (PS:5.0没有现住地址这字段~而且有些属性patient和patientInfo居然参杂交错)
+            patient.AddressBusiness = this.txtAddressNow.Text; //现住地址 (PS:5.0没有现住地址这字段~而且有些属性patient和patientInfo居然参杂交错)
             patient.PhoneHome = this.txtHomePhone.Text;//患者电话
             patient.PhoneBusiness = this.txtWorkPhone.Text;//单位电话 
             patient.IDCard = this.txtIDNO.Text;//身份证
@@ -479,7 +479,7 @@ namespace FS.SOC.Local.RADT.GuangZhou.GYZL.Base.Inpatient
             {
                 patient.Kin.Name = "";  //联系人
             }
-            patient.Patient.AreaCode = txtBirthArea.Text;
+            patient.AreaCode = txtBirthArea.Text;
             return patient;
         }
 

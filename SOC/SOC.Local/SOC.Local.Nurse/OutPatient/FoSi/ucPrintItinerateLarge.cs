@@ -403,8 +403,8 @@ namespace FS.SOC.Local.Nurse.FoSi
             {
                 this.lblCancel.Visible = false;
             }
-            string doctorName = info.Item.Order.Doctor.Name;
-            string doctorNo = info.Item.Order.Doctor.ID;
+            string doctorName = info.Item.Order.ReciptDoctor.Name;
+            string doctorNo = info.Item.Order.ReciptDoctor.ID;
             if (string.IsNullOrEmpty(info.Patient.PID.CardNO))
             {
                 this.npbBarCode.Image = this.CreateBarCode(info.Patient.Card.ID);

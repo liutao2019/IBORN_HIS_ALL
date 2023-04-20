@@ -2343,6 +2343,35 @@ namespace FS.HISFC.BizLogic.RADT
 
         #endregion
 
+        #region 住院登记修改入院时间
+        /// <summary>
+        /// 更新登记患者的病区信息{F0BF027A-9C8A-4bb7-AA23-26A5F3539586}
+        /// </summary>
+        /// <param name="patientInfo"></param>
+        /// <returns> 0 成功  －1 失败</returns>
+        public int UpdatePatientInTimeByInpatientNo(PatientInfo patientInfo)
+        {
+            string strSql = string.Empty;
+            if (Sql.GetCommonSql("RADT.UpdatePatientInTimeByInpatientNo", ref strSql) == -1)
+            {
+                return -1;
+            }
+
+            try
+            {
+                strSql =string.Format(strSql, patientInfo.ID, patientInfo.PVisit.InTime);
+            }
+            catch (Exception ex)
+            {
+                ErrCode = ex.Message;
+                Err = ex.Message;
+                WriteErr();
+                return -1;
+            }
+            return ExecNoQuery(strSql);
+        }
+        #endregion
+
         #region  患者信息更改 在院状态，转床，转科
 
         /// <summary>

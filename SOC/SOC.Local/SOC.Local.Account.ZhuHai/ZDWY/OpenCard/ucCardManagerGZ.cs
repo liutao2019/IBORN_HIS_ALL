@@ -1100,7 +1100,7 @@ namespace FS.SOC.Local.Account.ZhuHai.ZDWY.OpenCard
                                 tempCardFee.FeeOper = lstTempCardFee[idx].FeeOper;
 
                                 tempCardFee.Oper.ID = currentOperator.ID;
-                                tempCardFee.Oper.Oper.Name = currentOperator.Name;
+                                tempCardFee.Oper.Name = currentOperator.Name;
                                 tempCardFee.Oper.OperTime = nowTime;
 
                                 tempCardFee.IsBalance = false;
@@ -1175,7 +1175,7 @@ namespace FS.SOC.Local.Account.ZhuHai.ZDWY.OpenCard
                     if (lstStopBackCard[idx].MarkStatus == MarkOperateTypes.Stop)
                     {
                         lstStopBackCard[idx].StopOper.ID = currentOperator.ID;
-                        lstStopBackCard[idx].StopOper.Oper.Name = currentOperator.Name;
+                        lstStopBackCard[idx].StopOper.Name = currentOperator.Name;
                         lstStopBackCard[idx].StopOper.OperTime = nowTime;
 
                         resultValue = accountManager.StopBackAccountCard(lstStopBackCard[idx]);
@@ -1183,7 +1183,7 @@ namespace FS.SOC.Local.Account.ZhuHai.ZDWY.OpenCard
                     else if (lstStopBackCard[idx].MarkStatus == MarkOperateTypes.Cancel)
                     {
                         lstStopBackCard[idx].BackOper.ID = currentOperator.ID;
-                        lstStopBackCard[idx].BackOper.Oper.Name = currentOperator.Name;
+                        lstStopBackCard[idx].BackOper.Name = currentOperator.Name;
                         lstStopBackCard[idx].BackOper.OperTime = nowTime;
 
                         resultValue = accountManager.StopBackAccountCard(lstStopBackCard[idx]);
@@ -2705,11 +2705,11 @@ namespace FS.SOC.Local.Account.ZhuHai.ZDWY.OpenCard
                     accFee.IStatus = 1;
 
                     accFee.FeeOper.ID = employee.ID;
-                    accFee.FeeOper.Oper.Name = employee.Name;
+                    accFee.FeeOper.Name = employee.Name;
                     accFee.FeeOper.OperTime = current;
 
                     accFee.Oper.ID = employee.ID;
-                    accFee.Oper.Oper.Name = employee.Name;
+                    accFee.Oper.Name = employee.Name;
                     accFee.Oper.OperTime = current;
 
                     accFee.IsBalance = false;

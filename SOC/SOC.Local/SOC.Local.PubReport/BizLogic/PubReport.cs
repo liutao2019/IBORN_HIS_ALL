@@ -2342,8 +2342,8 @@ namespace FS.SOC.Local.PubReport.BizLogic
             {
                 return 0;
             }
-            report.EXT_FLAG = p.Patient.Sex.User01;  //高检
-            report.CancerDrugFee = FS.FrameWork.Function.NConvert.ToDecimal(p.Patient.Sex.User02);  //肿瘤
+            report.EXT_FLAG = p.Sex.User01;  //高检
+            report.CancerDrugFee = FS.FrameWork.Function.NConvert.ToDecimal(p.Sex.User02);  //肿瘤
             iReturn = rp.InsertPubReport(report);
             if (iReturn <= 0)
             {

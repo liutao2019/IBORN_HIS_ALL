@@ -947,7 +947,7 @@ namespace SOC.Local.Gyzl.AppointPlatForm
 
                     cardFee.TransType = FS.HISFC.Models.Base.TransTypes.Negative;
                     cardFee.Oper.ID = employee.ID;
-                    cardFee.Oper.Oper.Name = employee.Name;
+                    cardFee.Oper.Name = employee.Name;
                     cardFee.Oper.OperTime = current;
                     cardFee.Tot_cost = -cardFee.Tot_cost;
                     cardFee.Own_cost = -cardFee.Own_cost;
@@ -973,7 +973,7 @@ namespace SOC.Local.Gyzl.AppointPlatForm
 
                     cardFee.TransType = FS.HISFC.Models.Base.TransTypes.Positive;
                     cardFee.Oper.ID = employee.ID;
-                    cardFee.Oper.Oper.Name = employee.Name;
+                    cardFee.Oper.Name = employee.Name;
                     cardFee.Oper.OperTime = current;
 
                     cardFee.IStatus = 1;

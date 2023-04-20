@@ -590,8 +590,8 @@ namespace FS.SOC.Local.Nurse.ZhuHai.ZDWY.IInjectInfusionCardPrint
             info.Item.Order.DoctorDept.Name = deptHelper.GetName(detail.RecipeOper.Dept.ID);
             info.Item.Order.DoctorDept.ID = detail.RecipeOper.Dept.ID;
 
-            info.Item.Order.Doctor.Name = doctHelper.GetName(detail.RecipeOper.ID);
-            info.Item.Order.Doctor.ID = detail.RecipeOper.ID;
+            info.Item.Order.ReciptDoctor.Name = doctHelper.GetName(detail.RecipeOper.ID);
+            info.Item.Order.ReciptDoctor.ID = detail.RecipeOper.ID;
             #endregion
 
             info.PrintNo = detail.User02;

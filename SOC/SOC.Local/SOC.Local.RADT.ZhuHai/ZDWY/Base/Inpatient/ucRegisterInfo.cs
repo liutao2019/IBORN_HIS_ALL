@@ -593,7 +593,7 @@ namespace FS.SOC.Local.RADT.ZhuHai.ZDWY.Base.Inpatient
                 this.cmbBedNO.Text = patient.PVisit.PatientLocation.Bed.ID;
                 this.mTxtPrepay.Text = patient.FT.PrepayCost.ToString();//预交金
                 //住院日期,默认当前日期
-                this.dtpInTime.Value = commonController.GetSystemTime(); 
+                this.dtpInTime.Value = patient.PVisit.InTime;//commonController.GetSystemTime(); 
                 this.cmbApproach.Tag = patient.PVisit.AdmitSource.ID;
                 if (string.IsNullOrEmpty(cmbApproach.Tag.ToString()))
                 {

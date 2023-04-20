@@ -1089,8 +1089,8 @@ namespace FS.HISFC.Components.Nurse.Controls.FoSan.FoSi
                     hsEmpl.Add(empl.ID, empl);
                 }
 
-                info.Item.Order.Doctor.Name = empl.Name;
-                info.Item.Order.Doctor.ID = empl.ID;
+                info.Item.Order.ReciptDoctor.Name = empl.Name;
+                info.Item.Order.ReciptDoctor.ID = empl.ID;
                 info.Item.Name = detail.Item.Name;
                 string strOrder = "";
                 if (this.neuSpread1_Sheet1.GetValue(i, 1) == null || this.neuSpread1_Sheet1.GetValue(i, 1).ToString() == "")
@@ -1181,8 +1181,8 @@ namespace FS.HISFC.Components.Nurse.Controls.FoSan.FoSi
                     MessageBox.Show("找不到相关医生信息");
                     return -1;
                 }
-                info.Item.Order.Doctor.Name = empl.Name;
-                info.Item.Order.Doctor.ID = empl.ID;
+                info.Item.Order.ReciptDoctor.Name = empl.Name;
+                info.Item.Order.ReciptDoctor.ID = empl.ID;
                 info.Item.Name = detail.Item.Name;
                 string strOrder = "";
                 if (this.neuSpread1_Sheet1.GetValue(i, 1) == null || this.neuSpread1_Sheet1.GetValue(i, 1).ToString() == "")
@@ -1209,15 +1209,15 @@ namespace FS.HISFC.Components.Nurse.Controls.FoSan.FoSi
                     info.Hypotest = orderinfo.HypoTest;
                 }
 
-                if (!hsInfos.ContainsKey(info.Item.Order.Doctor.ID))
+                if (!hsInfos.ContainsKey(info.Item.Order.ReciptDoctor.ID))
                 {
                     ArrayList al = new ArrayList();
                     al.Add(info);
-                    hsInfos.Add(info.Item.Order.Doctor.ID, al);
+                    hsInfos.Add(info.Item.Order.ReciptDoctor.ID, al);
                 }
                 else
                 {
-                    ((ArrayList)hsInfos[info.Item.Order.Doctor.ID]).Add(info);
+                    ((ArrayList)hsInfos[info.Item.Order.ReciptDoctor.ID]).Add(info);
                 }
             }
             return 1;
@@ -1629,8 +1629,8 @@ namespace FS.HISFC.Components.Nurse.Controls.FoSan.FoSi
                         hsEmpl.Add(empl.ID, empl);
                     }
 
-                    info.Item.Order.Doctor.Name = empl.Name;
-                    info.Item.Order.Doctor.ID = empl.ID;
+                    info.Item.Order.ReciptDoctor.Name = empl.Name;
+                    info.Item.Order.ReciptDoctor.ID = empl.ID;
                     //是否皮试
                     if (detail.Item.ItemType == HISFC.Models.Base.EnumItemType.Drug && this.neuSpread1_Sheet1.Cells[i, 11].Tag.ToString().ToUpper() == "TRUE")
                     {
@@ -2102,7 +2102,7 @@ namespace FS.HISFC.Components.Nurse.Controls.FoSan.FoSi
             this.neuSpread1_Sheet1.SetValue(row, 2, info.InjectCount.ToString(), false);//院注次数
             this.neuSpread1_Sheet1.SetValue(row, 3, info.ConfirmedInjectCount.ToString(), false);//已经确认的院注次数
             this.neuSpread1_Sheet1.SetValue(row, 4, this.GetDoctByID(info.RecipeOper.ID), false);//开单医生
-            this.neuSpread1_Sheet1.Cells[row, 4].Tag = info.Order.Doctor.ID;
+            this.neuSpread1_Sheet1.Cells[row, 4].Tag = info.Order.ReciptDoctor.ID;
             this.neuSpread1_Sheet1.SetValue(row, 5, dept.Name, false);//科别
             this.neuSpread1_Sheet1.Cells[row, 5].Tag = info.Order.DoctorDept.ID;
             this.neuSpread1_Sheet1.SetValue(row, 6, info.Item.Name, false);//药品名称

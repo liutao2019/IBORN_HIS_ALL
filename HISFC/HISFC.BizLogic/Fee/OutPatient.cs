@@ -2518,15 +2518,49 @@ select 编号,
             return this.QueryFeeItemLists("Fee.OutPatient.GetFeeDetailbyClinicCode", clinicCode, feeFlag);
         }
 
-		#endregion
 
-		#region 获得自动生成的卡号
-		
-		/// <summary>
-		/// 获得自动生成的卡号， 主要为收费直接输入患者信息时生成。
-		/// </summary>
-		/// <returns>成功:自动生成的卡号 失败:null </returns>
-		public string GetAutoCardNO()
+        /// <summary>
+        /// 根据处方号和处方项目流水号更新样本执行状态
+        /// </summary>
+        /// <param name="moOrder">医嘱流水号</param>
+        /// <param name="recipeNO">处方号</param>
+        /// <param name="recipeSquence">处方内流水号</param>
+        /// <returns>成功: >= 1 失败: -1 没有更新到数据返回 0</returns>
+        public int UpdateSampleState(string recipeNO, string moOrder)
+        {
+			string sql = "";
+
+            //获得sql语句
+            if (this.Sql.GetCommonSql("Fee.OutPatient.QuerySampleState.select.1", ref sql) == -1)
+            {
+                this.Err = "没有找到索引为:" + "" + "的SQL语句";
+                return -1;
+            }
+
+			sql = string.Format(sql, recipeNO, moOrder );
+			if (this.ExecQuery(sql) == -1)
+			{
+                this.Err = "执行查询样本状态语句错误！";
+                return -1;
+            }
+			string SampleState = "0";
+            while (this.Reader.Read())
+            {
+                SampleState = this.Reader[0].ToString();
+            }
+			this.Reader.Close(); 
+
+            return this.UpdateSingleTable("Fee.OutPatient.UpdateSampleState.Update.1", recipeNO, moOrder, SampleState);
+        }
+        #endregion
+
+        #region 获得自动生成的卡号
+
+        /// <summary>
+        /// 获得自动生成的卡号， 主要为收费直接输入患者信息时生成。
+        /// </summary>
+        /// <returns>成功:自动生成的卡号 失败:null </returns>
+        public string GetAutoCardNO()
 		{
 			string tempCardNo = this.GetSequence("Fee.OutPatient.GetAutoCardNo.Select");
 			

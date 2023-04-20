@@ -383,8 +383,8 @@ namespace FS.SOC.HISFC.Components.Nurse.Controls.FoSan
             {
                 pSex = "";
             }
-            string doctorName = info.Item.Order.Doctor.Name;
-            string doctorNo = info.Item.Order.Doctor.ID;
+            string doctorName = info.Item.Order.ReciptDoctor.Name;
+            string doctorNo = info.Item.Order.ReciptDoctor.ID;
             if (string.IsNullOrEmpty(info.Patient.PID.CardNO))
             {
                 this.npbBarCode.Image = this.CreateBarCode(info.Patient.Card.ID);

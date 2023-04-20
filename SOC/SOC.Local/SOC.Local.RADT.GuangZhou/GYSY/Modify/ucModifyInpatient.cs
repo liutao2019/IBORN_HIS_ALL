@@ -365,7 +365,7 @@ namespace FS.SOC.Local.RADT.GuangZhou.GYSY.Modify
 
             //获取住院号赋值给实体
             this.patientInfo = this.radtIntegrate.GetPatientInfomation(this.ucQueryInpatientNo1.InpatientNo);
-            this.patientInfo.Patient.Kin = this.patientInfo.Kin;
+            this.patientInfo.Kin = this.patientInfo.Kin;
             if (this.patientInfo == null)
             {
                 this.myMessageBox("查找患者失败，原因：" + this.radtIntegrate.Err, MessageBoxIcon.Error);

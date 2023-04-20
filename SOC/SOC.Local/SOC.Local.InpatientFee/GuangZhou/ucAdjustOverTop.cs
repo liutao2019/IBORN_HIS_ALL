@@ -67,11 +67,11 @@ namespace FS.SOC.Local.InpatientFee.GuangZhou
                 if (pinfo == null) return;
 
                 this.pinfo = info;
-                this.txtPatient.TextBox.Text = this.pinfo.Patient.PID.ID;
+                this.txtPatient.TextBox.Text = this.pinfo.PID.ID;
                 this.txtTot.Text = pinfo.FT.DayLimitTotCost.ToString();
                 this.txtOverTop.Text = pinfo.FT.OvertopCost.ToString();
                 this.txtName.Text = pinfo.Name;
-                this.txtPact.Text = pinfo.Patient.Pact.Name;
+                this.txtPact.Text = pinfo.Pact.Name;
                 if (pinfo.Pact.PayKind.ID != "03")
                 {
                     MessageBox.Show("非公费患者,无需调整");

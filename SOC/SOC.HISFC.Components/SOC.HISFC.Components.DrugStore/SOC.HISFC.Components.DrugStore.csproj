@@ -81,7 +81,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="GJLocal.HISFC.Components.OpGuide, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GJLocal.HISFC.Components.OpGuide, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\HIS_ALL\lib\GJLocal.HISFC.Components.OpGuide.dll</HintPath>
+    </Reference>
     <Reference Include="HISFC.BizLogic.HealthRecord, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -505,6 +507,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Outpatient\Report\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\HISFC\HISFC.BizLogic\Order\HISFC.BizLogic.Order.csproj">
+      <Project>{6c5f58fb-0d9b-4936-a53c-472d18a557dc}</Project>
+      <Name>HISFC.BizLogic.Order</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

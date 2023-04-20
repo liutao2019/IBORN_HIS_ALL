@@ -22,7 +22,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\HIS_ALL\lib\</OutputPath>
+    <OutputPath>..\..\..\..\lib\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,73 +38,83 @@
   <ItemGroup>
     <Reference Include="FarPoint.CalcEngine, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.CalcEngine.dll</HintPath>
     </Reference>
     <Reference Include="FarPoint.Excel, Version=3.0.2008.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.Excel.dll</HintPath>
     </Reference>
     <Reference Include="FarPoint.PluginCalendar.WinForms, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.PluginCalendar.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="FarPoint.SpreadWrapper, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.SpreadWrapper.dll</HintPath>
     </Reference>
     <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.Win.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.dll</HintPath>
     </Reference>
     <Reference Include="FarPoint.Win.Ink, Version=3.0.2000.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Ink.dll</HintPath>
     </Reference>
     <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.dll</HintPath>
     </Reference>
     <Reference Include="FarPoint.Win.Spread.Design, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.Spread.Design.dll</HintPath>
     </Reference>
     <Reference Include="FarPoint.Win.TextRenderer, Version=2.5.2001.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FarPoint.Win.TextRenderer.dll</HintPath>
     </Reference>
     <Reference Include="FrameWork, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FrameWork.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FrameWork.dll</HintPath>
     </Reference>
     <Reference Include="FrameWork.WinForms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
+      <HintPath>..\..\..\..\lib\FrameWork.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="HISFC.BizLogic.Manager, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
     </Reference>
     <Reference Include="HISFC.BizLogic.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\work\0目录结构\3.开发库\3.2 代码重构\lib\HISFC.BizLogic.Material.dll</HintPath>
+      <HintPath>..\..\..\..\lib\HISFC.BizLogic.Material.dll</HintPath>
     </Reference>
     <Reference Include="HISFC.BizProcess.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\WorkingSource\0目录结构\3.开发库\3.2 代码重构\lib\HISFC.BizProcess.Material.dll</HintPath>
+      <HintPath>..\..\..\..\lib\HISFC.BizProcess.Material.dll</HintPath>
     </Reference>
     <Reference Include="HISFC.Components.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\HISFC.Components.Common.dll</HintPath>
+      <HintPath>..\..\..\..\lib\HISFC.Components.Common.dll</HintPath>
     </Reference>
-    <Reference Include="HISFC.Interface.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="HISFC.InterfaceAchieve.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Interface.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\HISFC.Interface.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.InterfaceAchieve.Material, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\HISFC.InterfaceAchieve.Material.dll</HintPath>
+    </Reference>
     <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\lib\HISFC.Models.dll</HintPath>
+      <HintPath>..\..\..\..\lib\HISFC.Models.dll</HintPath>
     </Reference>
-    <Reference Include="SOC.HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SOC.HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\SOC.HISFC.Components.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.Public, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\SOC.Public.dll</HintPath>
+    </Reference>
+    <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\SOC.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -157,6 +167,7 @@
       <DependentUpon>ucPrivePowerReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Extend\tvPrivTree.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extend\tvPrivTree.Designer.cs">
       <DependentUpon>tvPrivTree.cs</DependentUpon>

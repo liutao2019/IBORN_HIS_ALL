@@ -321,7 +321,7 @@ namespace FS.SOC.Local.Nurse.QiaoTou
                 this.lbName.Text = info.Patient.Name;
                 this.lbTime.Text = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 this.lbAge.Text = this.injectMgr.GetAge(info.Patient.Birthday, System.DateTime.Now);
-                this.neuLbDoct.Text = info.Item.Order.Doctor.Name;
+                this.neuLbDoct.Text = info.Item.Order.ReciptDoctor.Name;
                 if (string.IsNullOrEmpty(info.Patient.PID.CardNO))
                 {
                     this.neuLbCardNo.Text = info.Patient.Card.ID;

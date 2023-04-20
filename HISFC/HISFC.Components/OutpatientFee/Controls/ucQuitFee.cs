@@ -5981,12 +5981,29 @@ namespace FS.HISFC.Components.OutpatientFee.Controls
                     //原来使用frmBalance.IsPushCancelButton来判断有没收费成功,后来发现有其它BUG,所以添加一个isSuccess来辅助判断add by yerl
                     if (!isSuccess || frmBalance.IsPushCancelButton == true)
                     {
+
+                        #region 半退重收更新原明细的执行状态
+
+                        foreach (FeeItemList f in feeDetails)
+                        {
+                            iReturn = outpatientManager.UpdateSampleState(f.RecipeNO, f.Order.ID);
+                            if (iReturn <= 0)
+                            {
+                                FS.FrameWork.Management.PublicTrans.RollBack();
+                                MessageBox.Show("更新样本状态信息出错!" + outpatientManager.Err);
+                                return -1;
+                            }
+                        }
+
+                        #endregion
+
                         FS.FrameWork.Management.PublicTrans.RollBack();
                         medcareInterfaceProxy.Rollback();
                         return -1;
                     }
 
                     #endregion
+
                 }
                 else
                 {
@@ -6175,10 +6192,14 @@ namespace FS.HISFC.Components.OutpatientFee.Controls
                     this.medcareInterfaceProxy.Commit();
                     FS.FrameWork.Management.PublicTrans.Commit();
 
+
+
                     returnCostString = "应退金额: " + Class.Function.DealCent(returnCost).ToString();
                     tbQuitCash.Text = Class.Function.DealCent(returnCost).ToString();
                     #endregion
                 }
+
+                
 
                 //FS.FrameWork.Management.PublicTrans.Commit();
                 //this.medcareInterfaceProxy.Commit();
@@ -8936,6 +8957,17 @@ namespace FS.HISFC.Components.OutpatientFee.Controls
                         }
                     }
 
+                    #region 半退重收更新原明细的执行状态
+
+                    iReturn = outpatientManager.UpdateSampleState(item.RecipeNO, item.Order.ID);
+                    if (iReturn <= 0)
+                    {
+                        FS.FrameWork.Management.PublicTrans.RollBack();
+                        MessageBox.Show("更新样本状态信息出错!" + outpatientManager.Err);
+                        return -1;
+                    }
+
+                    #endregion
                 }
                 if (drugList.Count > 0)
                 {

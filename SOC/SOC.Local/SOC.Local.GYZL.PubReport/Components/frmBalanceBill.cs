@@ -389,8 +389,8 @@ namespace FS.SOC.Local.GYZL.PubReport.Components
                     }
                 }
                 #endregion
-                p.Patient.Sex.User01 = this.txtGJ.Text;
-                p.Patient.Sex.User02 = this.txtZLSP.Text;
+                p.Sex.User01 = this.txtGJ.Text;
+                p.Sex.User02 = this.txtZLSP.Text;
             }
             if (this.IsBalance)
             {
@@ -422,8 +422,8 @@ namespace FS.SOC.Local.GYZL.PubReport.Components
                     MessageBox.Show("该患者已作出院清账！");
                     return;
                 }
-                this.ucBalanceBill1.pInfo.Patient.Sex.User01 = p.Patient.Sex.User01;
-                this.ucBalanceBill1.pInfo.Patient.Sex.User02 = p.Patient.Sex.User02;
+                this.ucBalanceBill1.pInfo.Sex.User01 = p.Sex.User01;
+                this.ucBalanceBill1.pInfo.Sex.User02 = p.Sex.User02;
                 if (this.ucBalanceBill1.SetPatientNo(this.ucQueryInpatientNo1.InpatientNo) < 0)
                 {
                     return;

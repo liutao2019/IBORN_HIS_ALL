@@ -655,7 +655,7 @@ namespace FS.SOC.Local.InpatientFee.GuangZhou
 
         public void SetFormat()
         {
-            if (this.PatientInfo != null && this.PatientInfo.PayKind.ID == "03")
+            if (this.PatientInfo != null && this.PatientInfo.Pact.PayKind.ID == "03")
             {
                 this.dvUndrug.Sort = "医保等级 desc";
                 this.dvDrug.Sort = "医保等级 desc";

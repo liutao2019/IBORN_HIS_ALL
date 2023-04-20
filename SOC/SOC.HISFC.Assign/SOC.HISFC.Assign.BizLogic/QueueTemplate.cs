@@ -189,7 +189,7 @@ namespace FS.SOC.HISFC.Assign.BizLogic
                     return -1;
                 }
 
-                sql = string.Format(sql, queueTemplate.ID, queueTemplate.AssignNurse.ID, (int)queueTemplate.WeekDay, queueTemplate.Noon.ID, queueTemplate.RegLevel.ID, queueTemplate.Dept.ID);
+                sql = string.Format(sql, queueTemplate.ID, queueTemplate.AssignNurse.ID, (int)queueTemplate.WeekDay, queueTemplate.Noon.ID, queueTemplate.RegLevel.ID, queueTemplate.AssignDept.ID);
             }
 
             if (this.ExecQuery(sql) > 0)

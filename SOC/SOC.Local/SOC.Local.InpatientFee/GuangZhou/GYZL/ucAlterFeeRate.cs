@@ -627,14 +627,14 @@ namespace FS.SOC.Local.InpatientFee.GuangZhou.GYZL
                 return;
             }
             //自费患者不允许调整费用
-            if (this.PatientInfo.PayKind.ID == "01")
+            if (this.PatientInfo.Pact.PayKind.ID == "01")
             {
                 MessageBox.Show("自费患者不允许调整费用比例!");
                 this.PatientInfo.ID = null;
                 this.txtInpatientNo.Focus();
                 return;
             }
-            if (this.PatientInfo.PayKind.ID == "02")
+            if (this.PatientInfo.Pact.PayKind.ID == "02")
             {
                 MessageBox.Show("医保患者不允许调整费用比例!");
                 this.PatientInfo.ID = null;

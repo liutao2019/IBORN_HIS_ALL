@@ -435,6 +435,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Order\HISFC.Components.Order.csproj">
+      <Project>{d880a330-5aae-42ea-9e4f-fa59f864ed12}</Project>
+      <Name>HISFC.Components.Order</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

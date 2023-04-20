@@ -63,15 +63,15 @@ namespace FS.SOC.Local.PubReport.Components
                         continue;
                     }
                     p = this.fpSpread1_Sheet1.Rows[i].Tag as FS.HISFC.Models.RADT.PatientInfo;
-                    p.Patient.Sex.User01 = this.txtGJF.Text.Trim();
-                    if (p.Patient.Sex.User01 == "")
+                    p.Sex.User01 = this.txtGJF.Text.Trim();
+                    if (p.Sex.User01 == "")
                     {
-                        p.Patient.Sex.User01 = "0";
+                        p.Sex.User01 = "0";
                     }
-                    p.Patient.Sex.User02 = this.txtZLF.Text.Trim();
-                    if (p.Patient.Sex.User02 == "")
+                    p.Sex.User02 = this.txtZLF.Text.Trim();
+                    if (p.Sex.User02 == "")
                     {
-                        p.Patient.Sex.User02 = "0";
+                        p.Sex.User02 = "0";
                     }
 
                     iReturn = myReport.InsertStatic(p, "0", dtBegin, dtEnd);
@@ -185,7 +185,7 @@ namespace FS.SOC.Local.PubReport.Components
             foreach (FS.HISFC.Models.RADT.PatientInfo p in alPatient)
             {
                 //生育保险患者不出托收单，不处理
-                if (p.Patient.Pact.ID == "4")
+                if (p.Pact.ID == "4")
                 {
                     continue;
                 }

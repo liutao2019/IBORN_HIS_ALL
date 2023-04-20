@@ -4605,10 +4605,10 @@ namespace FS.SOC.HISFC.Components.DCP.CancerReport
 			this.txtContactPersonAddr.Text=p.Kin.RelationAddress;
 			this.txtContactPersonTel.Text=p.Kin.RelationPhone;
 			this.txtRelationship.Text=p.Kin.Relation.Name;
-			this.cmbNation.SelectedValue=p.Patient.Nationality.ID;
-			this.cmbMarrige.SelectedValue=p.Patient.MaritalStatus.ID.ToString();
-			this.cmbProfession.SelectedValue=p.Patient.Profession.ID;
-			if (p.Patient.ID.ToString().IndexOf("ZY") >= 0)
+			this.cmbNation.SelectedValue=p.Nationality.ID;
+			this.cmbMarrige.SelectedValue=p.MaritalStatus.ID.ToString();
+			this.cmbProfession.SelectedValue=p.Profession.ID;
+			if (p.ID.ToString().IndexOf("ZY") >= 0)
 			{
 				cmbSource.Text = "סԺ";
 			}

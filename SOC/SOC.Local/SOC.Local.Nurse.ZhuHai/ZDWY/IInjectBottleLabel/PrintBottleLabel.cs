@@ -34,8 +34,8 @@ namespace FS.SOC.Local.Nurse.ZhuHai.ZDWY.IInjectBottleLabel
             info.Item.Order.DoctorDept.Name = SOC.HISFC.BizProcess.Cache.Common.GetEmployeeName(detail.RecipeOper.Dept.ID);
             info.Item.Order.DoctorDept.ID = detail.RecipeOper.Dept.ID;
 
-            info.Item.Order.Doctor.Name = SOC.HISFC.BizProcess.Cache.Common.GetDeptName(detail.RecipeOper.ID);
-            info.Item.Order.Doctor.ID = detail.RecipeOper.ID;
+            info.Item.Order.ReciptDoctor.Name = SOC.HISFC.BizProcess.Cache.Common.GetDeptName(detail.RecipeOper.ID);
+            info.Item.Order.ReciptDoctor.ID = detail.RecipeOper.ID;
             #endregion
 
             info.PrintNo = detail.User02;

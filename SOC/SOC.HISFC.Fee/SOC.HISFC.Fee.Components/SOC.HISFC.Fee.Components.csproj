@@ -69,7 +69,6 @@
     <Reference Include="SOC.HISFC.Fee.BizLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\lib\SOC.HISFC.Fee.BizLogic.dll</HintPath>
     </Reference>
-    <Reference Include="SOC.HISFC.Fee.BizProcess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="SOC.HISFC.Fee.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="SOC.HISFC.Fee.Models, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="SOC.Windows.Forms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
@@ -565,6 +564,12 @@
       <DependentUpon>ucCenterFeeItem.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SOC.HISFC.Fee.BizProcess\SOC.HISFC.Fee.BizProcess.csproj">
+      <Project>{4cd6a3bf-74d2-4be9-8d93-bfbce31161c1}</Project>
+      <Name>SOC.HISFC.Fee.BizProcess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

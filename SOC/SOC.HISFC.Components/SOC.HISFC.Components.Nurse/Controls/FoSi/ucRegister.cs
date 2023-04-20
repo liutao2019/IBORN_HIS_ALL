@@ -1150,8 +1150,8 @@ namespace FS.HISFC.Components.Nurse.FoSi
                 info.Item.Order.Combo.ID = this.fpInjectInfo_Sheet1.Cells[i, 7].Tag.ToString();
 
                 //医生名称
-                info.Item.Order.Doctor.Name = this.emplHelper.GetName(detail.RecipeOper.ID);
-                info.Item.Order.Doctor.ID = detail.RecipeOper.ID;
+                info.Item.Order.ReciptDoctor.Name = this.emplHelper.GetName(detail.RecipeOper.ID);
+                info.Item.Order.ReciptDoctor.ID = detail.RecipeOper.ID;
                 info.Item.Name = detail.Item.Name;
                 string strOrder = "";
                 if (this.fpInjectInfo_Sheet1.GetValue(i, 1) == null || this.fpInjectInfo_Sheet1.GetValue(i, 1).ToString() == "")
@@ -1210,8 +1210,8 @@ namespace FS.HISFC.Components.Nurse.FoSi
                 info.Item.Order.Combo.ID = this.fpInjectInfo_Sheet1.Cells[i, 7].Tag.ToString();
 
                 //医生名称
-                info.Item.Order.Doctor.Name = this.emplHelper.GetName(detail.RecipeOper.ID);
-                info.Item.Order.Doctor.ID = detail.RecipeOper.ID;
+                info.Item.Order.ReciptDoctor.Name = this.emplHelper.GetName(detail.RecipeOper.ID);
+                info.Item.Order.ReciptDoctor.ID = detail.RecipeOper.ID;
                 info.Item.Name = detail.Item.Name;
                 string strOrder = "";
                 if (this.fpInjectInfo_Sheet1.GetValue(i, 1) == null || this.fpInjectInfo_Sheet1.GetValue(i, 1).ToString() == "")
@@ -1238,15 +1238,15 @@ namespace FS.HISFC.Components.Nurse.FoSi
                     info.Hypotest = orderinfo.HypoTest;
                 }
 
-                if (!hsInfos.ContainsKey(info.Item.Order.Doctor.ID))
+                if (!hsInfos.ContainsKey(info.Item.Order.ReciptDoctor.ID))
                 {
                     ArrayList al = new ArrayList();
                     al.Add(info);
-                    hsInfos.Add(info.Item.Order.Doctor.ID, al);
+                    hsInfos.Add(info.Item.Order.ReciptDoctor.ID, al);
                 }
                 else
                 {
-                    ((ArrayList)hsInfos[info.Item.Order.Doctor.ID]).Add(info);
+                    ((ArrayList)hsInfos[info.Item.Order.ReciptDoctor.ID]).Add(info);
                 }
             }
             return 1;
@@ -1588,8 +1588,8 @@ namespace FS.HISFC.Components.Nurse.FoSi
                     info.Item.Order.DoctorDept.Name = this.deptHelper.GetName(detail.RecipeOper.Dept.ID);
                     info.Item.Order.DoctorDept.ID = detail.RecipeOper.Dept.ID;
                     //医生名称
-                    info.Item.Order.Doctor.Name = emplHelper.GetName(detail.RecipeOper.ID);
-                    info.Item.Order.Doctor.ID = detail.RecipeOper.ID;
+                    info.Item.Order.ReciptDoctor.Name = emplHelper.GetName(detail.RecipeOper.ID);
+                    info.Item.Order.ReciptDoctor.ID = detail.RecipeOper.ID;
                     //是否皮试
                     if (detail.Item.ItemType == FS.HISFC.Models.Base.EnumItemType.Drug && this.fpInjectInfo_Sheet1.Cells[i, 11].Tag.ToString().ToUpper() == "TRUE")
                     {
@@ -2039,7 +2039,7 @@ namespace FS.HISFC.Components.Nurse.FoSi
             this.fpInjectInfo_Sheet1.SetValue(row, 2, info.InjectCount.ToString(), false);//院注次数
             this.fpInjectInfo_Sheet1.SetValue(row, 3, info.ConfirmedInjectCount.ToString(), false);//已经确认的院注次数
             this.fpInjectInfo_Sheet1.SetValue(row, 4, this.emplHelper.GetName(info.RecipeOper.ID), false);//开单医生
-            this.fpInjectInfo_Sheet1.Cells[row, 4].Tag = info.Order.Doctor.ID;
+            this.fpInjectInfo_Sheet1.Cells[row, 4].Tag = info.Order.ReciptDoctor.ID;
             this.fpInjectInfo_Sheet1.SetValue(row, 5, info.Order.DoctorDept.Name, false);//科别
             this.fpInjectInfo_Sheet1.Cells[row, 5].Tag = info.Order.DoctorDept.ID;
             this.fpInjectInfo_Sheet1.SetValue(row, 6, info.Item.Name, false);//药品名称

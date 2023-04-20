@@ -182,7 +182,7 @@ namespace FS.SOC.Local.Nurse.OutPatient.ZDLY
             {
                 this.lbSex.Text = "";
             }
-            this.lblDoct.Text = "医生：" + info.Item.Order.Doctor.Name;
+            this.lblDoct.Text = "医生：" + info.Item.Order.ReciptDoctor.Name;
             this.lblDept.Text = "科室：" + info.Item.Order.DoctorDept.Name;
             this.lbPage.Text = "第" + current.ToString() + "页" + "/" + "共" + total.ToString() + "页";
             #endregion            

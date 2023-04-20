@@ -475,12 +475,12 @@ namespace FS.SOC.Local.GYZL.PubReport.Components
         private int QueryPatient(string code)
         {
             //this.pInfo = this.patientMgr.PatientQuery(code);
-            string temGJ = this.pInfo.Patient.Sex.User01;
-            string temZLSP = this.pInfo.Patient.Sex.User02;
+            string temGJ = this.pInfo.Sex.User01;
+            string temZLSP = this.pInfo.Sex.User02;
 
             this.pInfo = this.patientMgr.QueryPatientInfoByInpatientNO(code);
-            this.pInfo.Patient.Sex.User01 = temGJ;
-            this.pInfo.Patient.Sex.User02 = temZLSP;
+            this.pInfo.Sex.User01 = temGJ;
+            this.pInfo.Sex.User02 = temZLSP;
 
             return this.QueryFee(this.pInfo);
         }
@@ -628,7 +628,7 @@ namespace FS.SOC.Local.GYZL.PubReport.Components
                 return -1;
             }
             //医保患者
-            if (this.pInfo.PayKind.ID == "02")
+            if (this.pInfo.Pact.PayKind.ID == "02")
             {
                 //				decimal UploadCost = 0m;
                 //				if(this.feeMgr.GetUploadTotCost(pInfo.ID,ref UploadCost)==-1)

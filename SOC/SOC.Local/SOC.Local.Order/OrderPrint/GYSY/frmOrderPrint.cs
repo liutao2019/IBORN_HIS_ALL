@@ -676,7 +676,7 @@ namespace FS.SOC.Local.Order.OrderPrint.GYSY
                     order = obj as FS.HISFC.Models.Order.Inpatient.Order;
 
                     order.Nurse.Name = FS.SOC.HISFC.BizProcess.Cache.Common.GetEmployeeName(order.Nurse.ID);
-                    order.Doctor.Name = order.ReciptDoctor.Name;
+                    order.ReciptDoctor.Name = order.ReciptDoctor.Name;
                     if (order.DCNurse.ID != null && order.DCNurse.ID != "")
                     {
                         order.DCNurse.Name = FS.SOC.HISFC.BizProcess.Cache.Common.GetEmployeeName(order.DCNurse.ID);
@@ -1086,7 +1086,7 @@ namespace FS.SOC.Local.Order.OrderPrint.GYSY
 
                 sheet.SetValue(row, (Int32)LongOrderColunms.ItemName, GetOrderItem(inOrder, isLong));
 
-                sheet.SetValue(row, (Int32)LongOrderColunms.RecipeDoct, inOrder.Doctor.Name);
+                sheet.SetValue(row, (Int32)LongOrderColunms.RecipeDoct, inOrder.ReciptDoctor.Name);
                 sheet.SetValue(row, (Int32)LongOrderColunms.ConfirmNurse, inOrder.Nurse.Name);
 
                 if (inOrder.DCOper.OperTime > this.reformDate)
@@ -1120,7 +1120,7 @@ namespace FS.SOC.Local.Order.OrderPrint.GYSY
 
                 sheet.SetValue(row, (Int32)ShortOrderColunms.ItemName, GetOrderItem(inOrder, isLong));
 
-                sheet.SetValue(row, (Int32)ShortOrderColunms.RecipeDoct, inOrder.Doctor.Name);
+                sheet.SetValue(row, (Int32)ShortOrderColunms.RecipeDoct, inOrder.ReciptDoctor.Name);
                 sheet.SetValue(row, (Int32)ShortOrderColunms.ConfirmNurse, inOrder.Nurse.Name);
 
                 if (inOrder.ConfirmTime != DateTime.MinValue)
@@ -1714,7 +1714,7 @@ namespace FS.SOC.Local.Order.OrderPrint.GYSY
 
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.ItemName, GetOrderItem(oTemp, true));
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.DCOper.OperTime != DateTime.MinValue)
@@ -1737,7 +1737,7 @@ namespace FS.SOC.Local.Order.OrderPrint.GYSY
 
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.ItemName, GetOrderItem(oTemp, true));
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.DCOper.OperTime != DateTime.MinValue)
@@ -2208,7 +2208,7 @@ namespace FS.SOC.Local.Order.OrderPrint.GYSY
 
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.ItemName, GetOrderItem(oTemp, false));
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
 
@@ -2244,7 +2244,7 @@ namespace FS.SOC.Local.Order.OrderPrint.GYSY
 
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.ItemName, GetOrderItem(oTemp, false));
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
 

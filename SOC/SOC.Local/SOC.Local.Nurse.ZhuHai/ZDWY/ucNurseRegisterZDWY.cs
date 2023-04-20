@@ -697,8 +697,8 @@ namespace FS.SOC.Local.Nurse.ZhuHai.ZDWY
                         info.Item.Order.DoctorDept.Name = SOC.HISFC.BizProcess.Cache.Common.GetEmployeeName(detail.RecipeOper.Dept.ID);
                         info.Item.Order.DoctorDept.ID = detail.RecipeOper.Dept.ID;
 
-                        info.Item.Order.Doctor.Name = SOC.HISFC.BizProcess.Cache.Common.GetEmployeeName(detail.RecipeOper.ID);
-                        info.Item.Order.Doctor.ID = detail.RecipeOper.ID;
+                        info.Item.Order.ReciptDoctor.Name = SOC.HISFC.BizProcess.Cache.Common.GetEmployeeName(detail.RecipeOper.ID);
+                        info.Item.Order.ReciptDoctor.ID = detail.RecipeOper.ID;
                         #endregion
 
                         info.ID = this.injectManager.GetSequence("Nurse.Inject.GetSeq");

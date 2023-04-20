@@ -171,7 +171,7 @@ namespace FS.SOC.Local.InpatientFee.GuangZhou
             //判断是否有分配床位，未接诊患者没有床位费，
             if (info.PVisit.PatientLocation.Bed.ID == "") return 0;
             //婴儿不收床位费
-            if (info.Patient.IsBaby) return 0;
+            if (info.IsBaby) return 0;
             //
             if (info.ExtendFlag1 == "1") return 0;
             //系统切换时的床位号

@@ -48,7 +48,7 @@ namespace FS.SOC.Local.RADT.ZhuHai.ZDWY.Base.Inpatient
             {//获得患者信息实体
                 this.oEPatientInfo = this.patientInfo.QueryPatientInfoByInpatientNO(this.txtInpatientNo.InpatientNo);
                 //向患者信息控件赋值
-                if (this.oEPatientInfo.PayKind.ID == "03")
+                if (this.oEPatientInfo.Pact.PayKind.ID == "03")
                 {//判断合同单为是否为公费患者
                     //设置患者信息到控件
                     this.setValue();

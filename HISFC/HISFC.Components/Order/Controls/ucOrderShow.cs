@@ -2454,6 +2454,11 @@ namespace FS.HISFC.Components.Order.Controls
                     if (inOrder.Item.ItemType == FS.HISFC.Models.Base.EnumItemType.Drug)
                     {
                         showInfo += SOC.HISFC.BizProcess.Cache.Pharmacy.GetItem(inOrder.Item.ID).UserCode + " " + inOrder.Item.Name + " 【规格】" + inOrder.Item.Specs + " 【单价】" + inOrder.Item.Price.ToString() + "元/" + SOC.HISFC.BizProcess.Cache.Pharmacy.GetItem(inOrder.Item.ID).PackUnit;
+                       
+                        if (!string.IsNullOrEmpty(SOC.HISFC.BizProcess.Cache.Pharmacy.GetItem(inOrder.Item.ID).Product.Manual))
+                        {
+                            showInfo += "\r\n" + "【药品说明】" + SOC.HISFC.BizProcess.Cache.Pharmacy.GetItem(inOrder.Item.ID).Product.Manual;
+                        }
                     }
                     else
                     {

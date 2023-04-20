@@ -577,7 +577,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
             {
                 FS.HISFC.Models.Order.Inpatient.Order order = obj as FS.HISFC.Models.Order.Inpatient.Order;
                 order.Nurse.Name = PersonManger.GetPersonByID(order.Nurse.ID).Name;
-                order.Doctor.Name = order.ReciptDoctor.Name;
+                order.ReciptDoctor.Name = order.ReciptDoctor.Name;
                 if (order.DCNurse.ID != null && order.DCNurse.ID != "")
                 {
                     order.DCNurse.Name = PersonManger.GetPersonByID(order.DCNurse.ID).Name;
@@ -899,7 +899,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                             }
                         }
 
-                        this.neuSpread1_Sheet1.SetValue(order.RowNo, (Int32)LongOrderColunms.RecipeDoct, order.Doctor.Name);
+                        this.neuSpread1_Sheet1.SetValue(order.RowNo, (Int32)LongOrderColunms.RecipeDoct, order.ReciptDoctor.Name);
                         this.neuSpread1_Sheet1.SetValue(order.RowNo, (Int32)LongOrderColunms.ConfirmNurse, order.Nurse.Name);
 
                         if (order.DCOper.OperTime > this.reformDate)
@@ -995,7 +995,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                             }
                         }
 
-                        sheet.SetValue(order.RowNo, (Int32)LongOrderColunms.RecipeDoct, order.Doctor.Name);
+                        sheet.SetValue(order.RowNo, (Int32)LongOrderColunms.RecipeDoct, order.ReciptDoctor.Name);
                         sheet.SetValue(order.RowNo, (Int32)LongOrderColunms.ConfirmNurse, order.Nurse.Name);
 
                         if (order.DCOper.OperTime > this.reformDate)
@@ -1141,7 +1141,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                         }
                     }
 
-                    activeSheet.SetValue(activeRow, (Int32)LongOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue(activeRow, (Int32)LongOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue(activeRow, (Int32)LongOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.DCOper.OperTime > this.reformDate)
@@ -1212,7 +1212,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                         }
                     }
 
-                    activeSheet.SetValue(activeRow, (Int32)LongOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue(activeRow, (Int32)LongOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue(activeRow, (Int32)LongOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.DCOper.OperTime > this.reformDate)
@@ -1453,7 +1453,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                         }
                     }
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.DCOper.OperTime != DateTime.MinValue)
@@ -1520,7 +1520,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                         }
                     }
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.DCOper.OperTime != DateTime.MinValue)
@@ -1700,7 +1700,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                             }
                         }
 
-                        this.neuSpread2_Sheet1.SetValue(order.RowNo, (Int32)ShortOrderColunms.RecipeDoct, order.Doctor.Name);
+                        this.neuSpread2_Sheet1.SetValue(order.RowNo, (Int32)ShortOrderColunms.RecipeDoct, order.ReciptDoctor.Name);
                         this.neuSpread2_Sheet1.SetValue(order.RowNo, (Int32)ShortOrderColunms.ConfirmNurse, order.Nurse.Name);
 
                         if (order.ConfirmTime != DateTime.MinValue)
@@ -1833,7 +1833,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                             }
                         }
 
-                        sheet.SetValue(o.RowNo, (Int32)ShortOrderColunms.RecipeDoct, o.Doctor.Name);
+                        sheet.SetValue(o.RowNo, (Int32)ShortOrderColunms.RecipeDoct, o.ReciptDoctor.Name);
                         sheet.SetValue(o.RowNo, (Int32)ShortOrderColunms.ConfirmNurse, o.Nurse.Name);
 
                         if (o.ConfirmTime != DateTime.MinValue)
@@ -2012,7 +2012,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                         }
                     }
 
-                    activeSheet.SetValue(activeRow, (Int32)ShortOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue(activeRow, (Int32)ShortOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue(activeRow, (Int32)ShortOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.ConfirmTime != DateTime.MinValue)
@@ -2113,7 +2113,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                         }
                     }
 
-                    activeSheet.SetValue(activeRow, (Int32)ShortOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue(activeRow, (Int32)ShortOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue(activeRow, (Int32)ShortOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.ConfirmTime != DateTime.MinValue)
@@ -2365,7 +2365,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                         }
                     }
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
 
@@ -2483,7 +2483,7 @@ namespace FS.SOC.Local.Order.ChaoYang.OrderPrint
                     }
 
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
 

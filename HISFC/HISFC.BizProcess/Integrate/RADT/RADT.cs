@@ -685,6 +685,19 @@ namespace FS.HISFC.BizProcess.Integrate
         }
 
         /// <summary>
+        /// 更新患者入院时间
+        /// </summary>
+        /// <param name="patient">患者基本信息实体</param>
+        /// <returns>成功 1 失败 -1 没有更新到数据 0</returns>
+        public int UpdatePatientInTime(FS.HISFC.Models.RADT.PatientInfo patient)
+        {
+            this.SetDB(inPatienMgr);
+
+            return inPatienMgr.UpdatePatientInTimeByInpatientNo(patient);
+        }
+
+
+        /// <summary>
         /// 根据住院号查询患者基本信息
         /// </summary>
         /// <param name="inpatientNO">住院流水号</param>

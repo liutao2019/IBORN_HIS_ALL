@@ -182,7 +182,7 @@ namespace FS.SOC.Local.Registration.GuangZhou.Zdly.IProcessRegiter
                 //周末不自动分配
                 && ((assign.TirageTime.DayOfWeek != DayOfWeek.Saturday
                 && assign.TirageTime.DayOfWeek != DayOfWeek.Sunday)||
-                dictionaryDate.ContainsKey(assign.TriageDate.Date)
+                dictionaryDate.ContainsKey(assign.TirageTime.Date)
                     )
 
                 //体检号 不分诊
@@ -338,7 +338,7 @@ namespace FS.SOC.Local.Registration.GuangZhou.Zdly.IProcessRegiter
                     return 1;
                 }
 
-                if (dictionaryDate.ContainsKey(assign.TriageDate.Date) == false)
+                if (dictionaryDate.ContainsKey(assign.TirageTime.Date) == false)
                 {
                     if (assign.TirageTime.DayOfWeek == DayOfWeek.Saturday || assign.TirageTime.DayOfWeek == DayOfWeek.Sunday)
                     {

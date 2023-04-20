@@ -1172,7 +1172,7 @@ namespace FS.SOC.Local.Order.GuangZhou.OrderPrint.ZDLY
                     deptCode = inOrder.Patient.PVisit.PatientLocation.Dept.ID;
                 }
                 inOrder.Nurse.Name = FS.SOC.HISFC.BizProcess.Cache.Common.GetEmployeeName(inOrder.Nurse.ID);
-                inOrder.Doctor.Name = inOrder.ReciptDoctor.Name;
+                inOrder.ReciptDoctor.Name = inOrder.ReciptDoctor.Name;
                 if (inOrder.DCNurse.ID != null && inOrder.DCNurse.ID != "")
                 {
                     inOrder.DCNurse.Name = FS.SOC.HISFC.BizProcess.Cache.Common.GetEmployeeName(inOrder.DCNurse.ID);
@@ -1431,7 +1431,7 @@ namespace FS.SOC.Local.Order.GuangZhou.OrderPrint.ZDLY
                 sheet.SetValue(row, (Int32)LongOrderColunms.Memo, inOrder.Memo);
 
 
-                sheet.SetValue(row, (Int32)LongOrderColunms.RecipeDoct, inOrder.Doctor.Name);
+                sheet.SetValue(row, (Int32)LongOrderColunms.RecipeDoct, inOrder.ReciptDoctor.Name);
                 sheet.SetValue(row, (Int32)LongOrderColunms.ConfirmNurse, inOrder.Nurse.Name);
 
                 if (inOrder.DCOper.OperTime > this.reformDate)
@@ -1478,7 +1478,7 @@ namespace FS.SOC.Local.Order.GuangZhou.OrderPrint.ZDLY
                 sheet.SetValue(row, (Int32)ShortOrderColunms.Qty, FS.FrameWork.Public.String.ToSimpleString(inOrder.Qty) + inOrder.Unit);
                 sheet.SetValue(row, (Int32)ShortOrderColunms.Memo, inOrder.Memo);
 
-                sheet.SetValue(row, (Int32)ShortOrderColunms.RecipeDoct, inOrder.Doctor.Name);
+                sheet.SetValue(row, (Int32)ShortOrderColunms.RecipeDoct, inOrder.ReciptDoctor.Name);
                 sheet.SetValue(row, (Int32)ShortOrderColunms.ConfirmNurse, inOrder.Nurse.Name);
 
                 if (inOrder.ConfirmTime != DateTime.MinValue)
@@ -1738,7 +1738,7 @@ namespace FS.SOC.Local.Order.GuangZhou.OrderPrint.ZDLY
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.Freq, oTemp.Frequency.ID);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.Memo, oTemp.Memo);
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.DCOper.OperTime != DateTime.MinValue)
@@ -1774,7 +1774,7 @@ namespace FS.SOC.Local.Order.GuangZhou.OrderPrint.ZDLY
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.Memo, oTemp.Memo);
 
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)LongOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
                     if (oTemp.DCOper.OperTime != DateTime.MinValue)
@@ -1975,7 +1975,7 @@ namespace FS.SOC.Local.Order.GuangZhou.OrderPrint.ZDLY
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.Memo, oTemp.Memo);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.Qty, FS.FrameWork.Public.String.ToSimpleString(oTemp.Qty) + oTemp.Unit);
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
 
@@ -2027,7 +2027,7 @@ namespace FS.SOC.Local.Order.GuangZhou.OrderPrint.ZDLY
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.Memo, oTemp.Memo);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.Qty, FS.FrameWork.Public.String.ToSimpleString(oTemp.Qty) + oTemp.Unit);
 
-                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.Doctor.Name);
+                    activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.RecipeDoct, oTemp.ReciptDoctor.Name);
                     activeSheet.SetValue((iniIndex + MaxRowNo) % rowNum, (Int32)ShortOrderColunms.ConfirmNurse, oTemp.Nurse.Name);
 
 

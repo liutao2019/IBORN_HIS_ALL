@@ -230,20 +230,20 @@ namespace FS.SOC.HISFC.BizProcess.MessagePattern.HL7.OrderEntry.RAS_O17
                 //次数
                 //开方医生
                 NHapi.Model.V24.Datatype.XCN orderingProvider = rasO17Order.ORC.GetOrderingProvider(0);
-                execOrder.Order.Doctor.ID = orderingProvider.IDNumber.Value;
-                execOrder.Order.Doctor.Name = CommonController.CreateInstance().GetEmployeeName(execOrder.Order.Doctor.ID);
-                if (CommonController.CreateInstance().GetEmployee(execOrder.Order.Doctor.ID) != null)
+                execOrder.Order.ReciptDoctor.ID = orderingProvider.IDNumber.Value;
+                execOrder.Order.ReciptDoctor.Name = CommonController.CreateInstance().GetEmployeeName(execOrder.Order.ReciptDoctor.ID);
+                if (CommonController.CreateInstance().GetEmployee(execOrder.Order.ReciptDoctor.ID) != null)
                 {
                     //开立医生所在科室
-                    execOrder.Order.DoctorDept = CommonController.CreateInstance().GetEmployee(execOrder.Order.Doctor.ID).Dept;
+                    execOrder.Order.DoctorDept = CommonController.CreateInstance().GetEmployee(execOrder.Order.ReciptDoctor.ID).Dept;
                 }
 
                 //医嘱停止原因
                 execOrder.Order.DcReason.ID = rasO17Order.ORC.OrderControlCodeReason.Identifier.Value;
                 execOrder.Order.DcReason.Name = rasO17Order.ORC.OrderControlCodeReason.Text.Value;
                 //开方医生
-                execOrder.Order.ReciptDoctor.ID = execOrder.Order.Doctor.ID;
-                execOrder.Order.ReciptDoctor.Name = execOrder.Order.Doctor.Name;
+                execOrder.Order.ReciptDoctor.ID = execOrder.Order.ReciptDoctor.ID;
+                execOrder.Order.ReciptDoctor.Name = execOrder.Order.ReciptDoctor.Name;
                 
                 //医嘱描述
                 execOrder.Order.Memo = rasO17Order.ORDER_DETAIL.RXO.GetProviderSPharmacyTreatmentInstructions(0).Text.Value;

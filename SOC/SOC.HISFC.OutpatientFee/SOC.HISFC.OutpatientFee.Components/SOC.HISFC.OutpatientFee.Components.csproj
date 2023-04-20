@@ -68,7 +68,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\lib\HISFC.BizLogic.Manager.dll</HintPath>
     </Reference>
-    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HISFC.Components.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\HISFC\HISFC.Components\Common\obj\Debug\HISFC.Components.Common.dll</HintPath>
+    </Reference>
     <Reference Include="HISFC.Models, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\lib\HISFC.Models.dll</HintPath>

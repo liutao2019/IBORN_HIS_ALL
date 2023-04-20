@@ -650,8 +650,8 @@ namespace FS.HISFC.Components.Order.OutPatient.Controls
                                 || outOrder.Item.SysClass.ID.ToString() == "UL")
                             {
                                 string sampleState = string.Empty;
-                                string SQL = @"select sample_state from fin_opb_feedetail where RECIPE_NO = '{0}' and item_code = '{1}' and TRANS_TYPE = '1' and cancel_flag = '1'";
-                                SQL = string.Format(SQL, outOrder.ReciptNO, outOrder.Item.ID);
+                                string SQL = @"select sample_state from fin_opb_feedetail where RECIPE_NO = '{0}' and mo_order = '{1}' and TRANS_TYPE = '1' and cancel_flag = '1'";
+                                SQL = string.Format(SQL, outOrder.ReciptNO, outOrder.ID);
                                 DataSet ds = new DataSet();
                                 dbManager.ExecQuery(SQL, ref ds);
                                 DataTable dt = new DataTable();
