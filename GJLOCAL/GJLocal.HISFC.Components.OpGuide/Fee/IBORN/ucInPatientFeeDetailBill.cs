@@ -256,7 +256,7 @@ namespace GJLocal.HISFC.Components.OpGuide.Fee.IBORN
             {
                 //产康账号余额
                 FS.FrameWork.Management.DataBaseManger dbMgr = new FS.FrameWork.Management.DataBaseManger();
-                string strSql = @"select donate_vacancy from fin_opb_account_detail where card_no = '{0}'";
+                string strSql = @"select donate_vacancy from fin_opb_account_detail where card_no = '{0}' and type_code = '3'";
                 strSql = string.Format(strSql, patient.PID.CardNO);
                 string CKYE = dbMgr.ExecSqlReturnOne(strSql, string.Empty);
 
@@ -617,14 +617,15 @@ namespace GJLocal.HISFC.Components.OpGuide.Fee.IBORN
                 SaveFileDialog dlg = new SaveFileDialog();
                 dlg.DefaultExt = ".xls";
                 dlg.Filter = "Microsoft Excel 工作薄 (*.xls)|*.*";
+                dlg.FileName = patient.Name + "住院预结算清单";
                 DialogResult result = dlg.ShowDialog();
                 if (result == DialogResult.OK)
                 {
                     fileName = dlg.FileName;
 
-                    this.neuSpread1.SaveExcel(fileName, FarPoint.Win.Spread.Model.IncludeHeaders.ColumnHeadersCustomOnly);
+                    this.fpSpread1.SaveExcel(fileName, FarPoint.Win.Spread.Model.IncludeHeaders.ColumnHeadersCustomOnly);
 
-                    MessageBox.Show("温馨提示", "导出成功");
+                    MessageBox.Show("导出成功", "温馨提示");
                 }
             }
             catch (Exception ex)
@@ -633,7 +634,7 @@ namespace GJLocal.HISFC.Components.OpGuide.Fee.IBORN
                 return -1;
             }
 
-            return 0;
+            return 1;
         }
 
         #endregion

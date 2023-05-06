@@ -365,7 +365,7 @@ namespace FS.HISFC.Components.OutpatientFee.Class
                     //pubCost += f.FT.PubCost;---------del by xf 20120710 自费发票只打OwnCost
                     //{37245321-1E0D-4a29-BF2A-54FED778C602}
                     //处理减免 by niuxy
-                    rebateCost += f.FT.RebateCost;
+                    rebateCost += f.FT.RebateCost + f.FT.DiscountCardEco;
                 }
                 totCost = ownCost + payCost + pubCost;
             }
@@ -379,7 +379,7 @@ namespace FS.HISFC.Components.OutpatientFee.Class
                         pubCost += f.FT.PubCost;
                         //处理减免 by niuxy
                         //{37245321-1E0D-4a29-BF2A-54FED778C602}
-                        rebateCost += f.FT.RebateCost;
+                        rebateCost += f.FT.RebateCost + f.FT.DiscountCardEco;
                     }
                     totCost = payCost + pubCost;
                 }
@@ -390,7 +390,7 @@ namespace FS.HISFC.Components.OutpatientFee.Class
                         payCost += f.FT.PayCost;
                         pubCost += f.FT.PubCost;
                         //处理减免 by niuxy{37245321-1E0D-4a29-BF2A-54FED778C602}
-                        rebateCost += f.FT.RebateCost;
+                        rebateCost += f.FT.RebateCost + f.FT.DiscountCardEco;
                     }
                     totCost = payCost + pubCost;
                 }
@@ -430,7 +430,7 @@ namespace FS.HISFC.Components.OutpatientFee.Class
                     payCost += f.FT.PayCost;
                     pubCost += f.FT.PubCost;
                     //处理减免 by niuxy{37245321-1E0D-4a29-BF2A-54FED778C602}
-                    rebateCost += f.FT.RebateCost;
+                    rebateCost += f.FT.RebateCost + f.FT.DiscountCardEco;
                 }
                 totCost = ownCost + payCost + pubCost;
             }
@@ -442,7 +442,7 @@ namespace FS.HISFC.Components.OutpatientFee.Class
                     ownCost += f.FT.OwnCost;
                     pubCost += f.FT.PubCost;
                     //处理减免 by niuxy{37245321-1E0D-4a29-BF2A-54FED778C602}
-                    rebateCost += f.FT.RebateCost;
+                    rebateCost += f.FT.RebateCost + f.FT.DiscountCardEco;
                 }
                 totCost = ownCost + payCost + pubCost;
             }

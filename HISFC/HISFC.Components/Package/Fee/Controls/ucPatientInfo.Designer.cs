@@ -395,7 +395,7 @@
             this.chkBL.BackColor = System.Drawing.Color.Transparent;
             this.chkBL.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chkBL.ForeColor = System.Drawing.Color.Red;
-            this.chkBL.Location = new System.Drawing.Point(782, 2);
+            this.chkBL.Location = new System.Drawing.Point(808, 2);
             this.chkBL.Name = "chkBL";
             this.chkBL.Size = new System.Drawing.Size(76, 16);
             this.chkBL.TabIndex = 28;
@@ -408,10 +408,10 @@
             this.txtVacancy.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtVacancy.Location = new System.Drawing.Point(483, 9);
             this.txtVacancy.Name = "txtVacancy";
-            this.txtVacancy.Size = new System.Drawing.Size(179, 17);
+            this.txtVacancy.Size = new System.Drawing.Size(307, 17);
             this.txtVacancy.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
             this.txtVacancy.TabIndex = 109;
-            this.txtVacancy.Text = "账户余额：0.00,赠送余额：0.00";
+            this.txtVacancy.Text = "账户余额：0.00, 赠送余额：0.00，产康赠送余额：0.00 ";
             // 
             // pnlPatientInfo
             // 
@@ -488,7 +488,7 @@
             this.chkLevelDiscount.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkLevelDiscount.Font = new System.Drawing.Font("宋体", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chkLevelDiscount.ForeColor = System.Drawing.Color.Red;
-            this.chkLevelDiscount.Location = new System.Drawing.Point(782, 22);
+            this.chkLevelDiscount.Location = new System.Drawing.Point(808, 22);
             this.chkLevelDiscount.Name = "chkLevelDiscount";
             this.chkLevelDiscount.Size = new System.Drawing.Size(110, 17);
             this.chkLevelDiscount.TabIndex = 110;

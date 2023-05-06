@@ -52,6 +52,7 @@ namespace Neusoft.SOC.HISFC.InpatientFee.Components.Balance
 
         public void SetPatientInfo(PatientInfo patientinfo)
         {
+            ybtotalprice = 0;
 
             this.patientInfo = patientinfo;
 

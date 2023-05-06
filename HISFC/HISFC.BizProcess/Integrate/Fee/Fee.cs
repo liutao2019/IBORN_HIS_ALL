@@ -2067,6 +2067,18 @@ namespace FS.HISFC.BizProcess.Integrate
         }
 
         /// <summary>
+        /// 患者预结算报表
+        /// </summary>
+        /// <param name="inPatientNO"></param>
+        /// <param name="invoiceNo"></param>
+        /// <returns></returns>
+        public DataTable GetDTBalanceFeeByInPatienNo(string inPatientNO, string invoiceNo)
+        {
+            this.SetDB(itemManager);
+            return itemManager.GetDTBalanceFeeByInPatienNo(inPatientNO, invoiceNo);
+        }
+
+        /// <summary>
         /// 获得非药品信息
         /// </summary>
         /// <param name="undrugCode"></param>
@@ -4670,7 +4682,7 @@ namespace FS.HISFC.BizProcess.Integrate
                         totNormal += feeItemList.FT.OwnCost;
                         totNormalReal += (feeItemList.FT.OwnCost - feeItemList.FT.RebateCost);
                         totNormalGift += feeItemList.FT.DonateCost;
-                        totNormalEco += feeItemList.FT.RebateCost;
+                        totNormalEco += feeItemList.FT.RebateCost + feeItemList.FT.DiscountCardEco;
                     }
                 }
 

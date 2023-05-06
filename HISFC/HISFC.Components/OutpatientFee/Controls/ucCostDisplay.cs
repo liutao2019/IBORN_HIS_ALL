@@ -247,8 +247,8 @@ namespace FS.HISFC.Components.OutpatientFee.Controls
                         sumTotCost += f.FT.TotCost;
                         sumPayCost += f.FT.PayCost;
                         //{C623A693-19A7-4378-859D-5C07CFF9BEB1}
-                        sumPubCost += f.FT.PubCost + f.FT.RebateCost ;
-                        sumOwnCost += f.FT.OwnCost - f.FT.RebateCost;
+                        sumPubCost += f.FT.PubCost + f.FT.RebateCost + f.FT.DiscountCardEco;
+                        sumOwnCost += f.FT.OwnCost - f.FT.RebateCost - f.FT.DiscountCardEco;
                     }
                     if (this.drugFeeCodeHelper.ArrayObject != null && this.drugFeeCodeHelper.ArrayObject.Count > 0 && this.drugFeeCodeHelper.GetObjectFromID(f.Item.MinFee.ID) != null)
                     {

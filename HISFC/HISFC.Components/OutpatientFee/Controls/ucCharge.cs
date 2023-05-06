@@ -1415,7 +1415,7 @@ namespace FS.HISFC.Components.OutpatientFee.Controls
                 selfDrugCost += f.FT.DrugOwnCost;
 
                 f.NoBackQty = f.Item.Qty;
-                rebateRate += f.FT.RebateCost;
+                rebateRate += f.FT.RebateCost + f.FT.DiscountCardEco;
             }
 
             payCost += this.registerControl.PatientInfo.SIMainInfo.PayCost;

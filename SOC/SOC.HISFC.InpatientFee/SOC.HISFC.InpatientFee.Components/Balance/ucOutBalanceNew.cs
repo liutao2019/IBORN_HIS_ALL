@@ -335,6 +335,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             this.btnRealSet.Click += new EventHandler(btnRealSet_Click);
             this.btnDisaccount.Click += new EventHandler(btnDisaccount_Click);
             this.btnCKSelect.Click += new EventHandler(btnCKSelect_Click);
+            this.btnDSCard.Click += new EventHandler(btnDSCard_Click);
 
             this.btnprebalancedetail.Click += new EventHandler(btnprebalancedetail_Click);  //{C4231074-D350-4df9-AF7C-C37124B44B80}
             this.btnPreBalancePP.Click += new EventHandler(btnPreBalancePP_Click);  //{C4231074-D350-4df9-AF7C-C37124B44B80}
@@ -371,6 +372,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             this.chkPackage.Click -= new EventHandler(chkPackage_Click);
             this.chkPart.Click -= new EventHandler(chkPart_Click);
             this.chkNormal.Click -= new EventHandler(chkNormal_Click);
+            this.btnDSCard.Click -= new EventHandler(btnDSCard_Click);
             this.Load -= new EventHandler(ucOutBalanceNew_Load);
         }
 
@@ -515,6 +517,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                 }
 
                 decimal disAccount = decimal.Parse(this.tbDisaccount.Text);
+                decimal disCard = decimal.Parse(string.IsNullOrEmpty(this.tbDsSet.Text) ? "0" : this.tbDsSet.Text);
                 if (disAccount < 0 || disAccount > 100)
                 {
                     MessageBox.Show("折扣率不能小于零或者大于100");
@@ -522,7 +525,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                 }
                 else
                 {
-                    decimal real = Math.Round((this.BalanceTot * disAccount) / 100, 2, MidpointRounding.AwayFromZero);
+                    decimal real = Math.Round((this.BalanceTot * disAccount) / 100, 2, MidpointRounding.AwayFromZero) - disCard;
                     decimal eco = this.BalanceTot - real;
                     this.SetCostInfo(eco);
                     this.tbEcoSet.Text = "";
@@ -560,7 +563,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                     return;
                 }
 
-                decimal real = decimal.Parse(this.tbRealSet.Text);
+                decimal real = decimal.Parse(this.tbRealSet.Text) - decimal.Parse(string.IsNullOrEmpty(this.tbDsSet.Text) ? "0" : this.tbDsSet.Text);
                 if (real < 0 || real > this.BalanceTot)
                 {
                     MessageBox.Show("实收金额不能小于零或者大于总金额");
@@ -602,10 +605,59 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                     return;
                 }
 
-                decimal eco = decimal.Parse(this.tbEcoSet.Text);
+                decimal eco = decimal.Parse(this.tbEcoSet.Text) + decimal.Parse(string.IsNullOrEmpty(this.tbDsSet.Text) ? "0" : this.tbDsSet.Text);
                 if (eco < 0 || eco > this.BalanceTot)
                 {
                     MessageBox.Show("优惠金额不能小于零或者大于总金额");
+                    return;
+                }
+                else
+                {
+                    this.SetCostInfo(eco);
+                    this.tbEcoSet.Text = "";
+                    this.tbDisaccount.Text = "";
+                    this.tbRealSet.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("请输入正确的金额！");
+            }
+        }
+
+        /// <summary>
+        /// 购物卡优惠金额
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDSCard_Click(object sender, EventArgs e)
+        {
+            frmDiscountCardCost frmDiscountCardCost = new frmDiscountCardCost();
+            frmDiscountCardCost.DeliverableCost = this.BalanceTot;
+            frmDiscountCardCost.PatientInfo = this.patientInfo;
+            frmDiscountCardCost.ShowDialog();
+
+            //购物卡优惠金额
+            decimal disCountcardEco = frmDiscountCardCost.DisCountcardEco;
+            this.tbDsSet.Text = disCountcardEco.ToString("F2");
+            try
+            {
+                if (this.balanceType == BalanceType.Normal && this.hsFeeItem.Keys.Count == 0)
+                {
+                    MessageBox.Show("请先检索费用！");
+                    return;
+                }
+
+                if (this.balanceType != BalanceType.Normal && this.hsSelectedFeeItem.Keys.Count == 0)
+                {
+                    MessageBox.Show("请先选择费用！");
+                    return;
+                }
+
+                decimal eco = decimal.Parse(this.tbBalanceEco.Text) + decimal.Parse(string.IsNullOrEmpty(this.tbDsSet.Text) ? "0" : this.tbDsSet.Text); ;
+                if (eco < 0)
+                {
+                    MessageBox.Show("优惠金额不能小于零");
                     return;
                 }
                 else
@@ -899,15 +951,23 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                 //{C22E94C1-78A0-493c-8FFB-5BB0BF51D6AE添加账户余额 赠送余额
                 FS.HISFC.BizLogic.Fee.Account accountMgr = new FS.HISFC.BizLogic.Fee.Account();
                 FS.HISFC.Models.Account.Account account = accountMgr.GetAccountByCardNoEX(patientInfo.PID.CardNO);
+                string CKDonateAmout = accountMgr.GetAccountDetailCK(patientInfo.PID.CardNO);
+                string PTVacancy = accountMgr.GetAccountDetailPTYE(patientInfo.PID.CardNO);
+                string PTDonateAmout = accountMgr.GetAccountDetailPT(patientInfo.PID.CardNO);
+                if (string.IsNullOrEmpty(CKDonateAmout))
+                {
+                    CKDonateAmout = "0";
+                }
                 if (account != null)
                 {
-                    this.lbPatientInfo.Text += "  卡上余额:" + account.BaseVacancy.ToString("F2") + "  赠送余额:" + account.DonateVacancy.ToString("F2");
+                    //this.lbPatientInfo.Text += "  卡上余额:" + account.BaseVacancy.ToString("F2") + "  赠送余额:" + account.DonateVacancy.ToString("F2") + "产康赠余额:" + CKDonateAmout;
+                    this.lbPatientInfo.Text += " 普通账户余额:" + PTVacancy + " 普通赠送余额:" + PTDonateAmout + "产康赠送余额:" + CKDonateAmout;
 
                 }
                 else
                 {
                     //MessageBox.Show("该患者没有账户信息！");
-                    this.lbPatientInfo.Text += "  卡上余额:0.00  赠送余额:0.00";
+                    this.lbPatientInfo.Text += " 普通账户余额:0.00 普通赠送余额:0.00  产康赠送余额:0.00";
                 }
                 this.tbIDNO.Text = patientInfo.IDCard;
 

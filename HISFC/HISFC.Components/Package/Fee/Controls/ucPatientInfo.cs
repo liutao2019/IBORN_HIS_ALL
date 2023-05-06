@@ -373,16 +373,25 @@ namespace HISFC.Components.Package.Fee.Controls
                 //{C22E94C1-78A0-493c-8FFB-5BB0BF51D6AEÃÌº”’Àªß”‡∂Ó ‘˘ÀÕ”‡∂Ó
                 FS.HISFC.BizLogic.Fee.Account accountMgr = new FS.HISFC.BizLogic.Fee.Account();
                 FS.HISFC.Models.Account.Account account = accountMgr.GetAccountByCardNoEX(patientInfo.PID.CardNO);
-                string vacancyInfo = "’Àªß”‡∂Ó£∫{0},‘˘ÀÕ”‡∂Ó£∫{1}";
+                string CKDonateAmout = accountMgr.GetAccountDetailCK(patientInfo.PID.CardNO);
+                string PTVacancy = accountMgr.GetAccountDetailPTYE(patientInfo.PID.CardNO);
+                string PTDonateAmout = accountMgr.GetAccountDetailPT(patientInfo.PID.CardNO);
+                if (string.IsNullOrEmpty(CKDonateAmout))
+                {
+                    CKDonateAmout = "0";
+                }
+                string vacancyInfo = "∆’Õ®’Àªß”‡∂Ó:{0},∆’Õ®‘˘ÀÕ”‡∂Ó:{1},≤˙øµ‘˘ÀÕ”‡∂Ó:{2}" ;
                 if (account != null)
                 {
-                    this.txtVacancy.Text = string.Format(vacancyInfo, account.BaseVacancy.ToString("F2"), account.DonateVacancy.ToString("F2"));
+                    //this.txtVacancy.Text = string.Format(vacancyInfo, account.BaseVacancy.ToString("F2"), account.DonateVacancy.ToString("F2"), CKDonateAmout);
+                    this.txtVacancy.Text = string.Format(vacancyInfo, PTVacancy, PTDonateAmout, CKDonateAmout);
                 }
                 else
                 {
 
-                    this.txtVacancy.Text = string.Format(vacancyInfo, "0", "0");
+                    this.txtVacancy.Text = string.Format(vacancyInfo, "0", "0", CKDonateAmout);
                 }
+
                 this.tbCardNO.Text = this.accountCardInfo.Patient.PID.CardNO;
                 this.tbName.Text = patientInfo.Name;
                 this.cmbSex.Tag = patientInfo.Sex.ID;

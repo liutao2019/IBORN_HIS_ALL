@@ -338,6 +338,18 @@ namespace FS.HISFC.BizLogic.Fee
             }
 
             feeItemList.Patient = patient.Clone();
+            if (feeItemList.Patient == null)
+            {
+                feeItemList.Patient.ID = patient.ID;
+                feeItemList.Patient.Name = patient.Name;
+                feeItemList.Patient.Pact.PayKind.ID = patient.Pact.PayKind.ID;
+                feeItemList.Patient.Pact.ID = patient.Pact.ID;
+            }
+            if (string.IsNullOrEmpty(feeItemList.Hospital_id) || string.IsNullOrEmpty(feeItemList.Hospital_name.ToString()))
+            {
+                feeItemList.Hospital_id = "";
+                feeItemList.Hospital_name = "";
+            }
             string strExtDate = "";
             try
             {
@@ -655,8 +667,13 @@ namespace FS.HISFC.BizLogic.Fee
             }
             if (string.IsNullOrEmpty(feeInfo.Hospital_id)) //{3C210DC7-ECCA-4b9d-81BB-B4E79F599C6D}
             {
-                feeInfo.Hospital_id = dept.HospitalID;
-                feeInfo.Hospital_name = dept.HospitalName;
+                feeInfo.Hospital_id = "";
+                feeInfo.Hospital_name = "";
+                if (!string.IsNullOrEmpty(dept.HospitalID))
+                {
+                    feeInfo.Hospital_id = dept.HospitalID;
+                    feeInfo.Hospital_name = dept.HospitalName;
+                }            
             }
             string[] args = 
 				{

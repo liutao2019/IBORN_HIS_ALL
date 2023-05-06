@@ -627,6 +627,11 @@ namespace FS.HISFC.BizLogic.Fee
                     {
                         feeItemList.Order.RefundReason = this.Reader[94].ToString(); //医嘱退费原因
                     }
+                    if (this.Reader.FieldCount > 95)
+					{
+						feeItemList.FT.DiscountCardEco = NConvert.ToDecimal(this.Reader[95]); //购物卡优惠金额
+
+					}
 
 					feeItemLists.Add(feeItemList);
 				}//循环结束
@@ -727,7 +732,7 @@ namespace FS.HISFC.BizLogic.Fee
             }
            
 
-            string[] args = new string[92];	//{3AEB5613-1CB0-4158-89E6-F82F0B643388}				 
+            string[] args = new string[93];	//{3AEB5613-1CB0-4158-89E6-F82F0B643388}				 
 
             args[0] = feeItemList.RecipeNO;//RECIPE_NO,	--		处方号							0
             args[1] = feeItemList.SequenceNO.ToString();	  //SEQUENCE_NO;	--		处方内项目流水号				1
@@ -867,6 +872,7 @@ namespace FS.HISFC.BizLogic.Fee
 
             args[90] = feeItemList.Hospital_id;
             args[91] =feeItemList.Hospital_name; //{3C210DC7-ECCA-4b9d-81BB-B4E79F599C6D}
+			args[92] = feeItemList.FT.DiscountCardEco.ToString();
           
             return args;
         }

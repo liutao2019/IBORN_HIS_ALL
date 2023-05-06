@@ -151,8 +151,10 @@ namespace Neusoft.SOC.HISFC.InpatientFee.Components.Balance
             foreach (DictionaryEntry dic in hashTableIn)
             {
                 i++;
-                if (dic.Value.ToString() != "0")
-                    feeList += string.Format(feeItem, dic.Value.ToString(), "1", dic.Value.ToString(), dic.Key.ToString(), dic.Value.ToString(),"1000" + i.ToString());
+                if (dic.Value.ToString() != "0" && !string.IsNullOrEmpty(dic.Value.ToString()))
+                {
+                    feeList += string.Format(feeItem, dic.Value.ToString(), "1", dic.Value.ToString(), dic.Key.ToString(), dic.Value.ToString(), "1000" + i.ToString());
+                }
             }
 
             string reqInfo = "<req>" + req + "<feeList>" + feeList + "</feeList><hospitalid>" + hospitalId + "</hospitalid></req>";

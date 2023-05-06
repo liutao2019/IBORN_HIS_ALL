@@ -2630,5 +2630,68 @@ namespace FS.HISFC.BizLogic.Order.OutPatient
             }
 
         }
+
+        public Dictionary<string, decimal> GetRecipExceededItem(string cardno, string seeno, string clinic)
+        {
+            string strSql = null;
+            Dictionary<string, decimal> exceededItems = new Dictionary<string, decimal>();
+
+            exceededItems = GetExceededItem(cardno);
+
+            if (this.Sql.GetCommonSql("Nurse.Order.GetRecipExceededItemByCardNo", ref strSql) == -1)
+            {
+                this.Err = "Œ¥’“µΩ Nurse.Order.GetRecipExceededItemByCardNo ”Ôæ‰°£";
+                return null;
+            }
+
+            if (exceededItems == null || exceededItems.Count == 0)
+            {
+                return exceededItems;
+            }
+
+            try
+            {
+                strSql = string.Format(strSql, clinic, cardno);
+
+                if (seeno != "-1")
+                {
+                    string where = string.Format("  and  ord.SEE_NO !='{0}'  ", seeno);
+                    strSql += where;
+                }
+
+
+                if (this.ExecQuery(strSql) == -1)
+                {
+                    this.Err = "÷¥––≤È—Øsql ß∞‹";
+                    return new Dictionary<string, decimal>();
+                }
+
+                while (this.Reader.Read())
+                {
+                    string code = this.Reader[0].ToString();
+                    decimal num = decimal.Parse(this.Reader[1].ToString());
+
+                    if (exceededItems.ContainsKey(code))
+                    {
+                        exceededItems[code] = exceededItems[code] - num;
+                    }
+                }
+                return exceededItems;
+            }
+            catch (Exception ex)
+            {
+                this.Err = ex.Message;
+                return new Dictionary<string, decimal>();
+            }
+            finally
+            {
+                if (!this.Reader.IsClosed)
+                {
+                    this.Reader.Close();
+                }
+            }
+
+
+        }
     }
 }

@@ -1322,6 +1322,34 @@ namespace FS.HISFC.BizLogic.Fee
         
         
         }
+
+        /// <summary>
+        /// 住院预结算报表
+        /// </summary>
+        /// <param name="inPatientNO"></param>
+        /// <param name="invoiceNo"></param>
+        /// <returns></returns>
+        public DataTable GetDTBalanceFeeByInPatienNo(string inPatientNO, string invoiceNo)
+        {
+            string sql = null;
+            if (this.Sql.GetCommonSql("Fee.PreBalanceList.QueryBalanceFeeByInPatienNo", ref sql) == -1)
+            {
+                this.Err = "没有找到索引为:Fee.Item.QueryTotalFeeByInPatienNo的Sql语句!";
+
+                return null;
+            }
+            sql = string.Format(sql, inPatientNO, invoiceNo);
+            DataSet ds = new DataSet();
+            DataTable dt = null;
+            if (ExecQuery(sql, ref ds) > 0)
+            {
+                if (ds != null && ds.Tables.Count > 0) dt = ds.Tables[0];
+            }
+            return dt;
+
+        }
+
+
         /// <summary>
         /// 获得全部可用非药品信息和组合项目信息
         /// </summary>

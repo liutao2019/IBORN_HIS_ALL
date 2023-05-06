@@ -15,7 +15,7 @@ using FS.FrameWork.Function;
 namespace FS.SOC.HISFC.InpatientFee.Components.Balance
 {
 
-    public partial class frmDiscountCardCost: Form
+    public partial class frmDiscountCardCost : Form
     {
         #region 属性
 
@@ -53,7 +53,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             set
             {
                 this.patientInfo = value;
-               
+
                 this.RefreshPayMode();
             }
         }
@@ -61,28 +61,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
         /// 是否可以根据名字搜索// {D55B4DFA-DA91-42b0-8163-27036100E89E}
         /// </summary>
         private bool isFindForName = false;
-
-        /// <summary>
-        /// 结算患者
-        /// </summary>
-        private FS.HISFC.Models.RADT.PatientInfo selftPatientInfo = new FS.HISFC.Models.RADT.PatientInfo();
-
-        /// <summary>
-        /// 结算患者
-        /// </summary>
-        public FS.HISFC.Models.RADT.PatientInfo SelftPatientInfo
-        {
-            get
-            {
-                return selftPatientInfo;
-            }
-            set
-            {
-                selftPatientInfo = value;
-               
-            }
-        }
-
 
         /// <summary>
         /// 能够分配的金额
@@ -102,47 +80,25 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
         }
 
         /// <summary>
-        /// 设置支付方式
+        /// 购物卡优惠金额
         /// </summary>
-        public event DelegateHashtableSet SetPayModeRes;
-
-        private bool isEmpower = false;
+        private decimal discountcardEco = 0.0m;
 
         /// <summary>
-        /// 是否是代付
+        /// 购物卡优惠金额
         /// </summary>
-        public bool IsEmpower
+        public decimal DisCountcardEco
         {
             get
             {
-                return isEmpower;
+                return discountcardEco;
             }
-
             set
             {
-                this.isEmpower = value;
+                discountcardEco = value;
             }
         }
 
-        /// <summary>
-        /// 费用明细集合
-        /// </summary>
-        protected ArrayList alFeeDetails = new ArrayList();
-
-        /// <summary>
-        /// 门诊费用明细集合
-        /// </summary>
-        public System.Collections.ArrayList FeeDetails
-        {
-            set
-            {
-                this.alFeeDetails = value;
-            }
-            get
-            {
-                return this.alFeeDetails;
-            }
-        }
 
         /// <summary>
         /// 人员数组
@@ -233,7 +189,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             try
             {
                 previousDiscount = Decimal.Parse(this.FpAccount_Sheet1.Cells[this.FpAccount_Sheet1.ActiveRowIndex, (int)AccountModeCols.CardCost].Value.ToString());
-                
+
                 this.FpAccount.EditingControl.KeyDown += new KeyEventHandler(EditingControl_KeyDown);
             }
             catch
@@ -297,48 +253,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             this.addEvents();
         }
 
-        /// <summary>
-        /// 获取支付信息
-        /// </summary>
-        /// <returns></returns>
-        public Hashtable GetPayModeInfo()
-        {
-            List<FS.HISFC.Models.Fee.Inpatient.BalancePay> DSmodeList = new List<FS.HISFC.Models.Fee.Inpatient.BalancePay>();
-
-            foreach (Row row in this.FpAccount_Sheet1.Rows)
-            {
-                if (this.FpAccount_Sheet1.Cells[row.Index, (int)AccountModeCols.CardCost].Value != null &&
-                    Double.Parse(this.FpAccount_Sheet1.Cells[row.Index, (int)AccountModeCols.CardCost].Value.ToString()) > 0)
-                {
-                    FS.HISFC.Models.Fee.Inpatient.BalancePay balancePay = new FS.HISFC.Models.Fee.Inpatient.BalancePay();
-
-                    balancePay.PayType.ID = "DS";
-                    balancePay.PayType.Name = "购物卡";
-                    if (this.FpAccount_Sheet1.Cells[row.Index, (int)AccountModeCols.GetName].Value.ToString() != this.PatientInfo.Name)
-                    {
-                        this.isEmpower = true;
-                    }
-                    else
-                    {
-                        this.isEmpower = false;
-                    }
-                    balancePay.IsEmpPay = this.isEmpower;
-                    balancePay.FT.TotCost = NConvert.ToDecimal(this.FpAccount_Sheet1.Cells[row.Index, (int)AccountModeCols.CardCost].Value);
-                    balancePay.FT.RealCost = balancePay.FT.TotCost;
-
-                    if (balancePay.FT.TotCost > 0)
-                    {
-                        DSmodeList.Add(balancePay);
-                    }
-                }
-                
-            }
-
-            Hashtable hsPayMode = new Hashtable();
-            hsPayMode.Add("DS", DSmodeList);   //购物卡支付
-
-            return hsPayMode;
-        }
 
         /// <summary>
         /// 更新购物卡使用信息
@@ -346,6 +260,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
         public int UpdatePatientCard()
         {
             FS.HISFC.Models.Fee.PatientDiscountCard patientCard = new FS.HISFC.Models.Fee.PatientDiscountCard();
+
             foreach (Row row in this.FpAccount_Sheet1.Rows)
             {
                 patientCard.CardNo = this.FpAccount_Sheet1.Cells[row.Index, (int)AccountModeCols.CardNO].Value.ToString();
@@ -396,20 +311,24 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
         /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (this.SetPayModeRes != null)
+            foreach (Row row in this.FpAccount_Sheet1.Rows)
             {
-                if (this.UpdatePatientCard() < 0)
+                if (this.FpAccount_Sheet1.Cells[row.Index, (int)AccountModeCols.CardCost].Value != null &&
+                    Double.Parse(this.FpAccount_Sheet1.Cells[row.Index, (int)AccountModeCols.CardCost].Value.ToString()) > 0)
                 {
-                    MessageBox.Show("更新购物卡使用信息失败！");
-                    return;
-                }
-
-                if (SetPayModeRes(this.GetPayModeInfo(), this.deliverableCost) < 0)
-                {
-                    MessageBox.Show("获取支付信息处错！");
-                    return;
+                    this.DisCountcardEco += NConvert.ToDecimal(this.FpAccount_Sheet1.Cells[row.Index, (int)AccountModeCols.CardCost].Value);
                 }
             }
+
+            this.lbCost.Text = "￥" + DisCountcardEco.ToString("F2");
+
+            if (this.UpdatePatientCard() < 0)
+            {
+                MessageBox.Show("更新购物卡使用信息失败！");
+                return;
+            }
+
+
 
             this.Close();
         }
@@ -493,7 +412,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                 PatientCards = this.patientCardLogic.QueryPatientCardByCardKindAndNO(cardNO, cardKind);
                 if (PatientCards != null && PatientCards.Count > 0)
                 {
-                    this.FpAccount_Sheet1.Rows.Count = 0;
+                    //this.FpAccount_Sheet1.Rows.Count = 0;
 
                     foreach (FS.HISFC.Models.Fee.PatientDiscountCard info in PatientCards)
                     {
@@ -514,6 +433,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                             {
                                 this.FpAccount_Sheet1.Cells[0, (int)AccountModeCols.CardCost].Value = "1000.00";
                             }
+
                         }
                         this.FpAccount_Sheet1.Cells[0, (int)AccountModeCols.GetOper].Value = this.GetPersonName(info.GetOper);
                     }
@@ -562,7 +482,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             GetOper = 6,
         }
 
-      
+
 
     }
 }

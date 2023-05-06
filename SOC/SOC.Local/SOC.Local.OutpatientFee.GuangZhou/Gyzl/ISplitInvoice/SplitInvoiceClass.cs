@@ -48,7 +48,7 @@ namespace FS.SOC.Local.OutpatientFee.GuangZhou.Gyzl.ISplitInvoice
                     ownCost += f.FT.OwnCost;
                     payCost += f.FT.PayCost;
                     pubCost += f.FT.PubCost;
-                    rebateCost += f.FT.RebateCost;
+                    rebateCost += f.FT.RebateCost + f.FT.DiscountCardEco;
                     donateCost += f.FT.DonateCost;
                 }
                 totCost = ownCost + payCost + pubCost;
@@ -61,7 +61,7 @@ namespace FS.SOC.Local.OutpatientFee.GuangZhou.Gyzl.ISplitInvoice
                     ownCost += f.FT.OwnCost;
                     pubCost += f.FT.PubCost;
                     donateCost += f.FT.DonateCost;
-                    rebateCost += f.FT.RebateCost;
+                    rebateCost += f.FT.RebateCost + f.FT.DiscountCardEco;
                 }
                 totCost = ownCost + payCost + pubCost;
             }

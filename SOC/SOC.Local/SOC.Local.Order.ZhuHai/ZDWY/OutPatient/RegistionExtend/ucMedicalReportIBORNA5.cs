@@ -387,6 +387,8 @@ namespace FS.SOC.Local.Order.ZhuHai.ZDWY.OutPatient.RegistionExtend
                 panel17.Height = height + 1 + 3 > 39 ? height + 1 : 40;
 
 
+
+
                 //体征
                 if (!string.IsNullOrEmpty(BP) || !string.IsNullOrEmpty(BP) || !string.IsNullOrEmpty(BP))
                 {
@@ -405,9 +407,9 @@ namespace FS.SOC.Local.Order.ZhuHai.ZDWY.OutPatient.RegistionExtend
                 //this.OldOperTime = caseHistory.CaseOper.OperTime.ToString();//操作时间
                 //this.lbReportBy.Text = registerMgr.Operator.Name + "\n" + DateTime.Now.ToString();
                 //this.lbVitalSigns.Text = string.Format(this.lbVitalSigns.Text, BP, Pulse, Tempitrue);
-                this.lblTreatment.Text = caseHistory.User01; ;//处理
+                this.lblTreatment.Text = caseHistory.User01; ;//处理  lblTreatment
                 height = LineFeed(lblTreatment.Text);
-                label34.Height = height + 1 > 39 ? height + 1 : 40;
+                panel15.Height = height + 1 > 39 ? height + 1 : 40;
 
 
                 this.txtemredu.Text = caseHistory.Emr_Educational;

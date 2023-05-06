@@ -82,6 +82,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             FarPoint.Win.Spread.CellType.TextCellType textCellType14 = new FarPoint.Win.Spread.CellType.TextCellType();
             FarPoint.Win.Spread.CellType.NumberCellType numberCellType3 = new FarPoint.Win.Spread.CellType.NumberCellType();
             FarPoint.Win.Spread.CellType.NumberCellType numberCellType4 = new FarPoint.Win.Spread.CellType.NumberCellType();
+            FarPoint.Win.Spread.CellType.NumberCellType numberCellType5 = new FarPoint.Win.Spread.CellType.NumberCellType();
             FarPoint.Win.Spread.CellType.TextCellType textCellType15 = new FarPoint.Win.Spread.CellType.TextCellType();
             FarPoint.Win.Spread.CellType.TextCellType textCellType16 = new FarPoint.Win.Spread.CellType.TextCellType();
             FarPoint.Win.Spread.CellType.TextCellType textCellType17 = new FarPoint.Win.Spread.CellType.TextCellType();
@@ -93,8 +94,8 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.全选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.反选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.套餐内项目勾选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
@@ -126,14 +127,14 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             tipAppearance1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.fpSpread1.TextTipAppearance = tipAppearance1;
             this.fpSpread1.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
-            this.fpSpread1.ButtonClicked += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.fpSpread1_ButtonClicked);
-            this.fpSpread1.Leave += new System.EventHandler(this.fpSpread1_Leave);
             this.fpSpread1.EditModeOn += new System.EventHandler(this.fpSpread1_EditModeOn);
-            this.fpSpread1.EditChange += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.fpSpread1_EditChange);
-            this.fpSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpSpread1_CellClick);
-            this.fpSpread1.ComboSelChange += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.fpSpread1_ComboSelChange);
-            this.fpSpread1.Enter += new System.EventHandler(this.fpSpread1_Enter);
             this.fpSpread1.ColumnWidthChanged += new FarPoint.Win.Spread.ColumnWidthChangedEventHandler(this.fpSpread1_ColumnWidthChanged);
+            this.fpSpread1.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpSpread1_CellClick);
+            this.fpSpread1.ButtonClicked += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.fpSpread1_ButtonClicked);
+            this.fpSpread1.ComboSelChange += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.fpSpread1_ComboSelChange);
+            this.fpSpread1.EditChange += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.fpSpread1_EditChange);
+            this.fpSpread1.Enter += new System.EventHandler(this.fpSpread1_Enter);
+            this.fpSpread1.Leave += new System.EventHandler(this.fpSpread1_Leave);
             // 
             // contextMenuStrip1
             // 
@@ -142,7 +143,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             this.反选ToolStripMenuItem,
             this.套餐内项目勾选ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 70);
             // 
             // 全选ToolStripMenuItem
             // 
@@ -158,13 +159,20 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             this.反选ToolStripMenuItem.Text = "反选";
             this.反选ToolStripMenuItem.Click += new System.EventHandler(this.反选ToolStripMenuItem_Click);
             // 
+            // 套餐内项目勾选ToolStripMenuItem
+            // 
+            this.套餐内项目勾选ToolStripMenuItem.Name = "套餐内项目勾选ToolStripMenuItem";
+            this.套餐内项目勾选ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.套餐内项目勾选ToolStripMenuItem.Text = "套餐内项目勾选";
+            this.套餐内项目勾选ToolStripMenuItem.Click += new System.EventHandler(this.套餐内项目勾选ToolStripMenuItem_Click);
+            // 
             // fpSpread1_Sheet1
             // 
             this.fpSpread1_Sheet1.Reset();
             this.fpSpread1_Sheet1.SheetName = "Sheet1";
             // Formulas and custom names must be loaded with R1C1 reference style
             this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
-            this.fpSpread1_Sheet1.ColumnCount = 30;
+            this.fpSpread1_Sheet1.ColumnCount = 31;
             this.fpSpread1_Sheet1.RowCount = 1;
             this.fpSpread1_Sheet1.ActiveSkin = new FarPoint.Win.Spread.SheetSkin("CustomSkin2", System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.LightGray, FarPoint.Win.Spread.GridLines.Both, System.Drawing.Color.Gainsboro, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.Empty, System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240))))), System.Drawing.Color.Empty, false, false, false, true, true);
             this.fpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 0).Value = " ";
@@ -197,6 +205,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             this.fpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 27).Value = "itemcode";
             this.fpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 28).Value = "change";
             this.fpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 29).Value = "体检套餐";
+            this.fpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 30).Value = "购物卡优惠";
             this.fpSpread1_Sheet1.ColumnHeader.DefaultStyle.BackColor = System.Drawing.Color.Gainsboro;
             this.fpSpread1_Sheet1.ColumnHeader.DefaultStyle.Parent = "HeaderDefault";
             this.fpSpread1_Sheet1.ColumnHeader.Rows.Get(0).Height = 30F;
@@ -322,6 +331,11 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             this.fpSpread1_Sheet1.Columns.Get(28).Width = 51F;
             this.fpSpread1_Sheet1.Columns.Get(29).Label = "体检套餐";
             this.fpSpread1_Sheet1.Columns.Get(29).Width = 103F;
+            this.fpSpread1_Sheet1.Columns.Get(30).CellType = numberCellType5;
+            this.fpSpread1_Sheet1.Columns.Get(30).Label = "购物卡优惠";
+            this.fpSpread1_Sheet1.Columns.Get(30).Font = new System.Drawing.Font("宋体", 14F);
+            this.fpSpread1_Sheet1.Columns.Get(30).Width = 100F;
+            this.fpSpread1_Sheet1.Columns.Get(30).Locked = true;
             this.fpSpread1_Sheet1.OperationMode = FarPoint.Win.Spread.OperationMode.RowMode;
             this.fpSpread1_Sheet1.RowHeader.Columns.Default.Resizable = true;
             this.fpSpread1_Sheet1.RowHeader.Columns.Get(0).Width = 37F;
@@ -333,14 +347,6 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             this.fpSpread1_Sheet1.VisualStyles = FarPoint.Win.VisualStyles.Off;
             this.fpSpread1_Sheet1.CellChanged += new FarPoint.Win.Spread.SheetViewEventHandler(this.fpSpread1_Sheet1_CellChanged);
             this.fpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
-            this.fpSpread1.SetViewportLeftColumn(0, 0, 7);
-            // 
-            // 套餐内项目勾选ToolStripMenuItem
-            // 
-            this.套餐内项目勾选ToolStripMenuItem.Name = "套餐内项目勾选ToolStripMenuItem";
-            this.套餐内项目勾选ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.套餐内项目勾选ToolStripMenuItem.Text = "套餐内项目勾选";
-            this.套餐内项目勾选ToolStripMenuItem.Click += new System.EventHandler(this.套餐内项目勾选ToolStripMenuItem_Click);
             // 
             // ucDisplay
             // 

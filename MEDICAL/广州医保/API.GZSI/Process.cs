@@ -912,7 +912,10 @@ namespace API.GZSI
                         feeInfoRow.bilg_dept_codg = feeItem.RecipeOper.Dept.ID;//开单科室编码 Y 
                         feeInfoRow.bilg_dept_name = feeItem.RecipeOper.Dept.Name;//开单科室名称 Y 
                         feeInfoRow.bilg_dr_codg = this.localMgr.GetDocYBNO(feeItem.RecipeOper.ID);//开单医生编码 Y 按照标准编码填写 //"000006"; 
-                        feeInfoRow.bilg_dr_name = feeItem.RecipeOper.Name;//开单医生姓名 Y  "Colina"; 
+
+                        FS.HISFC.Models.Base.Employee doctor = interMgr.GetEmployeeInfo(feeItem.RecipeOper.ID);//获取开立医生信息
+                        //feeInfoRow.bilg_dr_name = doctor.Name;//开单医生姓名 Y  "Colina"; 
+                        feeInfoRow.bilg_dr_name = doctor.Name;//开单医生姓名 Y  "Colina"; 
                         feeInfoRow.acord_dept_codg = "";//受单科室编码  
                         feeInfoRow.acord_dept_name = "";//受单科室名称  
                         feeInfoRow.orders_dr_code = "";//受单医生编码  同开单医生
@@ -3481,7 +3484,7 @@ namespace API.GZSI
                     //生育门诊控费
                     if (r.SIMainInfo.Med_type.ToString() == "51")  //51-生育门诊
                     {
-                        List<ExpItemMedical> explist = this.accountManager.QueryExpItemMedicalByCardNo(r.PID.CardNO);
+                        List<ExpItemMedical> explist = this.accountManager.QueryExpItemMedicalConsZeroByCardNo(r.PID.CardNO);
 
                         foreach (FS.HISFC.Models.Fee.Outpatient.FeeItemList f in feeDetails)
                         {

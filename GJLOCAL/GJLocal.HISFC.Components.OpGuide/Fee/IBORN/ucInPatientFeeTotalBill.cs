@@ -620,7 +620,7 @@ namespace GJLocal.HISFC.Components.OpGuide.Fee.IBORN
                 {
                     fileName = dlg.FileName;
 
-                    this.fpSpread1.SaveExcel(fileName, FarPoint.Win.Spread.Model.IncludeHeaders.BothCustomOnly);
+                    this.fpSpread1.SaveExcel(fileName, FarPoint.Win.Spread.Model.IncludeHeaders.ColumnHeadersCustomOnly);
                     MessageBox.Show("导出成功", "温馨提示");
                     //this.ShowBalloonTip(5000, "温馨提示", "导出成功");
                 }

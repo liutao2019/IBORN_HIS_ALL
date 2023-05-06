@@ -1129,7 +1129,12 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             /// <summary>
             /// 体检套餐组套 //{4007AD8C-65AE-4962-95F6-AC1907A07553}
             /// </summary>
-            CheckBodyPackage = 29
+            CheckBodyPackage = 29,
+
+            /// <summary>
+            /// 购物卡优惠金额
+            /// </summary>
+            DiscountCardEco = 30
 
         }//{EE98C7B7-AC32-4b2c-93A5-9A62A33D6457}结束
 
@@ -2381,6 +2386,8 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                 this.fpSpread1_Sheet1.Cells[currRow + 1, (int)Columns.Select].Value = true;
                 this.fpSpread1_Sheet1.Cells[currRow, (int)Columns.Select].Value = true;
 
+                this.fpSpread1_Sheet1.Cells[currRow, (int)Columns.DiscountCardEco].Value = f.FT.DiscountCardEco;
+
                 //{EE98C7B7-AC32-4b2c-93A5-9A62A33D6457}结束
                 this.fpSpread1_Sheet1.Rows[currRow].Tag = f;
                 //if (f.Item.IsPharmacy)
@@ -2442,6 +2449,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                     this.fpSpread1_Sheet1.Cells[currRow, (int)Columns.CheckBodyPackage].Text = f.CheckBodyPackage;
                 }
 
+                this.fpSpread1_Sheet1.Cells[currRow, (int)Columns.DiscountCardEco].Text = f.FT.DiscountCardEco.ToString();
 
                 this.fpSpread1_Sheet1.Rows[currRow].Tag = f;
                 this.SetItemRateInfo(currRow, f);
@@ -4073,6 +4081,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                     ft.RebateCost = FS.FrameWork.Public.String.FormatNumber(f.FT.RebateCost * f.Item.Qty / f.Item.PackQty, 2);
                 }
 
+                ft.DiscountCardEco = f.FT.DiscountCardEco;
                 //}
             }
             if (this.rInfo.Pact.PayKind.ID == "02")//医保
@@ -4136,6 +4145,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                 }
                 //}
 
+                ft.DiscountCardEco = f.FT.DiscountCardEco;
             }
             if (this.rInfo.Pact.PayKind.ID == "03")//公费
             {
@@ -6299,7 +6309,12 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                         }
                     }
 
-
+                    if (string.IsNullOrEmpty(this.fpSpread1_Sheet1.Cells[i, (int)Columns.DiscountCardEco].Text))
+                    {
+                        this.fpSpread1_Sheet1.Cells[i, (int)Columns.DiscountCardEco].Text = "0";
+                    }
+                    ((FeeItemList)this.fpSpread1_Sheet1.Rows[i].Tag).FT.DiscountCardEco = Convert.ToDecimal(this.fpSpread1_Sheet1.Cells[i, (int)Columns.DiscountCardEco].Text);
+                    decimal groupDiscountCardEco = ((FeeItemList)this.fpSpread1_Sheet1.Rows[i].Tag).FT.DiscountCardEco;//组合项目，购物卡总优惠金额
 
                     //增加开方医生所在科室
                     if (string.IsNullOrEmpty(f.RecipeOper.ID) || string.IsNullOrEmpty(f.DoctDeptInfo.ID))
@@ -6344,6 +6359,30 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                                 (item as FeeItemList).NoBackQty = 0;
                             }
                         }
+
+                        #region 计算明细项目优惠价格
+                        decimal itemsTotCost = 0;
+                        foreach (var item in alDetail)
+                        {
+                            itemsTotCost += (item as FeeItemList).Item.Price;
+                        }
+
+                        decimal lastEcoCost = 0;
+                        for (int j = 0; j < alDetail.Count; j ++)
+                        {
+                            if (j != alDetail.Count - 1)
+                            {
+                                (alDetail[j] as FeeItemList).FT.DiscountCardEco = Math.Round(groupDiscountCardEco * ((alDetail[j] as FeeItemList).Item.Price / itemsTotCost),2);
+                                lastEcoCost += (alDetail[j] as FeeItemList).FT.DiscountCardEco;
+                            }
+                            else
+                            {
+                                (alDetail[j] as FeeItemList).FT.DiscountCardEco = groupDiscountCardEco - lastEcoCost;
+                            }
+
+                        }
+
+                        #endregion
                         feeItemLists.AddRange(alDetail);
                     }
                     else
@@ -8234,7 +8273,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                             feeItem.FT.PayCost = ft.PayCost;
                             //add by niuxy处理优惠
                             feeItem.FT.RebateCost = ft.RebateCost;
-
+                            feeItem.FT.DiscountCardEco = ft.DiscountCardEco;
                             this.isDealCellChange = false;
                             this.fpSpread1_Sheet1.Cells[e.Row, (int)Columns.Cost].Value = ft.TotCost;
                             SumCost();
@@ -8322,6 +8361,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                         feeItem.FT.PayCost = ft.PayCost;
                         //add by niuxy处理优惠
                         feeItem.FT.RebateCost = ft.RebateCost;
+                        feeItem.FT.DiscountCardEco = ft.DiscountCardEco;
                         this.fpSpread1_Sheet1.Cells[e.Row, (int)Columns.Cost].Value = ft.TotCost;
                         this.fpSpread1_Sheet1.Cells[e.Row, (int)Columns.Amount].Value = totQty;
                         //{73AA7783-8B97-45f5-B430-0C7311E952C8}    
@@ -8381,6 +8421,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                         feeItem.FT.PubCost = ft.PubCost;
                         //add by niuxy处理优惠
                         feeItem.FT.RebateCost = ft.RebateCost;
+                        feeItem.FT.DiscountCardEco = ft.DiscountCardEco;
                         this.fpSpread1_Sheet1.Cells[e.Row, (int)Columns.ExeDept].Locked = false;
                         this.SumCost();
                     }
@@ -8455,6 +8496,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                                     feeItem.FT.PayCost = ft.PayCost;
                                     //add by niuxy处理优惠
                                     feeItem.FT.RebateCost = ft.RebateCost;
+                                    feeItem.FT.DiscountCardEco = ft.DiscountCardEco;
                                     this.fpSpread1_Sheet1.Cells[e.Row, (int)Columns.Cost].Value = ft.TotCost;
                                     this.fpSpread1_Sheet1.Cells[e.Row, (int)Columns.Amount].Value = totQty;
                                 }
@@ -8852,7 +8894,11 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                 mnuSpecialPackageItemoption.Text = "升级套餐项目折0";
                 this.rightMenu.Items.Add(mnuSpecialPackageItemoption);
 
-
+                //购物卡优惠
+                ToolStripMenuItem mnuPatientDiscountCard = new ToolStripMenuItem();
+                mnuPatientDiscountCard.Click += new EventHandler(mnuPatientDiscountCard_Click);
+                mnuPatientDiscountCard.Text = "购物卡优惠";
+                this.rightMenu.Items.Add(mnuPatientDiscountCard);
 
 
                 this.rightMenu.Show(this.fpSpread1, new Point(e.X, e.Y));
@@ -9046,7 +9092,89 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
             }
         }
 
+        /// <summary>
+        /// 购物卡抵扣
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mnuPatientDiscountCard_Click(object sender, EventArgs e)
+        {
+            //获得所有项目信息,包括组合项目的明细
+            ArrayList alFee = this.GetFeeItemList(-1);
+            if (alFee == null || alFee.Count <= 0)
+            {
+                return;
+            }
 
+            decimal totCost = 0;
+            foreach (FS.HISFC.Models.Fee.Outpatient.FeeItemList feeItemList in alFee)
+            {
+                totCost += feeItemList.FT.TotCost - feeItemList.FT.RebateCost;
+            }
+
+            frmDiscountCardCost frmDiscountCardCost = new frmDiscountCardCost();
+            frmDiscountCardCost.DeliverableCost = totCost;
+            frmDiscountCardCost.PatientInfo = this.PatientInfo;
+            frmDiscountCardCost.ShowDialog();
+
+            //购物卡优惠金额
+            decimal disCountcardEco = frmDiscountCardCost.DisCountcardEco;
+
+            //总费用小于购物卡金额
+            if (totCost <= disCountcardEco)
+            {
+                foreach (Row row in this.fpSpread1_Sheet1.Rows)
+                {
+                    FeeItemList tmp = row.Tag as FeeItemList;
+                    if (tmp == null)
+                    {
+                        continue;
+                    }
+                    this.fpSpread1_Sheet1.Cells[row.Index, (int)Columns.DiscountCardEco].Value = tmp.FT.TotCost - tmp.FT.RebateCost;
+                }
+            }
+            else
+            {
+                decimal lasteco = 0;
+                foreach (Row row in this.fpSpread1_Sheet1.Rows)
+                {
+                    FeeItemList tmp = row.Tag as FeeItemList;
+                    if (tmp == null)
+                    {
+                        continue;
+                    }
+
+                    //项目购物卡优惠金额 = 购物卡优惠总金额 * （项目原价 / 总金额）
+                    //最后一个项目的购物卡优惠金额 = 购物卡优惠总金额 - 前面所以购物卡优惠金额总和
+                    if (row.Index < this.fpSpread1_Sheet1.Rows.Count - 2)
+                    {
+                        this.fpSpread1_Sheet1.Cells[row.Index, (int)Columns.DiscountCardEco].Value = Math.Round(disCountcardEco * ((tmp.FT.TotCost - tmp.FT.RebateCost) / totCost), 2);
+                        lasteco += Math.Round(disCountcardEco * ((tmp.FT.TotCost - tmp.FT.RebateCost) / totCost), 2);
+                    }
+                    else
+                    {
+                        this.fpSpread1_Sheet1.Cells[row.Index, (int)Columns.DiscountCardEco].Value = disCountcardEco - lasteco;
+                    }
+                }
+            }
+
+            ArrayList allFee = this.GetFeeItemList();
+            if (rightControl != null)
+            {
+                this.rightControl.SetInfomation(this.rInfo, null, allFee, null, "0");
+            }
+            if (this.leftControl != null)
+            {
+                this.leftControl.PatientInfo = this.rInfo;
+                this.leftControl.RefreshDisplayInfomation(allFee);
+            }
+
+            ArrayList alCharge = this.GetFeeItemListForCharge();
+            if (this.FeeItemListChanged != null)
+            {
+                this.FeeItemListChanged(alCharge);
+            }
+        }
 
         #endregion
 

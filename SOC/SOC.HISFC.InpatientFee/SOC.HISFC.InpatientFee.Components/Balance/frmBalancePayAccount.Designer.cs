@@ -61,9 +61,6 @@
             this.tbPackageCost = new FS.FrameWork.WinForms.Controls.NeuTextBox();
             this.tbEmpowerCost = new FS.FrameWork.WinForms.Controls.NeuTextBox();
             this.tbAccountCost = new FS.FrameWork.WinForms.Controls.NeuTextBox();
-            this.lblDisCount = new FS.FrameWork.WinForms.Controls.NeuLabel();
-            this.btnDiscountCard = new FS.FrameWork.WinForms.Controls.NeuButton();
-            this.tbDiscountCost = new FS.FrameWork.WinForms.Controls.NeuTextBox();
             this.gbBalanceInfo.SuspendLayout();
             this.gbPayMode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpPayType)).BeginInit();
@@ -268,12 +265,12 @@
             this.fpPayType.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             this.fpPayType.IsAutoSaveGridStatus = false;
             this.fpPayType.IsCanCustomConfigColumn = false;
-            this.fpPayType.Location = new System.Drawing.Point(3, 183);
+            this.fpPayType.Location = new System.Drawing.Point(3, 154);
             this.fpPayType.Name = "fpPayType";
             this.fpPayType.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.fpPayType.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpPayType_Sheet1});
-            this.fpPayType.Size = new System.Drawing.Size(836, 181);
+            this.fpPayType.Size = new System.Drawing.Size(836, 210);
             this.fpPayType.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
             this.fpPayType.TabIndex = 99;
             tipAppearance1.BackColor = System.Drawing.SystemColors.Info;
@@ -346,9 +343,6 @@
             // pnAccount
             // 
             this.pnAccount.BackColor = System.Drawing.Color.White;
-            this.pnAccount.Controls.Add(this.lblDisCount);
-            this.pnAccount.Controls.Add(this.btnDiscountCard);
-            this.pnAccount.Controls.Add(this.tbDiscountCost);
             this.pnAccount.Controls.Add(this.sycoupon);
             this.pnAccount.Controls.Add(this.neuLabel1);
             this.pnAccount.Controls.Add(this.lblCoupon);
@@ -366,7 +360,7 @@
             this.pnAccount.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnAccount.Location = new System.Drawing.Point(3, 5);
             this.pnAccount.Name = "pnAccount";
-            this.pnAccount.Size = new System.Drawing.Size(836, 178);
+            this.pnAccount.Size = new System.Drawing.Size(836, 149);
             this.pnAccount.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
             this.pnAccount.TabIndex = 100;
             // 
@@ -389,7 +383,7 @@
             this.neuLabel1.Font = new System.Drawing.Font("宋体", 12F);
             this.neuLabel1.Location = new System.Drawing.Point(383, 14);
             this.neuLabel1.Name = "neuLabel1";
-            this.neuLabel1.Size = new System.Drawing.Size(88, 16);
+            this.neuLabel1.Size = new System.Drawing.Size(87, 16);
             this.neuLabel1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
             this.neuLabel1.TabIndex = 103;
             this.neuLabel1.Text = "剩余积分：";
@@ -542,43 +536,6 @@
             this.tbAccountCost.Text = "0.00";
             this.tbAccountCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // lblDisCount
-            // 
-            this.lblDisCount.AutoSize = true;
-            this.lblDisCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDisCount.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblDisCount.Location = new System.Drawing.Point(205, 150);
-            this.lblDisCount.Name = "lblDisCount";
-            this.lblDisCount.Size = new System.Drawing.Size(70, 12);
-            this.lblDisCount.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
-            this.lblDisCount.TabIndex = 107;
-            this.lblDisCount.Text = "购物卡支付";
-            // 
-            // btnDiscountCard
-            // 
-            this.btnDiscountCard.Font = new System.Drawing.Font("宋体", 9F);
-            this.btnDiscountCard.Location = new System.Drawing.Point(9, 146);
-            this.btnDiscountCard.Name = "btnDiscountCard";
-            this.btnDiscountCard.Size = new System.Drawing.Size(75, 23);
-            this.btnDiscountCard.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
-            this.btnDiscountCard.TabIndex = 105;
-            this.btnDiscountCard.Text = "购物卡支付";
-            this.btnDiscountCard.Type = FS.FrameWork.WinForms.Controls.General.ButtonType.None;
-            this.btnDiscountCard.UseVisualStyleBackColor = true;
-            // 
-            // tbDiscountCost
-            // 
-            this.tbDiscountCost.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Bold);
-            this.tbDiscountCost.IsEnter2Tab = false;
-            this.tbDiscountCost.Location = new System.Drawing.Point(90, 144);
-            this.tbDiscountCost.Name = "tbDiscountCost";
-            this.tbDiscountCost.ReadOnly = true;
-            this.tbDiscountCost.Size = new System.Drawing.Size(100, 25);
-            this.tbDiscountCost.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
-            this.tbDiscountCost.TabIndex = 106;
-            this.tbDiscountCost.Text = "0.00";
-            this.tbDiscountCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // frmBalancePayAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -634,8 +591,5 @@
         protected FS.FrameWork.WinForms.Controls.NeuTextBox tbCouponCost;
         protected FS.FrameWork.WinForms.Controls.NeuTextBox sycoupon;
         protected FS.FrameWork.WinForms.Controls.NeuLabel neuLabel1;
-        private FS.FrameWork.WinForms.Controls.NeuLabel lblDisCount;
-        private FS.FrameWork.WinForms.Controls.NeuButton btnDiscountCard;
-        protected FS.FrameWork.WinForms.Controls.NeuTextBox tbDiscountCost;
     }
 }

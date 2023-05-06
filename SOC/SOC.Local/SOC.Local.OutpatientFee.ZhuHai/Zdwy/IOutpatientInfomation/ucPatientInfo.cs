@@ -168,6 +168,12 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientInfomation
         /// 费用综合业务层
         /// </summary>
         protected FS.HISFC.BizProcess.Integrate.Fee feeIntegrate = new FS.HISFC.BizProcess.Integrate.Fee();
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        FS.HISFC.BizLogic.Order.OutPatient.Order OutOrderMgr = new FS.HISFC.BizLogic.Order.OutPatient.Order();
         #endregion
 
         /// <summary>
@@ -354,16 +360,29 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientInfomation
                     //{C22E94C1-78A0-493c-8FFB-5BB0BF51D6AE添加账户余额 赠送余额
                     FS.HISFC.BizLogic.Fee.Account accountMgr = new FS.HISFC.BizLogic.Fee.Account();
                     FS.HISFC.Models.Account.Account account = accountMgr.GetAccountByCardNoEX(patientInfo.PID.CardNO);
+                    string PTVacancy = accountMgr.GetAccountDetailPTYE(patientInfo.PID.CardNO);
+                    string PTDonateAmout = accountMgr.GetAccountDetailPT(patientInfo.PID.CardNO);
                     if (account != null)
                     {
-                        txtVacancy.Text = account.BaseVacancy.ToString("F2");
-                        txtDonateAmout.Text = account.DonateVacancy.ToString("F2");
+                        //txtVacancy.Text = account.BaseVacancy.ToString("F2");
+                        //txtDonateAmout.Text = account.DonateVacancy.ToString("F2");
+                        txtVacancy.Text = PTVacancy;
+                        txtDonateAmout.Text = PTDonateAmout;
                     }
                     else
                     {
-                       // MessageBox.Show("该患者没有账户信息！");
+                        // MessageBox.Show("该患者没有账户信息！");
                         txtVacancy.Text = "0.00";
                         txtDonateAmout.Text = "0.00";
+                    }
+                    string CKDonateAmout = accountMgr.GetAccountDetailCK(patientInfo.PID.CardNO);
+                    if (string.IsNullOrEmpty(CKDonateAmout))
+                    {
+                        txtCKDonateAmout.Text = "0.00";
+                    }
+                    else
+                    {
+                        txtCKDonateAmout.Text = CKDonateAmout;
                     }
                     this.tbName.Text = patientInfo.Name;
                     this.txtRemark.Text = patientInfo.Memo;//{187A73EB-008A-4A25-A6CB-28CAE0E629A7}添加备注信息
@@ -1869,6 +1888,9 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientInfomation
                 return;
             }
             ArrayList sortList = new ArrayList();
+
+            System.Collections.Generic.Dictionary<string, decimal> alExce = OutOrderMgr.GetExceededItem(this.patientInfo.PID.CardNO);
+
             while (feeDetails.Count > 0)
             {
                 ArrayList sameNotes = new ArrayList();

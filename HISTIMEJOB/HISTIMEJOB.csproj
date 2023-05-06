@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CC9D8AF-8387-4D1D-BFEA-D10D6AF6C6FA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.HISTIMEJOB</RootNamespace>
+    <AssemblyName>HISTIMEJOB</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ApplicationIcon>aa.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FarPoint.Win, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <HintPath>..\lib\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=3.0.2004.2005, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <HintPath>..\lib\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameWork.WinForms, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\FrameWork.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FS.HisCrypto, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\FS.HisCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="GZ.BizLogic.Delivery, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\GZ.BizLogic.Delivery.dll</HintPath>
+    </Reference>
+    <Reference Include="GZ.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\GZ.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Fee, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\HISFC.BizLogic.Fee.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.Manager, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\HISFC.BizLogic.Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizLogic.RADT, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\HISFC.BizLogic.RADT.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Integrate, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\HISFC.BizProcess.Integrate.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.BizProcess.Interface, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\HISFC.BizProcess.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="HISFC.Models, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\HISFC.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.OracleClient">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FixedFee.cs" />
+    <Compile Include="frmHisTimeJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>frmHisTimeJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job.cs" />
+    <Compile Include="process\FormInfo.cs" />
+    <Compile Include="process\JobProcess.cs" />
+    <Compile Include="process\LogHelper.cs" />
+    <Compile Include="process\OADataDeal.cs" />
+    <Compile Include="process\OracleHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmHisTimeJob.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmHisTimeJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="service\FormInfo.cs" />
+    <Compile Include="service\OAService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aa.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

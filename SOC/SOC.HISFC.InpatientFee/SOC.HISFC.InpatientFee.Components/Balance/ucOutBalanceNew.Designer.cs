@@ -61,6 +61,7 @@
             this.chkPart = new System.Windows.Forms.CheckBox();
             this.chkNormal = new System.Windows.Forms.CheckBox();
             this.gbBalanceInfo = new System.Windows.Forms.GroupBox();
+            this.btnCKSelect = new System.Windows.Forms.Button();
             this.btnDiscount = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.tbRealSet = new FS.FrameWork.WinForms.Controls.NeuTextBox();
@@ -125,7 +126,8 @@
             this.tbpPrepay = new System.Windows.Forms.TabPage();
             this.FpPrepay = new FS.FrameWork.WinForms.Controls.NeuSpread();
             this.FpPrepay_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.btnCKSelect = new System.Windows.Forms.Button();
+            this.tbDsSet = new FS.FrameWork.WinForms.Controls.NeuTextBox();
+            this.btnDSCard = new System.Windows.Forms.Button();
             this.gbPatientInfo.SuspendLayout();
             this.gbBalanceInfo.SuspendLayout();
             this.gbFeePackage.SuspendLayout();
@@ -255,6 +257,8 @@
             // 
             // gbBalanceInfo
             // 
+            this.gbBalanceInfo.Controls.Add(this.tbDsSet);
+            this.gbBalanceInfo.Controls.Add(this.btnDSCard);
             this.gbBalanceInfo.Controls.Add(this.btnCKSelect);
             this.gbBalanceInfo.Controls.Add(this.btnDiscount);
             this.gbBalanceInfo.Controls.Add(this.label7);
@@ -288,6 +292,15 @@
             this.gbBalanceInfo.Size = new System.Drawing.Size(1375, 66);
             this.gbBalanceInfo.TabIndex = 2;
             this.gbBalanceInfo.TabStop = false;
+            // 
+            // btnCKSelect
+            // 
+            this.btnCKSelect.Location = new System.Drawing.Point(876, 40);
+            this.btnCKSelect.Name = "btnCKSelect";
+            this.btnCKSelect.Size = new System.Drawing.Size(94, 23);
+            this.btnCKSelect.TabIndex = 40;
+            this.btnCKSelect.Text = "全选(产康)";
+            this.btnCKSelect.UseVisualStyleBackColor = true;
             // 
             // btnDiscount
             // 
@@ -1257,14 +1270,25 @@
             this.FpPrepay_Sheet1.VisualStyles = FarPoint.Win.VisualStyles.Off;
             this.FpPrepay_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
             // 
-            // btnCKSelect
+            // tbDsSet
             // 
-            this.btnCKSelect.Location = new System.Drawing.Point(876, 40);
-            this.btnCKSelect.Name = "btnCKSelect";
-            this.btnCKSelect.Size = new System.Drawing.Size(94, 23);
-            this.btnCKSelect.TabIndex = 40;
-            this.btnCKSelect.Text = "全选(产康)";
-            this.btnCKSelect.UseVisualStyleBackColor = true;
+            this.tbDsSet.BackColor = System.Drawing.SystemColors.Control;
+            this.tbDsSet.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbDsSet.IsEnter2Tab = false;
+            this.tbDsSet.Location = new System.Drawing.Point(1179, 38);
+            this.tbDsSet.Name = "tbDsSet";
+            this.tbDsSet.Size = new System.Drawing.Size(96, 23);
+            this.tbDsSet.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.tbDsSet.TabIndex = 42;
+            // 
+            // btnDSCard
+            // 
+            this.btnDSCard.Location = new System.Drawing.Point(1281, 38);
+            this.btnDSCard.Name = "btnDSCard";
+            this.btnDSCard.Size = new System.Drawing.Size(84, 23);
+            this.btnDSCard.TabIndex = 41;
+            this.btnDSCard.Text = "购物卡优惠";
+            this.btnDSCard.UseVisualStyleBackColor = true;
             // 
             // ucOutBalanceNew
             // 
@@ -1393,5 +1417,7 @@
         private System.Windows.Forms.Button btnPreBalancePP;
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnCKSelect;
+        protected FrameWork.WinForms.Controls.NeuTextBox tbDsSet;
+        private System.Windows.Forms.Button btnDSCard;
     }
 }

@@ -124,10 +124,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
         /// </summary>
         private NeuObject pyObj = null;
 
-        /// <summary>
-        /// 购物卡支付方式
-        /// </summary>
-        private NeuObject dsObj = null;
         #endregion
 
 
@@ -325,7 +321,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             this.btPackage.Click += new System.EventHandler(this.btPackage_Click);
 
             this.btCoupon.Click += new EventHandler(btCoupon_Click);
-            this.btnDiscountCard.Click += new System.EventHandler(this.btDiscountCard_Click);
         }
 
         /// <summary>
@@ -417,12 +412,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                 {
                     this.pyObj = obj;
                 }
-
-                //DS(购物卡支付方式)
-                if ((obj as FS.HISFC.Models.Base.Const).UserCode == "DS")
-                {
-                    this.dsObj = obj;
-                }
             }
             if (this.rowCA < 0)
             {
@@ -440,7 +429,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                     (obj as FS.HISFC.Models.Base.Const).UserCode == "PR" ||
                     (obj as FS.HISFC.Models.Base.Const).UserCode == "PD" ||
                     (obj as FS.HISFC.Models.Base.Const).UserCode == "PY" ||
-                    (obj as FS.HISFC.Models.Base.Const).UserCode == "DS" ||
                     !NConvert.ToBoolean((obj as FS.HISFC.Models.Base.Const).Memo))
 
                 {
@@ -710,11 +698,8 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             //4、积分支付
             decimal couponCost = NConvert.ToDecimal(this.tbCouponCost.Text);
 
-            //5、购物卡支付
-            decimal dicountCost = NConvert.ToDecimal(this.tbDiscountCost.Text);
-
-            //6、FP的支付方式选择
-            this.payModeFpCostShould = this.shouldPay - accountCost - empowerCost - packageCost - couponCost - dicountCost;
+            //5、FP的支付方式选择
+            this.payModeFpCostShould = this.shouldPay - accountCost - empowerCost - packageCost - couponCost;
 
             return this.payModeFpCostShould;
         }
@@ -769,11 +754,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             this.tbCouponCost.Text = "0.00";
             this.tbCouponCost.Tag = null;
             this.lblCoupon.Text = string.Empty;
-
-            //购物卡支付
-            this.tbDiscountCost.Text = "0.00";
-            this.tbDiscountCost.Tag = null;
-            this.lblDisCount.Text = string.Empty;
 
             this.fpPayType_Sheet1.CellChanged += new FarPoint.Win.Spread.SheetViewEventHandler(fpPayType_Sheet1_CellChanged);
 
@@ -1215,30 +1195,8 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
                 this.lblCoupon.Text = string.Format("积分支付：{0}", tbCouponCostPayCost.ToString());
             }
 
-            //5、购物卡支付
-            decimal discountCost = NConvert.ToDecimal(this.tbDiscountCost.Text);
-
-            this.lblDisCount.Text = string.Empty;
-            if (this.tbDiscountCost.Tag != null && (this.tbDiscountCost.Tag as List<BalancePay>) != null &&
-                (this.tbDiscountCost.Tag as List<BalancePay>).Count > 0)
-            {
-                List<BalancePay> disPayList = this.tbDiscountCost.Tag as List<BalancePay>;
-
-                decimal disPayCost = 0m;
-                foreach (BalancePay bp in disPayList)
-                {
-                    if (bp.PayType.ID == "DS")
-                    {
-                        disPayCost += bp.FT.TotCost;
-                    }
-                }
-                //购物卡提示信息
-                this.lblDisCount.Text = "";
-            }
-
-
-            //6、FP的支付方式选择
-            this.payModeFpCostShould = this.shouldPay - accountCost - empowerCost - packageCost - couponCost - discountCost;
+            //5、FP的支付方式选择
+            this.payModeFpCostShould = this.shouldPay - accountCost - empowerCost - packageCost - couponCost;
 
             try
             {
@@ -1763,47 +1721,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             CouponCost.ShowDialog();
         }
 
-        /// <summary>
-        /// 购物卡结算
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btDiscountCard_Click(object sender, EventArgs e)
-        {
-            //判断是否存在病历号
-            FS.HISFC.Models.RADT.PatientInfo patient = this.accountManager.GetPatientInfoByCardNO(this.PatientInfo.PID.CardNO);
-            if (patient == null || string.IsNullOrEmpty(patient.PID.CardNO))
-            {
-                MessageBox.Show("该患者未进行基本信息登记，不允许使用购物卡支付", "警告");
-                return;
-            }
-
-            List<BalancePay> disPayList = new List<BalancePay>();
-            if (this.tbDiscountCost.Tag != null && (this.tbDiscountCost.Tag as List<BalancePay>) != null &&
-                (this.tbDiscountCost.Tag as List<BalancePay>).Count > 0)
-            {
-                disPayList.AddRange(this.tbDiscountCost.Tag as List<BalancePay>);
-            }
-            decimal cost = 0;
-            try
-            {
-                cost = NConvert.ToDecimal(this.tbDiscountCost.Text);
-            }
-            catch
-            {
-                cost = 0;
-            }
-            //购物卡支付框
-            frmDiscountCardCost frmdiscountCost = new frmDiscountCardCost();
-            frmdiscountCost.IsEmpower = true;
-            frmdiscountCost.SelftPatientInfo = patient;   //结算患者
-            frmdiscountCost.PatientInfo = patient;       //支付患者
-            frmdiscountCost.DeliverableCost = this.GetPayModeFpCost() + cost;
-
-            frmdiscountCost.SetPayModeRes += new DelegateHashtableSet(discountCost_SetPayModeRes);
-            frmdiscountCost.ShowDialog();
-
-        }
 
         /// <summary>
         /// 会员支付处理
@@ -2050,89 +1967,6 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
             }
         }
 
-        /// <summary>
-        /// 购物卡支付
-        /// </summary>
-        /// <param name="hsTable"></param>
-        /// <param name="totCost"></param>
-        /// <returns></returns>
-        private int discountCost_SetPayModeRes(Hashtable hsTable, decimal totCost)
-        {
-            try
-            {
-                if (hsTable == null)
-                {
-                    throw new Exception("获取购物卡支付方式出错！");
-                }
-
-                //先清空
-                this.tbDiscountCost.Text = "0.00";
-                this.tbDiscountCost.Tag = null;
-                this.SetCost();
-
-                if (hsTable == null)
-                {
-                    this.tbDiscountCost.Text = "0.00";
-                    this.tbDiscountCost.Tag = null;
-                    this.SetCost();
-
-                    MessageBox.Show("获取购物卡支付信息出错！", "警告");
-                    return -1;
-                }
-
-                //支付方式列表
-                List<BalancePay> discountPayList = new List<BalancePay>();
-                if (hsTable.ContainsKey("DS"))
-                {
-                    discountPayList = hsTable["DS"] as List<BalancePay>;
-                }
-
-                if (discountPayList == null)
-                {
-                    this.tbDiscountCost.Text = "0.00";
-                    this.tbDiscountCost.Tag = null;
-                    this.SetCost();
-
-                    MessageBox.Show("获取购物卡支付信息出错！", "警告");
-                    return -1;
-                }
-
-                List<BalancePay> payModeList = new List<BalancePay>();
-                payModeList.AddRange(discountPayList);
-                this.tbDiscountCost.Tag = payModeList;
-
-                decimal disPayCost = 0m;
-                foreach (BalancePay balancePay in payModeList)
-                {
-                    disPayCost += balancePay.FT.TotCost;
-                }
-
-                this.payModeFpCostShould = this.GetPayModeFpCost();
-                if (disPayCost > this.payModeFpCostShould)
-                {
-                    this.tbDiscountCost.Text = "0.00";
-                    this.tbDiscountCost.Tag = null;
-                    this.SetCost();
-
-                    MessageBox.Show("购物卡支付的金额大于患者需要支付的金额", "警告");
-                    return -1;
-                }
-                this.tbDiscountCost.Text = disPayCost.ToString("F2");
-
-                this.SetCost();
-
-                return 1;
-            }
-            catch (Exception ex)
-            {
-                this.tbDiscountCost.Text = "0.00";
-                this.tbDiscountCost.Tag = null;
-                this.SetCost();
-
-                MessageBox.Show(ex.Message, "警告");
-                return -1;
-            }
-        }
 
         #endregion
 
@@ -2377,39 +2211,7 @@ namespace FS.SOC.HISFC.InpatientFee.Components.Balance
 
             #endregion
 
-            #region 5、购物卡支付
-
-            decimal discountCost = NConvert.ToDecimal(this.tbDiscountCost.Text);
-
-            compargeCost = 0;
-            if (discountCost > 0)
-            {
-                List<BalancePay> disPayList = this.tbDiscountCost.Tag as List<BalancePay>;
-                if (disPayList != null && disPayList.Count > 0)
-                {
-                    foreach (BalancePay bp in disPayList)
-                    {
-                        if (bp != null && !string.IsNullOrEmpty(bp.PayType.ID))
-                        {
-                            balancePay = bp.Clone();
-
-                            balancePayCost += balancePay.FT.TotCost;
-                            compargeCost += balancePay.FT.TotCost;
-
-                            balancePays.Add(balancePay);
-                        }
-                    }
-                }
-            }
-            if (discountCost != compargeCost)
-            {
-                MessageBox.Show("购物卡支付方式金额不符!", "警告");
-                return null;
-            }
-
-            #endregion
-
-            //6、FP支付方式
+            //5、FP支付方式
             compargeCost = 0;
             for (int i = 0; i < this.fpPayType_Sheet1.RowCount; i++)
             {

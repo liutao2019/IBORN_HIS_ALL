@@ -7203,6 +7203,31 @@ namespace FS.HISFC.Components.Order.OutPatient.Controls
         }
 
         /// <summary>
+        /// 设置控费数量
+        /// </summary>
+        /// <param name="alExce"></param>
+        private void ResetNum(Dictionary<string, decimal> alExce)
+        {
+            if (hsDeleteOrder == null || hsDeleteOrder.Keys.Count == 0 || alExce == null || alExce.Keys.Count == 0)
+            {
+                return;
+            }
+            FS.HISFC.Models.Order.OutPatient.Order order = null;
+
+            foreach (string orderID in new ArrayList(hsDeleteOrder.Keys))
+            {
+                order = hsDeleteOrder[orderID] as FS.HISFC.Models.Order.OutPatient.Order;
+
+                if (order != null && !string.IsNullOrEmpty(order.ReciptSequence) && alExce.ContainsKey(order.Item.ID))
+                {
+                    alExce[order.Item.ID] = alExce[order.Item.ID] + order.Qty;
+                }
+            }
+
+
+        }
+
+        /// <summary>
         /// 确认删除
         /// </summary>
         /// <param name="errInfo"></param>
@@ -7973,15 +7998,10 @@ namespace FS.HISFC.Components.Order.OutPatient.Controls
 
             ArrayList alAllOrder = new ArrayList();
 
-            if (previousClinicNo == currentPatientInfo.ID && alExce.Count > 0)
-            {
-               //存在跨处方开立控费项目，避免次数超出
-            }
-            else
-            {
-                previousClinicNo = currentPatientInfo.ID;
-                alExce = CacheManager.OutOrderMgr.GetExceededItem(this.Patient.PID.CardNO);
-            }
+            string seenno = this.currentPatientInfo.DoctorInfo.SeeNO.ToString();
+            alExce = CacheManager.OutOrderMgr.GetRecipExceededItem(this.Patient.PID.CardNO, seenno, this.Patient.ID);
+
+            ResetNum(alExce);
 
             for (int i = 0; i < this.neuSpread1.Sheets[0].Rows.Count; i++)
             {
@@ -7993,7 +8013,7 @@ namespace FS.HISFC.Components.Order.OutPatient.Controls
                     if (num > 0)
                     {
                         order.IsExceeded = true;
-                       
+
                         alExce[order.Item.ID] = alExce[order.Item.ID] - order.Qty;
                     }
                 }
@@ -8226,7 +8246,7 @@ namespace FS.HISFC.Components.Order.OutPatient.Controls
                         order.ReciptNO = reciptNo;
                         order.SequenceNO = 0;
 
-                        if (!string.IsNullOrEmpty(feeSeq))
+                        if (!string.IsNullOrEmpty(feeSeq) && !order.IsExceeded)
                         {
                             order.ReciptSequence = feeSeq;
                         }

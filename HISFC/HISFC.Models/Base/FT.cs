@@ -209,6 +209,11 @@ namespace FS.HISFC.Models.Base
         /// 套餐内优惠金额
         /// </summary>
         private decimal packageEco;
+
+		/// <summary>
+		/// 购物卡优惠金额
+		/// </summary>
+        private decimal discountcardEco;
 		#endregion
 
 		#region 属性
@@ -763,6 +768,21 @@ namespace FS.HISFC.Models.Base
             {
                 packageEco = value;
             }
+        }
+
+		/// <summary>
+		/// 购物卡优惠金额
+		/// </summary>
+		public decimal DiscountCardEco
+		{
+            get
+            {
+                return discountcardEco;
+            }
+            set
+            {
+                discountcardEco = value;
+            }   
         }
 
 		#endregion

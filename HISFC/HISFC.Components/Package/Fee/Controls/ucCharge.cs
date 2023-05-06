@@ -1780,7 +1780,7 @@ namespace HISFC.Components.Package.Fee.Controls
             //this.ucpatientInfo_CurrentRecipeChange();
             this.ucchargeInfo_SetFeeInfoCost();
         }
-
+        
         //{FAE56BB8-F958-411f-9663-CC359D6D494B}
         /// <summary>
         /// 获取患者会员等级折扣

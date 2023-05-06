@@ -585,7 +585,135 @@ namespace FS.HISFC.BizLogic.Fee
 
         }
 
+        /// <summary>
+        /// 根据卡号查询普通账户余额
+        /// </summary>
+        /// <param name="cardNO"></param>
+        /// <returns></returns>
+        public string GetAccountDetailPTYE(string cardNO)
+        {
+            string sqlStr = string.Empty;
+            if (this.Sql.GetCommonSql("Fee.Account.GetAccountDetailPTYE", ref sqlStr) == -1)
+            {
+                this.Err = "查找索引为Fee.Account.GetAccountDetailPTYE的sql语句失败！";
+                return null;
+            }
 
+            try
+            {
+                string CKDonateAmout = string.Empty;
+                sqlStr = string.Format(sqlStr, cardNO);
+                if (this.ExecQuery(sqlStr) == -1)
+                {
+                    this.Err = "查找数据失败！";
+                    return null; ;
+                }
+                while (this.Reader.Read())
+                {
+                    CKDonateAmout = this.Reader[0].ToString();
+                }
+                return CKDonateAmout;
+            }
+            catch (Exception ex)
+            {
+                this.Err = ex.Message;
+                return null;
+            }
+            finally
+            {
+                if (this.Reader != null && !this.Reader.IsClosed)
+                {
+                    this.Reader.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 根据卡号查询普通账户赠送余额
+        /// </summary>
+        /// <param name="cardNO"></param>
+        /// <returns></returns>
+        public string GetAccountDetailPT(string cardNO)
+        {
+            string sqlStr = string.Empty;
+            if (this.Sql.GetCommonSql("Fee.Account.GetAccountDetailPT", ref sqlStr) == -1)
+            {
+                this.Err = "查找索引为Fee.Account.GetAccountDetailPT的sql语句失败！";
+                return null;
+            }
+
+            try
+            {
+                string CKDonateAmout = string.Empty;
+                sqlStr = string.Format(sqlStr, cardNO);
+                if (this.ExecQuery(sqlStr) == -1)
+                {
+                    this.Err = "查找数据失败！";
+                    return null; ;
+                }
+                while (this.Reader.Read())
+                {
+                    CKDonateAmout = this.Reader[0].ToString();
+                }
+                return CKDonateAmout;
+            }
+            catch (Exception ex)
+            {
+                this.Err = ex.Message;
+                return null;
+            }
+            finally
+            {
+                if (this.Reader != null && !this.Reader.IsClosed)
+                {
+                    this.Reader.Close();
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 根据卡号查询产康账户余额
+        /// </summary>
+        /// <param name="cardNO"></param>
+        /// <returns></returns>
+        public string GetAccountDetailCK(string cardNO)
+        {
+            string sqlStr = string.Empty;
+            if (this.Sql.GetCommonSql("Fee.Account.GetAccountDetailCK", ref sqlStr) == -1)
+            {
+                this.Err = "查找索引为Fee.Account.GetAccountDetailCK的sql语句失败！";
+                return null;
+            }
+
+            try
+            {
+                string CKDonateAmout = string.Empty;
+                sqlStr = string.Format(sqlStr, cardNO);
+                if (this.ExecQuery(sqlStr) == -1)
+                {
+                    this.Err = "查找数据失败！";
+                    return null; ;
+                }
+                while (this.Reader.Read())
+                {
+                    CKDonateAmout = this.Reader[0].ToString();
+                }
+                return CKDonateAmout;
+            }
+            catch (Exception ex)
+            {
+                this.Err = ex.Message;
+                return null;
+            }
+            finally
+            {
+                if (this.Reader != null && !this.Reader.IsClosed)
+                {
+                    this.Reader.Close();
+                }
+            }
+        }
 
         /// <summary>
         /// 查找帐户预交金信息
@@ -6253,6 +6381,23 @@ namespace FS.HISFC.BizLogic.Fee
             return QueryExpItemMedical(Sql);
         }
 
+        /// <summary>
+        /// 查询次数包含0的项目
+        /// </summary>
+        /// <param name="cardNo"></param>
+        /// <returns></returns>
+        public List<ExpItemMedical> QueryExpItemMedicalConsZeroByCardNo(string cardNo)
+        {
+            string Sql = string.Empty;
+            if (this.Sql.GetSql("Fee.Account.ItemMedical.QueryExpItemMedicalConsZeroByCardNo", ref Sql) == -1)
+            {
+                this.Err = this.Err = "查找索引为 Fee.Account.ItemMedical.QueryExpItemMedicalConsZeroByCardNo 的Sql语句失败！";
+                return null;
+            }
+            Sql = string.Format(Sql, cardNo);
+            return QueryExpItemMedical(Sql);
+
+        }
 
         /// <summary>
         /// 查询所有项目

@@ -338,7 +338,7 @@ namespace FS.HISFC.Components.OutpatientFee.Forms
 
         public DataSet QueryInvoiceNoByPTFP(string invoiceno)
         {
-            string sql = @" select t.invo_name,nvl(sum(t1.own_cost)-sum(t1.eco_cost+t1.donate_cost),0) totalprice,t.invo_code  from fin_opb_invoicedetail t 
+            string sql = @" select t.invo_name,nvl(sum(t1.own_cost)-sum(t1.eco_cost+t1.donate_cost+t1.discountcard_eco),0) totalprice,t.invo_code  from fin_opb_invoicedetail t 
                         left join fin_opb_feedetail t1 on t.invoice_no=t1.invoice_no and t.invo_sequence=t1.invo_sequence 
                         where t.invoice_no='{0}' group by t.invo_name,t.invo_code";
 

@@ -68,6 +68,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientGuide
                 decimal totCost = 0;
                 decimal rebateCost = 0m;
                 decimal ownCost = 0m;
+                decimal discountcardCost = 0m;//购物卡优惠
                 //{2044475C-E8CE-454B-B328-90EAAC174D1A} 增加费别统计
                 Dictionary<string, List<FS.HISFC.Models.Fee.Outpatient.FeeItemList>> drugDictionary = new Dictionary<string, List<FS.HISFC.Models.Fee.Outpatient.FeeItemList>>();
                 foreach (FS.HISFC.Models.Fee.Outpatient.FeeItemList feeItemList in feeDetails)
@@ -110,6 +111,7 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientGuide
                    
                     decimal donateCost = 0m;//实付金额
                     decimal dereateCost = 0m;//减免金额
+                   
                     foreach (FS.HISFC.Models.Fee.Outpatient.FeeItemList feeItemList in feeList)
                     {
                         row++;
@@ -223,6 +225,8 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientGuide
                         //{309EF30A-542C-4f4b-86EF-8152B16F8012}
                         donateCost += feeItemList.FT.RebateCost + feeItemList.FT.PubCost + feeItemList.FT.DonateCost;
                         dereateCost += feeItemList.FT.RebateCost + feeItemList.FT.PubCost + feeItemList.FT.DonateCost;
+
+                        discountcardCost += feeItemList.FT.DiscountCardEco;
                        // fpSpreadItemsSheet.Rows[row].Height = 60;
                        // row += 1;
                     }
@@ -395,6 +399,11 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientGuide
                         + " " + FS.FrameWork.Public.String.FormatNumber(payMode.FT.TotCost, 2);
                 }
                 
+                if (discountcardCost > 0)
+                {
+                    payKind = payKind + "，购物卡优惠 " + discountcardCost.ToString("f2");
+                }
+
                 //lbPactName.Font = new Font("宋体", 8);
                 //lbPactName.Text = payKind;
                 row = row + 1;

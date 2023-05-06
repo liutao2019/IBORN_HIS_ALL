@@ -327,11 +327,14 @@ namespace FS.HISFC.Components.Common.Controls
                     // 给要导出的控件绑定数据源{A57CF487-9900-42a4-AEB7-B94BAEC41AD1}
                     dt = this.feeMgr.GetPatientMontherDetailFeeDTInfoByInPatientNO(this.patientInfo.ID, invoiceNo);
                     IBillPrint.ShowData(dt, this.patientInfo);
+
                 }
 
                 else if (showIBill == 7) //{34a15202-a3f9-4d3e-9bad-c7e6783b540c}
                 {
                     alData = this.feeMgr.GetBalanceFeeByInPatienNo(this.patientInfo.ID, invoiceNo);
+                    dt = this.feeMgr.GetDTBalanceFeeByInPatienNo(this.patientInfo.ID, invoiceNo);
+                    IBillPrint.ShowData(dt, this.patientInfo);
                 }
 
                 else if (showIBill == 8) //

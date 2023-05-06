@@ -30,11 +30,21 @@ namespace HISFC.Components.Package.Controls
         /// </summary>
         FS.HISFC.BizLogic.Manager.Constant constantMgr = new FS.HISFC.BizLogic.Manager.Constant();
 
+        /// <summary>
+        /// 控制参数业务层
+        /// </summary>
+        protected FS.HISFC.BizProcess.Integrate.Common.ControlParam controlParamIntegrate = new FS.HISFC.BizProcess.Integrate.Common.ControlParam();
 
         /// <summary>
         /// 右下角气泡
         /// </summary>
         protected ToolTip tooltip = new ToolTip();
+       
+        string edpitEmps = "";
+
+        /// <summary>+        /// 当前登录人
+        /// </summary>
+        FS.HISFC.Models.Base.Employee currEmp = new FS.HISFC.Models.Base.Employee();
 
         /// <summary>
         /// 当前选中套餐
@@ -167,6 +177,9 @@ namespace HISFC.Components.Package.Controls
                 this.chkIsShowInvalid.CheckedChanged += new EventHandler(chkIsShowInvalid_CheckedChanged);
                 this.packageForm.RefreshPackageInfo = this.RefreshPackage;
 
+                this.edpitEmps = this.controlParamIntegrate.GetControlParam<string>("MZ0205");
+
+                currEmp = (FS.HISFC.Models.Base.Employee)FS.FrameWork.Management.Connection.Operator;
             }
             catch(Exception ex)
             {
@@ -328,6 +341,13 @@ namespace HISFC.Components.Package.Controls
         /// <returns></returns>
         private int ModifyPackage()
         {
+            string oprcode = currEmp.ID;
+
+            if (!edpitEmps.Contains(oprcode))
+            {
+                MessageBox.Show("你没权限修改套餐！");
+                return -1;
+            }
             if (this.currentPackage == null)
             {
                 MessageBox.Show("请选择要修改的套餐！");

@@ -229,17 +229,27 @@ namespace FS.HISFC.BizProcess.Integrate.MedicalPackage.Fee
                     return -1;
                 }
 
+                decimal discardCost = 0;//购物卡优惠金额算入优惠金额
+                foreach (FS.HISFC.Models.MedicalPackage.Fee.PayMode pay in PayInfoList)
+                {
+                    if (pay.Mode_Code == "DS")
+                    {
+                        discardCost = pay.Tot_cost;
+                    }
+                }
+
                 //获取所有的费用类别信息
                 decimal totCost = (decimal)costInfo["TOT"];           //套餐原价
-                decimal actuCost = (decimal)costInfo["ACTU"];         //实收金额
+                decimal actuCost = (decimal)costInfo["ACTU"] - discardCost;         //实收金额
                 //{333D2AD8-DC4A-4c30-A14E-D6815AC858F9}
                 decimal giftCost = (decimal)costInfo["GIFT"] + (decimal)costInfo["COU"];         //赠送金额与积分金额
                 decimal depoCost = (decimal)costInfo["DEPO"];         //押金金额
-                decimal etcCost = (decimal)costInfo["ETC"];           //优惠金额
+                decimal etcCost = (decimal)costInfo["ETC"] + discardCost;           //优惠金额
                 decimal roundCost = (decimal)costInfo["ROUND"];       //四舍五入
+                
 
-                //正常情况下不会存在支付总额大于应付总额的情况,但如果患者缴纳
-                //的单笔押金额大于套餐的总金额时，需要进行处理
+                    //正常情况下不会存在支付总额大于应付总额的情况,但如果患者缴纳
+                    //的单笔押金额大于套餐的总金额时，需要进行处理
                 if (actuCost + giftCost + depoCost + etcCost > totCost)
                 {
                     if (actuCost > 0 || giftCost > 0)
@@ -474,6 +484,8 @@ namespace FS.HISFC.BizProcess.Integrate.MedicalPackage.Fee
                 decimal countgift = giftCost;
                 decimal countetc = etcCost;
 
+                decimal lastcost = discardCost;
+
                 //套餐序号
                 Hashtable parentSequence = new Hashtable();
                 Hashtable recipeIndex = new Hashtable();
@@ -501,7 +513,8 @@ namespace FS.HISFC.BizProcess.Integrate.MedicalPackage.Fee
                         #region 新的算法
                         //{2694417D-715F-4ef6-A664-1F92399DC325}
                         gift_cost = countgift;
-                        real_cost = package.Real_Cost;
+                        real_cost = package.Real_Cost - lastcost;//实际金额 - 剩余的优惠金额
+                        package.Etc_cost = package.Etc_cost + lastcost;
                         real_cost -= gift_cost;
                         #endregion
                     }
@@ -517,7 +530,10 @@ namespace FS.HISFC.BizProcess.Integrate.MedicalPackage.Fee
                         {
                             gift_cost = countgift;
                         }
-                        real_cost = package.Real_Cost;
+                        real_cost = package.Real_Cost - Math.Round(discardCost * (package.Package_Cost / totCost),2);//实际金额 - 优惠金额
+                        lastcost -= Math.Round(discardCost * (package.Package_Cost / totCost), 2);
+                        package.Etc_cost = package.Etc_cost + Math.Round(discardCost * (package.Package_Cost / totCost), 2);
+
                         real_cost -= gift_cost;
                         countgift -= gift_cost;
                         #endregion

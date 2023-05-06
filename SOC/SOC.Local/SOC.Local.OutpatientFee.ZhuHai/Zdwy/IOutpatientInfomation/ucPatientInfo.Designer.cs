@@ -82,6 +82,8 @@
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.fpRecipeSeq_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.plMain = new FS.FrameWork.WinForms.Controls.NeuPanel();
+            this.txtCKDonateAmout = new FS.FrameWork.WinForms.Controls.NeuLabel();
+            this.neuLabel4 = new FS.FrameWork.WinForms.Controls.NeuLabel();
             this.lbAccountInfo = new FS.FrameWork.WinForms.Controls.NeuLabel();
             this.txtDonateAmout = new FS.FrameWork.WinForms.Controls.NeuLabel();
             this.neuLabel16 = new FS.FrameWork.WinForms.Controls.NeuLabel();
@@ -336,7 +338,7 @@
             // 
             this.lbClass.AutoSize = true;
             this.lbClass.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbClass.Location = new System.Drawing.Point(572, 59);
+            this.lbClass.Location = new System.Drawing.Point(698, 10);
             this.lbClass.Name = "lbClass";
             this.lbClass.Size = new System.Drawing.Size(59, 12);
             this.lbClass.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
@@ -360,7 +362,7 @@
             this.cmbClass.IsShowCustomerList = false;
             this.cmbClass.IsShowID = false;
             this.cmbClass.IsShowIDAndName = false;
-            this.cmbClass.Location = new System.Drawing.Point(620, 56);
+            this.cmbClass.Location = new System.Drawing.Point(732, 6);
             this.cmbClass.Name = "cmbClass";
             this.cmbClass.ShowCustomerList = false;
             this.cmbClass.ShowID = false;
@@ -399,7 +401,7 @@
             this.cmbRebate.IsShowCustomerList = false;
             this.cmbRebate.IsShowID = false;
             this.cmbRebate.IsShowIDAndName = false;
-            this.cmbRebate.Location = new System.Drawing.Point(634, 75);
+            this.cmbRebate.Location = new System.Drawing.Point(746, 25);
             this.cmbRebate.Name = "cmbRebate";
             this.cmbRebate.ShowCustomerList = false;
             this.cmbRebate.ShowID = false;
@@ -423,12 +425,12 @@
             this.fpRecipeSeq.HorizontalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
             this.fpRecipeSeq.IsAutoSaveGridStatus = false;
             this.fpRecipeSeq.IsCanCustomConfigColumn = false;
-            this.fpRecipeSeq.Location = new System.Drawing.Point(710, 2);
+            this.fpRecipeSeq.Location = new System.Drawing.Point(823, 2);
             this.fpRecipeSeq.Name = "fpRecipeSeq";
             this.fpRecipeSeq.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.fpRecipeSeq.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpRecipeSeq_Sheet1});
-            this.fpRecipeSeq.Size = new System.Drawing.Size(300, 108);
+            this.fpRecipeSeq.Size = new System.Drawing.Size(187, 108);
             this.fpRecipeSeq.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
             this.fpRecipeSeq.TabIndex = 1;
             tipAppearance1.BackColor = System.Drawing.SystemColors.Info;
@@ -436,8 +438,8 @@
             tipAppearance1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.fpRecipeSeq.TextTipAppearance = tipAppearance1;
             this.fpRecipeSeq.VerticalScrollBarPolicy = FarPoint.Win.Spread.ScrollBarPolicy.AsNeeded;
-            this.fpRecipeSeq.ButtonClicked += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.fpRecipeSeq_ButtonClicked);
             this.fpRecipeSeq.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.fpRecipeSeq_CellClick);
+            this.fpRecipeSeq.ButtonClicked += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.fpRecipeSeq_ButtonClicked);
             // 
             // neuContexMenu1
             // 
@@ -545,6 +547,8 @@
             // 
             // plMain
             // 
+            this.plMain.Controls.Add(this.txtCKDonateAmout);
+            this.plMain.Controls.Add(this.neuLabel4);
             this.plMain.Controls.Add(this.lbAccountInfo);
             this.plMain.Controls.Add(this.txtDonateAmout);
             this.plMain.Controls.Add(this.neuLabel16);
@@ -577,9 +581,29 @@
             this.plMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.plMain.Location = new System.Drawing.Point(2, 2);
             this.plMain.Name = "plMain";
-            this.plMain.Size = new System.Drawing.Size(708, 108);
+            this.plMain.Size = new System.Drawing.Size(821, 108);
             this.plMain.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
             this.plMain.TabIndex = 0;
+            // 
+            // txtCKDonateAmout
+            // 
+            this.txtCKDonateAmout.AutoSize = true;
+            this.txtCKDonateAmout.Location = new System.Drawing.Point(658, 59);
+            this.txtCKDonateAmout.Name = "txtCKDonateAmout";
+            this.txtCKDonateAmout.Size = new System.Drawing.Size(23, 12);
+            this.txtCKDonateAmout.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.txtCKDonateAmout.TabIndex = 109;
+            this.txtCKDonateAmout.Text = "0.0";
+            // 
+            // neuLabel4
+            // 
+            this.neuLabel4.AutoSize = true;
+            this.neuLabel4.Location = new System.Drawing.Point(572, 59);
+            this.neuLabel4.Name = "neuLabel4";
+            this.neuLabel4.Size = new System.Drawing.Size(89, 12);
+            this.neuLabel4.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
+            this.neuLabel4.TabIndex = 108;
+            this.neuLabel4.Text = "产康赠送余额：";
             // 
             // lbAccountInfo
             // 
@@ -596,7 +620,7 @@
             // txtDonateAmout
             // 
             this.txtDonateAmout.AutoSize = true;
-            this.txtDonateAmout.Location = new System.Drawing.Point(645, 36);
+            this.txtDonateAmout.Location = new System.Drawing.Point(658, 35);
             this.txtDonateAmout.Name = "txtDonateAmout";
             this.txtDonateAmout.Size = new System.Drawing.Size(23, 12);
             this.txtDonateAmout.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
@@ -606,17 +630,17 @@
             // neuLabel16
             // 
             this.neuLabel16.AutoSize = true;
-            this.neuLabel16.Location = new System.Drawing.Point(580, 36);
+            this.neuLabel16.Location = new System.Drawing.Point(572, 36);
             this.neuLabel16.Name = "neuLabel16";
-            this.neuLabel16.Size = new System.Drawing.Size(65, 12);
+            this.neuLabel16.Size = new System.Drawing.Size(89, 12);
             this.neuLabel16.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
             this.neuLabel16.TabIndex = 104;
-            this.neuLabel16.Text = "赠送余额：";
+            this.neuLabel16.Text = "普通赠送余额：";
             // 
             // txtVacancy
             // 
             this.txtVacancy.AutoSize = true;
-            this.txtVacancy.Location = new System.Drawing.Point(645, 10);
+            this.txtVacancy.Location = new System.Drawing.Point(658, 10);
             this.txtVacancy.Name = "txtVacancy";
             this.txtVacancy.Size = new System.Drawing.Size(23, 12);
             this.txtVacancy.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
@@ -626,12 +650,12 @@
             // neuLabel9
             // 
             this.neuLabel9.AutoSize = true;
-            this.neuLabel9.Location = new System.Drawing.Point(580, 10);
+            this.neuLabel9.Location = new System.Drawing.Point(572, 10);
             this.neuLabel9.Name = "neuLabel9";
-            this.neuLabel9.Size = new System.Drawing.Size(65, 12);
+            this.neuLabel9.Size = new System.Drawing.Size(89, 12);
             this.neuLabel9.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
             this.neuLabel9.TabIndex = 102;
-            this.neuLabel9.Text = "帐户余额：";
+            this.neuLabel9.Text = "普通帐户余额：";
             // 
             // chkIsFirst
             // 
@@ -673,7 +697,7 @@
             // 
             this.tbJZDNO.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbJZDNO.IsEnter2Tab = false;
-            this.tbJZDNO.Location = new System.Drawing.Point(671, 75);
+            this.tbJZDNO.Location = new System.Drawing.Point(783, 25);
             this.tbJZDNO.MaxLength = 8;
             this.tbJZDNO.Name = "tbJZDNO";
             this.tbJZDNO.Size = new System.Drawing.Size(31, 21);
@@ -688,7 +712,7 @@
             this.neuLabel1.AutoSize = true;
             this.neuLabel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.neuLabel1.ForeColor = System.Drawing.Color.Blue;
-            this.neuLabel1.Location = new System.Drawing.Point(586, 79);
+            this.neuLabel1.Location = new System.Drawing.Point(698, 29);
             this.neuLabel1.Name = "neuLabel1";
             this.neuLabel1.Size = new System.Drawing.Size(59, 12);
             this.neuLabel1.Style = FS.FrameWork.WinForms.Controls.StyleType.Fixed3D;
@@ -756,5 +780,7 @@
         protected FS.FrameWork.WinForms.Controls.NeuTextBox txtRemark;
         protected FS.FrameWork.WinForms.Controls.NeuLabel neuLabel2;
         protected FS.FrameWork.WinForms.Controls.NeuLabel lbAccountInfo;
+        private FrameWork.WinForms.Controls.NeuLabel txtCKDonateAmout;
+        private FrameWork.WinForms.Controls.NeuLabel neuLabel4;
     }
 }
