@@ -6372,7 +6372,14 @@ namespace FS.SOC.Local.OutpatientFee.ZhuHai.Zdwy.IOutpatientItemInputAndDisplay
                         {
                             if (j != alDetail.Count - 1)
                             {
-                                (alDetail[j] as FeeItemList).FT.DiscountCardEco = Math.Round(groupDiscountCardEco * ((alDetail[j] as FeeItemList).Item.Price / itemsTotCost),2);
+                                if (itemsTotCost > 0)
+                                {
+                                    (alDetail[j] as FeeItemList).FT.DiscountCardEco = Math.Round(groupDiscountCardEco * ((alDetail[j] as FeeItemList).Item.Price / itemsTotCost), 2);
+                                }
+                                else
+                                {
+                                    (alDetail[j] as FeeItemList).FT.DiscountCardEco = 0;
+                                }
                                 lastEcoCost += (alDetail[j] as FeeItemList).FT.DiscountCardEco;
                             }
                             else

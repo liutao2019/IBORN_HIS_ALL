@@ -260,23 +260,17 @@
     <Compile Include="DrugStore\ucReicpeInfoLabelJOutUse.designer.cs">
       <DependentUpon>ucReicpeInfoLabelJOutUse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fee\IBORN\ucInPatientFeeTotalBill.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Fee\IBORN\ucInPatientFeeTotalBill.designer.cs">
-      <DependentUpon>ucInPatientFeeTotalBill.cs</DependentUpon>
-    </Compile>
     <Compile Include="Fee\IBORN\ucInPatientFeeDetailBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Fee\IBORN\ucInPatientFeeDetailBill.designer.cs">
       <DependentUpon>ucInPatientFeeDetailBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fee\IBORN\ucInPatientOneDayFeeDetailBill.cs">
+    <Compile Include="Fee\IBORN\ucInPatientFeeTotalAllBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fee\IBORN\ucInPatientOneDayFeeDetailBill.designer.cs">
-      <DependentUpon>ucInPatientOneDayFeeDetailBill.cs</DependentUpon>
+    <Compile Include="Fee\IBORN\ucInPatientFeeTotalAllBill.designer.cs">
+      <DependentUpon>ucInPatientFeeTotalAllBill.cs</DependentUpon>
     </Compile>
     <Compile Include="Fee\IBORN\ucInPatientFeeTotalAndNurseBill.cs">
       <SubType>UserControl</SubType>
@@ -284,11 +278,29 @@
     <Compile Include="Fee\IBORN\ucInPatientFeeTotalAndNurseBill.designer.cs">
       <DependentUpon>ucInPatientFeeTotalAndNurseBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fee\IBORN\ucInPatientFeeTotalBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\IBORN\ucInPatientFeeTotalBill.designer.cs">
+      <DependentUpon>ucInPatientFeeTotalBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fee\IBORN\ucInPatientFeeTotalBillByCI.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Fee\IBORN\ucInPatientFeeTotalBillByCI.designer.cs">
       <DependentUpon>ucInPatientFeeTotalBillByCI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\IBORN\ucInPatientOneDayFeeDetailBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\IBORN\ucInPatientOneDayFeeDetailBill.designer.cs">
+      <DependentUpon>ucInPatientOneDayFeeDetailBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fee\IBORN\ucOutPatientFeeTotalBillByCI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fee\IBORN\ucOutPatientFeeTotalBillByCI.designer.cs">
+      <DependentUpon>ucOutPatientFeeTotalBillByCI.cs</DependentUpon>
     </Compile>
     <Compile Include="InDrugStore\Common\CallSpeak.cs" />
     <Compile Include="InDrugStore\Common\Function.cs" />
@@ -743,24 +755,32 @@
       <DependentUpon>ucReicpeInfoLabelJOutUse.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fee\IBORN\ucInPatientFeeTotalBill.resx">
-      <DependentUpon>ucInPatientFeeTotalBill.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Fee\IBORN\ucInPatientFeeDetailBill.resx">
       <DependentUpon>ucInPatientFeeDetailBill.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fee\IBORN\ucInPatientOneDayFeeDetailBill.resx">
-      <DependentUpon>ucInPatientOneDayFeeDetailBill.cs</DependentUpon>
+    <EmbeddedResource Include="Fee\IBORN\ucInPatientFeeTotalAllBill.resx">
+      <DependentUpon>ucInPatientFeeTotalAllBill.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Fee\IBORN\ucInPatientFeeTotalAndNurseBill.resx">
       <DependentUpon>ucInPatientFeeTotalAndNurseBill.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fee\IBORN\ucInPatientFeeTotalBill.resx">
+      <DependentUpon>ucInPatientFeeTotalBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fee\IBORN\ucInPatientFeeTotalBillByCI.resx">
       <DependentUpon>ucInPatientFeeTotalBillByCI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\IBORN\ucInPatientOneDayFeeDetailBill.resx">
+      <DependentUpon>ucInPatientOneDayFeeDetailBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee\IBORN\ucOutPatientFeeTotalBillByCI.resx">
+      <DependentUpon>ucOutPatientFeeTotalBillByCI.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InDrugStore\InPatient\frmWorkLoad.resx">

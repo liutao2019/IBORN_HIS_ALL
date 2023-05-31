@@ -12346,6 +12346,41 @@ and f.charge_date between to_date('{1}','yyyy-MM-dd hh24:mi:ss') and to_date('{2
             if (this.ExecNoQuery(strSql) == -1) return -1;
             return 0;
         }
+
+        /// <summary>
+        /// 查询个人当天是否已经收取床位费
+        /// </summary>
+        /// <param name="InpatientNo"></param>
+        /// <param name="PreFixFeeDateTime"></param>
+        /// <returns></returns>
+        public bool QueryBedFeeByPersonAndFeeDate(string InpatientNo, string PreFixFeeDateTime)
+        {
+            bool FeeFlag = false;
+            string strSql = "";
+            if (this.Sql.GetCommonSql("FixFee.QueryBedFeeByPersonAndFeeDate", ref strSql) == -1) return FeeFlag;
+            try
+            {
+                strSql = string.Format(strSql, InpatientNo, PreFixFeeDateTime);
+
+                this.ExecQuery(strSql);
+                while(Reader.Read())
+                {
+                    string flag = this.Reader[0].ToString();
+                    if (!string.IsNullOrEmpty(flag))
+                    {
+                        FeeFlag = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                this.Err = "查询个人当天是否已经收取床位费FixFee.QueryBedFeeByPersonAndFeeDate!" + e.Message;
+                return FeeFlag;
+            }
+
+            return FeeFlag;
+        }
+
         #region 根据明细表中数据更新主表费用
         /// <summary>
         /// 从患者明细中查询患者费用

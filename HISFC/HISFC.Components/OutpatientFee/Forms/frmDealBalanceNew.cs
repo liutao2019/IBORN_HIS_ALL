@@ -3537,20 +3537,20 @@ namespace FS.HISFC.Components.OutpatientFee.Forms
                 MessageBox.Show("金额输入不合法!" + ex.Message, "警告");
             }
 
-            if (this.rebateRate > this.OwnCost)
-            {
-                this.rebateRate = 0;
-                this.tbEcoCost.Text = this.rebateRate.ToString("F2");
-                MessageBox.Show("优惠金额不能大于自费金额!", "警告");
-            }
+            //if (this.rebateRate > this.OwnCost)
+            //{
+            //    this.rebateRate = 0;
+            //    this.tbEcoCost.Text = this.rebateRate.ToString("F2");
+            //    MessageBox.Show("优惠金额不能大于自费金额!", "警告");
+            //}
 
             this.payModeFpCost = this.GetPayModeFpCost();
-            if (this.payModeFpCost < 0)
-            {
-                this.rebateRate = 0;
-                this.tbEcoCost.Text = this.rebateRate.ToString("F2");
-                MessageBox.Show("优惠金额不能大于实付金额!", "警告");
-            }
+            //if (this.payModeFpCost < 0)
+            //{
+            //    this.rebateRate = 0;
+            //    this.tbEcoCost.Text = this.rebateRate.ToString("F2");
+            //    MessageBox.Show("优惠金额不能大于实付金额!", "警告");
+            //}
 
             this.SetCost();
 

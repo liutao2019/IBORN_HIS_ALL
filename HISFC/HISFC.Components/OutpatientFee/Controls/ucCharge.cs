@@ -1827,7 +1827,15 @@ namespace FS.HISFC.Components.OutpatientFee.Controls
                         {
                             f.FT.BakRebateCost = f.FT.RebateCost;
                             //{0A673BE8-A0B0-4239-AB82-039620DFFC89}
-                            f.FT.RebateCost = f.FT.TotCost - (Math.Floor(((f.FT.TotCost - f.FT.RebateCost)*100) * this.levelDiscount))/100;
+                            if (f.FT.DiscountCardEco > 0)
+                            {
+                                f.FT.RebateCost = f.FT.TotCost + Math.Floor(((f.FT.TotCost - f.FT.DiscountCardEco) * (1 - this.levelDiscount)));
+
+                            }
+                            else
+                            {
+                                f.FT.RebateCost = f.FT.TotCost - (Math.Floor(((f.FT.TotCost - f.FT.RebateCost) * 100) * this.levelDiscount)) / 100;
+                            }
                         }
                     }
 

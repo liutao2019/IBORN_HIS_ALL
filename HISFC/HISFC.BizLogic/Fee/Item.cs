@@ -790,6 +790,137 @@ namespace FS.HISFC.BizLogic.Fee
         }
 
         /// <summary>
+        /// 查询患者费用汇总清单信息（按住院流水号）（商保 = 医院折后价 - 医保价）
+        /// </summary>
+        /// <param name="inPatientNO"></param>
+        /// <returns></returns>
+        public ArrayList GetPatientTotalFeeListInfoByOutPatientNOAndCI(string PatientID)
+        {
+
+            string sql = null;
+            ArrayList items = new ArrayList();
+            if (this.Sql.GetCommonSql("Fee.Item.QueryTotalFeeByOutPatienNoAndCI", ref sql) == -1)
+            {
+                this.Err = "没有找到索引为:Fee.Item.QueryTotalFeeByOutPatienNoAndCI的Sql语句!";
+
+                return null;
+            }
+            sql = string.Format(sql, PatientID);
+
+            if (this.ExecQuery(sql) == -1)
+            {
+                return null;
+            }
+            try
+            {
+                //循环获得数据
+                while (this.Reader.Read())
+                {
+
+                    FS.HISFC.Models.Fee.Inpatient.FeeInfo feeInfo = new FS.HISFC.Models.Fee.Inpatient.FeeInfo();
+                    feeInfo.User01 = this.Reader[0].ToString();
+                    feeInfo.Item.ID = this.Reader[1].ToString();
+                    feeInfo.Item.Name = this.Reader[2].ToString();
+                    feeInfo.Item.Specs = this.Reader[3].ToString();
+                    feeInfo.Item.Price = NConvert.ToDecimal(this.Reader[4].ToString());
+                    feeInfo.Item.Qty = NConvert.ToDecimal(this.Reader[5].ToString());
+                    feeInfo.Item.PriceUnit = this.Reader[6].ToString();
+                    feeInfo.FT.TotCost = NConvert.ToDecimal(this.Reader[7].ToString());//原价
+                    //添加优惠 赠送 金额 {18653415-C332-4a7f-8772-A1559E5FA88A}
+                    feeInfo.FT.DonateCost = NConvert.ToDecimal(this.Reader[8].ToString());//折后
+                    feeInfo.FT.DerateCost = NConvert.ToDecimal(this.Reader[9].ToString());//商保
+                    feeInfo.Item.User02 = this.Reader[10].ToString();
+                    items.Add(feeInfo);
+                }//循环结束
+
+                this.Reader.Close();
+            }
+            catch (Exception e)
+            {
+                this.Err = e.Message;
+                this.WriteErr();
+
+                //如果Reader没有关闭,关闭之
+                if (!this.Reader.IsClosed)
+                {
+                    this.Reader.Close();
+                }
+
+                items = null;
+
+                return null;
+            }
+            return items;
+        }
+
+
+        /// <summary>
+        /// 查询患者费用汇总清单信息
+        /// </summary>
+        /// <param name="inPatientNO"></param>
+        /// <returns></returns>
+        public ArrayList GetPatientTotalAllFeeListInfoByInPatientNO(string inPatientNO)
+        {
+
+            string sql = null;
+            ArrayList items = new ArrayList();
+            if (this.Sql.GetCommonSql("Fee.Item.QueryTotalAllFeeByInPatienNo", ref sql) == -1)
+            {
+                this.Err = "没有找到索引为:Fee.Item.QueryTotalAllFeeByInPatienNo的Sql语句!";
+
+                return null;
+            }
+            sql = string.Format(sql, inPatientNO);
+
+            if (this.ExecQuery(sql) == -1)
+            {
+                return null;
+            }
+            try
+            {
+                //循环获得数据
+                while (this.Reader.Read())
+                {
+
+                    FS.HISFC.Models.Fee.Inpatient.FeeInfo feeInfo = new FS.HISFC.Models.Fee.Inpatient.FeeInfo();
+                    feeInfo.User01 = this.Reader[0].ToString();//费用类别
+                    feeInfo.Item.ID = this.Reader[1].ToString();//项目编号
+                    feeInfo.Item.Name = this.Reader[2].ToString();//项目名称
+                    feeInfo.Item.Specs = this.Reader[3].ToString();//项目规格
+                    feeInfo.Item.Price = NConvert.ToDecimal(this.Reader[4].ToString());//单价
+                    feeInfo.Item.Qty = NConvert.ToDecimal(this.Reader[5].ToString());//数量
+                    feeInfo.Item.PriceUnit = this.Reader[6].ToString();//单位
+                    feeInfo.Item.User02 = this.Reader[7].ToString();//医保类别
+                    feeInfo.FT.TotCost = NConvert.ToDecimal(this.Reader[8].ToString());//原价
+                    //添加优惠 赠送 金额 {18653415-C332-4a7f-8772-A1559E5FA88A}
+                    feeInfo.FT.DonateCost = NConvert.ToDecimal(this.Reader[9].ToString());//折后
+                    feeInfo.FT.DerateCost = NConvert.ToDecimal(this.Reader[10].ToString());//医保金额 - 用该字段暂存
+                    feeInfo.FT.DiscountCardEco = NConvert.ToDecimal(this.Reader[11].ToString());//自费金额 - 用该字段暂存
+
+                    items.Add(feeInfo);
+                }//循环结束
+
+                this.Reader.Close();
+            }
+            catch (Exception e)
+            {
+                this.Err = e.Message;
+                this.WriteErr();
+
+                //如果Reader没有关闭,关闭之
+                if (!this.Reader.IsClosed)
+                {
+                    this.Reader.Close();
+                }
+
+                items = null;
+
+                return null;
+            }
+            return items;
+        }
+
+        /// <summary>
         /// 查询患者费用汇总清单信息 返回dt 给控件赋值//{A57CF487-9900-42a4-AEB7-B94BAEC41AD1}
         /// </summary>
         /// <param name="inPatientNO"></param>

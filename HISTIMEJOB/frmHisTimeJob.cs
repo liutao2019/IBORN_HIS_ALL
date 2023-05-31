@@ -660,7 +660,7 @@ namespace HISTIMEJOB
                 }
 
                 //如果job的下次执行时间大于当前时间,或者job的状态是不需要执行N,或者正在执行中S,则不进行处理.
-                if (job.State.ID.ToString() == "N" || job.State.ID.ToString() == "S")// || job.NextTime > currentTime
+                if (job.State.ID.ToString() == "N" || job.State.ID.ToString() == "S" ||  job.NextTime > currentTime)// ||
                 {
                     continue;
                 }

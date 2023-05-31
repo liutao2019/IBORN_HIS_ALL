@@ -143,10 +143,10 @@ namespace HISTIMEJOB
 
                     //处理每张床患者费用
                     try
-                    {
+                    {  
                         if (SetFeeByPerson(bed, dtServerDateTime) == -1)
                         {
-                            this.Err = "床位：" + bed.ID + "的床位费收取异常，原因：" + this.Err;
+                            this.Err = "处理床位：" + bed.ID + "的费用异常，原因：" + this.Err;
                             this.WriteErr();
                             continue;
                         }

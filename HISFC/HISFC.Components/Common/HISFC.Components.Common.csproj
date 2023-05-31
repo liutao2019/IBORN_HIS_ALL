@@ -153,6 +153,12 @@
     <Compile Include="Controls\cmbPayType.Designer.cs">
       <DependentUpon>cmbPayType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ucOutBillPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucOutBillPrint.Designer.cs">
+      <DependentUpon>ucOutBillPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucPackageQuery.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -729,6 +735,9 @@
     <EmbeddedResource Include="Controls\baseTreeView.resx">
       <SubType>Designer</SubType>
       <DependentUpon>baseTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucOutBillPrint.resx">
+      <DependentUpon>ucOutBillPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucPackageQuery.resx">
       <DependentUpon>ucPackageQuery.cs</DependentUpon>

@@ -132,6 +132,12 @@ namespace FS.HISFC.Components.Common.Controls
                 this.panel2.Visible = false;
                 IBillPrint = FS.FrameWork.WinForms.Classes.UtilInterface.CreateObject(this.GetType(), typeof(FS.HISFC.BizProcess.Interface.RADT.IBillPrint), 8) as FS.HISFC.BizProcess.Interface.RADT.IBillPrint;
             }
+            else if (this.showIBill == 9)//费用清单汇总(医保)
+            {
+                this.panel4.Visible = false;
+                this.panel2.Visible = false;
+                IBillPrint = FS.FrameWork.WinForms.Classes.UtilInterface.CreateObject(this.GetType(), typeof(FS.HISFC.BizProcess.Interface.RADT.IBillPrint), 9) as FS.HISFC.BizProcess.Interface.RADT.IBillPrint;
+            }
 
             if (IBillPrint == null)
             {
@@ -340,6 +346,11 @@ namespace FS.HISFC.Components.Common.Controls
                 else if (showIBill == 8) //
                 {
                     alData = this.feeMgr.GetPatientTotalFeeListInfoByInPatientNOAndCI(this.patientInfo.ID);
+                }
+
+                else if (showIBill == 9) //
+                {
+                    alData = this.feeMgr.GetPatientTotalAllFeeListInfoByInPatientNO(this.patientInfo.ID);
                 }
 
                 if (alData.Count <= 0 || alData == null)

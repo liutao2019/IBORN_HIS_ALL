@@ -329,7 +329,7 @@
             // timerJob
             // 
             this.timerJob.Enabled = true;
-            this.timerJob.Interval = 1000;
+            this.timerJob.Interval = 600000;
             this.timerJob.Tick += new System.EventHandler(this.timerJob_Tick);
             // 
             // frmHisTimeJob
